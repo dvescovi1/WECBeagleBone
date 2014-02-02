@@ -1,0 +1,19 @@
+
+Device side remote display support is built into the image.
+To start the clent side you can telnet into the device and enter:
+cerdisp -c
+
+Start the host side application on your PC (cehost_IP.exe) and enter File->Connect.
+The device should pop into the "Active target devices", select and hit OK.
+Remote display should be presented.
+
+Automatically launching client side on power up can be acheived by placing a small
+batch file in a "Startup" folder on the uSD card.
+
+Create a "Startup" folder on the uSD card and place a small batch file with the following command:
+START cerdisp -c
+
+
+Good luck.
+
+   
