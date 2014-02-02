@@ -1,5 +1,7 @@
 
 Device side remote display support is built into the image.
+You must have an Ethernet connection to the device.
+
 To start the clent side you can telnet into the device and enter:
 cerdisp -c
 
