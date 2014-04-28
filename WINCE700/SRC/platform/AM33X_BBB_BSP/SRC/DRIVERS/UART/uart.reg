@@ -1,0 +1,142 @@
+; All rights reserved ADENEO EMBEDDED 2010
+; All rights reserved TEXAS INSTRUMENTS INC 2011
+;-- UART Driver -----------------------------------------------------------------
+
+IF BSP_AM33X_UART1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART1]
+	"Prefix"="COM"
+	"Dll"="am33x_uart.dll"
+	"DeviceArrayIndex"=dword:1
+	"Index"=dword:1
+	"Order"=dword:9
+    "MemBase"=multi_sz:"44E09000"
+    "MemLen"=multi_sz:"00001000"
+	"PowerFlags"=dword:00000103			  ; send pre/post device state changes
+	"RxBuffer" = dword:2000
+	"TxDmaRequest"=dword:ffffffff         ; TxDma has issues after RX of break, disabled with ffffffff
+	"TxDmaBufferSize"=dword:2000          ; Size of DMA transmit buffer
+	"RxDmaRequest"=dword:ffffffff         ; S_DMA_49 RX DMA Request Line, use ffffffff to disable RX DMA
+	"RxDmaBufferSize"=dword:2000          ; Size of DMA receive buffer
+	"RtsCtsEnable"=dword:0                ; 1=enable RTS/CTS handshake support, 0=disable
+	"HWMode"=dword:0                      ; Use hardware auto RTS/CTS
+	"Frequency"=dword:2DC6C00             ; UART operation freq, 48000000
+	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+	        
+ENDIF BSP_AM33X_UART1
+
+IF BSP_AM33X_UART2
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART2]
+	"Prefix"="COM"
+	"Dll"="am33x_uart.dll"
+	"DeviceArrayIndex"=dword:2
+	"Index"=dword:2
+	"Order"=dword:9
+    "MemBase"=multi_sz:"48022000"
+    "MemLen"=multi_sz:"00001000"	
+	"PowerFlags"=dword:00000103         ; send pre/post device state changes
+	"RxBuffer" = dword:2000
+	"TxDmaRequest"=dword:ffffffff       ;
+	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
+	"RxDmaRequest"=dword:ffffffff       ;
+	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
+	"RtsCtsEnable"=dword:1              ; 1=enable RTS/CTS handshake support, 0=disable
+	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
+	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
+	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_AM33X_UART2
+
+IF BSP_AM33X_UART3
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART3]
+	"Prefix"="COM"
+	"Dll"="am33x_uart.dll"
+	"DeviceArrayIndex"=dword:3
+	"Index"=dword:3
+	"Order"=dword:9
+    "MemBase"=multi_sz:"48024000"
+    "MemLen"=multi_sz:"00001000"		
+	"PowerFlags"=dword:00000103         ; send pre/post device state changes
+	"RxBuffer" = dword:2000
+	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
+	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
+	"RxDmaRequest"=dword:ffffffff       ;
+	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
+	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
+	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
+	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
+	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_AM33X_UART3
+
+IF BSP_AM33X_UART4
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART4]
+	"Prefix"="COM"
+	"Dll"="am33x_uart.dll"
+	"DeviceArrayIndex"=dword:4
+	"Index"=dword:4
+	"Order"=dword:9
+    "MemBase"=multi_sz:"481A6000"
+    "MemLen"=multi_sz:"00001000"		
+	"PowerFlags"=dword:00000103         ; send pre/post device state changes
+	"RxBuffer" = dword:2000
+	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
+	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
+	"RxDmaRequest"=dword:ffffffff       ;
+	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
+	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
+	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
+	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
+	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_AM33X_UART4
+
+IF BSP_AM33X_UART5
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART5]
+	"Prefix"="COM"
+	"Dll"="am33x_uart.dll"
+	"DeviceArrayIndex"=dword:5
+	"Index"=dword:5
+	"Order"=dword:9
+    "MemBase"=multi_sz:"481A8000"
+    "MemLen"=multi_sz:"00001000"		
+	"PowerFlags"=dword:00000103         ; send pre/post device state changes
+	"RxBuffer" = dword:2000
+	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
+	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
+	"RxDmaRequest"=dword:ffffffff       ;
+	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
+	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
+	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
+	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
+	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_AM33X_UART5
+
+IF BSP_AM33X_UART6
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART6]
+	"Prefix"="COM"
+	"Dll"="am33x_uart.dll"
+	"DeviceArrayIndex"=dword:6
+	"Index"=dword:6
+	"Order"=dword:9
+    "MemBase"=multi_sz:"481AA000"
+    "MemLen"=multi_sz:"00001000"		
+	"PowerFlags"=dword:00000103         ; send pre/post device state changes
+	"RxBuffer" = dword:2000
+	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
+	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
+	"RxDmaRequest"=dword:ffffffff       ;
+	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
+	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
+	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
+	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
+	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_AM33X_UART6

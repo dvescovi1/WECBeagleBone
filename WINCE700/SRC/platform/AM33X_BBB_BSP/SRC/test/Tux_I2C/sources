@@ -1,0 +1,27 @@
+TARGETNAME=Tux_I2C
+TARGETTYPE=DYNLINK
+WINCEATL=1
+
+FILE_VIEW_INCLUDES_FOLDER= \
+    ft.h \
+    globals.h \
+    main.h \
+    platform_AM33X.h \
+
+SOURCES= \
+    Tux_I2C.cpp \
+    globals.cpp \
+    test.cpp \
+    tux_i2c_AM33X_BSP.cpp
+
+TARGETLIBS= \
+    $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_WINCEROOT)\public\common\oak\lib\$(_CPUINDPATH)\kato.lib \
+
+INCLUDES= $(INCLUDES); \
+  $(_TARGETPLATROOT)\src\app\common; \
+  $(_WINCEROOT)\public\common\sdk\inc\test; \
+
+
+
+WARNLEVEL = 3

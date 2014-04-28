@@ -1,0 +1,27 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this sample source code is subject to the terms of the Microsoft
+; license agreement under which you licensed this sample source code. If
+; you did not accept the terms of the license agreement, you are not
+; authorized to use this sample source code. For the terms of the license,
+; please see the license agreement between you and Microsoft or, if applicable,
+; see the LICENSE.RTF on your install media or the root of your tools installation.
+; THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES.
+;
+
+; This file is to be included in platform.reg if required.
+
+#if (defined BSP_USBH0 || defined BSP_USBH1 || defined BSP_USBFN0)
+
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBCDMA]
+     "Dll"="am33x_usbcdma.dll"
+     "Prefix"="UCD"
+     "Index"=dword:1
+     "Order"=dword:60  ; Must be lower than USBH and USBFN
+     "Flags"=dword:0
+     
+#endif
+

@@ -1,0 +1,30 @@
+SYNCHRONIZE_DRAIN=1
+
+RELEASETYPE=LOCAL
+_ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
+_OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;
+TARGETNAME=VSDebugger
+FILE_VIEW_ROOT_FOLDER= \
+    prelink.bat \
+    postlink.bat \
+
+FILE_VIEW_RESOURCE_FOLDER= \
+
+FILE_VIEW_INCLUDES_FOLDER= \
+
+SOURCES= \
+    VSDebugger.cpp \
+
+TARGETLIBS= \
+    $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+    
+TARGETTYPE=PROGRAM
+POSTLINK_PASS_CMD=postlink.bat
+PRELINK_PASS_CMD=prelink.bat
+FILE_VIEW_PARAMETER_FOLDER= \
+    VSDebugger.bib \
+    VSDebugger.reg \
+    VSDebugger.dat \
+    VSDebugger.db \
+    ProjSysgen.bat \
+

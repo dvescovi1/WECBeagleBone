@@ -1,0 +1,93 @@
+; Copyright (c) Texas Instruments Incorporated 2008-2009
+IF BSP_ETH_CPSW3G_DRIVER
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G]
+   "DisplayName"="AM33X CPSW3G Miniport Driver"
+   "Group"="NDIS"
+   "ImagePath"="am33x_cpsw3g.dll"
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G\Linkage]
+   "Route"=multi_sz:"CPSW3G1"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1]
+   "DisplayName"="CPSW3G miniport driver"
+   "Group"="NDIS"
+   "ImagePath"="am33x_cpsw3g.dll"
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms]
+    "BusNumber"=dword:0
+    "BusType"=dword:0
+    "InterruptNumber"=dword:13
+    "VlanAware"=dword:0
+    "mode"=dword:0
+    "ALEagingtimer"=dword:20000
+    "UnknownMemberList"=dword:7
+    "UnknownUntagEgress"=dword:7
+    "UnknownRegMcastFloodMask"=dword:7
+    "UnknownMcastFloodMask"=dword:3
+    "Software_VLANTagging"=dword:0
+    "RX_serviceMax"=dword:C8
+;; prescale value to determin the interval to load broadcast/multicast rate limit
+;; 0xf4240 -> 8ms
+    "ALE_prescale" =dword:f4240
+    
+;;IF DEBUG
+;;[HKEY_LOCAL_MACHINE\Comm\NDIS\Parms]
+;;  "DebugLevel"=dword:00000000
+;;  "DebugSystems"=dword:00000000
+;;  "DebugBreakPoint"=dword:00000000
+;;ENDIF
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\Port1]
+    "vlan_id"=dword:1
+    "priority"=dword:0
+;; Broadcast/Multicast rate limit, range 0-255, 0 to disable 
+    "BroadcastRateLimit"=dword:8
+    "MulticastRateLimit"=dword:8
+
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\Port2]
+    "vlan_id"=dword:a
+    "priority"=dword:0
+    "BroadcastRateLimit"=dword:8
+    "MulticastRateLimit"=dword:8
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\Port0]
+    "vlan_id"=dword:a
+    "priority"=dword:0
+    "BroadcastRateLimit"=dword:0
+    "MulticastRateLimit"=dword:0
+
+; Entries in VlanTable0 are used when VLAN id is set through 
+; OID_GEN_VLAN_ID dynamically
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\VlanTable0]
+    "VID"=dword:a
+    "MemberPort"=dword:7
+    "UntagPort"=dword:1
+    "RegMcastFloodMask"=dword:7
+    "UnregMcastFloodMask"=dword:7
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\VlanTable1]
+    "VID"=dword:1
+    "MemberPort"=dword:7
+    "UntagPort"=dword:7
+    "RegMcastFloodMask"=dword:7
+    "UnregMcastFloodMask"=dword:7
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\TcpIp]
+    "EnableDHCP"=dword:1
+    "DefaultGateway"="192.168.1.66"
+    "UseZeroBroadcast"=dword:0
+    "IpAddress"="192.168.1.38"
+    "Subnetmask"="255.255.255.0"
+    "DNS"="192.168.1.66"
+    "Domain"=""
+
+[HKEY_LOCAL_MACHINE\Comm\Tcpip\Linkage]
+    "Bind"=multi_sz:"CPSW3G1"
+
+ENDIF BSP_ETH_CPSW3G_DRIVER
+
+

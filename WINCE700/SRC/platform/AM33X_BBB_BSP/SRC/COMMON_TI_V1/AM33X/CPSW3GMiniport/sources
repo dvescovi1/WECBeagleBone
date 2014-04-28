@@ -1,0 +1,32 @@
+!if 0
+Copyright (c) Texas Instruments Inc.  All rights reserved.
+!endif
+
+!if 0
+Use of this software is controlled by the terms and conditions found
+in the license agreement under which this software has been supplied.
+!endif
+
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=am33x_cpsw3g_miniport_lib
+
+CDEFINES=$(CDEFINES) -DNDIS_MINIPORT_DRIVER=1 -DNDIS51_MINIPORT=1 -DMAC_IN_FUSE -DAM33X_BSP
+
+#CDEFINES=$(CDEFINES) -DDEBUG
+
+SOURCES = \
+    cpsw3g_ndis.c \
+    cpsw3g_adapter.c \
+    cpsw3g_mdio.c \
+    cpsw3g_intr.c \
+    cpsw3g_miniport.c \
+    cpsw3g_filter.c \
+    cpsw3g_phy.c \
+    cpsw3g_ale.c \
+    cpsw3g_spf.c \
+
+# This driver is intentionally left with warnings because we want to keep as much code
+# as possible in sync with the EMAC driver from the OMAP-L138 BSP.
+WARNISERROR=
+WARNLEVEL=

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatalogFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequiredVersion="6.00" xsi:schemaLocation="urn:Microsoft.PlatformBuilder/Catalog PbcXml600.xsd" xmlns="urn:Microsoft.PlatformBuilder/Catalog">
+  <FileInformation Id="FileInformation:MS:VSDEBUGGER">
+    <Title>VSDEBUGGER</Title>
+    <Description>Visual Studio 2008 debugger support</Description>
+    <Vendor>Microsoft</Vendor>
+    <OSVersion>7.00</OSVersion>
+    <FileVersion>1.00</FileVersion>
+  </FileInformation>
+  <Item Id="Item:VE:vsdebugger_sysgen">
+    <Title>Visual Studio 2008 debugger support</Title>
+    <SysgenVariable>SYSGEN_VS_DEBUGGER</SysgenVariable>
+    <Project>%_WINCEROOT%\3rdParty\VSDebugger\VSDebugger.pbpxml</Project>
+    <Location>Third Party</Location>
+  </Item>
+</CatalogFile>

@@ -1,0 +1,233 @@
+ libGLESv1_CM
+
+ Timestamp is 4f20d4a4 (Wed Jan 25 23:20:52 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 0000001cH .rdata                  CODE
+ 0001:0000003c 00000029H .rdata$debug            CODE
+ 0001:00000068 0000099cH .text                   CODE
+ 0001:00000a04 00000014H .xdata                  CODE
+ 0001:00000a18 00000014H .idata$2                CODE
+ 0001:00000a2c 00000014H .idata$3                CODE
+ 0001:00000a40 00000028H .idata$4                CODE
+ 0001:00000a68 0000000cH .idata$6                CODE
+ 0001:00000a80 00001b92H .edata                  CODE
+ 0002:00000000 00000028H .idata$5                DATA
+ 0002:00000028 00000008H .data                   DATA
+ 0002:00000030 00000010H .bss                    DATA
+ 0003:00000000 00000508H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0001:00000000       __xc_a                     10001000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     10001004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     10001008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     1000100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     10001010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     10001014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     10001018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     1000101c     corelib0:crt0init.obj
+ 0001:00000068       glActiveTexture            10001068 f   libGLESv1_CM.obj
+ 0001:0000006c       glAlphaFunc                1000106c f   libGLESv1_CM.obj
+ 0001:00000070       glAlphaFuncx               10001070 f   libGLESv1_CM.obj
+ 0001:00000074       glBindBuffer               10001074 f   libGLESv1_CM.obj
+ 0001:00000078       glBindTexture              10001078 f   libGLESv1_CM.obj
+ 0001:0000007c       glBlendFunc                1000107c f   libGLESv1_CM.obj
+ 0001:00000080       glBufferData               10001080 f   libGLESv1_CM.obj
+ 0001:00000084       glBufferSubData            10001084 f   libGLESv1_CM.obj
+ 0001:00000088       glClear                    10001088 f   libGLESv1_CM.obj
+ 0001:0000008c       glClearColor               1000108c f   libGLESv1_CM.obj
+ 0001:00000090       glClearColorx              10001090 f   libGLESv1_CM.obj
+ 0001:00000094       glClearDepthf              10001094 f   libGLESv1_CM.obj
+ 0001:00000098       glClearDepthx              10001098 f   libGLESv1_CM.obj
+ 0001:0000009c       glClearStencil             1000109c f   libGLESv1_CM.obj
+ 0001:000000a0       glClientActiveTexture      100010a0 f   libGLESv1_CM.obj
+ 0001:000000a4       glClipPlanef               100010a4 f   libGLESv1_CM.obj
+ 0001:000000a8       glClipPlanex               100010a8 f   libGLESv1_CM.obj
+ 0001:000000ac       glColor4f                  100010ac f   libGLESv1_CM.obj
+ 0001:000000b0       glColor4ub                 100010b0 f   libGLESv1_CM.obj
+ 0001:000000b4       glColor4x                  100010b4 f   libGLESv1_CM.obj
+ 0001:000000b8       glColorMask                100010b8 f   libGLESv1_CM.obj
+ 0001:000000bc       glColorPointer             100010bc f   libGLESv1_CM.obj
+ 0001:000000c0       glCompressedTexImage2D     100010c0 f   libGLESv1_CM.obj
+ 0001:000000c4       glCompressedTexSubImage2D  100010c4 f   libGLESv1_CM.obj
+ 0001:000000c8       glCopyTexImage2D           100010c8 f   libGLESv1_CM.obj
+ 0001:000000cc       glCopyTexSubImage2D        100010cc f   libGLESv1_CM.obj
+ 0001:000000d0       glCullFace                 100010d0 f   libGLESv1_CM.obj
+ 0001:000000d4       glDeleteBuffers            100010d4 f   libGLESv1_CM.obj
+ 0001:000000d8       glDeleteTextures           100010d8 f   libGLESv1_CM.obj
+ 0001:000000dc       glDepthFunc                100010dc f   libGLESv1_CM.obj
+ 0001:000000e0       glDepthMask                100010e0 f   libGLESv1_CM.obj
+ 0001:000000e4       glDepthRangef              100010e4 f   libGLESv1_CM.obj
+ 0001:000000e8       glDepthRangex              100010e8 f   libGLESv1_CM.obj
+ 0001:000000ec       glDisable                  100010ec f   libGLESv1_CM.obj
+ 0001:000000f0       glDisableClientState       100010f0 f   libGLESv1_CM.obj
+ 0001:000000f4       glDrawArrays               100010f4 f   libGLESv1_CM.obj
+ 0001:000000f8       glDrawElements             100010f8 f   libGLESv1_CM.obj
+ 0001:000000fc       glEnable                   100010fc f   libGLESv1_CM.obj
+ 0001:00000100       glEnableClientState        10001100 f   libGLESv1_CM.obj
+ 0001:00000104       glFinish                   10001104 f   libGLESv1_CM.obj
+ 0001:00000108       glFlush                    10001108 f   libGLESv1_CM.obj
+ 0001:0000010c       glFogf                     1000110c f   libGLESv1_CM.obj
+ 0001:00000110       glFogfv                    10001110 f   libGLESv1_CM.obj
+ 0001:00000114       glFogx                     10001114 f   libGLESv1_CM.obj
+ 0001:00000118       glFogxv                    10001118 f   libGLESv1_CM.obj
+ 0001:0000011c       glFrontFace                1000111c f   libGLESv1_CM.obj
+ 0001:00000120       glFrustumf                 10001120 f   libGLESv1_CM.obj
+ 0001:00000124       glFrustumx                 10001124 f   libGLESv1_CM.obj
+ 0001:00000128       glGenBuffers               10001128 f   libGLESv1_CM.obj
+ 0001:0000012c       glGenTextures              1000112c f   libGLESv1_CM.obj
+ 0001:00000130       glGetBooleanv              10001130 f   libGLESv1_CM.obj
+ 0001:00000134       glGetBufferParameteriv     10001134 f   libGLESv1_CM.obj
+ 0001:00000138       glGetClipPlanef            10001138 f   libGLESv1_CM.obj
+ 0001:0000013c       glGetClipPlanex            1000113c f   libGLESv1_CM.obj
+ 0001:00000140       glGetError                 10001140 f   libGLESv1_CM.obj
+ 0001:00000144       glGetFixedv                10001144 f   libGLESv1_CM.obj
+ 0001:00000148       glGetFloatv                10001148 f   libGLESv1_CM.obj
+ 0001:0000014c       glGetIntegerv              1000114c f   libGLESv1_CM.obj
+ 0001:00000150       glGetLightfv               10001150 f   libGLESv1_CM.obj
+ 0001:00000154       glGetLightxv               10001154 f   libGLESv1_CM.obj
+ 0001:00000158       glGetMaterialfv            10001158 f   libGLESv1_CM.obj
+ 0001:0000015c       glGetMaterialxv            1000115c f   libGLESv1_CM.obj
+ 0001:00000160       glGetPointerv              10001160 f   libGLESv1_CM.obj
+ 0001:00000164       glGetString                10001164 f   libGLESv1_CM.obj
+ 0001:00000168       glGetTexEnvfv              10001168 f   libGLESv1_CM.obj
+ 0001:0000016c       glGetTexEnviv              1000116c f   libGLESv1_CM.obj
+ 0001:00000170       glGetTexEnvxv              10001170 f   libGLESv1_CM.obj
+ 0001:00000174       glGetTexParameterfv        10001174 f   libGLESv1_CM.obj
+ 0001:00000178       glGetTexParameteriv        10001178 f   libGLESv1_CM.obj
+ 0001:0000017c       glGetTexParameterxv        1000117c f   libGLESv1_CM.obj
+ 0001:00000180       glHint                     10001180 f   libGLESv1_CM.obj
+ 0001:00000184       glIsBuffer                 10001184 f   libGLESv1_CM.obj
+ 0001:00000188       glIsEnabled                10001188 f   libGLESv1_CM.obj
+ 0001:0000018c       glIsTexture                1000118c f   libGLESv1_CM.obj
+ 0001:00000190       glLightf                   10001190 f   libGLESv1_CM.obj
+ 0001:00000194       glLightfv                  10001194 f   libGLESv1_CM.obj
+ 0001:00000198       glLightModelf              10001198 f   libGLESv1_CM.obj
+ 0001:0000019c       glLightModelfv             1000119c f   libGLESv1_CM.obj
+ 0001:000001a0       glLightModelx              100011a0 f   libGLESv1_CM.obj
+ 0001:000001a4       glLightModelxv             100011a4 f   libGLESv1_CM.obj
+ 0001:000001a8       glLightx                   100011a8 f   libGLESv1_CM.obj
+ 0001:000001ac       glLightxv                  100011ac f   libGLESv1_CM.obj
+ 0001:000001b0       glLineWidth                100011b0 f   libGLESv1_CM.obj
+ 0001:000001b4       glLineWidthx               100011b4 f   libGLESv1_CM.obj
+ 0001:000001b8       glLoadIdentity             100011b8 f   libGLESv1_CM.obj
+ 0001:000001bc       glLoadMatrixf              100011bc f   libGLESv1_CM.obj
+ 0001:000001c0       glLoadMatrixx              100011c0 f   libGLESv1_CM.obj
+ 0001:000001c4       glLogicOp                  100011c4 f   libGLESv1_CM.obj
+ 0001:000001c8       glMaterialf                100011c8 f   libGLESv1_CM.obj
+ 0001:000001cc       glMaterialfv               100011cc f   libGLESv1_CM.obj
+ 0001:000001d0       glMaterialx                100011d0 f   libGLESv1_CM.obj
+ 0001:000001d4       glMaterialxv               100011d4 f   libGLESv1_CM.obj
+ 0001:000001d8       glMatrixMode               100011d8 f   libGLESv1_CM.obj
+ 0001:000001dc       glMultiTexCoord4f          100011dc f   libGLESv1_CM.obj
+ 0001:000001e0       glMultiTexCoord4x          100011e0 f   libGLESv1_CM.obj
+ 0001:000001e4       glMultMatrixf              100011e4 f   libGLESv1_CM.obj
+ 0001:000001e8       glMultMatrixx              100011e8 f   libGLESv1_CM.obj
+ 0001:000001ec       glNormal3f                 100011ec f   libGLESv1_CM.obj
+ 0001:000001f0       glNormal3x                 100011f0 f   libGLESv1_CM.obj
+ 0001:000001f4       glNormalPointer            100011f4 f   libGLESv1_CM.obj
+ 0001:000001f8       glOrthof                   100011f8 f   libGLESv1_CM.obj
+ 0001:000001fc       glOrthox                   100011fc f   libGLESv1_CM.obj
+ 0001:00000200       glPixelStorei              10001200 f   libGLESv1_CM.obj
+ 0001:00000204       glPointParameterf          10001204 f   libGLESv1_CM.obj
+ 0001:00000208       glPointParameterfv         10001208 f   libGLESv1_CM.obj
+ 0001:0000020c       glPointParameterx          1000120c f   libGLESv1_CM.obj
+ 0001:00000210       glPointParameterxv         10001210 f   libGLESv1_CM.obj
+ 0001:00000214       glPointSize                10001214 f   libGLESv1_CM.obj
+ 0001:00000218       glPointSizePointerOES      10001218 f   libGLESv1_CM.obj
+ 0001:0000021c       glPointSizex               1000121c f   libGLESv1_CM.obj
+ 0001:00000220       glPolygonOffset            10001220 f   libGLESv1_CM.obj
+ 0001:00000224       glPolygonOffsetx           10001224 f   libGLESv1_CM.obj
+ 0001:00000228       glPopMatrix                10001228 f   libGLESv1_CM.obj
+ 0001:0000022c       glPushMatrix               1000122c f   libGLESv1_CM.obj
+ 0001:00000230       glReadPixels               10001230 f   libGLESv1_CM.obj
+ 0001:00000234       glRotatef                  10001234 f   libGLESv1_CM.obj
+ 0001:00000238       glRotatex                  10001238 f   libGLESv1_CM.obj
+ 0001:0000023c       glSampleCoverage           1000123c f   libGLESv1_CM.obj
+ 0001:00000240       glSampleCoveragex          10001240 f   libGLESv1_CM.obj
+ 0001:00000244       glScalef                   10001244 f   libGLESv1_CM.obj
+ 0001:00000248       glScalex                   10001248 f   libGLESv1_CM.obj
+ 0001:0000024c       glScissor                  1000124c f   libGLESv1_CM.obj
+ 0001:00000250       glShadeModel               10001250 f   libGLESv1_CM.obj
+ 0001:00000254       glStencilFunc              10001254 f   libGLESv1_CM.obj
+ 0001:00000258       glStencilMask              10001258 f   libGLESv1_CM.obj
+ 0001:0000025c       glStencilOp                1000125c f   libGLESv1_CM.obj
+ 0001:00000260       glTexCoordPointer          10001260 f   libGLESv1_CM.obj
+ 0001:00000264       glTexEnvf                  10001264 f   libGLESv1_CM.obj
+ 0001:00000268       glTexEnvfv                 10001268 f   libGLESv1_CM.obj
+ 0001:0000026c       glTexEnvi                  1000126c f   libGLESv1_CM.obj
+ 0001:00000270       glTexEnviv                 10001270 f   libGLESv1_CM.obj
+ 0001:00000274       glTexEnvx                  10001274 f   libGLESv1_CM.obj
+ 0001:00000278       glTexEnvxv                 10001278 f   libGLESv1_CM.obj
+ 0001:0000027c       glTexImage2D               1000127c f   libGLESv1_CM.obj
+ 0001:00000280       glTexParameterf            10001280 f   libGLESv1_CM.obj
+ 0001:00000284       glTexParameterfv           10001284 f   libGLESv1_CM.obj
+ 0001:00000288       glTexParameteri            10001288 f   libGLESv1_CM.obj
+ 0001:0000028c       glTexParameteriv           1000128c f   libGLESv1_CM.obj
+ 0001:00000290       glTexParameterx            10001290 f   libGLESv1_CM.obj
+ 0001:00000294       glTexParameterxv           10001294 f   libGLESv1_CM.obj
+ 0001:00000298       glTexSubImage2D            10001298 f   libGLESv1_CM.obj
+ 0001:0000029c       glTranslatef               1000129c f   libGLESv1_CM.obj
+ 0001:000002a0       glTranslatex               100012a0 f   libGLESv1_CM.obj
+ 0001:000002a4       glVertexPointer            100012a4 f   libGLESv1_CM.obj
+ 0001:000002a8       glViewport                 100012a8 f   libGLESv1_CM.obj
+ 0001:000002ac       DllMain                    100012ac f   corelib0:dllmain.obj
+ 0001:000002e4       _DllMainCRTStartup         100012e4 f   corelib0:pegdmain.obj
+ 0001:0000047c       __security_init_cookie     1000147c f   corelib0:seccinit.obj
+ 0001:00000518       exit                       10001518 f   corelib0:cexit.obj
+ 0001:00000638       _exit                      10001638 f   corelib0:cexit.obj
+ 0001:00000658       _cexit                     10001658 f   corelib0:cexit.obj
+ 0001:00000670       _c_exit                    10001670 f   corelib0:cexit.obj
+ 0001:00000688       _initterm                  10001688 f   corelib0:crt0dat.obj
+ 0001:000006d4       _cinit                     100016d4 f   corelib0:crt0dat.obj
+ 0001:00000704       __crt_ExitProcess          10001704 f   corelib0:exitproc_proxy.obj
+ 0001:00000730       GetCurrentProcess          10001730 f i corelib0:exitproc_proxy.obj
+ 0001:00000748       _onexit                    10001748 f   corelib0:onexit.obj
+ 0001:00000924       atexit                     10001924 f   corelib0:onexit.obj
+ 0001:00000974       _XcptFilter                10001974 f   corelib1:COREDLL.dll
+ 0001:00000984       __C_specific_handler       10001984 f   corelib1:COREDLL.dll
+ 0001:00000994       __security_gen_cookie2     10001994 f   corelib1:COREDLL.dll
+ 0001:000009a4       free                       100019a4 f   corelib1:COREDLL.dll
+ 0001:000009b4       realloc                    100019b4 f   corelib1:COREDLL.dll
+ 0001:000009c4       malloc                     100019c4 f   corelib1:COREDLL.dll
+ 0001:000009d4       _msize                     100019d4 f   corelib1:COREDLL.dll
+ 0001:000009e4       DisableThreadLibraryCalls  100019e4 f   coredll:COREDLL.dll
+ 0001:000009f4       TerminateProcess           100019f4 f   coredll:COREDLL.dll
+ 0001:00000a18       __IMPORT_DESCRIPTOR_COREDLL 10001a18     corelib1:COREDLL.dll
+ 0001:00000a2c       __NULL_IMPORT_DESCRIPTOR   10001a2c     corelib1:COREDLL.dll
+ 0002:00000000       __imp__XcptFilter          10004000     corelib1:COREDLL.dll
+ 0002:00000004       __imp___C_specific_handler 10004004     corelib1:COREDLL.dll
+ 0002:00000008       __imp___security_gen_cookie2 10004008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp_free                 1000400c     corelib1:COREDLL.dll
+ 0002:00000010       __imp_realloc              10004010     corelib1:COREDLL.dll
+ 0002:00000014       __imp_malloc               10004014     corelib1:COREDLL.dll
+ 0002:00000018       __imp__msize               10004018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp_DisableThreadLibraryCalls 1000401c     coredll:COREDLL.dll
+ 0002:00000020       __imp_TerminateProcess     10004020     coredll:COREDLL.dll
+ 0002:00000024       \177COREDLL_NULL_THUNK_DATA 10004024     corelib1:COREDLL.dll
+ 0002:00000028       __security_cookie          10004028     corelib0:seccinit.obj
+ 0002:0000002c       __security_cookie_complement 1000402c     corelib0:seccinit.obj
+ 0002:00000030       _exitflag                  10004030     corelib0:cexit.obj
+ 0002:00000034       __onexitend                10004034     <common>
+ 0002:00000038       __onexitbegin              10004038     <common>
+ 0002:0000003c       _pRawDllMain               1000403c     <common>
+
+ entry point at        0001:000002e4
+
+ Static symbols
+
+ 0001:00000334       _DllMainCRTStartupHelper   10001334 f   corelib0:pegdmain.obj
+ 0001:00000538       doexit                     10001538 f   corelib0:cexit.obj

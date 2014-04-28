@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CatalogFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequiredVersion="7.00" xmlns="urn:Microsoft.PlatformBuilder/Catalog">
+  <FileInformation Id="FileInformation:DefaultCatalogFile">
+    <Title>Default Catalog File</Title>
+    <Vendor>Default Vendor</Vendor>
+    <OSVersion>7.00</OSVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </FileInformation>  
+  <Item Id="Item:ImaginationTechnologies:powerVR:CoreRev121">
+    <Title>SGX Core Revision 121</Title>
+    <Description>SGX530 Core Revision 121. Present in: OMAP35x, AM35x, etc.</Description>
+    <SysgenVariable>SYSGEN_PVR_SGXCOREREV_121</SysgenVariable>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>PowerVR</Location>
+  </Item>
+  <Item Id="Item:ImaginationTechnologies:powerVR:CoreRev125">
+    <Title>SGX Core Revision 125</Title>
+    <Description>SGX530 Core Revision 125. Present in DM37x, AM37x, AM389x, AM387x, etc.</Description>
+    <SysgenVariable>SYSGEN_PVR_SGXCOREREV_125</SysgenVariable>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>PowerVR</Location>
+  </Item>
+  <Item Id="Item:ImaginationTechnologies:PowerVR:Support">
+    <Title>PowerVR</Title>
+    <SysgenVariable>SYSGEN_POWERVR</SysgenVariable>
+    <Variable>PVR_SERVICES4</Variable>
+    <SupportedCpuId>Cpu:ARMV7</SupportedCpuId>
+    <Location />
+  </Item>
+</CatalogFile>

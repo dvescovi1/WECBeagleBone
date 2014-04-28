@@ -1,0 +1,14 @@
+DIRS=\
+	oalexe	\
+	oallib	\
+	oalioctl	\
+	misc		\
+	watchdog    \
+	
+
+
+
+
+	
+
+

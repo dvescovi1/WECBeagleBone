@@ -1,0 +1,13 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# Copyright (c) Texas Instruments.  All rights reserved.
+
+TARGETNAME=do
+WINCEOEM=1
+
+TARGETTYPE=PROGRAM
+TARGETDEFNAME=$(TARGETNAME)
+
+SOURCES=appli.cpp \
+
+TARGETLIBS= \
+    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \

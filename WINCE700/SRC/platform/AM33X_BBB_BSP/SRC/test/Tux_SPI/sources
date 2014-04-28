@@ -1,0 +1,25 @@
+TARGETNAME=Tux_SPI
+TARGETTYPE=DYNLINK
+WINCEATL=1
+
+FILE_VIEW_INCLUDES_FOLDER= \
+    ft.h \
+    globals.h \
+    main.h \
+
+SOURCES= \
+    Tux_SPI.cpp \
+    globals.cpp \
+    test.cpp \
+
+CDEFINES=$(CDEFINES) -DTux_SPI_EXPORTS
+
+TARGETLIBS= \
+    $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_WINCEROOT)\public\common\oak\lib\$(_CPUINDPATH)\kato.lib \
+
+INCLUDES= $(INCLUDES); \
+  $(_TARGETPLATROOT)\src\app\common; \
+  $(_WINCEROOT)\public\common\sdk\inc\test; \
+
+WARNLEVEL = 3

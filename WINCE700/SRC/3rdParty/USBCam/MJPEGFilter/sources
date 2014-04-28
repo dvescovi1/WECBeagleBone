@@ -1,0 +1,62 @@
+!if 0
+;-------------------------------------------------------------------------
+; <copyright file="sources" company="Microsoft">
+;  Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;    The use and distribution terms for this software are covered by the
+;    Microsoft Limited Permissive License (Ms-LPL)
+;    which can be found in the file MS-LPL.txt at the root of this distribution.
+;    By using this software in any fashion, you are agreeing to be bound by
+;    the terms of this license.
+;
+;    THE SOFTWARE IS LICENSED "AS-IS" WITH NO WARRANTIES OR INDEMNITIES.
+;
+;    You must not remove this notice, or any other, from this software.
+; </copyright>
+;
+; <summary>
+;    MJPEG DirectShow Filter for use with USB camera driver for Windows Embedded Compact 7.0
+; </summary>
+;-------------------------------------------------------------------------
+;======================================================================
+; USB camera driver for Windows Embedded Compact 7.0
+;======================================================================
+!endif
+
+
+TARGETNAME=jpeg2rgb
+TARGETTYPE=DYNLINK
+TARGETDEFNAME=$(TARGETNAME)
+DEFFILE=$(TARGETDEFNAME).def
+WINCETARGETFILE0=$(_RELEASELIBDIR)\$(DEFFILE)
+DLLENTRY=DllEntryPoint
+
+RELEASETYPE=PLATFORM
+
+OSDESIGNPROJECTROOT = $(_OSDESIGNROOT)\Win$(_TGTOS)$(_WINCEOSVER)\$(_TGTPLAT)_$(_TGTCPU)_$(WINCEDEBUG)
+
+INCLUDES=$(INCLUDES) \
+    $(_PUBLICROOT)\common\sdk\inc;  \
+    $(_PUBLICROOT)\common\ddk\inc;  \
+    $(_PUBLICROOT)\gdiex\sdk\inc; \
+    $(_PUBLICROOT)\directx\sdk\inc; \
+#    $(_PUBLICROOT)\cesysgen\sdk\inc; \
+
+SOURCELIBS=\
+    $(OSDESIGNPROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\coredll.lib\
+    $(OSDESIGNPROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\ole32.lib\
+    $(OSDESIGNPROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\oleaut32.lib\
+    $(OSDESIGNPROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\uuid.lib\
+    $(OSDESIGNPROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\strmbase.lib\
+    $(OSDESIGNPROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\strmiids.lib\
+
+
+SOURCES= \
+    jpeg2rgb.cpp    \
+    debug.cpp       \
+
+
+FILE_VIEW_PARAMETER_FOLDER= \
+  jpeg2rgb.bib \
+  jpeg2rgb.reg \
+  ProjSysgen.bat \

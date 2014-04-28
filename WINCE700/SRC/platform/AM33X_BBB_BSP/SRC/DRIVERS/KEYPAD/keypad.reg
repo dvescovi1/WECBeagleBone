@@ -1,0 +1,26 @@
+; All rights reserved ADENEO EMBEDDED 2010
+; All rights reserved Texas Instruments, Inc. 2011
+
+;-- Keyboard Driver ------------------------------------------------------------
+; @CESYSGEN IF CE_MODULES_KEYBD
+IF BSP_KEYPAD
+#include "$(_PUBLICROOT)\common\oak\drivers\keybd\keybd.reg"
+#include "$(_PUBLICROOT)\common\oak\drivers\keybd\LayMgr.reg"
+
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\Keypad]
+    "Prefix"="KPD"
+    "Dll"="keypad.dll"
+    "Index"=dword:1
+    "Order"=dword:10
+
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Layouts\e0010409]
+    "Keyboard Layout"="00000409"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Shell]
+    "HasKeyboard"=dword:0
+
+;-------------------------------------------------------------------------------
+ENDIF BSP_KEYPAD
+; @CESYSGEN ENDIF CE_MODULES_KEYBD
+;-------------------------------------------------------------------------------

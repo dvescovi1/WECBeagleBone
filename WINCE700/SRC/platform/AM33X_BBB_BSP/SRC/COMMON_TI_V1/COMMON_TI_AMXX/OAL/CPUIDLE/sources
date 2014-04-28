@@ -1,0 +1,11 @@
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=am3xx_oal_cpuidle
+TARGETTYPE=LIBRARY
+
+#INCLUDES=$(INCLUDES)
+
+SOURCES=
+
+ARM_SOURCES=\
+    cpu.s

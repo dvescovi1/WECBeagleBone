@@ -1,0 +1,3 @@
+Directory("\Windows\Programs"):-File("cmaccept.exe","\Windows\cmaccept.exe")
+Directory("\Windows\StartUp"):-File("debugwithvs.exe","\Windows\VSDebugger.exe")
+;Directory("\Windows\StartUp"):-File("conmanclient2.exe","\Windows\conmanclient2.exe")

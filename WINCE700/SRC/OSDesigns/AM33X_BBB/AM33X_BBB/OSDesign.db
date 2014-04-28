@@ -1,0 +1,41 @@
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this sample source code is subject to the terms of the Microsoft
+; license agreement under which you licensed this sample source code. If
+; you did not accept the terms of the license agreement, you are not
+; authorized to use this sample source code. For the terms of the license,
+; please see the license agreement between you and Microsoft or, if applicable,
+; see the LICENSE.RTF on your install media or the root of your tools installation.
+; THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES.
+;
+; This is the database initialization file.  Format is as follows:
+;
+; Database : <db name> : <type in hex> : <num sort orders> : <sort order specifier 1> ...
+; This describes a database with one or more (up to 4) sort orders.
+;
+; A sort order specifier may be described in one of two ways:
+; 1.  <hex propid> : <hex flags>
+;     This describes a sort order on a single property.
+; 2.  [ <num sort properties> : <hex propid 1> : <hex flags 1> ... ]
+;     This describes a sort order on one or more (up to 3) properties.  Note that
+;     "[ 1 : <hex propid> : <hex flags> ]" is equivalent to "<hex propid> : <hex flags>"
+;
+; So an example Database specifier might be:
+; Database : "MyDatabase" : 0
+;   : 4 : 0001001F : 0
+;       : [ 3 : 0002001F : 0 : 0003001F : 0 : 0004001F : 0]
+;       : 0003001F : 0
+;       : [ 1 : 0004001F : 0 ]
+; which describes a database with four sort orders, one of which is sorted on
+; three properties.
+;
+; A database specifier can be followed by any number of record specifiers
+; Record : 
+;
+; A record specifier can be followed by one or more field specifiers
+; Field : <hex propid> : <value> [ either string or hex dword ]
+;
+; End   (ends a matching database or a record context)
+

@@ -1,0 +1,11 @@
+# All rights reserved Texas Instruments 2011
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=am33x_oal_padcfg
+TARGETTYPE=LIBRARY
+
+#INCLUDES=$(INCLUDES)
+
+
+SOURCES= \
+    soc_padcfg.c

@@ -1,0 +1,31 @@
+#!IF "$(BSP_OMAP_NAND)" == "1"
+#SKIPBUILD=1
+#!ENDIF
+
+#!IF "$(BSP_OMAP_NAND_TEST)" == "1"
+#SKIPBUILD=1
+#!ENDIF
+
+#SYNCHRONIZE_DRAIN=1
+#SYNCHRONIZE_BLOCK=1
+    
+SOURCES= \
+    nandtest.c \
+
+TARGETNAME=nandtest
+TARGETTYPE=PROGRAM
+RELEASETYPE=PLATFORM
+
+TARGETLIBS= \
+    $(_COMMONSDKROOT)\LIB\$(_CPUINDPATH)\coredll.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\cclib.lib \
+    
+INCLUDES= \
+    $(INCLUDES); \
+    ..\; \
+    $(_COMMONSDKROOT)\INC; \
+    $(_COMMONOAKROOT)\INC; \
+    $(_COMMONDDKROOT)\INC; \
+
+

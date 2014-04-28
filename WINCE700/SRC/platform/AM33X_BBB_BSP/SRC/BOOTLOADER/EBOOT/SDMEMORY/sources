@@ -1,0 +1,91 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!if 0
+;
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+TARGETNAME=ebootsd
+TARGETTYPE=PROGRAM
+RELEASETYPE=PLATFORM
+WINCECPU=1
+SYNCHRONIZE_DRAIN=1
+
+EXEENTRY=StartUp
+EXEBASE=0x00000000
+
+# Disable the generation unnecessary stack checking code in boot loader
+STACK_CHECK_DISABLE=1
+
+#
+# BUILD builds these targets in the post build step.  BootImage build 
+# rules are defined in makefile.inc.  Building BootImage turns EBOOT.EXE 
+# into EBOOT.BIN / EBOOT.SRE
+#
+WINCETARGETFILES=BootImage
+
+NOMIPS16CODE=1
+WINCEOEM=1
+
+CDEFINES=$(CDEFINES) -DCOREDLL -DBUILDING_EBOOT_SD
+LDEFINES=/DEBUG /DEBUGTYPE:CV /FIXED:NO
+
+INCLUDES=$(INCLUDES);$(_PUBLICROOT)\common\oak\drivers\block\msflashfmd\inc
+INCLUDES=$(INCLUDES);..
+
+SOURCES=\
+    ..\main.c \
+    ..\eth.c \
+    ..\menu.c \
+    ..\stub.c \
+    ..\flashmenu.c \
+    ..\mmu.c \
+    ..\flash.c \
+    ..\cfg.c
+    
+ARM_SOURCES=\
+    ..\startup.s \
+    ..\jumpto.s
+
+TARGETLIBS= \
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_io.lib									\
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_kitl_boot.lib							\
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_log.lib								\
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_blmenu.lib								\
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_blnk.lib								\
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_blcommon.lib							\
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_cortexA8_cache.lib            \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_flashstore.lib            \
+    $(_PLATLIB)\$(_CPUINDPATH)\am3xx_fmd_nand_boot.lib  \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib                 \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_boot_fatfs.lib                \
+    $(_PLATLIB)\$(_CPUINDPATH)\boot_sdmemory.lib             \
+    $(_PLATLIB)\$(_CPUINDPATH)\boot_sdhc.lib                 \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_devicesmap.lib                \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib                         \
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\bootpart.lib                               \
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\eboot.lib                                  \
+    $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib                                       \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_bsp_fuse.lib                              \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_bootstubs.lib                                \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib                                  \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib                                \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_stall.lib                                    \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_cpsw3g_kitl_lib.lib			\
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_omap_gpio.lib		\
+    $(_PLATLIB)\$(_CPUINDPATH)\am3xx_oal_gpio.lib                   \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_gpiodispatch.lib    \
+    $(_PLATLIB)\$(_CPUINDPATH)\am3xx_oali2c.lib				\
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc_boot.lib			\
+    $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib			        \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_display.lib              \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_oal_padcfg.lib       \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_padcfg.lib               \
+    $(_PLATLIB)\$(_CPUINDPATH)\board_detect.lib             \
+    $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib                 \
+

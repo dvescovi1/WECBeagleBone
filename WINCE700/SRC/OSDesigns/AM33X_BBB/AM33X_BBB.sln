@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{901F95BB-0EF7-4A93-94B5-A8655FA8CA96}") = "AM33X_BBB", "AM33X_BBB\AM33X_BBB.pbxml", "{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU) = AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU)
+		AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU) = AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU)
+		AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU) = AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU)
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}.AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU).ActiveCfg = AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU)
+		{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}.AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU).Build.0 = AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU)
+		{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}.AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU).ActiveCfg = AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU)
+		{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}.AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU).Build.0 = AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU)
+		{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}.AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU).ActiveCfg = AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU)
+		{44CFBCF8-FDFB-417B-8AAF-2A8ABD438129}.AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU).Build.0 = AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU)
+		{D06FB311-150F-435B-AB46-D8E36B80DAAE}.AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{D06FB311-150F-435B-AB46-D8E36B80DAAE}.AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU).ActiveCfg = Debug|Platform Builder (_TGTCPU)
+		{D06FB311-150F-435B-AB46-D8E36B80DAAE}.AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{033E5FA4-9CF9-4D43-8E6B-25DFC3327667}.AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{033E5FA4-9CF9-4D43-8E6B-25DFC3327667}.AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU).ActiveCfg = Debug|Platform Builder (_TGTCPU)
+		{033E5FA4-9CF9-4D43-8E6B-25DFC3327667}.AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{64CB8907-9F5A-44F4-9B5F-87A4A8D5E0E3}.AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{64CB8907-9F5A-44F4-9B5F-87A4A8D5E0E3}.AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU).ActiveCfg = Debug|Platform Builder (_TGTCPU)
+		{64CB8907-9F5A-44F4-9B5F-87A4A8D5E0E3}.AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{DC232BA6-410F-4249-92A4-5386A8B5077B}.AM33X_BBB_BSP ARMV7 Checked|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+		{DC232BA6-410F-4249-92A4-5386A8B5077B}.AM33X_BBB_BSP ARMV7 Debug|Platform Builder (_TGTCPU).ActiveCfg = Debug|Platform Builder (_TGTCPU)
+		{DC232BA6-410F-4249-92A4-5386A8B5077B}.AM33X_BBB_BSP ARMV7 Release|Platform Builder (_TGTCPU).ActiveCfg = Release|Platform Builder (_TGTCPU)
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

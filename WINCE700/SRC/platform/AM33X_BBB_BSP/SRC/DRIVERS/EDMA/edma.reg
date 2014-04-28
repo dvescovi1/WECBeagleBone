@@ -1,0 +1,11 @@
+IF BSP_EDMA
+; HIVE BOOT SECTION
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\Edma]
+	"Prefix"="EDM"
+	"Dll"="edmadrvr.dll"
+	"Index"=dword:1
+	"Order"=dword:1
+	"Flags"=dword:1000
+	"Priority256"=dword:46
+; END HIVE BOOT SECTION
+ENDIF

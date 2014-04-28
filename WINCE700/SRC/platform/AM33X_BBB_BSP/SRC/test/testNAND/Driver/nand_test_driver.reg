@@ -1,0 +1,8 @@
+
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\NAND_TEST]
+    "Prefix"="DFT"
+    "Dll"="nand_test_driver.dll"
+    "Index"=dword:1
+    "Order"=dword:80
+
+
