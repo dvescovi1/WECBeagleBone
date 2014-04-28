@@ -1,0 +1,1261 @@
+ glslcompiler
+
+ Timestamp is 4f20c70e (Wed Jan 25 22:22:54 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 00008a21H .rdata                  CODE
+ 0001:00008a44 00000029H .rdata$debug            CODE
+ 0001:00008a70 000357ecH .text                   CODE
+ 0001:0003e25c 00000084H .xdata                  CODE
+ 0001:0003e2e0 0000003cH .idata$2                CODE
+ 0001:0003e31c 00000014H .idata$3                CODE
+ 0001:0003e330 000000d0H .idata$4                CODE
+ 0001:0003e400 000000f4H .idata$6                CODE
+ 0001:0003e500 000000fcH .edata                  CODE
+ 0002:00000000 000000d0H .idata$5                DATA
+ 0002:000000d0 00000008H .data                   DATA
+ 0002:000000d8 00000010H .bss                    DATA
+ 0003:00000000 00000f80H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0001:00000000       __xc_a                     10001000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     10001004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     10001008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     1000100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     10001010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     10001014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     10001018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     1000101c     corelib0:crt0init.obj
+ 0001:00000100       ??_C@_0GA@DPPJFMDI@c?3?2data?2jatin?2powervr_build?2ddk1@ 10001100     ic2uf.obj
+ 0001:00000160       ??_C@_0CP@GMAGJKDF@More?5than?5?$CFd?5samplers?5are?5used?5i@ 10001160     ic2uf.obj
+ 0001:00000190       ??_C@_0BK@BGNLMMDD@Too?5deeply?5nested?5loops?4?6?$AA@ 10001190     ic2uf.obj
+ 0001:000001ac       ??_C@_0BF@CBEJDHFG@Too?5many?5functions?4?6?$AA@ 100011ac     ic2uf.obj
+ 0001:000001c4       ??_C@_0BO@KPIMGECL@Failed?5to?5allocate?5varyings?4?6?$AA@ 100011c4     ic2uf.obj
+ 0001:000001e4       ??_C@_0DA@OCCPPEGI@Requires?5more?5varying?5components@ 100011e4     ic2uf.obj
+ 0001:00000214       ??_C@_0BB@KCHPJACM@gl_PMXInvertdFdY?$AA@ 10001214     ic2uf.obj
+ 0001:00000228       ??_C@_0N@KEMBCBC@gl_FragDepth?$AA@ 10001228     ic2uf.obj
+ 0001:00000238       ??_C@_0P@IILMBLMA@gl_FrontFacing?$AA@ 10001238     ic2uf.obj
+ 0001:00000248       ??_C@_0BE@CDEHDHPO@gl_PMXSwapFrontFace?$AA@ 10001248     ic2uf.obj
+ 0001:0000025c       ??_C@_0BA@DPBMNHEM@gl_PMXPosAdjust?$AA@ 1000125c     ic2uf.obj
+ 0001:0000026c       ??_C@_0N@PNLLEOHM@gl_FragCoord?$AA@ 1000126c     ic2uf.obj
+ 0001:0000027c       ??_C@_0CC@OIJICMFO@Shader?5needs?5too?5many?5registers?4@ 1000127c     ic2uf.obj
+ 0001:000002a0       ??_C@_01GFHCPBMG@C?$AA@    100012a0     glsl2uf.obj
+ 0001:000002a8       ??_C@_0GF@ILCHHLGH@c?3?2data?2jatin?2powervr_build?2ddk1@ 100012a8     bindingsym.obj
+ 0001:00000310       ??_C@_05BCNHOCHN@?$FL?$CFu?$FN?4?$AA@ 10001310     bindingsym.obj
+ 0001:00000318       ??_C@_01LFCBOECM@?4?$AA@   10001318     bindingsym.obj
+ 0001:0000031c       ??_C@_0BO@BFLGJNDL@?$EA?9?9?9?9?5ScopeModifer?5?$CF03u?5?9?9?9?9?$EA?$AA@ 1000131c     glsl_parser:symtab.obj
+ 0001:0000033c       ??_C@_0BB@NDENLPKD@array?5size?5fixed?$AA@ 1000133c     glsl_core:glsltabs.obj
+ 0001:00000350       ??_C@_0BF@DPBHHNMA@array?5size?5non?5fixed?$AA@ 10001350     glsl_core:glsltabs.obj
+ 0001:00000368       ??_C@_09NOOGDAF@non?9array?$AA@ 10001368     glsl_core:glsltabs.obj
+ 0001:00000374       ??_C@_07PBJKAAPN@l?9value?$AA@ 10001374     glsl_core:glsltabs.obj
+ 0001:0000037c       ??_C@_0BA@EJBDKCFJ@non?9l?9value?$CIds?$CJ?$AA@ 1000137c     glsl_core:glsltabs.obj
+ 0001:0000038c       ??_C@_0M@FBLCJFCE@non?9l?9value?$AA@ 1000138c     glsl_core:glsltabs.obj
+ 0001:00000398       ??_C@_05DNOIDIPO@inout?$AA@ 10001398     glsl_core:glsltabs.obj
+ 0001:000003a0       ??_C@_03KEJHNBPP@out?$AA@  100013a0     glsl_core:glsltabs.obj
+ 0001:000003a4       ??_C@_02LMMGJAGL@in?$AA@   100013a4     glsl_core:glsltabs.obj
+ 0001:000003a8       ??_C@_05PBLCOKID@highp?$AA@ 100013a8     glsl_core:glsltabs.obj
+ 0001:000003b0       ??_C@_07DMCLNPOF@mediump?$AA@ 100013b0     glsl_core:glsltabs.obj
+ 0001:000003b8       ??_C@_04HINLHCNI@lowp?$AA@ 100013b8     glsl_core:glsltabs.obj
+ 0001:000003c0       ??_C@_07CIFAGBMG@unknown?$AA@ 100013c0     glsl_core:glsltabs.obj
+ 0001:000003c8       ??_C@_0N@PBHNJLDP@fragment?5out?$AA@ 100013c8     glsl_core:glsltabs.obj
+ 0001:000003d8       ??_C@_0BE@KODFLIB@fragment?5in?1varying?$AA@ 100013d8     glsl_core:glsltabs.obj
+ 0001:000003ec       ??_C@_0BD@MPKOLOGP@vertex?5out?1varying?$AA@ 100013ec     glsl_core:glsltabs.obj
+ 0001:00000400       ??_C@_0BE@DEBIFPDN@vertex?5in?1attribute?$AA@ 10001400     glsl_core:glsltabs.obj
+ 0001:00000414       ??_C@_07HIAOBKCE@uniform?$AA@ 10001414     glsl_core:glsltabs.obj
+ 0001:0000041c       ??_C@_05BNCCCJPP@const?$AA@ 1000141c     glsl_core:glsltabs.obj
+ 0001:00000422       ??_C@_00CNPNBAHC@?$AA@     10001422     glsl_core:glsltabs.obj
+ 0001:00000424       ??_C@_06PBJBIPGK@struct?$AA@ 10001424     glsl_core:glsltabs.obj
+ 0001:0000042c       ??_C@_0BA@JAHCHCNG@samplerexternal?$AA@ 1000142c     glsl_core:glsltabs.obj
+ 0001:0000043c       ??_C@_0O@ELDFBPJC@samplerstream?$AA@ 1000143c     glsl_core:glsltabs.obj
+ 0001:0000044c       ??_C@_0BA@MGEPNOKN@sampler2Dshadow?$AA@ 1000144c     glsl_core:glsltabs.obj
+ 0001:0000045c       ??_C@_0BA@PPMCOCGI@sampler1Dshadow?$AA@ 1000145c     glsl_core:glsltabs.obj
+ 0001:0000046c       ??_C@_0M@JKFFOHJO@samplerCube?$AA@ 1000146c     glsl_core:glsltabs.obj
+ 0001:00000478       ??_C@_09LAHPNHHH@sampler3D?$AA@ 10001478     glsl_core:glsltabs.obj
+ 0001:00000484       ??_C@_09LBLNLNEA@sampler2D?$AA@ 10001484     glsl_core:glsltabs.obj
+ 0001:00000490       ??_C@_09LDPLADBJ@sampler1D?$AA@ 10001490     glsl_core:glsltabs.obj
+ 0001:0000049c       ??_C@_06OBMEHEFN@mat4X4?$AA@ 1000149c     glsl_core:glsltabs.obj
+ 0001:000004a4       ??_C@_0BE@KAJFKPKD@4X4?5matrix?5of?5float?$AA@ 100014a4     glsl_core:glsltabs.obj
+ 0001:000004b8       ??_C@_06KOIFOCJK@mat4X3?$AA@ 100014b8     glsl_core:glsltabs.obj
+ 0001:000004c0       ??_C@_0BE@EBLLKFMH@4X3?5matrix?5of?5float?$AA@ 100014c0     glsl_core:glsltabs.obj
+ 0001:000004d4       ??_C@_06LHJONDNL@mat4X2?$AA@ 100014d4     glsl_core:glsltabs.obj
+ 0001:000004dc       ??_C@_0BE@KOOJBDCG@4X2?5matrix?5of?5float?$AA@ 100014dc     glsl_core:glsltabs.obj
+ 0001:000004f0       ??_C@_06HMBDEMOE@mat3X4?$AA@ 100014f0     glsl_core:glsltabs.obj
+ 0001:000004f8       ??_C@_0BE@EBNBAJDA@3X4?5matrix?5of?5float?$AA@ 100014f8     glsl_core:glsltabs.obj
+ 0001:0000050c       ??_C@_06DDFCNKCD@mat3X3?$AA@ 1000150c     glsl_core:glsltabs.obj
+ 0001:00000514       ??_C@_0BE@KAPPADFE@3X3?5matrix?5of?5float?$AA@ 10001514     glsl_core:glsltabs.obj
+ 0001:00000528       ??_C@_06BCAEKNIC@mat3x2?$AA@ 10001528     glsl_core:glsltabs.obj
+ 0001:00000530       ??_C@_0BE@EPKNLFLF@3X2?5matrix?5of?5float?$AA@ 10001530     glsl_core:glsltabs.obj
+ 0001:00000544       ??_C@_06PMOCGNGB@mat2x4?$AA@ 10001544     glsl_core:glsltabs.obj
+ 0001:0000054c       ??_C@_0BE@CELGDCHG@2X4?5matrix?5of?5float?$AA@ 1000154c     glsl_core:glsltabs.obj
+ 0001:00000560       ??_C@_06LDKDPLKG@mat2x3?$AA@ 10001560     glsl_core:glsltabs.obj
+ 0001:00000568       ??_C@_0BE@MFJIDIBC@2X3?5matrix?5of?5float?$AA@ 10001568     glsl_core:glsltabs.obj
+ 0001:0000057c       ??_C@_06KKLIMKOH@mat2x2?$AA@ 1000157c     glsl_core:glsltabs.obj
+ 0001:00000584       ??_C@_0BE@CKMKIOPD@2X2?5matrix?5of?5float?$AA@ 10001584     glsl_core:glsltabs.obj
+ 0001:00000598       ??_C@_05IANAGENN@bvec4?$AA@ 10001598     glsl_core:glsltabs.obj
+ 0001:000005a0       ??_C@_0BL@FGFIOMGE@4?9component?5vector?5of?5bool?$AA@ 100015a0     glsl_core:glsltabs.obj
+ 0001:000005bc       ??_C@_05MPJBPCBK@bvec3?$AA@ 100015bc     glsl_core:glsltabs.obj
+ 0001:000005c4       ??_C@_0BL@IEINKKOC@3?9component?5vector?5of?5bool?$AA@ 100015c4     glsl_core:glsltabs.obj
+ 0001:000005e0       ??_C@_05NGIKMDFL@bvec2?$AA@ 100015e0     glsl_core:glsltabs.obj
+ 0001:000005e8       ??_C@_0BL@OKABLBKD@2?9component?5vector?5of?5bool?$AA@ 100015e8     glsl_core:glsltabs.obj
+ 0001:00000604       ??_C@_04DDKJGDCM@bool?$AA@ 10001604     glsl_core:glsltabs.obj
+ 0001:0000060c       ??_C@_05OKBHJEBO@ivec4?$AA@ 1000160c     glsl_core:glsltabs.obj
+ 0001:00000614       ??_C@_0BK@NANJEMOK@4?9component?5vector?5of?5int?$AA@ 10001614     glsl_core:glsltabs.obj
+ 0001:00000630       ??_C@_05KFFGACNJ@ivec3?$AA@ 10001630     glsl_core:glsltabs.obj
+ 0001:00000638       ??_C@_0BK@IBKDHMM@3?9component?5vector?5of?5int?$AA@ 10001638     glsl_core:glsltabs.obj
+ 0001:00000654       ??_C@_05LMENDDJI@ivec2?$AA@ 10001654     glsl_core:glsltabs.obj
+ 0001:0000065c       ??_C@_0BK@OPAHJBFL@2?9component?5vector?5of?5int?$AA@ 1000165c     glsl_core:glsltabs.obj
+ 0001:00000678       ??_C@_03JBIPMCLC@int?$AA@  10001678     glsl_core:glsltabs.obj
+ 0001:0000067c       ??_C@_04LCAMJMDC@vec4?$AA@ 1000167c     glsl_core:glsltabs.obj
+ 0001:00000684       ??_C@_0BM@NFDDOKMK@4?9component?5vector?5of?5float?$AA@ 10001684     glsl_core:glsltabs.obj
+ 0001:000006a0       ??_C@_04PNENAKPF@vec3?$AA@ 100016a0     glsl_core:glsltabs.obj
+ 0001:000006a8       ??_C@_0BM@NBDKBJJJ@3?9component?5vector?5of?5float?$AA@ 100016a8     glsl_core:glsltabs.obj
+ 0001:000006c4       ??_C@_04OEFGDLLE@vec2?$AA@ 100016c4     glsl_core:glsltabs.obj
+ 0001:000006cc       ??_C@_0BM@NAIPOEIE@2?9component?5vector?5of?5float?$AA@ 100016cc     glsl_core:glsltabs.obj
+ 0001:000006e8       ??_C@_05KNFBNCOH@float?$AA@ 100016e8     glsl_core:glsltabs.obj
+ 0001:000006f0       ??_C@_04GKJNKENE@void?$AA@ 100016f0     glsl_core:glsltabs.obj
+ 0001:000006f8       ??_C@_07MALOAKCI@invalid?$AA@ 100016f8     glsl_core:glsltabs.obj
+ 0001:00000700       asGLSLTypeSpecifierInfoTable 10001700     glsl_core:glsltabs.obj
+ 0001:00000980       apszGLSLTypeQualifierFullDescTable 10001980     glsl_core:glsltabs.obj
+ 0001:000009a0       GLSLPrecisionQualifierFullDescTable 100019a0     glsl_core:glsltabs.obj
+ 0001:000009b0       GLSLParameterQualifierFullDescTable 100019b0     glsl_core:glsltabs.obj
+ 0001:000009c0       GLSLLValueStatusFullDescTable 100019c0     glsl_core:glsltabs.obj
+ 0001:000009d0       GLSLArrayStatusFullDescTable 100019d0     glsl_core:glsltabs.obj
+ 0001:000009e0       asICodeOpTable             100019e0     glsl_core:icgen.obj
+ 0001:00000c00       asNodeTable                10001c00     glsl_core:icgen.obj
+ 0001:00000cb8       sDefaultSwizMask           10001cb8     glsl_core:icgen.obj
+ 0001:00000ccc       ??_C@_08NPGEDNG@tmp?$CFs?$EA?$CFu?$AA@ 10001ccc     glsl_core:icgen.obj
+ 0001:00000cd8       ??_C@_0FN@NOJAIJKJ@c?3?2data?2jatin?2powervr_build?2ddk1@ 10001cd8     glsl_core:icgen.obj
+ 0001:00000d38       ??_C@_07IOCLGOOF@pred?$EA?$CFu?$AA@ 10001d38     glsl_core:icgen.obj
+ 0001:00000d40       ??_C@_0N@IDDEBJCE@gl_PointSize?$AA@ 10001d40     glsl_core:icgen.obj
+ 0001:00000d50       ??_C@_08MCFFGLHH@fn_main?$EA?$AA@ 10001d50     glsl_core:icgen.obj
+ 0001:00000d5c       ??_C@_06PIKJLJJK@cst?$EA?$CFs?$AA@ 10001d5c     glsl_core:common.obj
+ 0001:00000d64       ??_C@_0L@EKMCCOBA@cst_p?$CFu?$EA?$CFs?$AA@ 10001d64     glsl_core:common.obj
+ 0001:00000d70       ??_C@_0FO@LFJAJOEN@c?3?2data?2jatin?2powervr_build?2ddk1@ 10001d70     glsl_core:common.obj
+ 0001:00000dd0       ??_C@_09IDPEJOHI@cst_rv?$EA?$CFs?$AA@ 10001dd0     glsl_core:common.obj
+ 0001:00000ddc       ??_C@_0CD@LPLBODBK@?8?$CFs?8?5?3?5?8struct?8?5type?5redefinitio@ 10001ddc     glsl_core:common.obj
+ 0001:00000e00       ??_C@_0O@KLAILGIL@?$CFs?$EAstruct_def?$AA@ 10001e00     glsl_core:common.obj
+ 0001:00000e10       ??_C@_0DC@LCOJIAGM@?8struct?8?5?3?5duplicate?5field?5name?5@ 10001e10     glsl_core:common.obj
+ 0001:00000e44       ??_C@_02DKCKIIND@?$CFs?$AA@ 10001e44     glsl_core:common.obj
+ 0001:00000e48       ??_C@_05DNIIFBMG@?$CFs?5?$CFs?$AA@ 10001e48     glsl_core:common.obj
+ 0001:00000e50       ??_C@_03IKGEINEE@?$CFs?5?$AA@ 10001e50     glsl_core:common.obj
+ 0001:00000e54       ??_C@_09GIMGMFEA@array?5of?5?$AA@ 10001e54     glsl_core:common.obj
+ 0001:00000e60       ??_C@_05LAPONLG@false?$AA@ 10001e60     glsl_core:common.obj
+ 0001:00000e68       ??_C@_04LOAJBDKD@true?$AA@ 10001e68     glsl_core:common.obj
+ 0001:00000e70       ??_C@_04NBJLHLGP@_low?$AA@ 10001e70     glsl_core:common.obj
+ 0001:00000e78       ??_C@_04FFPNIEO@_med?$AA@  10001e78     glsl_core:common.obj
+ 0001:00000e80       ??_C@_05LMDFFMHB@_high?$AA@ 10001e80     glsl_core:common.obj
+ 0001:00000e88       ??_C@_02DPKJAMEF@?$CFd?$AA@ 10001e88     glsl_core:common.obj
+ 0001:00000e8c       ??_C@_02NJPGOMH@?$CFf?$AA@ 10001e8c     glsl_core:common.obj
+ 0001:00000e90       ??_C@_06MJPNKJHA@?$CFf_low?$AA@ 10001e90     glsl_core:common.obj
+ 0001:00000e98       ??_C@_06BNDJAKFB@?$CFf_med?$AA@ 10001e98     glsl_core:common.obj
+ 0001:00000ea0       ??_C@_07DBCFDHFG@?$CFf_high?$AA@ 10001ea0     glsl_core:common.obj
+ 0001:00000ea8       ??_C@_06DJHOIPC@?$CFs?3?5?$CFs?$AA@ 10001ea8     glsl_core:error.obj
+ 0001:00000eb0       ??_C@_0O@KICPPLKA@?$CFs?3?5?$CFu?3?$CFu?3?5?$CFs?$AA@ 10001eb0     glsl_core:error.obj
+ 0001:00000ec0       ??_C@_08MLFDIMPC@INTERNAL?$AA@ 10001ec0     glsl_core:error.obj
+ 0001:00000ecc       ??_C@_05MBDEGLCK@ERROR?$AA@ 10001ecc     glsl_core:error.obj
+ 0001:00000ed4       ??_C@_07KCOHIFOP@WARNING?$AA@ 10001ed4     glsl_core:error.obj
+ 0001:00000edc       ??_C@_07NFANNNEC@UNKNOWN?$AA@ 10001edc     glsl_core:error.obj
+ 0001:00000ee4       auDimSwiz                  10001ee4     glsl_core:icemul.obj
+ 0001:00000ef4       auSwizzles                 10001ef4     glsl_core:icemul.obj
+ 0001:00000f04       ??_C@_0N@GGFFEPLF@returnval_?$CFs?$AA@ 10001f04     glsl_core:icemul.obj
+ 0001:00000f18       ??_C@_0FO@MEKHAIFD@c?3?2data?2jatin?2powervr_build?2ddk1@ 10001f18     glsl_core:icemul.obj
+ 0001:00000f78       ??_C@_0M@JMJDFMPD@pmx_arccos2?$AA@ 10001f78     glsl_core:icemul.obj
+ 0001:00000f84       ??_C@_02IIINKMCA@r0?$AA@   10001f84     glsl_core:icemul.obj
+ 0001:00000f88       ??_C@_0M@MNOGKEIO@pmx_arcsin2?$AA@ 10001f88     glsl_core:icemul.obj
+ 0001:00000f94       ??_C@_0L@GKLBCFHE@pmx_arctan?$AA@ 10001f94     glsl_core:icemul.obj
+ 0001:00000fa0       ??_C@_0M@LKHCFAHB@pmx_arctan2?$AA@ 10001fa0     glsl_core:icemul.obj
+ 0001:00000fac       ??_C@_0P@LGDGGAPL@pmx_noise1_?$CFuD?$AA@ 10001fac     glsl_core:icemul.obj
+ 0001:00000fbc       ??_C@_0BJ@PEBJEJFP@gl_PMXDepthTextureDesc?$CFu?$AA@ 10001fbc     glsl_core:icemul.obj
+ 0001:00000fd8       __real@3921c939            10001fd8     glsl_core:icemul.obj
+ 0001:00000fdc       __real@39c90930            10001fdc     glsl_core:icemul.obj
+ 0001:00000fe0       __real@3a8197e8            10001fe0     glsl_core:icemul.obj
+ 0001:00000fe4       __real@3b2ffdb3            10001fe4     glsl_core:icemul.obj
+ 0001:00000fe8       __real@3c014cae            10001fe8     glsl_core:icemul.obj
+ 0001:00000fec       __real@3cd93924            10001fec     glsl_core:icemul.obj
+ 0001:00000ff0       __real@3df15bef            10001ff0     glsl_core:icemul.obj
+ 0001:00000ff4       __real@3fb504f3            10001ff4     glsl_core:icemul.obj
+ 0001:00000ff8       __real@3fc90fdb            10001ff8     glsl_core:icemul.obj
+ 0001:00000ffc       __real@bfc90fdb            10001ffc     glsl_core:icemul.obj
+ 0001:00001000       __real@b921c939            10002000     glsl_core:icemul.obj
+ 0001:00001004       __real@b9c90930            10002004     glsl_core:icemul.obj
+ 0001:00001008       __real@ba8197e8            10002008     glsl_core:icemul.obj
+ 0001:0000100c       __real@bb2ffdb3            1000200c     glsl_core:icemul.obj
+ 0001:00001010       __real@bc014cae            10002010     glsl_core:icemul.obj
+ 0001:00001014       __real@bcd93924            10002014     glsl_core:icemul.obj
+ 0001:00001018       __real@bdf15bef            10002018     glsl_core:icemul.obj
+ 0001:0000101c       __real@bfb504f3            1000201c     glsl_core:icemul.obj
+ 0001:00001020       __real@00000000            10002020     glsl_core:icemul.obj
+ 0001:00001024       __real@40490fdb            10002024     glsl_core:icemul.obj
+ 0001:00001028       __real@3f800000            10002028     glsl_core:icemul.obj
+ 0001:0000102c       ??_C@_0O@OIPBGHC@acosConstant2?$AA@ 1000202c     glsl_core:icemul.obj
+ 0001:0000103c       ??_C@_0O@CFKCEFLB@acosConstant1?$AA@ 1000203c     glsl_core:icemul.obj
+ 0001:0000104c       ??_C@_0O@DMLJHEPA@acosConstant0?$AA@ 1000204c     glsl_core:icemul.obj
+ 0001:0000105c       __real@4283885b            1000205c     glsl_core:icemul.obj
+ 0001:00001060       __real@41167f26            10002060     glsl_core:icemul.obj
+ 0001:00001064       __real@41acb417            10002064     glsl_core:icemul.obj
+ 0001:00001068       __real@42462169            10002068     glsl_core:icemul.obj
+ 0001:0000106c       __real@4242cde5            1000206c     glsl_core:icemul.obj
+ 0001:00001070       __real@3f060a92            10002070     glsl_core:icemul.obj
+ 0001:00001074       __real@bf800000            10002074     glsl_core:icemul.obj
+ 0001:00001078       ??_C@_0O@FCLDNNGD@atanConstant3?$AA@ 10002078     glsl_core:icemul.obj
+ 0001:00001088       ??_C@_0O@ELKIOMCC@atanConstant2?$AA@ 10002088     glsl_core:icemul.obj
+ 0001:00001098       ??_C@_0O@GAIFLPOB@atanConstant1?$AA@ 10002098     glsl_core:icemul.obj
+ 0001:000010a8       ??_C@_0O@HJJOIOKA@atanConstant0?$AA@ 100020a8     glsl_core:icemul.obj
+ 0001:000010b8       __real@3f7b50b1            100020b8     glsl_core:icemul.obj
+ 0001:000010bc       __real@3e4902de            100020bc     glsl_core:icemul.obj
+ 0001:000010c0       __real@4016cbe4            100020c0     glsl_core:icemul.obj
+ 0001:000010c4       __real@3f490fdb            100020c4     glsl_core:icemul.obj
+ 0001:000010c8       ??_C@_0P@NGCBMMJA@atan2Constant1?$AA@ 100020c8     glsl_core:icemul.obj
+ 0001:000010d8       ??_C@_0P@MPDKPNNB@atan2Constant0?$AA@ 100020d8     glsl_core:icemul.obj
+ 0001:000010e8       __real@41200000            100020e8     glsl_core:icemul.obj
+ 0001:000010ec       __real@c1700000            100020ec     glsl_core:icemul.obj
+ 0001:000010f0       __real@40c00000            100020f0     glsl_core:icemul.obj
+ 0001:000010f4       __real@40800000            100020f4     glsl_core:icemul.obj
+ 0001:000010f8       __real@3b000000            100020f8     glsl_core:icemul.obj
+ 0001:000010fc       __real@3b800000            100020fc     glsl_core:icemul.obj
+ 0001:00001100       ??_C@_0P@BJDPKMJH@noiseConstant2?$AA@ 10002100     glsl_core:icemul.obj
+ 0001:00001110       ??_C@_0P@DCBCPPFE@noiseConstant1?$AA@ 10002110     glsl_core:icemul.obj
+ 0001:00001120       ??_C@_0P@CLAJMOBF@noiseConstant0?$AA@ 10002120     glsl_core:icemul.obj
+ 0001:00001130       ??_C@_0BC@KHKLJCIM@gl_PMXPermTexture?$AA@ 10002130     glsl_core:icemul.obj
+ 0001:00001144       ??_C@_0BC@DINMMLAH@gl_PMXGradTexture?$AA@ 10002144     glsl_core:icemul.obj
+ 0001:00001158       ??_C@_01EEMJAFIK@?6?$AA@   10002158     glsl_core:glsl.obj
+ 0001:0000115c       ??_C@_0BG@COOJENBA@Built?9in?5vertex?5state?$AA@ 1000215c     glsl_core:glsl.obj
+ 0001:00001174       ??_C@_0BI@FOGLGBPC@Built?9in?5fragment?5state?$AA@ 10002174     glsl_core:glsl.obj
+ 0001:0000118c       ??_C@_0BB@GOFCBDKF@Compile?5failed?4?6?$AA@ 1000218c     glsl_core:glsl.obj
+ 0001:000011a0       ??_C@_09EHKFFFJM@Success?4?6?$AA@ 100021a0     glsl_core:glsl.obj
+ 0001:000011ac       ??_C@_0CM@HLEOFKBF@?$CFd?5compilation?5errors?4?5No?5code?5g@ 100021ac     glsl_core:glsl.obj
+ 0001:000011d8       ??_C@_0BL@EDLNLOE@?$CFd?5compilation?5warnings?4?6?6?$AA@ 100021d8     glsl_core:glsl.obj
+ 0001:000011f4       ??_C@_0BB@KELPLCJN@Fragment?5Program?$AA@ 100021f4     glsl_core:glsl.obj
+ 0001:00001208       ??_C@_0P@JDCINLJB@Vertex?5Program?$AA@ 10002208     glsl_core:glsl.obj
+ 0001:00001218       ??_C@_0BK@LPFOIAFP@No?5source?5code?5supplied?4?6?$AA@ 10002218     glsl_core:glsl.obj
+ 0001:00001238       asGLSLBuiltInFunctionInfoTable 10002238     glsl_core:icbuiltin.obj
+ 0001:00001438       ??_C@_09MPJGCHGP@gl_Vertex?$AA@ 10002438     glsl_core:icbuiltin.obj
+ 0001:00001444       ??_C@_0BN@HOKGMOHF@gl_ModelViewProjectionMatrix?$AA@ 10002444     glsl_core:icbuiltin.obj
+ 0001:00001468       ??_C@_0GB@HABOBDJE@c?3?2data?2jatin?2powervr_build?2ddk1@ 10002468     glsl_core:icbuiltin.obj
+ 0001:000014d0       ??_C@_0GA@PIGCADEB@c?3?2data?2jatin?2powervr_build?2ddk1@ 100024d0     glsl_core:icunroll.obj
+ 0001:00001530       ??_C@_08COCIFADA@rs_?$CFs?$EA?$CFu?$AA@ 10002530     glsl_core:semantic.obj
+ 0001:00001540       ??_C@_0GA@COPBIGEI@c?3?2data?2jatin?2powervr_build?2ddk1@ 10002540     glsl_core:semantic.obj
+ 0001:000015a0       ??_C@_0M@ECGJFIBC@rs_?$CFs_?$CFs?$EA?$CFu?$AA@ 100025a0     glsl_core:semantic.obj
+ 0001:000015ac       ??_C@_02GPECMEKF@?$FL?$FN?$AA@ 100025ac     glsl_core:semantic.obj
+ 0001:000015b0       ??_C@_06DDGKKJGO@fn_?$CFs?$EA?$AA@ 100025b0     glsl_core:semantic.obj
+ 0001:000015b8       ??_C@_0M@ODIBEKFK@fc_?$CFs_?$CFs?$EA?$CFu?$AA@ 100025b8     glsl_core:semantic.obj
+ 0001:000015c4       ??_C@_0BH@BCBDPBHB@?8?$CFs?8?5is?5not?5constant?4?6?$AA@ 100025c4     glsl_core:semantic.obj
+ 0001:000015e0       ??_C@_0IB@GFOIJAH@?8?$CFs?8?5?3?5?5Wrong?5operand?5type?4?5No?5o@ 100025e0     glsl_core:semantic.obj
+ 0001:00001668       ??_C@_0KM@IIDJDOIG@?8?$CFs?8?5?3?5?5Wrong?5operand?5types?4?5No?5@ 10002668     glsl_core:semantic.obj
+ 0001:00001718       ??_C@_0FA@FOGICJBC@?8?$CFs?8?5?3?5?5Wrong?5operand?5types?4?5Arr@ 10002718     glsl_core:semantic.obj
+ 0001:00001768       ??_C@_0DN@OGJMDMOH@?8?$CFs?8?5?3?5?5Wrong?5operand?5types?4?5Arr@ 10002768     glsl_core:semantic.obj
+ 0001:000017a8       ??_C@_0DM@LACJEOBJ@?8?$CFs?8?5?3?5l?9value?5of?5swizzle?5cannot@ 100027a8     glsl_core:semantic.obj
+ 0001:000017e4       ??_C@_0CO@GKOHIBMO@?8?$CFs?8?5?3?5?5l?9value?5required?5?$CIcan?8t?5@ 100027e4     glsl_core:semantic.obj
+ 0001:00001814       ??_C@_0BK@GDICGMNC@?8?$CFs?8?5?3?5?5l?9value?5required?6?$AA@ 10002814     glsl_core:semantic.obj
+ 0001:00001830       ??_C@_0FC@CPFEMAHP@?8?$FL?8?5?3?5?5array?5must?5be?5redeclared?5@ 10002830     glsl_core:semantic.obj
+ 0001:00001884       ??_C@_0BO@NHLIFECN@Array?5index?5?8?$CFd?8?5is?5negative?6?$AA@ 10002884     glsl_core:semantic.obj
+ 0001:000018a4       ??_C@_0DC@LAGKKDPB@Array?5index?5?8?$CFd?8?5out?5of?5bounds?4?5@ 100028a4     glsl_core:semantic.obj
+ 0001:000018d8       ??_C@_0CJ@FHCFPJKN@?8?$FL?8?5?3?5field?5selection?5out?5of?5ran@ 100028d8     glsl_core:semantic.obj
+ 0001:00001904       ??_C@_0CH@HELBFBNP@?8?$CFs?8?5?3?5used?5without?5being?5initia@ 10002904     glsl_core:semantic.obj
+ 0001:00001930       ??_C@_0HB@DKFOGIGJ@Fragment?5shader?5may?5not?5write?5to@ 10002930     glsl_core:semantic.obj
+ 0001:000019a4       ??_C@_0CD@CNJMOGG@?8?$CFs?8?5?3?5illegal?5use?5of?5type?5?8void@ 100029a4     glsl_core:semantic.obj
+ 0001:000019c8       ??_C@_0CF@KDAONFKO@?8?$CFs?8?5?3?5only?5allowed?5at?5global?5sc@ 100029c8     glsl_core:semantic.obj
+ 0001:000019f0       ??_C@_0CO@NGBAHMIE@?8?$CFs?5?$CFs?8?5?3?5cannot?5declare?5arrays?5@ 100029f0     glsl_core:semantic.obj
+ 0001:00001a20       ??_C@_0CK@JHIFCNNH@?8?$CFs?8?5?3?5?5supported?5in?5vertex?5shad@ 10002a20     glsl_core:semantic.obj
+ 0001:00001a4c       ??_C@_0DO@CDLOBBKG@?8?$CFs?8?5?3?5may?5only?5be?5a?5float?0?5floa@ 10002a4c     glsl_core:semantic.obj
+ 0001:00001a8c       ??_C@_0CA@GMKFDLOI@?8gl_?8?5?3?5reserved?5built?9in?5name?6?$AA@ 10002a8c     glsl_core:semantic.obj
+ 0001:00001aac       ??_C@_03EKEJMIG@gl_?$AA@   10002aac     glsl_core:semantic.obj
+ 0001:00001ab0       ??_C@_0BF@IPJBEHEB@?8?$CFs?8?5?3?5redefinition?6?$AA@ 10002ab0     glsl_core:semantic.obj
+ 0001:00001ac8       ??_C@_0DG@MPDECNKE@?8?$CFs?8?5?3?5higher?5index?5value?5alread@ 10002ac8     glsl_core:semantic.obj
+ 0001:00001b00       ??_C@_0DD@GKJIHCLB@?8?$CFs?8?5?3?5redeclaration?5of?5array?5wi@ 10002b00     glsl_core:semantic.obj
+ 0001:00001b34       ??_C@_0CJ@IINGJFMA@?8?$CFs?8?5?3?5redeclaration?5of?5array?5wi@ 10002b34     glsl_core:semantic.obj
+ 0001:00001b60       ??_C@_0CF@HEGOMBE@?8?$CFs?8?5?3?5declaring?5non?9array?5as?5ar@ 10002b60     glsl_core:semantic.obj
+ 0001:00001b88       ??_C@_0HH@CLEFIBKB@Calls?5to?5any?5function?5that?5may?5r@ 10002b88     glsl_core:semantic.obj
+ 0001:00001c00       ??_C@_0DL@NFEJNCDD@?8constructor?8?5?3?5not?5enough?5data?5@ 10002c00     glsl_core:semantic.obj
+ 0001:00001c3c       ??_C@_0DB@FADFBNNI@?8constructor?8?5?3?5no?5arguments?5sup@ 10002c3c     glsl_core:semantic.obj
+ 0001:00001c70       ??_C@_0CE@PGLIGOHF@?8constructor?8?5?3?5too?5many?5argumen@ 10002c70     glsl_core:semantic.obj
+ 0001:00001c98       ??_C@_0FO@GMHJKCLB@?8constructor?8?5?3?5only?5a?5single?5ma@ 10002c98     glsl_core:semantic.obj
+ 0001:00001cf8       ??_C@_0CM@MHBMNBMB@?8constructor?8?5?3?5cannot?5convert?5a@ 10002cf8     glsl_core:semantic.obj
+ 0001:00001d24       ??_C@_0CK@FIECGCOG@?8constructor?8?5?3?5cannot?5convert?5a@ 10002d24     glsl_core:semantic.obj
+ 0001:00001d50       ??_C@_0EL@EPHDCKFB@?8?$CFs?8?5?3?5Parameter?5array?5size?5does@ 10002d50     glsl_core:semantic.obj
+ 0001:00001da0       ??_C@_0EK@DMJPANOP@?8?$CFs?8?5?3?5Cannot?5convert?5parameter?5@ 10002da0     glsl_core:semantic.obj
+ 0001:00001dec       ??_C@_0DG@BMMJAPJE@?8?$CFs?8?5?3?5Cannot?5convert?5parameter?5@ 10002dec     glsl_core:semantic.obj
+ 0001:00001e28       ??_C@_0EM@EHJBNNAN@?8Error?8?5?3?5Constant?5value?5cannot?5@ 10002e28     glsl_core:semantic.obj
+ 0001:00001e78       ??_C@_0GL@NHELLIMD@?8constructor?8?5?3?5Number?5of?5constr@ 10002e78     glsl_core:semantic.obj
+ 0001:00001ee4       ??_C@_0M@HCIFEBGA@constructor?$AA@ 10002ee4     glsl_core:semantic.obj
+ 0001:00001ef0       ??_C@_0DB@ODIKGIDJ@?8discard?8?5?3?5only?5supported?5in?5fr@ 10002ef0     glsl_core:semantic.obj
+ 0001:00001f24       ??_C@_0CD@ODLIIFHP@?8?8?5?3?5boolean?5expression?5expected@ 10002f24     glsl_core:semantic.obj
+ 0001:00001f48       ??_C@_0DB@FPHKHOBM@?8return?8?5?3?5function?5return?5has?5w@ 10002f48     glsl_core:semantic.obj
+ 0001:00001f7c       ??_C@_0DB@IBLCMOKH@?8return?8?5?3?5function?5return?5is?5no@ 10002f7c     glsl_core:semantic.obj
+ 0001:00001fb0       ??_C@_0DA@KIPLKFMI@?8return?8?5?3?5void?5function?5cannot?5@ 10002fb0     glsl_core:semantic.obj
+ 0001:00001fe0       ??_C@_0DC@IABKOPGF@?8return?8?5?3?5non?9void?5function?5mus@ 10002fe0     glsl_core:semantic.obj
+ 0001:00002014       ??_C@_0CO@PFBDOOMF@?8assign?8?5?3?5?5cannot?5convert?5from?5@ 10003014     glsl_core:semantic.obj
+ 0001:00002044       ??_C@_0DF@OMAKOKIJ@?8const?8?5?3?5?5non?9matching?5types?5fo@ 10003044     glsl_core:semantic.obj
+ 0001:0000207c       ??_C@_06IMFOKBKF@assign?$AA@ 1000307c     glsl_core:semantic.obj
+ 0001:00002084       ??_C@_0CN@CAADMAMN@?8?$DN?8?5?3?5?5assigning?5non?9constant?5to@ 10003084     glsl_core:semantic.obj
+ 0001:000020b4       ??_C@_0DC@OPFDDKKG@?8?$CFs?8?5?3?5?5cannot?5initialize?5this?5t@ 100030b4     glsl_core:semantic.obj
+ 0001:000020e8       ??_C@_0KJ@EPEAGGHJ@?8?3?8?5?3?5?5wrong?5operand?5types?5?5no?5o@ 100030e8     glsl_core:semantic.obj
+ 0001:00002194       ??_C@_0CC@MKLDGFDA@?8?8?5?3?5boolean?5expression?5expected@ 10003194     glsl_core:semantic.obj
+ 0001:000021b8       ??_C@_0DK@DADEIOGK@?8?8?5?3?5left?5of?5?8?$FL?8?5is?5not?5of?5type?5@ 100031b8     glsl_core:semantic.obj
+ 0001:000021f4       ??_C@_0DM@POAJCJK@?8?$CFs?8?5?3?5left?5of?5?8?$FL?8?5is?5not?5of?5typ@ 100031f4     glsl_core:semantic.obj
+ 0001:00002230       ??_C@_0FC@LEHKENMC@?8?$FL?$CFs?$FN?8?5?3?5arrays?5of?5samplers?5may?5@ 10003230     glsl_core:semantic.obj
+ 0001:00002284       ??_C@_0CG@DFGNNOJA@?8?$FL?$CFs?$FN?8?5?3?5integer?5expression?5requ@ 10003284     glsl_core:semantic.obj
+ 0001:000022ac       ??_C@_0CJ@LDAPHGKE@?8?4?8?5?3?5cannot?5apply?5dot?5operator?5@ 100032ac     glsl_core:semantic.obj
+ 0001:000022d8       ??_C@_0CM@FMCOHPCK@?8?$CFs?8?5?3?5vector?5field?5selection?5ou@ 100032d8     glsl_core:semantic.obj
+ 0001:00002308       ??_C@_0EH@KMEPABJP@?8?$CFs?8?5?3?5field?5selection?5requires?5@ 10003308     glsl_core:semantic.obj
+ 0001:00002350       ??_C@_0CN@KPECCIGP@?8?4?8?5?3?5cannot?5apply?5dot?5operator?5@ 10003350     glsl_core:semantic.obj
+ 0001:00002380       ??_C@_0DD@JAEBPOMH@?8?$CFs?8?5?3?5?4length?$CI?$CJ?5requires?5array?5@ 10003380     glsl_core:semantic.obj
+ 0001:000023b4       ??_C@_0N@LEEGPDKF@no?9symbol?9id?$AA@ 100033b4     glsl_core:semantic.obj
+ 0001:000023c8       ??_C@_0GC@NEPDDNPB@c?3?2data?2jatin?2powervr_build?2ddk1@ 100033c8     glsl_core:astbuiltin.obj
+ 0001:0000242c       ??_C@_05NHLPFGDD@rv_?$CFs?$AA@ 1000342c     glsl_core:astbuiltin.obj
+ 0001:00002434       ??_C@_06CFFBLOIB@noise1?$AA@ 10003434     glsl_core:astbuiltin.obj
+ 0001:0000243c       ??_C@_06OHMONEC@noise2?$AA@ 1000343c     glsl_core:astbuiltin.obj
+ 0001:00002444       ??_C@_06BHGHNMAD@noise3?$AA@ 10003444     glsl_core:astbuiltin.obj
+ 0001:0000244c       ??_C@_06FICGEKME@noise4?$AA@ 1000344c     glsl_core:astbuiltin.obj
+ 0001:00002454       ??_C@_04EDCIEOIM@dFdx?$AA@ 10003454     glsl_core:astbuiltin.obj
+ 0001:0000245c       ??_C@_04FKDDHPMN@dFdy?$AA@ 1000345c     glsl_core:astbuiltin.obj
+ 0001:00002464       ??_C@_01JBBJJEPG@p?$AA@    10003464     glsl_core:astbuiltin.obj
+ 0001:00002468       ??_C@_06ECGIDAGM@fwidth?$AA@ 10003468     glsl_core:astbuiltin.obj
+ 0001:00002470       ??_C@_0BB@FNHAJCEE@textureStreamIMG?$AA@ 10003470     glsl_core:astbuiltin.obj
+ 0001:00002484       ??_C@_0BF@PEMADAKB@textureStreamProjIMG?$AA@ 10003484     glsl_core:astbuiltin.obj
+ 0001:0000249c       ??_C@_0BD@GBJBFDJA@textureCubeGradARB?$AA@ 1000349c     glsl_core:astbuiltin.obj
+ 0001:000024b0       ??_C@_0P@JOIAHBNL@textureCubeLod?$AA@ 100034b0     glsl_core:astbuiltin.obj
+ 0001:000024c0       ??_C@_0M@BNCBNMFA@textureCube?$AA@ 100034c0     glsl_core:astbuiltin.obj
+ 0001:000024cc       ??_C@_0BB@BOPEDPEB@texture2DGradEXT?$AA@ 100034cc     glsl_core:astbuiltin.obj
+ 0001:000024e0       ??_C@_04CPEBHHIO@dPdy?$AA@ 100034e0     glsl_core:astbuiltin.obj
+ 0001:000024e8       ??_C@_04DGFKEGMP@dPdx?$AA@ 100034e8     glsl_core:astbuiltin.obj
+ 0001:000024f0       ??_C@_01EJNLAFE@P?$AA@     100034f0     glsl_core:astbuiltin.obj
+ 0001:000024f4       ??_C@_0BF@CJJEACBG@texture2DProjGradEXT?$AA@ 100034f4     glsl_core:astbuiltin.obj
+ 0001:0000250c       ??_C@_0N@HLKCMMAC@texture2DLod?$AA@ 1000350c     glsl_core:astbuiltin.obj
+ 0001:0000251c       ??_C@_0BB@GONKFCAO@texture2DProjLod?$AA@ 1000351c     glsl_core:astbuiltin.obj
+ 0001:00002530       ??_C@_0BA@EMKBMBME@texture2DLodEXT?$AA@ 10003530     glsl_core:astbuiltin.obj
+ 0001:00002540       ??_C@_03ONFBEKOG@lod?$AA@  10003540     glsl_core:astbuiltin.obj
+ 0001:00002544       ??_C@_0BE@PEKHGGCP@texture2DProjLodEXT?$AA@ 10003544     glsl_core:astbuiltin.obj
+ 0001:00002558       ??_C@_04NBAGBPGE@bias?$AA@ 10003558     glsl_core:astbuiltin.obj
+ 0001:00002560       ??_C@_07JLOPPFCD@radians?$AA@ 10003560     glsl_core:astbuiltin.obj
+ 0001:00002568       ??_C@_07MHOHEFBH@degrees?$AA@ 10003568     glsl_core:astbuiltin.obj
+ 0001:00002570       ??_C@_03BLEJJJBH@sin?$AA@  10003570     glsl_core:astbuiltin.obj
+ 0001:00002574       ??_C@_03LALBNOCG@cos?$AA@  10003574     glsl_core:astbuiltin.obj
+ 0001:00002578       ??_C@_05FECBCJJD@angle?$AA@ 10003578     glsl_core:astbuiltin.obj
+ 0001:00002580       ??_C@_03IIINPABG@tan?$AA@  10003580     glsl_core:astbuiltin.obj
+ 0001:00002584       ??_C@_04FIHNOPOL@asin?$AA@ 10003584     glsl_core:astbuiltin.obj
+ 0001:0000258c       ??_C@_04PDIFKINK@acos?$AA@ 1000358c     glsl_core:astbuiltin.obj
+ 0001:00002594       ??_C@_08HJJHKHDM@y_over_x?$AA@ 10003594     glsl_core:astbuiltin.obj
+ 0001:000025a0       ??_C@_04MLLJIGOK@atan?$AA@ 100035a0     glsl_core:astbuiltin.obj
+ 0001:000025a8       ??_C@_03JGHBODFD@pow?$AA@  100035a8     glsl_core:astbuiltin.obj
+ 0001:000025ac       ??_C@_03KHJOGHMM@exp?$AA@  100035ac     glsl_core:astbuiltin.obj
+ 0001:000025b0       ??_C@_03MGHMBJCF@log?$AA@  100035b0     glsl_core:astbuiltin.obj
+ 0001:000025b4       ??_C@_04HPAFEEIN@exp2?$AA@ 100035b4     glsl_core:astbuiltin.obj
+ 0001:000025bc       ??_C@_04KGLCPMCP@log2?$AA@ 100035bc     glsl_core:astbuiltin.obj
+ 0001:000025c4       ??_C@_04EIAKFFMI@sqrt?$AA@ 100035c4     glsl_core:astbuiltin.obj
+ 0001:000025cc       ??_C@_0M@MEMLHMJL@inversesqrt?$AA@ 100035cc     glsl_core:astbuiltin.obj
+ 0001:000025d8       ??_C@_03BCGAIFPO@abs?$AA@  100035d8     glsl_core:astbuiltin.obj
+ 0001:000025dc       ??_C@_04HHGHLBPI@sign?$AA@ 100035dc     glsl_core:astbuiltin.obj
+ 0001:000025e4       ??_C@_05PBJFFIGL@floor?$AA@ 100035e4     glsl_core:astbuiltin.obj
+ 0001:000025ec       ??_C@_04GFPJNGEK@ceil?$AA@ 100035ec     glsl_core:astbuiltin.obj
+ 0001:000025f4       ??_C@_05JBNKFIFJ@fract?$AA@ 100035f4     glsl_core:astbuiltin.obj
+ 0001:000025fc       ??_C@_03FFONCNID@mod?$AA@  100035fc     glsl_core:astbuiltin.obj
+ 0001:00002600       ??_C@_03KLIPLJLL@min?$AA@  10003600     glsl_core:astbuiltin.obj
+ 0001:00002604       ??_C@_03LJAEFNNE@max?$AA@  10003604     glsl_core:astbuiltin.obj
+ 0001:00002608       ??_C@_06OMMDKPJH@maxVal?$AA@ 10003608     glsl_core:astbuiltin.obj
+ 0001:00002610       ??_C@_06OPDAEPNI@minVal?$AA@ 10003610     glsl_core:astbuiltin.obj
+ 0001:00002618       ??_C@_05HADFAIAH@clamp?$AA@ 10003618     glsl_core:astbuiltin.obj
+ 0001:00002620       ??_C@_01MCMALHOG@a?$AA@    10003620     glsl_core:astbuiltin.obj
+ 0001:00002624       ??_C@_03LHBHAMGM@mix?$AA@  10003624     glsl_core:astbuiltin.obj
+ 0001:00002628       ??_C@_04IJFJNCMM@edge?$AA@ 10003628     glsl_core:astbuiltin.obj
+ 0001:00002630       ??_C@_04CNBNFAL@step?$AA@  10003630     glsl_core:astbuiltin.obj
+ 0001:00002638       ??_C@_05FEAGNAPL@edge1?$AA@ 10003638     glsl_core:astbuiltin.obj
+ 0001:00002640       ??_C@_05ENBNOBLK@edge0?$AA@ 10003640     glsl_core:astbuiltin.obj
+ 0001:00002648       ??_C@_0L@JKDMKNKF@smoothstep?$AA@ 10003648     glsl_core:astbuiltin.obj
+ 0001:00002654       ??_C@_06IJDLPEM@length?$AA@ 10003654     glsl_core:astbuiltin.obj
+ 0001:0000265c       ??_C@_02JCBCEJAP@p1?$AA@   1000365c     glsl_core:astbuiltin.obj
+ 0001:00002660       ??_C@_02ILAJHIEO@p0?$AA@   10003660     glsl_core:astbuiltin.obj
+ 0001:00002664       ??_C@_08LHFODBFO@distance?$AA@ 10003664     glsl_core:astbuiltin.obj
+ 0001:00002670       ??_C@_03GCCHHAFI@dot?$AA@  10003670     glsl_core:astbuiltin.obj
+ 0001:00002674       ??_C@_05HCKPILGO@cross?$AA@ 10003674     glsl_core:astbuiltin.obj
+ 0001:0000267c       ??_C@_09MMDNNKKJ@normalize?$AA@ 1000367c     glsl_core:astbuiltin.obj
+ 0001:00002688       ??_C@_04GCJDEDDH@Nref?$AA@ 10003688     glsl_core:astbuiltin.obj
+ 0001:00002690       ??_C@_0M@ENCHEFMG@faceforward?$AA@ 10003690     glsl_core:astbuiltin.obj
+ 0001:0000269c       ??_C@_07CCHDGNII@reflect?$AA@ 1000369c     glsl_core:astbuiltin.obj
+ 0001:000026a4       ??_C@_03PNFNLNLI@eta?$AA@  100036a4     glsl_core:astbuiltin.obj
+ 0001:000026a8       ??_C@_01NANMIPIL@N?$AA@    100036a8     glsl_core:astbuiltin.obj
+ 0001:000026ac       ??_C@_01JPJNBJEM@I?$AA@    100036ac     glsl_core:astbuiltin.obj
+ 0001:000026b0       ??_C@_07HCMBNDDM@refract?$AA@ 100036b0     glsl_core:astbuiltin.obj
+ 0001:000026b8       ??_C@_0P@CHOCONB@matrixCompMult?$AA@ 100036b8     glsl_core:astbuiltin.obj
+ 0001:000026c8       ??_C@_08OKPGNDDO@lessThan?$AA@ 100036c8     glsl_core:astbuiltin.obj
+ 0001:000026d4       ??_C@_0O@HILDIDCG@lessThanEqual?$AA@ 100036d4     glsl_core:astbuiltin.obj
+ 0001:000026e4       ??_C@_0M@DEGMAMMN@greaterThan?$AA@ 100036e4     glsl_core:astbuiltin.obj
+ 0001:000026f0       ??_C@_0BB@OGCPNFND@greaterThanEqual?$AA@ 100036f0     glsl_core:astbuiltin.obj
+ 0001:00002704       ??_C@_05OAKNMNI@equal?$AA@ 10003704     glsl_core:astbuiltin.obj
+ 0001:0000270c       ??_C@_01EANLCPLP@y?$AA@    1000370c     glsl_core:astbuiltin.obj
+ 0001:00002710       ??_C@_08NLCAHAPK@notEqual?$AA@ 10003710     glsl_core:astbuiltin.obj
+ 0001:0000271c       ??_C@_03OBJFJEBA@any?$AA@  1000371c     glsl_core:astbuiltin.obj
+ 0001:00002720       ??_C@_03NFKEKGGK@all?$AA@  10003720     glsl_core:astbuiltin.obj
+ 0001:00002724       ??_C@_01FJMABOPO@x?$AA@    10003724     glsl_core:astbuiltin.obj
+ 0001:00002728       ??_C@_03NJKJADM@not?$AA@   10003728     glsl_core:astbuiltin.obj
+ 0001:0000272c       ??_C@_09PFEOJLIO@texture2D?$AA@ 1000372c     glsl_core:astbuiltin.obj
+ 0001:00002738       ??_C@_05OOJODGPM@coord?$AA@ 10003738     glsl_core:astbuiltin.obj
+ 0001:00002740       ??_C@_07PKJOFHPL@sampler?$AA@ 10003740     glsl_core:astbuiltin.obj
+ 0001:00002748       ??_C@_0O@HKFBFKON@texture2DProj?$AA@ 10003748     glsl_core:astbuiltin.obj
+ 0001:00002758       ??_C@_0O@MPCJJLAI@gl_PointCoord?$AA@ 10003758     glsl_core:astbuiltin.obj
+ 0001:00002768       ??_C@_04EHDLHMJM@near?$AA@ 10003768     glsl_core:astbuiltin.obj
+ 0001:00002770       ??_C@_03JEOKDCFP@far?$AA@  10003770     glsl_core:astbuiltin.obj
+ 0001:00002774       ??_C@_04GMLMBKFF@diff?$AA@ 10003774     glsl_core:astbuiltin.obj
+ 0001:0000277c       ??_C@_0BI@JFLJOAEC@gl_DepthRangeParameters?$AA@ 1000377c     glsl_core:astbuiltin.obj
+ 0001:00002794       ??_C@_0BE@BHIOMCCI@gl_MaxVertexAttribs?$AA@ 10003794     glsl_core:astbuiltin.obj
+ 0001:000027a8       ??_C@_0BI@PMNFBNJJ@gl_MaxTextureImageUnits?$AA@ 100037a8     glsl_core:astbuiltin.obj
+ 0001:000027c0       ??_C@_0BC@IEPLMJCD@gl_MaxDrawBuffers?$AA@ 100037c0     glsl_core:astbuiltin.obj
+ 0001:000027d4       ??_C@_0BO@EAEBIDML@gl_MaxVertexTextureImageUnits?$AA@ 100037d4     glsl_core:astbuiltin.obj
+ 0001:000027f4       ??_C@_0CA@BPGFIHPG@gl_MaxCombinedTextureImageUnits?$AA@ 100037f4     glsl_core:astbuiltin.obj
+ 0001:00002814       ??_C@_0BL@LGAKKEID@gl_MaxVertexUniformVectors?$AA@ 10003814     glsl_core:astbuiltin.obj
+ 0001:00002830       ??_C@_0BF@LOFKNIAP@gl_MaxVaryingVectors?$AA@ 10003830     glsl_core:astbuiltin.obj
+ 0001:00002848       ??_C@_0BN@DEMFANDN@gl_MaxFragmentUniformVectors?$AA@ 10003848     glsl_core:astbuiltin.obj
+ 0001:00002868       ??_C@_0O@EHLCMLBL@gl_DepthRange?$AA@ 10003868     glsl_core:astbuiltin.obj
+ 0001:00002878       ??_C@_0N@OHGIGEGG@gl_FragColor?$AA@ 10003878     glsl_core:astbuiltin.obj
+ 0001:00002888       ??_C@_0M@LAALAFHL@gl_FragData?$AA@ 10003888     glsl_core:astbuiltin.obj
+ 0001:00002894       ??_C@_0M@LBFKDGNK@gl_Position?$AA@ 10003894     glsl_core:astbuiltin.obj
+ 0001:000028a0       ??_C@_0DJ@NECEFEFE@ASTBIResetBuiltInData?3?5Failed?5to@ 100038a0     glsl_core:astbuiltin.obj
+ 0001:000028dc       guSupportedGLSLVersions    100038dc     glsl_core:prepro.obj
+ 0001:000028e0       ??_C@_0CC@KGJBNJBG@?8defined?8?5?3?5expected?5define?5name@ 100038e0     glsl_core:prepro.obj
+ 0001:00002904       ??_C@_0CE@EJBLHJEA@?8defined?8?5?3?5expected?5right?5brack@ 10003904     glsl_core:prepro.obj
+ 0001:00002928       ??_C@_0BP@CGAKPJI@?8?$CFs?8?5?3?5Too?5few?5args?5for?5macro?6?$AA@ 10003928     glsl_core:prepro.obj
+ 0001:00002948       ??_C@_0CC@JCKNBEKC@?8?$CFs?8?5?3?5Expected?5comma?5or?5bracket@ 10003948     glsl_core:prepro.obj
+ 0001:0000296c       ??_C@_0CA@LPFIOHMP@?8?$CFs?8?5?3?5Too?5many?5args?5for?5macro?6?$AA@ 1000396c     glsl_core:prepro.obj
+ 0001:0000298c       ??_C@_0BO@KKPIBFCF@?8?$CFs?8?5?3?5Missing?5right?5bracket?6?$AA@ 1000398c     glsl_core:prepro.obj
+ 0001:000029ac       ??_C@_0CB@GKCLFFFI@?8?$CFs?8?5?3?5Expected?5macro?5parameter?6@ 100039ac     glsl_core:prepro.obj
+ 0001:000029d0       ??_C@_07MJAJDDLG@defined?$AA@ 100039d0     glsl_core:prepro.obj
+ 0001:000029d8       ??_C@_0FO@GLAIKPHH@c?3?2data?2jatin?2powervr_build?2ddk1@ 100039d8     glsl_core:prepro.obj
+ 0001:00002a38       ??_C@_0BM@DEGLEPEH@Syntax?5error?0?5expected?5?8?$CJ?8?6?$AA@ 10003a38     glsl_core:prepro.obj
+ 0001:00002a54       ??_C@_0CD@GKAKFNBE@Syntax?5error?5?$CIadding?5node?5failed@ 10003a54     glsl_core:prepro.obj
+ 0001:00002a78       ??_C@_0BP@NGAMDKGO@Syntax?5error?0?5unexpected?5?8?$CFs?8?6?$AA@ 10003a78     glsl_core:prepro.obj
+ 0001:00002a98       ??_C@_0BO@DLAFAMIF@Syntax?5error?0?5unexpected?5?8?$CJ?8?6?$AA@ 10003a98     glsl_core:prepro.obj
+ 0001:00002ab8       ??_C@_0O@JJFGCDGG@Syntax?5error?6?$AA@ 10003ab8     glsl_core:prepro.obj
+ 0001:00002ac8       ??_C@_0BC@DJBPABGL@Syntax?5error?5?$CI3?$CJ?6?$AA@ 10003ac8     glsl_core:prepro.obj
+ 0001:00002adc       ??_C@_0BA@JNEPDCCE@Child?5was?5?8?$CFs?8?6?$AA@ 10003adc     glsl_core:prepro.obj
+ 0001:00002aec       ??_C@_0BC@IBKDGGAO@Syntax?5error?5?$CI2?$CJ?6?$AA@ 10003aec     glsl_core:prepro.obj
+ 0001:00002b00       ??_C@_0CD@HCBNCNFN@Max?5number?5of?5nested?5?$CDif?8s?5is?525@ 10003b00     glsl_core:prepro.obj
+ 0001:00002b24       ??_C@_0CF@KPOHIJFF@invalid?5integer?5constant?5express@ 10003b24     glsl_core:prepro.obj
+ 0001:00002b4c       ??_C@_0CC@GKPFBPGO@?8?8?5?3?5syntax?5error?5?$CDelif?5mismatch@ 10003b4c     glsl_core:prepro.obj
+ 0001:00002b70       ??_C@_0CH@MFAFPAKL@?8?8?5?3?5syntax?5error?5?$CDelse?5after?5a?5@ 10003b70     glsl_core:prepro.obj
+ 0001:00002b98       ??_C@_0CC@JDDDANGC@?8?8?5?3?5syntax?5error?5?$CDelse?5mismatch@ 10003b98     glsl_core:prepro.obj
+ 0001:00002bbc       ??_C@_0DL@KPBHBIBO@Syntax?5error?0?5?$CDif?$FLn?$FNdef?5expected@ 10003bbc     glsl_core:prepro.obj
+ 0001:00002bf8       ??_C@_0DA@CMGMBEJC@Syntax?5error?0?5?$CDif?$FLn?$FNdef?5expected@ 10003bf8     glsl_core:prepro.obj
+ 0001:00002c28       ??_C@_0BP@GBGBLHBE@Syntax?5error?0?5?$CDendif?5mismatch?6?$AA@ 10003c28     glsl_core:prepro.obj
+ 0001:00002c48       ??_C@_03OFAPEBGM@?$CFs?6?$AA@ 10003c48     glsl_core:prepro.obj
+ 0001:00002c4c       ??_C@_0BN@KIPMODCH@?8?8?5?3?5syntax?5error?5?$CI2?$CJ?5?$CDline?6?$AA@ 10003c4c     glsl_core:prepro.obj
+ 0001:00002c6c       ??_C@_0BN@EDMLFICE@?8?8?5?3?5syntax?5error?5?$CI1?$CJ?5?$CDline?6?$AA@ 10003c6c     glsl_core:prepro.obj
+ 0001:00002c8c       ??_C@_0BN@KMAJDDBK@?8?8?5?3?5syntax?5error?5?$CI0?$CJ?5?$CDline?6?$AA@ 10003c8c     glsl_core:prepro.obj
+ 0001:00002cac       ??_C@_0BP@PBODAIDK@?8?8?5?3?5syntax?5error?5?$CDpragma?5?$CI1?$CJ?6?$AA@ 10003cac     glsl_core:prepro.obj
+ 0001:00002ccc       ??_C@_0BP@HOIBJPGN@?8?8?5?3?5syntax?5error?5?$CDpragma?5?$CI5?$CJ?6?$AA@ 10003ccc     glsl_core:prepro.obj
+ 0001:00002cec       ??_C@_03MCADLMAF@off?$AA@  10003cec     glsl_core:prepro.obj
+ 0001:00002cf0       ??_C@_02LIELOMNJ@on?$AA@   10003cf0     glsl_core:prepro.obj
+ 0001:00002cf4       ??_C@_0BP@ODFGKHNE@?8?8?5?3?5syntax?5error?5?$CDpragma?5?$CI2?$CJ?6?$AA@ 10003cf4     glsl_core:prepro.obj
+ 0001:00002d14       ??_C@_0BP@FLOKMALB@?8?8?5?3?5syntax?5error?5?$CDpragma?5?$CI3?$CJ?6?$AA@ 10003d14     glsl_core:prepro.obj
+ 0001:00002d34       ??_C@_0BP@MGDNPIAI@?8?8?5?3?5syntax?5error?5?$CDpragma?5?$CI4?$CJ?6?$AA@ 10003d34     glsl_core:prepro.obj
+ 0001:00002d54       ??_C@_09LKJAEOAL@invariant?$AA@ 10003d54     glsl_core:prepro.obj
+ 0001:00002d60       ??_C@_05DENLBJCI@STDGL?$AA@ 10003d60     glsl_core:prepro.obj
+ 0001:00002d68       ??_C@_05GFCDIDHO@debug?$AA@ 10003d68     glsl_core:prepro.obj
+ 0001:00002d70       ??_C@_08GHMAOHAP@optimize?$AA@ 10003d70     glsl_core:prepro.obj
+ 0001:00002d7c       ??_C@_0CA@EEONNNLN@?8?$CFs?8?5?3?5Expected?5macro?5argument?6?$AA@ 10003d7c     glsl_core:prepro.obj
+ 0001:00002d9c       ??_C@_0CH@BHFFCOAB@Syntax?5error?0?5?8?$CFs?8?5macro?5redefin@ 10003d9c     glsl_core:prepro.obj
+ 0001:00002dc8       ??_C@_0EK@FBBHFMHJ@Syntax?5error?0?5cannot?5?$CDdefine?5?$CFs?0@ 10003dc8     glsl_core:prepro.obj
+ 0001:00002e14       ??_C@_02FKHNAOPL@__?$AA@   10003e14     glsl_core:prepro.obj
+ 0001:00002e18       ??_C@_0EL@LFKEIEFK@Syntax?5error?0?5cannot?5?$CDdefine?5?$CFs?0@ 10003e18     glsl_core:prepro.obj
+ 0001:00002e64       ??_C@_03JMNLHFFI@GL_?$AA@  10003e64     glsl_core:prepro.obj
+ 0001:00002e68       ??_C@_0CI@IJIPBHKF@Syntax?5error?0?5invalid?5name?5for?5?$CD@ 10003e68     glsl_core:prepro.obj
+ 0001:00002e90       ??_C@_0DC@OPENOEK@Syntax?5error?0?5no?5parameter?5speci@ 10003e90     glsl_core:prepro.obj
+ 0001:00002ec8       ??_C@_0EJ@BKPGFLAN@Syntax?5error?0?5cannot?5?$CDundef?5?$CFs?0?5@ 10003ec8     glsl_core:prepro.obj
+ 0001:00002f18       ??_C@_0EK@OCIHNAHI@Syntax?5error?0?5cannot?5?$CDundef?5?$CFs?0?5@ 10003f18     glsl_core:prepro.obj
+ 0001:00002f64       ??_C@_0CH@MLOHABDG@Syntax?5error?0?5invalid?5name?5for?5?$CD@ 10003f64     glsl_core:prepro.obj
+ 0001:00002f8c       ??_C@_0DB@LIINDMKH@Syntax?5error?0?5no?5parameter?5speci@ 10003f8c     glsl_core:prepro.obj
+ 0001:00002fc0       ??_C@_0CN@OPCCPMJP@Syntax?5error?0?5GLSL?5Version?5?$CFu?5no@ 10003fc0     glsl_core:prepro.obj
+ 0001:00002ff0       ??_C@_0DH@IBPICOMB@Syntax?5error?0?5invalid?5parameter?5@ 10003ff0     glsl_core:prepro.obj
+ 0001:00003028       ??_C@_0DD@ENEBBIIF@Syntax?5error?0?5no?5parameter?5speci@ 10004028     glsl_core:prepro.obj
+ 0001:0000305c       ??_C@_0DP@LOEJHIFO@?$CDversion?5must?5occur?5before?5any?5o@ 1000405c     glsl_core:prepro.obj
+ 0001:0000309c       ??_C@_0BK@LMMLPLHH@GL_EXT_shader_texture_lod?$AA@ 1000409c     glsl_core:prepro.obj
+ 0001:000030b8       ??_C@_0BH@BIPDNBHG@GL_IMG_texture_stream2?$AA@ 100040b8     glsl_core:prepro.obj
+ 0001:000030d0       ??_C@_0BM@PDHDFJJA@GL_OES_standard_derivatives?$AA@ 100040d0     glsl_core:prepro.obj
+ 0001:000030ec       ??_C@_0BG@MLPOBCKO@GL_OES_standard_noise?$AA@ 100040ec     glsl_core:prepro.obj
+ 0001:00003104       ??_C@_0BC@HOAGCCFG@GL_OES_texture_3D?$AA@ 10004104     glsl_core:prepro.obj
+ 0001:00003118       ??_C@_0CE@OPJBKFOM@?8?8?5?3?5?5extension?5name?5not?5specifi@ 10004118     glsl_core:prepro.obj
+ 0001:0000313c       ??_C@_0CI@GHIJPKCB@?8?8?5?3?5?5?8?3?8?5missing?5after?5extensio@ 1000413c     glsl_core:prepro.obj
+ 0001:00003164       ??_C@_0CN@PKNKALFI@?8?8?5?3?5?5behaviour?5for?5extension?5no@ 10004164     glsl_core:prepro.obj
+ 0001:00003194       ??_C@_0CH@PIOIPIG@?8?8?5?3?5?5behaviour?5?8?$CFs?8?5is?5not?5supp@ 10004194     glsl_core:prepro.obj
+ 0001:000031bc       ??_C@_07DBNODEFN@disable?$AA@ 100041bc     glsl_core:prepro.obj
+ 0001:000031c4       ??_C@_04FNLOFOEM@warn?$AA@ 100041c4     glsl_core:prepro.obj
+ 0001:000031d0       ??_C@_0EC@FNDPJJJD@?8?8?5?3?5extension?5?8all?8?5cannot?5have@ 100041d0     glsl_core:prepro.obj
+ 0001:00003214       ??_C@_06OFNJOBDK@enable?$AA@ 10004214     glsl_core:prepro.obj
+ 0001:0000321c       ??_C@_0BM@DLKHKEPF@Extension?5?$CFs?5not?5supported?6?$AA@ 1000421c     glsl_core:prepro.obj
+ 0001:00003238       ??_C@_07FFLLPPLH@require?$AA@ 10004238     glsl_core:prepro.obj
+ 0001:00003240       ??_C@_07CPCPJPKL@version?$AA@ 10004240     glsl_core:prepro.obj
+ 0001:00003248       ??_C@_09ODADEDNA@extension?$AA@ 10004248     glsl_core:prepro.obj
+ 0001:00003254       ??_C@_06PGFLMPLC@pragma?$AA@ 10004254     glsl_core:prepro.obj
+ 0001:0000325c       ??_C@_04HJPCFDOP@line?$AA@ 1000425c     glsl_core:prepro.obj
+ 0001:00003264       ??_C@_05KKCIMGE@error?$AA@ 10004264     glsl_core:prepro.obj
+ 0001:0000326c       ??_C@_05PKCPKOLM@undef?$AA@ 1000426c     glsl_core:prepro.obj
+ 0001:00003274       ??_C@_06EPMMJFDC@define?$AA@ 10004274     glsl_core:prepro.obj
+ 0001:0000327c       ??_C@_05PAODFFED@endif?$AA@ 1000427c     glsl_core:prepro.obj
+ 0001:00003284       ??_C@_04GNFOIEOK@elif?$AA@ 10004284     glsl_core:prepro.obj
+ 0001:0000328c       ??_C@_06ENONKJGC@ifndef?$AA@ 1000428c     glsl_core:prepro.obj
+ 0001:00003294       ??_C@_05LOELCHJN@ifdef?$AA@ 10004294     glsl_core:prepro.obj
+ 0001:0000329c       ??_C@_04FHMCPBIP@else?$AA@ 1000429c     glsl_core:prepro.obj
+ 0001:000032a4       ??_C@_02HEBPBKGD@if?$AA@   100042a4     glsl_core:prepro.obj
+ 0001:000032a8       ??_C@_0BK@GJEIJPFO@?8?8?5?3?5?5?5Invalid?5directive?6?$AA@ 100042a8     glsl_core:prepro.obj
+ 0001:000032c4       ??_C@_0BN@FIDJAKIO@?8?8?5?3?5?5?5Invalid?5directive?5?$CFs?6?$AA@ 100042c4     glsl_core:prepro.obj
+ 0001:000032e4       ??_C@_0P@BBCFBFHE@?$CDdefine?5?$CFs?5?$CFs?6?$AA@ 100042e4     glsl_core:prepro.obj
+ 0001:000032f4       ??_C@_0DH@OOJOKFBO@Premature?5end?5of?5source?$DL?5preproc@ 100042f4     glsl_core:prepro.obj
+ 0001:0000332c       ??_C@_0M@NHEOPBPN@__VERSION__?$AA@ 1000432c     glsl_core:prepro.obj
+ 0001:00003338       ??_C@_08FMJNKKCK@__FILE__?$AA@ 10004338     glsl_core:prepro.obj
+ 0001:00003344       ??_C@_02GMHACPFF@?$CFu?$AA@ 10004344     glsl_core:prepro.obj
+ 0001:00003348       ??_C@_08ICCNKGAE@__LINE__?$AA@ 10004348     glsl_core:prepro.obj
+ 0001:00003354       ??_C@_05LFMKIPII@GL_ES?$AA@ 10004354     glsl_core:prepro.obj
+ 0001:0000335c       ??_C@_0BL@MEHCMLOH@GL_FRAGMENT_PRECISION_HIGH?$AA@ 1000435c     glsl_core:prepro.obj
+ 0001:00003378       ??_C@_01HIHLOKLC@1?$AA@    10004378     glsl_core:prepro.obj
+ 0001:0000337c       ??_C@_0BD@JNHPGIN@Preprocessor?5state?$AA@ 1000437c     glsl_core:prepro.obj
+ 0001:00003390       ??_C@_0CA@BNCEOFOD@?$CFsrequires?5language?5version?5?$CFu?6?$AA@ 10004390     glsl_core:glsltree.obj
+ 0001:000033b0       ??_C@_01CLKCMJKC@?5?$AA@   100043b0     glsl_core:glsltree.obj
+ 0001:000033b4       ??_C@_07BGPGDKED@?8?$CFs?8?5?3?5?$AA@ 100043b4     glsl_core:glsltree.obj
+ 0001:000033c0       ??_C@_0EG@KKDFLBAM@samplerExternalOES?5requires?5the?5@ 100043c0     glsl_core:glsltree.obj
+ 0001:00003408       ??_C@_0DF@OHKGDFCN@sampler3D?5requires?5the?5extension@ 10004408     glsl_core:glsltree.obj
+ 0001:00003440       ??_C@_0GA@MGKAAELJ@c?3?2data?2jatin?2powervr_build?2ddk1@ 10004440     glsl_core:glsltree.obj
+ 0001:000034a0       ??_C@_0M@GPJHHEN@prec_mod?$EA?$CFs?$AA@ 100044a0     glsl_core:glsltree.obj
+ 0001:000034ac       ??_C@_0BN@PFCALEBB@?8?$CFs?8?5?3?5undeclared?5identifer?6?$AA@ 100044ac     glsl_core:glsltree.obj
+ 0001:000034cc       ??_C@_0BC@BMKFIMFD@suffix?5for?5floats?$AA@ 100044cc     glsl_core:glsltree.obj
+ 0001:000034e0       ??_C@_0CO@OEODLIAF@?8?$CFs?8?5?3?5no?5matching?5overloaded?5fu@ 100044e0     glsl_core:glsltree.obj
+ 0001:00003510       ??_C@_0DL@GAGGKDE@Invalid?5call?5to?5function?5?$CFs?3?5ext@ 10004510     glsl_core:glsltree.obj
+ 0001:0000354c       ??_C@_0BH@BJBEJEFG@EXT_texture_shader_lod?$AA@ 1000454c     glsl_core:glsltree.obj
+ 0001:00003564       ??_C@_0BE@MKEJKJNF@IMG_texture_stream2?$AA@ 10004564     glsl_core:glsltree.obj
+ 0001:00003578       ??_C@_0BD@HMADEMII@OES_standard_noise?$AA@ 10004578     glsl_core:glsltree.obj
+ 0001:0000358c       ??_C@_0BJ@BBLIOIPO@OES_standard_derivatives?$AA@ 1000458c     glsl_core:glsltree.obj
+ 0001:000035a8       ??_C@_0JK@IAGAKDJC@?8?$CFs?8?5?3?5more?5than?5one?5function?5ma@ 100045a8     glsl_core:glsltree.obj
+ 0001:00003644       ??_C@_0DI@FBAOMKMA@?8?$CFs?8?5?3?5expected?5formal?5parameter@ 10004644     glsl_core:glsltree.obj
+ 0001:0000367c       ??_C@_0CE@FEHIBDDG@?8?$CFs?8?5?3?5function?5already?5has?5a?5bo@ 1000467c     glsl_core:glsltree.obj
+ 0001:000036a0       ??_C@_0EA@EHOOEHJF@?8?$CFs?8?5?3?5overloaded?5functions?5must@ 100046a0     glsl_core:glsltree.obj
+ 0001:000036e0       ??_C@_0EF@IPIFIILD@?8?$CFs?8?5?3?5overloaded?5functions?5must@ 100046e0     glsl_core:glsltree.obj
+ 0001:00003728       ??_C@_0DL@BCPLAMHH@?8?$CFs?8?5?3?5overloaded?5function?5must?5@ 10004728     glsl_core:glsltree.obj
+ 0001:00003764       ??_C@_0DM@NFAOPOPI@?8?$CFs?8?5?3?5overloaded?5functions?5must@ 10004764     glsl_core:glsltree.obj
+ 0001:000037a0       ??_C@_0CN@ONFDOADB@?8?$CFs?8?5?3?5?5main?5function?5cannot?5ret@ 100047a0     glsl_core:glsltree.obj
+ 0001:000037d0       ??_C@_0CO@DANJKBKG@?8?$CFs?8?5?3?5function?5cannot?5take?5any?5@ 100047d0     glsl_core:glsltree.obj
+ 0001:00003800       ??_C@_04GHJNJNPO@main?$AA@ 10004800     glsl_core:glsltree.obj
+ 0001:00003808       ??_C@_09EALEHKDP@_?$EAswizzle?$AA@ 10004808     glsl_core:glsltree.obj
+ 0001:00003814       ??_C@_0DO@GGEOHJHJ@?8?$CFs?8?5?3?5vector?5field?5components?5d@ 10004814     glsl_core:glsltree.obj
+ 0001:00003854       ??_C@_0CH@HBLJCFGF@?8?$CFs?8?5?3?5illegal?5vector?5field?5sele@ 10004854     glsl_core:glsltree.obj
+ 0001:0000387c       ??_C@_0N@LGCNPFJO@struct_?$CFs?$EA?$CFs?$AA@ 1000487c     glsl_core:glsltree.obj
+ 0001:0000388c       ??_C@_0CD@FEPDOILB@?8?$CFs?8?5?3?5no?5such?5field?5in?5structur@ 1000488c     glsl_core:glsltree.obj
+ 0001:000038b0       ??_C@_0FA@IMJOPAMG@?8?$CFs?8?5?3?5field?5selection?5requires?5@ 100048b0     glsl_core:glsltree.obj
+ 0001:00003900       ??_C@_0CM@GMGAPJE@?8?$CFs?8?5?3?5only?5varyings?5can?5be?5made@ 10004900     glsl_core:glsltree.obj
+ 0001:00003930       ??_C@_0EB@FPLDGAMG@?8?$CFs?8?5?3?5invariant?5status?5can?5only@ 10004930     glsl_core:glsltree.obj
+ 0001:00003974       ??_C@_0DK@POLMABBI@Function?5call?5depth?5?$DO?51024?5detec@ 10004974     glsl_core:glsltree.obj
+ 0001:000039b0       ??_C@_0BM@PKEIGAJI@Function?5?8?$CFs?8?5has?5no?5body?4?6?$AA@ 100049b0     glsl_core:glsltree.obj
+ 0001:000039cc       ??_C@_0BN@EKNNMDAK@main?$CI?$CJ?5function?5is?5missing?4?6?$AA@ 100049cc     glsl_core:glsltree.obj
+ 0001:000039f0       ??_C@_0ED@HBLOLBFI@gl_Position?5must?5be?5written?5by?5a@ 100049f0     glsl_core:glsltree.obj
+ 0001:00003a7c       __real@40000000            10004a7c     glsl_core:glslfns.obj
+ 0001:00003a80       __real@42652ee0            10004a80     glsl_core:glslfns.obj
+ 0001:00003a84       __real@3c8efa35            10004a84     glsl_core:glslfns.obj
+ 0001:00003a88       ??_C@_0M@HPLKLBCA@1?47?417?44352?$AA@ 10004a88     glsl_binshader:esbinshader.obj
+ 0001:00007f20       ??_C@_0O@FEHBKOKI@glsl_parser?4y?$AA@ 10008f20     glsl_parser:glsl_parser.tab.obj
+ 0001:00007f30       ??_C@_0BG@DGOKCLLK@?8?$CFs?8?5?3?5syntax?5error?$DL?6?$AA@ 10008f30     glsl_parser:glsl_parser.tab.obj
+ 0001:00007f48       ??_C@_0CA@HKJBOAOI@Unexpected?5end?5of?5source?5found?6?$AA@ 10008f48     glsl_parser:glsl_parser.tab.obj
+ 0001:00007f68       ??_C@_0DJ@DBGDKEFE@?8?$CFs?8?5?3?5samplers?5must?5be?5uniform?5@ 10008f68     glsl_parser:glsl_parser.tab.obj
+ 0001:00007fa4       ??_C@_0CL@KIIMFJCA@?8?$CFs?8?5?3?5No?5precision?5defined?5for?5@ 10008fa4     glsl_parser:glsl_parser.tab.obj
+ 0001:00007fd0       ??_C@_0CK@GKAFBAFJ@?8?$CFs?8?5?3?5Precision?5not?5valid?5for?5t@ 10008fd0     glsl_parser:glsl_parser.tab.obj
+ 0001:00007ffc       ??_C@_0CE@PMKGJOAO@?8?$FL?$FN?8?5?3?5array?5size?5must?5be?5declar@ 10008ffc     glsl_parser:glsl_parser.tab.obj
+ 0001:00008020       ??_C@_0CH@NJDKMFMB@array?5size?5must?5be?5a?5positive?5in@ 10009020     glsl_parser:glsl_parser.tab.obj
+ 0001:00008048       ??_C@_0CO@BGIDIOLP@?8?$CFs?8?5?3?5array?5size?5must?5be?5a?5posi@ 10009048     glsl_parser:glsl_parser.tab.obj
+ 0001:00008078       ??_C@_0CP@JKBBBOPM@?8?$CFs?8?5?3?5Multi?5dimensional?5arrays?5@ 10009078     glsl_parser:glsl_parser.tab.obj
+ 0001:000080a8       ??_C@_0EO@FFIINGPK@?8?$CFs?5?$CFs?8?5?3?5cannot?5declare?5arrays?5@ 100090a8     glsl_parser:glsl_parser.tab.obj
+ 0001:000080f8       ??_C@_0FA@CJNFDNFB@?8?$CFs?8?5?3?5Instances?5of?5structures?5c@ 100090f8     glsl_parser:glsl_parser.tab.obj
+ 0001:00008148       ??_C@_0DN@CADEFAIB@?8?$CFs?8?5?3?5variables?5with?5qualifier?5@ 10009148     glsl_parser:glsl_parser.tab.obj
+ 0001:00008188       ??_C@_0EB@DOMKMCDB@?8?$CFs?8?5?3?5cannot?5initialise?5arrays?5@ 10009188     glsl_parser:glsl_parser.tab.obj
+ 0001:000081cc       ??_C@_0CK@BBJNPKFJ@?8const?8?5?3?5qualifier?5not?5allowed?5@ 100091cc     glsl_parser:glsl_parser.tab.obj
+ 0001:000081f8       ??_C@_0CM@LBKLBFLP@?8const?8?5?3?5qualifier?5not?5allowed?5@ 100091f8     glsl_parser:glsl_parser.tab.obj
+ 0001:00008224       ??_C@_0DJ@ECIMHPED@?8void?8?5?3?5cannot?5be?5an?5argument?5t@ 10009224     glsl_parser:glsl_parser.tab.obj
+ 0001:00008260       ??_C@_0BB@IJMKJPOK@memory?5exhausted?$AA@ 10009260     glsl_parser:glsl_parser.tab.obj
+ 0001:00008274       ??_C@_0CJ@NOLGEFIO@?8?$CFs?8?5?3?5function?5does?5not?5return?5@ 10009274     glsl_parser:glsl_parser.tab.obj
+ 0001:000082a0       ??_C@_0CL@OFJKFHNC@?8break?8?5?3?5statement?5only?5allowed@ 100092a0     glsl_parser:glsl_parser.tab.obj
+ 0001:000082cc       ??_C@_0CO@PFCGAGEH@?8continue?8?5?3?5statement?5only?5allo@ 100092cc     glsl_parser:glsl_parser.tab.obj
+ 0001:000082fc       ??_C@_0BB@OMHHLOKN@UnnamedStruct?$EA?$CFu?$AA@ 100092fc     glsl_parser:glsl_parser.tab.obj
+ 0001:00008310       ??_C@_09HJGOLHNF@precision?$AA@ 10009310     glsl_parser:glsl_parser.tab.obj
+ 0001:0000831c       ??_C@_0N@ELIDAMNI@array?5syntax?$AA@ 1000931c     glsl_parser:glsl_parser.tab.obj
+ 0001:0000832c       ??_C@_0BO@MCHGFDAD@?8?$CFs?8?5?3?5undeclared?5identifier?6?$AA@ 1000932c     glsl_parser:glsl_parser.tab.obj
+ 0001:0000834c       ??_C@_0BN@DNFFKEGM@shader?5in?5?$CG?5out?5declarations?$AA@ 1000934c     glsl_parser:glsl_parser.tab.obj
+ 0001:0000836c       ??_C@_0BJ@OEKBCBEL@interpolation?5qualifiers?$AA@ 1000936c     glsl_parser:glsl_parser.tab.obj
+ 0001:00008388       ??_C@_08JOJIKHG@centroid?$AA@ 10009388     glsl_parser:glsl_parser.tab.obj
+ 0001:00008394       ??_C@_0DN@GEDDJMFP@?8?$CFs?8?5?3?5non?5varyings?5cannot?5have?5@ 10009394     glsl_parser:glsl_parser.tab.obj
+ 0001:000083d8       ??_C@_0EK@NNILFADL@?8?$CFs?8?5?3?5default?5precision?5modifie@ 100093d8     glsl_parser:glsl_parser.tab.obj
+ 0001:00008424       ??_C@_0BB@OIDAKBBK@modulus?5operator?$AA@ 10009424     glsl_parser:glsl_parser.tab.obj
+ 0001:00008438       ??_C@_0BC@CBBBIGCN@bitwise?5operators?$AA@ 10009438     glsl_parser:glsl_parser.tab.obj
+ 0001:0000844c       ??_C@_0BD@HGJHFDNH@array?5constructors?$AA@ 1000944c     glsl_parser:glsl_parser.tab.obj
+ 0001:00008460       ??_C@_0DK@NKMODJLF@?8?$CFs?8?5?3?5cannot?5pass?5array?5of?5unde@ 10009460     glsl_parser:glsl_parser.tab.obj
+ 0001:0000849c       ??_C@_0N@MNJHOOI@syntax?5error?$AA@ 1000949c     glsl_parser:glsl_parser.tab.obj
+ 0001:000084ac       ??_C@_05IFHLPLPC@using?$AA@ 100094ac     glsl_parser:lex.obj
+ 0001:000084b4       ??_C@_09KPMGAFNI@namespace?$AA@ 100094b4     glsl_parser:lex.obj
+ 0001:000084c0       ??_C@_04HJDBPPOC@cast?$AA@ 100094c0     glsl_parser:lex.obj
+ 0001:000084c8       ??_C@_06FPFOALMG@sizeof?$AA@ 100094c8     glsl_parser:lex.obj
+ 0001:000084d0       ??_C@_0BE@HDPBANEK@sampler2DRectShadow?$AA@ 100094d0     glsl_parser:lex.obj
+ 0001:000084e4       ??_C@_0O@FCABDPDE@sampler3DRect?$AA@ 100094e4     glsl_parser:lex.obj
+ 0001:000084f4       ??_C@_0O@PEHGDEIA@sampler2DRect?$AA@ 100094f4     glsl_parser:lex.obj
+ 0001:00008504       ??_C@_0BA@JPCOHDB@sampler2DShadow?$AA@ 10009504     glsl_parser:lex.obj
+ 0001:00008514       ??_C@_0BA@DAHPNLPE@sampler1DShadow?$AA@ 10009514     glsl_parser:lex.obj
+ 0001:00008524       ??_C@_05BLEBCGML@fvec4?$AA@ 10009524     glsl_parser:lex.obj
+ 0001:0000852c       ??_C@_05FEAALAAM@fvec3?$AA@ 1000952c     glsl_parser:lex.obj
+ 0001:00008534       ??_C@_05ENBLIBEN@fvec2?$AA@ 10009534     glsl_parser:lex.obj
+ 0001:0000853c       ??_C@_05FGIJIHMA@dvec4?$AA@ 1000953c     glsl_parser:lex.obj
+ 0001:00008544       ??_C@_05BJMIBBAH@dvec3?$AA@ 10009544     glsl_parser:lex.obj
+ 0001:0000854c       ??_C@_05NDCAEG@dvec2?$AA@  1000954c     glsl_parser:lex.obj
+ 0001:00008554       ??_C@_05CBELEHLL@hvec4?$AA@ 10009554     glsl_parser:lex.obj
+ 0001:0000855c       ??_C@_05GOAKNBHM@hvec3?$AA@ 1000955c     glsl_parser:lex.obj
+ 0001:00008564       ??_C@_05HHBBOADN@hvec2?$AA@ 10009564     glsl_parser:lex.obj
+ 0001:0000856c       ??_C@_06DKIGHACF@output?$AA@ 1000956c     glsl_parser:lex.obj
+ 0001:00008574       ??_C@_05DFJCHPDH@input?$AA@ 10009574     glsl_parser:lex.obj
+ 0001:0000857c       ??_C@_06GJJMFEHD@superp?$AA@ 1000957c     glsl_parser:lex.obj
+ 0001:00008584       ??_C@_08CLLOMHGD@unsigned?$AA@ 10009584     glsl_parser:lex.obj
+ 0001:00008590       ??_C@_05OFLEIIDM@fixed?$AA@ 10009590     glsl_parser:lex.obj
+ 0001:00008598       ??_C@_04GBGPFKGN@half?$AA@ 10009598     glsl_parser:lex.obj
+ 0001:000085a0       ??_C@_06BNJCAIGJ@double?$AA@ 100095a0     glsl_parser:lex.obj
+ 0001:000085a8       ??_C@_05BFKKPKCG@short?$AA@ 100095a8     glsl_parser:lex.obj
+ 0001:000085b0       ??_C@_04GOKPGOLB@long?$AA@ 100095b0     glsl_parser:lex.obj
+ 0001:000085b8       ??_C@_04FMBJNPFB@flat?$AA@ 100095b8     glsl_parser:lex.obj
+ 0001:000085c0       ??_C@_09NFKLEKPH@interface?$AA@ 100095c0     glsl_parser:lex.obj
+ 0001:000085cc       ??_C@_08OIBPHJGN@external?$AA@ 100095cc     glsl_parser:lex.obj
+ 0001:000085d8       ??_C@_06PAMNHHEG@extern?$AA@ 100095d8     glsl_parser:lex.obj
+ 0001:000085e0       ??_C@_06GGHJAEBN@static?$AA@ 100095e0     glsl_parser:lex.obj
+ 0001:000085e8       ??_C@_06EOMAMIIF@public?$AA@ 100095e8     glsl_parser:lex.obj
+ 0001:000085f0       ??_C@_08PABEKFH@volatile?$AA@ 100095f0     glsl_parser:lex.obj
+ 0001:000085fc       ??_C@_08OIGDDPGB@noinline?$AA@ 100095fc     glsl_parser:lex.obj
+ 0001:00008608       ??_C@_06OGMBMJA@inline?$AA@ 10009608     glsl_parser:lex.obj
+ 0001:00008610       ??_C@_07DLHCIBDH@default?$AA@ 10009610     glsl_parser:lex.obj
+ 0001:00008618       ??_C@_06DOPOGBGP@switch?$AA@ 10009618     glsl_parser:lex.obj
+ 0001:00008620       ??_C@_04MABHPDAO@goto?$AA@ 10009620     glsl_parser:lex.obj
+ 0001:00008628       ??_C@_06DAGLPGKC@packed?$AA@ 10009628     glsl_parser:lex.obj
+ 0001:00008630       ??_C@_04IIAJELJL@this?$AA@ 10009630     glsl_parser:lex.obj
+ 0001:00008638       ??_C@_08FJNLKCPH@template?$AA@ 10009638     glsl_parser:lex.obj
+ 0001:00008644       ??_C@_07FIDIHKEG@typedef?$AA@ 10009644     glsl_parser:lex.obj
+ 0001:0000864c       ??_C@_04DBJPMPLO@enum?$AA@ 1000964c     glsl_parser:lex.obj
+ 0001:00008654       ??_C@_05MNALHJLP@union?$AA@ 10009654     glsl_parser:lex.obj
+ 0001:0000865c       ??_C@_05ENKANFLO@class?$AA@ 1000965c     glsl_parser:lex.obj
+ 0001:00008664       ??_C@_03NLMFHDGG@asm?$AA@  10009664     glsl_parser:lex.obj
+ 0001:00008668       ??_C@_0BD@BGIHJAFJ@samplerExternalOES?$AA@ 10009668     glsl_parser:lex.obj
+ 0001:0000867c       ??_C@_0BB@LEFHFFO@samplerStreamIMG?$AA@ 1000967c     glsl_parser:lex.obj
+ 0001:00008690       ??_C@_04DDDHBIAD@mat4?$AA@ 10009690     glsl_parser:lex.obj
+ 0001:00008698       ??_C@_04HMHGIOME@mat3?$AA@ 10009698     glsl_parser:lex.obj
+ 0001:000086a0       ??_C@_04GFGNLPIF@mat2?$AA@ 100096a0     glsl_parser:lex.obj
+ 0001:000086a8       ??_C@_06LNOFJDNM@return?$AA@ 100096a8     glsl_parser:lex.obj
+ 0001:000086b0       ??_C@_07FGAIHHOI@discard?$AA@ 100096b0     glsl_parser:lex.obj
+ 0001:000086b8       ??_C@_05OODBEKIG@while?$AA@ 100096b8     glsl_parser:lex.obj
+ 0001:000086c0       ??_C@_03JOHEBPFF@for?$AA@  100096c0     glsl_parser:lex.obj
+ 0001:000086c4       ??_C@_02KNAFDCHJ@do?$AA@   100096c4     glsl_parser:lex.obj
+ 0001:000086c8       ??_C@_08DLICDMBN@continue?$AA@ 100096c8     glsl_parser:lex.obj
+ 0001:000086d4       ??_C@_05ELPHFHOI@break?$AA@ 100096d4     glsl_parser:lex.obj
+ 0001:000086dc       ??_C@_07EBNAHCGH@varying?$AA@ 100096dc     glsl_parser:lex.obj
+ 0001:000086e4       ??_C@_09HGIEBAJ@attribute?$AA@ 100096e4     glsl_parser:lex.obj
+ 0001:00008994       ??_C@_0CO@FIFCCL@Reached?5end?5of?5GLSL?5source?5insid@ 10009994     glsl_parser:lex.obj
+ 0001:000089c4       ??_C@_0CP@BAHGCENG@?$CFd?3?$CFd?$CFd?5?8?$CFc?8?5is?5an?5invalid?5chara@ 100099c4     glsl_parser:lex.obj
+ 0001:000089f4       ??_C@_0CJ@PKMNFKJG@?$CFd?3?$CFd?3?$CFd?5invalid?5number?5literal?5@ 100099f4     glsl_parser:lex.obj
+ 0001:00008a20       ??_C@_0CB@CLPPICJH@?$CFd?3?$CFd?3?$CFd?5reserved?5keyword?5?8?$CFs?8?4?6@ 10009a20     glsl_parser:lex.obj
+ 0001:00008f68       UFRegATableGetMaxComponent 10009f68 f   ic2uf.obj
+ 0001:0000957c       GetStructAllocInfo         1000a57c f   ic2uf.obj
+ 0001:0000cd3c       DestroyUniFlexCode         1000dd3c f   ic2uf.obj
+ 0001:0000d9f0       GenerateUniPatchInput      1000e9f0 f   ic2uf.obj
+ 0001:00011724       GenerateUniFlexInput       10012724 f   ic2uf.obj
+ 0001:000118b8       GLSLFreeCompiledUniflexProgram 100128b8 f   glsl2uf.obj
+ 0001:00011ab4       GLSLCompileToUniflex       10012ab4 f   glsl2uf.obj
+ 0001:00011c4c       GLSLDisplayMetrics         10012c4c f   glsl2uf.obj
+ 0001:0001256c       GenerateBindingSymbolList  1001356c f   bindingsym.obj
+ 0001:000126b4       DestroyBindingSymbolList   100136b4 f   bindingsym.obj
+ 0001:00012774       InitSymbolTableManager     10013774 f   glsl_parser:symtab.obj
+ 0001:00012794       DestroySymbolTableManager  10013794 f   glsl_parser:symtab.obj
+ 0001:000128bc       RemoveSymbolTableFromManager 100138bc f   glsl_parser:symtab.obj
+ 0001:000128fc       CreateSymTable             100138fc f   glsl_parser:symtab.obj
+ 0001:000129f0       DestroySymTable            100139f0 f   glsl_parser:symtab.obj
+ 0001:00012b3c       FindSymbol                 10013b3c f   glsl_parser:symtab.obj
+ 0001:00012bbc       GetSymbolDatafn            10013bbc f   glsl_parser:symtab.obj
+ 0001:00012d9c       AddSymbol                  10013d9c f   glsl_parser:symtab.obj
+ 0001:00012dd0       RemoveSymbol               10013dd0 f   glsl_parser:symtab.obj
+ 0001:00012e1c       GetSymbolNamefn            10013e1c f   glsl_parser:symtab.obj
+ 0001:00012e44       IncreaseScopeLevel         10013e44 f   glsl_parser:symtab.obj
+ 0001:00012ecc       DecreaseScopeLevel         10013ecc f   glsl_parser:symtab.obj
+ 0001:00012f64       GetScopeLevel              10013f64 f   glsl_parser:symtab.obj
+ 0001:00012f6c       GetSymbolScopeLevelfn      10013f6c f   glsl_parser:symtab.obj
+ 0001:00012f9c       ResetGetNextSymbolCounter  10013f9c f   glsl_parser:symtab.obj
+ 0001:00012fac       GetNextSymbol              10013fac f   glsl_parser:symtab.obj
+ 0001:0001303c       ICAddTemporary             1001403c f   glsl_core:icgen.obj
+ 0001:00013188       ICAddBoolPredicate         10014188 f   glsl_core:icgen.obj
+ 0001:000132ac       ICInitICOperand            100142ac f   glsl_core:icgen.obj
+ 0001:000132e4       ICInitOperandInfo          100142e4 f   glsl_core:icgen.obj
+ 0001:000133fc       ICAddOperandOffset         100143fc f   glsl_core:icgen.obj
+ 0001:00013444       ICFreeOperandOffsetList    10014444 f   glsl_core:icgen.obj
+ 0001:000135f0       ICRemoveInstruction        100145f0 f   glsl_core:icgen.obj
+ 0001:00013614       ICRemoveInstructionRange   10014614 f   glsl_core:icgen.obj
+ 0001:000136b4       ICGetSymbolInformation     100146b4 f   glsl_core:icgen.obj
+ 0001:000137bc       ICGetSymbolFullType        100147bc f   glsl_core:icgen.obj
+ 0001:00013810       ICGetSymbolTypeSpecifier   10014810 f   glsl_core:icgen.obj
+ 0001:00013824       ICGetSymbolPrecision       10014824 f   glsl_core:icgen.obj
+ 0001:00013838       GetIndexedType             10014838 f   glsl_core:icgen.obj
+ 0001:00013970       IsSymbolIntConstant        10014970 f   glsl_core:icgen.obj
+ 0001:00013a08       IsSymbolLValue             10014a08 f   glsl_core:icgen.obj
+ 0001:00013bf0       CloneICodeInstructions     10014bf0 f   glsl_core:icgen.obj
+ 0001:00013d60       ICAddICInstruction0        10014d60 f   glsl_core:icgen.obj
+ 0001:00013db4       ICAddICInstruction1        10014db4 f   glsl_core:icgen.obj
+ 0001:00013e18       ICAddICInstruction1a       10014e18 f   glsl_core:icgen.obj
+ 0001:00013e9c       ICAddICInstruction2        10014e9c f   glsl_core:icgen.obj
+ 0001:00013f10       ICAddICInstruction2a       10014f10 f   glsl_core:icgen.obj
+ 0001:00013fa4       ICAddICInstruction2b       10014fa4 f   glsl_core:icgen.obj
+ 0001:00014050       ICAddICInstruction2c       10015050 f   glsl_core:icgen.obj
+ 0001:000140e4       ICAddICInstruction3        100150e4 f   glsl_core:icgen.obj
+ 0001:00014168       ICAddICInstruction3a       10015168 f   glsl_core:icgen.obj
+ 0001:0001420c       ICAddICInstruction3b       1001520c f   glsl_core:icgen.obj
+ 0001:000142c8       ICAddICInstruction3c       100152c8 f   glsl_core:icgen.obj
+ 0001:00014384       ICAddICInstruction3d       10015384 f   glsl_core:icgen.obj
+ 0001:00014458       ICAddICInstruction3e       10015458 f   glsl_core:icgen.obj
+ 0001:00014514       ICAddICInstruction4        10015514 f   glsl_core:icgen.obj
+ 0001:000145a8       ICAddICInstruction         100155a8 f   glsl_core:icgen.obj
+ 0001:00014650       ICAddICInstructiona        10015650 f   glsl_core:icgen.obj
+ 0001:00014718       ICIsSymbolScalar           10015718 f   glsl_core:icgen.obj
+ 0001:00014b18       ICCombineTwoConstantSwizzles 10015b18 f   glsl_core:icgen.obj
+ 0001:00014ba4       ICAdjustOperandLastOffset  10015ba4 f   glsl_core:icgen.obj
+ 0001:00015ac0       ICProcessNodeOperand       10016ac0 f   glsl_core:icgen.obj
+ 0001:00018b8c       ICTraverseAST              10019b8c f   glsl_core:icgen.obj
+ 0001:00018d74       ASTValidateNodeCreationFn  10019d74 f   glsl_core:common.obj
+ 0001:00018d94       ASTCreateNewNodeFn         10019d94 f   glsl_core:common.obj
+ 0001:00018e00       ASTAddNodeChildFn          10019e00 f   glsl_core:common.obj
+ 0001:00019084       AddSwizzleData             1001a084 f   glsl_core:common.obj
+ 0001:000190b8       AddMemberSelectionData     1001a0b8 f   glsl_core:common.obj
+ 0001:000190ec       AddIdentifierDatafn        1001a0ec f   glsl_core:common.obj
+ 0001:00019110       AddParameterDatafn         1001a110 f   glsl_core:common.obj
+ 0001:00019218       AddResultDatafn            1001a218 f   glsl_core:common.obj
+ 0001:0001923c       AddFunctionCallData        1001a23c f   glsl_core:common.obj
+ 0001:000192d0       AddFunctionDefinitionData  1001a2d0 f   glsl_core:common.obj
+ 0001:00019634       AddStructureDefinition     1001a634 f   glsl_core:common.obj
+ 0001:00019aa0       GetSymbolTableDatafn       1001aaa0 f   glsl_core:common.obj
+ 0001:00019b08       GetSymbolInfofn            1001ab08 f   glsl_core:common.obj
+ 0001:00019ed8       AddBuiltInIdentifier       1001aed8 f   glsl_core:common.obj
+ 0001:00019fc4       AddBoolConstant            1001afc4 f   glsl_core:common.obj
+ 0001:0001a0b0       AddIntConstant             1001b0b0 f   glsl_core:common.obj
+ 0001:0001a1e0       AddFloatConstant           1001b1e0 f   glsl_core:common.obj
+ 0001:0001a31c       AddFloatVecConstant        1001b31c f   glsl_core:common.obj
+ 0001:0001a3ac       SetErrorLog                1001b3ac f   glsl_core:error.obj
+ 0001:0001a3c8       FreeErrorLogMessages       1001b3c8 f   glsl_core:error.obj
+ 0001:0001a5b8       LogProgramError            1001b5b8 f   glsl_core:error.obj
+ 0001:0001a5ec       LogProgramWarning          1001b5ec f   glsl_core:error.obj
+ 0001:0001a620       LogProgramNodeError        1001b620 f   glsl_core:error.obj
+ 0001:0001a654       LogProgramNodeWarning      1001b654 f   glsl_core:error.obj
+ 0001:0001a688       LogProgramTokenError       1001b688 f   glsl_core:error.obj
+ 0001:0001a6c0       LogProgramTokenWarning     1001b6c0 f   glsl_core:error.obj
+ 0001:0001a6f8       LogProgramParserError      1001b6f8 f   glsl_core:error.obj
+ 0001:0001b1d0       ICEmulateBIFNtan           1001c1d0 f   glsl_core:icemul.obj
+ 0001:0001bbf4       ICEmulateBIFNArcTrigs      1001cbf4 f   glsl_core:icemul.obj
+ 0001:0001bf94       ICEmulateBIFNpow           1001cf94 f   glsl_core:icemul.obj
+ 0001:0001c0e0       ICEmulateBIFNfract         1001d0e0 f   glsl_core:icemul.obj
+ 0001:0001c1f4       ICEmulateBIFNmod           1001d1f4 f   glsl_core:icemul.obj
+ 0001:0001ccd4       ICEmulateBIFNshadowFunc    1001dcd4 f   glsl_core:icemul.obj
+ 0001:0001d084       ICEmulateBIFNnoise1        1001e084 f   glsl_core:icemul.obj
+ 0001:0001d1a4       ICEmulateBIFNnoise2        1001e1a4 f   glsl_core:icemul.obj
+ 0001:0001d470       ICEmulateBIFNnoise3        1001e470 f   glsl_core:icemul.obj
+ 0001:0001d7f8       ICEmulateBIFNnoise4        1001e7f8 f   glsl_core:icemul.obj
+ 0001:0001dc14       ICAddArcSinCos2FunctionBody 1001ec14 f   glsl_core:icemul.obj
+ 0001:0001e74c       ICAddArcTanFunctionBody    1001f74c f   glsl_core:icemul.obj
+ 0001:0001f1f4       ICAddArcTan2FunctionBody   100201f4 f   glsl_core:icemul.obj
+ 0001:0001fb78       ICAddNoise1DFunctionBody   10020b78 f   glsl_core:icemul.obj
+ 0001:00020254       ICAddNoise2DFunctionBody   10021254 f   glsl_core:icemul.obj
+ 0001:00020c80       ICAddNoise3DFunctionBody   10021c80 f   glsl_core:icemul.obj
+ 0001:000221cc       ICAddNoise4DFunctionBody   100231cc f   glsl_core:icemul.obj
+ 0001:0002434c       ICEmulateTextureProj       1002534c f   glsl_core:icemul.obj
+ 0001:00024710       GLSLFreeBuiltInState       10025710 f   glsl_core:glsl.obj
+ 0001:0002476c       GLSLInitCompiler           1002576c f   glsl_core:glsl.obj
+ 0001:00024860       GLSLShutDownCompiler       10025860 f   glsl_core:glsl.obj
+ 0001:000248c0       GLSLGenerateInfoLog        100258c0 f   glsl_core:glsl.obj
+ 0001:000249e8       GLSLFreeInfoLog            100259e8 f   glsl_core:glsl.obj
+ 0001:00024a04       GLSLCompileToIntermediateCode 10025a04 f   glsl_core:glsl.obj
+ 0001:00024ca0       GLSLFreeIntermediateCode   10025ca0 f   glsl_core:glsl.obj
+ 0001:00025e4c       ICFindBuiltInVariables     10026e4c f   glsl_core:icbuiltin.obj
+ 0001:00027278       ICProcessBuiltInFunctionCall 10028278 f   glsl_core:icbuiltin.obj
+ 0001:00028194       ICUnrollLoopFOR            10029194 f   glsl_core:icunroll.obj
+ 0001:000285e8       ASTSemCreateHashedFunctionName 100295e8 f   glsl_core:semantic.obj
+ 0001:00028748       ASTSemGetSizeInfo          10029748 f   glsl_core:semantic.obj
+ 0001:0002b55c       ASTSemCheckTypeSpecifiersMatch 1002c55c f   glsl_core:semantic.obj
+ 0001:0002b844       ASTSemGetArraySize         1002c844 f   glsl_core:semantic.obj
+ 0001:0002bf20       ASTUpdateConditionalIdentifierUsage 1002cf20 f   glsl_core:semantic.obj
+ 0001:0002c644       ASTSemAddIdentifierToSymbolTable 1002d644 f   glsl_core:semantic.obj
+ 0001:0002d4fc       ASTSemCheckTypesAndCalculateResult 1002e4fc f   glsl_core:semantic.obj
+ 0001:000300d8       ASTBIAddBuiltInData        100310d8 f   glsl_core:astbuiltin.obj
+ 0001:00032464       ASTBIResetBuiltInData      10033464 f   glsl_core:astbuiltin.obj
+ 0001:00035594       PPPreProcessTokenList      10036594 f   glsl_core:prepro.obj
+ 0001:00035b28       PPDestroyPreProcessorData  10036b28 f   glsl_core:prepro.obj
+ 0001:00035b44       ASTCheckFeatureVersion     10036b44 f   glsl_core:glsltree.obj
+ 0001:00035c30       IsSamplerTypeSupported     10036c30 f   glsl_core:glsltree.obj
+ 0001:00035c90       ASTIncreaseScope           10036c90 f   glsl_core:glsltree.obj
+ 0001:00035dfc       ModifyDefaultPrecision     10036dfc f   glsl_core:glsltree.obj
+ 0001:00035f5c       ASTDecreaseScope           10036f5c f   glsl_core:glsltree.obj
+ 0001:00035fac       ASTCreateIDENTIFIERNode    10036fac f   glsl_core:glsltree.obj
+ 0001:00036124       ASTCreateIDENTIFIERUseNode 10037124 f   glsl_core:glsltree.obj
+ 0001:00036130       ASTCreateFLOATCONSTANTNode 10037130 f   glsl_core:glsltree.obj
+ 0001:00036238       ASTCreateINTCONSTANTNode   10037238 f   glsl_core:glsltree.obj
+ 0001:000362ec       ASTCreateBOOLCONSTANTNode  100372ec f   glsl_core:glsltree.obj
+ 0001:000363cc       ASTFindFunction            100373cc f   glsl_core:glsltree.obj
+ 0001:000367f0       ASTRegisterFunctionCall    100377f0 f   glsl_core:glsltree.obj
+ 0001:00036938       ASTCreateFunctionNode      10037938 f   glsl_core:glsltree.obj
+ 0001:0003723c       ASTProcessFieldSelection   1003823c f   glsl_core:glsltree.obj
+ 0001:000374c4       ASTUpdateInvariantStatus   100384c4 f   glsl_core:glsltree.obj
+ 0001:00037584       ASTProcessLanguageVersion  10038584 f   glsl_core:glsltree.obj
+ 0001:000375dc       CreateGLSLTreeContext      100385dc f   glsl_core:glsltree.obj
+ 0001:0003799c       CheckGLSLTreeCompleteness  1003899c f   glsl_core:glsltree.obj
+ 0001:00037ad8       DestroyGLSLTreeContext     10038ad8 f   glsl_core:glsltree.obj
+ 0001:00037b28       GenerateICodeProgram       10038b28 f   glsl_core:icode.obj
+ 0001:00037d30       DestroyICodeProgram        10038d30 f   glsl_core:icode.obj
+ 0001:00037dcc       EmulateBuiltInFunction     10038dcc f   glsl_core:glslfns.obj
+ 0001:000398a4       SGXBS_CreateBinaryProgram  1003a8a4 f   glsl_binshader:esbinshader.obj
+ 0001:00039a8c       PVRUniFlexInitInst         1003aa8c f   usc:USC.dll
+ 0001:00039a9c       PVRUniFlexDestroyUspBin    1003aa9c f   usc:USC.dll
+ 0001:00039aac       PVRUniFlexGetInputInstDesc 1003aaac f   usc:USC.dll
+ 0001:00039abc       PVRUniFlexCompileToUspBin  1003aabc f   usc:USC.dll
+ 0001:00039acc       PVRUniFlexInitTextureParameters 1003aacc f   usc:USC.dll
+ 0001:00039adc       PVRUniFlexCreateContext    1003aadc f   usc:USC.dll
+ 0001:00039aec       PVRUniFlexDestroyContext   1003aaec f   usc:USC.dll
+ 0001:00039afc       PVRSRVAllocUserModeMem     1003aafc f   srvclum:SRVCLUM.dll
+ 0001:00039b0c       PVRSRVReallocUserModeMem   1003ab0c f   srvclum:SRVCLUM.dll
+ 0001:00039b1c       PVRSRVFreeUserModeMem      1003ab1c f   srvclum:SRVCLUM.dll
+ 0001:00039b2c       PVRSRVCallocUserModeMem    1003ab2c f   srvclum:SRVCLUM.dll
+ 0001:00039b3c       PVRSRVSetLocale            1003ab3c f   srvclum:SRVCLUM.dll
+ 0001:00039b4c       DllMain                    1003ab4c f   corelib0:dllmain.obj
+ 0001:00039c58       _DllMainCRTStartup         1003ac58 f   corelib0:pegdmain.obj
+ 0001:00039c84       __GSHandlerCheckCommon     1003ac84 f   corelib0:gshandler.obj
+ 0001:00039cc0       __GSHandlerCheck           1003acc0 f   corelib0:gshandler.obj
+ 0001:00039ce0       __security_init_cookie     1003ace0 f   corelib0:seccinit.obj
+ 0001:00039d2c       __security_check_cookie    1003ad2c f   corelib0:armsecgs.obj
+ 0001:00039d3c       __gsfailure                1003ad3c     corelib0:armsecgs.obj
+ 0001:00039e40       _cexit                     1003ae40 f   corelib0:cexit.obj
+ 0001:00039e50       _initterm                  1003ae50 f   corelib0:crt0dat.obj
+ 0001:00039e7c       _cinit                     1003ae7c f   corelib0:crt0dat.obj
+ 0001:00039edc       __crt_ExitProcess          1003aedc f   corelib0:exitproc_proxy.obj
+ 0001:00039ee8       memcpy                     1003aee8 f   corelib1:COREDLL.dll
+ 0001:00039ef8       memset                     1003aef8 f   corelib1:COREDLL.dll
+ 0001:00039f08       fflush                     1003af08 f   corelib1:COREDLL.dll
+ 0001:00039f18       strcpy                     1003af18 f   corelib1:COREDLL.dll
+ 0001:00039f28       strlen                     1003af28 f   corelib1:COREDLL.dll
+ 0001:00039f38       sprintf                    1003af38 f   corelib1:COREDLL.dll
+ 0001:00039f48       strncpy                    1003af48 f   corelib1:COREDLL.dll
+ 0001:00039f58       strcmp                     1003af58 f   corelib1:COREDLL.dll
+ 0001:00039f68       strcat                     1003af68 f   corelib1:COREDLL.dll
+ 0001:00039f78       _vsnprintf                 1003af78 f   corelib1:COREDLL.dll
+ 0001:00039f88       vsprintf                   1003af88 f   corelib1:COREDLL.dll
+ 0001:00039f98       strncmp                    1003af98 f   corelib1:COREDLL.dll
+ 0001:00039fa8       printf                     1003afa8 f   corelib1:COREDLL.dll
+ 0001:00039fb8       strtol                     1003afb8 f   corelib1:COREDLL.dll
+ 0001:00039fc8       strstr                     1003afc8 f   corelib1:COREDLL.dll
+ 0001:00039fd8       strtod                     1003afd8 f   corelib1:COREDLL.dll
+ 0001:00039fe8       _XcptFilter                1003afe8 f   corelib1:COREDLL.dll
+ 0001:00039ff8       __C_specific_handler       1003aff8 f   corelib1:COREDLL.dll
+ 0001:0003a008       __security_gen_cookie2     1003b008 f   corelib1:COREDLL.dll
+ 0001:0003a018       __report_gsfailure         1003b018 f   corelib1:COREDLL.dll
+ 0001:0003a028       free                       1003b028 f   corelib1:COREDLL.dll
+ 0001:0003a038       DebugCreateHeapfn          1003b038 f   glsl_parser:memmgr.obj
+ 0001:0003a0bc       DebugAllocHeapItemfn       1003b0bc f   glsl_parser:memmgr.obj
+ 0001:0003a100       DebugFreeHeapItemfn        1003b100 f   glsl_parser:memmgr.obj
+ 0001:0003a110       DebugDestroyHeapfn         1003b110 f   glsl_parser:memmgr.obj
+ 0001:0003a168       DestroyParseContext        1003b168 f   glsl_parser:parser.obj
+ 0001:0003a1ec       CreateParseContext         1003b1ec f   glsl_parser:parser.obj
+ 0001:0003ad34       glsl_parse                 1003bd34 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003d468       LexDestroyTokenList        1003e468 f   glsl_parser:lex.obj
+ 0001:0003e0dc       LexCreateTokenList         1003f0dc f   glsl_parser:lex.obj
+ 0001:0003e23c       DisableThreadLibraryCalls  1003f23c f   coredll:COREDLL.dll
+ 0001:0003e24c       TerminateProcess           1003f24c f   coredll:COREDLL.dll
+ 0001:0003e2e0       __IMPORT_DESCRIPTOR_USC    1003f2e0     usc:USC.dll
+ 0001:0003e2f4       __IMPORT_DESCRIPTOR_SRVCLUM 1003f2f4     srvclum:SRVCLUM.dll
+ 0001:0003e308       __IMPORT_DESCRIPTOR_COREDLL 1003f308     corelib1:COREDLL.dll
+ 0001:0003e31c       __NULL_IMPORT_DESCRIPTOR   1003f31c     usc:USC.dll
+ 0002:00000000       __imp___rt_sdiv            10040000     corelib1:COREDLL.dll
+ 0002:00000004       __imp_DisableThreadLibraryCalls 10040004     coredll:COREDLL.dll
+ 0002:00000008       __imp_free                 10040008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp___report_gsfailure   1004000c     corelib1:COREDLL.dll
+ 0002:00000010       __imp___security_gen_cookie2 10040010     corelib1:COREDLL.dll
+ 0002:00000014       __imp___C_specific_handler 10040014     corelib1:COREDLL.dll
+ 0002:00000018       __imp__XcptFilter          10040018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp_sin                  1004001c     corelib1:COREDLL.dll
+ 0002:00000020       __imp_cos                  10040020     corelib1:COREDLL.dll
+ 0002:00000024       __imp_asin                 10040024     corelib1:COREDLL.dll
+ 0002:00000028       __imp_memcpy               10040028     corelib1:COREDLL.dll
+ 0002:0000002c       __imp___rt_udiv            1004002c     corelib1:COREDLL.dll
+ 0002:00000030       __imp_memset               10040030     corelib1:COREDLL.dll
+ 0002:00000034       __imp_fflush               10040034     corelib1:COREDLL.dll
+ 0002:00000038       __imp_strcpy               10040038     corelib1:COREDLL.dll
+ 0002:0000003c       __imp_strlen               1004003c     corelib1:COREDLL.dll
+ 0002:00000040       __imp_sprintf              10040040     corelib1:COREDLL.dll
+ 0002:00000044       __imp_strncpy              10040044     corelib1:COREDLL.dll
+ 0002:00000048       __imp_strcmp               10040048     corelib1:COREDLL.dll
+ 0002:0000004c       __imp_strcat               1004004c     corelib1:COREDLL.dll
+ 0002:00000050       __imp__vsnprintf           10040050     corelib1:COREDLL.dll
+ 0002:00000054       __imp_tan                  10040054     corelib1:COREDLL.dll
+ 0002:00000058       __imp_vsprintf             10040058     corelib1:COREDLL.dll
+ 0002:0000005c       __imp_TerminateProcess     1004005c     coredll:COREDLL.dll
+ 0002:00000060       __imp_strncmp              10040060     corelib1:COREDLL.dll
+ 0002:00000064       __imp_printf               10040064     corelib1:COREDLL.dll
+ 0002:00000068       __imp_strtol               10040068     corelib1:COREDLL.dll
+ 0002:0000006c       __imp_strstr               1004006c     corelib1:COREDLL.dll
+ 0002:00000070       __imp_strtod               10040070     corelib1:COREDLL.dll
+ 0002:00000074       __imp_ceil                 10040074     corelib1:COREDLL.dll
+ 0002:00000078       __imp_floor                10040078     corelib1:COREDLL.dll
+ 0002:0000007c       __imp_log                  1004007c     corelib1:COREDLL.dll
+ 0002:00000080       __imp_exp                  10040080     corelib1:COREDLL.dll
+ 0002:00000084       __imp_pow                  10040084     corelib1:COREDLL.dll
+ 0002:00000088       __imp_atan                 10040088     corelib1:COREDLL.dll
+ 0002:0000008c       __imp_atan2                1004008c     corelib1:COREDLL.dll
+ 0002:00000090       __imp_acos                 10040090     corelib1:COREDLL.dll
+ 0002:00000094       \177COREDLL_NULL_THUNK_DATA 10040094     corelib1:COREDLL.dll
+ 0002:00000098       __imp_PVRSRVSetLocale      10040098     srvclum:SRVCLUM.dll
+ 0002:0000009c       __imp_PVRSRVCallocUserModeMem 1004009c     srvclum:SRVCLUM.dll
+ 0002:000000a0       __imp_PVRSRVFreeUserModeMem 100400a0     srvclum:SRVCLUM.dll
+ 0002:000000a4       __imp_PVRSRVReallocUserModeMem 100400a4     srvclum:SRVCLUM.dll
+ 0002:000000a8       __imp_PVRSRVAllocUserModeMem 100400a8     srvclum:SRVCLUM.dll
+ 0002:000000ac       \177SRVCLUM_NULL_THUNK_DATA 100400ac     srvclum:SRVCLUM.dll
+ 0002:000000b0       __imp_PVRUniFlexDestroyContext 100400b0     usc:USC.dll
+ 0002:000000b4       __imp_PVRUniFlexCreateContext 100400b4     usc:USC.dll
+ 0002:000000b8       __imp_PVRUniFlexInitTextureParameters 100400b8     usc:USC.dll
+ 0002:000000bc       __imp_PVRUniFlexCompileToUspBin 100400bc     usc:USC.dll
+ 0002:000000c0       __imp_PVRUniFlexGetInputInstDesc 100400c0     usc:USC.dll
+ 0002:000000c4       __imp_PVRUniFlexDestroyUspBin 100400c4     usc:USC.dll
+ 0002:000000c8       __imp_PVRUniFlexInitInst   100400c8     usc:USC.dll
+ 0002:000000cc       \177USC_NULL_THUNK_DATA    100400cc     usc:USC.dll
+ 0002:000000d0       __security_cookie          100400d0     corelib0:seccinit.obj
+ 0002:000000d4       __security_cookie_complement 100400d4     corelib0:seccinit.obj
+ 0002:000000d8       _exitflag                  100400d8     corelib0:cexit.obj
+ 0002:000000dc       __onexitend                100400dc     <common>
+ 0002:000000e0       __onexitbegin              100400e0     <common>
+ 0002:000000e4       _pRawDllMain               100400e4     <common>
+
+ entry point at        0001:00039c58
+
+ Static symbols
+
+ 0001:00008a70       AssignSourceONE            10009a70 f   ic2uf.obj
+ 0001:00008acc       IC2UF_GetDestMask          10009acc f   ic2uf.obj
+ 0001:00008be0       ConvertToUFDestination     10009be0 f   ic2uf.obj
+ 0001:00008c44       ConvertToUFSource          10009c44 f   ic2uf.obj
+ 0001:00008cd8       ConvertToUFPredicate       10009cd8 f   ic2uf.obj
+ 0001:00008d14       AddHWSymbolToList          10009d14 f   ic2uf.obj
+ 0001:00008de8       CreateInstruction          10009de8 f   ic2uf.obj
+ 0001:00008e6c       UFRegATableAssignRegisters 10009e6c f   ic2uf.obj
+ 0001:00008f74       GetTemporary               10009f74 f   ic2uf.obj
+ 0001:00008fe8       GetIntConst                10009fe8 f   ic2uf.obj
+ 0001:00009064       AddMOVAToUFCode            1000a064 f   ic2uf.obj
+ 0001:00009118       BuildStructBaseMembers     1000a118 f   ic2uf.obj
+ 0001:0000928c       BuildStructAllocInfo       1000a28c f   ic2uf.obj
+ 0001:000095dc       AddToRangeList             1000a5dc f   ic2uf.obj
+ 0001:0000964c       AssignSamplerTexUnit       1000a64c f   ic2uf.obj
+ 0001:0000978c       ConvertPrecisionToUFRegFormat 1000a78c f   ic2uf.obj
+ 0001:00009820       UpdateOperandUFSwiz        1000a820 f   ic2uf.obj
+ 0001:00009994       ApplyMoreSwiz              1000a994 f   ic2uf.obj
+ 0001:000099ec       ChooseMatrixColumn         1000a9ec f   ic2uf.obj
+ 0001:00009acc       ChooseMatrixComponent      1000aacc f   ic2uf.obj
+ 0001:00009c2c       ChooseVectorComponent      1000ac2c f   ic2uf.obj
+ 0001:00009cb4       ChooseStructMember         1000acb4 f   ic2uf.obj
+ 0001:00009d44       AddAluToUFCode             1000ad44 f   ic2uf.obj
+ 0001:00009dec       AddIFCToUFCode             1000adec f   ic2uf.obj
+ 0001:00009ea0       AddUpRelativeOffsetToUFCode 1000aea0 f   ic2uf.obj
+ 0001:0000a0c0       ProcessOperandOffsets      1000b0c0 f   ic2uf.obj
+ 0001:0000a544       GetHWSymbolEntry           1000b544 f   ic2uf.obj
+ 0001:0000a808       AddSimpleALUToUFCode       1000b808 f   ic2uf.obj
+ 0001:0000a97c       AddComparisonToUFCode      1000b97c f   ic2uf.obj
+ 0001:0000ab8c       AddIFComparisonToUFCode    1000bb8c f   ic2uf.obj
+ 0001:0000ac94       AddVectorSALLToUFCode      1000bc94 f   ic2uf.obj
+ 0001:0000ae10       AddNOTToUFCode             1000be10 f   ic2uf.obj
+ 0001:0000aea0       ProcessICInstIF            1000bea0 f   ic2uf.obj
+ 0001:0000af3c       ProcessICInstIFNOT         1000bf3c f   ic2uf.obj
+ 0001:0000affc       ProcessICInstLOOP          1000bffc f   ic2uf.obj
+ 0001:0000b060       AddDirectTextureLookupToUFCodeFn 1000c060 f   ic2uf.obj
+ 0001:0000b22c       GenerateFrontFacingData    1000c22c f   ic2uf.obj
+ 0001:0000b354       AddDataConversionMOV       1000c354 f   ic2uf.obj
+ 0001:0000b718       ProcessICInstMUL           1000c718 f   ic2uf.obj
+ 0001:0000bd00       ProcessICInstDIV           1000cd00 f   ic2uf.obj
+ 0001:0000bdc0       ProcessICInstLABEL         1000cdc0 f   ic2uf.obj
+ 0001:0000be88       ProcessICInstCALL          1000ce88 f   ic2uf.obj
+ 0001:0000bf54       ProcessICInstSANY          1000cf54 f   ic2uf.obj
+ 0001:0000c054       ProcessICInstDOT           1000d054 f   ic2uf.obj
+ 0001:0000c144       ProcessICInstCROSS         1000d144 f   ic2uf.obj
+ 0001:0000c250       ProcessICInstNRM3          1000d250 f   ic2uf.obj
+ 0001:0000c358       ProcessICInstMOD           1000d358 f   ic2uf.obj
+ 0001:0000c4dc       ProcessVPInstTEXLDPFn      1000d4dc f   ic2uf.obj
+ 0001:0000c628       ProcessFPInstTEXLDPFn      1000d628 f   ic2uf.obj
+ 0001:0000c734       ProcessICInstTEXLDDFn      1000d734 f   ic2uf.obj
+ 0001:0000c91c       CreateUniFlexContext       1000d91c f   ic2uf.obj
+ 0001:0000cbf4       DestroyUniFlexContext      1000dbf4 f   ic2uf.obj
+ 0001:0000ce38       PrepareUFCodeOutput        1000de38 f   ic2uf.obj
+ 0001:0000cf04       ReassignVSOutputRegisters  1000df04 f   ic2uf.obj
+ 0001:0000d040       DoesTypeContainBigArrays   1000e040 f   ic2uf.obj
+ 0001:0000d144       FindEmptyRectSpace         1000e144 f   ic2uf.obj
+ 0001:0000d690       AllocateVaryingRegisters   1000e690 f   ic2uf.obj
+ 0001:0000d7f8       AllocateAllVaryings        1000e7f8 f   ic2uf.obj
+ 0001:0000dce4       GetTypeAllocInfo           1000ece4 f   ic2uf.obj
+ 0001:0000dea0       AssignHWSymbolRegisters    1000eea0 f   ic2uf.obj
+ 0001:0000e0f8       AllocateHWSymbolRegisters  1000f0f8 f   ic2uf.obj
+ 0001:0000e38c       ProcessICOperand           1000f38c f   ic2uf.obj
+ 0001:0000e484       AllocateAllUFRegisters     1000f484 f   ic2uf.obj
+ 0001:0000e7e8       InitICUFOperand            1000f7e8 f   ic2uf.obj
+ 0001:0000e834       IC2UF_GetPredicate         1000f834 f   ic2uf.obj
+ 0001:0000e898       GetFixedConst              1000f898 f   ic2uf.obj
+ 0001:0000e904       AddDFDYToUFCode            1000f904 f   ic2uf.obj
+ 0001:0000ea40       AddArrayComparison         1000fa40 f   ic2uf.obj
+ 0001:0000edf8       AddPredicatedWholeTypeComparision 1000fdf8 f   ic2uf.obj
+ 0001:0000f2e0       GenerateZOutput            100102e0 f   ic2uf.obj
+ 0001:0000f3f4       GenerateFaceSelection      100103f4 f   ic2uf.obj
+ 0001:0000f548       GenerateFragCoordAdjust    10010548 f   ic2uf.obj
+ 0001:0000f7e0       AddArrayMOV                100107e0 f   ic2uf.obj
+ 0001:0000fb3c       ProcessICInstMOV           10010b3c f   ic2uf.obj
+ 0001:00010108       AddWholeTypeComparision    10011108 f   ic2uf.obj
+ 0001:000102d0       ProcessICInstEXP           100112d0 f   ic2uf.obj
+ 0001:0001038c       ProcessICInstSINCOS        1001138c f   ic2uf.obj
+ 0001:000105d4       ProcessICInstTAN           100115d4 f   ic2uf.obj
+ 0001:00010880       GenerateUniFlexInstructions 10011880 f   ic2uf.obj
+ 0001:0001162c       PostGenerateUniFlexCode    1001262c f   ic2uf.obj
+ 0001:00011914       GLSLGenerateUniflexProgram 10012914 f   glsl2uf.obj
+ 0001:00011c50       CopyConstantData           10012c50 f   bindingsym.obj
+ 0001:00011d2c       ProcessBindingSymbolEntry  10012d2c f   bindingsym.obj
+ 0001:00011f28       AddBindingSymbol           10012f28 f   bindingsym.obj
+ 0001:00012014       RecursivelyAddStructMembers 10013014 f   bindingsym.obj
+ 0001:00012354       ProcessHWSymbolEntry       10013354 f   bindingsym.obj
+ 0001:000127bc       AttachSymbolTableToContext 100137bc f   glsl_parser:symtab.obj
+ 0001:00012a54       FindSymbolInTable          10013a54 f   glsl_parser:symtab.obj
+ 0001:00012b58       GetSymbolTableEntry        10013b58 f   glsl_parser:symtab.obj
+ 0001:00012bdc       AddSymbolToTable           10013bdc f   glsl_parser:symtab.obj
+ 0001:0001331c       ICSetupICOperand           1001431c f   glsl_core:icgen.obj
+ 0001:0001347c       UnhookInstructions         1001447c f   glsl_core:icgen.obj
+ 0001:000134f0       InsertInstructionsAfter    100144f0 f   glsl_core:icgen.obj
+ 0001:00013564       FreeICInstruction          10014564 f   glsl_core:icgen.obj
+ 0001:00013650       ICGetNewInstruction        10014650 f   glsl_core:icgen.obj
+ 0001:00013ab0       IsSymbolBoolConstant       10014ab0 f   glsl_core:icgen.obj
+ 0001:00013b48       ValidateICInstruction      10014b48 f   glsl_core:icgen.obj
+ 0001:000147ac       IsSimpleConditionCheck     100157ac f   glsl_core:icgen.obj
+ 0001:00014880       ICAddICInstruction3aWithPred 10015880 f   glsl_core:icgen.obj
+ 0001:00014934       ICAddICInstructionIFP      10015934 f   glsl_core:icgen.obj
+ 0001:000149c8       GenerateCodeForPredicateXOR 100159c8 f   glsl_core:icgen.obj
+ 0001:00014bb4       ReplaceInlinedInstOperand  10015bb4 f   glsl_core:icgen.obj
+ 0001:00014dcc       ICPostProcessOnExit        10015dcc f   glsl_core:icgen.obj
+ 0001:00014e88       ProcessNodeFUNCTIONDEFINITION 10015e88 f   glsl_core:icgen.obj
+ 0001:00014fac       GetTypeNumElements         10015fac f   glsl_core:icgen.obj
+ 0001:0001507c       IsFunctionToBeInlined      1001607c f   glsl_core:icgen.obj
+ 0001:00015238       ProcessNodeSHADER          10016238 f   glsl_core:icgen.obj
+ 0001:00015548       EvaluateNodeARRAYSPECIFIER 10016548 f   glsl_core:icgen.obj
+ 0001:0001567c       EvaluateNodeFIELDSELECTION 1001667c f   glsl_core:icgen.obj
+ 0001:000157ac       PostEvaluateFunctionCall   100167ac f   glsl_core:icgen.obj
+ 0001:00015890       PostEvaluateNode           10016890 f   glsl_core:icgen.obj
+ 0001:000159f4       IsNodeDirectOperand        100169f4 f   glsl_core:icgen.obj
+ 0001:00015b98       ProcessNodeBasicOp         10016b98 f   glsl_core:icgen.obj
+ 0001:00015cc4       ProcessNodePreIncDec       10016cc4 f   glsl_core:icgen.obj
+ 0001:00015df8       InsertPostfixCode          10016df8 f   glsl_core:icgen.obj
+ 0001:00015f84       ProcessNodeComparisonOp    10016f84 f   glsl_core:icgen.obj
+ 0001:000160b0       GenerateOptimisedConditionCode 100170b0 f   glsl_core:icgen.obj
+ 0001:000161dc       GenerateSetPredicateCode   100171dc f   glsl_core:icgen.obj
+ 0001:00016710       ICTraverseCondition        10017710 f   glsl_core:icgen.obj
+ 0001:000167c8       ProcessNodeQUESTION        100177c8 f   glsl_core:icgen.obj
+ 0001:0001699c       ProcessNodeLogicalOR       1001799c f   glsl_core:icgen.obj
+ 0001:00016ae4       ProcessNodeLogicalXOR      10017ae4 f   glsl_core:icgen.obj
+ 0001:00016ba0       ProcessNodeLogicalAND      10017ba0 f   glsl_core:icgen.obj
+ 0001:00016ce8       ProcessNodeNOT             10017ce8 f   glsl_core:icgen.obj
+ 0001:00016de8       ProcessConstructorForBasicType 10017de8 f   glsl_core:icgen.obj
+ 0001:000174fc       ProcessArrayConstructor    100184fc f   glsl_core:icgen.obj
+ 0001:000175fc       ICProcessSturctureConstructor 100185fc f   glsl_core:icgen.obj
+ 0001:0001775c       ICProcessInlinedFunctionCall 1001875c f   glsl_core:icgen.obj
+ 0001:00017bb4       ICProcessUserDefinedFunctionCall 10018bb4 f   glsl_core:icgen.obj
+ 0001:00017ed0       ProcessNodeFUNCTIONCALL    10018ed0 f   glsl_core:icgen.obj
+ 0001:000180f4       ProcessNodeRETURN          100190f4 f   glsl_core:icgen.obj
+ 0001:000181c0       ProcessNode                100191c0 f   glsl_core:icgen.obj
+ 0001:000184c4       ProcessNodeFOR             100194c4 f   glsl_core:icgen.obj
+ 0001:0001875c       ProcessNodeWHILE           1001975c f   glsl_core:icgen.obj
+ 0001:000188f4       ProcessNodeDO              100198f4 f   glsl_core:icgen.obj
+ 0001:00018a40       ProcessNodeIF              10019a40 f   glsl_core:icgen.obj
+ 0001:00018e74       FreeConstantData           10019e74 f   glsl_core:common.obj
+ 0001:00018e84       AddGenericData             10019e84 f   glsl_core:common.obj
+ 0001:00018f5c       FreeIdentifierData         10019f5c f   glsl_core:common.obj
+ 0001:00018f84       AddIdentifierDataToTable   10019f84 f   glsl_core:common.obj
+ 0001:00019280       FreeFunctionDefinitionData 1001a280 f   glsl_core:common.obj
+ 0001:0001947c       FreeStructureDefinitionData 1001a47c f   glsl_core:common.obj
+ 0001:000194d0       AddStructureDefinitionData 1001a4d0 f   glsl_core:common.obj
+ 0001:0001a408       LogErrorMessageBuffer      1001b408 f   glsl_core:error.obj
+ 0001:0001a558       LogErrorMessage            1001b558 f   glsl_core:error.obj
+ 0001:0001a730       ICInitOperandInfoWithSwiz  1001b730 f   glsl_core:icemul.obj
+ 0001:0001a780       ICApplyOperandMoreSwiz     1001b780 f   glsl_core:icemul.obj
+ 0001:0001a7c8       _MUL                       1001b7c8 f   glsl_core:icemul.obj
+ 0001:0001a894       _ADD                       1001b894 f   glsl_core:icemul.obj
+ 0001:0001a960       _SUB                       1001b960 f   glsl_core:icemul.obj
+ 0001:0001aa2c       _MOV                       1001ba2c f   glsl_core:icemul.obj
+ 0001:0001aac4       _RCP                       1001bac4 f   glsl_core:icemul.obj
+ 0001:0001ab5c       _MAD                       1001bb5c f   glsl_core:icemul.obj
+ 0001:0001ad30       _FLR                       1001bd30 f   glsl_core:icemul.obj
+ 0001:0001adc8       _FRC                       1001bdc8 f   glsl_core:icemul.obj
+ 0001:0001aef8       _DOT                       1001bef8 f   glsl_core:icemul.obj
+ 0001:0001afc4       _LABEL                     1001bfc4 f   glsl_core:icemul.obj
+ 0001:0001b004       _TEXLD                     1001c004 f   glsl_core:icemul.obj
+ 0001:0001b0d0       _MIX                       1001c0d0 f   glsl_core:icemul.obj
+ 0001:0001b340       ICAddFunctionDefinitionToSymTab 1001c340 f   glsl_core:icemul.obj
+ 0001:0001b744       ICAddArcCos2FunctionDefinition 1001c744 f   glsl_core:icemul.obj
+ 0001:0001b828       ICAddArcSin2FunctionDefinition 1001c828 f   glsl_core:icemul.obj
+ 0001:0001b90c       ICAddArcTanFunctionDefinition 1001c90c f   glsl_core:icemul.obj
+ 0001:0001b9f0       ICAddArcTan2FunctionDefinition 1001c9f0 f   glsl_core:icemul.obj
+ 0001:0001badc       ICAddNoiseFunctionDefinition 1001cadc f   glsl_core:icemul.obj
+ 0001:0001c380       ICAddDepthCompare          1001d380 f   glsl_core:icemul.obj
+ 0001:0001cb88       GetDepthTextureDescID      1001db88 f   glsl_core:icemul.obj
+ 0001:0001f980       ICInitNoiseFuncRegisters   10020980 f   glsl_core:icemul.obj
+ 0001:00024570       UniFlexAlloc               10025570 f   glsl_core:glsl.obj
+ 0001:00024574       UniFlexFree                10025574 f   glsl_core:glsl.obj
+ 0001:00024580       UniFlexPrint               10025580 f   glsl_core:glsl.obj
+ 0001:000245d4       GLSLAddBuiltInState        100255d4 f   glsl_core:glsl.obj
+ 0001:00024ce8       MAP_BIFN_TO_ICINSTR        10025ce8 f   glsl_core:icbuiltin.obj
+ 0001:00024da0       ICProcessBIFNradians       10025da0 f   glsl_core:icbuiltin.obj
+ 0001:00024e84       ICProcessBIFNdegrees       10025e84 f   glsl_core:icbuiltin.obj
+ 0001:00024f68       ICProcessBIFNsin           10025f68 f   glsl_core:icbuiltin.obj
+ 0001:00024f84       ICProcessBIFNcos           10025f84 f   glsl_core:icbuiltin.obj
+ 0001:00024fa0       ICProcessBIFNtan           10025fa0 f   glsl_core:icbuiltin.obj
+ 0001:00024fd8       ICProcessBIFNasin          10025fd8 f   glsl_core:icbuiltin.obj
+ 0001:00025018       ICProcessBIFNacos          10026018 f   glsl_core:icbuiltin.obj
+ 0001:00025058       ICProcessBIFNatan          10026058 f   glsl_core:icbuiltin.obj
+ 0001:000250bc       ICProcessBIFNpow           100260bc f   glsl_core:icbuiltin.obj
+ 0001:000250f4       ICProcessBIFNexp           100260f4 f   glsl_core:icbuiltin.obj
+ 0001:00025110       ICProcessBIFNlog           10026110 f   glsl_core:icbuiltin.obj
+ 0001:0002512c       ICProcessBIFNexp2          1002612c f   glsl_core:icbuiltin.obj
+ 0001:00025148       ICProcessBIFNlog2          10026148 f   glsl_core:icbuiltin.obj
+ 0001:00025164       ICProcessBIFNsqrt          10026164 f   glsl_core:icbuiltin.obj
+ 0001:00025270       ICProcessBIFNinversesqrt   10026270 f   glsl_core:icbuiltin.obj
+ 0001:0002528c       ICProcessBIFNabs           1002628c f   glsl_core:icbuiltin.obj
+ 0001:000252a8       ICProcessBIFNsign          100262a8 f   glsl_core:icbuiltin.obj
+ 0001:000252c4       ICProcessBIFNfloor         100262c4 f   glsl_core:icbuiltin.obj
+ 0001:000252e0       ICProcessBIFNceil          100262e0 f   glsl_core:icbuiltin.obj
+ 0001:000252fc       ICProcessBIFNfract         100262fc f   glsl_core:icbuiltin.obj
+ 0001:00025334       ICProcessBIFNmod           10026334 f   glsl_core:icbuiltin.obj
+ 0001:0002536c       ICProcessBIFNmin           1002636c f   glsl_core:icbuiltin.obj
+ 0001:00025388       ICProcessBIFNmax           10026388 f   glsl_core:icbuiltin.obj
+ 0001:000253a4       ICProcessBIFNclamp         100263a4 f   glsl_core:icbuiltin.obj
+ 0001:00025504       ICProcessBIFNmix           10026504 f   glsl_core:icbuiltin.obj
+ 0001:00025520       ICProcessBIFNstep          10026520 f   glsl_core:icbuiltin.obj
+ 0001:00025648       ICProcessBIFNsmoothstep    10026648 f   glsl_core:icbuiltin.obj
+ 0001:000259f0       ICProcessBIFNlength        100269f0 f   glsl_core:icbuiltin.obj
+ 0001:00025b08       ICProcessBIFNdistance      10026b08 f   glsl_core:icbuiltin.obj
+ 0001:00025cbc       ICProcessBIFNdot           10026cbc f   glsl_core:icbuiltin.obj
+ 0001:00025cd8       ICProcessBIFNcross         10026cd8 f   glsl_core:icbuiltin.obj
+ 0001:00025cf4       ICProcessBIFNnormalize     10026cf4 f   glsl_core:icbuiltin.obj
+ 0001:00025e98       ICProcessBIFNftransform    10026e98 f   glsl_core:icbuiltin.obj
+ 0001:00025f1c       ICProcessBIFNfaceforward   10026f1c f   glsl_core:icbuiltin.obj
+ 0001:0002614c       ICProcessBIFNreflect       1002714c f   glsl_core:icbuiltin.obj
+ 0001:00026370       ICProcessBIFNrefract       10027370 f   glsl_core:icbuiltin.obj
+ 0001:000267c4       ICProcessBIFNmatrixCompMult 100277c4 f   glsl_core:icbuiltin.obj
+ 0001:00026904       ICProcessBIFNtranspose     10027904 f   glsl_core:icbuiltin.obj
+ 0001:00026a64       ICProcessBIFNouterProduct  10027a64 f   glsl_core:icbuiltin.obj
+ 0001:00026c14       ICProcessBIFNlessThan      10027c14 f   glsl_core:icbuiltin.obj
+ 0001:00026c30       ICProcessBIFNlessThanEqual 10027c30 f   glsl_core:icbuiltin.obj
+ 0001:00026c4c       ICProcessBIFNgreaterThan   10027c4c f   glsl_core:icbuiltin.obj
+ 0001:00026c68       ICProcessBIFNgreaterThanEqual 10027c68 f   glsl_core:icbuiltin.obj
+ 0001:00026c84       ICProcessBIFNequal         10027c84 f   glsl_core:icbuiltin.obj
+ 0001:00026ca0       ICProcessBIFNnotEqual      10027ca0 f   glsl_core:icbuiltin.obj
+ 0001:00026cbc       ICProcessBIFNany           10027cbc f   glsl_core:icbuiltin.obj
+ 0001:00026cd8       ICProcessBIFNall           10027cd8 f   glsl_core:icbuiltin.obj
+ 0001:00026cf4       ICProcessBIFNnot           10027cf4 f   glsl_core:icbuiltin.obj
+ 0001:00026d10       ICProcessBIFNtextureProj   10027d10 f   glsl_core:icbuiltin.obj
+ 0001:00026dc0       ICProcessBIFNtextureLod    10027dc0 f   glsl_core:icbuiltin.obj
+ 0001:00026e4c       ICProcessBIFNtextureProjLod 10027e4c f   glsl_core:icbuiltin.obj
+ 0001:00026ed8       ICProcessBIFNtexture       10027ed8 f   glsl_core:icbuiltin.obj
+ 0001:00026f88       ICProcessBIFNdFdx          10027f88 f   glsl_core:icbuiltin.obj
+ 0001:00026fa4       ICProcessBIFNdFdy          10027fa4 f   glsl_core:icbuiltin.obj
+ 0001:00026fc0       ICProcessBIFNfwidth        10027fc0 f   glsl_core:icbuiltin.obj
+ 0001:00027150       ICProcessBIFNnoise1        10028150 f   glsl_core:icbuiltin.obj
+ 0001:00027154       ICProcessBIFNnoise2        10028154 f   glsl_core:icbuiltin.obj
+ 0001:00027158       ICProcessBIFNnoise3        10028158 f   glsl_core:icbuiltin.obj
+ 0001:0002715c       ICProcessBIFNnoise4        1002815c f   glsl_core:icbuiltin.obj
+ 0001:00027160       ICProcessBIFNtextureGrad   10028160 f   glsl_core:icbuiltin.obj
+ 0001:000271ec       ICProcessBIFNtextureProjGrad 100281ec f   glsl_core:icbuiltin.obj
+ 0001:00027310       FindWrittenToLineForSymbolID 10028310 f   glsl_core:icunroll.obj
+ 0001:0002739c       ExamineLoopUpdateCode      1002839c f   glsl_core:icunroll.obj
+ 0001:000276a4       ExamineLoopBodyCode        100286a4 f   glsl_core:icunroll.obj
+ 0001:00027a44       ExamineLoopConditionCode   10028a44 f   glsl_core:icunroll.obj
+ 0001:00027b38       RewriteLoopCode            10028b38 f   glsl_core:icunroll.obj
+ 0001:00027ee0       EvaluateCondition          10028ee0 f   glsl_core:icunroll.obj
+ 0001:00027fa8       UnrollLoopFORCode          10028fa8 f   glsl_core:icunroll.obj
+ 0001:00028434       ASTSemRemoveChildNode      10029434 f   glsl_core:semantic.obj
+ 0001:00028538       ASTSemGetResultName        10029538 f   glsl_core:semantic.obj
+ 0001:00028810       ASTSemGetIdentifierData    10029810 f   glsl_core:semantic.obj
+ 0001:00028920       ASTSemConvertMatrix        10029920 f   glsl_core:semantic.obj
+ 0001:00028a28       ASTSemConvertTypes         10029a28 f   glsl_core:semantic.obj
+ 0001:00028ffc       ASTSemReduceConstantConstructor 10029ffc f   glsl_core:semantic.obj
+ 0001:000293d0       ASTSemInsertConstructor    1002a3d0 f   glsl_core:semantic.obj
+ 0001:0002989c       ASTSemReduceConstantArraySpecifier 1002a89c f   glsl_core:semantic.obj
+ 0001:00029ae4       ASTSemReduceConstantFieldSelection 1002aae4 f   glsl_core:semantic.obj
+ 0001:00029e80       ASTSemReduceConstantMatrixMath 1002ae80 f   glsl_core:semantic.obj
+ 0001:00029fb8       ASTSemReduceConstantMaths  1002afb8 f   glsl_core:semantic.obj
+ 0001:0002b354       ASTSemReduceConstantExpression 1002c354 f   glsl_core:semantic.obj
+ 0001:0002b4b8       ASTSemReportLValueError    1002c4b8 f   glsl_core:semantic.obj
+ 0001:0002b5a8       ASTSemReduceConstantBuiltInFunction 1002c5a8 f   glsl_core:semantic.obj
+ 0001:0002b8d8       ASTSemCheckAndUpdateArraySizes 1002c8d8 f   glsl_core:semantic.obj
+ 0001:0002bb90       ASTWarnUnitialisedData     1002cb90 f   glsl_core:semantic.obj
+ 0001:0002bc78       ASTUpdateBuiltInsReferenced 1002cc78 f   glsl_core:semantic.obj
+ 0001:0002be60       ASTUpdateParamIdentifierUsage 1002ce60 f   glsl_core:semantic.obj
+ 0001:0002bfa0       ASTUpdateReadIdentifierUsage 1002cfa0 f   glsl_core:semantic.obj
+ 0001:0002c070       ASTUpdateIdentifierUsage   1002d070 f   glsl_core:semantic.obj
+ 0001:0002c164       ASTSemCheckAssignment      1002d164 f   glsl_core:semantic.obj
+ 0001:0002c300       ASTSemCheckForReplacementWithConstantData 1002d300 f   glsl_core:semantic.obj
+ 0001:0002c3f0       ASTSemGetResultPrecision   1002d3f0 f   glsl_core:semantic.obj
+ 0001:0002c9d0       ASTSemCheckFunctionCallParameters 1002d9d0 f   glsl_core:semantic.obj
+ 0001:0002ecb4       ASTBICheckForUseOfState    1002fcb4 f   glsl_core:astbuiltin.obj
+ 0001:0002ed24       ASTBIAddConstructor        1002fd24 f   glsl_core:astbuiltin.obj
+ 0001:0002eeec       ASTBIAddFunction1          1002feec f   glsl_core:astbuiltin.obj
+ 0001:0002f2e4       ASTBIAddFunction2          100302e4 f   glsl_core:astbuiltin.obj
+ 0001:0002f6e4       ASTBIAddFunction3          100306e4 f   glsl_core:astbuiltin.obj
+ 0001:0002faf4       ASTBIAddFunction4          10030af4 f   glsl_core:astbuiltin.obj
+ 0001:0002ff18       ASTBIAddGLState            10030f18 f   glsl_core:astbuiltin.obj
+ 0001:0002ffec       ASTAddGLStructureMember    10030fec f   glsl_core:astbuiltin.obj
+ 0001:0003256c       PPFreeDefineMacro          1003356c f   glsl_core:prepro.obj
+ 0001:000325f4       PPGetNextDirectiveTokenEntry 100335f4 f   glsl_core:prepro.obj
+ 0001:00032690       PPCreateTokenList          10033690 f   glsl_core:prepro.obj
+ 0001:00032784       PPCreateTokenLinkedList    10033784 f   glsl_core:prepro.obj
+ 0001:00032888       PPInsertTokensIntoLinkedList 10033888 f   glsl_core:prepro.obj
+ 0001:000328e8       PPCheckForMacroReplacement 100338e8 f   glsl_core:prepro.obj
+ 0001:000331ac       PPGetTokenPrecedence       100341ac f   glsl_core:prepro.obj
+ 0001:000332fc       PPAddChildNode             100342fc f   glsl_core:prepro.obj
+ 0001:00033390       PPAddParentNode            10034390 f   glsl_core:prepro.obj
+ 0001:00033460       PPCleanUpBranches          10034460 f   glsl_core:prepro.obj
+ 0001:000334a4       PPFreeExpressionTree       100344a4 f   glsl_core:prepro.obj
+ 0001:00033504       PPCreateExpressionTree     10034504 f   glsl_core:prepro.obj
+ 0001:000336d4       PPCalculateResultOfExpressionTree 100346d4 f   glsl_core:prepro.obj
+ 0001:00033b94       PPProcessIf                10034b94 f   glsl_core:prepro.obj
+ 0001:00033cfc       PPProcessElif              10034cfc f   glsl_core:prepro.obj
+ 0001:00033e60       PPProcessIfdef             10034e60 f   glsl_core:prepro.obj
+ 0001:00033ff4       PPProcessLine              10034ff4 f   glsl_core:prepro.obj
+ 0001:00034124       PPProcessPragma            10035124 f   glsl_core:prepro.obj
+ 0001:000343b8       ProcessDefineMacro         100353b8 f   glsl_core:prepro.obj
+ 0001:0003491c       ProcessUndef               1003591c f   glsl_core:prepro.obj
+ 0001:00034a64       PPProcessVersion           10035a64 f   glsl_core:prepro.obj
+ 0001:00034c20       PPIsExtensionSupported     10035c20 f   glsl_core:prepro.obj
+ 0001:00034cb0       PPProcessExtension         10035cb0 f   glsl_core:prepro.obj
+ 0001:00034f1c       PPProcessDirective         10035f1c f   glsl_core:prepro.obj
+ 0001:00035410       PPSetDefaultDefine         10036410 f   glsl_core:prepro.obj
+ 0001:00035ca4       FreePrecisionModifierData  10036ca4 f   glsl_core:glsltree.obj
+ 0001:00035cbc       GetCurrentPrecision        10036cbc f   glsl_core:glsltree.obj
+ 0001:00036fc4       ASTCreateSwizzleNode       10037fc4 f   glsl_core:glsltree.obj
+ 0001:00037724       CheckWhichFunctionsCalled  10038724 f   glsl_core:glsltree.obj
+ 0001:00037844       ReOrderTopLevelNodes       10038844 f   glsl_core:glsltree.obj
+ 0001:000390c8       SGXBS_ComputeHash          1003a0c8 f   glsl_binshader:esbinshader.obj
+ 0001:000391a0       GetNumOfBytesForWritingBindings 1003a1a0 f   glsl_binshader:esbinshader.obj
+ 0001:000391ec       WriteU8                    1003a1ec f   glsl_binshader:esbinshader.obj
+ 0001:00039234       WriteU16                   1003a234 f   glsl_binshader:esbinshader.obj
+ 0001:00039298       WriteU32                   1003a298 f   glsl_binshader:esbinshader.obj
+ 0001:00039310       PackSymbolBindings         1003a310 f   glsl_binshader:esbinshader.obj
+ 0001:00039488       PackUniflexProgram         1003a488 f   glsl_binshader:esbinshader.obj
+ 0001:000396a0       PackProgramBinary          1003a6a0 f   glsl_binshader:esbinshader.obj
+ 0001:00039b68       _DllMainCRTStartupHelper   1003ab68 f   corelib0:pegdmain.obj
+ 0001:00039d80       doexit                     1003ad80 f   corelib0:cexit.obj
+ 0001:0003a304       glsl_error                 1003b304 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003a364       __CheckTypeSpecifier       1003b364 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003a57c       __ProcessArraySpecifier    1003b57c f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003a648       __CreateDeclarationIdentifierNode 1003b648 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003a7c0       __ProcessDeclarationInitializer 1003b7c0 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003a958       __ProcessParameterDeclaration 1003b958 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003abac       __AddFunctionState         1003bbac f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003aca4       __NewOperator              1003bca4 f   glsl_parser:glsl_parser.tab.obj
+ 0001:0003d4a4       LexCallocToken             1003e4a4 f   glsl_parser:lex.obj
+ 0001:0003d52c       LexGeneratePreprocessorTokens 1003e52c f   glsl_parser:lex.obj
+ 0001:0003df34       LexMatchKeywords           1003ef34 f   glsl_parser:lex.obj

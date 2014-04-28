@@ -1,0 +1,21 @@
+;############################################################################### 
+;######################## Auto Generated File: Do Not Edit ##################### 
+;############################################################################### 
+;############################# PowerVR Entries Begin ########################### 
+;Include conditional on POWERVR catalog entry 
+IF SYSGEN_POWERVR 
+
+[HKEY_LOCAL_MACHINE\PowerVR\PVRKernel]
+   "Prefix"="PKM"
+   "Dll"="srvkm.dll"
+   "Keep"=dword:1
+  
+[HKEY_LOCAL_MACHINE\PowerVR\PowerVREurasia\HWSettings\PVRSRVKM]
+
+
+[HKEY_LOCAL_MACHINE\PowerVR\PVRKernel]
+   ; Indicate KSrv is a generic power manageable interface
+   "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
+   
+ENDIF ; IF SYSGEN_POWERVR 
+;############################# PowerVR Entries End ########################### 

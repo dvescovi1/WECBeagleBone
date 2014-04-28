@@ -1,0 +1,810 @@
+ libimgegl
+
+ Timestamp is 4f20d317 (Wed Jan 25 23:14:15 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 000043ebH .rdata                  CODE
+ 0001:0000440c 00000026H .rdata$debug            CODE
+ 0001:00004434 0003a704H .text                   CODE
+ 0001:0003eb38 0000001cH .xdata                  CODE
+ 0001:0003eb54 00000028H .idata$2                CODE
+ 0001:0003eb7c 00000014H .idata$3                CODE
+ 0001:0003eb90 00000130H .idata$4                CODE
+ 0001:0003ecc0 000001aaH .idata$6                CODE
+ 0001:0003ee70 00000584H .edata                  CODE
+ 0002:00000000 00000130H .idata$5                DATA
+ 0002:00000130 00000080H .data                   DATA
+ 0002:000001b0 000006a0H .bss                    DATA
+ 0003:00000000 000007b8H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0001:00000000       __xc_a                     10001000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     10001004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     10001008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     1000100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     10001010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     10001014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     10001018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     1000101c     corelib0:crt0init.obj
+ 0001:0000003c       ??_C@_0BB@DAKJGELE@eglQueryImageNOK?$AA@ 1000103c     khronos_egl.obj
+ 0001:00000050       ??_C@_0BJ@NOHFJHCO@eglDestroySharedImageNOK?$AA@ 10001050     khronos_egl.obj
+ 0001:0000006c       ??_C@_0BI@LIDMBPMH@eglCreateSharedImageNOK?$AA@ 1000106c     khronos_egl.obj
+ 0001:00000084       ??_C@_0BE@LFECDLL@eglGetSyncAttribKHR?$AA@ 10001084     khronos_egl.obj
+ 0001:00000098       ??_C@_0BB@IOBKAJHK@eglSignalSyncKHR?$AA@ 10001098     khronos_egl.obj
+ 0001:000000ac       ??_C@_0BF@KGKKFGJK@eglClientWaitSyncKHR?$AA@ 100010ac     khronos_egl.obj
+ 0001:000000c4       ??_C@_0BC@BAMMEGCN@eglDestroySyncKHR?$AA@ 100010c4     khronos_egl.obj
+ 0001:000000d8       ??_C@_0BB@KJIBLKMB@eglCreateSyncKHR?$AA@ 100010d8     khronos_egl.obj
+ 0001:000000ec       ??_C@_0BD@BMHBHCAJ@eglDestroyImageKHR?$AA@ 100010ec     khronos_egl.obj
+ 0001:00000100       ??_C@_0BC@LFHEJBKG@eglCreateImageKHR?$AA@ 10001100     khronos_egl.obj
+ 0001:00000188       aWSEGLPixelFormatBytesPerPixelShift 10001188     khronos_egl.obj
+ 0001:00000208       ??_C@_0CD@EONICBON@_TlsInit?3?5PVRSRVCreateMutex?5fail@ 10001208     khronos_egl.obj
+ 0001:0000022c       ??_C@_0BF@INKPIHNJ@DisableMetricsOutput?$AA@ 1000122c     khronos_egl.obj
+ 0001:00000244       ??_C@_0BA@HGPCCFOD@ProfileEndFrame?$AA@ 10001244     khronos_egl.obj
+ 0001:00000254       ??_C@_0BC@EPKGFFNK@ProfileStartFrame?$AA@ 10001254     khronos_egl.obj
+ 0001:00000268       ??_C@_0BA@BCNPAIIG@DumpProfileData?$AA@ 10001268     khronos_egl.obj
+ 0001:00000278       ??_C@_0N@DEBIAPND@WindowSystem?$AA@ 10001278     khronos_egl.obj
+ 0001:00000288       ??_C@_0BF@NAGFJOFK@ExternalZBufferYSize?$AA@ 10001288     khronos_egl.obj
+ 0001:000002a0       ??_C@_0BF@BLDJENPP@ExternalZBufferXSize?$AA@ 100012a0     khronos_egl.obj
+ 0001:000002b8       ??_C@_0BE@NCEPNDKE@ExternalZBufferMode?$AA@ 100012b8     khronos_egl.obj
+ 0001:000002cc       ??_C@_0BD@MIEAPFPP@MaxParamBufferSize?$AA@ 100012cc     khronos_egl.obj
+ 0001:000002e0       ??_C@_0BA@OONPEIO@ParamBufferSize?$AA@ 100012e0     khronos_egl.obj
+ 0001:000002f0       ??_C@_0BC@OPBGHDMC@PDSFragBufferSize?$AA@ 100012f0     khronos_egl.obj
+ 0001:00000304       ??_C@_0CA@PJPBGKB@End?5of?5driver?5module?5detection?4?$AA@ 10001304     khronos_egl.obj
+ 0001:00000324       ??_C@_0BK@HJJKDIIP@Detecting?5driver?5modules?3?$AA@ 10001324     khronos_egl.obj
+ 0001:00000340       ??_C@_0FH@DJLEOMGI@c?3?2data?2jatin?2powervr_build?2ddk1@ 10001340     khronos_egl.obj
+ 0001:00000398       ??_C@_0DB@LAOOEECE@GlobalDataDeinit?3?5PVRSRVDestroyM@ 10001398     khronos_egl.obj
+ 0001:000003cc       ??_C@_0CC@DNDMKNKG@_SurfaceDelete?3?5No?5Current?5threa@ 100013cc     khronos_egl.obj
+ 0001:000003f0       ??_C@_0P@NJDBBPCJ@IMGeglGetError?$AA@ 100013f0     khronos_egl.obj
+ 0001:00000400       ??_C@_0CK@CJDKMOPP@IMGeglGetDisplay?3?5No?5free?5slots?5@ 10001400     khronos_egl.obj
+ 0001:0000042c       ??_C@_0BB@EOPPBDHH@IMGeglGetDisplay?$AA@ 1000142c     khronos_egl.obj
+ 0001:00000440       ??_C@_0CI@PIOIFKLH@IMGeglInitialize?3?5?5Unknown?5caps?5@ 10001440     khronos_egl.obj
+ 0001:00000468       ??_C@_0BB@BGPPANDA@IMGeglInitialize?$AA@ 10001468     khronos_egl.obj
+ 0001:0000047c       ??_C@_0BA@IEBGPBFM@IMGeglTerminate?$AA@ 1000147c     khronos_egl.obj
+ 0001:0000048c       ??_C@_0BL@GKCHOKCG@_TlsDeInit?3?5Ref?5count?5is?50?$AA@ 1000148c     khronos_egl.obj
+ 0001:000004a8       ??_C@_0CL@GGKPILNM@_UnloadOpenVG?3?5Failed?5to?5unload?5@ 100014a8     khronos_egl.obj
+ 0001:000004d4       ??_C@_0DB@FDLKIPGC@_UnloadOpenGLES1?3?5Failed?5to?5unlo@ 100014d4     khronos_egl.obj
+ 0001:00000508       ??_C@_0DB@HLBEAPN@_UnloadOpenGLES2?3?5Failed?5to?5unlo@ 10001508     khronos_egl.obj
+ 0001:0000053c       ??_C@_0CL@KEACOLGP@_UnloadOpenGL?3?5Failed?5to?5unload?5@ 1000153c     khronos_egl.obj
+ 0001:00000568       ??_C@_0CL@NMGDFBDP@_UnloadOpenCL?3?5Failed?5to?5unload?5@ 10001568     khronos_egl.obj
+ 0001:00000594       ??_C@_0CD@BNCCBOPM@_ContextDelete?3?5Invalid?5client?5A@ 10001594     khronos_egl.obj
+ 0001:000005b8       ??_C@_0CC@PLDEIHKI@_ContextDelete?3?5No?5Current?5threa@ 100015b8     khronos_egl.obj
+ 0001:000005dc       ??_C@_01CLKCMJKC@?5?$AA@   100015dc     khronos_egl.obj
+ 0001:000005e0       ??_C@_07BCPEEHLL@OpenGL?5?$AA@ 100015e0     khronos_egl.obj
+ 0001:000005e8       ??_C@_07PGAEJIKA@OpenVG?5?$AA@ 100015e8     khronos_egl.obj
+ 0001:000005f0       ??_C@_0L@OANFJFHO@OpenGL_ES?5?$AA@ 100015f0     khronos_egl.obj
+ 0001:000005fc       ??_C@_0BC@KEPCFKB@OpenGL_ES?5OpenVG?5?$AA@ 100015fc     khronos_egl.obj
+ 0001:00000610       ??_C@_0BC@OOLPPKLK@OpenGL_ES?5OpenGL?5?$AA@ 10001610     khronos_egl.obj
+ 0001:00000624       ??_C@_0P@GIDKMPNG@OpenVG?5OpenGL?5?$AA@ 10001624     khronos_egl.obj
+ 0001:00000634       ??_C@_0BJ@ILIKAEIO@OpenGL_ES?5OpenVG?5OpenGL?5?$AA@ 10001634     khronos_egl.obj
+ 0001:00000650       ??_C@_0NH@ILHOKIGF@EGL_KHR_image?5EGL_KHR_image_base@ 10001650     khronos_egl.obj
+ 0001:00000728       ??_C@_0BP@NGJNDKHC@1?44?5build?51?47?417?44352?5TI?3U7010?$AA@ 10001728     khronos_egl.obj
+ 0001:00000748       ??_C@_0BJ@FGEHHHOH@Imagination?5Technologies?$AA@ 10001748     khronos_egl.obj
+ 0001:00000764       ??_C@_0BC@BHJNMHON@IMGeglQueryString?$AA@ 10001764     khronos_egl.obj
+ 0001:00000778       ??_C@_0DD@HMAHMLJK@IMGeglGetProcAddress?3?5Invalid?5lo@ 10001778     khronos_egl.obj
+ 0001:000007ac       ??_C@_0BK@GDPHFCLE@IMGeglGetProcAddress?5?$CI?$CFs?$CJ?$AA@ 100017ac     khronos_egl.obj
+ 0001:000007c8       ??_C@_0BB@LOLODIDJ@IMGeglGetConfigs?$AA@ 100017c8     khronos_egl.obj
+ 0001:000007dc       ??_C@_0BD@PLAJNADF@IMGeglChooseConfig?$AA@ 100017dc     khronos_egl.obj
+ 0001:000007f0       ??_C@_0BG@FOMOHGKL@IMGeglGetConfigAttrib?$AA@ 100017f0     khronos_egl.obj
+ 0001:00000808       ??_C@_0BK@LGLEDIDB@IMGeglCreateWindowSurface?$AA@ 10001808     khronos_egl.obj
+ 0001:00000824       ??_C@_0BK@DBLJLJBC@IMGeglCreatePixmapSurface?$AA@ 10001824     khronos_egl.obj
+ 0001:00000840       __real@00000000            10001840     khronos_egl.obj
+ 0001:00000844       ??_C@_0BL@JBOPBMLK@IMGeglCreatePbufferSurface?$AA@ 10001844     khronos_egl.obj
+ 0001:00000860       ??_C@_0BF@OMEBCLKB@IMGeglDestroySurface?$AA@ 10001860     khronos_egl.obj
+ 0001:00000878       ??_C@_0BD@LNGLLIAP@IMGeglQuerySurface?$AA@ 10001878     khronos_egl.obj
+ 0001:0000088c       ??_C@_0CI@LMCEJPLO@IMGeglCreateContext?3?5Invalid?5cli@ 1000188c     khronos_egl.obj
+ 0001:000008b4       ??_C@_0BE@IOFCPGPE@IMGeglCreateContext?$AA@ 100018b4     khronos_egl.obj
+ 0001:000008c8       ??_C@_0BF@PBKICHNO@IMGeglDestroyContext?$AA@ 100018c8     khronos_egl.obj
+ 0001:000008e0       ??_C@_0CJ@KFDPINOJ@IMGeglMakeCurrent?3?5unexpected?5er@ 100018e0     khronos_egl.obj
+ 0001:0000090c       ??_C@_0CL@MCCEPEPK@IMGeglMakeCurrent?3?5Unsupported?5c@ 1000190c     khronos_egl.obj
+ 0001:00000938       ??_C@_0CG@MAPKLNDM@IMGeglMakeCurrent?3?5Invalid?5clien@ 10001938     khronos_egl.obj
+ 0001:00000960       ??_C@_0BC@JDMIJBPG@IMGeglMakeCurrent?$AA@ 10001960     khronos_egl.obj
+ 0001:00000974       ??_C@_0BI@HJMJECAA@IMGeglGetCurrentContext?$AA@ 10001974     khronos_egl.obj
+ 0001:0000098c       ??_C@_0BI@GECAEOHP@IMGeglGetCurrentSurface?$AA@ 1000198c     khronos_egl.obj
+ 0001:000009a4       ??_C@_0BI@IBEFGAJO@IMGeglGetCurrentDisplay?$AA@ 100019a4     khronos_egl.obj
+ 0001:000009bc       ??_C@_0BD@KAICLEHA@IMGeglQueryContext?$AA@ 100019bc     khronos_egl.obj
+ 0001:000009d0       ??_C@_0N@GPBILMJM@IMGeglWaitGL?$AA@ 100019d0     khronos_egl.obj
+ 0001:000009e0       ??_C@_0DK@MNMHKENH@IMGeglWaitNative?3?5Letting?5engine@ 100019e0     khronos_egl.obj
+ 0001:00000a1c       ??_C@_0BB@EIOEJLEF@IMGeglWaitNative?$AA@ 10001a1c     khronos_egl.obj
+ 0001:00000a30       ??_C@_0CG@LFHOGDO@IMGeglSwapBuffers?3?5Invalid?5clien@ 10001a30     khronos_egl.obj
+ 0001:00000a58       ??_C@_0BC@FKCHILOJ@IMGeglSwapBuffers?$AA@ 10001a58     khronos_egl.obj
+ 0001:00000a6c       ??_C@_0CG@OBIIAMD@IMGeglCopyBuffers?3?5Invalid?5clien@ 10001a6c     khronos_egl.obj
+ 0001:00000a94       ??_C@_0BC@CGMFBPBG@IMGeglCopyBuffers?$AA@ 10001a94     khronos_egl.obj
+ 0001:00000aa8       ??_C@_0CK@ELOLFPKK@IMGeglSwapInterval?3?5unexpected?5e@ 10001aa8     khronos_egl.obj
+ 0001:00000ad4       ??_C@_0BD@IHJFLOMO@IMGeglSwapInterval?$AA@ 10001ad4     khronos_egl.obj
+ 0001:00000ae8       ??_C@_0BE@LINBPFEN@IMGeglSurfaceAttrib?$AA@ 10001ae8     khronos_egl.obj
+ 0001:00000afc       ??_C@_0DA@OAAILBMJ@IMGeglBindTexImage?3?5Invalid?5clie@ 10001afc     khronos_egl.obj
+ 0001:00000b2c       ??_C@_0BD@PLIKJEOA@IMGeglBindTexImage?$AA@ 10001b2c     khronos_egl.obj
+ 0001:00000b40       ??_C@_0BG@JBGDKAMF@IMGeglReleaseTexImage?$AA@ 10001b40     khronos_egl.obj
+ 0001:00000b58       ??_C@_0DI@HEEOICME@IMGeglCreatePbufferFromClientBuf@ 10001b58     khronos_egl.obj
+ 0001:00000b90       ??_C@_0CE@MPFGBPJK@IMGeglCreatePbufferFromClientBuf@ 10001b90     khronos_egl.obj
+ 0001:00000bb4       ??_C@_0CG@PIGLMANG@IMGeglBindAPI?3?5Invalid?5client?5AP@ 10001bb4     khronos_egl.obj
+ 0001:00000bdc       ??_C@_0O@JCGLOAEF@IMGeglBindAPI?$AA@ 10001bdc     khronos_egl.obj
+ 0001:00000bec       ??_C@_0P@CEENJOFN@IMGeglQueryAPI?$AA@ 10001bec     khronos_egl.obj
+ 0001:00000bfc       ??_C@_0CF@PMPJCOJM@IMGeglWaitClient?3?5Invalid?5client@ 10001bfc     khronos_egl.obj
+ 0001:00000c24       ??_C@_0BB@GOHNEAI@IMGeglWaitClient?$AA@ 10001c24     khronos_egl.obj
+ 0001:00000c38       ??_C@_0DD@LPPLDEMK@IMGeglReleaseThread?3?5Make?5curren@ 10001c38     khronos_egl.obj
+ 0001:00000c6c       ??_C@_0DD@PFMCEAMB@IMGeglReleaseThread?3?5Make?5curren@ 10001c6c     khronos_egl.obj
+ 0001:00000ca0       ??_C@_0DF@BHHNNLDG@IMGeglReleaseThread?3?5Make?5curren@ 10001ca0     khronos_egl.obj
+ 0001:00000cd8       ??_C@_0BE@BKOHLFEC@IMGeglReleaseThread?$AA@ 10001cd8     khronos_egl.obj
+ 0001:00000cf0       ??_C@_0FI@EKLDBICB@c?3?2data?2jatin?2powervr_build?2ddk1@ 10001cf0     egl_eglimage.obj
+ 0001:00000d48       ??_C@_0CF@FHDBGGAB@KEGLUnbindImage?3?5EGL?5not?5initial@ 10001d48     egl_eglimage.obj
+ 0001:00000d70       ??_C@_0CA@JDFBKGOE@_ImageDelete?3?5No?5Current?5thread?$AA@ 10001d70     egl_eglimage.obj
+ 0001:00000d90       ??_C@_0CG@FDOFBKKM@KEGLGetImageSource?3?5No?5Current?5t@ 10001d90     egl_eglimage.obj
+ 0001:00000db8       ??_C@_0CE@EBBJAFDD@IMGeglCreateImageKHR?3?5Generic?5er@ 10001db8     egl_eglimage.obj
+ 0001:00000ddc       ??_C@_0BF@FJDNJNKB@IMGeglCreateImageKHR?$AA@ 10001ddc     egl_eglimage.obj
+ 0001:00000df4       ??_C@_0BG@ICPJKOKG@IMGeglDestroyImageKHR?$AA@ 10001df4     egl_eglimage.obj
+ 0001:00000e10       ??_C@_0EF@OCPKBDAO@FindSharedImageNOKExport?3?5Failed@ 10001e10     egl_eglimage.obj
+ 0001:00000e58       ??_C@_0CP@LMIBIOCB@FindSharedImageNOKExport?3?5Failed@ 10001e58     egl_eglimage.obj
+ 0001:00000e88       ??_C@_0CJ@OFJFKALF@_SharedImageNOKDelete?3?5No?5Curren@ 10001e88     egl_eglimage.obj
+ 0001:00000eb4       ??_C@_0BL@CGCNPMAN@IMGeglCreateSharedImageNOK?$AA@ 10001eb4     egl_eglimage.obj
+ 0001:00000ed0       ??_C@_0DN@FIBAHHGD@CreateSharedImageNOKTemplate?3?5Fa@ 10001ed0     egl_eglimage.obj
+ 0001:00000f10       ??_C@_0DP@NKJICEEA@CreateSharedImageNOKTemplate?3?5Fa@ 10001f10     egl_eglimage.obj
+ 0001:00000f50       ??_C@_0BM@KFFKKNGD@IMGeglDestroySharedImageNOK?$AA@ 10001f50     egl_eglimage.obj
+ 0001:00000f6c       ??_C@_0BE@BKFHEFHF@IMGeglQueryImageNOK?$AA@ 10001f6c     egl_eglimage.obj
+ 0001:00001820       ??_C@_0EP@DFDCFEPE@c?3?2data?2jatin?2powervr_build?2ddk1@ 10002820     cfg.obj
+ 0001:00001870       ??_C@_0CA@DMAKLDAA@Unknown?5base?5ES1?5config?5variant?$AA@ 10002870     cfg.obj
+ 0001:00001890       ??_C@_0CC@OGEKAACL@Unknown?5pbuffer?5ES?5config?5varian@ 10002890     cfg.obj
+ 0001:000018b4       ??_C@_0CA@GPJAOIIE@Unknown?5base?5ES2?5config?5variant?$AA@ 100028b4     cfg.obj
+ 0001:000018d4       ??_C@_0CA@BCBOEOAL@Unknown?5base?5OGL?5config?5variant?$AA@ 100028d4     cfg.obj
+ 0001:000018f4       ??_C@_0CD@LBJCNICK@Unknown?5pbuffer?5OGL?5config?5varia@ 100028f4     cfg.obj
+ 0001:00001918       ??_C@_0CB@ONGCHIFF@CFG_Match?3?5Unknown?5comparison?5?$CFd@ 10002918     cfg.obj
+ 0001:00001940       ??_C@_0FE@BGLEFGLB@c?3?2data?2jatin?2powervr_build?2ddk1@ 10002940     cfg_core.obj
+ 0001:00001994       ??_C@_0BD@OHHMDKJE@glIsVertexArrayOES?$AA@ 10002994     function_table.obj
+ 0001:000019a8       ??_C@_0BF@MLJKHCLD@glGenVertexArraysOES?$AA@ 100029a8     function_table.obj
+ 0001:000019c0       ??_C@_0BI@JDOHIGAB@glDeleteVertexArraysOES?$AA@ 100029c0     function_table.obj
+ 0001:000019d8       ??_C@_0BF@GDJHAHOE@glBindVertexArrayOES?$AA@ 100029d8     function_table.obj
+ 0001:000019f0       ??_C@_0BH@CPIJKLBJ@glMultiDrawElementsEXT?$AA@ 100029f0     function_table.obj
+ 0001:00001a08       ??_C@_0BE@MPDFJJLL@glMultiDrawElements?$AA@ 10002a08     function_table.obj
+ 0001:00001a1c       ??_C@_0BF@MOHHALAE@glMultiDrawArraysEXT?$AA@ 10002a1c     function_table.obj
+ 0001:00001a34       ??_C@_0BC@IBABPJFA@glMultiDrawArrays?$AA@ 10002a34     function_table.obj
+ 0001:00001a48       ??_C@_0BD@PIBFHNP@glTexBindStreamIMG?$AA@ 10002a48     function_table.obj
+ 0001:00001a5c       ??_C@_0BM@MBNDOCOP@glGetTexStreamDeviceNameIMG?$AA@ 10002a5c     function_table.obj
+ 0001:00001a78       ??_C@_0CD@OCNNIBKN@glGetTexStreamDeviceAttributeivI@ 10002a78     function_table.obj
+ 0001:00001a9c       ??_C@_0CH@JLEJGINJ@glEGLImageTargetRenderbufferStor@ 10002a9c     function_table.obj
+ 0001:00001ac4       ??_C@_0BN@FPPCHDBA@glEGLImageTargetTexture2DOES?$AA@ 10002ac4     function_table.obj
+ 0001:00001ae4       ??_C@_0BH@HANHAAH@glGetBufferPointervOES?$AA@ 10002ae4     function_table.obj
+ 0001:00001afc       ??_C@_0BB@CEFEJGJJ@glUnmapBufferOES?$AA@ 10002afc     function_table.obj
+ 0001:00001b10       ??_C@_0P@MBENIONB@glMapBufferOES?$AA@ 10002b10     function_table.obj
+ 0001:00001b20       ??_C@_0FK@EOMHOHKM@c?3?2data?2jatin?2powervr_build?2ddk1@ 10002b20     function_table.obj
+ 0001:00001b7c       ??_C@_0BE@BMGJDPBK@glGenerateMipmapOES?$AA@ 10002b7c     function_table.obj
+ 0001:00001b90       ??_C@_0CJ@FPBNJAAI@glGetFramebufferAttachmentParame@ 10002b90     function_table.obj
+ 0001:00001bbc       ??_C@_0BN@CEGIKEBP@glFramebufferRenderbufferOES?$AA@ 10002bbc     function_table.obj
+ 0001:00001bdc       ??_C@_0BK@IBODAJKF@glFramebufferTexture2DOES?$AA@ 10002bdc     function_table.obj
+ 0001:00001bf8       ??_C@_0BM@FKHNDAOE@glCheckFramebufferStatusOES?$AA@ 10002bf8     function_table.obj
+ 0001:00001c14       ??_C@_0BF@GBILCPIM@glGenFramebuffersOES?$AA@ 10002c14     function_table.obj
+ 0001:00001c2c       ??_C@_0BI@DJPGNLDO@glDeleteFramebuffersOES?$AA@ 10002c2c     function_table.obj
+ 0001:00001c44       ??_C@_0BF@HIIGGHIK@glBindFramebufferOES?$AA@ 10002c44     function_table.obj
+ 0001:00001c5c       ??_C@_0BD@PMGNFKPK@glIsFramebufferOES?$AA@ 10002c5c     function_table.obj
+ 0001:00001c70       ??_C@_0CA@ODMPPHIE@glGetRenderbufferParameterivOES?$AA@ 10002c70     function_table.obj
+ 0001:00001c90       ??_C@_0BJ@OLDCKGHK@glRenderbufferStorageOES?$AA@ 10002c90     function_table.obj
+ 0001:00001cac       ??_C@_0BG@EDIBBEEP@glGenRenderbuffersOES?$AA@ 10002cac     function_table.obj
+ 0001:00001cc4       ??_C@_0BJ@GGLGLLBL@glDeleteRenderbuffersOES?$AA@ 10002cc4     function_table.obj
+ 0001:00001ce0       ??_C@_0BG@FPKCPFFN@glBindRenderbufferOES?$AA@ 10002ce0     function_table.obj
+ 0001:00001cf8       ??_C@_0BE@PCDGPFM@glIsRenderbufferOES?$AA@ 10002cf8     function_table.obj
+ 0001:00001d0c       ??_C@_0BB@GPIPACKB@glGetTexGenxvOES?$AA@ 10002d0c     function_table.obj
+ 0001:00001d20       ??_C@_0BB@FGFDGBEK@glGetTexGenfvOES?$AA@ 10002d20     function_table.obj
+ 0001:00001d34       ??_C@_0BB@KHAFNDJP@glGetTexGenivOES?$AA@ 10002d34     function_table.obj
+ 0001:00001d48       ??_C@_0O@OEFPDKKM@glTexGenxvOES?$AA@ 10002d48     function_table.obj
+ 0001:00001d58       ??_C@_0N@DPLLCAOI@glTexGenxOES?$AA@ 10002d58     function_table.obj
+ 0001:00001d68       ??_C@_0O@NNIDFJEH@glTexGenfvOES?$AA@ 10002d68     function_table.obj
+ 0001:00001d78       ??_C@_0N@OAGLAJAL@glTexGenfOES?$AA@ 10002d78     function_table.obj
+ 0001:00001d88       ??_C@_0O@CMNFOLJC@glTexGenivOES?$AA@ 10002d88     function_table.obj
+ 0001:00001d98       ??_C@_0N@GCDLJONK@glTexGeniOES?$AA@ 10002d98     function_table.obj
+ 0001:00001da8       ??_C@_0BH@FBPJDECF@glBlendFuncSeparateOES?$AA@ 10002da8     function_table.obj
+ 0001:00001dc0       ??_C@_0BL@LJMLCLCI@glBlendEquationSeparateOES?$AA@ 10002dc0     function_table.obj
+ 0001:00001ddc       ??_C@_0BD@BBOLNBAI@glBlendEquationOES?$AA@ 10002ddc     function_table.obj
+ 0001:00001df0       ??_C@_0BC@DEKNHIDE@glQueryMatrixxOES?$AA@ 10002df0     function_table.obj
+ 0001:00001e04       ??_C@_0P@LKNACIFH@glDrawTexxvOES?$AA@ 10002e04     function_table.obj
+ 0001:00001e14       ??_C@_0P@IDAMELLM@glDrawTexfvOES?$AA@ 10002e14     function_table.obj
+ 0001:00001e24       ??_C@_0P@HCFKPJGJ@glDrawTexivOES?$AA@ 10002e24     function_table.obj
+ 0001:00001e34       ??_C@_0P@NABHNIJE@glDrawTexsvOES?$AA@ 10002e34     function_table.obj
+ 0001:00001e44       ??_C@_0O@GOFANFJA@glDrawTexxOES?$AA@ 10002e44     function_table.obj
+ 0001:00001e54       ??_C@_0O@LBIAPMHD@glDrawTexfOES?$AA@ 10002e54     function_table.obj
+ 0001:00001e64       ??_C@_0O@DDNAGLKC@glDrawTexiOES?$AA@ 10002e64     function_table.obj
+ 0001:00001e74       ??_C@_0O@BJIAOEIB@glDrawTexsOES?$AA@ 10002e74     function_table.obj
+ 0001:00001e84       ??_C@_0BD@PCEFFFDF@glWeightPointerOES?$AA@ 10002e84     function_table.obj
+ 0001:00001e98       ??_C@_0BI@BEEEECPN@glMatrixIndexPointerOES?$AA@ 10002e98     function_table.obj
+ 0001:00001eb0       ??_C@_0CE@HEFPEHID@glLoadPaletteFromModelViewMatrix@ 10002eb0     function_table.obj
+ 0001:00001ed4       ??_C@_0BK@NDELAMFO@glCurrentPaletteMatrixOES?$AA@ 10002ed4     function_table.obj
+ 0001:00001ef0       ??_C@_0BG@PIPFALFL@glPointSizePointerOES?$AA@ 10002ef0     function_table.obj
+ 0001:00001f08       ??_C@_0CF@DBPLPDGE@glFramebufferTexture2DMultisampl@ 10002f08     function_table.obj
+ 0001:00001f30       ??_C@_0CE@LHFIFHEM@glRenderbufferStorageMultisample@ 10002f30     function_table.obj
+ 0001:00001f54       ??_C@_0BI@PNJOCEBL@glDiscardFramebufferEXT?$AA@ 10002f54     function_table.obj
+ 0001:00001f6c       ??_C@_0BD@PEKIFPFH@glProgramBinaryOES?$AA@ 10002f6c     function_table.obj
+ 0001:00001f80       ??_C@_0BG@GMFJDPBI@glGetProgramBinaryOES?$AA@ 10002f80     function_table.obj
+ 0001:00001f98       ??_C@_0O@GHLOIFEF@vgValidateVGX?$AA@ 10002f98     function_table.obj
+ 0001:00001fa8       ??_C@_0BK@MJMMJBHE@vgCreateEGLImageTargetKHR?$AA@ 10002fa8     function_table.obj
+ 0001:00001fc4       ??_C@_09CKNCACDD@wsegl?4dll?$AA@ 10002fc4     generic_ws.obj
+ 0001:00001fd0       ??_C@_0L@FNOAAMKB@nullws?4dll?$AA@ 10002fd0     generic_ws.obj
+ 0001:00001fe0       ??_C@_0EG@GEKKOFJN@LoadWSModule?3?5Window?5system?5modu@ 10002fe0     generic_ws.obj
+ 0001:00002028       ??_C@_0EI@PCKELFGO@LoadWSModule?3?5Window?5system?5is?5w@ 10003028     generic_ws.obj
+ 0001:00002070       ??_C@_0ED@KPPIMDEH@LoadWSModule?3?5Couldn?8t?5get?5funct@ 10003070     generic_ws.obj
+ 0001:000020b8       ??_C@_0EL@KAHOJHMF@LoadWSModule?3?5Couldn?8t?5get?5addre@ 100030b8     generic_ws.obj
+ 0001:00002104       ??_C@_0BO@GEMPEOEK@WSEGL_GetFunctionTablePointer?$AA@ 10003104     generic_ws.obj
+ 0001:00002128       ??_C@_0FG@MMOIKMDB@c?3?2data?2jatin?2powervr_build?2ddk1@ 10003128     generic_ws.obj
+ 0001:00002180       ??_C@_0BL@BHEKDJOB@Couldn?8t?5load?5WS?5module?5?$CFs?$AA@ 10003180     generic_ws.obj
+ 0001:0000219c       ??_C@_0DP@KLDJOKMC@LoadOGLES1AndGetFunctions?3?5Wrong@ 1000319c     generic_ws.obj
+ 0001:000021dc       ??_C@_0DH@FFHMNBBN@LoadOGLES1AndGetFunctions?3?5Could@ 100031dc     generic_ws.obj
+ 0001:00002214       ??_C@_0DP@CFMNAHBH@LoadOGLES1AndGetFunctions?3?5Could@ 10003214     generic_ws.obj
+ 0001:00002254       ??_C@_0M@OPOBFDCB@glGetString?$AA@ 10003254     generic_ws.obj
+ 0001:00002260       ??_C@_0ED@EBBEOAKH@LoadOGLES1AndGetFunctions?3?5Could@ 10003260     generic_ws.obj
+ 0001:000022a4       ??_C@_0P@MADFBLIB@libGLES_CM?4dll?$AA@ 100032a4     generic_ws.obj
+ 0001:000022b4       ??_C@_0DP@KJNHBABI@LoadOGLES2AndGetFunctions?3?5Wrong@ 100032b4     generic_ws.obj
+ 0001:000022f4       ??_C@_0DH@NFCGHNKI@LoadOGLES2AndGetFunctions?3?5Could@ 100032f4     generic_ws.obj
+ 0001:0000232c       ??_C@_0DP@CHCDPNMN@LoadOGLES2AndGetFunctions?3?5Could@ 1000332c     generic_ws.obj
+ 0001:00002370       ??_C@_0EC@MDBCNKCD@LoadOGLES2AndGetFunctions?3?5Could@ 10003370     generic_ws.obj
+ 0001:000023b4       ??_C@_0O@HFAAEHFL@libGLESv2?4dll?$AA@ 100033b4     generic_ws.obj
+ 0001:000023c4       ??_C@_0DM@HJOIICPP@LoadOGLAndGetFunctions?3?5Wrong?5ve@ 100033c4     generic_ws.obj
+ 0001:00002400       ??_C@_0DE@MEMONELH@LoadOGLAndGetFunctions?3?5Couldn?8t@ 10003400     generic_ws.obj
+ 0001:00002434       ??_C@_0DM@PHBMGPCK@LoadOGLAndGetFunctions?3?5Couldn?8t@ 10003434     generic_ws.obj
+ 0001:00002470       ??_C@_0DO@EFCOJMDG@LoadOGLAndGetFunctions?3?5Couldn?8t@ 10003470     generic_ws.obj
+ 0001:000024b0       ??_C@_0N@DOKAJOHF@opengl32?4dll?$AA@ 100034b0     generic_ws.obj
+ 0001:000024c0       ??_C@_0DM@BJIALNEG@LoadOVGAndGetFunctions?3?5Wrong?5ve@ 100034c0     generic_ws.obj
+ 0001:000024fc       ??_C@_0DE@EEGGAKGI@LoadOVGAndGetFunctions?3?5Couldn?8t@ 100034fc     generic_ws.obj
+ 0001:00002530       ??_C@_0DM@CDOIHGEE@LoadOVGAndGetFunctions?3?5Couldn?8t@ 10003530     generic_ws.obj
+ 0001:0000256c       ??_C@_0M@FLHNHFPG@vgGetString?$AA@ 1000356c     generic_ws.obj
+ 0001:00002578       ??_C@_0DP@DODFNMJ@LoadOVGAndGetFunctions?3?5Couldn?8t@ 10003578     generic_ws.obj
+ 0001:000025b8       ??_C@_0O@LFGHKFEJ@libOpenVG?4dll?$AA@ 100035b8     generic_ws.obj
+ 0001:000025c8       ??_C@_0DM@PBOGEOLP@LoadOCLAndGetFunctions?3?5Wrong?5ve@ 100035c8     generic_ws.obj
+ 0001:00002608       ??_C@_0EB@NFOJEDII@LoadOCLAndGetFunctions?3?5Couldn?8t@ 10003608     generic_ws.obj
+ 0001:0000264c       ??_C@_0BB@LKGPHLOE@clGetContextInfo?$AA@ 1000364c     generic_ws.obj
+ 0001:00002660       ??_C@_0DP@JMECFCNA@LoadOCLAndGetFunctions?3?5Couldn?8t@ 10003660     generic_ws.obj
+ 0001:000026a0       ??_C@_0O@OKIHGKKK@libPVROCL?4dll?$AA@ 100036a0     generic_ws.obj
+ 0001:000026b0       ??_C@_0EP@BDICFEF@KEGLGetDrawableParameters?3?5Out?5o@ 100036b0     generic_ws.obj
+ 0001:00002700       ??_C@_0EE@FGFPHKBF@KEGLGetDrawableParameters?3?5Can?8t@ 10003700     generic_ws.obj
+ 0001:00002744       ??_C@_0DA@BAPMJPE@KEGLGetDrawableParameters?3?5Nativ@ 10003744     generic_ws.obj
+ 0001:00002774       ??_C@_06MHMEPCAJ@pixmap?$AA@ 10003774     generic_ws.obj
+ 0001:0000277c       ??_C@_06NFBEFKOC@window?$AA@ 1000377c     generic_ws.obj
+ 0001:00002784       ??_C@_0DD@MNFNNCKA@KEGLGetDrawableParameters?3?5Can?8t@ 10003784     generic_ws.obj
+ 0001:000027b8       ??_C@_0CN@HIGBFEAJ@KEGLGetDrawableParameters?3?5No?5Cu@ 100037b8     generic_ws.obj
+ 0001:000027e8       ??_C@_0DH@LOBBCIHM@KEGLRecreateDrawable?3?5KEGLResize@ 100037e8     generic_ws.obj
+ 0001:00002820       ??_C@_0DJ@CMHHCGDF@KEGLRecreateDrawable?3?5KEGLGetDra@ 10003820     generic_ws.obj
+ 0001:0000285c       ??_C@_0DB@GECIIFJJ@KEGLRecreateDrawable?3?5Couldn?8t?5d@ 1000385c     generic_ws.obj
+ 0001:00002890       ??_C@_0DB@OFMCABHG@KEGLRecreateDrawable?3?5Couldn?8t?5c@ 10003890     generic_ws.obj
+ 0001:000028c4       ??_C@_0CJ@LJBACDFM@KEGLRecreateDrawable?3?5Invalid?5cl@ 100038c4     generic_ws.obj
+ 0001:000028f0       ??_C@_0DB@FIMDBPAD@GWS_CreatePBufferDrawable?3?5Alloc@ 100038f0     generic_ws.obj
+ 0001:00002924       ??_C@_0CN@MNHDKPFP@GWS_CreatePBufferDrawable?3?5No?5Cu@ 10003924     generic_ws.obj
+ 0001:00002954       ??_C@_0DI@DKKDJHGG@GWS_DestroyPBufferDrawable?3?5Coul@ 10003954     generic_ws.obj
+ 0001:0000298c       ??_C@_0CN@DKLOAHDL@GWS_DeletePBufferDrawable?3?5No?5Cu@ 1000398c     generic_ws.obj
+ 0001:000029bc       ??_C@_0CC@CNPGDFNM@eglGetSyncAttribKHR?5?5?5?5?5?5?5?5?5?5?5?5?5@ 100039bc     metrics.obj
+ 0001:000029e0       ??_C@_0CC@JKKGNIKI@eglClientWaitSyncKHR?5?5?5?5?5?5?5?5?5?5?5?5@ 100039e0     metrics.obj
+ 0001:00002a04       ??_C@_0CC@MLFDJEKD@eglDestroySyncKHR?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003a04     metrics.obj
+ 0001:00002a28       ??_C@_0CC@BCFOKBJB@eglCreateSyncKHR?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003a28     metrics.obj
+ 0001:00002a4c       ??_C@_0CC@FMLPHKON@eglDestroyImageKHR?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003a4c     metrics.obj
+ 0001:00002a70       ??_C@_0CC@IDKNCBOI@eglCreateImageKHR?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003a70     metrics.obj
+ 0001:00002a94       ??_C@_0CC@FGCEKGKI@eglSetDisplayPropertySymbian?5?5?5?5@ 10003a94     metrics.obj
+ 0001:00002ab8       ??_C@_0CC@KPLHOBFP@eglGetProcAddress?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003ab8     metrics.obj
+ 0001:00002adc       ??_C@_0CC@GCGJDEDB@eglCopyBuffers?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003adc     metrics.obj
+ 0001:00002b00       ??_C@_0CC@CNFINKPG@eglSwapBuffers?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003b00     metrics.obj
+ 0001:00002b24       ??_C@_0CC@DAKBFCEL@eglWaitNative?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003b24     metrics.obj
+ 0001:00002b48       ??_C@_0CC@IOBMFOIF@eglWaitGL?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003b48     metrics.obj
+ 0001:00002b6c       ??_C@_0CC@FNBMCJAA@eglQueryContext?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003b6c     metrics.obj
+ 0001:00002b90       ??_C@_0CC@NLIHHBIA@eglGetCurrentDisplay?5?5?5?5?5?5?5?5?5?5?5?5@ 10003b90     metrics.obj
+ 0001:00002bb4       ??_C@_0CC@KJMAKDOF@eglGetCurrentSurface?5?5?5?5?5?5?5?5?5?5?5?5@ 10003bb4     metrics.obj
+ 0001:00002bd8       ??_C@_0CC@LPGGNAKP@eglGetCurrentContext?5?5?5?5?5?5?5?5?5?5?5?5@ 10003bd8     metrics.obj
+ 0001:00002bfc       ??_C@_0CC@OBLAFEEG@eglMakeCurrent?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003bfc     metrics.obj
+ 0001:00002c20       ??_C@_0CC@BPHLNJNL@eglDestroyContext?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003c20     metrics.obj
+ 0001:00002c44       ??_C@_0CC@EMFEHANC@eglCreateContext?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003c44     metrics.obj
+ 0001:00002c68       ??_C@_0CC@KDIJBBBG@eglSwapInterval?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003c68     metrics.obj
+ 0001:00002c8c       ??_C@_0CC@JBNDNKBA@eglReleaseTexImage?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003c8c     metrics.obj
+ 0001:00002cb0       ??_C@_0CC@NAAJHMOA@eglBindTexImage?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003cb0     metrics.obj
+ 0001:00002cd4       ??_C@_0CC@ILLKLFFC@eglSurfaceAttrib?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003cd4     metrics.obj
+ 0001:00002cf8       ??_C@_0CC@OGFBBHHF@eglCreatePbufferFromClientBuffer@ 10003cf8     metrics.obj
+ 0001:00002d1c       ??_C@_0CC@CCGCFGMJ@eglReleaseThread?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003d1c     metrics.obj
+ 0001:00002d40       ??_C@_0CC@ELHLMOBG@eglWaitClient?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003d40     metrics.obj
+ 0001:00002d64       ??_C@_0CC@JPNPBCG@eglQueryAPI?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003d64     metrics.obj
+ 0001:00002d88       ??_C@_0CC@GPGADFCN@eglBindAPI?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003d88     metrics.obj
+ 0001:00002dac       ??_C@_0CC@PHLIPCJP@eglQuerySurface?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003dac     metrics.obj
+ 0001:00002dd0       ??_C@_0CC@FJNBPNDD@eglDestroySurface?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003dd0     metrics.obj
+ 0001:00002df4       ??_C@_0CC@OEEFIOJG@eglCreatePixmapSurface?5?5?5?5?5?5?5?5?5?5@ 10003df4     metrics.obj
+ 0001:00002e18       ??_C@_0CC@BFMCENGC@eglCreatePbufferSurface?5?5?5?5?5?5?5?5?5@ 10003e18     metrics.obj
+ 0001:00002e3c       ??_C@_0CC@FKENGOOL@eglCreateWindowSurface?5?5?5?5?5?5?5?5?5?5@ 10003e3c     metrics.obj
+ 0001:00002e60       ??_C@_0CC@BECMKBLC@eglGetConfigAttrib?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003e60     metrics.obj
+ 0001:00002e84       ??_C@_0CC@FFMNMMMD@eglChooseConfig?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003e84     metrics.obj
+ 0001:00002ea8       ??_C@_0CC@MMDBEHBB@eglGetConfigs?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003ea8     metrics.obj
+ 0001:00002ecc       ??_C@_0CC@PECCNFOL@eglQueryString?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003ecc     metrics.obj
+ 0001:00002ef0       ??_C@_0CC@BOLBGIFG@eglTerminate?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003ef0     metrics.obj
+ 0001:00002f14       ??_C@_0CC@BICBBKEM@eglInitialize?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003f14     metrics.obj
+ 0001:00002f38       ??_C@_0CC@OHKFICEC@eglGetDisplay?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003f38     metrics.obj
+ 0001:00002f5c       ??_C@_0CC@NKBDAINE@eglGetError?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10003f5c     metrics.obj
+ 0001:00003024       __real@447a0000            10004024     metrics.obj
+ 0001:00003028       ??_C@_0FD@JCPHFMLE@c?3?2data?2jatin?2powervr_build?2ddk1@ 10004028     metrics.obj
+ 0001:0000307c       ??_C@_0CE@FAGHEOD@InitMetrics?3?5Failed?5to?5get?5CPU?5f@ 1000407c     metrics.obj
+ 0001:000030a0       ??_C@_0BB@FPMLNBGO@?$CFs?5?$CF10d?5?5?5?5?5?$CF10f?$AA@ 100040a0     metrics.obj
+ 0001:000030b4       ??_C@_0DM@EKDNMAPL@?5Function?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 100040b4     metrics.obj
+ 0001:000030f0       ??_C@_0CA@KEAAPDCA@?$CFs?5?$CF10d?5?5?$CF10d?5?5?5?5?5?5?5?$CF10f?5?5?5?$CF10f?$AA@ 100040f0     metrics.obj
+ 0001:00003110       ??_C@_0FH@PNKDMACH@?5Function?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5@ 10004110     metrics.obj
+ 0001:00003167       ??_C@_00CNPNBAHC@?$AA@     10004167     metrics.obj
+ 0001:00003168       ??_C@_0DC@DMJJEMCC@?5?5?5IMGEGL?5Profiling?5?9?5?$CI?$CFd?5frames@ 10004168     metrics.obj
+ 0001:0000319c       ??_C@_0DP@KMFMGPOL@?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9@ 1000419c     metrics.obj
+ 0001:000031dc       ??_C@_0CI@MAKMKJDO@Warning?3?5IMGEGL?5Timer?5?$CFd?5in?5ON?5p@ 100041dc     metrics.obj
+ 0001:00003208       ??_C@_0FF@BOBIIKCL@c?3?2data?2jatin?2powervr_build?2ddk1@ 10004208     egl_win32.obj
+ 0001:00003260       ??_C@_1BI@BGGFPMGI@?$AA?2?$AAR?$AAe?$AAl?$AAe?$AAa?$AAs?$AAe?$AA?2?$AA?$CF?$AAs?$AA?$AA@ 10004260     egl_win32.obj
+ 0001:00003278       ??_C@_1BI@MHELFDAB@?$AA?2?$AAW?$AAi?$AAn?$AAd?$AAo?$AAw?$AAs?$AA?2?$AA?$CF?$AAs?$AA?$AA@ 10004278     egl_win32.obj
+ 0001:00003290       gasSRVPixelFormat          10004290     srv.obj
+ 0001:000034c0       ??_C@_0DD@LNBAGMMH@SRV_CreateSurface?3?5Bad?5external?5@ 100044c0     srv.obj
+ 0001:000034f8       ??_C@_0EP@ELCBFHNH@c?3?2data?2jatin?2powervr_build?2ddk1@ 100044f8     srv.obj
+ 0001:00003548       ??_C@_0DA@PAAGIIOO@SRV_CreateSurface?3?5Couldn?8t?5get?5@ 10004548     srv.obj
+ 0001:00003578       ??_C@_0CL@MCJJKAOL@KEGLAllocDeviceMemTrack?3?5No?5Curr@ 10004578     srv.obj
+ 0001:000035a8       ??_C@_0FM@FDDOBACI@KEGLFreeDeviceMemTrack?3?5Refused?5@ 100045a8     srv.obj
+ 0001:00003608       ??_C@_0JD@CPFAIDJB@KEGLFreeDeviceMemTrack?3?5The?5DevD@ 10004608     srv.obj
+ 0001:0000369c       ??_C@_0CK@JDGBCLHD@KEGLFreeDeviceMemTrack?3?5No?5Curre@ 1000469c     srv.obj
+ 0001:000036c8       ??_C@_0BP@KDBOGPJD@Couldn?8t?5create?5transfer?5queue?$AA@ 100046c8     srv_sgx.obj
+ 0001:000036e8       ??_C@_0BP@CFGMGEFD@Couldn?8t?5create?5render?5context?$AA@ 100046e8     srv_sgx.obj
+ 0001:00003708       ??_C@_0BH@HGBHPCIO@Couldn?8t?5get?5Misc?5info?$AA@ 10004708     srv_sgx.obj
+ 0001:00003720       ??_C@_0BF@GPOGODFD@Couldn?8t?5get?5HW?5info?$AA@ 10004720     srv_sgx.obj
+ 0001:00003738       ??_C@_0CG@FKDDKDHI@Couldn?8t?5create?5device?5memory?5co@ 10004738     srv_sgx.obj
+ 0001:00003760       ??_C@_0CH@GKICKDDA@Couldn?8t?5get?5device?5info?5for?53D?5@ 10004760     srv_sgx.obj
+ 0001:00003788       ??_C@_0BL@JMBBEOHN@Couldn?8t?5enumerate?5devices?$AA@ 10004788     srv_sgx.obj
+ 0001:000037a8       ??_C@_0FD@PLCJNEK@c?3?2data?2jatin?2powervr_build?2ddk1@ 100047a8     srv_sgx.obj
+ 0001:000037fc       ??_C@_0BN@IPPGPBCM@Couldn?8t?5connect?5to?5services?$AA@ 100047fc     srv_sgx.obj
+ 0001:0000381c       ??_C@_0CC@JLFLLODM@Couldn?8t?5disconnect?5from?5service@ 1000481c     srv_sgx.obj
+ 0001:00003840       ??_C@_0CH@HLPNIPOG@Couldn?8t?5destroy?5device?5memory?5c@ 10004840     srv_sgx.obj
+ 0001:00003868       ??_C@_0GC@GMJIFCHN@SRV_SGXServicesDeInit?3?5Freeing?5l@ 10004868     srv_sgx.obj
+ 0001:000038cc       ??_C@_0DM@DMKMBJCO@SRV_SGXServicesDeInit?3?5?$CFd?5device@ 100048cc     srv_sgx.obj
+ 0001:00003908       ??_C@_0BJ@FJJKEJIA@Couldn?8t?5release?5HW?5info?$AA@ 10004908     srv_sgx.obj
+ 0001:00003924       ??_C@_0BL@OKABBINI@Couldn?8t?5release?5Misc?5info?$AA@ 10004924     srv_sgx.obj
+ 0001:00003940       ??_C@_0CA@NHPJMFLE@Couldn?8t?5destroy?5render?5context?$AA@ 10004940     srv_sgx.obj
+ 0001:00003960       ??_C@_0CA@FBILMOHE@Couldn?8t?5destroy?5transfer?5queue?$AA@ 10004960     srv_sgx.obj
+ 0001:00003980       ??_C@_0ED@HHPAEDLK@KEGL_SGXCreateRenderSurface?3?5Cou@ 10004980     srv_sgx.obj
+ 0001:000039c8       ??_C@_0EI@GBPJLMID@SetupTerminateBuffers?3?5Couldn?8t?5@ 100049c8     srv_sgx.obj
+ 0001:00003a10       ??_C@_0DO@DHAMGOPO@SetupTerminateBuffers?3?5Couldn?8t?5@ 10004a10     srv_sgx.obj
+ 0001:00003a50       ??_C@_0DP@KNCOFAFB@SetupTerminateBuffers?3?5Couldn?8t?5@ 10004a50     srv_sgx.obj
+ 0001:00003a90       ??_C@_0DD@OLCGPNEN@KEGLDestroyRenderSurface?3?5Couldn@ 10004a90     srv_sgx.obj
+ 0001:00003ac4       ??_C@_0DI@OCINKNMB@KEGLDestroyRenderSurface?3?5Couldn@ 10004ac4     srv_sgx.obj
+ 0001:00003b00       ??_C@_0EI@LPEDBGDJ@KEGLDestroyRenderSurface?3?5Couldn@ 10004b00     srv_sgx.obj
+ 0001:00003b48       ??_C@_0EJ@FBAJFECM@KEGLDestroyRenderSurface?3?5Couldn@ 10004b48     srv_sgx.obj
+ 0001:00003b98       ??_C@_0EE@MICJFMIB@KEGLDestroyRenderSurface?3?5Couldn@ 10004b98     srv_sgx.obj
+ 0001:00003bdc       ??_C@_0DF@NNNMMAOD@KEGLDestroyRenderSurface?3?5Couldn@ 10004bdc     srv_sgx.obj
+ 0001:00003c14       ??_C@_0DE@LLOGGMN@KEGLDestroyRenderSurface?3?5Couldn@ 10004c14     srv_sgx.obj
+ 0001:00003c48       ??_C@_0DD@BKFOOFDN@KEGLDestroyRenderSurface?3?5Couldn@ 10004c48     srv_sgx.obj
+ 0001:00003c7c       ??_C@_0DO@LKBJBGGI@KEGLDestroyRenderSurface?3?5Couldn@ 10004c7c     srv_sgx.obj
+ 0001:00003cc0       ??_C@_0EH@HPIOKIJP@KEGLDestroyRenderSurface?3?5Couldn@ 10004cc0     srv_sgx.obj
+ 0001:00003d08       ??_C@_0DN@LHPEBEGA@KEGLDestroyRenderSurface?3?5Couldn@ 10004d08     srv_sgx.obj
+ 0001:00003d48       ??_C@_0EP@PIIDMING@KEGL_SGXDestroyRenderSurface?3?5Ti@ 10004d48     srv_sgx.obj
+ 0001:00003d98       ??_C@_0ED@INFEKFFA@KEGL_SGXResizeRenderSurface?3?5Cou@ 10004d98     srv_sgx.obj
+ 0001:00003ddc       ??_C@_0DI@IIMPBECL@KEGL_SGXResizeRenderSurface?3?5Cou@ 10004ddc     srv_sgx.obj
+ 0001:00003e14       ??_C@_0DG@JLJAOKNI@KEGL_SGXResizeRenderSurface?3?5Cou@ 10004e14     srv_sgx.obj
+ 0001:00003e4c       ??_C@_0DL@NIEJJBND@KEGL_SGXResizeRenderSurface?3?5Cou@ 10004e4c     srv_sgx.obj
+ 0001:00003e88       ??_C@_0EO@KCGMEILD@KEGL_SGXResizeRenderSurface?3?5Tim@ 10004e88     srv_sgx.obj
+ 0001:00003ed8       ??_C@_0DP@KPEPKHCN@KEGL_SGXSetContextPriority?3?5Fail@ 10004ed8     srv_sgx.obj
+ 0001:00003f18       ??_C@_0EP@LOCKLOLO@c?3?2data?2jatin?2powervr_build?2ddk1@ 10004f18     tls.obj
+ 0001:00003f68       ??_C@_0L@FOBCGDKN@TLS_Open?$CI?$CJ?$AA@ 10004f68     tls.obj
+ 0001:00003f74       ??_C@_0M@EKPJCLKK@TLS_Close?$CI?$CJ?$AA@ 10004f74     tls.obj
+ 0001:00003f80       ??_C@_0DM@PKIKCLLK@IMGeglCreateSyncKHR?3?5Could?5not?5f@ 10004f80     egl_sync.obj
+ 0001:00003fbc       ??_C@_0DJ@JBNNLIKP@IMGeglCreateSyncKHR?3?5Could?5not?5r@ 10004fbc     egl_sync.obj
+ 0001:00003ff8       ??_C@_0FE@KBLMDBAG@c?3?2data?2jatin?2powervr_build?2ddk1@ 10004ff8     egl_sync.obj
+ 0001:0000404c       ??_C@_0BE@IDHPJLAA@IMGeglCreateSyncKHR?$AA@ 1000504c     egl_sync.obj
+ 0001:00004060       ??_C@_0CF@NFOJJKDN@_insertEglFence?3?5unsupported?5con@ 10005060     egl_sync.obj
+ 0001:00004088       ??_C@_0CF@PALFACJP@_removeEglFence?3?5unsupported?5con@ 10005088     egl_sync.obj
+ 0001:000040b0       ??_C@_0DK@CDLKLDOO@IMGeglDestroySyncKHR?3?5Could?5not?5@ 100050b0     egl_sync.obj
+ 0001:000040ec       ??_C@_0BF@PMIFEKCK@IMGeglDestroySyncKHR?$AA@ 100050ec     egl_sync.obj
+ 0001:00004104       ??_C@_0DN@LLPAOBMP@IMGeglDestroySyncKHR?3?5Could?5not?5@ 10005104     egl_sync.obj
+ 0001:00004144       ??_C@_0BI@FAPGML@IMGeglClientWaitSyncKHR?$AA@ 10005144     egl_sync.obj
+ 0001:00004160       ??_C@_0ED@OPAKNIFJ@IMGeglClientWaitSyncKHR_Fence?3?5C@ 10005160     egl_sync.obj
+ 0001:000041a4       ??_C@_0DH@OEJOLFKG@IMGeglClientWaitSyncKHR?3?5PVRSRVE@ 100051a4     egl_sync.obj
+ 0001:000041dc       ??_C@_0BH@ENKDBFBO@IMGeglGetSyncAttribKHR?$AA@ 100051dc     egl_sync.obj
+ 0001:000041f4       ??_C@_0BE@KEOECILL@IMGeglSignalSyncKHR?$AA@ 100051f4     egl_sync.obj
+ 0001:00004370       ??_C@_0EP@OABGIJPN@c?3?2data?2jatin?2powervr_build?2ddk1@ 10005370     usegen.obj
+ 0001:000043c0       ??_C@_0EL@HAKEABCF@c?3?2data?2jatin?2powervr_build?2ddk1@ 100053c0     usegen.obj
+ 0001:00004434       EGLThreadLock              10005434 f   khronos_egl.obj
+ 0001:0000445c       EGLThreadUnlock            1000545c f   khronos_egl.obj
+ 0001:0000448c       _TlsInit                   1000548c f   khronos_egl.obj
+ 0001:00004e40       GetKEGLDisplay             10005e40 f   khronos_egl.obj
+ 0001:00004f90       IsEGLContext               10005f90 f   khronos_egl.obj
+ 0001:00005034       KEGLSurfaceUnbind          10006034 f   khronos_egl.obj
+ 0001:000053ac       KEGLSurfaceBind            100063ac f   khronos_egl.obj
+ 0001:000053e8       IMGeglGetError             100063e8 f   khronos_egl.obj
+ 0001:000056ac       IMGeglGetDisplay           100066ac f   khronos_egl.obj
+ 0001:00005ea0       IMGeglInitialize           10006ea0 f   khronos_egl.obj
+ 0001:00006c04       IMGeglTerminate            10007c04 f   khronos_egl.obj
+ 0001:00008114       IMGeglQueryString          10009114 f   khronos_egl.obj
+ 0001:000090f8       IMGeglGetProcAddress       1000a0f8 f   khronos_egl.obj
+ 0001:0000a538       IMGeglGetConfigs           1000b538 f   khronos_egl.obj
+ 0001:0000af4c       IMGeglChooseConfig         1000bf4c f   khronos_egl.obj
+ 0001:0000c5fc       IMGeglGetConfigAttrib      1000d5fc f   khronos_egl.obj
+ 0001:0000d2fc       IMGeglCreateWindowSurface  1000e2fc f   khronos_egl.obj
+ 0001:0000e778       IMGeglCreatePixmapSurface  1000f778 f   khronos_egl.obj
+ 0001:0000fb08       IMGeglCreatePbufferSurface 10010b08 f   khronos_egl.obj
+ 0001:00010fbc       IMGeglDestroySurface       10011fbc f   khronos_egl.obj
+ 0001:00011bd4       IMGeglQuerySurface         10012bd4 f   khronos_egl.obj
+ 0001:00012fd0       IMGeglCreateContext        10013fd0 f   khronos_egl.obj
+ 0001:000159a8       IMGeglDestroyContext       100169a8 f   khronos_egl.obj
+ 0001:00016694       IMGeglMakeCurrent          10017694 f   khronos_egl.obj
+ 0001:0001aaa0       IMGeglGetCurrentContext    1001baa0 f   khronos_egl.obj
+ 0001:0001ad78       IMGeglGetCurrentSurface    1001bd78 f   khronos_egl.obj
+ 0001:0001b374       IMGeglGetCurrentDisplay    1001c374 f   khronos_egl.obj
+ 0001:0001b7f0       IMGeglQueryContext         1001c7f0 f   khronos_egl.obj
+ 0001:0001c850       IMGeglWaitGL               1001d850 f   khronos_egl.obj
+ 0001:0001d254       IMGeglWaitNative           1001e254 f   khronos_egl.obj
+ 0001:0001db5c       IMGeglSwapBuffers          1001eb5c f   khronos_egl.obj
+ 0001:0001f258       IMGeglCopyBuffers          10020258 f   khronos_egl.obj
+ 0001:00020b74       IMGeglSwapInterval         10021b74 f   khronos_egl.obj
+ 0001:000217e4       IMGeglSurfaceAttrib        100227e4 f   khronos_egl.obj
+ 0001:000228ec       IMGeglBindTexImage         100238ec f   khronos_egl.obj
+ 0001:000243dc       IMGeglReleaseTexImage      100253dc f   khronos_egl.obj
+ 0001:00025768       IMGeglCreatePbufferFromClientBuffer 10026768 f   khronos_egl.obj
+ 0001:00026bac       IMGeglBindAPI              10027bac f   khronos_egl.obj
+ 0001:000273f4       IMGeglQueryAPI             100283f4 f   khronos_egl.obj
+ 0001:00027b10       IMGeglWaitClient           10028b10 f   khronos_egl.obj
+ 0001:00028a70       IMGeglReleaseThread        10029a70 f   khronos_egl.obj
+ 0001:00028ee0       KEGLBindImage              10029ee0 f   egl_eglimage.obj
+ 0001:00028f58       KEGLUnbindImage            10029f58 f   egl_eglimage.obj
+ 0001:00029260       KEGLGetImageSource         1002a260 f   egl_eglimage.obj
+ 0001:00029400       IMGeglCreateImageKHR       1002a400 f   egl_eglimage.obj
+ 0001:0002be1c       IMGeglDestroyImageKHR      1002ce1c f   egl_eglimage.obj
+ 0001:0002c5ec       TerminateImages            1002d5ec f   egl_eglimage.obj
+ 0001:0002cb08       IMGeglCreateSharedImageNOK 1002db08 f   egl_eglimage.obj
+ 0001:0002d7f4       IMGeglDestroySharedImageNOK 1002e7f4 f   egl_eglimage.obj
+ 0001:0002de54       IMGeglQueryImageNOK        1002ee54 f   egl_eglimage.obj
+ 0001:0002e64c       CFG_Initialise             1002f64c f   cfg.obj
+ 0001:0002e7d0       CFG_Variants               1002f7d0 f   cfg.obj
+ 0001:0002e8cc       CFG_GenerateVariant        1002f8cc f   cfg.obj
+ 0001:0002fec4       CFG_Match                  10030ec4 f   cfg.obj
+ 0001:00030078       CFG_PrepareConfigFilter    10031078 f   cfg.obj
+ 0001:00030378       CFG_CompatibleConfigs      10031378 f   cfg.obj
+ 0001:00030468       CFG_Compare                10031468 f   cfg.obj
+ 0001:0003089c       CFGC_Create                1003189c f   cfg_core.obj
+ 0001:000309c0       CFGC_CreateAvArray         100319c0 f   cfg_core.obj
+ 0001:00030ac0       CFGC_ModifyAvArrayNl       10031ac0 f   cfg_core.obj
+ 0001:00030b98       CFGC_CopyNl                10031b98 f   cfg_core.obj
+ 0001:00030c0c       CFGC_Unlink                10031c0c f   cfg_core.obj
+ 0001:00030c9c       CFGC_SetAttrib             10031c9c f   cfg_core.obj
+ 0001:00030de8       CFGC_GetPixelFormat        10031de8 f   cfg_core.obj
+ 0001:00030e54       CFGC_GetAttrib             10031e54 f   cfg_core.obj
+ 0001:00030f84       CFGC_GetAttribNoAccumulate 10031f84 f   cfg_core.obj
+ 0001:00031040       CFGC_GetAttribAccumulate   10032040 f   cfg_core.obj
+ 0001:00031134       IMGGetDummyFunction        10032134 f   function_table.obj
+ 0001:0003309c       IMGFindLibraryToLoad       1003409c f   function_table.obj
+ 0001:00033fec       LoadWSModule               10034fec f   generic_ws.obj
+ 0001:000342d4       UnloadModule               100352d4 f   generic_ws.obj
+ 0001:00034320       LoadOGLES1AndGetFunctions  10035320 f   generic_ws.obj
+ 0001:000344d8       LoadOGLES2AndGetFunctions  100354d8 f   generic_ws.obj
+ 0001:0003468c       LoadOGLAndGetFunctions     1003568c f   generic_ws.obj
+ 0001:00034844       LoadOVGAndGetFunctions     10035844 f   generic_ws.obj
+ 0001:000349fc       LoadOCLAndGetFunctions     100359fc f   generic_ws.obj
+ 0001:00034b8c       IsOGLES1ModulePresent      10035b8c f   generic_ws.obj
+ 0001:00034bb8       IsOGLES2ModulePresent      10035bb8 f   generic_ws.obj
+ 0001:00034be4       IsOGLModulePresent         10035be4 f   generic_ws.obj
+ 0001:00034c10       IsOVGModulePresent         10035c10 f   generic_ws.obj
+ 0001:00034c3c       IsOCLModulePresent         10035c3c f   generic_ws.obj
+ 0001:00034c68       KEGLGetDrawableParameters  10035c68 f   generic_ws.obj
+ 0001:00035b7c       GWS_CreatePBufferDrawable  10036b7c f   generic_ws.obj
+ 0001:00035cec       GWS_DeletePBufferDrawable  10036cec f   generic_ws.obj
+ 0001:00035d90       InitIMGEGLMetrics          10036d90 f   metrics.obj
+ 0001:00035e8c       OutputIMGEGLMetrics        10036e8c f   metrics.obj
+ 0001:00036220       ENV_CreateGlobalData       10037220 f   egl_win32.obj
+ 0001:0003628c       ENV_DestroyGlobalData      1003728c f   egl_win32.obj
+ 0001:000362bc       ENV_GetGlobalData          100372bc f   egl_win32.obj
+ 0001:000362e4       ENV_FileExists             100372e4 f   egl_win32.obj
+ 0001:0003640c       PVR_qsort_s                1003740c f   qsort_s.obj
+ 0001:00036688       SRV_FindPVRPixelFormat     10037688 f   srv.obj
+ 0001:00036800       SRV_ServicesInit           10037800 f   srv.obj
+ 0001:00036854       SRV_ServicesDeInit         10037854 f   srv.obj
+ 0001:00036894       SRV_CreateSurface          10037894 f   srv.obj
+ 0001:00036b0c       SRV_DestroySurface         10037b0c f   srv.obj
+ 0001:00036b4c       KEGLCreateRenderSurface    10037b4c f   srv.obj
+ 0001:00036ba8       KEGLDestroyRenderSurface   10037ba8 f   srv.obj
+ 0001:00036bec       KEGLResizeRenderSurface    10037bec f   srv.obj
+ 0001:00036c40       KEGLAllocDeviceMemTrack    10037c40 f   srv.obj
+ 0001:00036ea4       KEGLFreeDeviceMemTrack     10037ea4 f   srv.obj
+ 0001:00037160       SRV_SGXServicesInit        10038160 f   srv_sgx.obj
+ 0001:000376f8       SRV_SGXServicesDeInit      100386f8 f   srv_sgx.obj
+ 0001:00037a4c       KEGL_SGXCreateRenderSurface 10038a4c f   srv_sgx.obj
+ 0001:000389fc       KEGL_SGXDestroyRenderSurface 100399fc f   srv_sgx.obj
+ 0001:00038f3c       KEGL_SGXResizeRenderSurface 10039f3c f   srv_sgx.obj
+ 0001:00039498       SGXAllocatePBufferDeviceMem 1003a498 f   srv_sgx.obj
+ 0001:000395a8       KEGL_SGXSetContextPriority 1003a5a8 f   srv_sgx.obj
+ 0001:0003962c       TLS_Open                   1003a62c f   tls.obj
+ 0001:00039760       TLS_Close                  1003a760 f   tls.obj
+ 0001:000397cc       IMGeglCreateSyncKHR        1003a7cc f   egl_sync.obj
+ 0001:0003a930       IMGeglDestroySyncKHR       1003b930 f   egl_sync.obj
+ 0001:0003b058       IMGeglClientWaitSyncKHR    1003c058 f   egl_sync.obj
+ 0001:0003bd30       IMGeglGetSyncAttribKHR     1003cd30 f   egl_sync.obj
+ 0001:0003c180       IMGeglSignalSyncKHR        1003d180 f   egl_sync.obj
+ 0001:0003c60c       USEGenCalculateStateSize   1003d60c f   usegen.obj
+ 0001:0003c6a4       USEGenWriteStateEmitFragment 1003d6a4 f   usegen.obj
+ 0001:0003c7bc       USEGenWriteEndVtxShaderFragment 1003d7bc f   usegen.obj
+ 0001:0003c874       USEGenWriteEndVtxShaderGBFragment 1003d874 f   usegen.obj
+ 0001:0003cc9c       USEGenWriteStateEmitProgram 1003dc9c f   usegen.obj
+ 0001:0003cd90       USEGenWriteAccum2PProgram  1003dd90 f   usegen.obj
+ 0001:0003ce4c       USEGenWriteSpecialObjVtxProgram 1003de4c f   usegen.obj
+ 0001:0003d30c       USEGenWriteClearPixelProgram 1003e30c f   usegen.obj
+ 0001:0003d3bc       BuildMOV                   1003e3bc f i usegen.obj
+ 0001:0003d514       BuildEMITMTE               1003e514 f i usegen.obj
+ 0001:0003d5b8       BuildEMIT                  1003e5b8 f i usegen.obj
+ 0001:0003d748       BuildLIMM                  1003e748 f i usegen.obj
+ 0001:0003d808       BuildSMLSI                 1003e808 f i usegen.obj
+ 0001:0003d888       BuildMAD                   1003e888 f i usegen.obj
+ 0001:0003d914       BuildFARITH                1003e914 f i usegen.obj
+ 0001:0003db84       BuildUNPCKF32              1003eb84 f i usegen.obj
+ 0001:0003dc10       BuildPCKUNPCK              1003ec10 f i usegen.obj
+ 0001:0003dd84       IMGEGL_GetTLSID            1003ed84 f   wince6_tls.obj
+ 0001:0003dda8       IMGEGL_GetTLSValue         1003eda8 f   wince6_tls.obj
+ 0001:0003ddfc       IMGEGL_SetTLSValue         1003edfc f   wince6_tls.obj
+ 0001:0003de74       GetCurrentThreadId         1003ee74 f i wince6_tls.obj
+ 0001:0003de9c       TlsAlloc                   1003ee9c f i wince6_tls.obj
+ 0001:0003dec8       PVRSRVLockMutex            1003eec8 f   srvclum:SRVCLUM.dll
+ 0001:0003ded8       PVRSRVUnlockMutex          1003eed8 f   srvclum:SRVCLUM.dll
+ 0001:0003dee8       PVRSRVCreateMutex          1003eee8 f   srvclum:SRVCLUM.dll
+ 0001:0003def8       PVRSRVFreeAppHintState     1003eef8 f   srvclum:SRVCLUM.dll
+ 0001:0003df08       PVRSRVGetAppHint           1003ef08 f   srvclum:SRVCLUM.dll
+ 0001:0003df18       PVRSRVCreateAppHintState   1003ef18 f   srvclum:SRVCLUM.dll
+ 0001:0003df28       PVRSRVDebugPrintf          1003ef28 f   srvclum:SRVCLUM.dll
+ 0001:0003df38       PVRSRVDebugAssertFail      1003ef38 f   srvclum:SRVCLUM.dll
+ 0001:0003df48       PVRSRVDestroyMutex         1003ef48 f   srvclum:SRVCLUM.dll
+ 0001:0003df58       PVRSRVFreeUserModeMemTracking 1003ef58 f   srvclum:SRVCLUM.dll
+ 0001:0003df68       PVRSRVMetricsTimeNow       1003ef68 f   srvclum:SRVCLUM.dll
+ 0001:0003df78       PVRSRVCallocUserModeMemTracking 1003ef78 f   srvclum:SRVCLUM.dll
+ 0001:0003df88       PVRSRVUnmapDeviceMemory    1003ef88 f   srvclum:SRVCLUM.dll
+ 0001:0003df98       PVRSRVMemSet               1003ef98 f   srvclum:SRVCLUM.dll
+ 0001:0003dfa8       PVRSRVAllocUserModeMemTracking 1003efa8 f   srvclum:SRVCLUM.dll
+ 0001:0003dfb8       PVRSRVMapDeviceMemory      1003efb8 f   srvclum:SRVCLUM.dll
+ 0001:0003dfc8       PVRSRVFreeDeviceMem        1003efc8 f   srvclum:SRVCLUM.dll
+ 0001:0003dfd8       PVRSRVMemCopy              1003efd8 f   srvclum:SRVCLUM.dll
+ 0001:0003dfe8       PVRSRVExportDeviceMem      1003efe8 f   srvclum:SRVCLUM.dll
+ 0001:0003dff8       PVRSRVAllocDeviceMem       1003eff8 f   srvclum:SRVCLUM.dll
+ 0001:0003e008       PVRSRVReallocUserModeMemTracking 1003f008 f   srvclum:SRVCLUM.dll
+ 0001:0003e018       PVRSRVUnloadLibrary        1003f018 f   srvclum:SRVCLUM.dll
+ 0001:0003e028       PVRSRVGetLibFuncAddr       1003f028 f   srvclum:SRVCLUM.dll
+ 0001:0003e038       PVRSRVLoadLibrary          1003f038 f   srvclum:SRVCLUM.dll
+ 0001:0003e048       PVRSRVMetricsGetCPUFreq    1003f048 f   srvclum:SRVCLUM.dll
+ 0001:0003e058       PVRSRVTrace                1003f058 f   srvclum:SRVCLUM.dll
+ 0001:0003e068       SGXCreateTransferContext   1003f068 f   srvclum:SRVCLUM.dll
+ 0001:0003e078       SGXCreateRenderContext     1003f078 f   srvclum:SRVCLUM.dll
+ 0001:0003e088       PVRSRVGetMiscInfo          1003f088 f   srvclum:SRVCLUM.dll
+ 0001:0003e098       SGXGetClientInfo           1003f098 f   srvclum:SRVCLUM.dll
+ 0001:0003e0a8       PVRSRVCreateDeviceMemContext 1003f0a8 f   srvclum:SRVCLUM.dll
+ 0001:0003e0b8       PVRSRVAcquireDeviceData    1003f0b8 f   srvclum:SRVCLUM.dll
+ 0001:0003e0c8       PVRSRVEnumerateDevices     1003f0c8 f   srvclum:SRVCLUM.dll
+ 0001:0003e0d8       PVRSRVConnect              1003f0d8 f   srvclum:SRVCLUM.dll
+ 0001:0003e0e8       PVRSRVDisconnect           1003f0e8 f   srvclum:SRVCLUM.dll
+ 0001:0003e0f8       PVRSRVDestroyDeviceMemContext 1003f0f8 f   srvclum:SRVCLUM.dll
+ 0001:0003e108       SGXReleaseClientInfo       1003f108 f   srvclum:SRVCLUM.dll
+ 0001:0003e118       PVRSRVReleaseMiscInfo      1003f118 f   srvclum:SRVCLUM.dll
+ 0001:0003e128       SGXDestroyRenderContext    1003f128 f   srvclum:SRVCLUM.dll
+ 0001:0003e138       SGXDestroyTransferContext  1003f138 f   srvclum:SRVCLUM.dll
+ 0001:0003e148       SGXRemoveRenderTarget      1003f148 f   srvclum:SRVCLUM.dll
+ 0001:0003e158       SGXAddRenderTarget         1003f158 f   srvclum:SRVCLUM.dll
+ 0001:0003e168       PVRSRVPollForValue         1003f168 f   srvclum:SRVCLUM.dll
+ 0001:0003e178       SGXSetContextPriority      1003f178 f   srvclum:SRVCLUM.dll
+ 0001:0003e188       PVRSRVEventObjectWait      1003f188 f   srvclum:SRVCLUM.dll
+ 0001:0003e198       PVRSRVClockus              1003f198 f   srvclum:SRVCLUM.dll
+ 0001:0003e1a8       PVRSRVReleaseThreadQuanta  1003f1a8 f   srvclum:SRVCLUM.dll
+ 0001:0003e1b8       FindClose                  1003f1b8 f   coredll:COREDLL.dll
+ 0001:0003e1c8       FindFirstFileW             1003f1c8 f   coredll:COREDLL.dll
+ 0001:0003e1d8       __GetUserKData             1003f1d8 f   coredll:COREDLL.dll
+ 0001:0003e1e8       TlsGetValue                1003f1e8 f   coredll:COREDLL.dll
+ 0001:0003e1f8       TlsCall                    1003f1f8 f   coredll:COREDLL.dll
+ 0001:0003e208       TlsSetValue                1003f208 f   coredll:COREDLL.dll
+ 0001:0003e218       DllMain                    1003f218 f   corelib0:dllmain.obj
+ 0001:0003e250       _DllMainCRTStartup         1003f250 f   corelib0:pegdmain.obj
+ 0001:0003e3e8       __security_init_cookie     1003f3e8 f   corelib0:seccinit.obj
+ 0001:0003e484       __GSHandlerCheck           1003f484 f   corelib0:gshandler.obj
+ 0001:0003e4c8       __GSHandlerCheckCommon     1003f4c8 f   corelib0:gshandler.obj
+ 0001:0003e568       __security_check_cookie    1003f568 f   corelib0:armsecgs.obj
+ 0001:0003e578       __gsfailure                1003f578     corelib0:armsecgs.obj
+ 0001:0003e5bc       exit                       1003f5bc f   corelib0:cexit.obj
+ 0001:0003e6dc       _exit                      1003f6dc f   corelib0:cexit.obj
+ 0001:0003e6fc       _cexit                     1003f6fc f   corelib0:cexit.obj
+ 0001:0003e714       _c_exit                    1003f714 f   corelib0:cexit.obj
+ 0001:0003e72c       _initterm                  1003f72c f   corelib0:crt0dat.obj
+ 0001:0003e778       _cinit                     1003f778 f   corelib0:crt0dat.obj
+ 0001:0003e7a8       __crt_ExitProcess          1003f7a8 f   corelib0:exitproc_proxy.obj
+ 0001:0003e7d4       GetCurrentProcess          1003f7d4 f i corelib0:exitproc_proxy.obj
+ 0001:0003e7ec       _onexit                    1003f7ec f   corelib0:onexit.obj
+ 0001:0003e9c8       atexit                     1003f9c8 f   corelib0:onexit.obj
+ 0001:0003ea18       strcpy                     1003fa18 f   corelib1:COREDLL.dll
+ 0001:0003ea28       strncmp                    1003fa28 f   corelib1:COREDLL.dll
+ 0001:0003ea38       strlen                     1003fa38 f   corelib1:COREDLL.dll
+ 0001:0003ea48       strcmp                     1003fa48 f   corelib1:COREDLL.dll
+ 0001:0003ea58       swprintf                   1003fa58 f   corelib1:COREDLL.dll
+ 0001:0003ea68       mbstowcs                   1003fa68 f   corelib1:COREDLL.dll
+ 0001:0003ea78       memset                     1003fa78 f   corelib1:COREDLL.dll
+ 0001:0003ea88       memcpy                     1003fa88 f   corelib1:COREDLL.dll
+ 0001:0003ea98       _XcptFilter                1003fa98 f   corelib1:COREDLL.dll
+ 0001:0003eaa8       __C_specific_handler       1003faa8 f   corelib1:COREDLL.dll
+ 0001:0003eab8       __security_gen_cookie2     1003fab8 f   corelib1:COREDLL.dll
+ 0001:0003eac8       __report_gsfailure         1003fac8 f   corelib1:COREDLL.dll
+ 0001:0003ead8       free                       1003fad8 f   corelib1:COREDLL.dll
+ 0001:0003eae8       realloc                    1003fae8 f   corelib1:COREDLL.dll
+ 0001:0003eaf8       malloc                     1003faf8 f   corelib1:COREDLL.dll
+ 0001:0003eb08       _msize                     1003fb08 f   corelib1:COREDLL.dll
+ 0001:0003eb18       DisableThreadLibraryCalls  1003fb18 f   coredll:COREDLL.dll
+ 0001:0003eb28       TerminateProcess           1003fb28 f   coredll:COREDLL.dll
+ 0001:0003eb54       __IMPORT_DESCRIPTOR_SRVCLUM 1003fb54     srvclum:SRVCLUM.dll
+ 0001:0003eb68       __IMPORT_DESCRIPTOR_COREDLL 1003fb68     coredll:COREDLL.dll
+ 0001:0003eb7c       __NULL_IMPORT_DESCRIPTOR   1003fb7c     srvclum:SRVCLUM.dll
+ 0002:00000000       __imp_TerminateProcess     10041000     coredll:COREDLL.dll
+ 0002:00000004       __imp__msize               10041004     corelib1:COREDLL.dll
+ 0002:00000008       __imp_malloc               10041008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp_realloc              1004100c     corelib1:COREDLL.dll
+ 0002:00000010       __imp_free                 10041010     corelib1:COREDLL.dll
+ 0002:00000014       __imp___report_gsfailure   10041014     corelib1:COREDLL.dll
+ 0002:00000018       __imp___security_gen_cookie2 10041018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp___C_specific_handler 1004101c     corelib1:COREDLL.dll
+ 0002:00000020       __imp__XcptFilter          10041020     corelib1:COREDLL.dll
+ 0002:00000024       __imp___rt_udiv64by64      10041024     corelib1:COREDLL.dll
+ 0002:00000028       __imp_memcpy               10041028     corelib1:COREDLL.dll
+ 0002:0000002c       __imp_memset               1004102c     corelib1:COREDLL.dll
+ 0002:00000030       __imp_mbstowcs             10041030     corelib1:COREDLL.dll
+ 0002:00000034       __imp_swprintf             10041034     corelib1:COREDLL.dll
+ 0002:00000038       __imp___rt_udiv            10041038     corelib1:COREDLL.dll
+ 0002:0000003c       __imp_strcmp               1004103c     corelib1:COREDLL.dll
+ 0002:00000040       __imp___rt_sdiv            10041040     corelib1:COREDLL.dll
+ 0002:00000044       __imp_strlen               10041044     corelib1:COREDLL.dll
+ 0002:00000048       __imp_strncmp              10041048     corelib1:COREDLL.dll
+ 0002:0000004c       __imp_strcpy               1004104c     corelib1:COREDLL.dll
+ 0002:00000050       __imp_TlsSetValue          10041050     coredll:COREDLL.dll
+ 0002:00000054       __imp_TlsCall              10041054     coredll:COREDLL.dll
+ 0002:00000058       __imp_TlsGetValue          10041058     coredll:COREDLL.dll
+ 0002:0000005c       __imp___GetUserKData       1004105c     coredll:COREDLL.dll
+ 0002:00000060       __imp_FindFirstFileW       10041060     coredll:COREDLL.dll
+ 0002:00000064       __imp_FindClose            10041064     coredll:COREDLL.dll
+ 0002:00000068       __imp_DisableThreadLibraryCalls 10041068     coredll:COREDLL.dll
+ 0002:0000006c       \177COREDLL_NULL_THUNK_DATA 1004106c     coredll:COREDLL.dll
+ 0002:00000070       __imp_PVRSRVGetMiscInfo    10041070     srvclum:SRVCLUM.dll
+ 0002:00000074       __imp_SGXGetClientInfo     10041074     srvclum:SRVCLUM.dll
+ 0002:00000078       __imp_PVRSRVCreateDeviceMemContext 10041078     srvclum:SRVCLUM.dll
+ 0002:0000007c       __imp_PVRSRVAcquireDeviceData 1004107c     srvclum:SRVCLUM.dll
+ 0002:00000080       __imp_PVRSRVEnumerateDevices 10041080     srvclum:SRVCLUM.dll
+ 0002:00000084       __imp_PVRSRVConnect        10041084     srvclum:SRVCLUM.dll
+ 0002:00000088       __imp_PVRSRVDisconnect     10041088     srvclum:SRVCLUM.dll
+ 0002:0000008c       __imp_PVRSRVDestroyDeviceMemContext 1004108c     srvclum:SRVCLUM.dll
+ 0002:00000090       __imp_SGXReleaseClientInfo 10041090     srvclum:SRVCLUM.dll
+ 0002:00000094       __imp_SGXCreateRenderContext 10041094     srvclum:SRVCLUM.dll
+ 0002:00000098       __imp_SGXDestroyRenderContext 10041098     srvclum:SRVCLUM.dll
+ 0002:0000009c       __imp_SGXDestroyTransferContext 1004109c     srvclum:SRVCLUM.dll
+ 0002:000000a0       __imp_SGXRemoveRenderTarget 100410a0     srvclum:SRVCLUM.dll
+ 0002:000000a4       __imp_SGXAddRenderTarget   100410a4     srvclum:SRVCLUM.dll
+ 0002:000000a8       __imp_PVRSRVPollForValue   100410a8     srvclum:SRVCLUM.dll
+ 0002:000000ac       __imp_SGXSetContextPriority 100410ac     srvclum:SRVCLUM.dll
+ 0002:000000b0       __imp_PVRSRVEventObjectWait 100410b0     srvclum:SRVCLUM.dll
+ 0002:000000b4       __imp_PVRSRVClockus        100410b4     srvclum:SRVCLUM.dll
+ 0002:000000b8       __imp_PVRSRVReleaseThreadQuanta 100410b8     srvclum:SRVCLUM.dll
+ 0002:000000bc       __imp_SGXCreateTransferContext 100410bc     srvclum:SRVCLUM.dll
+ 0002:000000c0       __imp_PVRSRVTrace          100410c0     srvclum:SRVCLUM.dll
+ 0002:000000c4       __imp_PVRSRVMetricsGetCPUFreq 100410c4     srvclum:SRVCLUM.dll
+ 0002:000000c8       __imp_PVRSRVLoadLibrary    100410c8     srvclum:SRVCLUM.dll
+ 0002:000000cc       __imp_PVRSRVGetLibFuncAddr 100410cc     srvclum:SRVCLUM.dll
+ 0002:000000d0       __imp_PVRSRVUnloadLibrary  100410d0     srvclum:SRVCLUM.dll
+ 0002:000000d4       __imp_PVRSRVReallocUserModeMemTracking 100410d4     srvclum:SRVCLUM.dll
+ 0002:000000d8       __imp_PVRSRVAllocDeviceMem 100410d8     srvclum:SRVCLUM.dll
+ 0002:000000dc       __imp_PVRSRVExportDeviceMem 100410dc     srvclum:SRVCLUM.dll
+ 0002:000000e0       __imp_PVRSRVMemCopy        100410e0     srvclum:SRVCLUM.dll
+ 0002:000000e4       __imp_PVRSRVFreeDeviceMem  100410e4     srvclum:SRVCLUM.dll
+ 0002:000000e8       __imp_PVRSRVMapDeviceMemory 100410e8     srvclum:SRVCLUM.dll
+ 0002:000000ec       __imp_PVRSRVAllocUserModeMemTracking 100410ec     srvclum:SRVCLUM.dll
+ 0002:000000f0       __imp_PVRSRVMemSet         100410f0     srvclum:SRVCLUM.dll
+ 0002:000000f4       __imp_PVRSRVUnmapDeviceMemory 100410f4     srvclum:SRVCLUM.dll
+ 0002:000000f8       __imp_PVRSRVCallocUserModeMemTracking 100410f8     srvclum:SRVCLUM.dll
+ 0002:000000fc       __imp_PVRSRVMetricsTimeNow 100410fc     srvclum:SRVCLUM.dll
+ 0002:00000100       __imp_PVRSRVFreeUserModeMemTracking 10041100     srvclum:SRVCLUM.dll
+ 0002:00000104       __imp_PVRSRVDestroyMutex   10041104     srvclum:SRVCLUM.dll
+ 0002:00000108       __imp_PVRSRVDebugAssertFail 10041108     srvclum:SRVCLUM.dll
+ 0002:0000010c       __imp_PVRSRVDebugPrintf    1004110c     srvclum:SRVCLUM.dll
+ 0002:00000110       __imp_PVRSRVCreateAppHintState 10041110     srvclum:SRVCLUM.dll
+ 0002:00000114       __imp_PVRSRVGetAppHint     10041114     srvclum:SRVCLUM.dll
+ 0002:00000118       __imp_PVRSRVFreeAppHintState 10041118     srvclum:SRVCLUM.dll
+ 0002:0000011c       __imp_PVRSRVCreateMutex    1004111c     srvclum:SRVCLUM.dll
+ 0002:00000120       __imp_PVRSRVUnlockMutex    10041120     srvclum:SRVCLUM.dll
+ 0002:00000124       __imp_PVRSRVReleaseMiscInfo 10041124     srvclum:SRVCLUM.dll
+ 0002:00000128       __imp_PVRSRVLockMutex      10041128     srvclum:SRVCLUM.dll
+ 0002:0000012c       \177SRVCLUM_NULL_THUNK_DATA 1004112c     srvclum:SRVCLUM.dll
+ 0002:000001a8       __security_cookie          100411a8     corelib0:seccinit.obj
+ 0002:000001ac       __security_cookie_complement 100411ac     corelib0:seccinit.obj
+ 0002:00000840       _exitflag                  10041840     corelib0:cexit.obj
+ 0002:00000844       __onexitend                10041844     <common>
+ 0002:00000848       __onexitbegin              10041848     <common>
+ 0002:0000084c       _pRawDllMain               1004184c     <common>
+
+ entry point at        0001:0003e250
+
+ Static symbols
+
+ 0001:00004d48       GlobalDataDeinit           10005d48 f   khronos_egl.obj
+ 0001:00004f50       _exp_assert                10005f50 f   khronos_egl.obj
+ 0001:000050f8       IMGEGLGetTLSValue          100060f8 f   khronos_egl.obj
+ 0001:0000511c       _SurfaceDelete             1000611c f   khronos_egl.obj
+ 0001:00005308       _DpySurfaceUnlink          10006308 f   khronos_egl.obj
+ 0001:0000784c       _TlsDeInit                 1000884c f   khronos_egl.obj
+ 0001:00007a00       _UnloadOpenVG              10008a00 f   khronos_egl.obj
+ 0001:00007a7c       _UnloadOpenGLES1           10008a7c f   khronos_egl.obj
+ 0001:00007afc       _UnloadOpenGLES2           10008afc f   khronos_egl.obj
+ 0001:00007b80       _UnloadOpenGL              10008b80 f   khronos_egl.obj
+ 0001:00007c00       _UnloadOpenCL              10008c00 f   khronos_egl.obj
+ 0001:00007c84       _ContextDelete             10008c84 f   khronos_egl.obj
+ 0001:00008070       _DpyContextUnlink          10009070 f   khronos_egl.obj
+ 0001:0000c2dc       _ValidateAttribList        1000d2dc f   khronos_egl.obj
+ 0001:0000e6d0       _FindWindowSurface         1000f6d0 f   khronos_egl.obj
+ 0001:0000fa60       _FindPixmapSurface         10010a60 f   khronos_egl.obj
+ 0001:00011b30       IsEGLSurface               10012b30 f   khronos_egl.obj
+ 0001:000157a4       _InitialiseContextMode     100167a4 f   khronos_egl.obj
+ 0001:0001a6d0       _CompatibleContextAndSurface 1001b6d0 f   khronos_egl.obj
+ 0001:0001a7a0       _SurfaceUnbind             1001b7a0 f   khronos_egl.obj
+ 0001:0001a840       _ContextBoundToOtherThread 1001b840 f   khronos_egl.obj
+ 0001:0001a8b0       _SurfaceBoundToOtherThread 1001b8b0 f   khronos_egl.obj
+ 0001:0001a920       ConnectSurface             1001b920 f   khronos_egl.obj
+ 0001:0001a9a4       GetNonPBufferWSEGLDrawable 1001b9a4 f   khronos_egl.obj
+ 0001:0001aa1c       DisconnectSurface          1001ba1c f   khronos_egl.obj
+ 0001:00024344       _FindContextByThreadID     10025344 f   khronos_egl.obj
+ 0001:00028ef8       BindImage                  10029ef8 f   egl_eglimage.obj
+ 0001:00028fc4       IMGEGLGetTLSValue          10029fc4 f   egl_eglimage.obj
+ 0001:00028fe8       UnbindImage                10029fe8 f   egl_eglimage.obj
+ 0001:00029064       _ImageDelete               1002a064 f   egl_eglimage.obj
+ 0001:000291bc       _DpyImageUnlink            1002a1bc f   egl_eglimage.obj
+ 0001:00029360       _IsEGLImage                1002a360 f   egl_eglimage.obj
+ 0001:0002c6b8       ImportSharedImageNOK       1002d6b8 f   egl_eglimage.obj
+ 0001:0002c794       FindSharedImageNOKExport   1002d794 f   egl_eglimage.obj
+ 0001:0002c870       GetSharedImageNOKMetadata  1002d870 f   egl_eglimage.obj
+ 0001:0002c8ac       EGLImageFromSharedImageNOKTemplate 1002d8ac f   egl_eglimage.obj
+ 0001:0002c9c4       _SharedImageNOKDelete      1002d9c4 f   egl_eglimage.obj
+ 0001:0002ca64       _DpySharedImageNOKUnlink   1002da64 f   egl_eglimage.obj
+ 0001:0002d4c4       CreateSharedImageNOKTemplate 1002e4c4 f   egl_eglimage.obj
+ 0001:0002ee14       _BuildBaseES1VGCfg         1002fe14 f   cfg.obj
+ 0001:0002ef14       _BuildBaseES1VGCfg_CommonBase 1002ff14 f   cfg.obj
+ 0001:0002f070       _BuildPBufferBaseES1VGCfg  10030070 f   cfg.obj
+ 0001:0002f270       _BuildPBufferBaseES1VGCfg_CommonBase 10030270 f   cfg.obj
+ 0001:0002f384       _BuildBaseES2Cfg           10030384 f   cfg.obj
+ 0001:0002f4b4       __BuildBaseES2Cfg_CommonBase 100304b4 f   cfg.obj
+ 0001:0002f574       _BuildBaseOGLCfg           10030574 f   cfg.obj
+ 0001:0002f684       _BuildPBufferBaseOGLCfg    10030684 f   cfg.obj
+ 0001:0002f794       DeriveCfg                  10030794 f   cfg.obj
+ 0001:00030728       _CaveatOrder               10031728 f   cfg.obj
+ 0001:000307ac       _CompareColourBits         100317ac f   cfg.obj
+ 0001:00030a5c       _CountAttribs              10031a5c f   cfg_core.obj
+ 0001:00031438       DummyglMapBufferOES        10032438 f   function_table.obj
+ 0001:00031670       IMGEGLGetTLSValue          10032670 f   function_table.obj
+ 0001:00031694       DummyglUnmapBufferOES      10032694 f   function_table.obj
+ 0001:000318b4       DummyglGetBufferPointervOES 100328b4 f   function_table.obj
+ 0001:00031ab4       DummyglEGLImageTargetTexture2DOES 10032ab4 f   function_table.obj
+ 0001:00031c9c       DummyglEGLImageTargetRenderbufferStorageOES 10032c9c f   function_table.obj
+ 0001:00031e94       DummyglMultiDrawArrays     10032e94 f   function_table.obj
+ 0001:0003208c       DummyglMultiDrawElements   1003308c f   function_table.obj
+ 0001:000322a4       DummyglGetTexStreamDeviceAttributeivIMG 100332a4 f   function_table.obj
+ 0001:00032494       DummyglGetTexStreamDeviceNameIMG 10033494 f   function_table.obj
+ 0001:000326c4       DummyglTexBindStreamIMG    100336c4 f   function_table.obj
+ 0001:000328ac       DummyglBindVertexArrayOES  100338ac f   function_table.obj
+ 0001:00032a9c       DummyglDeleteVertexArraysOES 10033a9c f   function_table.obj
+ 0001:00032c84       DummyglGenVertexArraysOES  10033c84 f   function_table.obj
+ 0001:00032e7c       DummyglIsVertexArrayOES    10033e7c f   function_table.obj
+ 0001:000331f0       IMGSearchGLES1Extension    100341f0 f   function_table.obj
+ 0001:00033bc8       IMGSearchGLES2Extension    10034bc8 f   function_table.obj
+ 0001:00033f70       IMGSearchOVGExtension      10034f70 f   function_table.obj
+ 0001:000340f0       LoadNamedWSModule          100350f0 f   generic_ws.obj
+ 0001:000355bc       IMGEGLGetTLSValue          100365bc f   generic_ws.obj
+ 0001:000355e0       KEGLRecreateDrawable       100365e0 f   generic_ws.obj
+ 0001:00036454       _sort                      10037454 f   qsort_s.obj
+ 0001:000364ec       _partition                 100374ec f   qsort_s.obj
+ 0001:000365dc       _swap                      100375dc f   qsort_s.obj
+ 0001:00036e80       IMGEGLGetTLSValue          10037e80 f   srv.obj
+ 0001:00038534       SetupTerminateBuffers      10039534 f   srv_sgx.obj
+ 0001:0003877c       SetupZLSRegs               1003977c f   srv_sgx.obj
+ 0001:0003970c       IMGEGLGetTLSValue          1003a70c f   tls.obj
+ 0001:00039730       IMGEGLSetTLSValue          1003a730 f   tls.obj
+ 0001:0003a084       PVRSRVCreateSemaphore      1003b084 f   egl_sync.obj
+ 0001:0003a0bc       _insertEglFence            1003b0bc f   egl_sync.obj
+ 0001:0003a330       _removeEglFence            1003b330 f   egl_sync.obj
+ 0001:0003a54c       _flushBuffers              1003b54c f   egl_sync.obj
+ 0001:0003adb8       PVRSRVPostSemaphore        1003bdb8 f   egl_sync.obj
+ 0001:0003add8       IsSync                     1003bdd8 f   egl_sync.obj
+ 0001:0003ae80       _deleteSync                1003be80 f   egl_sync.obj
+ 0001:0003b02c       PVRSRVDestroySemaphore     1003c02c f   egl_sync.obj
+ 0001:0003b564       IMGeglClientWaitSyncKHR_Fence 1003c564 f   egl_sync.obj
+ 0001:0003b9a4       IMGeglClientWaitSyncKHR_Reusable 1003c9a4 f   egl_sync.obj
+ 0001:0003bcf4       PVRSRVWaitSemaphore        1003ccf4 f   egl_sync.obj
+ 0001:0003e2a0       _DllMainCRTStartupHelper   1003f2a0 f   corelib0:pegdmain.obj
+ 0001:0003e5dc       doexit                     1003f5dc f   corelib0:cexit.obj

@@ -1,0 +1,9 @@
+DIRS=\
+	common_ti_v1\
+	bsp_common\
+	oal\
+	DRIVERS\
+	APP\
+	BOOTLOADER\
+	KITL
+

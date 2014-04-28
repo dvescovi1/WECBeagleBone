@@ -1,0 +1,121 @@
+<Root>
+	<Property NAME="PlatformFamily">WindowsCE</Property>
+	<Property NAME="PlatformFamilyDefine">BeagleBone</Property>
+	<Property NAME="Self_templates">0</Property>
+	<Property NAME="Self_register">0</Property>
+	<PropertyBag NAME="Help2">
+		<Property NAME="VS Namespace">MS.VSIPCC.v90</Property>
+		<Property NAME="Product Version">kbceplat70</Property>
+		<Property NAME="DocSet">kbwcedoc</Property>
+	</PropertyBag>
+	<PropertyBag NAME="DeveloperTools">
+		<Property NAME="VS8.0">1</Property>
+		<Property NAME="MinVSVersion">8.0</Property>
+		<PropertyBag NAME="SupportedNETCFVersions">
+		</PropertyBag>
+		<PropertyBag NAME="SupportedLanguages">
+		</PropertyBag>
+		<Property NAME="SupportedProfile">
+      E2BECB1F-8C8C-41ba-B736-9BE7D946A398
+    </Property>
+		<Property NAME="ShowInNewProjectDialog">true</Property>
+		<Property NAME="BaseDesignTimePlatform">
+      E2BECB1F-8C8C-41ba-B736-9BE7D946A398
+    </Property>
+		<PropertyBag NAME="SupportedProjectTypes">
+			<Property NAME="WindowsApp"></Property>
+			<Property NAME="ConsoleApp"></Property>
+			<Property NAME="ClassLib"></Property>
+			<Property NAME="ControlLib"></Property>
+			<Property NAME="EmptyProject"></Property>
+		</PropertyBag>
+	</PropertyBag>
+	<Property NAME="Whidbey Only">0</Property>
+	<Property NAME="Cab files">1</Property>
+	<Property NAME="Local install">0</Property>
+	<Property NAME="{9D52DB36-F238-412D-A3B2-A651FD4489AC}">1</Property>
+	<Property NAME="{E75B8574-8822-409C-9CDC-7B780BCC4BF6}">1</Property>
+	<Property NAME="CEVersion">700</Property>
+	<Property NAME="OSMajor">7</Property>
+	<Property NAME="OSMinor">00</Property>
+	<PropertyBag NAME="Components">
+		<Property NAME="MFC">0</Property>
+		<Property NAME="MFC OCX">0</Property>
+		<Property NAME="ATL">0</Property>
+		<Property NAME="CONSOLE">1</Property>
+		<Property NAME="Startup Server Names">Manual Server;CESH (CE Shell);ActiveSync</Property>
+		<Property NAME="All Startup Server Names">Manual Server;CESH (CE Shell);ActiveSync</Property>
+		<Property NAME="Transport Names">Microsoft TCP/IP Transport;ActiveSync;Microsoft KITL Transport</Property>
+		<Property NAME="All Transport Names">Microsoft TCP/IP Transport;ActiveSync;Microsoft KITL Transport</Property>
+		<Property NAME="Startup Servers">{60FD8B23-2B59-4147-A5F9-6402B3FD2734};{286BBB93-E788-414a-810C-852010F128BC};{8A5EBB1A-6D2B-4f7c-AA6E-C3DF75063A04}</Property>
+		<Property NAME="All Startup Servers">{60FD8B23-2B59-4147-A5F9-6402B3FD2734};{286BBB93-E788-414a-810C-852010F128BC};{8A5EBB1A-6D2B-4f7c-AA6E-C3DF75063A04}</Property>
+		<Property NAME="Microsoft Startup Servers">{60FD8B23-2B59-4147-A5F9-6402B3FD2734};{286BBB93-E788-414a-810C-852010F128BC};{8A5EBB1A-6D2B-4f7c-AA6E-C3DF75063A04}</Property>
+		<Property NAME="Transports">{8230BAED-0EF3-4aa7-A96A-F4A4021B01EC};{C92C56B8-1394-4155-8016-3FD669E3EE3C};{F2062C0A-B025-4ed1-8E02-78DBDBEC9D15}</Property>
+		<Property NAME="All Transports">{8230BAED-0EF3-4aa7-A96A-F4A4021B01EC};{C92C56B8-1394-4155-8016-3FD669E3EE3C};{F2062C0A-B025-4ed1-8E02-78DBDBEC9D15}</Property>
+		<Property NAME="Microsoft Transports">{8230BAED-0EF3-4aa7-A96A-F4A4021B01EC};{C92C56B8-1394-4155-8016-3FD669E3EE3C};{F2062C0A-B025-4ed1-8E02-78DBDBEC9D15}</Property>
+		<Property NAME="Default startup">{8A5EBB1A-6D2B-4f7c-AA6E-C3DF75063A04}</Property>
+		<Property NAME="Default transport">{C92C56B8-1394-4155-8016-3FD669E3EE3C}</Property>
+		<PropertyBag NAME="CoreCon">
+			<Property NAME="AppLevel_KITL_Transport">{2C3B7984-81D6-427B-982C-7CBDFED0653A}</Property>
+			<Property NAME="AppLevel_KITL_Bootstrap">{294D159F-7AE6-4254-8AFF-77A7586587E8}</Property>
+			<Property NAME="ActiveSync4.0">{6CFC41FD-50BA-43d2-9ACD-6A2A874D2853}</Property>
+			<Property NAME="TCP/IP">{D8E78E43-D8D6-4e57-8AD4-2164254C16D5}</Property>
+		</PropertyBag>
+	</PropertyBag>
+	<Property NAME="SDK name">BeagleBone WEC7 SDK</Property>
+	<Property NAME="Product name">BeagleBone WEC7 SDK</Property>
+	<Property NAME="MSI file">%pbworkspaceroot%\SDKs\SDK1\MSI\BeagleBone WEC7 SDK.msi</Property>
+	<Property NAME="Locale">1033</Property>
+	<Property NAME="Product GUID">{405e87a6-4e17-4d96-8a59-d5a5b0b3611d}</Property>
+	<Property NAME="Product version">1.0.0</Property>
+	<Property NAME="Manufacturer">Codeplex</Property>
+	<Property NAME="Manufacturer Website">www.codeplex.com</Property>
+	<Property NAME="EULA">0</Property>
+	<Property NAME="EULA Path"></Property>
+	<Property NAME="README">0</Property>
+	<Property NAME="README Path"></Property>
+	<PropertyBag NAME="DeviceEmulation">
+		<Property NAME="Default Image">1</Property>
+		<PropertyBag NAME="1">
+			<Property NAME="SelectedConfig">None</Property>
+			<Property NAME="ImageName"/>
+			<Property NAME="VMID"/>
+			<Property NAME="Default Skin"></Property>
+			<Property NAME="Height">320</Property>
+			<Property NAME="Width">240</Property>
+			<Property NAME="BitDepth">16</Property>
+			<Property NAME="Memory">128</Property>
+			<Property NAME="Bin Dest">emulation\NK.bin</Property>
+			<Property NAME="Fixed Screen">1</Property>
+			<Property NAME="CpuName">ARMV4I</Property>
+			<Property NAME="DPIX">96</Property>
+			<Property NAME="DPIY">96</Property>
+			<Property NAME="SupportRotation">0</Property>
+			<Property NAME="Enabled">0</Property>
+			<Property NAME="Bin Path"/>
+			<Property NAME="Ethernet">1</Property>
+			<Property NAME="Ports">1</Property>
+			<PropertyBag NAME="Skins"/></PropertyBag>
+	</PropertyBag>
+	<PropertyBag NAME="EmulatorSettings">
+		<PropertyBag NAME="Height">
+			<Property NAME="Min">64</Property>
+			<Property NAME="Max">768</Property>
+		</PropertyBag>
+		<PropertyBag NAME="Width">
+			<Property NAME="Min">80</Property>
+			<Property NAME="Max">1024</Property>
+		</PropertyBag>
+		<PropertyBag NAME="Memory">
+			<Property NAME="Min">4</Property>
+			<Property NAME="Max">256</Property>
+		</PropertyBag>
+		<PropertyBag NAME="BitDepth">
+			<Property NAME="8bpp">8</Property>
+			<Property NAME="16bpp">16</Property>
+			<Property NAME="32bpp">32</Property>
+		</PropertyBag>
+	</PropertyBag>
+	<PropertyBag NAME="CPU Configs"/>
+	<PropertyBag NAME="CPUs"/>
+	<PropertyBag NAME="Added Files"><PropertyBag NAME="{3c2d2f5f-0938-4cc5-8280-13b59eb03a03}"><Property NAME="Source">%_winceroot%\3rdParty\SDF\BIN</Property><Property NAME="Destination">SDF</Property><Property NAME="Subfolders">0</Property></PropertyBag></PropertyBag><PropertyBag NAME="CPU Families"><PropertyBag NAME="ARMV7"><Property NAME="Included">1</Property><Property NAME="Configuration">AM33X_BBB_BSP ARMV7 Release</Property></PropertyBag></PropertyBag></Root>

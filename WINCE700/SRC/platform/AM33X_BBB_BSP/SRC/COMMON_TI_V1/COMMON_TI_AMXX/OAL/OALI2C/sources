@@ -1,0 +1,10 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=am3xx_oali2c
+
+CDEFINES=$(CDEFINES) -DOAL
+
+SOURCES=\
+    oali2c.c \
+   

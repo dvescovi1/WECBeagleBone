@@ -1,0 +1,37 @@
+SYNCHRONIZE_DRAIN=1
+
+WINCEREL=1
+RELEASETYPE=LOCAL
+_ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
+_OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;
+TARGETNAME=SDF
+FILE_VIEW_ROOT_FOLDER= \
+    prelink.bat \
+    postlink.bat \
+    BIN\OpenNETCF.WindowsCE.Services.dll \
+    BIN\OpenNETCF.AppSettings.dll \
+    BIN\OpenNETCF.Configuration.dll \
+    BIN\OpenNETCF.Core.dll \
+    BIN\OpenNETCF.dll \
+    BIN\OpenNETCF.Net.dll \
+    BIN\OpenNETCF.Net.Mail.dll \
+    BIN\OpenNETCF.WindowsCE.dll \
+    BIN\OpenNETCF.WindowsCE.Messaging.dll \
+    BIN\OpenNETCF.Windows.Forms.dll \
+    BIN\OpenNETCF.Data.dll \
+    BIN\OpenNETCF.Drawing.dll \
+    BIN\OpenNETCF.Phone.dll \
+    BIN\OpenNETCF.Rss.dll \
+    BIN\OpenNETCF.WindowsMobile.dll \
+    BIN\OpenNETCF.VisualBasic.dll \
+
+TARGETTYPE=NOTARGET
+POSTLINK_PASS_CMD=postlink.bat
+PRELINK_PASS_CMD=prelink.bat
+FILE_VIEW_PARAMETER_FOLDER= \
+    SDF.bib \
+    SDF.reg \
+    SDF.dat \
+    SDF.db \
+    ProjSysgen.bat \
+

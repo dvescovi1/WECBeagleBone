@@ -1,0 +1,8 @@
+
+TARGETNAME=am33x_oal_watchdog
+TARGETTYPE=LIBRARY
+
+$CDEFINES = $(CDEFINES) -DOAL
+
+SOURCES= watchdog.c
+

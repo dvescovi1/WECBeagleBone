@@ -1,0 +1,1183 @@
+ libGLESv2
+
+ Timestamp is 4f20c71e (Wed Jan 25 22:23:10 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 0000bd78H .rdata                  CODE
+ 0001:0000bd98 00000026H .rdata$debug            CODE
+ 0001:0000bdc0 000421e0H .text                   CODE
+ 0001:0004dfa0 00000034H .xdata                  CODE
+ 0001:0004dfd4 0000003cH .idata$2                CODE
+ 0001:0004e010 00000014H .idata$3                CODE
+ 0001:0004e024 00000104H .idata$4                CODE
+ 0001:0004e128 0000016eH .idata$6                CODE
+ 0001:0004e2a0 00000ec9H .edata                  CODE
+ 0002:00000000 00000104H .idata$5                DATA
+ 0002:00000104 0000000cH .data                   DATA
+ 0002:00000110 00000010H .bss                    DATA
+ 0003:00000000 00001a10H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0001:00000000       __xc_a                     10001000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     10001004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     10001008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     1000100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     10001010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     10001014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     10001018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     1000101c     corelib0:crt0init.obj
+ 0001:000001a4       __real@bf800000            100011a4     accum.obj
+ 0001:000001a8       __real@3f800000            100011a8     accum.obj
+ 0001:000001ac       __real@40000000            100011ac     accum.obj
+ 0001:000001b0       __real@00000000            100011b0     accum.obj
+ 0001:000005ec       __real@44bfc000            100015ec     clear.obj
+ 0001:00000930       sGLES2FunctionTable        10001930     eglglue.obj
+ 0001:0000095c       ??_C@_0CF@DBPLPDGE@glFramebufferTexture2DMultisampl@ 1000195c     eglglue.obj
+ 0001:00000984       ??_C@_0CE@LHFIFHEM@glRenderbufferStorageMultisample@ 10001984     eglglue.obj
+ 0001:000009a8       ??_C@_0BI@PNJOCEBL@glDiscardFramebufferEXT?$AA@ 100019a8     eglglue.obj
+ 0001:000009c0       ??_C@_0BD@OHHMDKJE@glIsVertexArrayOES?$AA@ 100019c0     eglglue.obj
+ 0001:000009d4       ??_C@_0BF@MLJKHCLD@glGenVertexArraysOES?$AA@ 100019d4     eglglue.obj
+ 0001:000009ec       ??_C@_0BI@JDOHIGAB@glDeleteVertexArraysOES?$AA@ 100019ec     eglglue.obj
+ 0001:00000a04       ??_C@_0BF@GDJHAHOE@glBindVertexArrayOES?$AA@ 10001a04     eglglue.obj
+ 0001:00000a1c       ??_C@_0BD@PEKIFPFH@glProgramBinaryOES?$AA@ 10001a1c     eglglue.obj
+ 0001:00000a30       ??_C@_0BG@GMFJDPBI@glGetProgramBinaryOES?$AA@ 10001a30     eglglue.obj
+ 0001:00000a48       ??_C@_0BD@PIBFHNP@glTexBindStreamIMG?$AA@ 10001a48     eglglue.obj
+ 0001:00000a5c       ??_C@_0BM@MBNDOCOP@glGetTexStreamDeviceNameIMG?$AA@ 10001a5c     eglglue.obj
+ 0001:00000a78       ??_C@_0CD@OCNNIBKN@glGetTexStreamDeviceAttributeivI@ 10001a78     eglglue.obj
+ 0001:00000a9c       ??_C@_0BH@CPIJKLBJ@glMultiDrawElementsEXT?$AA@ 10001a9c     eglglue.obj
+ 0001:00000ab4       ??_C@_0BE@MPDFJJLL@glMultiDrawElements?$AA@ 10001ab4     eglglue.obj
+ 0001:00000ac8       ??_C@_0BF@MOHHALAE@glMultiDrawArraysEXT?$AA@ 10001ac8     eglglue.obj
+ 0001:00000ae0       ??_C@_0BC@IBABPJFA@glMultiDrawArrays?$AA@ 10001ae0     eglglue.obj
+ 0001:00000af4       ??_C@_0CH@JLEJGINJ@glEGLImageTargetRenderbufferStor@ 10001af4     eglglue.obj
+ 0001:00000b1c       ??_C@_0BN@FPPCHDBA@glEGLImageTargetTexture2DOES?$AA@ 10001b1c     eglglue.obj
+ 0001:00000b3c       ??_C@_0BH@HANHAAH@glGetBufferPointervOES?$AA@ 10001b3c     eglglue.obj
+ 0001:00000b54       ??_C@_0BB@CEFEJGJJ@glUnmapBufferOES?$AA@ 10001b54     eglglue.obj
+ 0001:00000b68       ??_C@_0P@MBENIONB@glMapBufferOES?$AA@ 10001b68     eglglue.obj
+ 0001:00000ce0       ??_C@_0BH@FNCCEFL@OpenGL?5ES?5GLSL?5ES?51?400?$AA@ 10001ce0     get.obj
+ 0001:00000cf8       ??_C@_0O@GGCHPDLB@OpenGL?5ES?52?40?$AA@ 10001cf8     get.obj
+ 0001:00000d08       ??_C@_0BA@HDDICJEH@PowerVR?5SGX?5530?$AA@ 10001d08     get.obj
+ 0001:00000d18       ??_C@_0BJ@FGEHHHOH@Imagination?5Technologies?$AA@ 10001d18     get.obj
+ 0001:00000ea0       pszRenderer                10001ea0     get.obj
+ 0001:00000eac       __real@43ff8000            10001eac     get.obj
+ 0001:00000eb0       __real@41800000            10001eb0     get.obj
+ 0001:00000eb4       __real@45a00000            10001eb4     get.obj
+ 0001:00000eb8       __real@45a00800            10001eb8     get.obj
+ 0001:00000ebc       __real@45a01000            10001ebc     get.obj
+ 0001:00000ec0       __real@45a01800            10001ec0     get.obj
+ 0001:00000ec4       __real@45a03000            10001ec4     get.obj
+ 0001:00000ec8       __real@470d6100            10001ec8     get.obj
+ 0001:00000ecc       __real@45a06000            10001ecc     get.obj
+ 0001:000011a0       ??_C@_0CG@IKNGPLBF@GL_IMG_multisampled_render_to_te@ 100021a0     misc.obj
+ 0001:000011c8       ??_C@_0BH@FPLDHBDI@GL_IMG_program_binary?5?$AA@ 100021c8     misc.obj
+ 0001:000011e0       ??_C@_0BE@FHJHAHOC@GL_IMG_read_format?5?$AA@ 100021e0     misc.obj
+ 0001:000011f4       ??_C@_0CA@LDGOBLLP@GL_IMG_texture_format_BGRA8888?5?$AA@ 100021f4     misc.obj
+ 0001:00001214       ??_C@_0BF@LNBCDGHP@GL_IMG_texture_npot?5?$AA@ 10002214     misc.obj
+ 0001:0000122c       ??_C@_0BI@CMPKADHK@GL_IMG_texture_stream2?5?$AA@ 1000222c     misc.obj
+ 0001:00001244       ??_C@_0CC@OEOIKDCE@GL_IMG_texture_compression_pvrtc@ 10002244     misc.obj
+ 0001:00001268       ??_C@_0BG@EIJOAFHK@GL_IMG_shader_binary?5?$AA@ 10002268     misc.obj
+ 0001:00001280       ??_C@_0BL@FLFJALMG@GL_EXT_shader_texture_lod?5?$AA@ 10002280     misc.obj
+ 0001:0000129c       ??_C@_0BM@KLOAFAHB@GL_EXT_discard_framebuffer?5?$AA@ 1000229c     misc.obj
+ 0001:000012b8       ??_C@_0CA@LLABOCOD@GL_EXT_texture_format_BGRA8888?5?$AA@ 100022b8     misc.obj
+ 0001:000012d8       ??_C@_0BK@HNCIMGED@GL_EXT_multi_draw_arrays?5?$AA@ 100022d8     misc.obj
+ 0001:000012f4       ??_C@_0BB@CPCIPGAI@GL_OES_egl_sync?5?$AA@ 100022f4     misc.obj
+ 0001:00001308       ??_C@_0BM@HMLBDPKO@GL_OES_vertex_array_object?5?$AA@ 10002308     misc.obj
+ 0001:00001324       ??_C@_0BN@GFHIMELP@GL_OES_standard_derivatives?5?$AA@ 10002324     misc.obj
+ 0001:00001344       ??_C@_0BN@IPJAGHEM@GL_OES_packed_depth_stencil?5?$AA@ 10002344     misc.obj
+ 0001:00001364       ??_C@_0BL@BFGJNMLG@GL_OES_get_program_binary?5?$AA@ 10002364     misc.obj
+ 0001:00001380       ??_C@_0BG@DDLEGBKL@GL_OES_depth_texture?5?$AA@ 10002380     misc.obj
+ 0001:00001398       ??_C@_0CA@KKMJMEGI@GL_OES_required_internalformat?5?$AA@ 10002398     misc.obj
+ 0001:000013b8       ??_C@_0BC@PAMKEGGC@GL_OES_EGL_image?5?$AA@ 100023b8     misc.obj
+ 0001:000013cc       ??_C@_0CF@IJGGPEFF@GL_OES_compressed_ETC1_RGB8_text@ 100023cc     misc.obj
+ 0001:000013f4       ??_C@_0CA@BJNHKODC@GL_OES_fragment_precision_high?5?$AA@ 100023f4     misc.obj
+ 0001:00001414       ??_C@_0BC@JDOCIJBK@GL_OES_mapbuffer?5?$AA@ 10002414     misc.obj
+ 0001:00001428       ??_C@_0BL@EKJGK@GL_OES_element_index_uint?5?$AA@ 10002428     misc.obj
+ 0001:00001444       ??_C@_0BL@PDLBAGFL@GL_OES_texture_half_float?5?$AA@ 10002444     misc.obj
+ 0001:00001460       ??_C@_0BG@PANOOMNC@GL_OES_texture_float?5?$AA@ 10002460     misc.obj
+ 0001:00001478       ??_C@_0BK@MAHJLLBG@GL_OES_vertex_half_float?5?$AA@ 10002478     misc.obj
+ 0001:00001494       ??_C@_0BA@FPFHBIK@GL_OES_depth24?5?$AA@ 10002494     misc.obj
+ 0001:000014a4       ??_C@_0BD@OIKJNOON@GL_OES_rgb8_rgba8?5?$AA@ 100024a4     misc.obj
+ 0001:00001710       __real@3f000000            10002710     misc.obj
+ 0001:00001714       __real@437f0000            10002714     misc.obj
+ 0001:00001718       __real@47ffe000            10002718     misc.obj
+ 0001:0000171c       __real@c1800000            1000271c     misc.obj
+ 0001:00001720       ??_C@_0L@CDGAGNFA@KickTAMode?$AA@ 10002720     misc.obj
+ 0001:0000172c       ??_C@_0BA@FMCJLEC@KickTAThreshold?$AA@ 1000272c     misc.obj
+ 0001:0000173c       ??_C@_0BC@DBFGKKHD@OverloadTexLayout?$AA@ 1000273c     misc.obj
+ 0001:00001750       ??_C@_0BE@FLFPJHNL@InitialiseVSOutputs?$AA@ 10002750     misc.obj
+ 0001:00001764       ??_C@_0BD@EALCLPCO@AllowTrilinearNPOT?$AA@ 10002764     misc.obj
+ 0001:00001778       ??_C@_0BK@HMHKFPDA@EnableVaryingPrecisionOpt?$AA@ 10002778     misc.obj
+ 0001:00001794       ??_C@_0P@LPEGOECO@FlushBehaviour?$AA@ 10002794     misc.obj
+ 0001:000017a4       ??_C@_0BE@CJIJABHD@EnableStaticMTECopy?$AA@ 100027a4     misc.obj
+ 0001:000017b8       ??_C@_0BG@HOCAEBHA@AdjustShaderPrecision?$AA@ 100027b8     misc.obj
+ 0001:000017d0       ??_C@_0BF@LKOMAPLC@DumpCompilerLogFiles?$AA@ 100027d0     misc.obj
+ 0001:000017e8       ??_C@_0BI@GMOOJAHB@DefaultVertexBufferSize?$AA@ 100027e8     misc.obj
+ 0001:00001800       ??_C@_0BE@JDMADPED@MaxVertexBufferSize?$AA@ 10002800     misc.obj
+ 0001:00001814       ??_C@_0BH@EMCDMDFL@DefaultIndexBufferSize?$AA@ 10002814     misc.obj
+ 0001:0000182c       ??_C@_0BJ@FDELEOJK@DefaultPDSVertBufferSize?$AA@ 1000282c     misc.obj
+ 0001:00001848       ??_C@_0BF@GMGALNEL@DefaultVDMBufferSize?$AA@ 10002848     misc.obj
+ 0001:00001860       ??_C@_0BP@CNJFMOH@DefaultPregenMTECopyBufferSize?$AA@ 10002860     misc.obj
+ 0001:00001880       ??_C@_0BO@DPALACCM@StrictBinaryVersionComparison?$AA@ 10002880     misc.obj
+ 0001:000018a0       ??_C@_0BH@KDGMFCIE@PolygonUnitsMultiplier?$AA@ 100028a0     misc.obj
+ 0001:000018b8       ??_C@_0BI@LGOIAELG@PolygonFactorMultiplier?$AA@ 100028b8     misc.obj
+ 0001:000018d0       ??_C@_0BE@NCEPNDKE@ExternalZBufferMode?$AA@ 100028d0     misc.obj
+ 0001:000018e4       ??_C@_0BA@FKGCDPP@FBODepthDiscard?$AA@ 100028e4     misc.obj
+ 0001:000018f4       ??_C@_0BE@CONEIBKK@OptimisedValidation?$AA@ 100028f4     misc.obj
+ 0001:00001908       ??_C@_0BJ@CAHNBNBG@DisableHWTQTextureUpload?$AA@ 10002908     misc.obj
+ 0001:00001924       ??_C@_0BG@JGJGPFCD@DisableHWTQNormalBlit?$AA@ 10002924     misc.obj
+ 0001:0000193c       ??_C@_0BG@MNNFDOBG@DisableHWTQBufferBlit?$AA@ 1000293c     misc.obj
+ 0001:00001954       ??_C@_0BC@LONHONOF@DisableHWTQMipGen?$AA@ 10002954     misc.obj
+ 0001:00001968       ??_C@_0BH@EMEDPOLF@DisableHWTextureUpload?$AA@ 10002968     misc.obj
+ 0001:00001980       __real@37800000            10002980     misc.obj
+ 0001:00001984       __real@47800000            10002984     misc.obj
+ 0001:00001988       __real@4efffff7            10002988     misc.obj
+ 0001:00002094       __real@1e3ce508            10003094     sgxif.obj
+ 0001:00002300       ??_C@_03EKEJMIG@gl_?$AA@   10003300     shader.obj
+ 0001:00002304       ??_C@_0BB@KACAJBFL@GLSLInitCompiler?$AA@ 10003304     shader.obj
+ 0001:00002318       ??_C@_0BF@OCCHGDEP@GLSLCompileToUniflex?$AA@ 10003318     shader.obj
+ 0001:00002330       ??_C@_0BP@CHEJOEAG@GLSLFreeCompiledUniflexProgram?$AA@ 10003330     shader.obj
+ 0001:00002350       ??_C@_0BD@BNONJEJD@GLSLDisplayMetrics?$AA@ 10003350     shader.obj
+ 0001:00002364       ??_C@_0BF@INAJEAID@GLSLShutDownCompiler?$AA@ 10003364     shader.obj
+ 0001:0000237c       ??_C@_0BK@BLBECGOB@SGXBS_CreateBinaryProgram?$AA@ 1000337c     shader.obj
+ 0001:00002398       ??_C@_0N@DJOJPEFE@glslcompiler?$AA@ 10003398     shader.obj
+ 0001:000023a8       ??_C@_0FD@OPILAJHK@The?5active?5size?5of?5?$CFs?5in?5fragmen@ 100033a8     shader.obj
+ 0001:000023fc       ??_C@_0DA@MIAPNJHC@Not?5enough?5contiguous?5indices?5fo@ 100033fc     shader.obj
+ 0001:0000242c       ??_C@_0DA@PIGCCPJF@No?5built?9in?5attributes?5in?5GLSL?5E@ 1000342c     shader.obj
+ 0001:0000245c       ??_C@_0CL@HIPONKBO@In?9built?5attributes?5unsupported?5@ 1000345c     shader.obj
+ 0001:00002488       ??_C@_0FB@ENAIBAGE@Uniform?5variable?5?$CFs?5type?1precisi@ 10003488     shader.obj
+ 0001:000024e0       ??_C@_0FB@PELLCLKL@Varying?5variable?5?$CFs?5is?5used?5in?5f@ 100034e0     shader.obj
+ 0001:00002538       ??_C@_0FH@CHFHBHFF@Active?5size?5for?5varying?5?$CFs?5in?5fr@ 10003538     shader.obj
+ 0001:00002590       ??_C@_0FG@PMACLKGG@The?5invariance?5for?5varying?5varia@ 10003590     shader.obj
+ 0001:000025e8       ??_C@_0FA@KBACDFOA@The?5type?5for?5varying?5variable?5?$CFs@ 100035e8     shader.obj
+ 0001:00002bd8       __real@37800080            10003bd8     tex.obj
+ 0001:00002bdc       __real@2f800005            10003bdc     tex.obj
+ 0001:00002be0       __real@33800000            10003be0     tex.obj
+ 0001:00002eb4       TexFormatABGR8888          10003eb4     texformat.obj
+ 0001:00002ed8       TexFormatARGB8888          10003ed8     texformat.obj
+ 0001:00002efc       TexFormatARGB1555          10003efc     texformat.obj
+ 0001:00002f20       TexFormatARGB4444          10003f20     texformat.obj
+ 0001:00002f44       TexFormatXBGR8888          10003f44     texformat.obj
+ 0001:00002f68       TexFormatRGB565            10003f68     texformat.obj
+ 0001:00002f8c       TexFormatAlpha             10003f8c     texformat.obj
+ 0001:00002fb0       TexFormatLuminance         10003fb0     texformat.obj
+ 0001:00002fd4       TexFormatLuminanceAlpha    10003fd4     texformat.obj
+ 0001:00002ff8       TexFormatPVRTC2RGB         10003ff8     texformat.obj
+ 0001:0000301c       TexFormatPVRTC4RGB         1000401c     texformat.obj
+ 0001:00003040       TexFormatPVRTC2RGBA        10004040     texformat.obj
+ 0001:00003064       TexFormatPVRTC4RGBA        10004064     texformat.obj
+ 0001:00003088       TexFormatPVRTCII2RGB       10004088     texformat.obj
+ 0001:000030ac       TexFormatPVRTCII4RGB       100040ac     texformat.obj
+ 0001:000030d0       TexFormatPVRTCII2RGBA      100040d0     texformat.obj
+ 0001:000030f4       TexFormatPVRTCII4RGBA      100040f4     texformat.obj
+ 0001:00003118       TexFormatETC1RGB           10004118     texformat.obj
+ 0001:0000313c       TexFormatRGBAFloat         1000413c     texformat.obj
+ 0001:00003160       TexFormatRGBFloat          10004160     texformat.obj
+ 0001:00003184       TexFormatFloatAlpha        10004184     texformat.obj
+ 0001:000031a8       TexFormatFloatLuminance    100041a8     texformat.obj
+ 0001:000031cc       TexFormatFloatLuminanceAlpha 100041cc     texformat.obj
+ 0001:000031f0       TexFormatRGBAHalfFloat     100041f0     texformat.obj
+ 0001:00003214       TexFormatRGBHalfFloat      10004214     texformat.obj
+ 0001:00003238       TexFormatHalfFloatAlpha    10004238     texformat.obj
+ 0001:0000325c       TexFormatHalfFloatLuminance 1000425c     texformat.obj
+ 0001:00003280       TexFormatHalfFloatLuminanceAlpha 10004280     texformat.obj
+ 0001:000032a4       TexFormatUYVY              100042a4     texformat.obj
+ 0001:000032c8       TexFormatYUYV              100042c8     texformat.obj
+ 0001:000032ec       TexFormatYUV420            100042ec     texformat.obj
+ 0001:00003310       TexFormatFloatDepth        10004310     texformat.obj
+ 0001:00003334       TexFormatFloatDepthU8Stencil 10004334     texformat.obj
+ 0001:00003728       ??_C@_03OJMJGOMJ@?$FL0?$FN?$AA@ 10004728     uniform.obj
+ 0001:00003f04       __real@3c008081            10004f04     validate.obj
+ 0001:00003f08       __real@3b808081            10004f08     validate.obj
+ 0001:00003f0c       __real@38000080            10004f0c     validate.obj
+ 0001:00003f10       __real@3727c5ac            10004f10     validate.obj
+ 0001:00004080       CopyData                   10005080     vertex.obj
+ 0001:000040f0       MemCopyData                100050f0     vertex.obj
+ 0001:000049b0       asSGXPixelFormat           100059b0     sgxpixfmts.obj
+ 0001:0000b868       ??_C@_0DA@NGNCMLGL@PVRUniPatchCreateContext?3?5Contex@ 1000c868     usp:usp.obj
+ 0001:0000b898       ??_C@_0EC@BAJDLOCO@PVRUniPatchSetTextureFormat?3?5Inv@ 1000c898     usp:usp.obj
+ 0001:0000bdc0       InitAccumUSECodeBlocks     1000cdc0 f   accum.obj
+ 0001:0000bebc       FreeAccumUSECodeBlocks     1000cebc f   accum.obj
+ 0001:0000c498       SetupBGObject              1000d498 f   accum.obj
+ 0001:0000c73c       SendAccumulateObject       1000d73c f   accum.obj
+ 0001:0000d904       SGXBS_CreateSharedShaderState 1000e904 f   binshader.obj
+ 0001:0000da7c       SGXBS_CreateProgramState   1000ea7c f   binshader.obj
+ 0001:0000dbd4       CreateBufObjState          1000ebd4 f   bufobj.obj
+ 0001:0000dbf8       FreeBufObjState            1000ebf8 f   bufobj.obj
+ 0001:0000dc48       ReclaimBufferObjectMemKRM  1000ec48 f   bufobj.obj
+ 0001:0000dc4c       DestroyBufferObjectGhostKRM 1000ec4c f   bufobj.obj
+ 0001:0000dd34       SetupBufObjNameArray       1000ed34 f   bufobj.obj
+ 0001:0000dd44       glBindBuffer               1000ed44 f   bufobj.obj
+ 0001:0000df0c       glDeleteBuffers            1000ef0c f   bufobj.obj
+ 0001:0000e078       glGenBuffers               1000f078 f   bufobj.obj
+ 0001:0000e0bc       glBufferData               1000f0bc f   bufobj.obj
+ 0001:0000e27c       glBufferSubData            1000f27c f   bufobj.obj
+ 0001:0000e360       glMapBufferOES             1000f360 f   bufobj.obj
+ 0001:0000e418       glUnmapBufferOES           1000f418 f   bufobj.obj
+ 0001:0000e494       InitClearUSECodeBlocks     1000f494 f   clear.obj
+ 0001:0000e56c       FreeClearUSECodeBlocks     1000f56c f   clear.obj
+ 0001:0000ec0c       SendClearPrims             1000fc0c f   clear.obj
+ 0001:0000ee38       glClear                    1000fe38 f   clear.obj
+ 0001:0000ef54       glClearColor               1000ff54 f   clear.obj
+ 0001:0000efe8       glClearDepthf              1000ffe8 f   clear.obj
+ 0001:0000f018       glClearStencil             10010018 f   clear.obj
+ 0001:00010da8       AttachAllUsedBOsAndVAOToCurrentKick 10011da8 f   drawvarray.obj
+ 0001:00010e64       glDrawArrays               10011e64 f   drawvarray.obj
+ 0001:00011038       glDrawElements             10012038 f   drawvarray.obj
+ 0001:000122a8       glMultiDrawArraysEXT       100132a8 f   drawvarray.obj
+ 0001:00012630       glMultiDrawElementsEXT     10013630 f   drawvarray.obj
+ 0001:00013cd8       GetColorAttachmentMemFormat 10014cd8 f   fbo.obj
+ 0001:00013d5c       FlushAttachableIfNeeded    10014d5c f   fbo.obj
+ 0001:00013df8       DestroyFBOAttachableRenderSurface 10014df8 f   fbo.obj
+ 0001:00013f9c       SetupRenderBufferNameArray 10014f9c f   fbo.obj
+ 0001:00013fac       SetupFrameBufferObjectNameArray 10014fac f   fbo.obj
+ 0001:00013fbc       CreateFrameBufferState     10014fbc f   fbo.obj
+ 0001:00014018       FreeFrameBufferState       10015018 f   fbo.obj
+ 0001:0001407c       RemoveFrameBufferAttachment 1001507c f   fbo.obj
+ 0001:00014188       ChangeDrawableParams       10015188 f   fbo.obj
+ 0001:0001524c       GetFrameBufferCompleteness 1001624c f   fbo.obj
+ 0001:00015308       FBOAttachableHasBeenModified 10016308 f   fbo.obj
+ 0001:0001533c       glIsRenderbuffer           1001633c f   fbo.obj
+ 0001:00015398       glBindRenderbuffer         10016398 f   fbo.obj
+ 0001:000154d4       glDeleteRenderbuffers      100164d4 f   fbo.obj
+ 0001:00015594       glGenRenderbuffers         10016594 f   fbo.obj
+ 0001:000158cc       glRenderbufferStorage      100168cc f   fbo.obj
+ 0001:000158f4       glRenderbufferStorageMultisampleIMG 100168f4 f   fbo.obj
+ 0001:00015954       SetupRenderbufferFromEGLImage 10016954 f   fbo.obj
+ 0001:00015a70       glGetRenderbufferParameteriv 10016a70 f   fbo.obj
+ 0001:00015bb4       glIsFramebuffer            10016bb4 f   fbo.obj
+ 0001:00015c10       glBindFramebuffer          10016c10 f   fbo.obj
+ 0001:00015e7c       glDeleteFramebuffers       10016e7c f   fbo.obj
+ 0001:00015f44       glGenFramebuffers          10016f44 f   fbo.obj
+ 0001:00015f8c       glCheckFramebufferStatus   10016f8c f   fbo.obj
+ 0001:000161b8       glFramebufferTexture2D     100171b8 f   fbo.obj
+ 0001:000161dc       glFramebufferTexture2DMultisampleIMG 100171dc f   fbo.obj
+ 0001:0001624c       glFramebufferRenderbuffer  1001724c f   fbo.obj
+ 0001:00016394       glGetFramebufferAttachmentParameteriv 10017394 f   fbo.obj
+ 0001:0001654c       glGenerateMipmap           1001754c f   fbo.obj
+ 0001:00016680       glDiscardFramebufferEXT    10017680 f   fbo.obj
+ 0001:0001755c       glGetAttachedShaders       1001855c f   get.obj
+ 0001:000175e4       glGetBooleanv              100185e4 f   get.obj
+ 0001:0001760c       glGetFloatv                1001860c f   get.obj
+ 0001:00017634       glGetIntegerv              10018634 f   get.obj
+ 0001:0001765c       glGetBufferParameteriv     1001865c f   get.obj
+ 0001:0001772c       glGetBufferPointervOES     1001872c f   get.obj
+ 0001:000177c4       glGetError                 100187c4 f   get.obj
+ 0001:000177e8       glGetShaderiv              100187e8 f   get.obj
+ 0001:000178d4       glGetProgramiv             100188d4 f   get.obj
+ 0001:00017c08       glGetProgramInfoLog        10018c08 f   get.obj
+ 0001:00017cb8       glGetShaderInfoLog         10018cb8 f   get.obj
+ 0001:00017d68       glGetShaderSource          10018d68 f   get.obj
+ 0001:00017e10       glGetString                10018e10 f   get.obj
+ 0001:00018074       glGetTexParameteriv        10019074 f   get.obj
+ 0001:000180b0       glGetTexParameterfv        100190b0 f   get.obj
+ 0001:000180ec       glGetUniformfv             100190ec f   get.obj
+ 0001:00018180       glGetUniformiv             10019180 f   get.obj
+ 0001:00018244       glGetAttribLocation        10019244 f   get.obj
+ 0001:00018318       glGetVertexAttribfv        10019318 f   get.obj
+ 0001:000184c8       glGetVertexAttribiv        100194c8 f   get.obj
+ 0001:00018654       glGetVertexAttribPointerv  10019654 f   get.obj
+ 0001:000186a8       glIsEnabled                100196a8 f   get.obj
+ 0001:000186cc       glIsBuffer                 100196cc f   get.obj
+ 0001:00018728       glIsProgram                10019728 f   get.obj
+ 0001:00018790       glIsShader                 10019790 f   get.obj
+ 0001:000187f8       glIsTexture                100197f8 f   get.obj
+ 0001:00018854       glGetShaderPrecisionFormat 10019854 f   get.obj
+ 0001:00018934       AllocateBRN26922Mem        10019934 f   gles2errata.obj
+ 0001:00018980       FreeBRN26922Mem            10019980 f   gles2errata.obj
+ 0001:00019824       MakeTextureMipmapLevels    1001a824 f   makemips.obj
+ 0001:00019e64       Clampf                     1001ae64 f   misc.obj
+ 0001:00019e9c       Clampi                     1001ae9c f   misc.obj
+ 0001:0001a004       ColorConvertToHWFormat     1001b004 f   misc.obj
+ 0001:0001a048       FloorLog2                  1001b048 f   misc.obj
+ 0001:0001a068       GLES2ConvertFloatToF16     1001b068 f   misc.obj
+ 0001:0001a120       GLES2ConvertFloatToC10     1001b120 f   misc.obj
+ 0001:0001a200       BuildExtensionString       1001b200 f   misc.obj
+ 0001:0001a294       DestroyExtensionString     1001b294 f   misc.obj
+ 0001:0001a2b0       GetApplicationHints        1001b2b0 f   misc.obj
+ 0001:0001a758       SetError                   1001b758 f   misc.obj
+ 0001:0001a770       glFinish                   1001b770 f   misc.obj
+ 0001:0001a860       glFlush                    1001b860 f   misc.obj
+ 0001:0001a8a0       glHint                     1001b8a0 f   misc.obj
+ 0001:0001a910       ConvertData                1001b910 f   misc.obj
+ 0001:0001af9c       CreateNamesArray           1001bf9c f   names.obj
+ 0001:0001b0a8       NamesArrayMapFunction      1001c0a8 f   names.obj
+ 0001:0001b130       DestroyNamesArray          1001c130 f   names.obj
+ 0001:0001b1a0       InsertNamedItem            1001c1a0 f   names.obj
+ 0001:0001b300       NamedItemAddRef            1001c300 f   names.obj
+ 0001:0001b3cc       NamedItemDelRef            1001c3cc f   names.obj
+ 0001:0001b448       NamedItemDelRefByName      1001c448 f   names.obj
+ 0001:0001b560       NamesArrayGenNames         1001c560 f   names.obj
+ 0001:0001b688       GetStridedSurfaceData      1001c688 f   pixelop.obj
+ 0001:0001b8b0       glPixelStorei              1001c8b0 f   pixelop.obj
+ 0001:0001bb00       SetupReadPixelsSpanInfo    1001cb00 f   pixelop.obj
+ 0001:0001bdf0       glReadPixels               1001cdf0 f   pixelop.obj
+ 0001:0001bfd4       InitScissorUSECodeBlocks   1001cfd4 f   scissor.obj
+ 0001:0001c034       FreeScissorUSECodeBlocks   1001d034 f   scissor.obj
+ 0001:0001c564       SendDrawMaskRect           1001d564 f   scissor.obj
+ 0001:0001c858       SendDrawMaskForPrimitive   1001d858 f   scissor.obj
+ 0001:0001ca3c       SendDrawMaskForClear       1001da3c f   scissor.obj
+ 0001:0001cb10       glScissor                  1001db10 f   scissor.obj
+ 0001:0001cc10       WaitForTA                  1001dc10 f   sgxif.obj
+ 0001:0001d0b8       PrepareToDraw              1001e0b8 f   sgxif.obj
+ 0001:0001db64       ScheduleTA                 1001eb64 f   sgxif.obj
+ 0001:0001dc10       KickUnFlushed_ScheduleTA   1001ec10 f   sgxif.obj
+ 0001:0001dc54       KickLimit_ScheduleTA       1001ec54 f   sgxif.obj
+ 0001:0001dc78       USESecondaryUploadTaskAddRef 1001ec78 f   shader.obj
+ 0001:0001dcb8       USESecondaryUploadTaskDelRef 1001ecb8 f   shader.obj
+ 0001:0001dd18       ShaderScratchMemAddRef     1001ed18 f   shader.obj
+ 0001:0001ddbc       ShaderIndexableTempsMemAddRef 1001edbc f   shader.obj
+ 0001:0001e1e4       GetNamedProgram            1001f1e4 f   shader.obj
+ 0001:0001e240       GetNamedShader             1001f240 f   shader.obj
+ 0001:0001e29c       glAttachShader             1001f29c f   shader.obj
+ 0001:0001e34c       glDetachShader             1001f34c f   shader.obj
+ 0001:0001e418       glBindAttribLocation       1001f418 f   shader.obj
+ 0001:0001e524       glCreateProgram            1001f524 f   shader.obj
+ 0001:0001e5f4       glDeleteProgram            1001f5f4 f   shader.obj
+ 0001:0001e650       glCreateShader             1001f650 f   shader.obj
+ 0001:0001e728       glDeleteShader             1001f728 f   shader.obj
+ 0001:0001e788       glGetActiveAttrib          1001f788 f   shader.obj
+ 0001:0001eacc       InitializeGLSLCompiler     1001facc f   shader.obj
+ 0001:0001ebb0       DestroyGLSLCompiler        1001fbb0 f   shader.obj
+ 0001:0001ec24       DestroyHashedPDSVariant    1001fc24 f   shader.obj
+ 0001:0001ffe0       glUseProgram               10020fe0 f   shader.obj
+ 0001:0001fffc       glValidateProgram          10020ffc f   shader.obj
+ 0001:00020168       glReleaseShaderCompiler    10021168 f   shader.obj
+ 0001:0002017c       glShaderSource             1002117c f   shader.obj
+ 0001:000202c8       glGetProgramBinaryOES      100212c8 f   shader.obj
+ 0001:00020570       FreeProgramState           10021570 f   shader.obj
+ 0001:00020634       DestroyUSEShaderVariant    10021634 f   shader.obj
+ 0001:00020720       DestroyUSEShaderVariantGhost 10021720 f   shader.obj
+ 0001:000208ac       ReclaimUSEShaderVariantMemKRM 100218ac f   shader.obj
+ 0001:000208b4       DestroyUSECodeVariantGhostKRM 100218b4 f   shader.obj
+ 0001:00020928       DestroyVertexVariants      10021928 f   shader.obj
+ 0001:00020b80       glLinkProgram              10021b80 f   shader.obj
+ 0001:00020d24       glCompileShader            10021d24 f   shader.obj
+ 0001:00020f84       glShaderBinary             10021f84 f   shader.obj
+ 0001:00021088       glProgramBinaryOES         10022088 f   shader.obj
+ 0001:000214d8       SetupProgramNameArray      100224d8 f   shader.obj
+ 0001:000214e8       CreateProgramState         100224e8 f   shader.obj
+ 0001:00021608       SpanPack16                 10022608 f   spanpack.obj
+ 0001:00021650       SpanPack32                 10022650 f   spanpack.obj
+ 0001:00021698       SpanPackARGB4444toRGBA4444 10022698 f   spanpack.obj
+ 0001:000216cc       SpanPackARGB1555toRGBA5551 100226cc f   spanpack.obj
+ 0001:00021700       SpanPackARGB8888toABGR8888 10022700 f   spanpack.obj
+ 0001:00021748       SpanPackARGB8888toXBGR8888 10022748 f   spanpack.obj
+ 0001:00021790       SpanPackARGB8888toRGB565   10022790 f   spanpack.obj
+ 0001:000217dc       SpanPackARGB8888toARGB4444 100227dc f   spanpack.obj
+ 0001:00021830       SpanPackARGB8888toARGB1555 10022830 f   spanpack.obj
+ 0001:00021884       SpanPackARGB8888toLuminanceAlpha 10022884 f   spanpack.obj
+ 0001:000218b0       SpanPackARGB8888toLuminance 100228b0 f   spanpack.obj
+ 0001:000218dc       SpanPackAXXX8888toAlpha    100228dc f   spanpack.obj
+ 0001:00021908       SpanPackABGR8888toARGB8888 10022908 f   spanpack.obj
+ 0001:00021950       SpanPackABGR8888toXBGR8888 10022950 f   spanpack.obj
+ 0001:00021998       SpanPackABGR8888toRGB565   10022998 f   spanpack.obj
+ 0001:000219e4       SpanPackABGR8888toARGB4444 100229e4 f   spanpack.obj
+ 0001:00021a38       SpanPackABGR8888toARGB1555 10022a38 f   spanpack.obj
+ 0001:00021a90       SpanPackABGR8888toLuminanceAlpha 10022a90 f   spanpack.obj
+ 0001:00021ac8       SpanPackABGR8888toLuminance 10022ac8 f   spanpack.obj
+ 0001:00021af4       SpanPackARGB4444toABGR8888 10022af4 f   spanpack.obj
+ 0001:00021b5c       SpanPackARGB4444toXBGR8888 10022b5c f   spanpack.obj
+ 0001:00021bbc       SpanPackARGB4444toARGB8888 10022bbc f   spanpack.obj
+ 0001:00021c24       SpanPackARGB4444toRGB565   10022c24 f   spanpack.obj
+ 0001:00021c98       SpanPackARGB4444toARGB1555 10022c98 f   spanpack.obj
+ 0001:00021d1c       SpanPackARGB4444toLuminanceAlpha 10022d1c f   spanpack.obj
+ 0001:00021d68       SpanPackARGB4444toLuminance 10022d68 f   spanpack.obj
+ 0001:00021d9c       SpanPackARGB4444toAlpha    10022d9c f   spanpack.obj
+ 0001:00021dd0       SpanPackARGB1555toABGR8888 10022dd0 f   spanpack.obj
+ 0001:00021e44       SpanPackARGB1555toXBGR8888 10022e44 f   spanpack.obj
+ 0001:00021eb0       SpanPackARGB1555toARGB8888 10022eb0 f   spanpack.obj
+ 0001:00021f1c       SpanPackARGB1555toRGB565   10022f1c f   spanpack.obj
+ 0001:00021f64       SpanPackARGB1555toARGB4444 10022f64 f   spanpack.obj
+ 0001:00021fb4       SpanPackARGB1555toLuminanceAlpha 10022fb4 f   spanpack.obj
+ 0001:00022008       SpanPackARGB1555toLuminance 10023008 f   spanpack.obj
+ 0001:00022044       SpanPackARGB1555toAlpha    10023044 f   spanpack.obj
+ 0001:00022084       SpanPackRGB565toXBGR8888   10023084 f   spanpack.obj
+ 0001:000220ec       SpanPackRGB565toLuminance  100230ec f   spanpack.obj
+ 0001:00022120       SpanPackXBGR8888toABGR8888 10023120 f   spanpack.obj
+ 0001:00022158       glBlendColor               10023158 f   state.obj
+ 0001:00022208       glBlendEquation            10023208 f   state.obj
+ 0001:00022278       glBlendEquationSeparate    10023278 f   state.obj
+ 0001:000224d4       glBlendFuncSeparate        100234d4 f   state.obj
+ 0001:00022510       glBlendFunc                10023510 f   state.obj
+ 0001:00022544       glColorMask                10023544 f   state.obj
+ 0001:000225bc       glCullFace                 100235bc f   state.obj
+ 0001:00022620       glDepthFunc                10023620 f   state.obj
+ 0001:00022678       glDepthMask                10023678 f   state.obj
+ 0001:000226c4       ApplyDepthRange            100236c4 f   state.obj
+ 0001:00022784       glDepthRangef              10023784 f   state.obj
+ 0001:000227a8       glDisable                  100237a8 f   state.obj
+ 0001:000228d8       glEnable                   100238d8 f   state.obj
+ 0001:000229e8       glFrontFace                100239e8 f   state.obj
+ 0001:00022a3c       glLineWidth                10023a3c f   state.obj
+ 0001:00022ad0       glPolygonOffset            10023ad0 f   state.obj
+ 0001:00022b40       glSampleCoverage           10023b40 f   state.obj
+ 0001:00022d28       glStencilFunc              10023d28 f   state.obj
+ 0001:00022d60       glStencilFuncSeparate      10023d60 f   state.obj
+ 0001:00022e74       glStencilMask              10023e74 f   state.obj
+ 0001:00022ef0       glStencilMaskSeparate      10023ef0 f   state.obj
+ 0001:00023098       glStencilOp                10024098 f   state.obj
+ 0001:000230d4       glStencilOpSeparate        100240d4 f   state.obj
+ 0001:00023114       ApplyViewport              10024114 f   state.obj
+ 0001:000231cc       glViewport                 100241cc f   state.obj
+ 0001:000232d4       HashTableCreate            100242d4 f   statehash.obj
+ 0001:0002332c       HashTableDestroy           1002432c f   statehash.obj
+ 0001:000233ac       HashFunc                   100243ac f   statehash.obj
+ 0001:000233dc       HashTableSearch            100243dc f   statehash.obj
+ 0001:00023494       HashTableDelete            10024494 f   statehash.obj
+ 0001:000235b8       HashTableInsert            100245b8 f   statehash.obj
+ 0001:000236cc       CopyTextureFloatRGBA       100246cc f   tex.obj
+ 0001:0002375c       CopyTextureFloatRGB        1002475c f   tex.obj
+ 0001:000237e0       CopyTextureFloatLA         100247e0 f   tex.obj
+ 0001:0002384c       CopyTextureHalfFloatRGBA   1002484c f   tex.obj
+ 0001:000238cc       CopyTextureHalfFloatRGB    100248cc f   tex.obj
+ 0001:00023944       CopyTextureBGRA8888toRGBA8888 10024944 f   tex.obj
+ 0001:000239b8       CopyTextureBGRA8888to5551  100249b8 f   tex.obj
+ 0001:00023a44       CopyTextureBGRA8888to4444  10024a44 f   tex.obj
+ 0001:00023bbc       CopyTexture32Bits          10024bbc f   tex.obj
+ 0001:00023c10       CopyTexture16Bits          10024c10 f   tex.obj
+ 0001:00023c64       CopyTexture8Bits           10024c64 f   tex.obj
+ 0001:00023e18       CopyTexture5551            10024e18 f   tex.obj
+ 0001:00023e74       CopyTexture4444            10024e74 f   tex.obj
+ 0001:00023ed0       CopyTexture888X            10024ed0 f   tex.obj
+ 0001:00023f44       CopyTexture888to565        10024f44 f   tex.obj
+ 0001:00023fc8       CopyTexture565toRGBX8888   10024fc8 f   tex.obj
+ 0001:00024060       CopyTexture5551to4444      10025060 f   tex.obj
+ 0001:000240fc       CopyTexture5551toBGRA8888  100250fc f   tex.obj
+ 0001:000241a4       CopyTexture5551toRGBA8888  100251a4 f   tex.obj
+ 0001:0002424c       CopyTexture4444to5551      1002524c f   tex.obj
+ 0001:000242f8       CopyTexture4444toRGBA8888  100252f8 f   tex.obj
+ 0001:00024388       CopyTextureRGBA8888to5551  10025388 f   tex.obj
+ 0001:00024418       CopyTextureRGBA8888to4444  10025418 f   tex.obj
+ 0001:0002479c       glTexParameteri            1002579c f   tex.obj
+ 0001:000247e4       glTexParameterf            100257e4 f   tex.obj
+ 0001:00024828       glTexParameteriv           10025828 f   tex.obj
+ 0001:0002486c       glTexParameterfv           1002586c f   tex.obj
+ 0001:000248b0       glActiveTexture            100258b0 f   tex.obj
+ 0001:000248f0       BindTexture                100258f0 f   tex.obj
+ 0001:00024a44       glBindTexture              10025a44 f   tex.obj
+ 0001:00024ad8       glDeleteTextures           10025ad8 f   tex.obj
+ 0001:00024bd8       glGenTextures              10025bd8 f   tex.obj
+ 0001:00024fa0       glTexImage2D               10025fa0 f   tex.obj
+ 0001:00025650       glTexSubImage2D            10026650 f   tex.obj
+ 0001:00026360       glCompressedTexImage2D     10027360 f   tex.obj
+ 0001:000265c8       glCompressedTexSubImage2D  100275c8 f   tex.obj
+ 0001:000267a0       glCopyTexImage2D           100277a0 f   tex.obj
+ 0001:000270c4       glCopyTexSubImage2D        100280c4 f   tex.obj
+ 0001:00028178       PrepareHWTQTextureUpload   10029178 f   texdata.obj
+ 0001:0002872c       HWTQTextureUpload          1002972c f   texdata.obj
+ 0001:000287b4       PrepareHWTQTextureNormalBlit 100297b4 f   texdata.obj
+ 0001:00028b94       HWTQTextureNormalBlit      10029b94 f   texdata.obj
+ 0001:00028d0c       ReadBackTiledData          10029d0c f   texdata.obj
+ 0001:00028eb0       GetMipMapOffset            10029eb0 f   texdata.obj
+ 0001:00028edc       GetCompressedMipMapOffset  10029edc f   texdata.obj
+ 0001:00028f50       GetNPOTMipMapOffset        10029f50 f   texdata.obj
+ 0001:00029024       TranslateLevel             1002a024 f   texdata.obj
+ 0001:000297a8       SetupTwiddleFns            1002a7a8 f   texdata.obj
+ 0001:00029830       CopyTextureData            1002a830 f   texdata.obj
+ 0001:00029ba8       ReadBackTextureData        1002aba8 f   texdata.obj
+ 0001:0002a1a0       CreateTextureMemory        1002b1a0 f   texmgmt.obj
+ 0001:0002a3dc       TexMgrGhostTexture         1002b3dc f   texmgmt.obj
+ 0001:0002a4ec       TextureRemoveResident      1002b4ec f   texmgmt.obj
+ 0001:0002a4f8       TextureMakeResident        1002b4f8 f   texmgmt.obj
+ 0001:0002a7ec       UnloadInconsistentTexture  1002b7ec f   texmgmt.obj
+ 0001:0002a928       IsTextureConsistent        1002b928 f   texmgmt.obj
+ 0001:0002aecc       TextureCreateImageLevel    1002becc f   texmgmt.obj
+ 0001:0002b18c       TextureCreateLevel         1002c18c f   texmgmt.obj
+ 0001:0002b310       CreateTexture              1002c310 f   texmgmt.obj
+ 0001:0002b66c       CreateTextureState         1002c66c f   texmgmt.obj
+ 0001:0002b704       SetupTexNameArray          1002c704 f   texmgmt.obj
+ 0001:0002b714       ReleaseTextureManager      1002c714 f   texmgmt.obj
+ 0001:0002b768       FreeTextureState           1002c768 f   texmgmt.obj
+ 0001:0002b91c       SetupTextureState          1002c91c f   texmgmt.obj
+ 0001:0002be98       SetupTextureRenderTargetControlWords 1002ce98 f   texmgmt.obj
+ 0001:0002c15c       CreateTextureManager       1002d15c f   texmgmt.obj
+ 0001:0002c208       ConvertGLSLtoGLType        1002d208 f   uniform.obj
+ 0001:0002c260       SetupBuiltInUniforms       1002d260 f   uniform.obj
+ 0001:0002c5a4       WriteUSEShaderMemConsts    1002d5a4 f   uniform.obj
+ 0001:0002cf44       GetUniformData             1002df44 f   uniform.obj
+ 0001:0002d06c       FindUniformFromLocation    1002e06c f   uniform.obj
+ 0001:0002d0c0       glGetActiveUniform         1002e0c0 f   uniform.obj
+ 0001:0002d224       glGetUniformLocation       1002e224 f   uniform.obj
+ 0001:0002d378       glUniform1i                1002e378 f   uniform.obj
+ 0001:0002d478       glUniform2i                1002e478 f   uniform.obj
+ 0001:0002d52c       glUniform3i                1002e52c f   uniform.obj
+ 0001:0002d5e8       glUniform4i                1002e5e8 f   uniform.obj
+ 0001:0002d6ac       glUniform1f                1002e6ac f   uniform.obj
+ 0001:0002d754       glUniform2f                1002e754 f   uniform.obj
+ 0001:0002d80c       glUniform3f                1002e80c f   uniform.obj
+ 0001:0002d8cc       glUniform4f                1002e8cc f   uniform.obj
+ 0001:0002d998       glUniform1iv               1002e998 f   uniform.obj
+ 0001:0002dad4       glUniform2iv               1002ead4 f   uniform.obj
+ 0001:0002db9c       glUniform3iv               1002eb9c f   uniform.obj
+ 0001:0002dc64       glUniform4iv               1002ec64 f   uniform.obj
+ 0001:0002dd2c       glUniform1fv               1002ed2c f   uniform.obj
+ 0001:0002ddf4       glUniform2fv               1002edf4 f   uniform.obj
+ 0001:0002debc       glUniform3fv               1002eebc f   uniform.obj
+ 0001:0002df84       glUniform4fv               1002ef84 f   uniform.obj
+ 0001:0002e04c       glUniformMatrix2fv         1002f04c f   uniform.obj
+ 0001:0002e118       glUniformMatrix3fv         1002f118 f   uniform.obj
+ 0001:0002e1e4       glUniformMatrix4fv         1002f1e4 f   uniform.obj
+ 0001:0002e590       GetFBBlendType             1002f590 f   use.obj
+ 0001:0002e6cc       CreateFBBlendUSECode       1002f6cc f   use.obj
+ 0001:0002e870       CreateColorMaskUSECode     1002f870 f   use.obj
+ 0001:0002e8bc       WriteEOTUSSECode           1002f8bc f   use.obj
+ 0001:0002e974       GetStateCopyUSEAddress     1002f974 f   use.obj
+ 0001:0002e9a0       InitSpecialUSECodeBlocks   1002f9a0 f   use.obj
+ 0001:0002eab0       FreeSpecialUSECodeBlocks   1002fab0 f   use.obj
+ 0001:0002f3d4       SetupUSEVertexShader       100303d4 f   use.obj
+ 0001:0002f8f8       SetupUSEFragmentShader     100308f8 f   use.obj
+ 0001:00030190       EncodeDmaBurst             10031190 f   validate.obj
+ 0001:00030238       OutputTerminateState       10031238 f   validate.obj
+ 0001:00030628       SetupPixelEventProgram     10031628 f   validate.obj
+ 0001:000322dc       PatchPregenMTEStateCopyPrograms 100332dc f   validate.obj
+ 0001:00032418       WriteMTEStateCopyPrograms  10033418 f   validate.obj
+ 0001:00032560       SetupStateUpdate           10033560 f   validate.obj
+ 0001:00032664       SetupMTEPregenBuffer       10033664 f   validate.obj
+ 0001:00033034       ValidateState              10034034 f   validate.obj
+ 0001:00033260       GLES2EmitState             10034260 f   validate.obj
+ 0001:00033854       glEnableVertexAttribArray  10034854 f   vertex.obj
+ 0001:000338a4       glDisableVertexAttribArray 100348a4 f   vertex.obj
+ 0001:000338f4       glVertexAttrib1f           100348f4 f   vertex.obj
+ 0001:00033960       glVertexAttrib2f           10034960 f   vertex.obj
+ 0001:000339d0       glVertexAttrib3f           100349d0 f   vertex.obj
+ 0001:00033a38       glVertexAttrib4f           10034a38 f   vertex.obj
+ 0001:00033a9c       glVertexAttrib1fv          10034a9c f   vertex.obj
+ 0001:00033afc       glVertexAttrib2fv          10034afc f   vertex.obj
+ 0001:00033b60       glVertexAttrib3fv          10034b60 f   vertex.obj
+ 0001:00033bbc       glVertexAttrib4fv          10034bbc f   vertex.obj
+ 0001:00033c10       glVertexAttribPointer      10034c10 f   vertex.obj
+ 0001:00033dcc       ReleaseImageFromTexture    10034dcc f   eglimage.obj
+ 0001:000340ec       glEGLImageTargetTexture2DOES 100350ec f   eglimage.obj
+ 0001:000342a4       glEGLImageTargetRenderbufferStorageOES 100352a4 f   eglimage.obj
+ 0001:00034374       ReleaseImageFromRenderbuffer 10035374 f   eglimage.obj
+ 0001:00034394       GLESGetImageSource         10035394 f   eglimage.obj
+ 0001:00034824       GetNumStreamDevices        10035824 f   texstream.obj
+ 0001:0003485c       FreeTexStreamState         1003585c f   texstream.obj
+ 0001:00034c0c       glGetTexStreamDeviceAttributeivIMG 10035c0c f   texstream.obj
+ 0001:00034d00       glTexBindStreamIMG         10035d00 f   texstream.obj
+ 0001:00034ea0       glGetTexStreamDeviceNameIMG 10035ea0 f   texstream.obj
+ 0001:0003522c       CopyYUVRegisters           1003622c f   texyuv.obj
+ 0001:00035280       InitialiseYUVCoefficients  10036280 f   texyuv.obj
+ 0001:00035410       CreateExternalTextureState 10036410 f   texyuv.obj
+ 0001:00035648       CreateVertexArrayObjectState 10036648 f   vertexarrobj.obj
+ 0001:00035688       ReclaimVAOMemKRM           10036688 f   vertexarrobj.obj
+ 0001:0003568c       DestroyVAOGhostKRM         1003668c f   vertexarrobj.obj
+ 0001:000357c4       FreeVertexArrayObjectState 100367c4 f   vertexarrobj.obj
+ 0001:0003585c       SetupVertexArrayObjectNameArray 1003685c f   vertexarrobj.obj
+ 0001:0003586c       glBindVertexArrayOES       1003686c f   vertexarrobj.obj
+ 0001:00035994       glDeleteVertexArraysOES    10036994 f   vertexarrobj.obj
+ 0001:00035a58       glGenVertexArraysOES       10036a58 f   vertexarrobj.obj
+ 0001:00035a9c       glIsVertexArrayOES         10036a9c f   vertexarrobj.obj
+ 0001:00035af4       OGLES2_GetTLSValue         10036af4 f   wince6_tls.obj
+ 0001:00035b24       OGLES2_SetTLSValue         10036b24 f   wince6_tls.obj
+ 0001:00035b68       PDSGeneratePixelEventProgram 10036b68 f   pds.obj
+ 0001:00035c60       PDSPatchVertexShaderProgram 10036c60 f   pds.obj
+ 0001:00035d9c       PDSGetPixeventProgSize     10036d9c f   pds.obj
+ 0001:00035da4       PDSGeneratePixelShaderSAProgram 10036da4 f   pds.obj
+ 0001:00035fd8       PDSGeneratePixelShaderProgram 10036fd8 f   pds.obj
+ 0001:00036240       PDSGenerateStateCopyProgram 10037240 f   pds.obj
+ 0001:000363b0       PDSGenerateVertexShaderProgram 100373b0 f   pds.obj
+ 0001:00036be0       PDSGenerateTerminateStateProgram 10037be0 f   pds.obj
+ 0001:00036c88       PDSPatchTerminateStateProgram 10037c88 f   pds.obj
+ 0001:00036c94       WritePTOffUSSECode         10037c94 f   pixevent.obj
+ 0001:00036cac       WriteEndOfRenderUSSECode   10037cac f   pixevent.obj
+ 0001:00036cdc       WriteEndOfTileUSSECode     10037cdc f   pixevent.obj
+ 0001:00036d8c       WritePBEEmitState          10037d8c f   pixeventpbesetup.obj
+ 0001:000378e8       PVRCombineBlendCodeWithShader 100388e8 f   combiner.obj
+ 0001:00037b34       USEGenWriteStateEmitFragment 10038b34 f   usegen.obj
+ 0001:00037b98       USEGenWriteEndVtxShaderFragment 10038b98 f   usegen.obj
+ 0001:00037bb8       USEGenWriteStateEmitProgram 10038bb8 f   usegen.obj
+ 0001:00037be8       USEGenWriteSpecialObjVtxProgram 10038be8 f   usegen.obj
+ 0001:00037d40       USEGenWriteClearPixelProgram 10038d40 f   usegen.obj
+ 0001:00037d90       UCH_CodeHeapCreate         10038d90 f   codeheap.obj
+ 0001:00037e68       UCH_CodeHeapDestroy        10038e68 f   codeheap.obj
+ 0001:00037f9c       UCH_CodeHeapFreeFunc       10038f9c f   codeheap.obj
+ 0001:00037ff0       UCH_CodeHeapAllocateFunc   10038ff0 f   codeheap.obj
+ 0001:000384a8       CBUF_GetBufferSpace        100394a8 f   buffers.obj
+ 0001:000386e8       CBUF_UpdateBufferPos       100396e8 f   buffers.obj
+ 0001:00038724       CBUF_GetBufferDeviceAddress 10039724 f   buffers.obj
+ 0001:00038748       CBUF_UpdateBufferCommittedPrimOffsets 10039748 f   buffers.obj
+ 0001:000387dc       CBUF_UpdateVIBufferCommittedPrimOffsets 100397dc f   buffers.obj
+ 0001:00038854       CBUF_UpdateBufferCommittedHWOffsets 10039854 f   buffers.obj
+ 0001:00038898       CBUF_UpdateTACtrlKickBase  10039898 f   buffers.obj
+ 0001:000388e8       CBUF_CreateBuffer          100398e8 f   buffers.obj
+ 0001:00038a54       CBUF_DestroyBuffer         10039a54 f   buffers.obj
+ 0001:000395d0       DeTwiddleAddress16bpp      1003a5d0 f   twiddle.obj
+ 0001:00039744       ReadBackTwiddle16bpp       1003a744 f   twiddle.obj
+ 0001:0003a30c       DeTwiddleAddress32bpp      1003b30c f   twiddle.obj
+ 0001:0003a47c       ReadBackTwiddle32bpp       1003b47c f   twiddle.obj
+ 0001:0003a5b4       ReadBackTwiddle8bpp        1003b5b4 f   twiddle.obj
+ 0001:0003a698       ReadBackTwiddleETC1        1003b698 f   twiddle.obj
+ 0001:0003a82c       DeTwiddleAddress8bpp       1003b82c f   twiddle.obj
+ 0001:0003a98c       DeTwiddleAddressETC1       1003b98c f   twiddle.obj
+ 0001:0003ab08       KRM_Initialize             1003bb08 f   kickresource.obj
+ 0001:0003ac20       KRM_Attach                 1003bc20 f   kickresource.obj
+ 0001:0003adbc       KRM_IsResourceInUse        1003bdbc f   kickresource.obj
+ 0001:0003af34       KRM_IsResourceNeeded       1003bf34 f   kickresource.obj
+ 0001:0003b014       KRM_WaitUntilResourceIsNotNeeded 1003c014 f   kickresource.obj
+ 0001:0003b060       KRM_WaitForAllResources    1003c060 f   kickresource.obj
+ 0001:0003b0f8       KRM_GhostResource          1003c0f8 f   kickresource.obj
+ 0001:0003b210       KRM_RemoveResourceFromAllLists 1003c210 f   kickresource.obj
+ 0001:0003b2ec       KRM_RemoveAttachmentPointReferences 1003c2ec f   kickresource.obj
+ 0001:0003b33c       KRM_Destroy                1003c33c f   kickresource.obj
+ 0001:0003b3b0       KRM_FlushUnKickedResource  1003c3b0 f   kickresource.obj
+ 0001:0003b560       KRM_ReclaimUnneededResources 1003c560 f   kickresource.obj
+ 0001:0003b590       KRM_DestroyUnneededGhosts  1003c590 f   kickresource.obj
+ 0001:0003b5c0       CalculatePixelDMSInfo      1003c5c0 f   dmscalc.obj
+ 0001:0003b758       CalculateVertexDMSInfo     1003c758 f   dmscalc.obj
+ 0001:0003b830       PVRUniPatchCreateContext   1003c830 f   usp:usp.obj
+ 0001:0003b888       PVRUniPatchCreateShader    1003c888 f   usp:usp.obj
+ 0001:0003b88c       PVRUniPatchCreatePCShader  1003c88c f   usp:usp.obj
+ 0001:0003b890       PVRUniPatchSetTextureFormat 1003c890 f   usp:usp.obj
+ 0001:0003b8e8       PVRUniPatchSetOutputLocation 1003c8e8 f   usp:usp.obj
+ 0001:0003b8f0       PVRUniPatchSetPreambleInstCount 1003c8f0 f   usp:usp.obj
+ 0001:0003b904       PVRUniPatchFinaliseShader  1003c904 f   usp:usp.obj
+ 0001:0003babc       PVRUniPatchDestroyHWShader 1003cabc f   usp:usp.obj
+ 0001:0003bad4       PVRUniPatchDestroyShader   1003cad4 f   usp:usp.obj
+ 0001:0003bad8       PVRUniPatchDestroyPCShader 1003cad8 f   usp:usp.obj
+ 0001:0003baec       PVRUniPatchDestroyContext  1003caec f   usp:usp.obj
+ 0001:0003bfa0       USPShaderAddResultRef      1003cfa0 f   usp:uspshader.obj
+ 0001:0003bfd0       USPShaderRemoveResultRef   1003cfd0 f   usp:uspshader.obj
+ 0001:0003f0d8       USPShaderDestroy           100400d8 f   usp:uspshader.obj
+ 0001:0003f290       PCShaderCreate             10040290 f   usp:uspshader.obj
+ 0001:0003f3d0       USPShaderCreate            100403d0 f   usp:uspshader.obj
+ 0001:0003f7e8       HandleUSPSampleTextureFormat 100407e8 f   usp:finalise.obj
+ 0001:0003f9f4       ResetShader                100409f4 f   usp:finalise.obj
+ 0001:0003faec       FinaliseResultLocations    10040aec f   usp:finalise.obj
+ 0001:0003fc10       FinaliseRegCounts          10040c10 f   usp:finalise.obj
+ 0001:0003fe78       FinaliseSamples            10040e78 f   usp:finalise.obj
+ 0001:0003ff18       RemoveDummyIterations      10040f18 f   usp:finalise.obj
+ 0001:0003ffb4       FinaliseResults            10040fb4 f   usp:finalise.obj
+ 0001:00040344       FinaliseShaderPreamble     10041344 f   usp:finalise.obj
+ 0001:000403d0       FinaliseInstructions       100413d0 f   usp:finalise.obj
+ 0001:00040410       FinaliseBranches           10041410 f   usp:finalise.obj
+ 0001:00040628       CreateHWShader             10041628 f   usp:finalise.obj
+ 0001:000411cc       USPInstBlockReset          100421cc f   usp:usp_instblock.obj
+ 0001:000414b8       USPInstBlockInsertHWInst   100424b8 f   usp:usp_instblock.obj
+ 0001:0004163c       USPInstBlockAddPCInst      1004263c f   usp:usp_instblock.obj
+ 0001:000417f4       USPInstBlockRemoveInst     100427f4 f   usp:usp_instblock.obj
+ 0001:00041e80       USPInstBlockFinaliseInsts  10042e80 f   usp:usp_instblock.obj
+ 0001:00041ed8       USPInstBlockCreate         10042ed8 f   usp:usp_instblock.obj
+ 0001:00042094       USPInstBlockDestroy        10043094 f   usp:usp_instblock.obj
+ 0001:000420fc       HWInstGetOpcode            100430fc f   usp:hwinst.obj
+ 0001:00042a2c       HWInstGetOperandsUsed      10043a2c f   usp:hwinst.obj
+ 0001:00042d20       HWInstCanUseExtSrc0Banks   10043d20 f   usp:hwinst.obj
+ 0001:00042d60       HWInstIsMOEControlInst     10043d60 f   usp:hwinst.obj
+ 0001:00042d7c       HWInstUpdateMOEState       10043d7c f   usp:hwinst.obj
+ 0001:00042e7c       HWInstGetPerOperandFmtCtl  10043e7c f   usp:hwinst.obj
+ 0001:000430d8       HWInstEncodeDestBankAndNum 100440d8 f   usp:hwinst.obj
+ 0001:0004333c       HWInstDecodeDestBankAndNum 1004433c f   usp:hwinst.obj
+ 0001:00043528       HWInstEncodeSrc0BankAndNum 10044528 f   usp:hwinst.obj
+ 0001:000436dc       HWInstDecodeSrc0BankAndNum 100446dc f   usp:hwinst.obj
+ 0001:00043800       HWInstEncodeSrc1BankAndNum 10044800 f   usp:hwinst.obj
+ 0001:000439d4       HWInstDecodeSrc1BankAndNum 100449d4 f   usp:hwinst.obj
+ 0001:00043b60       HWInstEncodeSrc2BankAndNum 10044b60 f   usp:hwinst.obj
+ 0001:00043d3c       HWInstDecodeSrc2BankAndNum 10044d3c f   usp:hwinst.obj
+ 0001:00043ec8       HWInstDecodeOperandBankAndNum 10044ec8 f   usp:hwinst.obj
+ 0001:00043f88       HWInstDecodeSMPOperandBankAndNum 10044f88 f   usp:hwinst.obj
+ 0001:00043fb4       HWInstEncodeANDInst        10044fb4 f   usp:hwinst.obj
+ 0001:00044190       HWInstEncodeMOVInst        10045190 f   usp:hwinst.obj
+ 0001:00044220       HWInstDecodeMOVInstTestDataType 10045220 f   usp:hwinst.obj
+ 0001:00044294       HWInstDecodeRepeat         10045294 f   usp:hwinst.obj
+ 0001:00044428       HWInstEncodeSMLSIInst      10045428 f   usp:hwinst.obj
+ 0001:00044588       HWInstEncodeSMBOInst       10045588 f   usp:hwinst.obj
+ 0001:00044610       HWInstEncodeSETFCInst      10045610 f   usp:hwinst.obj
+ 0001:00044644       HWInstSetBranchOffset      10045644 f   usp:hwinst.obj
+ 0001:00044670       HWInstSetBranchAddr        10045670 f   usp:hwinst.obj
+ 0001:0004469c       HWInstSupportsNoSched      1004569c f   usp:hwinst.obj
+ 0001:000446f4       HWInstSetNoSched           100456f4 f   usp:hwinst.obj
+ 0001:00044750       HWInstEncodeNOPInst        10045750 f   usp:hwinst.obj
+ 0001:00044768       HWInstNeedsSyncStartBefore 10045768 f   usp:hwinst.obj
+ 0001:000447c8       HWInstSupportsSyncStart    100457c8 f   usp:hwinst.obj
+ 0001:00044820       HWInstGetSyncStart         10045820 f   usp:hwinst.obj
+ 0001:00044854       HWInstSetSyncStart         10045854 f   usp:hwinst.obj
+ 0001:0004488c       HWInstSupportsSyncEnd      1004588c f   usp:hwinst.obj
+ 0001:000448a8       HWInstGetSyncEnd           100458a8 f   usp:hwinst.obj
+ 0001:000448c4       HWInstForcesDeschedule     100458c4 f   usp:hwinst.obj
+ 0001:00044940       HWInstIsIllegalInstPair    10045940 f   usp:hwinst.obj
+ 0001:000449bc       HWInstSupportsEnd          100459bc f   usp:hwinst.obj
+ 0001:00044a0c       HWInstSupportsWriteMask    10045a0c f   usp:hwinst.obj
+ 0001:00044a20       HWInstDecodeSOPWMInstWriteMask 10045a20 f   usp:hwinst.obj
+ 0001:00044a68       HWInstDecodeWriteMask      10045a68 f   usp:hwinst.obj
+ 0001:00044aac       HWInstEncodePCKUNPCKInstWriteMask 10045aac f   usp:hwinst.obj
+ 0001:00044b7c       HWInstEncodeSOPWMInstWriteMask 10045b7c f   usp:hwinst.obj
+ 0001:00044bec       HWInstDecodeSMPInstDRCNum  10045bec f   usp:hwinst.obj
+ 0001:00044bf8       HWInstEncodeWDFInst        10045bf8 f   usp:hwinst.obj
+ 0001:00044c24       HWInstEncodeSOPWMInst      10045c24 f   usp:hwinst.obj
+ 0001:00044d24       HWInstEncodeSOP2Inst       10045d24 f   usp:hwinst.obj
+ 0001:00044e48       HWInstDecodeSMPInstCoordFmt 10045e48 f   usp:hwinst.obj
+ 0001:00044e50       HWInstDecodeSMPInstCoordDim 10045e50 f   usp:hwinst.obj
+ 0001:00044e88       HWInstDecodePCKUNPCKInstSrcFormat 10045e88 f   usp:hwinst.obj
+ 0001:00044ef4       HWInstEncodeLDInstFetchCount 10045ef4 f   usp:hwinst.obj
+ 0001:00044f18       HWInstEncodeLDInst         10045f18 f   usp:hwinst.obj
+ 0001:00044fd4       HWInstEncodeFIRHInst       10045fd4 f   usp:hwinst.obj
+ 0001:000450dc       HWInstEncodeSMPInstCoordDim 100460dc f   usp:hwinst.obj
+ 0001:000453a8       HWInstEncodePCKUNPCKInst   100463a8 f   usp:hwinst.obj
+ 0001:00049ebc       USPSampleDataAdd           1004aebc f   usp:usp_sample.obj
+ 0001:00049ee8       USPSampleReset             1004aee8 f   usp:usp_sample.obj
+ 0001:00049f88       USPSampleUnpackReset       1004af88 f   usp:usp_sample.obj
+ 0001:0004a638       USPSampleGenerateCode      1004b638 f   usp:usp_sample.obj
+ 0001:0004a850       USPSampleUnpackGenerateCode 1004b850 f   usp:usp_sample.obj
+ 0001:0004a908       USPSampleCreate            1004b908 f   usp:usp_sample.obj
+ 0001:0004a9ac       USPSampleDestroy           1004b9ac f   usp:usp_sample.obj
+ 0001:0004a9bc       USPSampleUnpackCreate      1004b9bc f   usp:usp_sample.obj
+ 0001:0004aa58       USPSampleUnpackDestroy     1004ba58 f   usp:usp_sample.obj
+ 0001:0004b3dc       DecideChunksSampling       1004c3dc f   usp:usp_sample.obj
+ 0001:0004c140       DecideFinalTextureFormats  1004d140 f   usp:usp_sample.obj
+ 0001:0004c27c       USPInputDataGetPreSampledData 1004d27c f   usp:usp_inputdata.obj
+ 0001:0004c314       USPInputDataGetTexStateData 1004d314 f   usp:usp_inputdata.obj
+ 0001:0004c370       USPInputDataCalcPARegUse   1004d370 f   usp:usp_inputdata.obj
+ 0001:0004c3e8       USPInputDataAddTexStateData 1004d3e8 f   usp:usp_inputdata.obj
+ 0001:0004c634       USPInputDataFixUnusedPreSampledData 1004d634 f   usp:usp_inputdata.obj
+ 0001:0004c748       USPInputDataAddPreSampledData 1004d748 f   usp:usp_inputdata.obj
+ 0001:0004cbd8       USPInputDataAddIteratedData 1004dbd8 f   usp:usp_inputdata.obj
+ 0001:0004cd40       USPInputDataGetIteratedDataForNonDepSample 1004dd40 f   usp:usp_inputdata.obj
+ 0001:0004cdd0       USPInputDataAddPCInputData 1004ddd0 f   usp:usp_inputdata.obj
+ 0001:0004d10c       USPInputDataCreate         1004e10c f   usp:usp_inputdata.obj
+ 0001:0004d138       USPInputDataCreateIteratedDataList 1004e138 f   usp:usp_inputdata.obj
+ 0001:0004d17c       USPInputDataCreatePreSampledDataList 1004e17c f   usp:usp_inputdata.obj
+ 0001:0004d1cc       USPInputDataCreateTexStateDataList 1004e1cc f   usp:usp_inputdata.obj
+ 0001:0004d218       USPInputDataDestroy        1004e218 f   usp:usp_inputdata.obj
+ 0001:0004d264       USPInputDataReset          1004e264 f   usp:usp_inputdata.obj
+ 0001:0004d2e0       USPResultRefSetup          1004e2e0 f   usp:usp_resultref.obj
+ 0001:0004d310       USPResultRefCreate         1004e310 f   usp:usp_resultref.obj
+ 0001:0004d358       USPResultRefSetInst        1004e358 f   usp:usp_resultref.obj
+ 0001:0004d450       USPResultRefDestroy        1004e450 f   usp:usp_resultref.obj
+ 0001:0004d46c       USPResultRefReset          1004e46c f   usp:usp_resultref.obj
+ 0001:0004d48c       USPResultRefSupportsRegLocation 1004e48c f   usp:usp_resultref.obj
+ 0001:0004d5fc       USPResultRefChangeRegLocation 1004e5fc f   usp:usp_resultref.obj
+ 0001:0004d844       PVRSRVFreeDeviceMem        1004e844 f   srvclum:SRVCLUM.dll
+ 0001:0004d854       PVRSRVAllocDeviceMem       1004e854 f   srvclum:SRVCLUM.dll
+ 0001:0004d864       PVRSRVUnlockMutex          1004e864 f   srvclum:SRVCLUM.dll
+ 0001:0004d874       PVRSRVLockMutex            1004e874 f   srvclum:SRVCLUM.dll
+ 0001:0004d884       PVRSRVDestroyMutex         1004e884 f   srvclum:SRVCLUM.dll
+ 0001:0004d894       PVRSRVCreateMutex          1004e894 f   srvclum:SRVCLUM.dll
+ 0001:0004d8a4       PVRSRVMemSet               1004e8a4 f   srvclum:SRVCLUM.dll
+ 0001:0004d8b4       PVRSRVPollForValue         1004e8b4 f   srvclum:SRVCLUM.dll
+ 0001:0004d8c4       SGXQueueTransfer           1004e8c4 f   srvclum:SRVCLUM.dll
+ 0001:0004d8d4       PVRSRVFreeAppHintState     1004e8d4 f   srvclum:SRVCLUM.dll
+ 0001:0004d8e4       PVRSRVGetAppHint           1004e8e4 f   srvclum:SRVCLUM.dll
+ 0001:0004d8f4       PVRSRVCreateAppHintState   1004e8f4 f   srvclum:SRVCLUM.dll
+ 0001:0004d904       PVRSRVClientEvent          1004e904 f   srvclum:SRVCLUM.dll
+ 0001:0004d914       PVRSRVEventObjectWait      1004e914 f   srvclum:SRVCLUM.dll
+ 0001:0004d924       SGXKickTA                  1004e924 f   srvclum:SRVCLUM.dll
+ 0001:0004d934       PVRSRVGetLibFuncAddr       1004e934 f   srvclum:SRVCLUM.dll
+ 0001:0004d944       PVRSRVLoadLibrary          1004e944 f   srvclum:SRVCLUM.dll
+ 0001:0004d954       PVRSRVUnloadLibrary        1004e954 f   srvclum:SRVCLUM.dll
+ 0001:0004d964       PVRSRVCloseBCDevice        1004e964 f   srvclum:SRVCLUM.dll
+ 0001:0004d974       PVRSRVUnmapDeviceClassMemory 1004e974 f   srvclum:SRVCLUM.dll
+ 0001:0004d984       PVRSRVEnumerateDeviceClass 1004e984 f   srvclum:SRVCLUM.dll
+ 0001:0004d994       PVRSRVMapDeviceClassMemory 1004e994 f   srvclum:SRVCLUM.dll
+ 0001:0004d9a4       PVRSRVGetBCBuffer          1004e9a4 f   srvclum:SRVCLUM.dll
+ 0001:0004d9b4       PVRSRVGetBCBufferInfo      1004e9b4 f   srvclum:SRVCLUM.dll
+ 0001:0004d9c4       PVRSRVOpenBCDevice         1004e9c4 f   srvclum:SRVCLUM.dll
+ 0001:0004d9d4       PVRSRVFreeUserModeMem      1004e9d4 f   srvclum:SRVCLUM.dll
+ 0001:0004d9e4       PVRSRVCallocUserModeMem    1004e9e4 f   srvclum:SRVCLUM.dll
+ 0001:0004d9f4       PVRSRVAllocUserModeMem     1004e9f4 f   srvclum:SRVCLUM.dll
+ 0001:0004da04       PVRSRVReallocUserModeMem   1004ea04 f   srvclum:SRVCLUM.dll
+ 0001:0004da14       KEGLGetDrawableParameters  1004ea14 f   libimgegl:libIMGEGL.dll
+ 0001:0004da24       KEGLDestroyRenderSurface   1004ea24 f   libimgegl:libIMGEGL.dll
+ 0001:0004da34       KEGLUnbindImage            1004ea34 f   libimgegl:libIMGEGL.dll
+ 0001:0004da44       KEGLCreateRenderSurface    1004ea44 f   libimgegl:libIMGEGL.dll
+ 0001:0004da54       KEGLResizeRenderSurface    1004ea54 f   libimgegl:libIMGEGL.dll
+ 0001:0004da64       KEGLBindImage              1004ea64 f   libimgegl:libIMGEGL.dll
+ 0001:0004da74       KEGLGetImageSource         1004ea74 f   libimgegl:libIMGEGL.dll
+ 0001:0004da84       TlsCall                    1004ea84 f   coredll:COREDLL.dll
+ 0001:0004da94       TlsGetValue                1004ea94 f   coredll:COREDLL.dll
+ 0001:0004daa4       TlsSetValue                1004eaa4 f   coredll:COREDLL.dll
+ 0001:0004dab4       DllMain                    1004eab4 f   corelib0:dllmain.obj
+ 0001:0004dbc0       _DllMainCRTStartup         1004ebc0 f   corelib0:pegdmain.obj
+ 0001:0004dbec       __GSHandlerCheckCommon     1004ebec f   corelib0:gshandler.obj
+ 0001:0004dc28       __GSHandlerCheck           1004ec28 f   corelib0:gshandler.obj
+ 0001:0004dc48       __security_init_cookie     1004ec48 f   corelib0:seccinit.obj
+ 0001:0004dc94       __security_check_cookie    1004ec94 f   corelib0:armsecgs.obj
+ 0001:0004dca4       __gsfailure                1004eca4     corelib0:armsecgs.obj
+ 0001:0004dda8       _cexit                     1004eda8 f   corelib0:cexit.obj
+ 0001:0004ddb8       _initterm                  1004edb8 f   corelib0:crt0dat.obj
+ 0001:0004dde4       _cinit                     1004ede4 f   corelib0:crt0dat.obj
+ 0001:0004de44       __crt_ExitProcess          1004ee44 f   corelib0:exitproc_proxy.obj
+ 0001:0004de50       memset                     1004ee50 f   corelib1:COREDLL.dll
+ 0001:0004de60       free                       1004ee60 f   corelib1:COREDLL.dll
+ 0001:0004de70       realloc                    1004ee70 f   corelib1:COREDLL.dll
+ 0001:0004de80       calloc                     1004ee80 f   corelib1:COREDLL.dll
+ 0001:0004de90       memcpy                     1004ee90 f   corelib1:COREDLL.dll
+ 0001:0004dea0       malloc                     1004eea0 f   corelib1:COREDLL.dll
+ 0001:0004deb0       strcmp                     1004eeb0 f   corelib1:COREDLL.dll
+ 0001:0004dec0       strlen                     1004eec0 f   corelib1:COREDLL.dll
+ 0001:0004ded0       strncpy                    1004eed0 f   corelib1:COREDLL.dll
+ 0001:0004dee0       strcat                     1004eee0 f   corelib1:COREDLL.dll
+ 0001:0004def0       strcpy                     1004eef0 f   corelib1:COREDLL.dll
+ 0001:0004df00       strncmp                    1004ef00 f   corelib1:COREDLL.dll
+ 0001:0004df10       sprintf                    1004ef10 f   corelib1:COREDLL.dll
+ 0001:0004df20       atoi                       1004ef20 f   corelib1:COREDLL.dll
+ 0001:0004df30       memcmp                     1004ef30 f   corelib1:COREDLL.dll
+ 0001:0004df40       _XcptFilter                1004ef40 f   corelib1:COREDLL.dll
+ 0001:0004df50       __C_specific_handler       1004ef50 f   corelib1:COREDLL.dll
+ 0001:0004df60       __security_gen_cookie2     1004ef60 f   corelib1:COREDLL.dll
+ 0001:0004df70       __report_gsfailure         1004ef70 f   corelib1:COREDLL.dll
+ 0001:0004df80       DisableThreadLibraryCalls  1004ef80 f   coredll:COREDLL.dll
+ 0001:0004df90       TerminateProcess           1004ef90 f   coredll:COREDLL.dll
+ 0001:0004dfd4       __IMPORT_DESCRIPTOR_SRVCLUM 1004efd4     srvclum:SRVCLUM.dll
+ 0001:0004dfe8       __IMPORT_DESCRIPTOR_libIMGEGL 1004efe8     libimgegl:libIMGEGL.dll
+ 0001:0004dffc       __IMPORT_DESCRIPTOR_COREDLL 1004effc     coredll:COREDLL.dll
+ 0001:0004e010       __NULL_IMPORT_DESCRIPTOR   1004f010     srvclum:SRVCLUM.dll
+ 0002:00000000       __imp_TerminateProcess     10051000     coredll:COREDLL.dll
+ 0002:00000004       __imp_sprintf              10051004     corelib1:COREDLL.dll
+ 0002:00000008       __imp_strncmp              10051008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp_strcpy               1005100c     corelib1:COREDLL.dll
+ 0002:00000010       __imp_strcat               10051010     corelib1:COREDLL.dll
+ 0002:00000014       __imp_floor                10051014     corelib1:COREDLL.dll
+ 0002:00000018       __imp_strncpy              10051018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp_strlen               1005101c     corelib1:COREDLL.dll
+ 0002:00000020       __imp_strcmp               10051020     corelib1:COREDLL.dll
+ 0002:00000024       __imp___rt_udiv            10051024     corelib1:COREDLL.dll
+ 0002:00000028       __imp_malloc               10051028     corelib1:COREDLL.dll
+ 0002:0000002c       __imp_memcpy               1005102c     corelib1:COREDLL.dll
+ 0002:00000030       __imp_calloc               10051030     corelib1:COREDLL.dll
+ 0002:00000034       __imp_realloc              10051034     corelib1:COREDLL.dll
+ 0002:00000038       __imp_free                 10051038     corelib1:COREDLL.dll
+ 0002:0000003c       __imp_memset               1005103c     corelib1:COREDLL.dll
+ 0002:00000040       __imp_TlsSetValue          10051040     coredll:COREDLL.dll
+ 0002:00000044       __imp_TlsGetValue          10051044     coredll:COREDLL.dll
+ 0002:00000048       __imp_TlsCall              10051048     coredll:COREDLL.dll
+ 0002:0000004c       __imp_memcmp               1005104c     corelib1:COREDLL.dll
+ 0002:00000050       __imp__XcptFilter          10051050     corelib1:COREDLL.dll
+ 0002:00000054       __imp___C_specific_handler 10051054     corelib1:COREDLL.dll
+ 0002:00000058       __imp___security_gen_cookie2 10051058     corelib1:COREDLL.dll
+ 0002:0000005c       __imp___report_gsfailure   1005105c     corelib1:COREDLL.dll
+ 0002:00000060       __imp_DisableThreadLibraryCalls 10051060     coredll:COREDLL.dll
+ 0002:00000064       __imp_atoi                 10051064     corelib1:COREDLL.dll
+ 0002:00000068       \177COREDLL_NULL_THUNK_DATA 10051068     coredll:COREDLL.dll
+ 0002:0000006c       __imp_PVRSRVReallocUserModeMem 1005106c     srvclum:SRVCLUM.dll
+ 0002:00000070       __imp_PVRSRVAllocUserModeMem 10051070     srvclum:SRVCLUM.dll
+ 0002:00000074       __imp_PVRSRVCallocUserModeMem 10051074     srvclum:SRVCLUM.dll
+ 0002:00000078       __imp_PVRSRVFreeUserModeMem 10051078     srvclum:SRVCLUM.dll
+ 0002:0000007c       __imp_PVRSRVFreeDeviceMem  1005107c     srvclum:SRVCLUM.dll
+ 0002:00000080       __imp_PVRSRVOpenBCDevice   10051080     srvclum:SRVCLUM.dll
+ 0002:00000084       __imp_PVRSRVGetBCBufferInfo 10051084     srvclum:SRVCLUM.dll
+ 0002:00000088       __imp_PVRSRVGetBCBuffer    10051088     srvclum:SRVCLUM.dll
+ 0002:0000008c       __imp_PVRSRVMapDeviceClassMemory 1005108c     srvclum:SRVCLUM.dll
+ 0002:00000090       __imp_PVRSRVEnumerateDeviceClass 10051090     srvclum:SRVCLUM.dll
+ 0002:00000094       __imp_PVRSRVUnmapDeviceClassMemory 10051094     srvclum:SRVCLUM.dll
+ 0002:00000098       __imp_PVRSRVCloseBCDevice  10051098     srvclum:SRVCLUM.dll
+ 0002:0000009c       __imp_PVRSRVUnloadLibrary  1005109c     srvclum:SRVCLUM.dll
+ 0002:000000a0       __imp_PVRSRVLoadLibrary    100510a0     srvclum:SRVCLUM.dll
+ 0002:000000a4       __imp_PVRSRVGetLibFuncAddr 100510a4     srvclum:SRVCLUM.dll
+ 0002:000000a8       __imp_SGXKickTA            100510a8     srvclum:SRVCLUM.dll
+ 0002:000000ac       __imp_PVRSRVEventObjectWait 100510ac     srvclum:SRVCLUM.dll
+ 0002:000000b0       __imp_PVRSRVClientEvent    100510b0     srvclum:SRVCLUM.dll
+ 0002:000000b4       __imp_PVRSRVCreateAppHintState 100510b4     srvclum:SRVCLUM.dll
+ 0002:000000b8       __imp_PVRSRVGetAppHint     100510b8     srvclum:SRVCLUM.dll
+ 0002:000000bc       __imp_PVRSRVFreeAppHintState 100510bc     srvclum:SRVCLUM.dll
+ 0002:000000c0       __imp_SGXQueueTransfer     100510c0     srvclum:SRVCLUM.dll
+ 0002:000000c4       __imp_PVRSRVPollForValue   100510c4     srvclum:SRVCLUM.dll
+ 0002:000000c8       __imp_PVRSRVMemSet         100510c8     srvclum:SRVCLUM.dll
+ 0002:000000cc       __imp_PVRSRVCreateMutex    100510cc     srvclum:SRVCLUM.dll
+ 0002:000000d0       __imp_PVRSRVDestroyMutex   100510d0     srvclum:SRVCLUM.dll
+ 0002:000000d4       __imp_PVRSRVLockMutex      100510d4     srvclum:SRVCLUM.dll
+ 0002:000000d8       __imp_PVRSRVUnlockMutex    100510d8     srvclum:SRVCLUM.dll
+ 0002:000000dc       __imp_PVRSRVAllocDeviceMem 100510dc     srvclum:SRVCLUM.dll
+ 0002:000000e0       \177SRVCLUM_NULL_THUNK_DATA 100510e0     srvclum:SRVCLUM.dll
+ 0002:000000e4       __imp_KEGLGetImageSource   100510e4     libimgegl:libIMGEGL.dll
+ 0002:000000e8       __imp_KEGLBindImage        100510e8     libimgegl:libIMGEGL.dll
+ 0002:000000ec       __imp_KEGLResizeRenderSurface 100510ec     libimgegl:libIMGEGL.dll
+ 0002:000000f0       __imp_KEGLUnbindImage      100510f0     libimgegl:libIMGEGL.dll
+ 0002:000000f4       __imp_KEGLDestroyRenderSurface 100510f4     libimgegl:libIMGEGL.dll
+ 0002:000000f8       __imp_KEGLGetDrawableParameters 100510f8     libimgegl:libIMGEGL.dll
+ 0002:000000fc       __imp_KEGLCreateRenderSurface 100510fc     libimgegl:libIMGEGL.dll
+ 0002:00000100       \177libIMGEGL_NULL_THUNK_DATA 10051100     libimgegl:libIMGEGL.dll
+ 0002:00000108       __security_cookie          10051108     corelib0:seccinit.obj
+ 0002:0000010c       __security_cookie_complement 1005110c     corelib0:seccinit.obj
+ 0002:00000110       _exitflag                  10051110     corelib0:cexit.obj
+ 0002:00000114       __onexitend                10051114     <common>
+ 0002:00000118       __onexitbegin              10051118     <common>
+ 0002:0000011c       _pRawDllMain               1005111c     <common>
+
+ entry point at        0001:0004dbc0
+
+ Static symbols
+
+ 0001:0000bee0       SetupVerticesForAccum      1000cee0 f   accum.obj
+ 0001:0000c23c       SetupVerticesAndShaderForAccum 1000d23c f   accum.obj
+ 0001:0000c8b0       SGXBS_ComputeHash          1000d8b0 f   binshader.obj
+ 0001:0000c990       SGXBS_ValidateHWRevision   1000d990 f   binshader.obj
+ 0001:0000cccc       SGXBS_Calloc               1000dccc f   binshader.obj
+ 0001:0000cd58       ReadString                 1000dd58 f   binshader.obj
+ 0001:0000cdf4       ReadU8                     1000ddf4 f   binshader.obj
+ 0001:0000ce2c       ReadU16                    1000de2c f   binshader.obj
+ 0001:0000ce70       ReadU32                    1000de70 f   binshader.obj
+ 0001:0000cec8       UnpackSymbolBindings       1000dec8 f   binshader.obj
+ 0001:0000d014       UnpackSharedShaderState    1000e014 f   binshader.obj
+ 0001:0000d274       UnpackRevision             1000e274 f   binshader.obj
+ 0001:0000d38c       UnpackProgramBinary        1000e38c f   binshader.obj
+ 0001:0000dc50       WaitUntilBufObjNotUsed     1000ec50 f   bufobj.obj
+ 0001:0000dcec       DisposeBufObject           1000ecec f   bufobj.obj
+ 0001:0000e588       SetupVerticesForClear      1000f588 f   clear.obj
+ 0001:0000e840       SetupVerticesAndShaderForClear 1000f840 f   clear.obj
+ 0001:0000ea9c       SetupFragmentShaderForClear 1000fa9c f   clear.obj
+ 0001:0000f04c       WriteDirect16Indices       1001004c f   drawvarray.obj
+ 0001:0000f174       WriteLineStripOrLoop16Indices 10010174 f   drawvarray.obj
+ 0001:0000f2c8       WriteDirect32Indices       100102c8 f   drawvarray.obj
+ 0001:0000f3ec       WriteLineStripOrLoop32Indices 100103ec f   drawvarray.obj
+ 0001:0000f500       GetNumIndices              10010500 f   drawvarray.obj
+ 0001:0000f59c       SetupStreamPointers        1001059c f   drawvarray.obj
+ 0001:0000f6b0       CopyVArrayData             100106b0 f   drawvarray.obj
+ 0001:0000f770       CopyVArrayDataDeindex      10010770 f   drawvarray.obj
+ 0001:0000f914       GetVertexIndexBufferSpace  10010914 f   drawvarray.obj
+ 0001:0000fa04       CreateSequentialStaticIndices 10010a04 f   drawvarray.obj
+ 0001:0000fad4       CreateLineStripStaticIndices 10010ad4 f   drawvarray.obj
+ 0001:0000fba8       GetVArrayBatchRewindCount  10010ba8 f   drawvarray.obj
+ 0001:0000fc20       DrawVertexArray            10010c20 f   drawvarray.obj
+ 0001:0000fd64       DrawArraysBatchedStaticIndices 10010d64 f   drawvarray.obj
+ 0001:0000fe24       DrawArraysAutoIndices      10010e24 f   drawvarray.obj
+ 0001:0000ff60       DrawElementsDeindex        10010f60 f   drawvarray.obj
+ 0001:0000ffe4       DrawElementsIndexBO        10010fe4 f   drawvarray.obj
+ 0001:0001013c       DrawBatchOnVBuffer         1001113c f   drawvarray.obj
+ 0001:00010730       PickDrawArraysProc         10011730 f   drawvarray.obj
+ 0001:00010858       PickDrawElementsProc       10011858 f   drawvarray.obj
+ 0001:00010acc       DetermineMinAndMaxIndices  10011acc f   drawvarray.obj
+ 0001:00010bb0       TransformIndicesTo16Bits   10011bb0 f   drawvarray.obj
+ 0001:00010c40       AttachUsedTexturesToCurrentSurface 10011c40 f   drawvarray.obj
+ 0001:00010d60       AttachAllUsedResourcesToCurrentSurface 10011d60 f   drawvarray.obj
+ 0001:00011340       MultiDrawArraysAutoIndices 10012340 f   drawvarray.obj
+ 0001:00011520       MultiDrawBatchOnVBuffer    10012520 f   drawvarray.obj
+ 0001:00011c1c       MultiDrawVertexArray       10012c1c f   drawvarray.obj
+ 0001:00011e48       MultiDrawElementsDeindex   10012e48 f   drawvarray.obj
+ 0001:00011fcc       MultiDrawElementsIndexBO   10012fcc f   drawvarray.obj
+ 0001:0001216c       PickMultiDrawElementsProc  1001316c f   drawvarray.obj
+ 0001:00012bdc       FreeContextSharedState     10013bdc f   eglglue.obj
+ 0001:00012d84       CreateSharedState          10013d84 f   eglglue.obj
+ 0001:00012ff8       InitContext                10013ff8 f   eglglue.obj
+ 0001:000135c0       DeInitContext              100145c0 f   eglglue.obj
+ 0001:000136c4       GLES2CreateGC              100146c4 f   eglglue.obj
+ 0001:00013738       GLES2DestroyGC             10014738 f   eglglue.obj
+ 0001:00013768       GLES2MakeCurrentGC         10014768 f   eglglue.obj
+ 0001:000138cc       GLES2MakeUnCurrentGC       100148cc f   eglglue.obj
+ 0001:00013928       GLES2FlushBuffersGC        10014928 f   eglglue.obj
+ 0001:0001399c       GLES2MarkRenderSurfaceAsInvalid 1001499c f   eglglue.obj
+ 0001:000139f4       GLES2InsertFenceSyncGC     100149f4 f   eglglue.obj
+ 0001:00013a20       GLES2RemoveFenceSyncGC     10014a20 f   eglglue.obj
+ 0001:00013a38       GLES2GetProcAddress        10014a38 f   eglglue.obj
+ 0001:00013ec4       DisposeFrameBufferObject   10014ec4 f   fbo.obj
+ 0001:00013f3c       DisposeRenderBuffer        10014f3c f   fbo.obj
+ 0001:000143d0       ComputeFrameBufferCompleteness 100153d0 f   fbo.obj
+ 0001:0001526c       NotifyFrameBuffer          1001626c f   fbo.obj
+ 0001:000155e0       RenderbufferStorage        100165e0 f   fbo.obj
+ 0001:00015fdc       FramebufferTexture2D       10016fdc f   fbo.obj
+ 0001:00016798       IsEnabled                  10017798 f   get.obj
+ 0001:00016894       GetBlendFactor             10017894 f   get.obj
+ 0001:00016940       GetStencilOp               10017940 f   get.obj
+ 0001:000169c0       DoGet                      100179c0 f   get.obj
+ 0001:00017edc       GetTexParameter            10018edc f   get.obj
+ 0001:0001898c       HardwareMipGen             1001998c f   makemips.obj
+ 0001:00018b40       MakeMapLevel16bpp          10019b40 f   makemips.obj
+ 0001:00018e64       MakeMapLevel32bpp          10019e64 f   makemips.obj
+ 0001:00019040       SetupMipmapTextureControlWords 1001a040 f   makemips.obj
+ 0001:00019278       HardwareMakeTextureMipmapLevels 1001a278 f   makemips.obj
+ 0001:00019ec0       FloatToHWByte              1001aec0 f   misc.obj
+ 0001:0001af18       RemoveItemFromList         1001bf18 f   names.obj
+ 0001:0001b944       CheckReadPixelArgs         1001c944 f   pixelop.obj
+ 0001:0001bac0       BytesPerPixel              1001cac0 f   pixelop.obj
+ 0001:0001c03c       CalcRegionClip             1001d03c f   scissor.obj
+ 0001:0001c0f8       SetupVerticesForDrawmask   1001d0f8 f   scissor.obj
+ 0001:0001c30c       SetupVerticesAndShaderForDrawmask 1001d30c f   scissor.obj
+ 0001:0001cc74       WaitForRender              1001dc74 f   sgxif.obj
+ 0001:0001ccdc       SetupZLSRegs               1001dcdc f   sgxif.obj
+ 0001:0001cdc4       GLES2InitRegs              1001ddc4 f   sgxif.obj
+ 0001:0001cea4       StartFrame                 1001dea4 f   sgxif.obj
+ 0001:0001d36c       DoKickTA                   1001e36c f   sgxif.obj
+ 0001:0001dd58       ShaderScratchMemDelRef     1001ed58 f   shader.obj
+ 0001:0001ddfc       ShaderIndexableTempsMemDelRef 1001edfc f   shader.obj
+ 0001:0001de60       CopySymbolBindings         1001ee60 f   shader.obj
+ 0001:0001e084       CreateSharedShaderState    1001f084 f   shader.obj
+ 0001:0001e878       LoadCompilerModule         1001f878 f   shader.obj
+ 0001:0001e9a8       SetPrecision               1001f9a8 f   shader.obj
+ 0001:0001ec0c       UniPatchMalloc             1001fc0c f   shader.obj
+ 0001:0001ec10       UniPatchFree               1001fc10 f   shader.obj
+ 0001:0001ec14       UniPatchDebugPrint         1001fc14 f   shader.obj
+ 0001:0001ec74       SetupOutputRemapping       1001fc74 f   shader.obj
+ 0001:0001ed94       AssignAttributeLocations   1001fd94 f   shader.obj
+ 0001:0001f034       AttributeCompileMask       10020034 f   shader.obj
+ 0001:0001f0f0       SetupProgramOutputSelects  100200f0 f   shader.obj
+ 0001:0001f1dc       CountAttribUniformVaryings 100201dc f   shader.obj
+ 0001:0001f29c       AddNewUniforms             1002029c f   shader.obj
+ 0001:0001f4e0       AddFragmentProgramUniforms 100204e0 f   shader.obj
+ 0001:0001f710       AppendMessageToProgramInfoLog 10020710 f   shader.obj
+ 0001:0001f798       LinkVertexFragmentPrograms 10020798 f   shader.obj
+ 0001:0001fe98       UseProgram                 10020e98 f   shader.obj
+ 0001:00020790       SharedShaderStateDelRef    10021790 f   shader.obj
+ 0001:000208b8       FreeListOfVertexUSEVariants 100218b8 f   shader.obj
+ 0001:00020940       FreeListOfFragmentUSEVariants 10021940 f   shader.obj
+ 0001:00020ab4       ResetProgramLinkedState    10021ab4 f   shader.obj
+ 0001:00021364       FreeProgram                10022364 f   shader.obj
+ 0001:00021494       DisposeProgram             10022494 f   shader.obj
+ 0001:00022320       BlendFuncSeparate          10023320 f   state.obj
+ 0001:00022b8c       StencilFunc                10023b8c f   state.obj
+ 0001:00022d9c       StencilMask                10023d9c f   state.obj
+ 0001:00022f14       StencilOp                  10023f14 f   state.obj
+ 0001:00023ad0       CopyTexturePVRTC           10024ad0 f   tex.obj
+ 0001:00023b4c       CopyTextureETC1            10024b4c f   tex.obj
+ 0001:00023cb8       CopyTexture16BitIntTo32BitFloat 10024cb8 f   tex.obj
+ 0001:00023d24       CopyTexture32BitIntTo32BitFloat 10024d24 f   tex.obj
+ 0001:00023d90       CopyTexture24_8DepthStencilTo32BitFloat8BitInt 10024d90 f   tex.obj
+ 0001:000244a8       TexParameterfv             100254a8 f   tex.obj
+ 0001:00024c20       CheckTexImageArgs          10025c20 f   tex.obj
+ 0001:00024d2c       CheckTexSubImageArgs       10025d2c f   tex.obj
+ 0001:00024ea4       UpdateEGLImage             10025ea4 f   tex.obj
+ 0001:00028c50       HWTQTextureBufferBlit      10029c50 f   texdata.obj
+ 0001:00029940       ReadBackMultiChunkData     1002a940 f   texdata.obj
+ 0001:00029f64       TexStreamUnbindBufferDevice 1002af64 f   texmgmt.obj
+ 0001:0002a04c       ReclaimTextureMemKRM       1002b04c f   texmgmt.obj
+ 0001:0002a12c       DestroyTextureGhostKRM     1002b12c f   texmgmt.obj
+ 0001:0002b424       FreeTexture                1002c424 f   texmgmt.obj
+ 0001:0002b5b4       DisposeTexObj              1002c5b4 f   texmgmt.obj
+ 0001:0002b5b8       CreateDummyTextures        1002c5b8 f   texmgmt.obj
+ 0001:0002b810       SetupExternalTextureState  1002c810 f   texmgmt.obj
+ 0001:0002c218       GetConstantDataPtr         1002d218 f   uniform.obj
+ 0001:0002c850       SaveUniformDataFloat       1002d850 f   uniform.obj
+ 0001:0002cb30       SaveUniformDataInteger     1002db30 f   uniform.obj
+ 0001:0002e2b0       EncodeTwoSourceBlend       1002f2b0 f   use.obj
+ 0001:0002e3ec       EncodeThreeSourceBlend     1002f3ec f   use.obj
+ 0001:0002eae8       CreateVertexUnpackUSECode  1002fae8 f   use.obj
+ 0001:0002f26c       SetupUSESecondaryUploadTask 1003026c f   use.obj
+ 0001:0002f690       SetupIteratorsAndTextureLookups 10030690 f   use.obj
+ 0001:000304b0       SetupPBEStateEmit          100314b0 f   validate.obj
+ 0001:00030830       WritePDSPixelShaderProgram 10031830 f   validate.obj
+ 0001:00030ea8       WritePDSVertexShaderProgramWithVAO 10031ea8 f   validate.obj
+ 0001:000316f8       LoadSecondaryAttributes    100326f8 f   validate.obj
+ 0001:00031b40       WritePDSUSEShaderSAProgram 10032b40 f   validate.obj
+ 0001:00032080       WriteMTEState              10033080 f   validate.obj
+ 0001:000326b0       SetupVAOAttribStreams      100336b0 f   validate.obj
+ 0001:000328bc       OptimiseVaryingPrecision   100338bc f   validate.obj
+ 0001:000329f8       SetupRenderState           100339f8 f   validate.obj
+ 0001:00032ee0       WriteVDMControlStream      10033ee0 f   validate.obj
+ 0001:000335f4       Copy1Byte                  100345f4 f   vertex.obj
+ 0001:00033614       Copy3Bytes                 10034614 f   vertex.obj
+ 0001:0003364c       Copy1Short                 1003464c f   vertex.obj
+ 0001:0003366c       Copy3Shorts                1003466c f   vertex.obj
+ 0001:000336a4       Copy1Long                  100346a4 f   vertex.obj
+ 0001:000336c4       Copy2Longs                 100346c4 f   vertex.obj
+ 0001:000336f4       Copy3Longs                 100346f4 f   vertex.obj
+ 0001:0003372c       Copy4Longs                 1003472c f   vertex.obj
+ 0001:0003376c       MemCopy1Byte               1003476c f   vertex.obj
+ 0001:00033788       MemCopy3Bytes              10034788 f   vertex.obj
+ 0001:000337a4       MemCopy1Short              100347a4 f   vertex.obj
+ 0001:000337c0       MemCopy3Shorts             100347c0 f   vertex.obj
+ 0001:000337e0       MemCopy1Long               100347e0 f   vertex.obj
+ 0001:000337fc       MemCopy2Longs              100347fc f   vertex.obj
+ 0001:00033818       MemCopy3Longs              10034818 f   vertex.obj
+ 0001:00033838       MemCopy4Longs              10034838 f   vertex.obj
+ 0001:00034904       AddBufferDevice            10035904 f   texstream.obj
+ 0001:00034f30       SetupYUVCoefficients       10035f30 f   texyuv.obj
+ 0001:00035690       FreeVertexArrayObjectInternalPointers 10036690 f   vertexarrobj.obj
+ 0001:00035830       DisposeVertexArrayObject   10036830 f   vertexarrobj.obj
+ 0001:00035bec       PDSEncodeSimpleMOVS        10036bec f   pds.obj
+ 0001:00035d04       PDSGetNextConstant         10036d04 f   pds.obj
+ 0001:00035d58       PDSGetNumConstants         10036d58 f   pds.obj
+ 0001:0003706c       ReplaceArgument            1003806c f   combiner.obj
+ 0001:00037190       GetSource                  10038190 f   combiner.obj
+ 0001:00037228       ReplaceArguments           10038228 f   combiner.obj
+ 0001:000374d0       CombineSOPs                100384d0 f   combiner.obj
+ 0001:00037ed4       CodeHeapInsertBlockInFreeList 10038ed4 f   codeheap.obj
+ 0001:000382dc       GetBufferSpaceLeftInBytes  100392dc f   buffers.obj
+ 0001:00038344       CheckUSSEBufferSpace       10039344 f   buffers.obj
+ 0001:00038414       CheckTACtrlBufferSpace     10039414 f   buffers.obj
+ 0001:00038a80       InitLookupTable32          10039a80 f   twiddle.obj
+ 0001:00038bc8       Write8x8Pixels16bpp        10039bc8 f   twiddle.obj
+ 0001:00038e9c       TwiddleSmallTexture16bpp   10039e9c f   twiddle.obj
+ 0001:00039020       Twiddle32x3216bpp          1003a020 f   twiddle.obj
+ 0001:00039208       RecursiveTwid16bpp         1003a208 f   twiddle.obj
+ 0001:000392d4       TwiddleRectangularTexture16bpp 1003a2d4 f   twiddle.obj
+ 0001:00039670       Untwiddle16Bpp             1003a670 f   twiddle.obj
+ 0001:0003987c       Write8x8Pixels32bpp        1003a87c f   twiddle.obj
+ 0001:00039bc4       TwiddleSmallTexture32bpp   1003abc4 f   twiddle.obj
+ 0001:00039d48       Twiddle32x3232bpp          1003ad48 f   twiddle.obj
+ 0001:00039f20       RecursiveTwid32bpp         1003af20 f   twiddle.obj
+ 0001:00039fec       TwiddleRectangularTexture32bpp 1003afec f   twiddle.obj
+ 0001:0003a3ac       Untwiddle32bpp             1003b3ac f   twiddle.obj
+ 0001:0003a7a4       getUV                      1003b7a4 f   twiddle.obj
+ 0001:0003aecc       IsResourceNeeded           1003becc f   kickresource.obj
+ 0001:0003af78       WaitUntilResourceIsNotNeeded 1003bf78 f   kickresource.obj
+ 0001:0003b15c       RemoveResourceFromAllLists 1003c15c f   kickresource.obj
+ 0001:0003b24c       RemoveAttachmentPointReferencesInList 1003c24c f   kickresource.obj
+ 0001:0003b490       ReclaimUnneededResourcesInList 1003c490 f   kickresource.obj
+ 0001:0003bafc       USPProgDescCreate          1003cafc f   usp:uspshader.obj
+ 0001:0003bd1c       USPProgDescDestroy         1003cd1c f   usp:uspshader.obj
+ 0001:0003bda8       USPShaderAddInstBlock      1003cda8 f   usp:uspshader.obj
+ 0001:0003be70       USPShaderAddLabel          1003ce70 f   usp:uspshader.obj
+ 0001:0003c018       ReadUINT32Straight         1003d018 f   usp:uspshader.obj
+ 0001:0003c04c       ReadUINT32Swapped          1003d04c f   usp:uspshader.obj
+ 0001:0003c078       ReadUINT16Straight         1003d078 f   usp:uspshader.obj
+ 0001:0003c09c       ReadUINT16Swapped          1003d09c f   usp:uspshader.obj
+ 0001:0003c0b8       WriteUINT32Straight        1003d0b8 f   usp:uspshader.obj
+ 0001:0003c0f4       WriteUINT16Straight        1003d0f4 f   usp:uspshader.obj
+ 0001:0003c120       WriteAddSizeUINT32         1003d120 f   usp:uspshader.obj
+ 0001:0003c130       WriteAddSizeUINT16         1003d130 f   usp:uspshader.obj
+ 0001:0003c140       USPShaderAddPCInstBlock    1003d140 f   usp:uspshader.obj
+ 0001:0003c234       ReadPCMOEState             1003d234 f   usp:uspshader.obj
+ 0001:0003c2a0       DecodePCMOEState           1003d2a0 f   usp:uspshader.obj
+ 0001:0003c318       ReadPCHWCodeBlock          1003d318 f   usp:uspshader.obj
+ 0001:0003c554       WritePCProgDescBlock       1003d554 f   usp:uspshader.obj
+ 0001:0003ce24       ReadPCProgDescBlock        1003de24 f   usp:uspshader.obj
+ 0001:0003d858       AddNewTextureFormat        1003e858 f   usp:uspshader.obj
+ 0001:0003d988       ReadPCSampleBlock          1003e988 f   usp:uspshader.obj
+ 0001:0003decc       ReadPCSampleUnpackBlock    1003eecc f   usp:uspshader.obj
+ 0001:0003e324       ReadPCBranchBlock          1003f324 f   usp:uspshader.obj
+ 0001:0003e4a4       WriteUSPMOEState           1003f4a4 f   usp:uspshader.obj
+ 0001:0003e54c       WriteUSPSampleBlock        1003f54c f   usp:uspshader.obj
+ 0001:0003e848       WriteUSPSampleUnpackBlock  1003f848 f   usp:uspshader.obj
+ 0001:0003eb50       WriteUSPHWCodeBlock        1003fb50 f   usp:uspshader.obj
+ 0001:0003ec58       WriteUSPBlocks             1003fc58 f   usp:uspshader.obj
+ 0001:0003efd8       SetupInputData             1003ffd8 f   usp:uspshader.obj
+ 0001:0003f70c       FindSmpUnpack              1004070c f   usp:finalise.obj
+ 0001:000404a0       SetTextureControlWords     100414a0 f   usp:finalise.obj
+ 0001:000412e8       USPInstDescSetup           100422e8 f   usp:usp_instblock.obj
+ 0001:00041424       USPInstBlockInserInst      10042424 f   usp:usp_instblock.obj
+ 0001:00041888       USPInstBlockSetupNoSchedFlag 10042888 f   usp:usp_instblock.obj
+ 0001:00041d3c       USPInstBlockSetupSyncStartFlag 10042d3c f   usp:usp_instblock.obj
+ 0001:000425e4       HWInstGetOperandsUsedEFO   100435e4 f   usp:hwinst.obj
+ 0001:0004274c       HWInstGetOperandsUsedPCKUNPCK 1004374c f   usp:hwinst.obj
+ 0001:0004280c       HWInstGetOperandsUsedSOP2  1004380c f   usp:hwinst.obj
+ 0001:00042968       HWInstGetOperandsUsedSOPWM 10043968 f   usp:hwinst.obj
+ 0001:00042f80       HWInstDecodeIndexedOperandNum 10043f80 f   usp:hwinst.obj
+ 0001:00043020       HWInstEncodeIndexedOperandNum 10044020 f   usp:hwinst.obj
+ 0001:00045128       HWInstEncodePCKUNPCKInstNonVec 10046128 f   usp:hwinst.obj
+ 0001:000453e4       GetTexChanInfo             100463e4 f   usp:usp_sample.obj
+ 0001:0004584c       SaveInternalRegs           1004684c f   usp:usp_sample.obj
+ 0001:00045bcc       ReStoreInternalRegs        10046bcc f   usp:usp_sample.obj
+ 0001:00045e20       SampleTextureData          10046e20 f   usp:usp_sample.obj
+ 0001:00046554       ColourSpaceConvertTextureData 10047554 f   usp:usp_sample.obj
+ 0001:000469d4       FindPreSampledTextureData  100479d4 f   usp:usp_sample.obj
+ 0001:00046d8c       SetupChanSrcRegs           10047d8c f   usp:usp_sample.obj
+ 0001:00047264       SampleInstReadsReg         10048264 f   usp:usp_sample.obj
+ 0001:0004747c       GetSampleChannelFormat     1004847c f   usp:usp_sample.obj
+ 0001:000474c4       UnpackChunksFromTemp       100484c4 f   usp:usp_sample.obj
+ 0001:0004792c       UnpackTextureDataToF32     1004892c f   usp:usp_sample.obj
+ 0001:00047ff8       RemapInteger16Channel      10048ff8 f   usp:usp_sample.obj
+ 0001:0004826c       UnpackTextureDataToU8C10   1004926c f   usp:usp_sample.obj
+ 0001:000495b0       UnpackTextureDataToF16     1004a5b0 f   usp:usp_sample.obj
+ 0001:00049fcc       ResetMOEStateBeforeSample  1004afcc f   usp:usp_sample.obj
+ 0001:0004a118       ResetMOEStateBeforeSampleUnpack 1004b118 f   usp:usp_sample.obj
+ 0001:0004a264       RestoreMOEStateAfterSample 1004b264 f   usp:usp_sample.obj
+ 0001:0004a44c       RestoreMOEStateAfterSampleUnpack 1004b44c f   usp:usp_sample.obj
+ 0001:0004aa68       AddSampleToTexChunksSamplesGroup 1004ba68 f   usp:usp_sample.obj
+ 0001:0004ac00       GroupTexChunksSamplesByTexCoords 1004bc00 f   usp:usp_sample.obj
+ 0001:0004ae64       DoSelectionsForMinimumPAUsage 1004be64 f   usp:usp_sample.obj
+ 0001:0004b000       DoMaxPAAndEntriesUsage     1004c000 f   usp:usp_sample.obj
+ 0001:0004b750       AddSampleTextureControlWords 1004c750 f   usp:usp_sample.obj
+ 0001:0004b930       SetDefaultTextureControlWords 1004c930 f   usp:usp_sample.obj
+ 0001:0004bbc8       GenerateUSPTextureFormatInfo 1004cbc8 f   usp:usp_sample.obj
+ 0001:0004dad0       _DllMainCRTStartupHelper   1004ead0 f   corelib0:pegdmain.obj
+ 0001:0004dce8       doexit                     1004ece8 f   corelib0:cexit.obj

@@ -1,0 +1,180 @@
+ libegl
+
+ Timestamp is 4f20c5e9 (Wed Jan 25 22:18:01 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 0000001cH .rdata                  CODE
+ 0001:0000003c 00000023H .rdata$debug            CODE
+ 0001:00000060 00000624H .text                   CODE
+ 0001:00000684 00000014H .xdata                  CODE
+ 0001:00000698 00000028H .idata$2                CODE
+ 0001:000006c0 00000014H .idata$3                CODE
+ 0001:000006d4 000000a8H .idata$4                CODE
+ 0001:0000077c 0000001aH .idata$6                CODE
+ 0001:000007a0 000003c8H .edata                  CODE
+ 0002:00000000 000000a8H .idata$5                DATA
+ 0002:000000a8 00000008H .data                   DATA
+ 0002:000000b0 00000010H .bss                    DATA
+ 0003:00000000 00000160H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0001:00000000       __xc_a                     10001000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     10001004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     10001008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     1000100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     10001010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     10001014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     10001018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     1000101c     corelib0:crt0init.obj
+ 0001:00000060       eglGetError                10001060 f   eglentrypoints.obj
+ 0001:00000064       eglGetDisplay              10001064 f   eglentrypoints.obj
+ 0001:00000068       eglInitialize              10001068 f   eglentrypoints.obj
+ 0001:0000006c       eglTerminate               1000106c f   eglentrypoints.obj
+ 0001:00000070       eglQueryString             10001070 f   eglentrypoints.obj
+ 0001:00000074       eglGetProcAddress          10001074 f   eglentrypoints.obj
+ 0001:00000078       eglGetConfigs              10001078 f   eglentrypoints.obj
+ 0001:0000007c       eglChooseConfig            1000107c f   eglentrypoints.obj
+ 0001:00000098       eglGetConfigAttrib         10001098 f   eglentrypoints.obj
+ 0001:0000009c       eglCreateWindowSurface     1000109c f   eglentrypoints.obj
+ 0001:000000a0       eglCreatePixmapSurface     100010a0 f   eglentrypoints.obj
+ 0001:000000a4       eglCreatePbufferSurface    100010a4 f   eglentrypoints.obj
+ 0001:000000a8       eglDestroySurface          100010a8 f   eglentrypoints.obj
+ 0001:000000ac       eglQuerySurface            100010ac f   eglentrypoints.obj
+ 0001:000000b0       eglCreateContext           100010b0 f   eglentrypoints.obj
+ 0001:000000b4       eglDestroyContext          100010b4 f   eglentrypoints.obj
+ 0001:000000b8       eglMakeCurrent             100010b8 f   eglentrypoints.obj
+ 0001:000000bc       eglGetCurrentContext       100010bc f   eglentrypoints.obj
+ 0001:000000c0       eglGetCurrentSurface       100010c0 f   eglentrypoints.obj
+ 0001:000000c4       eglGetCurrentDisplay       100010c4 f   eglentrypoints.obj
+ 0001:000000c8       eglQueryContext            100010c8 f   eglentrypoints.obj
+ 0001:000000cc       eglWaitGL                  100010cc f   eglentrypoints.obj
+ 0001:000000d0       eglWaitNative              100010d0 f   eglentrypoints.obj
+ 0001:000000d4       eglSwapBuffers             100010d4 f   eglentrypoints.obj
+ 0001:000000d8       eglCopyBuffers             100010d8 f   eglentrypoints.obj
+ 0001:000000dc       eglSwapInterval            100010dc f   eglentrypoints.obj
+ 0001:000000e0       eglSurfaceAttrib           100010e0 f   eglentrypoints.obj
+ 0001:000000e4       eglBindTexImage            100010e4 f   eglentrypoints.obj
+ 0001:000000e8       eglReleaseTexImage         100010e8 f   eglentrypoints.obj
+ 0001:000000ec       eglCreatePbufferFromClientBuffer 100010ec f   eglentrypoints.obj
+ 0001:00000108       eglBindAPI                 10001108 f   eglentrypoints.obj
+ 0001:0000010c       eglQueryAPI                1000110c f   eglentrypoints.obj
+ 0001:00000110       eglWaitClient              10001110 f   eglentrypoints.obj
+ 0001:00000114       eglReleaseThread           10001114 f   eglentrypoints.obj
+ 0001:00000118       IMGeglGetError             10001118 f   libimgegl:libIMGEGL.dll
+ 0001:00000128       IMGeglGetDisplay           10001128 f   libimgegl:libIMGEGL.dll
+ 0001:00000138       IMGeglInitialize           10001138 f   libimgegl:libIMGEGL.dll
+ 0001:00000148       IMGeglTerminate            10001148 f   libimgegl:libIMGEGL.dll
+ 0001:00000158       IMGeglQueryString          10001158 f   libimgegl:libIMGEGL.dll
+ 0001:00000168       IMGeglGetProcAddress       10001168 f   libimgegl:libIMGEGL.dll
+ 0001:00000178       IMGeglGetConfigs           10001178 f   libimgegl:libIMGEGL.dll
+ 0001:00000188       IMGeglChooseConfig         10001188 f   libimgegl:libIMGEGL.dll
+ 0001:00000198       IMGeglGetConfigAttrib      10001198 f   libimgegl:libIMGEGL.dll
+ 0001:000001a8       IMGeglCreateWindowSurface  100011a8 f   libimgegl:libIMGEGL.dll
+ 0001:000001b8       IMGeglCreatePixmapSurface  100011b8 f   libimgegl:libIMGEGL.dll
+ 0001:000001c8       IMGeglCreatePbufferSurface 100011c8 f   libimgegl:libIMGEGL.dll
+ 0001:000001d8       IMGeglDestroySurface       100011d8 f   libimgegl:libIMGEGL.dll
+ 0001:000001e8       IMGeglQuerySurface         100011e8 f   libimgegl:libIMGEGL.dll
+ 0001:000001f8       IMGeglCreateContext        100011f8 f   libimgegl:libIMGEGL.dll
+ 0001:00000208       IMGeglDestroyContext       10001208 f   libimgegl:libIMGEGL.dll
+ 0001:00000218       IMGeglMakeCurrent          10001218 f   libimgegl:libIMGEGL.dll
+ 0001:00000228       IMGeglGetCurrentContext    10001228 f   libimgegl:libIMGEGL.dll
+ 0001:00000238       IMGeglGetCurrentSurface    10001238 f   libimgegl:libIMGEGL.dll
+ 0001:00000248       IMGeglGetCurrentDisplay    10001248 f   libimgegl:libIMGEGL.dll
+ 0001:00000258       IMGeglQueryContext         10001258 f   libimgegl:libIMGEGL.dll
+ 0001:00000268       IMGeglWaitGL               10001268 f   libimgegl:libIMGEGL.dll
+ 0001:00000278       IMGeglWaitNative           10001278 f   libimgegl:libIMGEGL.dll
+ 0001:00000288       IMGeglSwapBuffers          10001288 f   libimgegl:libIMGEGL.dll
+ 0001:00000298       IMGeglCopyBuffers          10001298 f   libimgegl:libIMGEGL.dll
+ 0001:000002a8       IMGeglSwapInterval         100012a8 f   libimgegl:libIMGEGL.dll
+ 0001:000002b8       IMGeglSurfaceAttrib        100012b8 f   libimgegl:libIMGEGL.dll
+ 0001:000002c8       IMGeglBindTexImage         100012c8 f   libimgegl:libIMGEGL.dll
+ 0001:000002d8       IMGeglReleaseTexImage      100012d8 f   libimgegl:libIMGEGL.dll
+ 0001:000002e8       IMGeglCreatePbufferFromClientBuffer 100012e8 f   libimgegl:libIMGEGL.dll
+ 0001:000002f8       IMGeglBindAPI              100012f8 f   libimgegl:libIMGEGL.dll
+ 0001:00000308       IMGeglQueryAPI             10001308 f   libimgegl:libIMGEGL.dll
+ 0001:00000318       IMGeglWaitClient           10001318 f   libimgegl:libIMGEGL.dll
+ 0001:00000328       IMGeglReleaseThread        10001328 f   libimgegl:libIMGEGL.dll
+ 0001:00000338       DllMain                    10001338 f   corelib0:dllmain.obj
+ 0001:00000444       _DllMainCRTStartup         10001444 f   corelib0:pegdmain.obj
+ 0001:00000530       _cexit                     10001530 f   corelib0:cexit.obj
+ 0001:00000540       _initterm                  10001540 f   corelib0:crt0dat.obj
+ 0001:0000056c       _cinit                     1000156c f   corelib0:crt0dat.obj
+ 0001:000005cc       __security_init_cookie     100015cc f   corelib0:seccinit.obj
+ 0001:00000618       __crt_ExitProcess          10001618 f   corelib0:exitproc_proxy.obj
+ 0001:00000624       _XcptFilter                10001624 f   corelib1:COREDLL.dll
+ 0001:00000634       __C_specific_handler       10001634 f   corelib1:COREDLL.dll
+ 0001:00000644       free                       10001644 f   corelib1:COREDLL.dll
+ 0001:00000654       __security_gen_cookie2     10001654 f   corelib1:COREDLL.dll
+ 0001:00000664       DisableThreadLibraryCalls  10001664 f   coredll:COREDLL.dll
+ 0001:00000674       TerminateProcess           10001674 f   coredll:COREDLL.dll
+ 0001:00000698       __IMPORT_DESCRIPTOR_libIMGEGL 10001698     libimgegl:libIMGEGL.dll
+ 0001:000006ac       __IMPORT_DESCRIPTOR_COREDLL 100016ac     corelib1:COREDLL.dll
+ 0001:000006c0       __NULL_IMPORT_DESCRIPTOR   100016c0     libimgegl:libIMGEGL.dll
+ 0002:00000000       __imp_TerminateProcess     10002000     coredll:COREDLL.dll
+ 0002:00000004       __imp___security_gen_cookie2 10002004     corelib1:COREDLL.dll
+ 0002:00000008       __imp_free                 10002008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp___C_specific_handler 1000200c     corelib1:COREDLL.dll
+ 0002:00000010       __imp__XcptFilter          10002010     corelib1:COREDLL.dll
+ 0002:00000014       __imp_DisableThreadLibraryCalls 10002014     coredll:COREDLL.dll
+ 0002:00000018       \177COREDLL_NULL_THUNK_DATA 10002018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp_IMGeglCreatePixmapSurface 1000201c     libimgegl:libIMGEGL.dll
+ 0002:00000020       __imp_IMGeglCreatePbufferSurface 10002020     libimgegl:libIMGEGL.dll
+ 0002:00000024       __imp_IMGeglDestroySurface 10002024     libimgegl:libIMGEGL.dll
+ 0002:00000028       __imp_IMGeglQuerySurface   10002028     libimgegl:libIMGEGL.dll
+ 0002:0000002c       __imp_IMGeglCreateContext  1000202c     libimgegl:libIMGEGL.dll
+ 0002:00000030       __imp_IMGeglDestroyContext 10002030     libimgegl:libIMGEGL.dll
+ 0002:00000034       __imp_IMGeglMakeCurrent    10002034     libimgegl:libIMGEGL.dll
+ 0002:00000038       __imp_IMGeglGetCurrentContext 10002038     libimgegl:libIMGEGL.dll
+ 0002:0000003c       __imp_IMGeglGetCurrentSurface 1000203c     libimgegl:libIMGEGL.dll
+ 0002:00000040       __imp_IMGeglGetCurrentDisplay 10002040     libimgegl:libIMGEGL.dll
+ 0002:00000044       __imp_IMGeglQueryContext   10002044     libimgegl:libIMGEGL.dll
+ 0002:00000048       __imp_IMGeglWaitGL         10002048     libimgegl:libIMGEGL.dll
+ 0002:0000004c       __imp_IMGeglCreateWindowSurface 1000204c     libimgegl:libIMGEGL.dll
+ 0002:00000050       __imp_IMGeglSwapBuffers    10002050     libimgegl:libIMGEGL.dll
+ 0002:00000054       __imp_IMGeglCopyBuffers    10002054     libimgegl:libIMGEGL.dll
+ 0002:00000058       __imp_IMGeglSwapInterval   10002058     libimgegl:libIMGEGL.dll
+ 0002:0000005c       __imp_IMGeglSurfaceAttrib  1000205c     libimgegl:libIMGEGL.dll
+ 0002:00000060       __imp_IMGeglBindTexImage   10002060     libimgegl:libIMGEGL.dll
+ 0002:00000064       __imp_IMGeglReleaseTexImage 10002064     libimgegl:libIMGEGL.dll
+ 0002:00000068       __imp_IMGeglCreatePbufferFromClientBuffer 10002068     libimgegl:libIMGEGL.dll
+ 0002:0000006c       __imp_IMGeglBindAPI        1000206c     libimgegl:libIMGEGL.dll
+ 0002:00000070       __imp_IMGeglQueryAPI       10002070     libimgegl:libIMGEGL.dll
+ 0002:00000074       __imp_IMGeglWaitClient     10002074     libimgegl:libIMGEGL.dll
+ 0002:00000078       __imp_IMGeglReleaseThread  10002078     libimgegl:libIMGEGL.dll
+ 0002:0000007c       __imp_IMGeglGetConfigAttrib 1000207c     libimgegl:libIMGEGL.dll
+ 0002:00000080       __imp_IMGeglChooseConfig   10002080     libimgegl:libIMGEGL.dll
+ 0002:00000084       __imp_IMGeglGetConfigs     10002084     libimgegl:libIMGEGL.dll
+ 0002:00000088       __imp_IMGeglGetProcAddress 10002088     libimgegl:libIMGEGL.dll
+ 0002:0000008c       __imp_IMGeglQueryString    1000208c     libimgegl:libIMGEGL.dll
+ 0002:00000090       __imp_IMGeglTerminate      10002090     libimgegl:libIMGEGL.dll
+ 0002:00000094       __imp_IMGeglInitialize     10002094     libimgegl:libIMGEGL.dll
+ 0002:00000098       __imp_IMGeglGetDisplay     10002098     libimgegl:libIMGEGL.dll
+ 0002:0000009c       __imp_IMGeglWaitNative     1000209c     libimgegl:libIMGEGL.dll
+ 0002:000000a0       __imp_IMGeglGetError       100020a0     libimgegl:libIMGEGL.dll
+ 0002:000000a4       \177libIMGEGL_NULL_THUNK_DATA 100020a4     libimgegl:libIMGEGL.dll
+ 0002:000000a8       __security_cookie          100020a8     corelib0:seccinit.obj
+ 0002:000000ac       __security_cookie_complement 100020ac     corelib0:seccinit.obj
+ 0002:000000b0       _exitflag                  100020b0     corelib0:cexit.obj
+ 0002:000000b4       __onexitend                100020b4     <common>
+ 0002:000000b8       __onexitbegin              100020b8     <common>
+ 0002:000000bc       _pRawDllMain               100020bc     <common>
+
+ entry point at        0001:00000444
+
+ Static symbols
+
+ 0001:00000354       _DllMainCRTStartupHelper   10001354 f   corelib0:pegdmain.obj
+ 0001:00000470       doexit                     10001470 f   corelib0:cexit.obj

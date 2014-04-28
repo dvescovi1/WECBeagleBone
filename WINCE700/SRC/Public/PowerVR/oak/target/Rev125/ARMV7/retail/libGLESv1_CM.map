@@ -1,0 +1,76 @@
+ libGLESv1_CM
+
+ Timestamp is 4f20c610 (Wed Jan 25 22:18:40 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 0000001cH .rdata                  CODE
+ 0001:0000003c 00000029H .rdata$debug            CODE
+ 0001:00000068 0000034cH .text                   CODE
+ 0001:000003b4 00000014H .xdata                  CODE
+ 0001:000003c8 00000014H .idata$2                CODE
+ 0001:000003dc 00000014H .idata$3                CODE
+ 0001:000003f0 0000001cH .idata$4                CODE
+ 0001:0000040c 0000000cH .idata$6                CODE
+ 0001:00000420 00001b92H .edata                  CODE
+ 0002:00000000 0000001cH .idata$5                DATA
+ 0002:0000001c 00000008H .data                   DATA
+ 0002:00000024 00000010H .bss                    DATA
+ 0003:00000000 00000050H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0001:00000000       __xc_a                     10001000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     10001004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     10001008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     1000100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     10001010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     10001014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     10001018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     1000101c     corelib0:crt0init.obj
+ 0001:00000068       DllMain                    10001068 f   corelib0:dllmain.obj
+ 0001:00000174       _DllMainCRTStartup         10001174 f   corelib0:pegdmain.obj
+ 0001:00000260       _cexit                     10001260 f   corelib0:cexit.obj
+ 0001:00000270       _initterm                  10001270 f   corelib0:crt0dat.obj
+ 0001:0000029c       _cinit                     1000129c f   corelib0:crt0dat.obj
+ 0001:000002fc       __security_init_cookie     100012fc f   corelib0:seccinit.obj
+ 0001:00000348       __crt_ExitProcess          10001348 f   corelib0:exitproc_proxy.obj
+ 0001:00000354       _XcptFilter                10001354 f   corelib1:COREDLL.dll
+ 0001:00000364       __C_specific_handler       10001364 f   corelib1:COREDLL.dll
+ 0001:00000374       free                       10001374 f   corelib1:COREDLL.dll
+ 0001:00000384       __security_gen_cookie2     10001384 f   corelib1:COREDLL.dll
+ 0001:00000394       DisableThreadLibraryCalls  10001394 f   coredll:COREDLL.dll
+ 0001:000003a4       TerminateProcess           100013a4 f   coredll:COREDLL.dll
+ 0001:000003c8       __IMPORT_DESCRIPTOR_COREDLL 100013c8     corelib1:COREDLL.dll
+ 0001:000003dc       __NULL_IMPORT_DESCRIPTOR   100013dc     corelib1:COREDLL.dll
+ 0002:00000000       __imp__XcptFilter          10003000     corelib1:COREDLL.dll
+ 0002:00000004       __imp___C_specific_handler 10003004     corelib1:COREDLL.dll
+ 0002:00000008       __imp_free                 10003008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp___security_gen_cookie2 1000300c     corelib1:COREDLL.dll
+ 0002:00000010       __imp_DisableThreadLibraryCalls 10003010     coredll:COREDLL.dll
+ 0002:00000014       __imp_TerminateProcess     10003014     coredll:COREDLL.dll
+ 0002:00000018       \177COREDLL_NULL_THUNK_DATA 10003018     corelib1:COREDLL.dll
+ 0002:0000001c       __security_cookie          1000301c     corelib0:seccinit.obj
+ 0002:00000020       __security_cookie_complement 10003020     corelib0:seccinit.obj
+ 0002:00000024       _exitflag                  10003024     corelib0:cexit.obj
+ 0002:00000028       __onexitend                10003028     <common>
+ 0002:0000002c       __onexitbegin              1000302c     <common>
+ 0002:00000030       _pRawDllMain               10003030     <common>
+
+ entry point at        0001:00000174
+
+ Static symbols
+
+ 0001:00000084       _DllMainCRTStartupHelper   10001084 f   corelib0:pegdmain.obj
+ 0001:000001a0       doexit                     100011a0 f   corelib0:cexit.obj

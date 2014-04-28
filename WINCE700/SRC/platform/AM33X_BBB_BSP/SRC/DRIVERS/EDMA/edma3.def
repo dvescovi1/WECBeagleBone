@@ -1,0 +1,64 @@
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this source code is subject to the terms of the Microsoft end-user
+; license agreement (EULA) under which you licensed this SOFTWARE PRODUCT.
+; If you did not accept the terms of the EULA, you are not authorized to use
+; this source code. For a copy of the EULA, please see the LICENSE.RTF on your
+; install media.
+;
+;
+
+
+LIBRARY edmadrvr
+
+EXPORTS 
+        EDM_Init
+        EDM_Deinit
+        EDM_Open
+        EDM_Close
+        EDM_IOControl
+        EDMA3_DRV_requestChannel
+        EDMA3_DRV_freeChannel
+        EDMA3_DRV_clearErrorBits
+        EDMA3_DRV_linkChannel
+        EDMA3_DRV_unlinkChannel
+        EDMA3_DRV_setOptField
+        EDMA3_DRV_getOptField
+        EDMA3_DRV_setSrcParams
+        EDMA3_DRV_setDestParams
+        EDMA3_DRV_setSrcIndex
+        EDMA3_DRV_setDestIndex
+        EDMA3_DRV_setTransferParams
+        EDMA3_DRV_chainChannel
+        EDMA3_DRV_unchainChannel
+        EDMA3_DRV_enableTransfer
+        EDMA3_DRV_disableTransfer
+        EDMA3_DRV_setQdmaTrigWord
+        EDMA3_DRV_setPaRAM
+        EDMA3_DRV_getPaRAM
+        EDMA3_DRV_setPaRAMEntry
+        EDMA3_DRV_getPaRAMEntry
+        EDMA3_DRV_setPaRAMField
+        EDMA3_DRV_getPaRAMField
+        EDMA3_DRV_setEvtQPriority
+        EDMA3_DRV_mapChToEvtQ
+        EDMA3_DRV_getMapChToEvtQ
+        EDMA3_DRV_setCCRegister
+        EDMA3_DRV_getCCRegister
+        EDMA3_DRV_waitAndClearTcc
+        EDMA3_DRV_checkAndClearTcc
+        EDMA3_DRV_getPaRAMPhyAddr
+        EDMA3_DRV_Ioctl
+        EDMA3_DRV_getInstHandle
+        EDMA3_DRV_releaseInstHandle
+        EDMA3_DRV_getTransferEvent
+        EDMA3_DRV_getErrorEvent
+        EDMA3_DRV_getCCErrorEvent
+        EDMA3_DRV_getTransferStatus
+        EDMA3_DRV_resetCCErrors
+        EDMA3_DRV_ShowQSTAT
+        EDMA3_DRV_ShowCCCFG
+        EDMA3_DRV_ShowIRs
+        EDMA3_DRV_ShowShadowIRs

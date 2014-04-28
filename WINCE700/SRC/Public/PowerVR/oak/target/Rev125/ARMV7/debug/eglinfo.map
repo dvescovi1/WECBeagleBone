@@ -1,0 +1,435 @@
+ eglinfo
+
+ Timestamp is 4f20d4a8 (Wed Jan 25 23:20:56 2012)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 00001994H .rdata                  CODE
+ 0001:000019b4 00000024H .rdata$debug            CODE
+ 0001:000019d8 00003938H .text                   CODE
+ 0001:00005310 00000020H .xdata                  CODE
+ 0001:00005330 00000028H .idata$2                CODE
+ 0001:00005358 00000014H .idata$3                CODE
+ 0001:0000536c 000000e4H .idata$4                CODE
+ 0001:00005450 00000018H .idata$6                CODE
+ 0001:00005468 00000000H .edata                  CODE
+ 0002:00000000 000000e4H .idata$5                DATA
+ 0002:000000e8 000000acH .data                   DATA
+ 0002:00000194 00000060H .bss                    DATA
+ 0003:00000000 000001f8H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0001:00000000       __xc_a                     00011000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     00011004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     00011008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     0001100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     00011010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     00011014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     00011018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     0001101c     corelib0:crt0init.obj
+ 0001:0000003c       ??_C@_0BL@CHALDOEN@EGL_CONTEXT_CLIENT_VERSION?$AA@ 0001103c     eglinfo.obj
+ 0001:00000058       ??_C@_0BI@NHGJOHPG@EGL_CONTEXT_CLIENT_TYPE?$AA@ 00011058     eglinfo.obj
+ 0001:00000070       ??_C@_0BI@CIOBNPEL@EGL_VERTICAL_RESOLUTION?$AA@ 00011070     eglinfo.obj
+ 0001:00000088       ??_C@_0BD@HNDDKNFH@EGL_TEXTURE_TARGET?$AA@ 00011088     eglinfo.obj
+ 0001:0000009c       ??_C@_0BD@NPMMAJHI@EGL_TEXTURE_FORMAT?$AA@ 0001109c     eglinfo.obj
+ 0001:000000b0       ??_C@_0BC@NMADMDCO@EGL_SWAP_BEHAVIOR?$AA@ 000110b0     eglinfo.obj
+ 0001:000000c4       ??_C@_0BC@IBPIHKID@EGL_RENDER_BUFFER?$AA@ 000110c4     eglinfo.obj
+ 0001:000000d8       ??_C@_0BH@GMDOAKAE@EGL_PIXEL_ASPECT_RATIO?$AA@ 000110d8     eglinfo.obj
+ 0001:000000f0       ??_C@_0BB@JDFPHGGJ@EGL_MIPMAP_LEVEL?$AA@ 000110f0     eglinfo.obj
+ 0001:00000104       ??_C@_0BD@KKKDLOP@EGL_MIPMAP_TEXTURE?$AA@ 00011104     eglinfo.obj
+ 0001:00000118       ??_C@_0BE@CGCBKPDN@EGL_LARGEST_PBUFFER?$AA@ 00011118     eglinfo.obj
+ 0001:0000012c       ??_C@_0BK@CEHADGAI@EGL_HORIZONTAL_RESOLUTION?$AA@ 0001112c     eglinfo.obj
+ 0001:00000148       ??_C@_0L@CAKOEIEL@EGL_HEIGHT?$AA@ 00011148     eglinfo.obj
+ 0001:00000154       ??_C@_09HGLBPFCD@EGL_WIDTH?$AA@ 00011154     eglinfo.obj
+ 0001:00000160       ??_C@_0BC@ILOLBBKO@EGL_VG_COLORSPACE?$AA@ 00011160     eglinfo.obj
+ 0001:00000174       ??_C@_0BE@MAJLFKLF@EGL_VG_ALPHA_FORMAT?$AA@ 00011174     eglinfo.obj
+ 0001:00000188       ??_C@_0BL@ILCMOAGG@EGL_TRANSPARENT_BLUE_VALUE?$AA@ 00011188     eglinfo.obj
+ 0001:000001a4       ??_C@_0BM@JICEHDGJ@EGL_TRANSPARENT_GREEN_VALUE?$AA@ 000111a4     eglinfo.obj
+ 0001:000001c0       ??_C@_0BK@DCMMLEOK@EGL_TRANSPARENT_RED_VALUE?$AA@ 000111c0     eglinfo.obj
+ 0001:000001dc       ??_C@_0BF@GJLJHKPE@EGL_TRANSPARENT_TYPE?$AA@ 000111dc     eglinfo.obj
+ 0001:000001f4       ??_C@_0BB@ODEMPID@EGL_SURFACE_TYPE?$AA@ 000111f4     eglinfo.obj
+ 0001:00000208       ??_C@_0BB@MEILGNJE@EGL_STENCIL_SIZE?$AA@ 00011208     eglinfo.obj
+ 0001:0000021c       ??_C@_0M@HOPBGGDN@EGL_SAMPLES?$AA@ 0001121c     eglinfo.obj
+ 0001:00000228       ??_C@_0BD@EJBKGONN@EGL_SAMPLE_BUFFERS?$AA@ 00011228     eglinfo.obj
+ 0001:0000023c       ??_C@_0BE@IEOPKMAE@EGL_RENDERABLE_TYPE?$AA@ 0001123c     eglinfo.obj
+ 0001:00000250       ??_C@_0BH@MCJAMBFL@EGL_NATIVE_VISUAL_TYPE?$AA@ 00011250     eglinfo.obj
+ 0001:00000268       ??_C@_0BF@MMKMOGA@EGL_NATIVE_VISUAL_ID?$AA@ 00011268     eglinfo.obj
+ 0001:00000280       ??_C@_0BG@EMJKKPOL@EGL_NATIVE_RENDERABLE?$AA@ 00011280     eglinfo.obj
+ 0001:00000298       ??_C@_0BG@OCMLMIDO@EGL_MIN_SWAP_INTERVAL?$AA@ 00011298     eglinfo.obj
+ 0001:000002b0       ??_C@_0BG@LBGNNANK@EGL_MAX_SWAP_INTERVAL?$AA@ 000112b0     eglinfo.obj
+ 0001:000002c8       ??_C@_0BH@CHGKDLFB@EGL_MAX_PBUFFER_PIXELS?$AA@ 000112c8     eglinfo.obj
+ 0001:000002e0       ??_C@_0BH@LLFIGBCB@EGL_MAX_PBUFFER_HEIGHT?$AA@ 000112e0     eglinfo.obj
+ 0001:000002f8       ??_C@_0BG@OEFKCPOD@EGL_MAX_PBUFFER_WIDTH?$AA@ 000112f8     eglinfo.obj
+ 0001:00000310       ??_C@_09FJMIHJCN@EGL_LEVEL?$AA@ 00011310     eglinfo.obj
+ 0001:0000031c       ??_C@_0P@NOHGKAIH@EGL_DEPTH_SIZE?$AA@ 0001131c     eglinfo.obj
+ 0001:0000032c       ??_C@_0P@JBFIIOJI@EGL_CONFORMANT?$AA@ 0001132c     eglinfo.obj
+ 0001:0000033c       ??_C@_0BC@PJCLODMB@EGL_CONFIG_CAVEAT?$AA@ 0001133c     eglinfo.obj
+ 0001:00000350       ??_C@_0BG@NNCFGBKA@EGL_COLOR_BUFFER_TYPE?$AA@ 00011350     eglinfo.obj
+ 0001:00000368       ??_C@_0BJ@JNPDGLJA@EGL_BIND_TO_TEXTURE_RGBA?$AA@ 00011368     eglinfo.obj
+ 0001:00000384       ??_C@_0BI@CAMHEOID@EGL_BIND_TO_TEXTURE_RGB?$AA@ 00011384     eglinfo.obj
+ 0001:0000039c       ??_C@_0BE@PLMIBNKA@EGL_ALPHA_MASK_SIZE?$AA@ 0001139c     eglinfo.obj
+ 0001:000003b0       ??_C@_0P@ONLIEGLI@EGL_ALPHA_SIZE?$AA@ 000113b0     eglinfo.obj
+ 0001:000003c0       ??_C@_0BD@CCJDJFLK@EGL_LUMINANCE_SIZE?$AA@ 000113c0     eglinfo.obj
+ 0001:000003d4       ??_C@_0O@NEMBNDJO@EGL_BLUE_SIZE?$AA@ 000113d4     eglinfo.obj
+ 0001:000003e4       ??_C@_0P@LHHAFPKG@EGL_GREEN_SIZE?$AA@ 000113e4     eglinfo.obj
+ 0001:000003f4       ??_C@_0N@IFFAGPOM@EGL_RED_SIZE?$AA@ 000113f4     eglinfo.obj
+ 0001:00000404       ??_C@_0BA@OFNHAGGF@EGL_BUFFER_SIZE?$AA@ 00011404     eglinfo.obj
+ 0001:00000414       ??_C@_0O@CAFBEHGK@EGL_CONFIG_ID?$AA@ 00011414     eglinfo.obj
+ 0001:00000424       ??_C@_0BB@BCECMJFP@EGL_CONTEXT_LOST?$AA@ 00011424     eglinfo.obj
+ 0001:00000438       ??_C@_0BA@ECMACICF@EGL_BAD_SURFACE?$AA@ 00011438     eglinfo.obj
+ 0001:00000448       ??_C@_0BC@OMABNJPB@EGL_BAD_PARAMETER?$AA@ 00011448     eglinfo.obj
+ 0001:0000045c       ??_C@_0BG@JCAPPMPM@EGL_BAD_NATIVE_WINDOW?$AA@ 0001145c     eglinfo.obj
+ 0001:00000474       ??_C@_0BG@IANPFEBH@EGL_BAD_NATIVE_PIXMAP?$AA@ 00011474     eglinfo.obj
+ 0001:0000048c       ??_C@_0O@GCFMIHO@EGL_BAD_MATCH?$AA@ 0001148c     eglinfo.obj
+ 0001:0000049c       ??_C@_0BA@KHKFAGME@EGL_BAD_DISPLAY?$AA@ 0001149c     eglinfo.obj
+ 0001:000004ac       ??_C@_0BI@KBFIGPCO@EGL_BAD_CURRENT_SURFACE?$AA@ 000114ac     eglinfo.obj
+ 0001:000004c4       ??_C@_0BA@FPCJCEFK@EGL_BAD_CONTEXT?$AA@ 000114c4     eglinfo.obj
+ 0001:000004d4       ??_C@_0P@HOPKKPDK@EGL_BAD_CONFIG?$AA@ 000114d4     eglinfo.obj
+ 0001:000004e4       ??_C@_0BC@NLAJAPHP@EGL_BAD_ATTRIBUTE?$AA@ 000114e4     eglinfo.obj
+ 0001:000004f8       ??_C@_0O@PGDEJDGL@EGL_BAD_ALLOC?$AA@ 000114f8     eglinfo.obj
+ 0001:00000508       ??_C@_0P@ELJNOEME@EGL_BAD_ACCESS?$AA@ 00011508     eglinfo.obj
+ 0001:00000518       ??_C@_0BE@JIJLFFAN@EGL_NOT_INITIALIZED?$AA@ 00011518     eglinfo.obj
+ 0001:0000052c       ??_C@_0M@JFIJMCIK@EGL_SUCCESS?$AA@ 0001152c     eglinfo.obj
+ 0001:000006e0       ??_C@_0CB@DOJOCNID@?6Creating?5OpenGL?5ES?51?5context?4?4?6@ 000116e0     eglinfo.obj
+ 0001:00000704       ??_C@_0CB@IDFEEBEN@?6Creating?5OpenGL?5ES?52?5context?4?4?6@ 00011704     eglinfo.obj
+ 0001:00000728       ??_C@_0BM@GOAHAFH@?6Creating?5OpenVG?5context?4?4?6?$AA@ 00011728     eglinfo.obj
+ 0001:00000744       ??_C@_0BM@BKJEBCOO@?6Creating?5OpenGL?5context?4?4?6?$AA@ 00011744     eglinfo.obj
+ 0001:00000760       ??_C@_0BM@FMBGKFDD@?6Creating?5Window?5surface?4?4?6?$AA@ 00011760     eglinfo.obj
+ 0001:0000077c       ??_C@_0BN@KEENJEHO@?6Creating?5Pbuffer?5surface?4?4?6?$AA@ 0001177c     eglinfo.obj
+ 0001:0000079c       ??_C@_0BO@GFGCIKAI@Error?3?5couldn?8t?5open?5display?6?$AA@ 0001179c     eglinfo.obj
+ 0001:000007bc       ??_C@_0BG@FNFFAEIN@?6Printing?5API?5info?4?4?6?$AA@ 000117bc     eglinfo.obj
+ 0001:000007d4       ??_C@_0BH@GHILKECD@Failed?5to?5get?5configs?6?$AA@ 000117d4     eglinfo.obj
+ 0001:000007ec       ??_C@_0BM@PMENFFJC@Failed?5to?5get?5config?5count?6?$AA@ 000117ec     eglinfo.obj
+ 0001:00000808       ??_C@_0BK@ENNEOAMN@Unable?5to?5initialise?5egl?6?$AA@ 00011808     eglinfo.obj
+ 0001:00000824       ??_C@_0BL@JIEOKNMI@Unable?5to?5get?5egl?5display?6?$AA@ 00011824     eglinfo.obj
+ 0001:00000840       ??_C@_0BL@JJMHPBFG@?5?5?5?5egl?5error?5?8?$CFs?8?5?$CI0x?$CFx?$CJ?6?$AA@ 00011840     eglinfo.obj
+ 0001:0000085c       ??_C@_0DB@KHDJHJGI@?5?9?$DO?5Failed?5to?5get?5EGL_RENDERABLE@ 0001185c     eglinfo.obj
+ 0001:00000890       ??_C@_0DE@GNHKJFDK@?5?9?$DO?5Failed?5to?5get?5EGL_MAX_PBUFFE@ 00011890     eglinfo.obj
+ 0001:000008c4       ??_C@_0DD@HKAJLPHA@?5?9?$DO?5Failed?5to?5get?5EGL_MAX_PBUFFE@ 000118c4     eglinfo.obj
+ 0001:000008f8       ??_C@_0CO@HKDPCKBJ@?5?9?$DO?5Failed?5to?5get?5EGL_SURFACE_TY@ 000118f8     eglinfo.obj
+ 0001:00000928       ??_C@_01EEMJAFIK@?6?$AA@   00011928     eglinfo.obj
+ 0001:0000092c       ??_C@_0BB@GLGHNGPE@?5EGL_OPENGL_BIT?5?$AA@ 0001192c     eglinfo.obj
+ 0001:00000940       ??_C@_0BE@OOAKOGAL@?5EGL_OPENGL_ES_BIT?5?$AA@ 00011940     eglinfo.obj
+ 0001:00000954       ??_C@_0BB@NJHBLDLL@?5EGL_OPENVG_BIT?5?$AA@ 00011954     eglinfo.obj
+ 0001:00000968       ??_C@_0BF@NBMKLFHD@?5EGL_OPENGL_ES2_BIT?5?$AA@ 00011968     eglinfo.obj
+ 0001:00000980       ??_C@_0BN@ODBDDGHG@?5EGL_VG_ALPHA_FORMAT_PRE_BIT?$AA@ 00011980     eglinfo.obj
+ 0001:000009a0       ??_C@_0BP@IPGHOKOG@?5EGL_VG_COLORSPACE_LINEAR_BIT?5?$AA@ 000119a0     eglinfo.obj
+ 0001:000009c0       ??_C@_0BB@GPDKBFFA@?5EGL_WINDOW_BIT?5?$AA@ 000119c0     eglinfo.obj
+ 0001:000009d4       ??_C@_0BB@ENJMJHJH@?5EGL_PIXMAP_BIT?5?$AA@ 000119d4     eglinfo.obj
+ 0001:000009e8       ??_C@_0BC@LBLKPAPA@?5EGL_PBUFFER_BIT?5?$AA@ 000119e8     eglinfo.obj
+ 0001:000009fc       ??_C@_0M@LAHIOMBA@?5?$CFs?5?$DN?50x?$CFx?5?$AA@ 000119fc     eglinfo.obj
+ 0001:00000a08       ??_C@_0CA@OBLBNHHE@?5?9?$DO?5Failed?5to?5get?5?$CFs?5attribute?6?$AA@ 00011a08     eglinfo.obj
+ 0001:00000a28       ??_C@_0BJ@JBOLJEME@?6EGL?5config?5Attributes?3?6?$AA@ 00011a28     eglinfo.obj
+ 0001:00000a44       ??_C@_0BJ@PJOLGCLH@EGL?5client?5APIs?5are?3?5?$CFs?6?$AA@ 00011a44     eglinfo.obj
+ 0001:00000a60       ??_C@_0BE@EEJFKDHF@EGL?5extensions?3?5?$CFs?6?$AA@ 00011a60     eglinfo.obj
+ 0001:00000a74       ??_C@_0BI@HBKAJDDC@EGL?5version?5string?3?5?$CFs?6?$AA@ 00011a74     eglinfo.obj
+ 0001:00000a8c       ??_C@_0BH@DJNHOJJI@EGL?5vendor?5string?3?5?$CFs?6?$AA@ 00011a8c     eglinfo.obj
+ 0001:00000aa4       ??_C@_0BH@DHPNFEJH@EGL?5config?5number?3?5?$CFd?6?$AA@ 00011aa4     eglinfo.obj
+ 0001:00000abc       ??_C@_0CF@HADODIPA@?6?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK?$CK@ 00011abc     eglinfo.obj
+ 0001:00000ae4       ??_C@_0BK@GMAPBAFB@Unable?5to?5create?5surface?6?$AA@ 00011ae4     eglinfo.obj
+ 0001:00000b00       ??_C@_0CC@DNAKCCIC@?5?9?$DO?5Failed?5to?5query?5?$CFs?5attribute@ 00011b00     eglinfo.obj
+ 0001:00000b24       ??_C@_0M@NPBDCADI@?5?$CFs?5?$DN?50x?$CFx?6?$AA@ 00011b24     eglinfo.obj
+ 0001:00000b30       ??_C@_0BK@CJOIJNJN@?6EGL?5surface?5Attributes?3?6?$AA@ 00011b30     eglinfo.obj
+ 0001:00000b4c       ??_C@_0CA@HAPBBJMA@Unable?5to?5make?5current?5context?6?$AA@ 00011b4c     eglinfo.obj
+ 0001:00000b6c       ??_C@_0BM@DDPOGPLK@Unable?5to?5create?5a?5context?6?$AA@ 00011b6c     eglinfo.obj
+ 0001:00000b88       ??_C@_0BK@DPEOOONH@?6EGL?5context?5Attributes?3?6?$AA@ 00011b88     eglinfo.obj
+ 0001:00000ba4       ??_C@_0BF@CIBJNFIB@Unknown?5option?5?$GA?$CFs?8?6?$AA@ 00011ba4     eglinfo.obj
+ 0001:00000bbc       ??_C@_02JNAPBCPB@?9h?$AA@  00011bbc     eglinfo.obj
+ 0001:00000bc0       ??_C@_02NNFLKHCP@?92?$AA@  00011bc0     eglinfo.obj
+ 0001:00000bc4       ??_C@_02PGHGPEOM@?91?$AA@  00011bc4     eglinfo.obj
+ 0001:00000bc8       ??_C@_02BKJHAODO@?9g?$AA@  00011bc8     eglinfo.obj
+ 0001:00000bcc       ??_C@_02EJEOCNCO@?9v?$AA@  00011bcc     eglinfo.obj
+ 0001:00000bd0       ??_C@_02CIKBGMLM@?9e?$AA@  00011bd0     eglinfo.obj
+ 0001:00000bd4       ??_C@_02EMMNKJLI@?9a?$AA@  00011bd4     eglinfo.obj
+ 0001:00000bd8       ??_C@_0CD@FCENINOO@?7?92?3?5Print?5only?5OpenGL?5ES?52?5info@ 00011bd8     eglinfo.obj
+ 0001:00000bfc       ??_C@_0CD@DANHAADO@?7?91?3?5Print?5only?5OpenGL?5ES?51?5info@ 00011bfc     eglinfo.obj
+ 0001:00000c20       ??_C@_0BO@LLLKEMLL@?7?9g?3?5Print?5only?5OpenGL?5info?4?6?$AA@ 00011c20     eglinfo.obj
+ 0001:00000c40       ??_C@_0BO@OLGJBEHN@?7?9v?3?5Print?5only?5OpenVG?5info?4?6?$AA@ 00011c40     eglinfo.obj
+ 0001:00000c60       ??_C@_0BL@PINDPDPK@?7?9e?3?5Print?5only?5EGL?5info?4?6?$AA@ 00011c60     eglinfo.obj
+ 0001:00000c80       ??_C@_0FB@PFPFNFBN@?7?9a?3?5Print?5all?5the?5possible?5EGL?0@ 00011c80     eglinfo.obj
+ 0001:00000cd4       ??_C@_0N@MBOKGNDP@?7?9h?3?5Help?4?5?6?$AA@ 00011cd4     eglinfo.obj
+ 0001:00000ce4       ??_C@_0CO@LKMMBBKM@Usage?3?5eglinfo?5?$FL?9h?$FN?5?$FL?9a?$FN?5?$FL?9e?$FN?5?$FL?9@ 00011ce4     eglinfo.obj
+ 0001:00000d14       ??_C@_1BA@MBGPHGHK@?$AAe?$AAg?$AAl?$AAi?$AAn?$AAf?$AAo?$AA?$AA@ 00011d14     eglinfo.obj
+ 0001:00000d24       ??_C@_1BK@GFCINIOA@?$AAe?$AAg?$AAl?$AAi?$AAn?$AAf?$AAo?$AAC?$AAl?$AAa?$AAs?$AAs?$AA?$AA@ 00011d24     eglinfo.obj
+ 0001:00000d40       ??_C@_0BM@KKOHJEF@GL_ALIASED_LINE_WIDTH_RANGE?$AA@ 00011d40     ex_gles2.obj
+ 0001:00000d5c       ??_C@_0BM@EOKMFJL@GL_ALIASED_POINT_SIZE_RANGE?$AA@ 00011d5c     ex_gles2.obj
+ 0001:00000d78       ??_C@_0CE@FCBBJEFH@GL_IMPLEMENTATION_COLOR_READ_FOR@ 00011d78     ex_gles2.obj
+ 0001:00000d9c       ??_C@_0CC@PANPEJM@GL_IMPLEMENTATION_COLOR_READ_TYP@ 00011d9c     ex_gles2.obj
+ 0001:00000dc0       ??_C@_0BJ@OGPAIIDC@GL_MAX_RENDERBUFFER_SIZE?$AA@ 00011dc0     ex_gles2.obj
+ 0001:00000ddc       ??_C@_0CA@GDELLFP@GL_MAX_FRAGMENT_UNIFORM_VECTORS?$AA@ 00011ddc     ex_gles2.obj
+ 0001:00000dfc       ??_C@_0BL@MBFIJDNJ@GL_MAX_TEXTURE_IMAGE_UNITS?$AA@ 00011dfc     ex_gles2.obj
+ 0001:00000e18       ??_C@_0CC@DCGLGBBC@GL_MAX_VERTEX_TEXTURE_IMAGE_UNIT@ 00011e18     ex_gles2.obj
+ 0001:00000e3c       ??_C@_0CE@IJBMLCEP@GL_MAX_COMBINED_TEXTURE_IMAGE_UN@ 00011e3c     ex_gles2.obj
+ 0001:00000e60       ??_C@_0BH@JAAOIIAM@GL_MAX_VARYING_VECTORS?$AA@ 00011e60     ex_gles2.obj
+ 0001:00000e78       ??_C@_0BO@HAJDDPFB@GL_MAX_VERTEX_UNIFORM_VECTORS?$AA@ 00011e78     ex_gles2.obj
+ 0001:00000e98       ??_C@_0BG@CLFCOANJ@GL_MAX_VERTEX_ATTRIBS?$AA@ 00011e98     ex_gles2.obj
+ 0001:00000eb0       ??_C@_0BN@LCEKMJOA@GL_NUM_SHADER_BINARY_FORMATS?$AA@ 00011eb0     ex_gles2.obj
+ 0001:00000ed0       ??_C@_0CC@LGFBHBLD@GL_NUM_COMPRESSED_TEXTURE_FORMAT@ 00011ed0     ex_gles2.obj
+ 0001:00000ef4       ??_C@_0BF@BBCKGPMC@GL_MAX_VIEWPORT_DIMS?$AA@ 00011ef4     ex_gles2.obj
+ 0001:00000f0c       ??_C@_0BN@PMOODMBD@GL_MAX_CUBE_MAP_TEXTURE_SIZE?$AA@ 00011f0c     ex_gles2.obj
+ 0001:00000f2c       ??_C@_0BE@LGLBMFFL@GL_MAX_TEXTURE_SIZE?$AA@ 00011f2c     ex_gles2.obj
+ 0001:00000f40       ??_C@_0BB@HJIHLJMI@GL_SUBPIXEL_BITS?$AA@ 00011f40     ex_gles2.obj
+ 0001:00000f54       ??_C@_0BD@HPAPEICD@GL_DEPTH_WRITEMASK?$AA@ 00011f54     ex_gles2.obj
+ 0001:00000f68       ??_C@_0BD@BMFPHMOF@GL_COLOR_WRITEMASK?$AA@ 00011f68     ex_gles2.obj
+ 0001:00000f7c       ??_C@_0BD@MJEBJGFO@GL_SHADER_COMPILER?$AA@ 00011f7c     ex_gles2.obj
+ 0001:00000f90       ??_C@_0O@MDNPDBLF@GL_EXTENSIONS?$AA@ 00011f90     ex_gles2.obj
+ 0001:00000fa0       ??_C@_0BM@EPHGGKHF@GL_SHADING_LANGUAGE_VERSION?$AA@ 00011fa0     ex_gles2.obj
+ 0001:00000fbc       ??_C@_0L@KMJCIEP@GL_VERSION?$AA@ 00011fbc     ex_gles2.obj
+ 0001:00000fc8       ??_C@_0M@OGHDLCMI@GL_RENDERER?$AA@ 00011fc8     ex_gles2.obj
+ 0001:00000fd4       ??_C@_09MLNNABBC@GL_VENDOR?$AA@ 00011fd4     ex_gles2.obj
+ 0001:00001108       ??_C@_04LGCOOLNK@?5?$CFf?5?$AA@ 00012108     ex_gles2.obj
+ 0001:00001110       ??_C@_0BN@DBKAJGMK@?6GLES?52?5Float?5Information?5?3?6?$AA@ 00012110     ex_gles2.obj
+ 0001:00001130       ??_C@_0BP@COMKKFE@?6GLES?52?5Integer?5Information?5?3?6?$AA@ 00012130     ex_gles2.obj
+ 0001:00001150       ??_C@_06DIHMPHPI@?50x?$CFx?5?$AA@ 00012150     ex_gles2.obj
+ 0001:00001158       ??_C@_06FNDIOKNI@?5?$CFs?5?$DN?5?$AA@ 00012158     ex_gles2.obj
+ 0001:00001160       ??_C@_0BP@HDHJOANJ@?6GLES?52?5Boolean?5Information?5?3?6?$AA@ 00012160     ex_gles2.obj
+ 0001:00001180       ??_C@_0L@PHNJFENO@?5?$CFs?5?$DN?5?$CFs?5?6?$AA@ 00012180     ex_gles2.obj
+ 0001:0000118c       ??_C@_0BO@LABNBOAG@?6GLES?52?5String?5Information?5?3?6?$AA@ 0001218c     ex_gles2.obj
+ 0001:000011ac       ??_C@_0BL@OJAHAANJ@?6OpenGL?5ES?52?5Information?3?6?$AA@ 000121ac     ex_gles2.obj
+ 0001:000011c8       ??_C@_0M@CKCOBONE@glGetFloatv?$AA@ 000121c8     ex_gles2.obj
+ 0001:000011d4       ??_C@_0O@DHHDCCLF@glGetIntegerv?$AA@ 000121d4     ex_gles2.obj
+ 0001:000011e4       ??_C@_0O@NLMELLCJ@glGetBooleanv?$AA@ 000121e4     ex_gles2.obj
+ 0001:000011f4       ??_C@_0M@OPOBFDCB@glGetString?$AA@ 000121f4     ex_gles2.obj
+ 0001:00001200       ??_C@_0O@HFAAEHFL@libGLESv2?4dll?$AA@ 00012200     ex_gles2.obj
+ 0001:00001210       ??_C@_0BL@IBBBELHI@GL_SMOOTH_LINE_WIDTH_RANGE?$AA@ 00012210     ex_gles.obj
+ 0001:0000122c       ??_C@_0BL@IPFFPHKG@GL_SMOOTH_POINT_SIZE_RANGE?$AA@ 0001222c     ex_gles.obj
+ 0001:00001248       ??_C@_0BF@FGKIDJBF@GL_MAX_TEXTURE_UNITS?$AA@ 00012248     ex_gles.obj
+ 0001:00001260       ??_C@_0BL@IBNHBMJE@GL_MAX_TEXTURE_STACK_DEPTH?$AA@ 00012260     ex_gles.obj
+ 0001:0000127c       ??_C@_0BO@PDBIOMDD@GL_MAX_PROJECTION_STACK_DEPTH?$AA@ 0001227c     ex_gles.obj
+ 0001:0000129c       ??_C@_0BN@MMJNENIG@GL_MAX_MODELVIEW_STACK_DEPTH?$AA@ 0001229c     ex_gles.obj
+ 0001:000012bc       ??_C@_0BD@MDDIOKKJ@GL_MAX_CLIP_PLANES?$AA@ 000122bc     ex_gles.obj
+ 0001:000012d0       ??_C@_0O@KPGMDEIP@GL_MAX_LIGHTS?$AA@ 000122d0     ex_gles.obj
+ 0001:000013a8       ??_C@_0BL@DMKCDHKB@?6GLES?5Float?5Information?5?3?6?$AA@ 000123a8     ex_gles.obj
+ 0001:000013c4       ??_C@_0BN@CFDEIGEE@?6GLES?5Integer?5Information?5?3?6?$AA@ 000123c4     ex_gles.obj
+ 0001:000013e4       ??_C@_0BM@GKHAKEHH@?6GLES?5String?5Information?5?3?6?$AA@ 000123e4     ex_gles.obj
+ 0001:00001400       ??_C@_0BL@MAMPLECL@?6OpenGL?5ES?51?5Information?3?6?$AA@ 00012400     ex_gles.obj
+ 0001:0000141c       ??_C@_0BB@FOLOBJDO@libGLESv1_CM?4dll?$AA@ 0001241c     ex_gles.obj
+ 0001:00001430       ??_C@_0P@MADFBLIB@libGLES_CM?4dll?$AA@ 00012430     ex_gles.obj
+ 0001:00001440       ??_C@_0CG@IFGHKLBK@Couldn?8t?5load?5library?5?$CFs?3?5Error?5@ 00012440     ex_wince.obj
+ 0001:00001468       ??_C@_0CG@LIAABBMK@FreeLibrary?5failed?5to?5close?5libr@ 00012468     ex_wince.obj
+ 0001:00001490       ??_C@_0BI@OGPJGCJK@invalid?5library?5handle?6?$AA@ 00012490     ex_wince.obj
+ 0001:000014a8       ??_C@_0N@CPFAKHMA@VG_MAX_FLOAT?$AA@ 000124a8     ex_vg.obj
+ 0001:000014b8       ??_C@_0BO@HKAFEMJP@VG_MAX_GAUSSIAN_STD_DEVIATION?$AA@ 000124b8     ex_vg.obj
+ 0001:000014d8       ??_C@_0BD@EEINCNLK@VG_MAX_IMAGE_BYTES?$AA@ 000124d8     ex_vg.obj
+ 0001:000014ec       ??_C@_0BE@JLHLFPBI@VG_MAX_IMAGE_PIXELS?$AA@ 000124ec     ex_vg.obj
+ 0001:00001500       ??_C@_0BE@HEJAFGI@VG_MAX_IMAGE_HEIGHT?$AA@ 00012500     ex_vg.obj
+ 0001:00001514       ??_C@_0BD@JDLNHMFC@VG_MAX_IMAGE_WIDTH?$AA@ 00012514     ex_vg.obj
+ 0001:00001528       ??_C@_0BI@NGLLIMNO@VG_MAX_COLOR_RAMP_STOPS?$AA@ 00012528     ex_vg.obj
+ 0001:00001540       ??_C@_0BN@GGLNPIHE@VG_MAX_SEPARABLE_KERNEL_SIZE?$AA@ 00012540     ex_vg.obj
+ 0001:00001560       ??_C@_0BD@HIBAIPLP@VG_MAX_KERNEL_SIZE?$AA@ 00012560     ex_vg.obj
+ 0001:00001574       ??_C@_0BC@LGEIGDCP@VG_MAX_DASH_COUNT?$AA@ 00012574     ex_vg.obj
+ 0001:00001588       ??_C@_0BF@OIMNPOIM@VG_MAX_SCISSOR_RECTS?$AA@ 00012588     ex_vg.obj
+ 0001:000015a0       ??_C@_0O@NPKLFDAM@VG_EXTENSIONS?$AA@ 000125a0     ex_vg.obj
+ 0001:000015b0       ??_C@_0L@JNFBMILD@VG_VERSION?$AA@ 000125b0     ex_vg.obj
+ 0001:000015bc       ??_C@_0M@FCOPJEBP@VG_RENDERER?$AA@ 000125bc     ex_vg.obj
+ 0001:000015c8       ??_C@_09IBOEHFBJ@VG_VENDOR?$AA@ 000125c8     ex_vg.obj
+ 0001:00001650       ??_C@_0L@CCJJPDKD@?5?$CFs?5?$DN?5?$CFE?5?6?$AA@ 00012650     ex_vg.obj
+ 0001:0000165c       ??_C@_0CH@IKLIOHGM@?6VG?5API?5Float?5Parameter?5Informat@ 0001265c     ex_vg.obj
+ 0001:00001684       ??_C@_0N@OHOIIAAC@?5?$CFs?5?$DN?50x?$CFx?5?6?$AA@ 00012684     ex_vg.obj
+ 0001:00001694       ??_C@_0BL@NAOKPPOP@?6VG?5Integer?5Information?5?3?6?$AA@ 00012694     ex_vg.obj
+ 0001:000016b0       ??_C@_0BO@IKFKCEGL@?6VG?5API?5String?5Information?5?3?6?$AA@ 000126b0     ex_vg.obj
+ 0001:000016d0       ??_C@_0BH@DGANMBMO@?6Open?5VG?5Information?3?6?$AA@ 000126d0     ex_vg.obj
+ 0001:000016e8       ??_C@_06HOKOHFLH@vgGetf?$AA@ 000126e8     ex_vg.obj
+ 0001:000016f0       ??_C@_06PJDGGJHI@vgGeti?$AA@ 000126f0     ex_vg.obj
+ 0001:000016f8       ??_C@_0M@FLHNHFPG@vgGetString?$AA@ 000126f8     ex_vg.obj
+ 0001:00001704       ??_C@_0O@LFGHKFEJ@libOpenVG?4dll?$AA@ 00012704     ex_vg.obj
+ 0001:000017e0       ??_C@_0BJ@LCCLPBAE@?6GL?5Float?5Information?5?3?6?$AA@ 000127e0     ex_gl.obj
+ 0001:000017fc       ??_C@_0BL@IEEDCHOE@?6GL?5Integer?5Information?5?3?6?$AA@ 000127fc     ex_gl.obj
+ 0001:00001818       ??_C@_0BK@MMECHKNG@?6GL?5String?5Information?5?3?6?$AA@ 00012818     ex_gl.obj
+ 0001:00001834       ??_C@_0BH@FDCEEPEG@?6OpenGL?5Information?3?5?6?$AA@ 00012834     ex_gl.obj
+ 0001:0000184c       ??_C@_0N@DOKAJOHF@opengl32?4dll?$AA@ 0001284c     ex_gl.obj
+ 0001:0000185c       ??_C@_1CC@HNHLKECD@?$AA?$CI?$AAe?$AAr?$AAr?$AAo?$AAr?$AA?5?$AAc?$AAo?$AAd?$AAe?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$CJ?$AA?$AA@ 0001285c     wince_unittests.obj
+ 0001:00001880       ??_C@_1CI@OHCJFJPM@?$AAE?$AAR?$AAR?$AAO?$AAR?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?5?$AAl?$AAi?$AAn?$AAe?$AA?5?$AA?$CF?$AAd?$AA?3?$AA?5?$AA?$AA@ 00012880     wince_unittests.obj
+ 0001:000018a8       ??_C@_1KG@PMLMDMLB@?$AAc?$AA?3?$AA?2?$AAd?$AAa?$AAt?$AAa?$AA?2?$AAj?$AAa?$AAt?$AAi?$AAn?$AA?2?$AAp?$AAo?$AAw?$AAe?$AAr?$AAv?$AAr?$AA_?$AAb?$AAu?$AAi?$AAl?$AAd?$AA?2?$AAd?$AAd?$AAk?$AA1@ 000128a8     wince_unittests.obj
+ 0001:00001950       ??_C@_1M@DMCDIEDK@?$AAP?$AAK?$AAM?$AA1?$AA?3?$AA?$AA@ 00012950     wince_unittests.obj
+ 0001:0000195c       ??_C@_0L@GPAGIAIC@?9disablepm?$AA@ 0001295c     wince_unittests.obj
+ 0001:00001968       ??_C@_1DG@PCJNAHOH@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAg?$AAe?$AAt?$AA?5?$AAm?$AAo?$AAn?$AAi?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAn?$AAf?$AAo?$AA?$AA@ 00012968     wince_unittests.obj
+ 0001:000019a0       ??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@ 000129a0     wince_unittests.obj
+ 0001:000019ac       ??_C@_07FBLHGNAH@app?4exe?$AA@ 000129ac     wince_unittests.obj
+ 0001:00001d24       main                       00012d24 f   eglinfo.obj
+ 0001:000031d0       PrintOGLES2APIInfo         000141d0 f   ex_gles2.obj
+ 0001:00003514       TryLoadOGLES2Library       00014514 f   ex_gles2.obj
+ 0001:00003668       UnloadOGLES2Library        00014668 f   ex_gles2.obj
+ 0001:00003690       GetOGLES2VendorString      00014690 f   ex_gles2.obj
+ 0001:000036e0       PrintOGLES1APIInfo         000146e0 f   ex_gles.obj
+ 0001:00003950       TryLoadOGLES1Library       00014950 f   ex_gles.obj
+ 0001:00003a98       UnloadOGLES1Library        00014a98 f   ex_gles.obj
+ 0001:00003ac0       GetOGLES1VendorString      00014ac0 f   ex_gles.obj
+ 0001:00003b18       exLoadLibrary              00014b18 f   ex_wince.obj
+ 0001:00003bd0       exUnloadLibrary            00014bd0 f   ex_wince.obj
+ 0001:00003c50       exGetLibFuncAddr           00014c50 f   ex_wince.obj
+ 0001:00003cf8       PrintOVGAPIInfo            00014cf8 f   ex_vg.obj
+ 0001:00003ec0       TryLoadOVGLibrary          00014ec0 f   ex_vg.obj
+ 0001:00003fdc       UnloadOVGLibrary           00014fdc f   ex_vg.obj
+ 0001:00004004       GetOVGVendorString         00015004 f   ex_vg.obj
+ 0001:00004054       PrintOGLAPIInfo            00015054 f   ex_gl.obj
+ 0001:000042c4       TryLoadOGLLibrary          000152c4 f   ex_gl.obj
+ 0001:000043e0       UnloadOGLLibrary           000153e0 f   ex_gl.obj
+ 0001:00004408       GetOGLVendorString         00015408 f   ex_gl.obj
+ 0001:00004460       GPE_DPF                    00015460 f   wince_unittests.obj
+ 0001:00004504       AppWndProc                 00015504 f   wince_unittests.obj
+ 0001:00004594       WinMain                    00015594 f   wince_unittests.obj
+ 0001:0000499c       GetDC                      0001599c f   coredll:COREDLL.dll
+ 0001:000049ac       CreateWindowExW            000159ac f   coredll:COREDLL.dll
+ 0001:000049bc       RegisterClassW             000159bc f   coredll:COREDLL.dll
+ 0001:000049cc       GetModuleHandleW           000159cc f   coredll:COREDLL.dll
+ 0001:000049dc       DefWindowProcW             000159dc f   coredll:COREDLL.dll
+ 0001:000049ec       PostQuitMessage            000159ec f   coredll:COREDLL.dll
+ 0001:000049fc       GetLastError               000159fc f   coredll:COREDLL.dll
+ 0001:00004a0c       LoadLibraryW               00015a0c f   coredll:COREDLL.dll
+ 0001:00004a1c       FreeLibrary                00015a1c f   coredll:COREDLL.dll
+ 0001:00004a2c       GetProcAddressW            00015a2c f   coredll:COREDLL.dll
+ 0001:00004a3c       OutputDebugStringW         00015a3c f   coredll:COREDLL.dll
+ 0001:00004a4c       MultiByteToWideChar        00015a4c f   coredll:COREDLL.dll
+ 0001:00004a5c       ReleasePowerRequirement    00015a5c f   coredll:COREDLL.dll
+ 0001:00004a6c       NKDbgPrintfW               00015a6c f   coredll:COREDLL.dll
+ 0001:00004a7c       SetPowerRequirement        00015a7c f   coredll:COREDLL.dll
+ 0001:00004a8c       WideCharToMultiByte        00015a8c f   coredll:COREDLL.dll
+ 0001:00004a9c       SetCursorPos               00015a9c f   coredll:COREDLL.dll
+ 0001:00004aac       GetCursorPos               00015aac f   coredll:COREDLL.dll
+ 0001:00004abc       MessageBoxW                00015abc f   coredll:COREDLL.dll
+ 0001:00004acc       GetMonitorInfo             00015acc f   coredll:COREDLL.dll
+ 0001:00004adc       MonitorFromPoint           00015adc f   coredll:COREDLL.dll
+ 0001:00004aec       WinMainCRTStartup          00015aec f   corelib0:pegwmain.obj
+ 0001:00004bc0       __security_init_cookie     00015bc0 f   corelib0:seccinit.obj
+ 0001:00004c5c       __GSHandlerCheck           00015c5c f   corelib0:gshandler.obj
+ 0001:00004ca0       __GSHandlerCheckCommon     00015ca0 f   corelib0:gshandler.obj
+ 0001:00004d40       __security_check_cookie    00015d40 f   corelib0:armsecgs.obj
+ 0001:00004d50       __gsfailure                00015d50     corelib0:armsecgs.obj
+ 0001:00004d94       exit                       00015d94 f   corelib0:cexit.obj
+ 0001:00004eb4       _exit                      00015eb4 f   corelib0:cexit.obj
+ 0001:00004ed4       _cexit                     00015ed4 f   corelib0:cexit.obj
+ 0001:00004eec       _c_exit                    00015eec f   corelib0:cexit.obj
+ 0001:00004f04       _initterm                  00015f04 f   corelib0:crt0dat.obj
+ 0001:00004f50       _cinit                     00015f50 f   corelib0:crt0dat.obj
+ 0001:00004f80       __crt_ExitProcess          00015f80 f   corelib0:exitproc_proxy.obj
+ 0001:00004fac       GetCurrentProcess          00015fac f i corelib0:exitproc_proxy.obj
+ 0001:00004fc4       _onexit                    00015fc4 f   corelib0:onexit.obj
+ 0001:000051a0       atexit                     000161a0 f   corelib0:onexit.obj
+ 0001:000051f0       printf                     000161f0 f   corelib1:COREDLL.dll
+ 0001:00005200       free                       00016200 f   corelib1:COREDLL.dll
+ 0001:00005210       malloc                     00016210 f   corelib1:COREDLL.dll
+ 0001:00005220       strcmp                     00016220 f   corelib1:COREDLL.dll
+ 0001:00005230       mbstowcs                   00016230 f   corelib1:COREDLL.dll
+ 0001:00005240       strlen                     00016240 f   corelib1:COREDLL.dll
+ 0001:00005250       memset                     00016250 f   corelib1:COREDLL.dll
+ 0001:00005260       _vsnprintf                 00016260 f   corelib1:COREDLL.dll
+ 0001:00005270       _stricmp                   00016270 f   corelib1:COREDLL.dll
+ 0001:00005280       _isctype                   00016280 f   corelib1:COREDLL.dll
+ 0001:00005290       wcslen                     00016290 f   corelib1:COREDLL.dll
+ 0001:000052a0       _XcptFilter                000162a0 f   corelib1:COREDLL.dll
+ 0001:000052b0       __C_specific_handler       000162b0 f   corelib1:COREDLL.dll
+ 0001:000052c0       __security_gen_cookie2     000162c0 f   corelib1:COREDLL.dll
+ 0001:000052d0       __report_gsfailure         000162d0 f   corelib1:COREDLL.dll
+ 0001:000052e0       realloc                    000162e0 f   corelib1:COREDLL.dll
+ 0001:000052f0       _msize                     000162f0 f   corelib1:COREDLL.dll
+ 0001:00005300       TerminateProcess           00016300 f   coredll:COREDLL.dll
+ 0001:00005330       __IMPORT_DESCRIPTOR_libEGL 00016330     libEGL:libEGL.dll
+ 0001:00005344       __IMPORT_DESCRIPTOR_COREDLL 00016344     coredll:COREDLL.dll
+ 0001:00005358       __NULL_IMPORT_DESCRIPTOR   00016358     libEGL:libEGL.dll
+ 0002:00000000       __imp_MultiByteToWideChar  00017000     coredll:COREDLL.dll
+ 0002:00000004       __imp__msize               00017004     corelib1:COREDLL.dll
+ 0002:00000008       __imp_realloc              00017008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp___report_gsfailure   0001700c     corelib1:COREDLL.dll
+ 0002:00000010       __imp___security_gen_cookie2 00017010     corelib1:COREDLL.dll
+ 0002:00000014       __imp___C_specific_handler 00017014     corelib1:COREDLL.dll
+ 0002:00000018       __imp__XcptFilter          00017018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp_wcslen               0001701c     corelib1:COREDLL.dll
+ 0002:00000020       __imp__isctype             00017020     corelib1:COREDLL.dll
+ 0002:00000024       __imp__stricmp             00017024     corelib1:COREDLL.dll
+ 0002:00000028       __imp__vsnprintf           00017028     corelib1:COREDLL.dll
+ 0002:0000002c       __imp_memset               0001702c     corelib1:COREDLL.dll
+ 0002:00000030       __imp_strlen               00017030     corelib1:COREDLL.dll
+ 0002:00000034       __imp_mbstowcs             00017034     corelib1:COREDLL.dll
+ 0002:00000038       __imp_strcmp               00017038     corelib1:COREDLL.dll
+ 0002:0000003c       __imp_malloc               0001703c     corelib1:COREDLL.dll
+ 0002:00000040       __imp_free                 00017040     corelib1:COREDLL.dll
+ 0002:00000044       __imp_GetDC                00017044     coredll:COREDLL.dll
+ 0002:00000048       __imp_CreateWindowExW      00017048     coredll:COREDLL.dll
+ 0002:0000004c       __imp_RegisterClassW       0001704c     coredll:COREDLL.dll
+ 0002:00000050       __imp_GetModuleHandleW     00017050     coredll:COREDLL.dll
+ 0002:00000054       __imp_DefWindowProcW       00017054     coredll:COREDLL.dll
+ 0002:00000058       __imp_PostQuitMessage      00017058     coredll:COREDLL.dll
+ 0002:0000005c       __imp_GetLastError         0001705c     coredll:COREDLL.dll
+ 0002:00000060       __imp_LoadLibraryW         00017060     coredll:COREDLL.dll
+ 0002:00000064       __imp_FreeLibrary          00017064     coredll:COREDLL.dll
+ 0002:00000068       __imp_GetProcAddressW      00017068     coredll:COREDLL.dll
+ 0002:0000006c       __imp_OutputDebugStringW   0001706c     coredll:COREDLL.dll
+ 0002:00000070       __imp_TerminateProcess     00017070     coredll:COREDLL.dll
+ 0002:00000074       __imp_ReleasePowerRequirement 00017074     coredll:COREDLL.dll
+ 0002:00000078       __imp_NKDbgPrintfW         00017078     coredll:COREDLL.dll
+ 0002:0000007c       __imp_SetPowerRequirement  0001707c     coredll:COREDLL.dll
+ 0002:00000080       __imp_WideCharToMultiByte  00017080     coredll:COREDLL.dll
+ 0002:00000084       __imp_SetCursorPos         00017084     coredll:COREDLL.dll
+ 0002:00000088       __imp_GetCursorPos         00017088     coredll:COREDLL.dll
+ 0002:0000008c       __imp_MessageBoxW          0001708c     coredll:COREDLL.dll
+ 0002:00000090       __imp_GetMonitorInfo       00017090     coredll:COREDLL.dll
+ 0002:00000094       __imp_MonitorFromPoint     00017094     coredll:COREDLL.dll
+ 0002:00000098       __imp_printf               00017098     corelib1:COREDLL.dll
+ 0002:0000009c       \177COREDLL_NULL_THUNK_DATA 0001709c     coredll:COREDLL.dll
+ 0002:000000a0       __imp_eglQueryContext      000170a0     libEGL:libEGL.dll
+ 0002:000000a4       __imp_eglMakeCurrent       000170a4     libEGL:libEGL.dll
+ 0002:000000a8       __imp_eglDestroyContext    000170a8     libEGL:libEGL.dll
+ 0002:000000ac       __imp_eglQuerySurface      000170ac     libEGL:libEGL.dll
+ 0002:000000b0       __imp_eglDestroySurface    000170b0     libEGL:libEGL.dll
+ 0002:000000b4       __imp_eglQueryString       000170b4     libEGL:libEGL.dll
+ 0002:000000b8       __imp_eglGetConfigAttrib   000170b8     libEGL:libEGL.dll
+ 0002:000000bc       __imp_eglGetError          000170bc     libEGL:libEGL.dll
+ 0002:000000c0       __imp_eglGetDisplay        000170c0     libEGL:libEGL.dll
+ 0002:000000c4       __imp_eglInitialize        000170c4     libEGL:libEGL.dll
+ 0002:000000c8       __imp_eglGetConfigs        000170c8     libEGL:libEGL.dll
+ 0002:000000cc       __imp_eglTerminate         000170cc     libEGL:libEGL.dll
+ 0002:000000d0       __imp_eglCreatePbufferSurface 000170d0     libEGL:libEGL.dll
+ 0002:000000d4       __imp_eglCreateWindowSurface 000170d4     libEGL:libEGL.dll
+ 0002:000000d8       __imp_eglBindAPI           000170d8     libEGL:libEGL.dll
+ 0002:000000dc       __imp_eglCreateContext     000170dc     libEGL:libEGL.dll
+ 0002:000000e0       \177libEGL_NULL_THUNK_DATA 000170e0     libEGL:libEGL.dll
+ 0002:00000188       gui32Opacity               00017188     wince_unittests.obj
+ 0002:0000018c       __security_cookie          0001718c     corelib0:seccinit.obj
+ 0002:00000190       __security_cookie_complement 00017190     corelib0:seccinit.obj
+ 0002:000001e0       pfnRegisteredWndProc       000171e0     wince_unittests.obj
+ 0002:000001e4       _exitflag                  000171e4     corelib0:cexit.obj
+ 0002:000001e8       giMode                     000171e8     <common>
+ 0002:000001ec       __onexitend                000171ec     <common>
+ 0002:000001f0       __onexitbegin              000171f0     <common>
+
+ entry point at        0001:00004aec
+
+ Static symbols
+
+ 0001:000019d8       CreateOGLES1Context        000129d8 f   eglinfo.obj
+ 0001:00001a6c       CreateOGLES2Context        00012a6c f   eglinfo.obj
+ 0001:00001b00       CreateOVGContext           00012b00 f   eglinfo.obj
+ 0001:00001b7c       CreateOGLContext           00012b7c f   eglinfo.obj
+ 0001:00001bf8       CreateWindowSurface        00012bf8 f   eglinfo.obj
+ 0001:00001c78       CreatePbufferSurface       00012c78 f   eglinfo.obj
+ 0001:00001dd0       EglMain                    00012dd0 f   eglinfo.obj
+ 0001:0000202c       handle_egl_error           0001302c f   eglinfo.obj
+ 0001:00002088       ProcessConfig              00013088 f   eglinfo.obj
+ 0001:0000222c       ProcessEGLConfigInfo       0001322c f   eglinfo.obj
+ 0001:00002514       CreateConfigSurfaces       00013514 f   eglinfo.obj
+ 0001:0000264c       ProcessEGLSurfaceInfo      0001364c f   eglinfo.obj
+ 0001:00002738       CreateContextsWithSurface  00013738 f   eglinfo.obj
+ 0001:00002894       checkAddUniqueApiConfig    00013894 f   eglinfo.obj
+ 0001:000029a8       ProcessEGLContextInfo      000139a8 f   eglinfo.obj
+ 0001:00002a94       PrintAPIInfo               00013a94 f   eglinfo.obj
+ 0001:00002c6c       LoadAPIsMaskModes          00013c6c f   eglinfo.obj
+ 0001:00002cf8       UnloadAPIs                 00013cf8 f   eglinfo.obj
+ 0001:00002d50       ProcessOptions             00013d50 f   eglinfo.obj
+ 0001:0000301c       Usage                      0001401c f   eglinfo.obj
+ 0001:00003084       CreateCEWindowSurface      00014084 f   eglinfo.obj
+ 0001:00003170       EglInfoWndProc             00014170 f   eglinfo.obj
+ 0001:00004b1c       WinMainCRTStartupHelper    00015b1c f   corelib0:pegwmain.obj
+ 0001:00004db4       doexit                     00015db4 f   corelib0:cexit.obj

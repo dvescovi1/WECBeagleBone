@@ -1,0 +1,44 @@
+!IF "$(BSP_NODISPLAY)" == "1"
+SKIPBUILD=1
+!ENDIF
+
+!IF "$(BSP_AM33X_LCDC)" == ""
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=am33x_display
+TARGETTYPE=DYNLINK
+
+DLLENTRY=_DllMainCRTStartup
+
+SOURCES=
+
+SOURCELIBS= \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\ddgpe.lib \
+    $(_SYSGENOAKROOT)\lib\$(_CPUINDPATH)\gpe.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ddgpe_lcd.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ddgpe_lcdcai.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib     \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib	\
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_stall.lib  \
+    $(_PLATLIB)\$(_CPUINDPATH)\omap35xx_ddgpe_neon.lib
+
+TARGETLIBS= \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib
+    
+!IF "$(SYSGEN_POWERVR)" == ""
+TARGETLIBS=$(TARGETLIBS) \
+    $(_PLATLIB)\$(_CPUINDPATH)\lcdss_entry.lib
+#    $(_PLATLIB)\$(_CPUINDPATH)\omap_dss_entry.lib
+!ELSE
+!IF "$(SYSGEN_PVR_SGXCOREREV_121)" == "1" 
+TARGETLIBS=$(TARGETLIBS) \
+    $(_PUBLICROOT)\PowerVR\oak\lib\Rev121\$(_TGTCPU)\$(WINCEDEBUG)\ddi_powervr.lib
+!ENDIF
+!IF "$(SYSGEN_PVR_SGXCOREREV_125)" == "1" 
+TARGETLIBS=$(TARGETLIBS) \
+    $(_PUBLICROOT)\PowerVR\oak\lib\Rev125\$(_TGTCPU)\$(WINCEDEBUG)\ddi_powervr.lib
+!ENDIF	
+!ENDIF

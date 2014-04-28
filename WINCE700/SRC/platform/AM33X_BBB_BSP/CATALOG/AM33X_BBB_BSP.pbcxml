@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatalogFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequiredVersion="6.00" xmlns="urn:Microsoft.PlatformBuilder/Catalog">
+  <FileInformation Id="FileInformation:Texas Instruments:AM33X_BBB_BSP">
+    <Title>Texas Instruments AM33X BeagleBone Black BSP</Title>
+    <Description>Texas Instruments AM33X BeagleBone Black Catalog Items</Description>
+    <Vendor>Texas Instruments</Vendor>
+    <OSVersion>7.00</OSVersion>
+    <FileVersion>7.00.00</FileVersion>
+  </FileInformation>
+  <Bsp Id="Bsp:Texas Instruments:AM33X_BBB_BSP:ARMV7">
+    <Title>AM33X_BBB_BSP: ARMV7</Title>
+    <Description>A BSP for the Texas Instruments AM33X BeagleBone Black reference platform</Description>
+    <PlatformDirectory>AM33X_BBB_BSP</PlatformDirectory>
+    <CpuId>Cpu:ARMV7</CpuId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xgpio</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xmcspi1</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xmcspi2</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart1</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart2</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart3</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart4</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart5</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart6</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:Ndiscpsw3g</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xLCDC</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xDisplayNOP</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:MUSB</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:amWatchdog</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:edma</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:imgreghive</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:omapnled</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xsdhc1</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xsdhc2</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xsdMemory</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xsdeMMC</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:amWatchdogTimebomb</BspItemId>
+  </Bsp>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xgpio">
+    <Title>Gpio driver</Title>
+    <Description>Gpio driver</Description>
+    <Comment>Gpio driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_GPIO</Variable>
+    <Module>am33x_gpio.dll</Module>
+    <Location>Drivers\GPIO</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xmcspi1">
+    <Title>SPI driver (MCSPI1)</Title>
+    <Description>AM33X MCSPI driver 1</Description>
+    <Comment>AM33X MCSPI driver 1</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_MCSPI1</Variable>
+    <Module>am33x_mcspi.dll</Module>
+    <Location>Drivers\MCSPI</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xmcspi2">
+    <Title>SPI driver (MCSPI2)</Title>
+    <Description>AM33X MCSPI driver 2</Description>
+    <Comment>AM33X MCSPI driver 2</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_MCSPI2</Variable>
+    <Module>am33x_mcspi.dll</Module>
+    <Location>Drivers\MCSPI</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart1">
+    <Title>UART1 driver</Title>
+    <Description>Am33x UART1 driver</Description>
+    <Comment>Am33x UART1 driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART1</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart2">
+    <Title>UART2 driver</Title>
+    <Description>Am33x UART2 driver</Description>
+    <Comment>Am33x UART2 driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART2</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart3">
+    <Title>UART3 driver</Title>
+    <Description>Am33x UART3 driver</Description>
+    <Comment>Am33x UART3 driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART3</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart4">
+    <Title>UART4 driver</Title>
+    <Description>Am33x UART4 driver</Description>
+    <Comment>Am33x UART4 driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART4</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart5">
+    <Title>UART5 driver</Title>
+    <Description>Am33x UART5 driver</Description>
+    <Comment>Am33x UART5 driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART5</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart6">
+    <Title>UART6 driver</Title>
+    <Description>Am33x UART6 driver</Description>
+    <Comment>Am33x UART6 driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART6</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:Ndiscpsw3g">
+    <Title>CPGMAC Ethernet</Title>
+    <Description>CPSW3G Miniport Driver for the AM33X EVM (single MAC port)</Description>
+    <HelpLink Action="WceHelpCollection">pb.catalogitem.sysgen_ethernet:1</HelpLink>
+    <Type>BspSpecific</Type>
+    <SysgenVariable>SYSGEN_NDIS</SysgenVariable>
+    <Variable>BSP_ETH_CPGMAC_DRIVER</Variable>
+    <Module>am33x_cpsw3g.dll</Module>
+    <Location>Drivers\</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xsdMemory">
+    <Title>uSD Memory card</Title>
+    <Description>AM33x SDHC / MMC Card driver</Description>
+    <Comment>AM33x SDHC driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>SYSGEN_SDBUS</Variable>
+    <Variable>SYSGEN_SD_MEMORY</Variable>
+    <Variable>BSP_SDHC</Variable>
+    <Variable>BSP_SDHC1</Variable>
+    <Variable>BSP_EDMA</Variable>
+    <Module>am33x_sdhc.dll</Module>
+    <Location>Drivers\Storage Devices</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xLCDC">
+    <Title>LCD Display driver</Title>
+    <Description>Display driver</Description>
+    <Comment>Display driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_LCDC</Variable>
+    <Variable>BSP_EDMA</Variable>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>Drivers\display</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xDisplayNOP">
+    <Title>STUB Display driver</Title>
+    <Description>STUB Display driver</Description>
+    <Comment>STUB Display driver</Comment>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_DISPLAY_NOP</Variable>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>Drivers\display</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:MUSB">
+    <Title>MUSB OTG driver</Title>
+    <Description>MUSB OTG Driver for the AM33X EVM</Description>
+    <Type>BspSpecific</Type>
+    <SysgenVariable>SYSGEN_USB</SysgenVariable>
+    <Variable>BSP_USBOTG0</Variable>
+    <Variable>BSP_USBFN0</Variable>
+    <Variable>BSP_USBOTG1</Variable>
+    <Variable>BSP_USBH1</Variable>
+    <Module>am33x_usbfn.dll</Module>
+    <Module>am33x_usbh.dll</Module>
+    <Module>am33x_usbotg.dll</Module>
+    <Location>Drivers\</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:amWatchdog">
+    <Title>Internal Watchdog</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_WATCHDOG</Variable>
+    <Location>\Kernel features</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:edma">
+    <Title>edma driver</Title>
+    <Description>edma driver</Description>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_EDMA</Variable>
+    <Module>edmadrvr.dll</Module>
+    <Location>Drivers</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:omapnled">
+    <Title>Notification LED Driver</Title>
+    <Description>Notification LED Driver</Description>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_NLED</Variable>
+    <Variable>SYSGEN_NLED</Variable>
+    <Module>am33x_nled.dll</Module>
+    <Location>Drivers\NLED</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:imgreghive">
+    <Title>Persistent Hive Registry Storage</Title>
+    <Description>Enable this to persist registry and other data across a warm reset</Description>
+    <Type>BspSpecific</Type>
+    <Variable>IMGREGHIVE</Variable>
+    <Variable>SYSGEN_FSREGHIVE</Variable>
+    <Variable>SYSGEN_FATFS</Variable>
+    <Variable>SYSGEN_MSPART</Variable>
+    <Variable>PRJ_ENABLE_FSREGHIVE</Variable>
+    <Variable>PRJ_ENABLE_REGFLUSH_THREAD</Variable>
+    <Location>Kernel features</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xsdhc1">
+    <Title>SDHC Host Controller 1</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_SDHC</Variable>
+    <Variable>BSP_SDHC1</Variable>
+    <Variable>BSP_EDMA</Variable>
+    <Module>am33x_sdhc.dll</Module>
+    <Location>Drivers\SDHC</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xsdhc2">
+    <Title>SDHC Host Controller 2</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_SDHC</Variable>
+    <Variable>BSP_SDHC2</Variable>
+    <Variable>BSP_EDMA</Variable>
+    <Module>am33x_sdhc.dll</Module>
+    <Location>Drivers\SDHC</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xsdeMMC">
+    <Title>eMMC Memory</Title>
+    <Type>BspSpecific</Type>
+    <Variable>SYSGEN_SDBUS</Variable>
+    <Variable>SYSGEN_SD_MEMORY</Variable>
+    <Variable>BSP_SDHC</Variable>
+    <Variable>BSP_SDHC2</Variable>
+    <Variable>BSP_EDMA</Variable>
+    <Module>am33x_sdhc.dll</Module>
+    <Location>Drivers\Storage Devices</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:amWatchdogTimebomb">
+    <Title>One hour time bomb</Title>
+    <Description> Allow one hour run time before reset</Description>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_TIMEBOMB</Variable>
+    <Variable>BSP_AM33X_WATCHDOG</Variable>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>Kernel features\Internal Watchdog</Location>
+  </Item>
+</CatalogFile>

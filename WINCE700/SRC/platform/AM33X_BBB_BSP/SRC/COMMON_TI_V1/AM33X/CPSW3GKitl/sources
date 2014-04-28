@@ -1,0 +1,15 @@
+!if 0
+Copyright (c) Texas Instruments Incorporated 2011-2012
+!endif
+
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=am33x_cpsw3g_kitl_lib
+TARGETTYPE=LIBRARY
+
+CDEFINES=$(CDEFINES) -DBSP_ETH_CPSW3G_DRIVER
+
+SOURCES=\
+    mdio.c \
+    cpsw3g.c \
+

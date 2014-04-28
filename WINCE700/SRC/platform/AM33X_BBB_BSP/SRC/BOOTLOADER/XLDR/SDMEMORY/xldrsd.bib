@@ -1,0 +1,52 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;  Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
+
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+;
+; File: xldrsd.bib
+;
+; This file define X-Loader image layout. X-Loader is loaded to internal
+; AM33X SRAM memory from MMC/SD card. 
+;
+; GP device doesn't support TOC, it only check first 2 DWORDs for image size and load address.
+;
+
+
+MEMORY
+;   Name        Start     Size      Type
+;   ---------------------   --------  --------  ----
+; 
+    XLDRSD  402F1000  00014FF8  RAMIMAGE
+    RAM    	40306000  00004000  RAM
+    STACK 	4030A000  00001000  RESERVED
+
+IF IMGHIGHSECURITY
+    nk.exe:dwOEMHighSecurity       00000000  00000001  FIXUPVAR
+ELSE
+    nk.exe:dwOEMHighSecurity       00000000  00000002  FIXUPVAR
+ENDIF
+
+CONFIG
+    COMPRESSION=OFF
+    PROFILE=OFF
+    KERNELFIXUPS=ON
+
+    ; NOTE - ROMSTART starts 0x1000 after the beginning of XLDRSD section
+    ; This is because this zone is not used by .exe. It's a guard section        
+    ROMSTART=402F1000
+    ROMWIDTH=32
+    ; NOTE - ROMSIZE parameter controls the size of the SD XLDR nb0 file
+    ; Set to 48KB to ensure that it will fit in the CPU on-chip RAM.    
+    ROMSIZE=00014FF8
+
+MODULES
+; Name    Path                                       Memory
+; ------  -----------------------------------------  --------
+  nk.exe  $(SG_OUTPUT_ROOT)\platform\$(_TGTPLAT)\target\$(_TGTCPU)\$(WINCEDEBUG)\xldrsd.exe    XLDRSD

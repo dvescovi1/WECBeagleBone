@@ -1,0 +1,336 @@
+
+This version is a modified version of the CE 6.0 USB camera driver.
+Nothing major has changed it was just tweaked and recompiled under WEC7.
+To run on the OMAP 35xx/37xx platform be sure NOT to select the VRFB component 
+or you will have issues!
+
+
+
+;-------------------------------------------------------------------------
+; <copyright file="ReleaseNotes.txt" company="Microsoft">
+;  Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;    The use and distribution terms for this software are covered by the
+;    Microsoft Limited Permissive License (Ms-LPL) 
+;    which can be found in the file MS-LPL.txt at the root of this distribution.
+;    By using this software in any fashion, you are agreeing to be bound by
+;    the terms of this license.
+;
+;    THE SOFTWARE IS LICENSED "AS-IS" WITH NO WARRANTIES OR INDEMNITIES. 
+;
+;    You must not remove this notice, or any other, from this software.
+; </copyright>
+; 
+; <summary>
+;    USB camera driver for Windows Embedded CE 6.0
+; </summary>
+;-------------------------------------------------------------------------
+;======================================================================
+; USB camera driver for Windows Embedded CE 6.0
+;======================================================================
+
+
+Version 1.0
+April 26th 2007
+
+
+-----------------------------------------------------------------------------
+OVERVIEW
+-----------------------------------------------------------------------------
+
+This device driver adds support for USB cameras to Windows Embedded CE 6.0.  
+It enables still and video capture from cameras which comply with the USB 
+Video Class specification (version 1.1).
+
+The driver is distributed as shared source under the Microsoft Limited 
+Permissive License, and must be compiled for your target platform.  
+
+
+!! THIS DRIVER IS CONSIDERED A “POWER TOY” AND MAY NOT BE SUITABLE FOR
+!! PRODUCTION USE WITHOUT FURTHER TESTING OR MODIFICATION.
+
+
+This driver implements the camera interface introduced in Windows Mobile 5.0, 
+and now available in CE 6.0.  In other words, the driver is meant to be 
+used as the source filter in a DirectShow capture graph, rather than as a 
+stand-alone stream-based driver.
+
+For more information on using this driver with DirectShow, see the topic 
+"Video Capture" in the CE documentation:
+  
+    http://msdn2.microsoft.com/en-us/library/aa924811.aspx
+  
+
+
+The driver supports both USB 1.x and 2.0 (high-speed) cameras.  The driver will 
+expose both uncompressed and MJPEG modes, if supported by the camera. 
+
+MJPEG mode generally requires pairing the driver with a DirectShow transform 
+filter (jpeg2rgb.dll) which is also included in this download.
+
+
+
+Not Implemented:
+----------------
+- USB audio
+
+
+
+Hardware Dependency:
+--------------------
+- DMA-capable USB host controller recommended
+- USB 2.0 recommended for uncompressed mode
+- Fast CPU recommended for MJPEG mode
+- Tested on the following:
+
+    Platforms (x86)
+    ---------------
+    CEPC:            1.8GHz Duron, USB 2.0
+    iCOP eBox-2300:  200MHz Vortex86 SoC, USB 1.1
+    
+    Cameras
+    -------
+    Microsoft LifeCam NX-6000 
+    Logitech QuickCam Pro 5000
+
+    NOTE:
+    -----
+    The driver has only been tested on x86, but has no known platform 
+    dependencies.
+
+
+
+Software Dependency:
+--------------------
+- Windows Embedded CE 6.0 
+    - USB support
+    - DirectShow
+
+
+
+SYSGEN Dependencies:
+--------------------
+Needs following SYSGENS set, in addition to any required by your application:
+- SYSGEN_USB
+- SYSGEN_DSHOW_CAPTURE
+- SYSGEN_DSHOW_DMO
+- SYSGEN_DSHOW_VIDREND (SYSGEN_DSHOW_VMR)
+
+The following are only required for jpeg2rgb.dll:
+- SYSGEN_DCOM_STG
+- SYSGEN_IMAGING=1
+- SYSGEN_IMAGING_BMP_DECODE=1
+- SYSGEN_IMAGING_BMP_ENCCODE=1
+- SYSGEN_IMAGING_JPG_ENCCODE=1
+- SYSGEN_IMAGING_JPG_DECODE=1
+
+The following is only required for CameraDshowApp.exe (ships with the
+Windows Embedded CE 6.0 shared source; not included in this download):
+- SYSGEN_DCOM
+
+
+
+
+-----------------------------------------------------------------------------
+PACKAGE CONTENTS
+-----------------------------------------------------------------------------
+
+usbcam        - source for the USB Video Class driver
+mjpegfilter   - source for the MJPEG -> RGB24 DShow Transform Filter
+
+
+
+-----------------------------------------------------------------------------
+BUILD INSTRUCTIONS 
+-----------------------------------------------------------------------------
+
+
+Building the Driver from IDE (Recommended):
+-------------------------------------------
+
+- Verify the source is present in %_WINCEROOT%\Public\ThirdParty\Catalog\USBcam
+
+- Open your OSDesign in PB (if it was already open, refresh the catalog in PB)
+
+- The Usbcam and Mjpegfilter will show up as catalog items under the Third Party
+  folder. Select these catalog items. 
+
+  NOTE: Selecting the catalog items will cause PB to automatically add usbcam
+        and mjpegfilter as subprojects to your OSDesign
+
+- Rebuild your project from the IDE (Build Menu -> Rebuild Solution)
+
+  NOTE: The catalog items automatically pull in the required SYSGEN settings as
+        specified in the "SYSGEN Dependencies" section of this document. Hence
+        a Rebuild of the solution is recommended so that the required components
+        get sysgen'd correctly.
+
+- The built image will now contain the usbcam driver and the mjpeg filter, along
+  with the required components and registry keys.
+
+
+
+Building the Driver from Command Line (Optional):
+-------------------------------------------------
+
+    NOTE: The following assumes you are building from a command-line build  
+    window for a CE 6.0 CEPC BSP. If your platform is different, substitute 
+    your platform name in place of CEPC  
+
+
+- Unzip the archive under %_WINCEROOT%\platform\CEPC\src\drivers\
+- Make sure the new folders are not marked read-only
+- Add usbcam and mjpegfilter to %_WINCEROOT%\platform\CEPC\src\drivers\dirs
+  
+- Add the following to the end of platform.reg :
+    
+    ; @CESYSGEN IF DIRECTX_MODULES_QUARTZ
+    ; @CESYSGEN IF CE_MODULES_USBD
+        ; Camera driver
+        IF BSP_NOCAMERA !
+            #include "$(_TARGETPLATROOT)\src\drivers\usbcam\usbcam.reg"
+            #include "$(_TARGETPLATROOT)\src\drivers\mjpegfilter\jpeg2rgb.reg"
+        ENDIF BSP_NOCAMERA !
+    ; @CESYSGEN ENDIF CE_MODULES_USBD
+    ; @CESYSGEN ENDIF DIRECTX_MODULES_QUARTZ
+
+
+- Add the following to the end of platform.bib:
+
+    ; @CESYSGEN IF DIRECTX_MODULES_QUARTZ
+    ; @CESYSGEN IF CE_MODULES_USBD
+        IF BSP_NOCAMERA !
+            usbcam.dll       $(_FLATRELEASEDIR)\usbcam.dll           NK SHK
+            jpeg2rgb.dll     $(_FLATRELEASEDIR)\jpeg2rgb.dll         NK SH
+        ENDIF BSP_NOCAMERA !
+    ; @CESYSGEN ENDIF CE_MODULES_USBD
+    ; @CESYSGEN ENDIF DIRECTX_MODULES_QUARTZ
+
+    NOTE:
+        usbcam.dll is a kernel-mode driver
+        jpeg2rgb.dll is a user-mode component
+
+- Set the required SYSGEN variables
+- Build the driver, filter, and image. 
+  E.G. from a build window type "blddemo clean cleanplat -q"
+- Verify that usbcam.dll and jpeg2rgb.dll are in the image.  
+  E.G. from a build window type "viewbin -toc %_FLATRELEASEDIR%\nk.bin"
+- Verify the information from usbcam.reg and jpeg2rgb.reg is in the 
+  image (look in %_FLATRELEASEDIR%\reginit.ini)
+
+
+When you attach a camera, usbcam.dll will load and query the camera.
+If the camera complies with the USB Video Class specification, usbcam.dll
+will initialize the camera and query its supported properties and image
+formats.
+
+If the driver does not properly detect your camera, you may need to modify
+USBDeviceAttach() and ParseStreamInterfaces() in usbcode.cpp.
+
+
+-----------------------------------------------------------------------------
+USING / TESTING THE DRIVER
+-----------------------------------------------------------------------------
+
+Make sure you have installed the Windows Embedded CE 6.0 Shared Source.
+An ad-hoc camera test application is available, which uses DShow (and the 
+optional MJPEG filter) to display video.  Source is available at:
+    
+    Wince600\private\test\multimedia\directx\dshow\camera\cameraapp
+
+To run CameraDshowApp:
+
+1) Image should include SYSGEN_SHELL (enables the Platform Builder Target
+   Control Window)
+2) Copy CameraDshowApp.exe to your flat release dir.
+3) Plug in the Camera.  Driver should load and query camera properties/formats.
+4) From the Target Control window, type "s CameraDshowApp"
+5) In the dialog that appears, select CAM1.  If it's missing, driver failed to 
+   recognize your device (or isn't in the image).
+6) Uncheck everything except "VideoCapture" and "VideoRenderer".
+7) Click OK to start video streaming.
+
+
+Also refer to the CETK:
+
+Camera and DirectShow Integration Test: 
+    http://msdn2.microsoft.com/en-us/library/aa935155.aspx
+
+Camera Driver Data Structure Verification Test: 
+    http://msdn2.microsoft.com/en-us/library/aa934069.aspx
+
+Camera Driver I/O Test:
+    http://msdn2.microsoft.com/en-us/library/aa934054.aspx
+
+Camera Performance Test:
+    http://msdn2.microsoft.com/en-us/library/aa934370.aspx
+
+
+
+-----------------------------------------------------------------------------
+KNOWN ISSUES / NOTES
+-----------------------------------------------------------------------------
+
+- The driver resolution is configurable via the registry.  At present,
+  changing the resolution via DShow is unreliable.
+
+- The driver may be configured to support MJPEG, uncompressed, or both.  
+
+  In usbcam.reg, modify one or both of the following lines:
+
+    [HKEY_LOCAL_MACHINE\Drivers\USB\ClientDrivers\Video_Class]
+        "UncompressedSupport"=dword:1
+        "MJPEGSupport"=dword:0
+
+
+  Uncompressed video requires USB 2.0 to be useful (bandwidth-intensive).
+  MJPEG video requires a very fast CPU to be useful (decode-intensive).
+  In both cases, a DMA-capable USB controller is strongly recommended.
+  
+  While the driver can deliver MJPEG at full frame rates, frames
+  may be dropped if the CPU (MJPEG filter) can't keep up.  The current filter
+  code needs optimization.
+   
+  Typical frame rates (measured on a 1.8GHz CEPC w/ USB 2.0 and RageXL graphics):
+    Uncompressed video, 640x480:    30 fps
+    MJPEG video,        640x480:    12 fps (18fps dropped due to slow MJPEG filter)
+
+
+- If taking a still capture while streaming video, still capture will fail 
+  unless the requested resolution is the same as the streaming video resolution.
+
+  
+- In MJPEG mode, the driver prefixes a JPEG header and Huffman segment to each 
+  frame read from the camera.  These frames comform to the JPEG File Interchange 
+  Format; they may be read by any JPEG-aware application or library.  
+  The MJPEG DirectShow filter is one example.  
+  
+  In fact, you should be able to save the frame with a .jpg extension and open 
+  it in an application such as Internet Explorer.
+  
+
+- Usbcam.dll will be loaded for every USB device attached to your system.
+  It queries the device and if it finds a USB Video Camera, takes ownership of it.
+  Otherwise, the driver immediately unloads.
+
+  To restrict the driver to a more narrow range of devices, modify usbcam.reg:
+  
+  [HKEY_LOCAL_MACHINE\Drivers\USB\LoadClients\Default\Default\Default\Video_Class]
+
+    (replace Default\Default\Default with the correct vendor and device IDs for 
+     your camera)
+
+    
+- There are many opportunities for performance optimization in the MJPEG filter.  
+  E.G. reducing data copying.  See CJPEGFilter::Transform()
+
+
+-----------------------------------------------------------------------------
+ADDITIONAL RESOURCES
+-----------------------------------------------------------------------------
+
+In the future, we may post articles and sample code for this project at the
+Windows CE Base Team Blog:
+
+    http://blogs.msdn.com/ce_base/
+

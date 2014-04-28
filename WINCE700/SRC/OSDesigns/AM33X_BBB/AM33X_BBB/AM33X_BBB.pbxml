@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<Workspace Version="7.0" PlatformName="AM33X_BBB" CoreOs="CEBASE" PlatformGuid="44cfbcf8-fdfb-417b-8aaf-2a8abd438129" xmlns="urn:PBCommon-schema">
+  <PBProjectCollection Name="PBProjects" EnforceUniqueItems="True">
+    <PBProject Name="Item" Filename="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" UserAdded="0" />
+    <PBProject Name="Item" Filename="%_winceroot%\3rdparty\sdf\sdf.pbpxml" UserAdded="0" />
+    <PBProject Name="Item" Filename="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" UserAdded="1" />
+  </PBProjectCollection>
+  <FeatureCollection Name="AnchoredFeatures" EnforceUniqueItems="True">
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_shell" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_as_base" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dotnetv35" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_smartdevices_sdk" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_ethernet" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_nledsrv" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_wceload" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_netutils" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_usb_storage" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_eth_usb_host" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_usb_printer" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_usb_hid_clients" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_cachefilt" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_cmd" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_console" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_usb_audio" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_ftpd" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_telnetd" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_fsreghive" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_qvgap" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_iabase" />
+    <Feature Name="Item" CatalogItemId="Item:VE:sdf_sysgen" />
+    <Feature Name="Item" CatalogItemId="Item:VE:vsdebugger_sysgen" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_errors" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_acmwrap" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_capture" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_avi" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_mpegsplitter" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_mpegv" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_mp4demux" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dshow_wmv" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_menu_overlap" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_cursor" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_fsramrom" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_eth_80211_nwifi" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_ie7_iesample" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_jscript" />
+    <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:powerVR:CoreRev125" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_cerdisp" />
+    <Feature Name="Item" CatalogItemId="Item:MS:bsp_display_nop" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_storemgr_cpl" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_usbfn_serial" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_exfat" />
+  </FeatureCollection>
+  <ConfigurationCollection Name="Configurations" EnforceUniqueItems="False">
+    <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Debug" FriendlyName="AM33X_BBB_BSP ARMV7 Debug">
+      <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
+        <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:PowerVR:Support" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdogTimebomb" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+      </FeatureCollection>
+      <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
+      <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
+        <BuildOption Name="Item" OptionId="BuildOption:MS:IMGEBOOT" OptionValue="1" />
+      </BuildOptionCollection>
+      <StringDictionary Name="EnvironmentVariables" />
+      <LocaleInfo Name="LocaleInformation" />
+      <CustomBuildActions Name="CustomBuildActions" />
+      <PBPEntryCollection Name="PBProjectOptions" EnforceUniqueItems="False">
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\sdf\sdf.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" />
+      </PBPEntryCollection>
+      <BoardSupportPackage Name="Bsp" PlatformFolder="AM33X_BBB_BSP" FriendlyName="AM33X_BBB_BSP: ARMV7" />
+      <Cpu Name="Cpu" CpuName="ARMV7" />
+    </Configuration>
+    <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Retail" FriendlyName="AM33X_BBB_BSP ARMV7 Release">
+      <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
+        <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:PowerVR:Support" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdogTimebomb" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+      </FeatureCollection>
+      <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
+      <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
+        <BuildOption Name="Item" OptionId="BuildOption:MS:IMGEBOOT" OptionValue="1" />
+        <BuildOption Name="Item" OptionId="BuildOption:MS:IMGNODEBUGGER" OptionValue="1" />
+        <BuildOption Name="Item" OptionId="BuildOption:MS:IMGNOKITL" OptionValue="1" />
+      </BuildOptionCollection>
+      <StringDictionary Name="EnvironmentVariables">
+        <Entry Name="bsp_xrplugin_opengl">1</Entry>
+        <Entry Name="bsp_save_ebootcfg_to_sd">1</Entry>
+      </StringDictionary>
+      <LocaleInfo Name="LocaleInformation" />
+      <CustomBuildActions Name="CustomBuildActions" />
+      <PBPEntryCollection Name="PBProjectOptions" EnforceUniqueItems="False">
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\sdf\sdf.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" />
+      </PBPEntryCollection>
+      <BoardSupportPackage Name="Bsp" PlatformFolder="AM33X_BBB_BSP" FriendlyName="AM33X_BBB_BSP: ARMV7" />
+      <Cpu Name="Cpu" CpuName="ARMV7" />
+    </Configuration>
+    <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Checked" FriendlyName="AM33X_BBB_BSP ARMV7 Checked">
+      <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
+        <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:PowerVR:Support" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdogTimebomb" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+      </FeatureCollection>
+      <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
+      <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
+        <BuildOption Name="Item" OptionId="BuildOption:MS:IMGEBOOT" OptionValue="1" />
+      </BuildOptionCollection>
+      <StringDictionary Name="EnvironmentVariables" />
+      <LocaleInfo Name="LocaleInformation" />
+      <CustomBuildActions Name="CustomBuildActions" />
+      <PBPEntryCollection Name="PBProjectOptions" EnforceUniqueItems="False">
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\sdf\sdf.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" />
+      </PBPEntryCollection>
+      <BoardSupportPackage Name="Bsp" PlatformFolder="AM33X_BBB_BSP" FriendlyName="AM33X_BBB_BSP: ARMV7" />
+      <Cpu Name="Cpu" CpuName="ARMV7" />
+    </Configuration>
+  </ConfigurationCollection>
+  <SdkCollection Name="SDKs">
+    <Sdk Name="Item" Filename="%pbworkspaceroot%\SDKs\SDK1\SDK1.sdkcfg" />
+  </SdkCollection>
+</Workspace>

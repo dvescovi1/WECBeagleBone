@@ -1,0 +1,4 @@
+[HKEY_LOCAL_MACHINE\init]
+	"Launch81"="autolaunch.exe"
+;	"Depend81"=hex:14,00,1E,00
+	"Depend81"=hex:32,00

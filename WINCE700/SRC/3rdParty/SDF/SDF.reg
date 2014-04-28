@@ -1,0 +1,42 @@
+[HKEY_LOCAL_MACHINE\SOFTWARE\OpenNETCF]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\OpenNETCF\SmartDeviceFramework]
+"2.3.0.39"=dword:1
+"Version"=multi_sz:"2.3.0.39"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETCompactFramework\Installer\Assemblies\Global]
+ "OpenNETCF.AppSettings, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.AppSettings_v2_3_0_39_cneutral_1.dll","OpenNETCF.AppSettings.dll"
+ "OpenNETCF.Configuration, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Configuration_v2_3_0_39_cneutral_1.dll","OpenNETCF.Configuration.dll"
+ "OpenNETCF.Core, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Core_v2_3_0_39_cneutral_1.dll","OpenNETCF.Core.dll"
+ "OpenNETCF.Data, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Data_v2_3_0_39_cneutral_1.dll","OpenNETCF.Data.dll"
+ "OpenNETCF, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF_v2_3_0_39_cneutral_1.dll","OpenNETCF.dll"
+ "OpenNETCF.Drawing, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Drawing_v2_3_0_39_cneutral_1.dll","OpenNETCF.Drawing.dll"
+ "OpenNETCF.Net, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Net_v2_3_0_39_cneutral_1.dll","OpenNETCF.Net.dll"
+ "OpenNETCF.Net.Mail, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Net.Mail_v2_3_0_39_cneutral_1.dll","OpenNETCF.Net.Mail.dll"
+ "OpenNETCF.Phone, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Phone_v2_3_0_39_cneutral_1.dll","OpenNETCF.Phone.dll"
+ "OpenNETCF.Rss, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Rss_v2_3_0_39_cneutral_1.dll","OpenNETCF.Rss.dll"
+ "OpenNETCF.VisualBasic, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.VisualBasic_v2_3_0_39_cneutral_1.dll","OpenNETCF.VisualBasic.dll"
+ "OpenNETCF.Windows.Forms, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsForms_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsForms.dll"
+ "OpenNETCF.WindowsCE, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsCE_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsCE.dll"
+ "OpenNETCF.WindowsCE.Messaging, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsCE.Messaging_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsCE.Messaging.dll"
+ "OpenNETCF.WindowsCE.Services, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsCE.Services_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsCE.Services.dll"
+ "OpenNETCF.WindowsMobile, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsMobile_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowMobile.dll"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETCompactFramework\Installer\Assemblies\ROM]
+ "OpenNETCF.AppSettings, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.AppSettings_v2_3_0_39_cneutral_1.dll","OpenNETCF.AppSettings.dll"
+ "OpenNETCF.Configuration, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Configuration_v2_3_0_39_cneutral_1.dll","OpenNETCF.Configuration.dll"
+ "OpenNETCF.Core, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Core_v2_3_0_39_cneutral_1.dll","OpenNETCF.Core.dll"
+ "OpenNETCF.Data, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Data_v2_3_0_39_cneutral_1.dll","OpenNETCF.Data.dll"
+ "OpenNETCF, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF_v2_3_0_39_cneutral_1.dll","OpenNETCF.dll"
+ "OpenNETCF.Drawing, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Drawing_v2_3_0_39_cneutral_1.dll","OpenNETCF.Drawing.dll"
+ "OpenNETCF.Net, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Net_v2_3_0_39_cneutral_1.dll","OpenNETCF.Net.dll"
+ "OpenNETCF.Net.Mail, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Net.Mail_v2_3_0_39_cneutral_1.dll","OpenNETCF.Net.Mail.dll"
+ "OpenNETCF.Phone, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Phone_v2_3_0_39_cneutral_1.dll","OpenNETCF.Phone.dll"
+ "OpenNETCF.Rss, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.Rss_v2_3_0_39_cneutral_1.dll","OpenNETCF.Rss.dll"
+ "OpenNETCF.VisualBasic, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.VisualBasic_v2_3_0_39_cneutral_1.dll","OpenNETCF.VisualBasic.dll"
+ "OpenNETCF.Windows.Forms, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsForms_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsForms.dll"
+ "OpenNETCF.WindowsCE, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsCE_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsCE.dll"
+ "OpenNETCF.WindowsCE.Messaging, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsCE.Messaging_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsCE.Messaging.dll"
+ "OpenNETCF.WindowsCE.Services, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsCE.Services_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowsCE.Services.dll"
+ "OpenNETCF.WindowsMobile, Version=2.3.0.39, Culture=neutral, PublicKeyToken=E60DBEA84BB431B7"=multi_sz:"\\windows\\GAC_OpenNETCF.WindowsMobile_v2_3_0_39_cneutral_1.dll","OpenNETCF.WindowMobile.dll"
+

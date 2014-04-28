@@ -1,0 +1,742 @@
+ sgx_render_flip_test
+
+ Timestamp is 4f20c6af (Wed Jan 25 22:21:19 2012)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000004H .CRT$XCA                CODE
+ 0001:00000004 00000004H .CRT$XCZ                CODE
+ 0001:00000008 00000004H .CRT$XIA                CODE
+ 0001:0000000c 00000004H .CRT$XIZ                CODE
+ 0001:00000010 00000004H .CRT$XPA                CODE
+ 0001:00000014 00000004H .CRT$XPZ                CODE
+ 0001:00000018 00000004H .CRT$XTA                CODE
+ 0001:0000001c 00000004H .CRT$XTZ                CODE
+ 0001:00000020 000090f4H .rdata                  CODE
+ 0001:00009114 00000031H .rdata$debug            CODE
+ 0001:00009148 00008df4H .text                   CODE
+ 0001:00011f3c 00000028H .xdata                  CODE
+ 0001:00011f64 00000028H .idata$2                CODE
+ 0001:00011f8c 00000014H .idata$3                CODE
+ 0001:00011fa0 000001a4H .idata$4                CODE
+ 0001:00012144 000002daH .idata$6                CODE
+ 0001:0001241e 00000000H .edata                  CODE
+ 0002:00000000 000001a4H .idata$5                DATA
+ 0002:000001a4 0000001cH .data                   DATA
+ 0002:000001c0 000000f0H .bss                    DATA
+ 0003:00000000 00000200H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       ___safe_se_handler_table   00000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0001:00000000       __xc_a                     00011000     corelib0:crt0init.obj
+ 0001:00000004       __xc_z                     00011004     corelib0:crt0init.obj
+ 0001:00000008       __xi_a                     00011008     corelib0:crt0init.obj
+ 0001:0000000c       __xi_z                     0001100c     corelib0:crt0init.obj
+ 0001:00000010       __xp_a                     00011010     corelib0:crt0init.obj
+ 0001:00000014       __xp_z                     00011014     corelib0:crt0init.obj
+ 0001:00000018       __xt_a                     00011018     corelib0:crt0init.obj
+ 0001:0000001c       __xt_z                     0001101c     corelib0:crt0init.obj
+ 0001:0000003c       ??_C@_0BL@DILHFPFH@Output?52x?5oversampled?5msaa?$AA@ 0001103c     sgx_render_flip_test.obj
+ 0001:00000058       ??_C@_07NPICLLJ@?92xmsaa?$AA@ 00011058     sgx_render_flip_test.obj
+ 0001:00000060       ??_C@_0CB@CBBDDIJA@Max?5Parameter?5Buffer?5size?5in?5KiB@ 00011060     sgx_render_flip_test.obj
+ 0001:00000084       ??_C@_06EDJGCMAG@?9pbmax?$AA@ 00011084     sgx_render_flip_test.obj
+ 0001:0000008c       ??_C@_0DE@GKBLGHEL@Perform?5Extended?5Data?5Breakpoint@ 0001108c     sgx_render_flip_test.obj
+ 0001:000000c0       ??_C@_03LEEOLHFH@?$HLf?$HN?$AA@ 000110c0     sgx_render_flip_test.obj
+ 0001:000000c4       ??_C@_05HEPFLGGF@?9edbp?$AA@ 000110c4     sgx_render_flip_test.obj
+ 0001:000000cc       ??_C@_0BI@OJPMJPIK@Read?5mem?5in?5microkernel?$AA@ 000110cc     sgx_render_flip_test.obj
+ 0001:000000e4       ??_C@_03LMFPONE@?9rm?$AA@  000110e4     sgx_render_flip_test.obj
+ 0001:000000e8       ??_C@_0P@NCGIOKND@No?5Sync?5Object?$AA@ 000110e8     sgx_render_flip_test.obj
+ 0001:000000f8       ??_C@_03MKLIJLBP@?9ns?$AA@ 000110f8     sgx_render_flip_test.obj
+ 0001:000000fc       ??_C@_0BI@CLOENPIA@Render?5Context?5Priority?$AA@ 000110fc     sgx_render_flip_test.obj
+ 0001:00000114       ??_C@_04KEBEIHMP@?9rcp?$AA@ 00011114     sgx_render_flip_test.obj
+ 0001:0000011c       ??_C@_04CKDBHHCG@?9opr?$AA@ 0001111c     sgx_render_flip_test.obj
+ 0001:00000124       ??_C@_0N@LANNGDHD@Verbose?5mode?$AA@ 00011124     sgx_render_flip_test.obj
+ 0001:00000134       ??_C@_02EJEOCNCO@?9v?$AA@  00011134     sgx_render_flip_test.obj
+ 0001:00000138       ??_C@_04JOJJAPOM@?9dsa?$AA@ 00011138     sgx_render_flip_test.obj
+ 0001:00000140       ??_C@_04JMNPLBLF@?9dpa?$AA@ 00011140     sgx_render_flip_test.obj
+ 0001:00000148       ??_C@_04FCENKEHA@?9gmi?$AA@ 00011148     sgx_render_flip_test.obj
+ 0001:00000150       ??_C@_0CL@IDDKBOOL@Dump?5SGX?5debug?5info?5to?5kernel?5lo@ 00011150     sgx_render_flip_test.obj
+ 0001:0000017c       ??_C@_03MCKMJKFP@?9dd?$AA@ 0001117c     sgx_render_flip_test.obj
+ 0001:00000180       ??_C@_03INCBJOIL@?9ct?$AA@ 00011180     sgx_render_flip_test.obj
+ 0001:00000184       ??_C@_03JEPGDNNJ@?9db?$AA@ 00011184     sgx_render_flip_test.obj
+ 0001:00000188       ??_C@_0CB@HGCMELHJ@Frequency?5of?5frame?5number?5output@ 00011188     sgx_render_flip_test.obj
+ 0001:000001ac       ??_C@_03OJPDENCI@?9sf?$AA@ 000111ac     sgx_render_flip_test.obj
+ 0001:000001b0       ??_C@_04KGOMCPDB@?9rpf?$AA@ 000111b0     sgx_render_flip_test.obj
+ 0001:000001b8       ??_C@_05COJKCGOF@?9pshr?$AA@ 000111b8     sgx_render_flip_test.obj
+ 0001:000001c0       ??_C@_04DAHOMCCH@?9phr?$AA@ 000111c0     sgx_render_flip_test.obj
+ 0001:000001c8       ??_C@_0CM@MJKCIIIE@Slow?5down?5factor?5for?53D?5hardware@ 000111c8     sgx_render_flip_test.obj
+ 0001:000001f4       ??_C@_04MCLDOKOJ@?9sd3?$AA@ 000111f4     sgx_render_flip_test.obj
+ 0001:000001fc       ??_C@_0CM@PDLNPCEC@Slow?5down?5factor?5for?5TA?5hardware@ 000111fc     sgx_render_flip_test.obj
+ 0001:00000228       ??_C@_04HNILDDCL@?9sdt?$AA@ 00011228     sgx_render_flip_test.obj
+ 0001:00000230       ??_C@_03PPELMDFC@?9mf?$AA@ 00011230     sgx_render_flip_test.obj
+ 0001:00000234       ??_C@_0CI@CAFEKBAA@Grid?5position?5to?5determine?5bound@ 00011234     sgx_render_flip_test.obj
+ 0001:0000025c       ??_C@_03OOEEPDFD@?9gp?$AA@ 0001125c     sgx_render_flip_test.obj
+ 0001:00000260       ??_C@_0CE@LBGOKMKP@Grid?5size?5to?5determine?5bounding?5@ 00011260     sgx_render_flip_test.obj
+ 0001:00000284       ??_C@_03MFGJKAJA@?9gs?$AA@ 00011284     sgx_render_flip_test.obj
+ 0001:00000288       ??_C@_0CE@CPFGKJII@Multithreaded?5with?5grid?5size?5?$CIx?0@ 00011288     sgx_render_flip_test.obj
+ 0001:000002ac       ??_C@_07LPJCHBPO@?$HLx?$HN?5?$HLy?$HN?$AA@ 000112ac     sgx_render_flip_test.obj
+ 0001:000002b4       ??_C@_03IHLPLDIB@?9mt?$AA@ 000112b4     sgx_render_flip_test.obj
+ 0001:000002b8       ??_C@_0BM@OGGOLKGL@Use?5present?5blit?5?$CIsoftware?$CJ?$AA@ 000112b8     sgx_render_flip_test.obj
+ 0001:000002d4       ??_C@_03MDKCGCHL@?9bs?$AA@ 000112d4     sgx_render_flip_test.obj
+ 0001:000002d8       ??_C@_0BL@EMDAHIMJ@Use?5present?5blit?5?$CI2D?5core?$CJ?$AA@ 000112d8     sgx_render_flip_test.obj
+ 0001:000002f4       ??_C@_03CKMABMDP@?9b2?$AA@ 000112f4     sgx_render_flip_test.obj
+ 0001:000002f8       ??_C@_0BB@NOOLFKLF@Use?5present?5blit?$AA@ 000112f8     sgx_render_flip_test.obj
+ 0001:0000030c       ??_C@_02GHOAPKHL@?9b?$AA@  0001130c     sgx_render_flip_test.obj
+ 0001:00000310       ??_C@_03NDKDKKFO@?9nr?$AA@ 00011310     sgx_render_flip_test.obj
+ 0001:00000314       ??_C@_03IFPJANNI@?9nt?$AA@ 00011314     sgx_render_flip_test.obj
+ 0001:00000318       ??_C@_0M@LLDBDGHB@No?5flipping?$AA@ 00011318     sgx_render_flip_test.obj
+ 0001:00000324       ??_C@_01GPOEFGEJ@?7?$AA@   00011324     sgx_render_flip_test.obj
+ 0001:00000328       ??_C@_03PNANHNAL@?9nf?$AA@ 00011328     sgx_render_flip_test.obj
+ 0001:0000032c       ??_C@_03IAHKIJEO@?9nc?$AA@ 0001132c     sgx_render_flip_test.obj
+ 0001:00000330       ??_C@_03KONEFOBL@?9nw?$AA@ 00011330     sgx_render_flip_test.obj
+ 0001:00000334       ??_C@_04BMDBLOGJ@?9mtk?$AA@ 00011334     sgx_render_flip_test.obj
+ 0001:0000033c       ??_C@_04LCKJFJBK@?9hwr?$AA@ 0001133c     sgx_render_flip_test.obj
+ 0001:00000344       ??_C@_04HHAMBNME@?9neo?$AA@ 00011344     sgx_render_flip_test.obj
+ 0001:0000034c       ??_C@_0CH@EHPOEMFN@Number?5of?5frames?5per?5triangle?5ro@ 0001134c     sgx_render_flip_test.obj
+ 0001:00000374       ??_C@_04FHDJDIKM@?9fpr?$AA@ 00011374     sgx_render_flip_test.obj
+ 0001:0000037c       ??_C@_03JJGBLIAP@?9nb?$AA@ 0001137c     sgx_render_flip_test.obj
+ 0001:00000380       ??_C@_0BC@LNCJCNIG@Background?5colour?$AA@ 00011380     sgx_render_flip_test.obj
+ 0001:00000394       ??_C@_03IJGAHACK@?9bc?$AA@ 00011394     sgx_render_flip_test.obj
+ 0001:00000398       ??_C@_0DG@HCMGKOPA@Triangle?5Vertex?5Colour?53?5?$CIcolour@ 00011398     sgx_render_flip_test.obj
+ 0001:000003d0       ??_C@_04PACCAMFO@?9vc3?$AA@ 000113d0     sgx_render_flip_test.obj
+ 0001:000003d8       ??_C@_0DF@NNHJAIOK@Triangle?5Vertex?5Colour?52?5?$CIcolour@ 000113d8     sgx_render_flip_test.obj
+ 0001:00000410       ??_C@_03LCIFHFLM@?$HLc?$HN?$AA@ 00011410     sgx_render_flip_test.obj
+ 0001:00000414       ??_C@_04OJDJDNBP@?9vc2?$AA@ 00011414     sgx_render_flip_test.obj
+ 0001:0000041c       ??_C@_0BH@DIDCOEKL@Triangle?5Vertex?5Colour?$AA@ 0001141c     sgx_render_flip_test.obj
+ 0001:00000434       ??_C@_04BDKHMBJL@?$HLc?$HN?7?$AA@ 00011434     sgx_render_flip_test.obj
+ 0001:0000043c       ??_C@_03JCEPHLIG@?9vc?$AA@ 0001143c     sgx_render_flip_test.obj
+ 0001:00000440       ??_C@_0DF@KOOKLFKG@Number?5of?5Triangles?5per?5frame?52?5@ 00011440     sgx_render_flip_test.obj
+ 0001:00000478       ??_C@_05DDEIENME@?9tpf2?$AA@ 00011478     sgx_render_flip_test.obj
+ 0001:00000480       ??_C@_0BO@CAPDADMG@Number?5of?5Triangles?5per?5frame?$AA@ 00011480     sgx_render_flip_test.obj
+ 0001:000004a0       ??_C@_04IDIHHAON@?9tpf?$AA@ 000114a0     sgx_render_flip_test.obj
+ 0001:000004a8       ??_C@_0P@IBJMDFC@Triangle?5Style?$AA@ 000114a8     sgx_render_flip_test.obj
+ 0001:000004b8       ??_C@_03NLAJLNLJ@?9ts?$AA@ 000114b8     sgx_render_flip_test.obj
+ 0001:000004bc       ??_C@_0CA@KDDMHPJK@Message?5to?5display?5when?5pausing?$AA@ 000114bc     sgx_render_flip_test.obj
+ 0001:000004dc       ??_C@_04EDLOJGAE@?$HLs?$HN?7?$AA@ 000114dc     sgx_render_flip_test.obj
+ 0001:000004e4       ??_C@_03IEBCKLK@?9pm?$AA@  000114e4     sgx_render_flip_test.obj
+ 0001:000004e8       ??_C@_0CH@GPAABPOI@Pause?5?$CIwait?5for?5user?$CJ?5every?5?8n?8?5@ 000114e8     sgx_render_flip_test.obj
+ 0001:00000510       ??_C@_02BPBEIKKI@?9p?$AA@  00011510     sgx_render_flip_test.obj
+ 0001:00000514       ??_C@_0BM@MDILPIHJ@Prefix?5for?5Bitmap?5file?5name?$AA@ 00011514     sgx_render_flip_test.obj
+ 0001:00000530       ??_C@_03KOKDNGMM@?$HLs?$HN?$AA@ 00011530     sgx_render_flip_test.obj
+ 0001:00000534       ??_C@_05HADOGNDO@?9bmpn?$AA@ 00011534     sgx_render_flip_test.obj
+ 0001:0000053c       ??_C@_0BN@DMBIAPHB@Dump?5bitmap?5every?5?8n?8?5frames?$AA@ 0001153c     sgx_render_flip_test.obj
+ 0001:0000055c       ??_C@_04POJDPNFK@?9bmp?$AA@ 0001155c     sgx_render_flip_test.obj
+ 0001:00000564       ??_C@_0CN@GCCHICGB@Serialise?5?$CIwait?5for?5render?$CJ?5ever@ 00011564     sgx_render_flip_test.obj
+ 0001:00000594       ??_C@_03LKFNOGOP@?$HLn?$HN?$AA@ 00011594     sgx_render_flip_test.obj
+ 0001:00000598       ??_C@_04CKBDPOJK@?9ser?$AA@ 00011598     sgx_render_flip_test.obj
+ 0001:000005a0       ??_C@_04OHKKDBIB@?9us2?$AA@ 000115a0     sgx_render_flip_test.obj
+ 0001:000005a8       ??_C@_03NKMLNHIO@?9us?$AA@ 000115a8     sgx_render_flip_test.obj
+ 0001:000005ac       ??_C@_0BN@LCBNOMHF@Sleep?5between?5TA?5kicks?5in?5ms?$AA@ 000115ac     sgx_render_flip_test.obj
+ 0001:000005cc       ??_C@_03MMHDFJPE@?9ks?$AA@ 000115cc     sgx_render_flip_test.obj
+ 0001:000005d0       ??_C@_0BM@DEHLBJOE@Sleep?5between?5renders?5in?5ms?$AA@ 000115d0     sgx_render_flip_test.obj
+ 0001:000005ec       ??_C@_04NOGJKOLN@?$HLt?$HN?7?$AA@ 000115ec     sgx_render_flip_test.obj
+ 0001:000005f4       ??_C@_02DEDJNJGL@?9s?$AA@  000115f4     sgx_render_flip_test.obj
+ 0001:000005f8       ??_C@_0BN@MOCIGDHE@Parameter?5Buffer?5size?5in?5KiB?$AA@ 000115f8     sgx_render_flip_test.obj
+ 0001:00000618       ??_C@_03IPNJDGHF@?9pb?$AA@ 00011618     sgx_render_flip_test.obj
+ 0001:0000061c       ??_C@_0BG@LDGJAOMH@Starting?5frame?5number?$AA@ 0001161c     sgx_render_flip_test.obj
+ 0001:00000634       ??_C@_03MEKLMKKH@?9fs?$AA@ 00011634     sgx_render_flip_test.obj
+ 0001:00000638       ??_C@_0CB@NKMBLHFN@Total?5number?5of?5frames?5to?5render@ 00011638     sgx_render_flip_test.obj
+ 0001:0000065c       ??_C@_02DIMDPHP@?9f?$AA@   0001165c     sgx_render_flip_test.obj
+ 0001:00000660       ??_C@_0BN@GFAMLLDC@Swap?5interval?5for?5flip?5chain?$AA@ 00011660     sgx_render_flip_test.obj
+ 0001:00000680       ??_C@_04OBMNBJEG@?$HLn?$HN?7?$AA@ 00011680     sgx_render_flip_test.obj
+ 0001:00000688       ??_C@_03GOGLFBOH@?9si?$AA@ 00011688     sgx_render_flip_test.obj
+ 0001:000008f8       SRFT_RED                   000118f8     sgx_render_flip_test.obj
+ 0001:00000904       SRFT_GREEN                 00011904     sgx_render_flip_test.obj
+ 0001:00000910       SRFT_CYAN                  00011910     sgx_render_flip_test.obj
+ 0001:0000091c       SRFT_MAGENTA               0001191c     sgx_render_flip_test.obj
+ 0001:00000928       SRFT_YELLOW                00011928     sgx_render_flip_test.obj
+ 0001:00000934       SRFT_BROWN                 00011934     sgx_render_flip_test.obj
+ 0001:00000940       SRFT_WHITE                 00011940     sgx_render_flip_test.obj
+ 0001:00000ce0       ??_C@_0EC@CDOFALJA@Data?5Breakpoints?5not?5supported?5f@ 00011ce0     sgx_render_flip_test.obj
+ 0001:00000d28       ??_C@_0EI@PKKGJCCI@RegisterBreakpoint?$CI?4?4?4?0?5?$CFd?0?5?$CC?$CFs?$CC@ 00011d28     sgx_render_flip_test.obj
+ 0001:00000d70       ??_C@_0DK@DPMNPJFM@ERROR?3?5edbp?3?5error?5in?5config?5fil@ 00011d70     sgx_render_flip_test.obj
+ 0001:00000dac       ??_C@_08EIHPEPKG@dontcare?$AA@ 00011dac     sgx_render_flip_test.obj
+ 0001:00000db8       ??_C@_05MBBHJILD@unhit?$AA@ 00011db8     sgx_render_flip_test.obj
+ 0001:00000dc0       ??_C@_03CMHMLDFC@hit?$AA@  00011dc0     sgx_render_flip_test.obj
+ 0001:00000dc4       ??_C@_0DK@DBPBMJE@ERROR?3?5edbp?3?5error?5in?5config?5fil@ 00011dc4     sgx_render_flip_test.obj
+ 0001:00000e00       ??_C@_09DOMKHCF@readwrite?$AA@ 00011e00     sgx_render_flip_test.obj
+ 0001:00000e0c       ??_C@_02DHLFHFOC@rw?$AA@   00011e0c     sgx_render_flip_test.obj
+ 0001:00000e10       ??_C@_05NGFEDHGN@write?$AA@ 00011e10     sgx_render_flip_test.obj
+ 0001:00000e18       ??_C@_01NOFIACDB@w?$AA@    00011e18     sgx_render_flip_test.obj
+ 0001:00000e1c       ??_C@_04POLDLDMI@read?$AA@ 00011e1c     sgx_render_flip_test.obj
+ 0001:00000e24       ??_C@_01KDCPPGHE@r?$AA@    00011e24     sgx_render_flip_test.obj
+ 0001:00000e28       ??_C@_0DI@HFGDPCAG@ERROR?3?5edbp?3?5error?5in?5config?5fil@ 00011e28     sgx_render_flip_test.obj
+ 0001:00000e60       ??_C@_09NFJBOGMP@untrapped?$AA@ 00011e60     sgx_render_flip_test.obj
+ 0001:00000e6c       ??_C@_01OMGOGALD@u?$AA@    00011e6c     sgx_render_flip_test.obj
+ 0001:00000e70       ??_C@_07NHPIEFDK@trapped?$AA@ 00011e70     sgx_render_flip_test.obj
+ 0001:00000e78       ??_C@_01PFHFFBPC@t?$AA@    00011e78     sgx_render_flip_test.obj
+ 0001:00000e7c       ??_C@_0DE@OKACDBGI@WARNING?3?5edbp?3?5error?5in?5config?5f@ 00011e7c     sgx_render_flip_test.obj
+ 0001:00000eb0       ??_C@_02OJDBNLEE@?5?7?$AA@ 00011eb0     sgx_render_flip_test.obj
+ 0001:00000eb4       ??_C@_04HHCDBDLF@?5?7?$AN?6?$AA@ 00011eb4     sgx_render_flip_test.obj
+ 0001:00000ebc       ??_C@_02BMJICGCB@rt?$AA@   00011ebc     sgx_render_flip_test.obj
+ 0001:00000ec0       ??_C@_04HGGBINEM@?$CFs?$CFd?$AA@ 00011ec0     sgx_render_flip_test.obj
+ 0001:00000ec8       ??_C@_0L@DJKBMPNM@?$CFs?$CFd?4?$CFd?4?$CFd?$AA@ 00011ec8     sgx_render_flip_test.obj
+ 0001:00000ed4       ??_C@_0BP@FMEFPDIA@WARNING?3?5No?5valid?5breakpoints?6?$AA@ 00011ed4     sgx_render_flip_test.obj
+ 0001:00000ef4       ??_C@_0DI@CAAFICMA@ERROR?3?5?$CFu?5breakpoints?5were?5in?5er@ 00011ef4     sgx_render_flip_test.obj
+ 0001:00000f30       ??_C@_0EH@CLCEBPBF@ERROR?3?5Some?5breakpoints?5did?5not?5@ 00011f30     sgx_render_flip_test.obj
+ 0001:00000f78       ??_C@_0CN@KJIAJPJC@WARNING?3?5Not?5all?5breakpoints?5wer@ 00011f78     sgx_render_flip_test.obj
+ 0001:00000fa8       ??_C@_0CC@LFOLDILF@ERROR?3?5Breakpoint?5?$CFd?5is?5in?5error@ 00011fa8     sgx_render_flip_test.obj
+ 0001:00000fcc       ??_C@_0DM@BPPEJGBM@ERROR?3?5Breakpoint?5?$CFd?5was?5not?5hit@ 00011fcc     sgx_render_flip_test.obj
+ 0001:00001008       ??_C@_0DM@DFKNANNK@ERROR?3?5Breakpoint?5?$CFd?5was?5hit?5but@ 00012008     sgx_render_flip_test.obj
+ 0001:00001048       ??_C@_0EJ@MDAKAKEG@WARNING?3?5Breakpoint?5?$CFd?5was?5not?5i@ 00012048     sgx_render_flip_test.obj
+ 0001:00001094       ??_C@_0BA@GHGHGFGN@Primary?5Surface?$AA@ 00012094     sgx_render_flip_test.obj
+ 0001:000010a4       ??_C@_0M@PMHHPIHO@Swap?5Buffer?$AA@ 000120a4     sgx_render_flip_test.obj
+ 0001:000010b0       ??_C@_0M@MIFEGCGI@Back?5buffer?$AA@ 000120b0     sgx_render_flip_test.obj
+ 0001:000010bc       ??_C@_0CE@FOADKLNF@waiting?5for?5renders?5to?5complete?4@ 000120bc     sgx_render_flip_test.obj
+ 0001:000010e0       __real@3fe0000000000000    000120e0     sgx_render_flip_test.obj
+ 0001:000010e8       __real@00000000            000120e8     sgx_render_flip_test.obj
+ 0001:000010ec       __real@3f800000            000120ec     sgx_render_flip_test.obj
+ 0001:000010f0       __real@3f000000            000120f0     sgx_render_flip_test.obj
+ 0001:000010f4       ??_C@_0BI@DFPECFLO@0x?$CFx?3?5EOT?5USSE?5Program?6?$AA@ 000120f4     sgx_render_flip_test.obj
+ 0001:0000110c       ??_C@_0BI@GGGFEMFK@0x?$CFx?3?5EOR?5USSE?5Program?6?$AA@ 0001210c     sgx_render_flip_test.obj
+ 0001:00001124       ??_C@_0BK@OAJAPNOO@0x?$CFx?3?5PTOFF?5USSE?5Program?6?$AA@ 00012124     sgx_render_flip_test.obj
+ 0001:00001140       ??_C@_0CA@HMLHFIKP@0x?$CFx?3?5Pixel?5Event?5PDS?5Program?6?6?$AA@ 00012140     sgx_render_flip_test.obj
+ 0001:00001160       __real@1e3ce508            00012160     sgx_render_flip_test.obj
+ 0001:00001164       ??_C@_0CD@HPOJECIP@0x?$CFx?3?5Secondary?5PDS?5Pixel?5Progra@ 00012164     sgx_render_flip_test.obj
+ 0001:00001188       ??_C@_0CE@KDPOLCEC@0x?$CFx?3?5Secondary?5USSE?5Pixel?5Progr@ 00012188     sgx_render_flip_test.obj
+ 0001:000011ac       ??_C@_0BM@HPPICNDA@0x?$CFx?3?5?$CFs?5Pixel?5PDS?5Program?6?$AA@ 000121ac     sgx_render_flip_test.obj
+ 0001:000011c8       ??_C@_0BN@ENBHINNJ@0x?$CFx?3?5?$CFs?5Pixel?5USSE?5Program?6?$AA@ 000121c8     sgx_render_flip_test.obj
+ 0001:000011e8       __real@3727c5ac            000121e8     sgx_render_flip_test.obj
+ 0001:000011ec       ??_C@_0CD@MBMONMBO@?60x?$CFx?3?5MTE?5state?5copy?5PDS?5Progra@ 000121ec     sgx_render_flip_test.obj
+ 0001:00001210       ??_C@_0CD@HDABENEA@0x?$CFx?3?5MTE?5state?5copy?5USSE?5Progra@ 00012210     sgx_render_flip_test.obj
+ 0001:00001234       __real@40000000            00012234     sgx_render_flip_test.obj
+ 0001:00001238       __real@40490fdb            00012238     sgx_render_flip_test.obj
+ 0001:0000123c       __real@0000000000000000    0001223c     sgx_render_flip_test.obj
+ 0001:00001244       __real@40060a92            00012244     sgx_render_flip_test.obj
+ 0001:00001248       __real@40400000            00012248     sgx_render_flip_test.obj
+ 0001:0000124c       __real@40c90fdb            0001224c     sgx_render_flip_test.obj
+ 0001:00001250       ??_C@_0CC@BPOLPICI@ERROR?3?5Unknown?5triangle?5style?5?$CFu@ 00012250     sgx_render_flip_test.obj
+ 0001:00001274       ??_C@_0CB@GKIMPAAE@0x?$CFx?3?5Vertex?5shader?5PDS?5Program?6@ 00012274     sgx_render_flip_test.obj
+ 0001:00001298       ??_C@_0CC@GMLGANLB@0x?$CFx?3?5Vertex?5shader?5USSE?5Program@ 00012298     sgx_render_flip_test.obj
+ 0001:000012bc       ??_C@_0BN@MOMPFPKD@0x?$CFx?3?5Terminate?5PDS?5Program?6?$AA@ 000122bc     sgx_render_flip_test.obj
+ 0001:000012dc       ??_C@_0BP@OBMKONIJ@0x?$CFx?3?5Terminate?5USSE?5Program?6?6?$AA@ 000122dc     sgx_render_flip_test.obj
+ 0001:000012fc       ??_C@_0BH@ILHJINLL@Setting?5pdump?5frame?3?$CFu?$AA@ 000122fc     sgx_render_flip_test.obj
+ 0001:00001314       ??_C@_0BE@KNINDNCN@Triangle?5number?5?$CFu?6?$AA@ 00012314     sgx_render_flip_test.obj
+ 0001:00001328       ??_C@_0BI@ODEAOHCE@Blit?5Src?30x?$CFx?5Dst?30x?$CFx?6?$AA@ 00012328     sgx_render_flip_test.obj
+ 0001:00001340       ??_C@_0DL@HLADILKB@Adding?5render?5target?5via?5SGXAddR@ 00012340     sgx_render_flip_test.obj
+ 0001:0000137c       ??_C@_0BN@JIFFMDCC@?$CFsMean?5time?5per?5frame?3?5?$CFuus?6?$AA@ 0001237c     sgx_render_flip_test.obj
+ 0001:0000139c       ??_C@_01EEMJAFIK@?6?$AA@   0001239c     sgx_render_flip_test.obj
+ 0001:000013a0       ??_C@_0BE@DDCOKNGL@?$CFsTotal?5time?3?5?$CFums?6?$AA@ 000123a0     sgx_render_flip_test.obj
+ 0001:000013b4       ??_C@_0CC@FHJCCNNC@Attempt?5to?5remove?5render?5target?3@ 000123b4     sgx_render_flip_test.obj
+ 0001:000013d8       ??_C@_0M@JJDPLPHC@Final?5flush?$AA@ 000123d8     sgx_render_flip_test.obj
+ 0001:000013e4       ??_C@_03OFAPEBGM@?$CFs?6?$AA@ 000123e4     sgx_render_flip_test.obj
+ 0001:000013e8       ??_C@_08NMAPBDDP@Triangle?$AA@ 000123e8     sgx_render_flip_test.obj
+ 0001:000013f4       ??_C@_0BC@GIBLDJKM@Background?5object?$AA@ 000123f4     sgx_render_flip_test.obj
+ 0001:00001408       ??_C@_0BG@NALLABNO@Render?5Address?3?50x?$CFx?6?$AA@ 00012408     sgx_render_flip_test.obj
+ 0001:00001420       ??_C@_0BD@DLBANMDI@?$CFsFrame?5number?5?$CFu?6?$AA@ 00012420     sgx_render_flip_test.obj
+ 0001:00001434       ??_C@_0BH@LKBNHJED@USSEVertexMemFlagsTest?$AA@ 00012434     sgx_render_flip_test.obj
+ 0001:0000144c       ??_C@_0BG@LEPLIBBI@USSEPixelMemFlagsTest?$AA@ 0001244c     sgx_render_flip_test.obj
+ 0001:00001464       ??_C@_0BM@HJEKHOOM@Allocate?5PB?5reserve?5memory?6?$AA@ 00012464     sgx_render_flip_test.obj
+ 0001:00001480       ??_C@_0BF@MICBGDOF@3DParamsHeapReserved?$AA@ 00012480     sgx_render_flip_test.obj
+ 0001:00001498       ??_C@_0CM@PJFDDAKK@Allocate?5a?5static?5Fragment?5PDS?5b@ 00012498     sgx_render_flip_test.obj
+ 0001:000014c4       ??_C@_0M@HKNJJJLF@FragmentPDS?$AA@ 000124c4     sgx_render_flip_test.obj
+ 0001:000014d0       ??_C@_0CK@NGDHGMPF@Allocate?5a?5static?5Vertex?5PDS?5buf@ 000124d0     sgx_render_flip_test.obj
+ 0001:000014fc       ??_C@_09PEEKNGHG@VertexPDS?$AA@ 000124fc     sgx_render_flip_test.obj
+ 0001:00001508       ??_C@_0CG@MJIHHIND@Allocate?5a?5static?5vertex?5buffer?5@ 00012508     sgx_render_flip_test.obj
+ 0001:00001530       ??_C@_0L@PKPKPKBC@VertexData?$AA@ 00012530     sgx_render_flip_test.obj
+ 0001:0000153c       ??_C@_0DC@DBOLOHLH@Allocate?5a?5static?5VDM?5control?5st@ 0001253c     sgx_render_flip_test.obj
+ 0001:00001570       ??_C@_0BB@OOEKKHFD@VDMControlStream?$AA@ 00012570     sgx_render_flip_test.obj
+ 0001:00001584       ??_C@_0CP@BIGEEFEN@Allocate?5a?5static?5vertex?5USE?5cod@ 00012584     sgx_render_flip_test.obj
+ 0001:000015b4       ??_C@_0L@DBLCMFMJ@VertexUSSE?$AA@ 000125b4     sgx_render_flip_test.obj
+ 0001:000015c0       ??_C@_0DB@KPFCPGPG@Allocate?5a?5static?5fragment?5USE?5c@ 000125c0     sgx_render_flip_test.obj
+ 0001:000015f4       ??_C@_0N@DDFBMFIM@FragmentUSSE?$AA@ 000125f4     sgx_render_flip_test.obj
+ 0001:00001604       ??_C@_0CL@BDFDMNNA@Allocate?5?$CFukB?5pixel?5shader?5reser@ 00012604     sgx_render_flip_test.obj
+ 0001:00001630       ??_C@_05FNNGFGLF@Index?$AA@ 00012630     sgx_render_flip_test.obj
+ 0001:00001638       ??_C@_0CA@GPAAIILB@Allocate?5a?5static?5index?5buffer?6?$AA@ 00012638     sgx_render_flip_test.obj
+ 0001:00001658       ??_C@_0CJ@HKFABBMG@Back?5buffer?5?$CFu?5?9?5Address?50x?$CFx?5Si@ 00012658     sgx_render_flip_test.obj
+ 0001:00001684       ??_C@_0BJ@BIFMPLGG@Allocate?5back?5buffer?5?$CFu?6?$AA@ 00012684     sgx_render_flip_test.obj
+ 0001:000016a0       ??_C@_0L@BPEHEAFA@BackBuffer?$AA@ 000126a0     sgx_render_flip_test.obj
+ 0001:000016ac       ??_C@_0CA@DGGJNKGO@?5Test?5Memory?5Allocation?5FAILED?6?$AA@ 000126ac     sgx_render_flip_test.obj
+ 0001:000016cc       ??_C@_09JEEAHDHM@?$CI?$CFu?0?5?$CFu?$CJ?5?$AA@ 000126cc     sgx_render_flip_test.obj
+ 0001:000016d8       ??_C@_0GG@LMHGBLBB@Error?5in?5colour?5format?5?8?$CFs?8?5?9?5pl@ 000126d8     sgx_render_flip_test.obj
+ 0001:00001740       ??_C@_0EL@IFDKAEPB@For?5example?54?13?11?10?5for?5three?9qu@ 00012740     sgx_render_flip_test.obj
+ 0001:0000178c       ??_C@_0M@NCHEGPBD@?$CFu?1?$CFu?1?$CFu?1?$CFu?$AA@ 0001278c     sgx_render_flip_test.obj
+ 0001:00001798       ??_C@_0DF@JJFELGBI@Please?5disable?5flipping?5when?5usi@ 00012798     sgx_render_flip_test.obj
+ 0001:000017d0       ??_C@_0CM@FEMEHKNK@Unexpected?5error?5parsing?5command@ 000127d0     sgx_render_flip_test.obj
+ 0001:000017fc       ??_C@_0CO@JMKHDKNI@Data?5Breakpoint?5not?5supported?5on@ 000127fc     sgx_render_flip_test.obj
+ 0001:0000182c       ??_C@_0BM@OJAHGAJF@Memory?5debug?5not?5supported?6?$AA@ 0001282c     sgx_render_flip_test.obj
+ 0001:00001848       ??_C@_0BN@FMKLIGEL@Invalid?5status?5frequency?5?$CFu?6?$AA@ 00012848     sgx_render_flip_test.obj
+ 0001:00001868       ??_C@_0CF@HLMNOFCM@Unknown?5memory?5flags?5test?5option@ 00012868     sgx_render_flip_test.obj
+ 0001:00001890       ??_C@_0CE@IFHENFB@Unknown?5memory?5flags?5test?5value?5@ 00012890     sgx_render_flip_test.obj
+ 0001:000018b4       ??_C@_0CB@HCADHGDN@Memory?5flags?5test?5?$CIPDS?5Vertex?$CJ?3?5@ 000128b4     sgx_render_flip_test.obj
+ 0001:000018d8       ??_C@_0CA@KHNMJHPP@Memory?5flags?5test?5?$CIPDS?5Pixel?$CJ?3?5?$AA@ 000128d8     sgx_render_flip_test.obj
+ 0001:000018f8       ??_C@_0BI@HBNNBDGK@Not?5currently?5supported?$AA@ 000128f8     sgx_render_flip_test.obj
+ 0001:00001910       ??_C@_0BI@LANPDAIG@Invalid?5grid?5pos?5Y?3?5?$CFu?6?$AA@ 00012910     sgx_render_flip_test.obj
+ 0001:00001928       ??_C@_0BI@BGKIDLDC@Invalid?5grid?5pos?5X?3?5?$CFu?6?$AA@ 00012928     sgx_render_flip_test.obj
+ 0001:00001940       ??_C@_0BJ@POPDDGBP@Invalid?5grid?5size?5Y?3?5?$CFu?6?$AA@ 00012940     sgx_render_flip_test.obj
+ 0001:0000195c       ??_C@_0BJ@FIIEDNKL@Invalid?5grid?5size?5X?3?5?$CFu?6?$AA@ 0001295c     sgx_render_flip_test.obj
+ 0001:00001978       ??_C@_0BM@JDODDHHF@Invalid?5MT?5grid?5size?5Y?3?5?$CFu?6?$AA@ 00012978     sgx_render_flip_test.obj
+ 0001:00001994       ??_C@_0BM@DEKHHALE@Invalid?5grid?5MT?5size?5X?3?5?$CFu?6?$AA@ 00012994     sgx_render_flip_test.obj
+ 0001:000019b0       ??_C@_0CI@LCNOLPGA@2D?5core?5not?5supported?5on?5this?5pl@ 000129b0     sgx_render_flip_test.obj
+ 0001:000019d8       ??_C@_0BH@JHEOIMKN@Unknown?5hwr?5option?5?$CFs?6?$AA@ 000129d8     sgx_render_flip_test.obj
+ 0001:000019f0       ??_C@_0BM@LCHKMHGB@Invalid?5triangle?5style?3?5?$CFu?6?$AA@ 000129f0     sgx_render_flip_test.obj
+ 0001:00001a0c       ??_C@_0DN@ECNCANJG@Swap?5interval?5should?5be?5below?525@ 00012a0c     sgx_render_flip_test.obj
+ 0001:00001a4c       ??_C@_0CH@NLKOHLLG@Max?5Parameter?5Buffer?5size?3?50x?$CFx?5@ 00012a4c     sgx_render_flip_test.obj
+ 0001:00001a74       ??_C@_0BN@EEGCGIOA@No?5SyncObject?5mode?3?5ENABLED?6?$AA@ 00012a74     sgx_render_flip_test.obj
+ 0001:00001a94       ??_C@_0BN@EMFDIKLK@Render?5Context?5Priority?3?5?$CFu?6?$AA@ 00012a94     sgx_render_flip_test.obj
+ 0001:00001ab4       ??_C@_0BK@DOKEHCGI@Output?5preamble?3?5ENABLED?6?$AA@ 00012ab4     sgx_render_flip_test.obj
+ 0001:00001ad0       ??_C@_0BH@PECOCMDD@Verbose?5mode?3?5ENABLED?6?$AA@ 00012ad0     sgx_render_flip_test.obj
+ 0001:00001ae8       ??_C@_0CC@PENOLGMP@Debug?5Surface?5Addresses?3?5ENABLED@ 00012ae8     sgx_render_flip_test.obj
+ 0001:00001b0c       ??_C@_0CC@MAAMACBB@Debug?5Program?5Addresses?3?5ENABLED@ 00012b0c     sgx_render_flip_test.obj
+ 0001:00001b30       ??_C@_0BH@EKPADNIE@Misc?5Info?5Request?3?5?$CFu?6?$AA@ 00012b30     sgx_render_flip_test.obj
+ 0001:00001b48       ??_C@_0BK@HFCBMJFH@Dump?5Debug?5Info?3?5ENABLED?6?$AA@ 00012b48     sgx_render_flip_test.obj
+ 0001:00001b64       ??_C@_0BF@DEHIKBAB@Crash?5Test?3?5ENABLED?6?$AA@ 00012b64     sgx_render_flip_test.obj
+ 0001:00001b7c       ??_C@_0BG@BAPHFKJO@Debug?5Break?3?5ENABLED?6?$AA@ 00012b7c     sgx_render_flip_test.obj
+ 0001:00001b94       ??_C@_0BG@HGAEIFMD@Status?5frequency?3?5?$CFu?6?$AA@ 00012b94     sgx_render_flip_test.obj
+ 0001:00001bac       ??_C@_0BH@BIKNNMM@Renders?5per?5frame?3?5?$CFu?6?$AA@ 00012bac     sgx_render_flip_test.obj
+ 0001:00001bc4       ??_C@_0CC@FPCCLPJB@Pixel?5Shader?5heap?5reserve?3?5?$CFu?5kB@ 00012bc4     sgx_render_flip_test.obj
+ 0001:00001be8       ??_C@_0CE@CDKJHELI@Parameters?5heap?5reserve?5factor?3?5@ 00012be8     sgx_render_flip_test.obj
+ 0001:00001c0c       ??_C@_0BI@BOHFHIDF@3D?5Slowdown?5Factor?3?5?$CFu?6?$AA@ 00012c0c     sgx_render_flip_test.obj
+ 0001:00001c24       ??_C@_0BI@GMEIAAMK@TA?5Slowdown?5Factor?3?5?$CFu?6?$AA@ 00012c24     sgx_render_flip_test.obj
+ 0001:00001c3c       ??_C@_0N@JBABOGPP@EDM_PROTECT?5?$AA@ 00012c3c     sgx_render_flip_test.obj
+ 0001:00001c4c       ??_C@_05HGJNIKF@Read?5?$AA@ 00012c4c     sgx_render_flip_test.obj
+ 0001:00001c54       ??_C@_06GJOMFEOM@Write?5?$AA@ 00012c54     sgx_render_flip_test.obj
+ 0001:00001c5c       ??_C@_0CH@JBDEBGIH@Memory?5flags?5test?5?$CIUSSE?5Vertex?5C@ 00012c5c     sgx_render_flip_test.obj
+ 0001:00001c84       ??_C@_03JMPGFMML@uvc?$AA@  00012c84     sgx_render_flip_test.obj
+ 0001:00001c88       ??_C@_0CC@POIFGBNN@Memory?5flags?5test?5?$CIUSSE?5Vertex?$CJ?3@ 00012c88     sgx_render_flip_test.obj
+ 0001:00001cac       ??_C@_02CLOBFCCG@uv?$AA@   00012cac     sgx_render_flip_test.obj
+ 0001:00001cb0       ??_C@_0CG@MHONNELB@Memory?5flags?5test?5?$CIUSSE?5Pixel?5Co@ 00012cb0     sgx_render_flip_test.obj
+ 0001:00001cd8       ??_C@_03JIHLCAHJ@upc?$AA@  00012cd8     sgx_render_flip_test.obj
+ 0001:00001cdc       ??_C@_0CB@PCLHIEKB@Memory?5flags?5test?5?$CIUSSE?5Pixel?$CJ?3?5@ 00012cdc     sgx_render_flip_test.obj
+ 0001:00001d00       ??_C@_02HNLLPFKA@up?$AA@   00012d00     sgx_render_flip_test.obj
+ 0001:00001d04       ??_C@_0CG@GKAAOAL@Memory?5flags?5test?5?$CIPDS?5Vertex?5Co@ 00012d04     sgx_render_flip_test.obj
+ 0001:00001d2c       ??_C@_05EOILKBOE@pdsvc?$AA@ 00012d2c     sgx_render_flip_test.obj
+ 0001:00001d34       ??_C@_04FLJJIAAA@pdsv?$AA@ 00012d34     sgx_render_flip_test.obj
+ 0001:00001d3c       ??_C@_0CF@IBCMNALK@Memory?5flags?5test?5?$CIPDS?5Pixel?5Cod@ 00012d3c     sgx_render_flip_test.obj
+ 0001:00001d64       ??_C@_05EKAGNNFG@pdspc?$AA@ 00012d64     sgx_render_flip_test.obj
+ 0001:00001d6c       ??_C@_04NMDCHIG@pdsp?$AA@  00012d6c     sgx_render_flip_test.obj
+ 0001:00001d74       ??_C@_0BK@KEMHMCF@Memory?5flags?5test?5?$CIPBE?$CJ?3?5?$AA@ 00012d74     sgx_render_flip_test.obj
+ 0001:00001d90       ??_C@_0BE@GEABJGGH@Grid?5pos?3?5?$CI?$CFu?0?5?$CFu?$CJ?6?$AA@ 00012d90     sgx_render_flip_test.obj
+ 0001:00001da4       ??_C@_0BE@FKHMBDGO@Grid?5size?3?5?$CFu?5x?5?$CFu?6?$AA@ 00012da4     sgx_render_flip_test.obj
+ 0001:00001db8       ??_C@_0CA@EGDHJLKJ@Multithread?5Grid?5size?3?5?$CFu?5x?5?$CFu?6?$AA@ 00012db8     sgx_render_flip_test.obj
+ 0001:00001dd8       ??_C@_0EE@IMEGLFGG@WARNING?3?5Pthreads?5not?5supported?5@ 00012dd8     sgx_render_flip_test.obj
+ 0001:00001e1c       ??_C@_0BO@MLEBADMC@Blitting?5?$CIsoftware?$CJ?3?5ENABLED?6?$AA@ 00012e1c     sgx_render_flip_test.obj
+ 0001:00001e3c       ??_C@_0BD@MJNKFODF@Blitting?3?5ENABLED?6?$AA@ 00012e3c     sgx_render_flip_test.obj
+ 0001:00001e50       ??_C@_0BC@NHBAANIG@Render?3?5DISABLED?6?$AA@ 00012e50     sgx_render_flip_test.obj
+ 0001:00001e64       ??_C@_0BE@EDHFPOON@Transfer?3?5DISABLED?6?$AA@ 00012e64     sgx_render_flip_test.obj
+ 0001:00001e78       ??_C@_0BE@DEDGJIHE@Flipping?3?5DISABLED?6?$AA@ 00012e78     sgx_render_flip_test.obj
+ 0001:00001e8c       ??_C@_0CD@DCLBFHBM@Clean?5up?5at?5end?5of?5test?3?5DISABLE@ 00012e8c     sgx_render_flip_test.obj
+ 0001:00001eb0       ??_C@_0CM@GHGDDGJA@Wait?5for?5sync?5ops?5at?5end?5of?5test@ 00012eb0     sgx_render_flip_test.obj
+ 0001:00001edc       ??_C@_0BM@PFGGGMGK@Multiple?5TA?5kicks?3?5ENABLED?6?$AA@ 00012edc     sgx_render_flip_test.obj
+ 0001:00001ef8       ??_C@_0CE@CNAOIFFE@Simulated?5?$CFs?5lockup?5every?5?$CFu?5kic@ 00012ef8     sgx_render_flip_test.obj
+ 0001:00001f1c       ??_C@_04GGELAHCN@Blit?$AA@ 00012f1c     sgx_render_flip_test.obj
+ 0001:00001f24       ??_C@_04KHIKCICJ@blit?$AA@ 00012f24     sgx_render_flip_test.obj
+ 0001:00001f2c       ??_C@_0O@KDBNMAOP@Pixel?5Backend?$AA@ 00012f2c     sgx_render_flip_test.obj
+ 0001:00001f3c       ??_C@_03OGFNAAND@pbe?$AA@  00012f3c     sgx_render_flip_test.obj
+ 0001:00001f40       ??_C@_0N@MJGNOGPK@Pixel?5Shader?$AA@ 00012f40     sgx_render_flip_test.obj
+ 0001:00001f50       ??_C@_02FAFNGEII@ps?$AA@   00012f50     sgx_render_flip_test.obj
+ 0001:00001f54       ??_C@_0O@FEIBMPOA@Vertex?5Shader?$AA@ 00012f54     sgx_render_flip_test.obj
+ 0001:00001f64       ??_C@_02FENABIDK@vs?$AA@   00012f64     sgx_render_flip_test.obj
+ 0001:00001f68       ??_C@_03CJJGEMJ@VDM?$AA@   00012f68     sgx_render_flip_test.obj
+ 0001:00001f6c       ??_C@_03PGCKJLF@vdm?$AA@   00012f6c     sgx_render_flip_test.obj
+ 0001:00001f70       ??_C@_0BI@OAMAOACM@Event?5Object?3?5DISABLED?6?$AA@ 00012f70     sgx_render_flip_test.obj
+ 0001:00001f88       ??_C@_0CM@EKDKHNBF@Number?5of?5frames?5per?5triangle?5ro@ 00012f88     sgx_render_flip_test.obj
+ 0001:00001fb4       ??_C@_0BJ@JMPKBCKK@Number?5of?5buffers?3?50x?$CFx?6?$AA@ 00012fb4     sgx_render_flip_test.obj
+ 0001:00001fd0       ??_C@_0CD@NBCEOBJE@Background?5Colour?3?5R?3?$CFf?5G?3?$CFf?5B?3?$CF@ 00012fd0     sgx_render_flip_test.obj
+ 0001:00001ff4       ??_C@_0CD@EMPIFNAL@Vertex?5Colour?5?$CI3?$CJ?3?5R?3?$CFf?5G?3?$CFf?5B?3?$CF@ 00012ff4     sgx_render_flip_test.obj
+ 0001:00002018       ??_C@_0CD@CJJPGGEN@Vertex?5Colour?5?$CI2?$CJ?3?5R?3?$CFf?5G?3?$CFf?5B?3?$CF@ 00013018     sgx_render_flip_test.obj
+ 0001:0000203c       ??_C@_0BP@PEDODBDC@Vertex?5Colour?3?5R?3?$CFf?5G?3?$CFf?5B?3?$CFf?6?$AA@ 0001303c     sgx_render_flip_test.obj
+ 0001:0000205c       ??_C@_0CH@HBCIFJMO@Number?5of?5triangles?5per?5frame?5?$CI2@ 0001305c     sgx_render_flip_test.obj
+ 0001:00002084       ??_C@_0CD@LNNBADJA@Number?5of?5triangles?5per?5frame?3?5?$CF@ 00013084     sgx_render_flip_test.obj
+ 0001:000020a8       ??_C@_0BE@CAIAFGJB@Triangle?5style?3?5?$CFu?6?$AA@ 000130a8     sgx_render_flip_test.obj
+ 0001:000020bc       ??_C@_0BH@EJOHJHNL@?$CI?$CFs?$CJ?5?$DM?9?5Pause?5message?6?$AA@ 000130bc     sgx_render_flip_test.obj
+ 0001:000020d4       ??_C@_0BH@EPAMEEKJ@Pause?5every?5?$CFu?5frames?6?$AA@ 000130d4     sgx_render_flip_test.obj
+ 0001:000020ec       ??_C@_0BK@NDCNBGMJ@?$CI?$CFs?$CJ?5?$DM?9?5Bitmap?5file?5name?6?$AA@ 000130ec     sgx_render_flip_test.obj
+ 0001:00002108       ??_C@_0BI@HCHPHCFD@Bitmap?5every?5?$CFu?5frames?6?$AA@ 00013108     sgx_render_flip_test.obj
+ 0001:00002120       ??_C@_0BL@LAICNPKH@Serialise?5every?5?$CFu?5frames?6?$AA@ 00013120     sgx_render_flip_test.obj
+ 0001:0000213c       ??_C@_0CJ@KEDFAKOG@Microsecond?5sleep?5between?5kicks?5@ 0001313c     sgx_render_flip_test.obj
+ 0001:00002168       ??_C@_0CJ@CKLKANAF@Microsecond?5sleep?5between?5kicks?5@ 00013168     sgx_render_flip_test.obj
+ 0001:00002194       ??_C@_0BO@HDLGNHII@Sleep?5between?5TA?5kicks?3?5?$CFums?6?$AA@ 00013194     sgx_render_flip_test.obj
+ 0001:000021b4       ??_C@_0BN@PEDIBCKP@Sleep?5between?5renders?3?5?$CFums?6?$AA@ 000131b4     sgx_render_flip_test.obj
+ 0001:000021d4       ??_C@_0CD@JMCMDEMF@Parameter?5Buffer?5size?3?50x?$CFx?5Byte@ 000131d4     sgx_render_flip_test.obj
+ 0001:000021f8       ??_C@_0BE@HIFKICPM@Starting?5frame?3?5?$CFu?6?$AA@ 000131f8     sgx_render_flip_test.obj
+ 0001:0000220c       ??_C@_0BG@OMECFKFD@Number?5of?5frames?3?5?$CFu?6?$AA@ 0001320c     sgx_render_flip_test.obj
+ 0001:00002224       ??_C@_0BD@DEDDMJOP@Swap?5Interval?3?5?$CFu?6?$AA@ 00013224     sgx_render_flip_test.obj
+ 0001:00002238       ??_C@_04EBJAPBIK@srft?$AA@ 00013238     sgx_render_flip_test.obj
+ 0001:00002240       ??_C@_0P@NONGIECF@Press?5ENTER?4?4?4?$AA@ 00013240     sgx_render_flip_test.obj
+ 0001:00002250       ??_C@_0DD@GODBIEMM@Display?5Class?5API?3?5unmap?5display@ 00013250     sgx_render_flip_test.obj
+ 0001:00002284       ??_C@_0BM@GKACHJHD@Destroy?5Primary?5Swap?5Chain?6?$AA@ 00013284     sgx_render_flip_test.obj
+ 0001:000022a0       ??_C@_0EO@CKGGAHCN@Display?5Class?5API?3?5unmap?5swapcha@ 000132a0     sgx_render_flip_test.obj
+ 0001:000022f0       ??_C@_0BP@GJLKNMBD@Destroy?5the?5transfer?5context?3?6?$AA@ 000132f0     sgx_render_flip_test.obj
+ 0001:00002310       ??_C@_0CE@CHFCNMEA@Attempt?5to?5destroy?5render?5contex@ 00013310     sgx_render_flip_test.obj
+ 0001:00002334       ??_C@_0CE@LAPEIHHC@No?5cleanup?5was?5specified?4?5Exitin@ 00013334     sgx_render_flip_test.obj
+ 0001:00002358       ??_C@_0BJ@MOFJNDOM@Joining?5thread?5?$CI?$CFu?0?5?$CFu?$CJ?6?$AA@ 00013358     sgx_render_flip_test.obj
+ 0001:00002374       ??_C@_0BK@EPKOAFNJ@Creating?5thread?5?$CI?$CFu?0?5?$CFu?$CJ?6?$AA@ 00013374     sgx_render_flip_test.obj
+ 0001:00002390       ??_C@_0DE@FNLBOPCP@Creating?5render?5context?5via?5SGXC@ 00013390     sgx_render_flip_test.obj
+ 0001:000023c4       ??_C@_0DD@IOJOEDFL@Attempt?5to?5set?5priority?5of?5conte@ 000133c4     sgx_render_flip_test.obj
+ 0001:000023f8       ??_C@_0DM@NFBNGLGM@Priority?5of?5transfer?1render?5cont@ 000133f8     sgx_render_flip_test.obj
+ 0001:00002434       ??_C@_0CN@CJJNALAI@Attempt?5to?5create?5transfer?5conte@ 00013434     sgx_render_flip_test.obj
+ 0001:00002464       ??_C@_0BD@OEAFCFPL@Getting?5Misc?5Info?6?$AA@ 00013464     sgx_render_flip_test.obj
+ 0001:00002478       ??_C@_0BA@KMPHCJBE@SGXSystemBuffer?$AA@ 00013478     sgx_render_flip_test.obj
+ 0001:00002488       ??_C@_0CI@ILKKOBGD@System?5buffer?5?9?5Address?50x?$CFx?5Siz@ 00013488     sgx_render_flip_test.obj
+ 0001:000024b0       ??_C@_0CP@IFAFGPME@Display?5Class?5API?3?5map?5display?5s@ 000134b0     sgx_render_flip_test.obj
+ 0001:000024e0       ??_C@_0L@FFKIKPAP@SwapBuffer?$AA@ 000134e0     sgx_render_flip_test.obj
+ 0001:000024ec       ??_C@_0CD@JHIPFFKE@Colour?5swap?5buffer?5?$CFu?5?$CIsize?50x?$CFx@ 000134ec     sgx_render_flip_test.obj
+ 0001:00002510       ??_C@_0CP@CAGGEILG@Swap?5chain?5buffer?5?$CFu?5?9?5Address?50@ 00013510     sgx_render_flip_test.obj
+ 0001:00002540       ??_C@_0CN@LHCGJPD@Display?5Class?5API?3?5Map?5swap?5chai@ 00013540     sgx_render_flip_test.obj
+ 0001:00002570       ??_C@_0CI@GOOPHEIO@Display?5Class?5API?3?5Get?5DC?5swap?5b@ 00013570     sgx_render_flip_test.obj
+ 0001:00002598       ??_C@_0DA@KBCDKOAI@Unable?5to?5create?5Display?5Class?5f@ 00013598     sgx_render_flip_test.obj
+ 0001:000025c8       ??_C@_0DC@KJPNKNPB@Consider?5disabling?5flipping?5usin@ 000135c8     sgx_render_flip_test.obj
+ 0001:000025fc       ??_C@_0CJ@DPAIDELD@Display?5Class?5API?3?5Create?5DC?5swa@ 000135fc     sgx_render_flip_test.obj
+ 0001:00002628       ??_C@_0DE@BODOPOHG@Display?5Class?5API?3?5get?5the?5syste@ 00013628     sgx_render_flip_test.obj
+ 0001:0000265c       ??_C@_0DE@PBNHKLOP@Display?5Class?5API?3?5ERROR?5unsuppo@ 0001365c     sgx_render_flip_test.obj
+ 0001:00002690       ??_C@_0CJ@INLMCIKI@Render?5width?5must?5be?5at?5least?532@ 00013690     sgx_render_flip_test.obj
+ 0001:000026bc       ??_C@_0CB@OLGHKCCJ@malloc?5of?5EDBP_STATE_DATA?5failed@ 000136bc     sgx_render_flip_test.obj
+ 0001:000026e0       ??_C@_0BI@HNAKMMLH@Calling?5SGXGetMiscInfo?6?$AA@ 000136e0     sgx_render_flip_test.obj
+ 0001:000026f8       ??_C@_0DH@PPPHAACG@?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?5Start?5?9?9@ 000136f8     sgx_render_flip_test.obj
+ 0001:00002b48       ??_C@_1EI@KHNCANBJ@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAc?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AAt?$AAh?$AAe?$AA?5?$AAd?$AAe?$AAv?$AAi?$AAc?$AAe?$AA?5?$AAc?$AAo?$AAn?$AAt@ 00013b48     wince_unittests.obj
+ 0001:00002b90       ??_C@_1BO@KHIAJBLA@?$AAI?$AAn?$AAi?$AAt?$AAi?$AAa?$AAl?$AAi?$AAz?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?$AA@ 00013b90     wince_unittests.obj
+ 0001:00002bb0       ??_C@_1EI@HEMGLDEE@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAr?$AAe?$AAg?$AAi?$AAs?$AAt?$AAe?$AAr?$AA?5?$AAt?$AAh?$AAe?$AA?5?$AAw?$AAi?$AAn?$AAd?$AAo?$AAw?$AA?5?$AAc?$AAl@ 00013bb0     wince_unittests.obj
+ 0001:00002bf8       ??_C@_1BM@GPEKOMLI@?$AAP?$AAV?$AAR?$AAS?$AAh?$AAe?$AAl?$AAl?$AAC?$AAl?$AAa?$AAs?$AAs?$AA?$AA@ 00013bf8     wince_unittests.obj
+ 0001:00002c14       ??_C@_08HJPKIHEB@?9opacity?$AA@ 00013c14     wince_unittests.obj
+ 0001:00002c20       ??_C@_07CHIKDHJG@?9height?$AA@ 00013c20     wince_unittests.obj
+ 0001:00002c28       ??_C@_06EGEBBOP@?9width?$AA@ 00013c28     wince_unittests.obj
+ 0001:00002c30       ??_C@_05MHNCFLJI@?9posy?$AA@ 00013c30     wince_unittests.obj
+ 0001:00002c38       ??_C@_05NOMJGKNJ@?9posx?$AA@ 00013c38     wince_unittests.obj
+ 0001:00002c40       ??_C@_1KG@PMLMDMLB@?$AAc?$AA?3?$AA?2?$AAd?$AAa?$AAt?$AAa?$AA?2?$AAj?$AAa?$AAt?$AAi?$AAn?$AA?2?$AAp?$AAo?$AAw?$AAe?$AAr?$AAv?$AAr?$AA_?$AAb?$AAu?$AAi?$AAl?$AAd?$AA?2?$AAd?$AAd?$AAk?$AA1@ 00013c40     wince_unittests.obj
+ 0001:00002ce8       ??_C@_1CI@OHCJFJPM@?$AAE?$AAR?$AAR?$AAO?$AAR?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?5?$AAl?$AAi?$AAn?$AAe?$AA?5?$AA?$CF?$AAd?$AA?3?$AA?5?$AA?$AA@ 00013ce8     wince_unittests.obj
+ 0001:00002d10       ??_C@_1CC@HNHLKECD@?$AA?$CI?$AAe?$AAr?$AAr?$AAo?$AAr?$AA?5?$AAc?$AAo?$AAd?$AAe?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$CJ?$AA?$AA@ 00013d10     wince_unittests.obj
+ 0001:00002d34       ??_C@_1M@DMCDIEDK@?$AAP?$AAK?$AAM?$AA1?$AA?3?$AA?$AA@ 00013d34     wince_unittests.obj
+ 0001:00002d40       ??_C@_0L@GPAGIAIC@?9disablepm?$AA@ 00013d40     wince_unittests.obj
+ 0001:00002d4c       ??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@ 00013d4c     wince_unittests.obj
+ 0001:00002d58       ??_C@_1DG@PCJNAHOH@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAg?$AAe?$AAt?$AA?5?$AAm?$AAo?$AAn?$AAi?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAn?$AAf?$AAo?$AA?$AA@ 00013d58     wince_unittests.obj
+ 0001:00002d90       ??_C@_07FBLHGNAH@app?4exe?$AA@ 00013d90     wince_unittests.obj
+ 0001:00002d98       ??_C@_04LNELOFCG@?5OK?6?$AA@ 00013d98     sgx_unittest_utils.obj
+ 0001:00002da0       ??_C@_0BA@JOCJNGBJ@?5FAIL?5?9?5?$CFs?$CI?$CFu?$CJ?6?$AA@ 00013da0     sgx_unittest_utils.obj
+ 0001:00002db0       ??_C@_0CD@KNHKMALC@Unknown?5option?5?$CFs?6Use?5?9h?5for?5hel@ 00013db0     sgx_unittest_utils.obj
+ 0001:00002dd4       ??_C@_09KDMOKIPB@?$CFs?5?$CFs?7?$CFs?6?$AA@ 00013dd4     sgx_unittest_utils.obj
+ 0001:00002de0       ??_C@_0N@BINAGECB@?$CFs?5options?3?6?$AA@ 00013de0     sgx_unittest_utils.obj
+ 0001:00002df0       ??_C@_02JNAPBCPB@?9h?$AA@  00013df0     sgx_unittest_utils.obj
+ 0001:00002df8       ??_C@_0FH@OGLPJJIA@sgxut_wait_for_buffer?3?5PVRSRVEve@ 00013df8     sgx_unittest_utils.obj
+ 0001:00002e50       ??_C@_0CA@FPDAOGMM@?$CFs?5?$CI?$CFu?$CJ?0?5sync?5ops?5are?5complete?6?$AA@ 00013e50     sgx_unittest_utils.obj
+ 0001:00002e70       ??_C@_0CL@LPKBGDOA@?$CFs?5?$CI?$CFu?$CJ?0?5waiting?5for?5sync?5ops?5to@ 00013e70     sgx_unittest_utils.obj
+ 0001:00002ea0       ??_C@_0FG@OCOFDMEJ@sgxut_wait_for_token?3?5PVRSRVEven@ 00013ea0     sgx_unittest_utils.obj
+ 0001:00002ef8       ??_C@_0CF@GFBAJCOE@?$CFs?5?$CI?$CFu?$CJ?0?5sync?5ops?5token?5is?5compl@ 00013ef8     sgx_unittest_utils.obj
+ 0001:00002f20       ??_C@_0DB@PIOBAMB@?$CFs?5?$CI?$CFu?$CJ?0?5waiting?5for?5sync?5ops?5to@ 00013f20     sgx_unittest_utils.obj
+ 0001:00002f54       ??_C@_0BJ@IMBALOKG@PVRSRV_DEVICE_ID_UNKNOWN?$AA@ 00013f54     sgx_unittest_utils.obj
+ 0001:00002f70       ??_C@_0BH@OGEGGGCD@PVRSRV_DEVICE_ID_MSVDX?$AA@ 00013f70     sgx_unittest_utils.obj
+ 0001:00002f88       ??_C@_0BF@BBCLGMON@PVRSRV_DEVICE_ID_SGX?$AA@ 00013f88     sgx_unittest_utils.obj
+ 0001:00002fa0       ??_C@_0CD@BDGFMHBG@PVRSRV_DEVICE_TYPE_EXT?5?$CI3rd?5Part@ 00013fa0     sgx_unittest_utils.obj
+ 0001:00002fc4       ??_C@_0BE@GEDKFGMC@Not?5recognised?50x?$CFx?$AA@ 00013fc4     sgx_unittest_utils.obj
+ 0001:00002fd8       ??_C@_0BH@OAMNOJIO@?4?4?4?4?5ui32ProcessID?3?$CFu?6?$AA@ 00013fd8     sgx_unittest_utils.obj
+ 0001:00002ff0       ??_C@_0EF@JDFLMAKK@?4?4?4?4?5Shared?5heap?5?$CFu?5?9?5HeapID?30x?$CF@ 00013ff0     sgx_unittest_utils.obj
+ 0001:00003038       ??_C@_0CL@DNLHEBLI@Attempt?5to?5create?5memory?5context@ 00014038     sgx_unittest_utils.obj
+ 0001:00003064       ??_C@_0DP@CMDGCMDB@?4?4?4?4?5Display?5dimensions?5?$CFu?5?9?5Byt@ 00014064     sgx_unittest_utils.obj
+ 0001:000030a4       ??_C@_0DB@DPDHNDGF@Display?5Class?5API?3?5enumerate?5dis@ 000140a4     sgx_unittest_utils.obj
+ 0001:000030d8       ??_C@_0CJ@HOBHICGN@?4?4?4?4?5Display?5format?5?$CFu?5?9?5Pixelfo@ 000140d8     sgx_unittest_utils.obj
+ 0001:00003104       ??_C@_0CF@FMDFFMKC@Display?5Class?5API?3?5Get?5display?5i@ 00014104     sgx_unittest_utils.obj
+ 0001:0000312c       ??_C@_0O@GDPIEJBG@?4?4?4?4?5Name?3?$CFs?6?$AA@ 0001412c     sgx_unittest_utils.obj
+ 0001:0000313c       ??_C@_0BH@DNKLLGIN@?4?4?4?4?5MaxSwapChains?3?$CFu?6?$AA@ 0001413c     sgx_unittest_utils.obj
+ 0001:00003154       ??_C@_0BN@IKKOPGEA@?4?4?4?4?5MaxSwapChainBuffers?3?$CFu?6?$AA@ 00014154     sgx_unittest_utils.obj
+ 0001:00003174       ??_C@_0BJ@BEBIBAOE@?4?4?4?4?5MinSwapInterval?3?$CFu?6?$AA@ 00014174     sgx_unittest_utils.obj
+ 0001:00003190       ??_C@_0BJ@DNGGONPM@?4?4?4?4?5MaxSwapInterval?3?$CFu?6?$AA@ 00014190     sgx_unittest_utils.obj
+ 0001:000031ac       ??_C@_0CO@GIPBIACE@Display?5Class?5API?3?5enumerate?5dis@ 000141ac     sgx_unittest_utils.obj
+ 0001:000031dc       ??_C@_0CA@DAONOMAK@Display?5Class?5API?3?5open?5device?6?$AA@ 000141dc     sgx_unittest_utils.obj
+ 0001:000031fc       ??_C@_0CG@MMBLEMBO@Display?5Class?5API?3?5enumerate?5dev@ 000141fc     sgx_unittest_utils.obj
+ 0001:00003224       ??_C@_0DL@BKCOHNEM@PVRSRVEnumerateDeviceClass?$CI?$CJ?5ret@ 00014224     sgx_unittest_utils.obj
+ 0001:00003260       ??_C@_0BJ@NLALCGOE@Getting?5SGX?5Client?5info?6?$AA@ 00014260     sgx_unittest_utils.obj
+ 0001:0000327c       ??_C@_0BP@IDIGABKI@Attempt?5to?5acquire?5device?5?$CFd?3?6?$AA@ 0001427c     sgx_unittest_utils.obj
+ 0001:0000329c       ??_C@_0BH@PPGIPGOP@?5?5?5?5?5?5?5?5?5?5?5?5?$CF04d?5?5?5?5?$HM?5?$AA@ 0001429c     sgx_unittest_utils.obj
+ 0001:000032b4       ??_C@_0BK@GEDDINJE@?4?4?4?4?5Reported?5?$CFu?5devices?6?$AA@ 000142b4     sgx_unittest_utils.obj
+ 0001:000032d0       ??_C@_0CD@INKLJIDI@?4?4?4?4?5Device?5Number?5?5?$HM?5Device?5Typ@ 000142d0     sgx_unittest_utils.obj
+ 0001:000032f4       ??_C@_0CL@KFFMIBHA@Call?5PVRSRVConnect?5with?5a?5valid?5@ 000142f4     sgx_unittest_utils.obj
+ 0001:00003320       ??_C@_0DE@KAFOOJDI@Get?5number?5of?5devices?5from?5PVRSR@ 00014320     sgx_unittest_utils.obj
+ 0001:00003354       ??_C@_0BP@HJNHLLEN@Destroy?5Device?5Memory?5Context?6?$AA@ 00014354     sgx_unittest_utils.obj
+ 0001:00003374       ??_C@_0CF@DBFHMBAF@Display?5Class?5API?3?5close?5the?5dev@ 00014374     sgx_unittest_utils.obj
+ 0001:0000339c       ??_C@_0BK@HGIBJBNI@Release?5SGX?5Client?5Info?3?6?$AA@ 0001439c     sgx_unittest_utils.obj
+ 0001:000033b8       ??_C@_0BL@JBOAKENO@Disconnect?5from?5services?3?6?$AA@ 000143b8     sgx_unittest_utils.obj
+ 0001:000033d8       asSGXPixelFormat           000143d8     sgxpixfmts.obj
+ 0001:0000e528       main                       0001f528 f   sgx_render_flip_test.obj
+ 0001:0000f0b4       USEGenWriteStateEmitFragment 000200b4 f   usegen.obj
+ 0001:0000f118       USEGenWriteStateEmitProgram 00020118 f   usegen.obj
+ 0001:0000f148       PDSGeneratePixelEventProgram 00020148 f   pds.obj
+ 0001:0000f2d8       PDSGeneratePixelShaderSAProgram 000202d8 f   pds.obj
+ 0001:0000f50c       PDSGeneratePixelShaderProgram 0002050c f   pds.obj
+ 0001:0000f774       PDSGenerateStateCopyProgram 00020774 f   pds.obj
+ 0001:0000f8e4       PDSGenerateVertexShaderProgram 000208e4 f   pds.obj
+ 0001:00010114       PDSGenerateTerminateStateProgram 00021114 f   pds.obj
+ 0001:000101bc       WritePTOffUSSECode         000211bc f   pixevent.obj
+ 0001:000101d4       WriteEndOfRenderUSSECode   000211d4 f   pixevent.obj
+ 0001:00010204       WriteEndOfTileUSSECode     00021204 f   pixevent.obj
+ 0001:000102bc       GPE_DPF                    000212bc f   wince_unittests.obj
+ 0001:00010340       AppWndProc                 00021340 f   wince_unittests.obj
+ 0001:0001039c       WinMain                    0002139c f   wince_unittests.obj
+ 0001:000108f0       sgxut_null_dpf             000218f0 f   sgx_unittest_utils.obj
+ 0001:00010904       sgxut_fail_if_error        00021904 f   sgx_unittest_utils.obj
+ 0001:00010940       sgxut_fail_if_error_quiet  00021940 f   sgx_unittest_utils.obj
+ 0001:00010970       sgxut_parse_commandline_option 00021970 f   sgx_unittest_utils.obj
+ 0001:00010a50       sgxut_sleep_ms             00021a50 f   sgx_unittest_utils.obj
+ 0001:00010a54       sgxut_sleep_us             00021a54 f   sgx_unittest_utils.obj
+ 0001:00010a58       sgxut_wait_for_buffer      00021a58 f   sgx_unittest_utils.obj
+ 0001:00010b28       sgxut_wait_for_token       00021b28 f   sgx_unittest_utils.obj
+ 0001:00010be8       sgxut_get_current_time     00021be8 f   sgx_unittest_utils.obj
+ 0001:00010c40       sgxut_print_dev_type       00021c40 f   sgx_unittest_utils.obj
+ 0001:00010ca0       sgxut_SGXInit              00021ca0 f   sgx_unittest_utils.obj
+ 0001:00011238       sgxut_SGXDeInit            00022238 f   sgx_unittest_utils.obj
+ 0001:000112dc       WritePBEEmitState          000222dc f   pixeventpbesetup.obj
+ 0001:000115bc       PVRSRVCreateMutex          000225bc f   srvclum:SRVCLUM.dll
+ 0001:000115cc       PVRSRVUnlockMutex          000225cc f   srvclum:SRVCLUM.dll
+ 0001:000115dc       PVRSRVLockMutex            000225dc f   srvclum:SRVCLUM.dll
+ 0001:000115ec       SGXKickTA                  000225ec f   srvclum:SRVCLUM.dll
+ 0001:000115fc       SGXQueueTransfer           000225fc f   srvclum:SRVCLUM.dll
+ 0001:0001160c       SGXAddRenderTarget         0002260c f   srvclum:SRVCLUM.dll
+ 0001:0001161c       SGXRemoveRenderTarget      0002261c f   srvclum:SRVCLUM.dll
+ 0001:0001162c       PVRSRVSwapToDCBuffer       0002262c f   srvclum:SRVCLUM.dll
+ 0001:0001163c       PVRSRVSyncOpsTakeToken     0002263c f   srvclum:SRVCLUM.dll
+ 0001:0001164c       PVRSRVFreeDeviceMem        0002264c f   srvclum:SRVCLUM.dll
+ 0001:0001165c       PVRSRVAllocDeviceMem       0002265c f   srvclum:SRVCLUM.dll
+ 0001:0001166c       PVRSRVDestroyDCSwapChain   0002266c f   srvclum:SRVCLUM.dll
+ 0001:0001167c       PVRSRVUnmapDeviceClassMemory 0002267c f   srvclum:SRVCLUM.dll
+ 0001:0001168c       PVRSRVSwapToDCSystem       0002268c f   srvclum:SRVCLUM.dll
+ 0001:0001169c       SGXDestroyTransferContext  0002269c f   srvclum:SRVCLUM.dll
+ 0001:000116ac       SGXDestroyRenderContext    000226ac f   srvclum:SRVCLUM.dll
+ 0001:000116bc       SGXSetContextPriority      000226bc f   srvclum:SRVCLUM.dll
+ 0001:000116cc       SGXCreateRenderContext     000226cc f   srvclum:SRVCLUM.dll
+ 0001:000116dc       SGXCreateTransferContext   000226dc f   srvclum:SRVCLUM.dll
+ 0001:000116ec       PVRSRVGetMiscInfo          000226ec f   srvclum:SRVCLUM.dll
+ 0001:000116fc       PVRSRVMapDeviceClassMemory 000226fc f   srvclum:SRVCLUM.dll
+ 0001:0001170c       PVRSRVGetDCBuffers         0002270c f   srvclum:SRVCLUM.dll
+ 0001:0001171c       PVRSRVGetErrorString       0002271c f   srvclum:SRVCLUM.dll
+ 0001:0001172c       PVRSRVCreateDCSwapChain    0002272c f   srvclum:SRVCLUM.dll
+ 0001:0001173c       PVRSRVGetDCSystemBuffer    0002273c f   srvclum:SRVCLUM.dll
+ 0001:0001174c       SGXGetMiscInfo             0002274c f   srvclum:SRVCLUM.dll
+ 0001:0001175c       PVRSRVWaitus               0002275c f   srvclum:SRVCLUM.dll
+ 0001:0001176c       PVRSRVEventObjectWait      0002276c f   srvclum:SRVCLUM.dll
+ 0001:0001177c       PVRSRVSyncOpsFlushToDelta  0002277c f   srvclum:SRVCLUM.dll
+ 0001:0001178c       PVRSRVSyncOpsFlushToToken  0002278c f   srvclum:SRVCLUM.dll
+ 0001:0001179c       PVRSRVCreateDeviceMemContext 0002279c f   srvclum:SRVCLUM.dll
+ 0001:000117ac       PVRSRVEnumDCDims           000227ac f   srvclum:SRVCLUM.dll
+ 0001:000117bc       PVRSRVEnumDCFormats        000227bc f   srvclum:SRVCLUM.dll
+ 0001:000117cc       PVRSRVGetDCInfo            000227cc f   srvclum:SRVCLUM.dll
+ 0001:000117dc       PVRSRVOpenDCDevice         000227dc f   srvclum:SRVCLUM.dll
+ 0001:000117ec       PVRSRVEnumerateDeviceClass 000227ec f   srvclum:SRVCLUM.dll
+ 0001:000117fc       SGXGetClientInfo           000227fc f   srvclum:SRVCLUM.dll
+ 0001:0001180c       PVRSRVAcquireDeviceData    0002280c f   srvclum:SRVCLUM.dll
+ 0001:0001181c       PVRSRVEnumerateDevices     0002281c f   srvclum:SRVCLUM.dll
+ 0001:0001182c       PVRSRVConnect              0002282c f   srvclum:SRVCLUM.dll
+ 0001:0001183c       PVRSRVDisconnect           0002283c f   srvclum:SRVCLUM.dll
+ 0001:0001184c       SGXReleaseClientInfo       0002284c f   srvclum:SRVCLUM.dll
+ 0001:0001185c       PVRSRVCloseDCDevice        0002285c f   srvclum:SRVCLUM.dll
+ 0001:0001186c       PVRSRVDestroyDeviceMemContext 0002286c f   srvclum:SRVCLUM.dll
+ 0001:0001187c       OutputDebugStringW         0002287c f   coredll:COREDLL.dll
+ 0001:0001188c       MultiByteToWideChar        0002288c f   coredll:COREDLL.dll
+ 0001:0001189c       PostQuitMessage            0002289c f   coredll:COREDLL.dll
+ 0001:000118ac       DefWindowProcW             000228ac f   coredll:COREDLL.dll
+ 0001:000118bc       ReleasePowerRequirement    000228bc f   coredll:COREDLL.dll
+ 0001:000118cc       DestroyWindow              000228cc f   coredll:COREDLL.dll
+ 0001:000118dc       ReleaseDC                  000228dc f   coredll:COREDLL.dll
+ 0001:000118ec       GetDC                      000228ec f   coredll:COREDLL.dll
+ 0001:000118fc       ShowWindow                 000228fc f   coredll:COREDLL.dll
+ 0001:0001190c       SetWindowOpacity           0002290c f   coredll:COREDLL.dll
+ 0001:0001191c       SetWindowCompositionFlags  0002291c f   coredll:COREDLL.dll
+ 0001:0001192c       CreateWindowExW            0002292c f   coredll:COREDLL.dll
+ 0001:0001193c       RegisterClassW             0002293c f   coredll:COREDLL.dll
+ 0001:0001194c       GetStockObject             0002294c f   coredll:COREDLL.dll
+ 0001:0001195c       NKDbgPrintfW               0002295c f   coredll:COREDLL.dll
+ 0001:0001196c       GetLastError               0002296c f   coredll:COREDLL.dll
+ 0001:0001197c       SetPowerRequirement        0002297c f   coredll:COREDLL.dll
+ 0001:0001198c       WideCharToMultiByte        0002298c f   coredll:COREDLL.dll
+ 0001:0001199c       SetCursorPos               0002299c f   coredll:COREDLL.dll
+ 0001:000119ac       GetCursorPos               000229ac f   coredll:COREDLL.dll
+ 0001:000119bc       MessageBoxW                000229bc f   coredll:COREDLL.dll
+ 0001:000119cc       GetMonitorInfo             000229cc f   coredll:COREDLL.dll
+ 0001:000119dc       MonitorFromPoint           000229dc f   coredll:COREDLL.dll
+ 0001:000119ec       GetSystemMetrics           000229ec f   coredll:COREDLL.dll
+ 0001:000119fc       Sleep                      000229fc f   coredll:COREDLL.dll
+ 0001:00011a0c       QueryPerformanceFrequency  00022a0c f   coredll:COREDLL.dll
+ 0001:00011a1c       QueryPerformanceCounter    00022a1c f   coredll:COREDLL.dll
+ 0001:00011ab4       WinMainCRTStartup          00022ab4 f   corelib0:pegwmain.obj
+ 0001:00011ae4       __GSHandlerCheckCommon     00022ae4 f   corelib0:gshandler.obj
+ 0001:00011b20       __GSHandlerCheck           00022b20 f   corelib0:gshandler.obj
+ 0001:00011b40       __security_init_cookie     00022b40 f   corelib0:seccinit.obj
+ 0001:00011b8c       __security_check_cookie    00022b8c f   corelib0:armsecgs.obj
+ 0001:00011b9c       __gsfailure                00022b9c     corelib0:armsecgs.obj
+ 0001:00011ca0       exit                       00022ca0 f   corelib0:cexit.obj
+ 0001:00011cac       _exit                      00022cac f   corelib0:cexit.obj
+ 0001:00011ce4       _initterm                  00022ce4 f   corelib0:crt0dat.obj
+ 0001:00011d10       _cinit                     00022d10 f   corelib0:crt0dat.obj
+ 0001:00011d70       __crt_ExitProcess          00022d70 f   corelib0:exitproc_proxy.obj
+ 0001:00011d7c       strcmp                     00022d7c f   corelib1:COREDLL.dll
+ 0001:00011d8c       strncpy                    00022d8c f   corelib1:COREDLL.dll
+ 0001:00011d9c       strchr                     00022d9c f   corelib1:COREDLL.dll
+ 0001:00011dac       strtol                     00022dac f   corelib1:COREDLL.dll
+ 0001:00011dbc       strtoul                    00022dbc f   corelib1:COREDLL.dll
+ 0001:00011dcc       fclose                     00022dcc f   corelib1:COREDLL.dll
+ 0001:00011ddc       fgets                      00022ddc f   corelib1:COREDLL.dll
+ 0001:00011dec       fopen                      00022dec f   corelib1:COREDLL.dll
+ 0001:00011dfc       strlen                     00022dfc f   corelib1:COREDLL.dll
+ 0001:00011e0c       sprintf                    00022e0c f   corelib1:COREDLL.dll
+ 0001:00011e1c       printf                     00022e1c f   corelib1:COREDLL.dll
+ 0001:00011e2c       memset                     00022e2c f   corelib1:COREDLL.dll
+ 0001:00011e3c       free                       00022e3c f   corelib1:COREDLL.dll
+ 0001:00011e4c       getchar                    00022e4c f   corelib1:COREDLL.dll
+ 0001:00011e5c       malloc                     00022e5c f   corelib1:COREDLL.dll
+ 0001:00011e6c       memcpy                     00022e6c f   corelib1:COREDLL.dll
+ 0001:00011e7c       sscanf                     00022e7c f   corelib1:COREDLL.dll
+ 0001:00011e8c       atol                       00022e8c f   corelib1:COREDLL.dll
+ 0001:00011e9c       _vsnprintf                 00022e9c f   corelib1:COREDLL.dll
+ 0001:00011eac       atoi                       00022eac f   corelib1:COREDLL.dll
+ 0001:00011ebc       _stricmp                   00022ebc f   corelib1:COREDLL.dll
+ 0001:00011ecc       _isctype                   00022ecc f   corelib1:COREDLL.dll
+ 0001:00011edc       wcslen                     00022edc f   corelib1:COREDLL.dll
+ 0001:00011eec       _XcptFilter                00022eec f   corelib1:COREDLL.dll
+ 0001:00011efc       __C_specific_handler       00022efc f   corelib1:COREDLL.dll
+ 0001:00011f0c       __security_gen_cookie2     00022f0c f   corelib1:COREDLL.dll
+ 0001:00011f1c       __report_gsfailure         00022f1c f   corelib1:COREDLL.dll
+ 0001:00011f2c       TerminateProcess           00022f2c f   coredll:COREDLL.dll
+ 0001:00011f64       __IMPORT_DESCRIPTOR_SRVCLUM 00022f64     srvclum:SRVCLUM.dll
+ 0001:00011f78       __IMPORT_DESCRIPTOR_COREDLL 00022f78     coredll:COREDLL.dll
+ 0001:00011f8c       __NULL_IMPORT_DESCRIPTOR   00022f8c     srvclum:SRVCLUM.dll
+ 0002:00000000       __imp_SetWindowCompositionFlags 00024000     coredll:COREDLL.dll
+ 0002:00000004       __imp___report_gsfailure   00024004     corelib1:COREDLL.dll
+ 0002:00000008       __imp___security_gen_cookie2 00024008     corelib1:COREDLL.dll
+ 0002:0000000c       __imp___C_specific_handler 0002400c     corelib1:COREDLL.dll
+ 0002:00000010       __imp__XcptFilter          00024010     corelib1:COREDLL.dll
+ 0002:00000014       __imp___rt_sdiv64by64      00024014     corelib1:COREDLL.dll
+ 0002:00000018       __imp_wcslen               00024018     corelib1:COREDLL.dll
+ 0002:0000001c       __imp__isctype             0002401c     corelib1:COREDLL.dll
+ 0002:00000020       __imp__stricmp             00024020     corelib1:COREDLL.dll
+ 0002:00000024       __imp_atoi                 00024024     corelib1:COREDLL.dll
+ 0002:00000028       __imp__vsnprintf           00024028     corelib1:COREDLL.dll
+ 0002:0000002c       __imp_atol                 0002402c     corelib1:COREDLL.dll
+ 0002:00000030       __imp_sscanf               00024030     corelib1:COREDLL.dll
+ 0002:00000034       __imp_memcpy               00024034     corelib1:COREDLL.dll
+ 0002:00000038       __imp_malloc               00024038     corelib1:COREDLL.dll
+ 0002:0000003c       __imp_getchar              0002403c     corelib1:COREDLL.dll
+ 0002:00000040       __imp_free                 00024040     corelib1:COREDLL.dll
+ 0002:00000044       __imp_memset               00024044     corelib1:COREDLL.dll
+ 0002:00000048       __imp_sin                  00024048     corelib1:COREDLL.dll
+ 0002:0000004c       __imp_cos                  0002404c     corelib1:COREDLL.dll
+ 0002:00000050       __imp_printf               00024050     corelib1:COREDLL.dll
+ 0002:00000054       __imp___rt_udiv            00024054     corelib1:COREDLL.dll
+ 0002:00000058       __imp_sprintf              00024058     corelib1:COREDLL.dll
+ 0002:0000005c       __imp_strlen               0002405c     corelib1:COREDLL.dll
+ 0002:00000060       __imp_fopen                00024060     corelib1:COREDLL.dll
+ 0002:00000064       __imp_fgets                00024064     corelib1:COREDLL.dll
+ 0002:00000068       __imp_fclose               00024068     corelib1:COREDLL.dll
+ 0002:0000006c       __imp_strtoul              0002406c     corelib1:COREDLL.dll
+ 0002:00000070       __imp_strtol               00024070     corelib1:COREDLL.dll
+ 0002:00000074       __imp_strchr               00024074     corelib1:COREDLL.dll
+ 0002:00000078       __imp_strncpy              00024078     corelib1:COREDLL.dll
+ 0002:0000007c       __imp_strcmp               0002407c     corelib1:COREDLL.dll
+ 0002:00000080       __imp_QueryPerformanceCounter 00024080     coredll:COREDLL.dll
+ 0002:00000084       __imp_QueryPerformanceFrequency 00024084     coredll:COREDLL.dll
+ 0002:00000088       __imp_Sleep                00024088     coredll:COREDLL.dll
+ 0002:0000008c       __imp_GetSystemMetrics     0002408c     coredll:COREDLL.dll
+ 0002:00000090       __imp_MonitorFromPoint     00024090     coredll:COREDLL.dll
+ 0002:00000094       __imp_GetMonitorInfo       00024094     coredll:COREDLL.dll
+ 0002:00000098       __imp_OutputDebugStringW   00024098     coredll:COREDLL.dll
+ 0002:0000009c       __imp_MultiByteToWideChar  0002409c     coredll:COREDLL.dll
+ 0002:000000a0       __imp_PostQuitMessage      000240a0     coredll:COREDLL.dll
+ 0002:000000a4       __imp_DefWindowProcW       000240a4     coredll:COREDLL.dll
+ 0002:000000a8       __imp_ReleasePowerRequirement 000240a8     coredll:COREDLL.dll
+ 0002:000000ac       __imp_DestroyWindow        000240ac     coredll:COREDLL.dll
+ 0002:000000b0       __imp_ReleaseDC            000240b0     coredll:COREDLL.dll
+ 0002:000000b4       __imp_GetDC                000240b4     coredll:COREDLL.dll
+ 0002:000000b8       __imp_ShowWindow           000240b8     coredll:COREDLL.dll
+ 0002:000000bc       __imp_SetWindowOpacity     000240bc     coredll:COREDLL.dll
+ 0002:000000c0       __imp_TerminateProcess     000240c0     coredll:COREDLL.dll
+ 0002:000000c4       __imp_CreateWindowExW      000240c4     coredll:COREDLL.dll
+ 0002:000000c8       __imp_RegisterClassW       000240c8     coredll:COREDLL.dll
+ 0002:000000cc       __imp_GetStockObject       000240cc     coredll:COREDLL.dll
+ 0002:000000d0       __imp_NKDbgPrintfW         000240d0     coredll:COREDLL.dll
+ 0002:000000d4       __imp_GetLastError         000240d4     coredll:COREDLL.dll
+ 0002:000000d8       __imp_SetPowerRequirement  000240d8     coredll:COREDLL.dll
+ 0002:000000dc       __imp_WideCharToMultiByte  000240dc     coredll:COREDLL.dll
+ 0002:000000e0       __imp_SetCursorPos         000240e0     coredll:COREDLL.dll
+ 0002:000000e4       __imp_GetCursorPos         000240e4     coredll:COREDLL.dll
+ 0002:000000e8       __imp_MessageBoxW          000240e8     coredll:COREDLL.dll
+ 0002:000000ec       \177COREDLL_NULL_THUNK_DATA 000240ec     coredll:COREDLL.dll
+ 0002:000000f0       __imp_PVRSRVDestroyDeviceMemContext 000240f0     srvclum:SRVCLUM.dll
+ 0002:000000f4       __imp_PVRSRVCloseDCDevice  000240f4     srvclum:SRVCLUM.dll
+ 0002:000000f8       __imp_SGXReleaseClientInfo 000240f8     srvclum:SRVCLUM.dll
+ 0002:000000fc       __imp_PVRSRVDisconnect     000240fc     srvclum:SRVCLUM.dll
+ 0002:00000100       __imp_PVRSRVConnect        00024100     srvclum:SRVCLUM.dll
+ 0002:00000104       __imp_PVRSRVEnumerateDevices 00024104     srvclum:SRVCLUM.dll
+ 0002:00000108       __imp_PVRSRVAcquireDeviceData 00024108     srvclum:SRVCLUM.dll
+ 0002:0000010c       __imp_SGXGetClientInfo     0002410c     srvclum:SRVCLUM.dll
+ 0002:00000110       __imp_PVRSRVEnumerateDeviceClass 00024110     srvclum:SRVCLUM.dll
+ 0002:00000114       __imp_PVRSRVOpenDCDevice   00024114     srvclum:SRVCLUM.dll
+ 0002:00000118       __imp_PVRSRVGetDCInfo      00024118     srvclum:SRVCLUM.dll
+ 0002:0000011c       __imp_PVRSRVEnumDCFormats  0002411c     srvclum:SRVCLUM.dll
+ 0002:00000120       __imp_PVRSRVEnumDCDims     00024120     srvclum:SRVCLUM.dll
+ 0002:00000124       __imp_PVRSRVCreateDeviceMemContext 00024124     srvclum:SRVCLUM.dll
+ 0002:00000128       __imp_PVRSRVSyncOpsFlushToToken 00024128     srvclum:SRVCLUM.dll
+ 0002:0000012c       __imp_PVRSRVSyncOpsFlushToDelta 0002412c     srvclum:SRVCLUM.dll
+ 0002:00000130       __imp_PVRSRVEventObjectWait 00024130     srvclum:SRVCLUM.dll
+ 0002:00000134       __imp_PVRSRVWaitus         00024134     srvclum:SRVCLUM.dll
+ 0002:00000138       __imp_SGXGetMiscInfo       00024138     srvclum:SRVCLUM.dll
+ 0002:0000013c       __imp_PVRSRVGetDCSystemBuffer 0002413c     srvclum:SRVCLUM.dll
+ 0002:00000140       __imp_PVRSRVCreateDCSwapChain 00024140     srvclum:SRVCLUM.dll
+ 0002:00000144       __imp_PVRSRVGetErrorString 00024144     srvclum:SRVCLUM.dll
+ 0002:00000148       __imp_PVRSRVGetDCBuffers   00024148     srvclum:SRVCLUM.dll
+ 0002:0000014c       __imp_PVRSRVMapDeviceClassMemory 0002414c     srvclum:SRVCLUM.dll
+ 0002:00000150       __imp_PVRSRVGetMiscInfo    00024150     srvclum:SRVCLUM.dll
+ 0002:00000154       __imp_SGXCreateTransferContext 00024154     srvclum:SRVCLUM.dll
+ 0002:00000158       __imp_SGXCreateRenderContext 00024158     srvclum:SRVCLUM.dll
+ 0002:0000015c       __imp_SGXSetContextPriority 0002415c     srvclum:SRVCLUM.dll
+ 0002:00000160       __imp_SGXDestroyRenderContext 00024160     srvclum:SRVCLUM.dll
+ 0002:00000164       __imp_SGXDestroyTransferContext 00024164     srvclum:SRVCLUM.dll
+ 0002:00000168       __imp_PVRSRVSwapToDCSystem 00024168     srvclum:SRVCLUM.dll
+ 0002:0000016c       __imp_PVRSRVUnmapDeviceClassMemory 0002416c     srvclum:SRVCLUM.dll
+ 0002:00000170       __imp_PVRSRVDestroyDCSwapChain 00024170     srvclum:SRVCLUM.dll
+ 0002:00000174       __imp_PVRSRVAllocDeviceMem 00024174     srvclum:SRVCLUM.dll
+ 0002:00000178       __imp_PVRSRVFreeDeviceMem  00024178     srvclum:SRVCLUM.dll
+ 0002:0000017c       __imp_PVRSRVSyncOpsTakeToken 0002417c     srvclum:SRVCLUM.dll
+ 0002:00000180       __imp_PVRSRVSwapToDCBuffer 00024180     srvclum:SRVCLUM.dll
+ 0002:00000184       __imp_SGXRemoveRenderTarget 00024184     srvclum:SRVCLUM.dll
+ 0002:00000188       __imp_SGXAddRenderTarget   00024188     srvclum:SRVCLUM.dll
+ 0002:0000018c       __imp_SGXQueueTransfer     0002418c     srvclum:SRVCLUM.dll
+ 0002:00000190       __imp_SGXKickTA            00024190     srvclum:SRVCLUM.dll
+ 0002:00000194       __imp_PVRSRVLockMutex      00024194     srvclum:SRVCLUM.dll
+ 0002:00000198       __imp_PVRSRVUnlockMutex    00024198     srvclum:SRVCLUM.dll
+ 0002:0000019c       __imp_PVRSRVCreateMutex    0002419c     srvclum:SRVCLUM.dll
+ 0002:000001a0       \177SRVCLUM_NULL_THUNK_DATA 000241a0     srvclum:SRVCLUM.dll
+ 0002:000001a4       gui32WindowWidth           000241a4     wince_unittests.obj
+ 0002:000001a8       gui32WindowHeight          000241a8     wince_unittests.obj
+ 0002:000001ac       gui32PosX                  000241ac     wince_unittests.obj
+ 0002:000001b0       gui32PosY                  000241b0     wince_unittests.obj
+ 0002:000001b4       gui32Opacity               000241b4     wince_unittests.obj
+ 0002:000001b8       __security_cookie          000241b8     corelib0:seccinit.obj
+ 0002:000001bc       __security_cookie_complement 000241bc     corelib0:seccinit.obj
+ 0002:00000290       gbWindow                   00024290     wince_unittests.obj
+ 0002:00000294       ghWnd                      00024294     wince_unittests.obj
+ 0002:00000298       pfnRegisteredWndProc       00024298     wince_unittests.obj
+ 0002:0000029c       _exitflag                  0002429c     corelib0:cexit.obj
+ 0002:000002a0       gui32DisplayWidth          000242a0     <common>
+ 0002:000002a4       gui32DisplayHeight         000242a4     <common>
+ 0002:000002a8       __onexitend                000242a8     <common>
+ 0002:000002ac       __onexitbegin              000242ac     <common>
+
+ entry point at        0001:00011ab4
+
+ Static symbols
+
+ 0001:00009148       edbp_Buffer                0001a148 f   sgx_render_flip_test.obj
+ 0001:00009284       edbp_RegisterBreakpoint    0001a284 f   sgx_render_flip_test.obj
+ 0001:0000937c       edbp_ProcessLineInConfig   0001a37c f   sgx_render_flip_test.obj
+ 0001:000096cc       edbp_ReadConfig            0001a6cc f   sgx_render_flip_test.obj
+ 0001:00009844       edbp_NumberedDeviceBuffer3 0001a844 f   sgx_render_flip_test.obj
+ 0001:0000989c       edbp_HandleBkptCallback    0001a89c f   sgx_render_flip_test.obj
+ 0001:000098a0       srft_InsertSlowDown        0001a8a0 f   sgx_render_flip_test.obj
+ 0001:00009950       srft_wait_for_render       0001a950 f   sgx_render_flip_test.obj
+ 0001:00009a6c       srft_CyclePositionInterpolateInt 0001aa6c f   sgx_render_flip_test.obj
+ 0001:00009b10       srft_WriteEndOfTileCode    0001ab10 f   sgx_render_flip_test.obj
+ 0001:00009c84       srft_WriteSecondaryPixelCode 0001ac84 f   sgx_render_flip_test.obj
+ 0001:00009d78       srft_WritePrimaryPixelCode 0001ad78 f   sgx_render_flip_test.obj
+ 0001:00009f8c       srft_WriteMTEStateCode     0001af8c f   sgx_render_flip_test.obj
+ 0001:0000a120       srft_WriteVerticesToVertexDataBuffer 0001b120 f   sgx_render_flip_test.obj
+ 0001:0000ac94       srft_WriteVertexShaderCode 0001bc94 f   sgx_render_flip_test.obj
+ 0001:0000aec4       srft_DrawTriangles         0001bec4 f   sgx_render_flip_test.obj
+ 0001:0000ba24       srft_PresentBlit           0001ca24 f   sgx_render_flip_test.obj
+ 0001:0000bbd8       srft_PerThread             0001cbd8 f   sgx_render_flip_test.obj
+ 0001:0000d4e4       srft_ParseColour           0001e4e4 f   sgx_render_flip_test.obj
+ 0001:0000d590       srft_ParseOptions          0001e590 f   sgx_render_flip_test.obj
+ 0001:0000f1cc       PDSEncodeSimpleMOVS        000201cc f   pds.obj
+ 0001:0000f240       PDSGetNextConstant         00020240 f   pds.obj
+ 0001:0000f294       PDSGetNumConstants         00020294 f   pds.obj
+ 0001:00011a34       WinMainCRTStartupHelper    00022a34 f   corelib0:pegwmain.obj
+ 0001:00011be0       doexit                     00022be0 f   corelib0:cexit.obj

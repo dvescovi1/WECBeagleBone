@@ -1,0 +1,8 @@
+# All rights reserved TEXAS INSTRUMENTS INC 2010
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=eboot_cfg_save
+TARGETTYPE=LIBRARY
+
+SOURCES= cfg_save.c \
+
