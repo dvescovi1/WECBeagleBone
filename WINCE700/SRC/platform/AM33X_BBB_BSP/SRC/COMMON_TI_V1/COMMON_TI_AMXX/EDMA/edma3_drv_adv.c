@@ -46,6 +46,7 @@
 */
 
 
+#include "windows.h"
 /* EDMA3 Driver Internal Header Files */
 #include "edma3.h"
 /* Resource Manager Internal Header Files */
@@ -2364,6 +2365,8 @@ EDMA3_DRV_Handle EDMA3_DRV_getInstHandle(unsigned int phyCtrllerInstId,
     if ((phyCtrllerInstId >= g_EDMA3_NUM_INSTANCES)
         || (errorCode == NULL))
         {
+		RETAILMSG(1, (L"EDMA3_DRV_getInstHandle: Invalid params (phyCtrllerInstId=%d,errorCode=0x%08x)\r\n", 
+			phyCtrllerInstId, errorCode));
         result = EDMA3_DRV_E_INVALID_PARAM;
         }
 #endif
@@ -2374,6 +2377,8 @@ EDMA3_DRV_Handle EDMA3_DRV_getInstHandle(unsigned int phyCtrllerInstId,
 
 		if (NULL == drvObject)
             {
+			RETAILMSG(1, (L"EDMA3_DRV_getInstHandle: Invalid params (drvObject=0x%08x)\r\n", 
+				drvObject));
             result = EDMA3_DRV_E_INVALID_PARAM;
             }
 
@@ -2382,6 +2387,8 @@ EDMA3_DRV_Handle EDMA3_DRV_getInstHandle(unsigned int phyCtrllerInstId,
 	/* Check regionId. */
     if (regionId >= drvObject->gblCfgParams.numRegions)
         {
+		RETAILMSG(1, (L"EDMA3_DRV_getInstHandle: Invalid params (regionId=%d)\r\n", 
+				regionId));
         result = EDMA3_DRV_E_INVALID_PARAM;
         }
 #endif
@@ -2396,6 +2403,8 @@ EDMA3_DRV_Handle EDMA3_DRV_getInstHandle(unsigned int phyCtrllerInstId,
 
         if (NULL == drvInstanceHandle->pDrvObjectHandle)
             {
+			RETAILMSG(1, (L"EDMA3_DRV_getInstHandle: Instance not yet opened\r\n"));
+
             /* Instance not opened yet!!! */
             drvInstanceHandle = NULL;
             result = EDMA3_DRV_E_INST_NOT_OPENED;

@@ -64,6 +64,7 @@ extern "C" {
 #define CPU_FAMILY_35XX_REVISION_ES_2_1_CRC     4
 #define CPU_FAMILY_35XX_REVISION_ES_3_0     5
 #define CPU_FAMILY_35XX_REVISION_ES_3_1     6
+#define CPU_FAMILY_35XX_REVISION_ES_3_2     7
 #define CPU_FAMILY_37XX_REVISION_ES_1_0     0x10
 #define CPU_FAMILY_37XX_REVISION_ES_1_1     0x11
 #define CPU_FAMILY_37XX_REVISION_ES_1_2     0x12
@@ -142,12 +143,12 @@ extern UINT32 Get_CPUMaxSpeed(UINT32 cpu_family);
 /* AM335X */
 #define NO_OF_DAUGHTER_BOARDS	3
 
-#define AM33X_BOARDID_GP_BOARD      0
-#define AM33X_BOARDID_IA_BOARD      1
-#define AM33X_BOARDID_IPP_BOARD     2
-#define AM33X_BOARDID_BASE_BOARD    3
-#define AM33X_BOARDID_BBONE_BOARD   4
-#define AM33X_BOARDID_BBONEB_BOARD  5
+#define AM33X_BOARDID_GP_BOARD           0
+#define AM33X_BOARDID_IA_BOARD           1
+#define AM33X_BOARDID_IPP_BOARD          2
+#define AM33X_BOARDID_BASE_BOARD         3
+#define AM33X_BOARDID_BBONE_BOARD        4
+#define AM33X_BOARDID_BBONEBLACK_BOARD   5
 
 
 #define PROFILE_NONE	0x0
@@ -172,7 +173,10 @@ extern UINT32 Get_CPUMaxSpeed(UINT32 cpu_family);
 #define AM335X_BONE_BOARD_VER_A5        0x1005
 #define AM335X_BONE_BOARD_VER_A6        0x1006
 
-
+#define AM335X_BLACK_BONE_A5A           0x0100
+#define AM335X_BLACK_BONE_A5B           0x0101
+#define AM335X_BLACK_BONE_A5C           0x0102
+#define AM335X_BLACK_BONE_A6A           0x0103
 
 /* not yet implemented */
 extern UINT32 Get_BoardID(void);

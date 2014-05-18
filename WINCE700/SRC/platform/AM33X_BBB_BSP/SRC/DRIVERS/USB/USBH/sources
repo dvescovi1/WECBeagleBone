@@ -3,9 +3,6 @@
 Copyright (c) MPC Data Limited 2007.  All rights reserved.
 !endif
 
-#####    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\hcd2lib.lib    \
-
-
 !IF "$(BSP_USBH0)" == ""
 !IF "$(BSP_USBH1)" == ""
 SKIPBUILD=1
@@ -24,6 +21,7 @@ SOURCES= \
 
 SOURCELIBS= \
     $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\hcd2lib.lib   \
+#    $(_PLATLIB)\$(_CPUINDPATH)\am33x_hcd2lib.lib   \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbhlib.lib    \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma.lib \
 

@@ -25,11 +25,9 @@ _SRC=$(_PLATFORMROOT)\$(_TGTPLAT)\src\bootloader\xldr\sdmemory
 _TGT=$(SG_OUTPUT_ROOT)\platform\$(_TGTPLAT)\target\$(_TGTCPU)\$(WINCEDEBUG)
 _BIN=$(_PLATFORMROOT)\$(_TGTPLAT)\bin
 
-xldr_sd_mlo:
+xldr_romimage:
 !if "$(NOLINK)" == ""
     romimage $(ROMIMAGE_FLAGS) xldrsd.bib
-#   The OMAP boot ROM will not load the NAND XLDR unless some bytes are modified near the image start
-    $(_FILES)\fileset.exe $(_TGT)\xldrsd.nb0 0x4 0x3c 0xff
 !if "$(WINCEREL)"=="1"
     xcopy /Q /I $(_TGT)\xldrsd.* $(_FLATRELEASEDIR)
 !endif

@@ -29,7 +29,7 @@ SKIPBUILD=1
 STACK_CHECK_DISABLE=1
 
 LDEFINES=/DEBUG /DEBUGTYPE:CV /FIXED:NO
-WINCETARGETFILES=xldr_romimage_raw
+WINCETARGETFILES=xldr_romimage
 
 # Use this if the image previously downloaded to NAND contains EBOOT only
 # and now you want to retrieve NAND and exec it
@@ -53,8 +53,8 @@ ARM_SOURCES=\
     ..\jumpto.s
 
 TARGETLIBS= \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib                      \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib                    \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib     \
     $(_PLATLIB)\$(_CPUINDPATH)\am3xx_fmd_nand_boot.lib        \
     $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib             \

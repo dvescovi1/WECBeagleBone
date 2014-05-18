@@ -1,3 +1,4 @@
+; Copyright (c) 2014, David Vescovi.  All Rights Reserved.
 ; All rights reserved ADENEO EMBEDDED 2010
 ;  Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
 
@@ -13,7 +14,7 @@
 ; File: xldrsd.bib
 ;
 ; This file define X-Loader image layout. X-Loader is loaded to internal
-; AM33X SRAM memory from MMC/SD card. 
+; SRAM memory from MMC/SD card. 
 ;
 ; GP device doesn't support TOC, it only check first 2 DWORDs for image size and load address.
 ;
@@ -21,22 +22,17 @@
 
 MEMORY
 ;   Name        Start     Size      Type
-;   ---------------------   --------  --------  ----
-; 
-    XLDRSD  402F1000  00014FF8  RAMIMAGE
-    RAM    	40306000  00004000  RAM
-    STACK 	4030A000  00001000  RESERVED
+;   ---------   --------  --------  ----
 
-IF IMGHIGHSECURITY
-    nk.exe:dwOEMHighSecurity       00000000  00000001  FIXUPVAR
-ELSE
-    nk.exe:dwOEMHighSecurity       00000000  00000002  FIXUPVAR
-ENDIF
+    XLDRSD      402F1000  00014FF8  RAMIMAGE
+    RAM         40306000  00004000  RAM
+    STACK       4030A000  00001000  RESERVED
+
 
 CONFIG
     COMPRESSION=OFF
     PROFILE=OFF
-    KERNELFIXUPS=ON
+    KERNELFIXUPS=OFF
 
     ; NOTE - ROMSTART starts 0x1000 after the beginning of XLDRSD section
     ; This is because this zone is not used by .exe. It's a guard section        

@@ -22,22 +22,9 @@ static HANDLE g_hTwl = NULL;
 
 BOOL ValidateHandle()
 {
-	BYTE twlDevCtrlValue;
-
 	if ( g_hTwl == NULL)
 	{
 		g_hTwl = TWLOpen();
-
-		// access smartreflex registers via ctl I2C
-		if (TWLReadRegs(g_hTwl, PMIC_DEVCTRL_REG, &twlDevCtrlValue, sizeof(twlDevCtrlValue)))
-		{
-			twlDevCtrlValue |=  PMIC_DEVCTRL_REG_SR_CTL_I2C_SEL_CTL_I2C;
-			TWLWriteRegs(g_hTwl, PMIC_DEVCTRL_REG, &twlDevCtrlValue, sizeof(twlDevCtrlValue));
-		}
-		else
-		{
-			g_hTwl = NULL;
-		}
 	}
 	return (g_hTwl != NULL);
 }
@@ -50,8 +37,7 @@ BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv)
     BYTE buf;
     UINT32 reg=0;
     
-	if (!ValidateHandle())
-		goto cleanup;
+    ValidateHandle();	
 	
 	switch (voltage) {
         case kVdd1:

@@ -175,7 +175,7 @@ BOOL OEMPlatformInit()
 
 	detect_baseboard_id_info(); 
 
-	if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+	if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
 	{		 
 		 OALLog(L"\r\nTI BeagleBone (Black)\r\n");
 	}
@@ -187,7 +187,7 @@ BOOL OEMPlatformInit()
 	g_dwBoardHasDcard = FALSE;
 	g_dwBoardProfile = (DWORD)PROFILE_0;
 
-	if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+	if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
         g_dwBoardProfile |= (DWORD)PROFILE_1;
     }
@@ -336,7 +336,7 @@ ULONG OEMPreDownload( )
 //        g_bootCfg.displayRes = OMAP_RES_DEFAULT;
         g_bootCfg.displayRes = OMAP_DVI_800W_600H;
 
-		if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+		if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
 		{		 
 			g_bootCfg.opp_mode = 4;		// OPM_SELECT-1 4 is 1GHz 
 		}

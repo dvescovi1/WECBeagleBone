@@ -124,7 +124,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     KernelIoControl(IOCTL_HAL_GET_PLATFORM_ID,
                          NULL, 0, &id, sizeof(DWORD), &ret);
 
-	if (id == AM33X_BOARDID_BBONEB_BOARD)
+	if (id == AM33X_BOARDID_BBONEBLACK_BOARD)
 	{
 		ramSize = DEVICE_RAM_SIZE_512;
 	}

@@ -200,7 +200,7 @@ BOOL detect_baseboard_id_info()
 		g_dwBoardId = AM33X_BOARDID_BBONE_BOARD;
     }
     else if (!strncmp("A335BNLT", header.name, 8)) {
-		g_dwBoardId = AM33X_BOARDID_BBONEB_BOARD;
+		g_dwBoardId = AM33X_BOARDID_BBONEBLACK_BOARD;
     }
     else {
         OALMSG(1, (L"IT IS A INVALID BOARD\r\n"));
@@ -222,7 +222,7 @@ BOOL detect_baseboard_id_info()
             OALMSG(1, (L"Unrecognized Board Version!\r\n"));
         
     }
-    else if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+    else if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
         if (!strncmp("00A4", header.version, 4)) {        
             g_dwBaseBoardVersion = AM335X_BONE_BOARD_VER_A4;     

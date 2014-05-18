@@ -396,22 +396,18 @@ VOID OALIntrDisableIrqs( UINT32 count, const UINT32 *pIrqs )
 				OUTREG32(&s_intr.pICLRegs->INTC_MIR_SET3, 1 << (irq - 96));
             } else if (irq <= IRQ_GPIO_31) {
                 OUTREG32(&s_intr.pGPIORegs[0]->IRQSTATUS_CLR_0, 1<<(irq - IRQ_GPIO_0));   // Disable IRQ
-               
                 OEMEnableIOPadWakeup((irq - IRQ_GPIO_0), FALSE);
                 PrcmDeviceEnableClocks(AM_DEVICE_GPIO0, FALSE);
             } else if (irq <= IRQ_GPIO_63) {
                 OUTREG32(&s_intr.pGPIORegs[1]->IRQSTATUS_CLR_0, 1<<(irq - IRQ_GPIO_32));  // Disable IRQ
-               
                 OEMEnableIOPadWakeup((irq - IRQ_GPIO_0), FALSE);
                 PrcmDeviceEnableClocks(AM_DEVICE_GPIO1, FALSE);
             } else if (irq <= IRQ_GPIO_95) {
                 OUTREG32(&s_intr.pGPIORegs[2]->IRQSTATUS_CLR_0, 1<<(irq - IRQ_GPIO_64));  // Disable IRQ
-               
                 OEMEnableIOPadWakeup((irq - IRQ_GPIO_0), FALSE);
                 PrcmDeviceEnableClocks(AM_DEVICE_GPIO1, FALSE);
             } else if (irq <= IRQ_GPIO_127) {
                 OUTREG32(&s_intr.pGPIORegs[3]->IRQSTATUS_CLR_0, 1<<(irq - IRQ_GPIO_96));  // Disable IRQ
-               
                 OEMEnableIOPadWakeup((irq - IRQ_GPIO_0), FALSE);
                 PrcmDeviceEnableClocks(AM_DEVICE_GPIO1, FALSE);
             } else if (irq < IRQ_SW_RESERVED_MAX ) {

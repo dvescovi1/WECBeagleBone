@@ -56,7 +56,7 @@ static UINT32                s_Frequency;
 void OALPerformanceTimerInit(DWORD clock, DWORD flag)
 //	Initialize the high performance clock for profiling
 {
-    OALMSG(TRUE, (L"--- High Performance Frequecy is 24 MHz---\r\n"));
+    OALMSG(TRUE, (L"--- High Performance Frequency is 24 MHz---\r\n"));
 
     g_pHPTimerRegs = OALPAtoUA(GetAddressByDevice(BSPGetGPTPerfDevice()));
     s_Frequency = SOCGetSysFreqKHz()* 1000;
