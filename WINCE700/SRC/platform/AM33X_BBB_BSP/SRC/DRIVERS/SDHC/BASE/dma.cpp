@@ -331,11 +331,11 @@ void CSDIOControllerBase::SDIO_InitInputDMA(DWORD dwBlkCnt, DWORD dwBlkSize)
       dwChannel = SDMA_REQ_MMC2_RX;
       dwAddr = SDIO_INPUT_DMA_SOURCE2;
     }
-    else if ( m_dwSlot == MMCSLOT_3 ) 
-    {
-      dwChannel = SDMA_REQ_MMC3_RX;
-      dwAddr = SDIO_INPUT_DMA_SOURCE3;
-    }
+    //else if ( m_dwSlot == MMCSLOT_3 ) 
+    //{
+    //  dwChannel = SDMA_REQ_MMC3_RX;
+    //  dwAddr = SDIO_INPUT_DMA_SOURCE3;
+    //}
     else
     {
         ASSERT(0);
@@ -406,11 +406,11 @@ void CSDIOControllerBase::SDIO_InitOutputDMA(DWORD dwBlkCnt, DWORD dwBlkSize)
       dwChannel = SDMA_REQ_MMC2_TX;
       dwAddr = SDIO_OUTPUT_DMA_DEST2;
     }
-    else if ( m_dwSlot == MMCSLOT_3 ) 
-    {
-      dwChannel = SDMA_REQ_MMC3_TX;
-      dwAddr = SDIO_OUTPUT_DMA_DEST3;
-    }
+    //else if ( m_dwSlot == MMCSLOT_3 ) 
+    //{
+    //  dwChannel = SDMA_REQ_MMC3_TX;
+    //  dwAddr = SDIO_OUTPUT_DMA_DEST3;
+    //}
     else return;
     
     DmaConfigure (m_hTxDmaChannel,

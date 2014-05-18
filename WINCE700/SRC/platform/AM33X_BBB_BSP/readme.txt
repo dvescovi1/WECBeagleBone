@@ -12,6 +12,11 @@
 01.04.00	08-FEB-2014
 	-Code cleanup
 	-Added SDK
+	
+01.05.00	18-MAY-2014
+	-Code cleanup
+	-Corrected BBB DCDC2 voltage at @1Ghz
+	
 
 
 

@@ -853,7 +853,7 @@ static void config_am33x_ddr(void)
 
 	enable_ddr_clocks();
 
-	if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+	if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
 	{
 		ddr_pll_config(400);
 		config_vtp();
@@ -884,7 +884,7 @@ static void config_am33x_ddr(void)
 	OUTREG32(OALPAtoUA(DDR_IO_CTRL),  INREG32(OALPAtoUA(DDR_IO_CTRL))  & 0x0fffffff);
 	OUTREG32(OALPAtoUA(DDR_CKE_CTRL), INREG32(OALPAtoUA(DDR_CKE_CTRL)) | 0x00000001);
 
-	if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+	if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
 	{
 		config_emif_ddr(&emif_ddr3);
 	}
@@ -1060,11 +1060,11 @@ int board_init()
 			goto exit_pmic_config;
 		}
 
-		/* Set MPU Frequency to 720MHz */
+		/* Set MPU Frequency to 720MHz if BSP_OPM_SELECT = 4 */
 		mpu_pll_config(opp_setting);
         
     }
-    else if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+    else if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
         if (TWLGetStatusReg(&pmic_status_reg)==FALSE)
 			goto exit_pmic_config;
@@ -1074,9 +1074,9 @@ int board_init()
 				       USB_INPUT_CUR_LIMIT_1800MA,
 				       USB_INPUT_CUR_LIMIT_MASK);
 
-        /* Set DCDC2 (MPU) voltage to 1.275V */
+        /* Set DCDC2 (MPU) voltage to 1.325V */
         TWLUpdateVoltage(DEFDCDC2,
-					     DCDC_VOLT_SEL_1275MV);
+					     DCDC_VOLT_SEL_1325MV);
 
         /* Set LDO3 output voltage to 1.8V */
 		TWLProtWriteRegs(PROT_LEVEL_2, DEFLS1,
@@ -1086,7 +1086,7 @@ int board_init()
 		TWLProtWriteRegs(PROT_LEVEL_2, DEFLS2,
 				       LDO_VOLTAGE_OUT_3_3, LDO_MASK);
 
-		/* Set MPU Frequency to 720MHz */
+		/* Set MPU Frequency to 1Ghz if BSP_OPM_SELECT = 5 */
 		mpu_pll_config(opp_setting);
         
     }

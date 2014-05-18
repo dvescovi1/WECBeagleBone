@@ -1,3 +1,4 @@
+// Copyright (c) 2014, David Vescovi.  All Rights Reserved.
 // All rights reserved ADENEO EMBEDDED 2010
 // Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
 
@@ -85,7 +86,6 @@ extern DEVICE_IFC_GPIO Am3xx_Gpio;
 //  Global variables
 ROMHDR * volatile const pTOC = (ROMHDR *)-1;
 
-const volatile DWORD dwOEMHighSecurity      = OEM_HIGH_SECURITY_GP;
 unsigned int  gCPU_family;
 const volatile DWORD dwEbootECCtype = (DWORD)-1;
 UCHAR g_ecctype =4;
@@ -97,7 +97,6 @@ extern VOID OEMDeinitDebugSerial();
 extern VOID PlatformSetup();
 extern VOID JumpTo();
 extern VOID EnableCache_GP();
-extern VOID EnableCache_HS();
 
 //------------------------------------------------------------------------------
 //  Local Functions
@@ -454,11 +453,6 @@ VOID XLDRMain()
 
     OALLocalAllocInit(allocationPool,sizeof(allocationPool));
 
-/*
-    //  Enable cache based on device type
-    if( dwOEMHighSecurity == OEM_HIGH_SECURITY_HS ) EnableCache_HS();
-    else											EnableCache_GP();
-*/
     EnableCache_GP();
     ProcessorName = L"335X";
     PlatformSetup();

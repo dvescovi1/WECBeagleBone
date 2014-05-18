@@ -674,7 +674,7 @@ LcdPdd_LCD_Initialize(struct lcdc *lcdc)
 	id = g_dwBoardId;
 #endif
 
-	if (id == AM33X_BOARDID_BBONEB_BOARD)
+	if (id == AM33X_BOARDID_BBONEBLACK_BOARD)
 	{
 		tda1998x_init();
 		if( tda998x_connected_detect())

@@ -1,6 +1,6 @@
+// Copyright (c) 2014, David Vescovi.  All Rights Reserved.
 // All rights reserved ADENEO EMBEDDED 2010
 // Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
-
 /*
 ================================================================================
 *             Texas Instruments OMAP(TM) Platform Software
@@ -54,8 +54,6 @@ extern DEVICE_IFC_GPIO Am3xx_Gpio;
 //------------------------------------------------------------------------------
 //  Global variables
 ROMHDR * volatile const pTOC = (ROMHDR *)-1;
-
-const volatile DWORD dwOEMHighSecurity      = OEM_HIGH_SECURITY_GP;
 
 BOOT_CFG g_bootCfg;
 

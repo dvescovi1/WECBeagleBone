@@ -70,6 +70,10 @@ typedef volatile struct
 #define SIDLE_IGNORE                            (1)
 #define SIDLE_SMART                             (2)
 
+#define CLOCKACTIVITY_AUTOOFF					(0 << 8)
+#define CLOCKACTIVITY_F_ON						(1 << 8)
+#define CLOCKACTIVITY_I_ON						(2 << 8)
+#define CLOCKACTIVITY_IF_ON						(3 << 8)
 
 // MMCHS_SYSSTATUS register fields
 #define MMCHS_SYSSTATUS_RESETDONE               (1 << 0)
@@ -117,19 +121,19 @@ typedef volatile struct
 
 typedef enum
 {
-    ESDHC_CMD_NORMAL = 0,
-    ESDHC_CMD_SUSPEND = 1,
-    ESDHC_CMD_RESUME = 2,
-    ESDHC_CMD_ABORT = 3,
-}ESDHCCmdType;
+    SDHC_CMD_NORMAL = 0,
+    SDHC_CMD_SUSPEND = 1,
+    SDHC_CMD_RESUME = 2,
+    SDHC_CMD_ABORT = 3,
+}SDHCCmdType;
 
 typedef enum
 {
-    ESDHC_RSPLEN_0 = 0,
-    ESDHC_RSPLEN_136 = 1,
-    ESDHC_RSPLEN_48 = 2,
-    ESDHC_RSPLEN_48B = 3,
-}ESDHCRspType;
+    SDHC_RSPLEN_0 = 0,
+    SDHC_RSPLEN_136 = 1,
+    SDHC_RSPLEN_48 = 2,
+    SDHC_RSPLEN_48B = 3,
+}SDHCRspType;
 
 
 // MMCHS_PSTATE register fields
@@ -179,9 +183,9 @@ typedef enum
 #define MMCHS_SYSCTL_SRC                        (1 << 25)
 #define MMCHS_SYSCTL_SRD                        (1 << 26)
 
-#define MMCHS_SYSCTL_DTO_MASK                   (0xF0000)
-#define MMCHS_SYSCTL_CLKD_MASK                  (0xFFC0)
-#define ESDHC_MAX_DATA_TIMEOUT_COUNTER_VAL  0xE   // data timeout will occur after SDCLK * 2^27 ticks
+#define MMCHS_SYSCTL_DTO_MASK                   (0x000F0000)
+#define MMCHS_SYSCTL_CLKD_MASK                  (0x0000FFC0)
+#define MMCHS_SYSCTL_DTO_MAX_VAL				0xE   // data timeout will occur after SDCLK * 2^27 ticks
 
 
 // MMCHS_STAT register fields

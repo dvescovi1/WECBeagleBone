@@ -1,3 +1,4 @@
+# Copyright (c) 2014, David Vescovi.  All Rights Reserved.
 # All rights reserved ADENEO EMBEDDED 2010
 !if 0
 ;================================================================================
@@ -30,7 +31,7 @@ SKIPBUILD=1
 STACK_CHECK_DISABLE=1
 
 LDEFINES=/DEBUG /DEBUGTYPE:CV /FIXED:NO
-WINCETARGETFILES=xldr_sd_mlo
+WINCETARGETFILES=xldr_romimage
 
 INCLUDES=$(INCLUDES);$(_PUBLICROOT)\common\oak\drivers\block\msflashfmd\inc
 
@@ -49,8 +50,8 @@ ARM_SOURCES=\
     
 
 TARGETLIBS= \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib                          \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib                            \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
     $(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_log.lib                          \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib           \
     $(_PLATLIB)\$(_CPUDEPPATH)\$(_SOC)_soccfg.lib                   \

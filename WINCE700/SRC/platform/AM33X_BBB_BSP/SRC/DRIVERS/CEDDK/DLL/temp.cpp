@@ -25,7 +25,7 @@ BusClockRequest(
 //
 BOOL
 BusClockRelease(
-    HANDLE hBus, 
+    HANDLE hBus,
     UINT id
     )
 {
@@ -54,15 +54,14 @@ BusSourceClocks(
 }
 
 void GetDisplayResolutionFromBootArgs( DWORD * pDispRes )
-{    
+{
     DWORD   dwKernelRet = 0;
-    
     if (!KernelIoControl(IOCTL_HAL_GET_DISPLAY_RES,
                          NULL, 0, pDispRes, sizeof(DWORD), &dwKernelRet))
     {
         RETAILMSG( TRUE,(TEXT("Failed to read Display resolution\r\n")));
         return;
-    }   
+    }
 }
 
 

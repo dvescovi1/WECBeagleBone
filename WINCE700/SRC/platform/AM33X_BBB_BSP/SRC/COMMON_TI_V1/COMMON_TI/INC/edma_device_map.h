@@ -26,7 +26,6 @@ extern "C" {
 #define SDMA_REQ_MMC2_TX 				2
 #define SDMA_REQ_MMC2_RX 				3
 #define SDMA_REQ_AES_TX 				2
-#define SDMA_REQ_MMC2_RX 				3
 #define SDMA_REQ_AES_CTX				4
 #define SDMA_REQ_AES_DATA_IN			5
 #define SDMA_REQ_AES_DATA_OUT			6
@@ -35,7 +34,6 @@ extern "C" {
 #define SDMA_REQ_MCASP_AREVT0			9
 #define SDMA_REQ_MCASP_AXEVT1			10
 #define SDMA_REQ_MCASP_AREVT1			11
-
 #define SDMA_REQ_PWMEVT0				14
 #define SDMA_REQ_PWMEVT1				15
 #define SDMA_REQ_SPI1_TX0               16

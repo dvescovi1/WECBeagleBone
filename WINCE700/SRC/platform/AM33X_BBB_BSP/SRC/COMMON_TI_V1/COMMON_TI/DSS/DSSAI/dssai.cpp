@@ -396,13 +396,10 @@ OMAPDisplayController::InitLCD()
 
     // Initialize the DSI PLL
     InitDsiPll();
-
     // Configure the DSI PLL with the FCLK value reqd
     ConfigureDsiPll( OMAP_DSS_FCLKVALUE_NORMAL );
-    
     //  Unlock access to power level
     LeaveCriticalSection( &m_csPowerLock );
-
     //  Return result
     return bResult;
 }

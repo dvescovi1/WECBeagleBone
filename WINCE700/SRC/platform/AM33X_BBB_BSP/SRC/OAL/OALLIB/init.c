@@ -24,7 +24,6 @@
 */
 
 #include <bsp.h>
-#include <bldver.h>
 #include "omap_cpuver.h"
 
 #include "am33x.h"
@@ -33,6 +32,7 @@
 
 #if (_WINCEOSVER >= 700)
 	#include <vfpSupport.h>
+    #include <bldver.h>
 #endif
 
 //------------------------------------------------------------------------------
@@ -289,7 +289,7 @@ VOID OEMInit()
 	g_dwBoardHasDcard = FALSE;
 	g_dwBoardProfile = (DWORD)PROFILE_0;
 
-	if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+	if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
         g_dwBoardProfile |= (DWORD)PROFILE_1;
     }
@@ -300,6 +300,18 @@ VOID OEMInit()
 	{
         g_dwBoardProfile |= PROFILE_2;
 	}
+
+#ifdef BSP_SDHC2
+    g_dwBoardProfile |= PROFILE_3;
+	g_dwBoardHasDcard |= HASDCARD_SLOT1;
+    OALMSG(1, (L"enable PROFILE 3\r\n"));
+#endif
+
+#ifdef BSP_SDHC3
+    g_dwBoardProfile |= PROFILE_4;
+	g_dwBoardHasDcard |= HASDCARD_SLOT1;
+    OALMSG(1, (L"enable PROFILE 4\r\n"));
+#endif
 
 	//----------------------------------------------------------------------
     // Initialize Vector Floating Point co-processor
@@ -314,7 +326,7 @@ VOID OEMInit()
     //----------------------------------------------------------------------
     // Initialize 512 RAM 
     //----------------------------------------------------------------------
-    if (g_dwBoardId == AM33X_BOARDID_BBONEB_BOARD)
+    if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
 		//enable RAM >= 512M     
 		g_pOemGlobal->pfnGetOEMRamTable = OEMGetRamTable;
@@ -355,7 +367,7 @@ VOID OEMInit()
 	if (g_dwBoardHasDcard & HASDCARD_DVI)
 	{
 //		if (!RequestAndConfigurePad(PAD_ID(GPMC_CSN2),AM335X_PIN_OUTPUT_PULLUP))
-		if (!RequestAndConfigurePad(PAD_ID(ECAP0_IN_PWM0_OUT),AM335X_PIN_OUTPUT_PULLUP))
+		if (!RequestAndConfigurePad(PAD_ID(ECAP0_IN_PWM0_OUT),MODE(7) | AM335X_PIN_OUTPUT_PULLUP))
 			OALMSG(OAL_ERROR, (TEXT("Failed to request pads for DVI nPD\r\n")));
 	}
 

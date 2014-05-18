@@ -398,7 +398,6 @@ typedef enum OMAP_LCD_DVI_RES {
 //
 #define BSP_SDRC_DLLB_CTRL             (BSP_SDRC_DLLA_CTRL)
 
-
 //------------------------------------------------------------------------------
 //
 //  Define:  BSP_GPMC_xxx
