@@ -52,7 +52,6 @@ ARM_SOURCES=\
 TARGETLIBS= \
     $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
     $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
-    $(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_log.lib                          \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib           \
     $(_PLATLIB)\$(_CPUDEPPATH)\$(_SOC)_soccfg.lib                   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_boot_fatfs.lib          \

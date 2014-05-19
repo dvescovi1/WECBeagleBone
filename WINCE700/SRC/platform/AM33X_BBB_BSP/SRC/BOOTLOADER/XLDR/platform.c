@@ -24,6 +24,7 @@
 #include "sdk_padcfg.h"
 #include "oal_padcfg.h"
 #include "oal_i2c.h"
+#include "oal_clock.h"
 
 #include "bsp_padcfg.h"
 #include "omap_cpuver.h"
@@ -38,16 +39,7 @@
 #include "tps6591x.h"
 #include "tps65217.h"
 
-#if defined(FMD_ONENAND) && defined(FMD_NAND)
-    #error FMD_ONENAND and FMD_NAND cannot both be defined.
-#endif
-
-#define IN_DDR                 0
-#define CONFIG_MMC
-#define CONFIG_LCDC
-
 extern BOOL detect_baseboard_id_info();
-
 
 /****************************************************************/
 
@@ -1025,7 +1017,6 @@ void gpmc_init(void)
 
 int board_init()
 {
-    unsigned char buf[4]	= {0};
     pCPU_OPP_Settings opp_setting = &AM33x_OPP_Table[BSP_OPM_SELECT-1];    
     unsigned char pmic_status_reg;
 	
@@ -1155,8 +1146,7 @@ VOID PlatformSetup()
 
     board_init();
 
-	if (!IN_DDR)
-		config_am33x_ddr();	/* Do DDR settings */
+	config_am33x_ddr();	/* Do DDR settings */
 
     board_eth_init();
 }

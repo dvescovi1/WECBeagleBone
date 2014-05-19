@@ -8,4 +8,16 @@ IF BSP_EDMA
 	"Flags"=dword:1000
 	"Priority256"=dword:46
 ; END HIVE BOOT SECTION
+
+; EDMA Test Driver
+IF BSP_TEST
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\EdmaTest]
+    "Dll"="edma_test.dll"
+    "Prefix"="EDT"
+    "Index"=dword:1
+    "Order"=dword:20
+    "Flags"=dword:0
+ENDIF BSP_TEST
+
+
 ENDIF

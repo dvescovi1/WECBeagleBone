@@ -3,7 +3,7 @@ DIRS=\
 	bsp_common\
 	oal\
 	DRIVERS\
-	APP\
 	BOOTLOADER\
-	KITL
+	KITL\
+	APP\
 

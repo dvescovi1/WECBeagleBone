@@ -177,10 +177,7 @@ extern UINT32 Get_CPUMaxSpeed(UINT32 cpu_family);
 #define AM335X_BLACK_BONE_A5B           0x0101
 #define AM335X_BLACK_BONE_A5C           0x0102
 #define AM335X_BLACK_BONE_A6A           0x0103
-
-/* not yet implemented */
-extern UINT32 Get_BoardID(void);
-extern UINT32 Get_BoardProfile(void);
+#define AM335X_BLACK_BONE_B00           0x0104
 
 
 #if __cplusplus

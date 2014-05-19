@@ -33,6 +33,7 @@ SOURCES= \
 
 SOURCELIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib     \
+    $(_PLATLIB)\$(_CPUINDPATH)\edmadrvr.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_devicesmap.lib			\
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_device_gpiodispatch.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib					\
@@ -49,7 +50,6 @@ SOURCELIBS= \
     $(_COMMONOAKLIB)\$(_CPUINDPATH)\ddk_time.lib	\
     $(_COMMONOAKLIB)\$(_CPUINDPATH)\ddk_power.lib	\
     $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
-    $(_PLATLIB)\$(_CPUINDPATH)\edmadrvr.lib \
 # $(_COMMONOAKLIB)\$(_CPUINDPATH)\ddk_map.lib		\
 
 TARGETLIBS= \

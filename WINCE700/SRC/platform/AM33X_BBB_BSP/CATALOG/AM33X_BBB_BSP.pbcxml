@@ -13,14 +13,9 @@
     <PlatformDirectory>AM33X_BBB_BSP</PlatformDirectory>
     <CpuId>Cpu:ARMV7</CpuId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xgpio</BspItemId>
-    <BspItemId>AM33x_BBB:Texas Instruments:am33xmcspi1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmcspi2</BspItemId>
-    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xuart2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xuart3</BspItemId>
-    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart4</BspItemId>
-    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart5</BspItemId>
-    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart6</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:Ndiscpsw3g</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xLCDC</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xDisplayNOP</BspItemId>
@@ -44,75 +39,27 @@
     <Module>am33x_gpio.dll</Module>
     <Location>Drivers\GPIO</Location>
   </Item>
-  <Item Id="AM33x_BBB:Texas Instruments:am33xmcspi1">
-    <Title>SPI driver (MCSPI1)</Title>
-    <Description>AM33X MCSPI driver 1</Description>
-    <Comment>AM33X MCSPI driver 1</Comment>
-    <Type>BspSpecific</Type>
-    <Variable>BSP_AM33X_MCSPI1</Variable>
-    <Module>am33x_mcspi.dll</Module>
-    <Location>Drivers\MCSPI</Location>
-  </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xmcspi2">
-    <Title>SPI driver (MCSPI2)</Title>
-    <Description>AM33X MCSPI driver 2</Description>
-    <Comment>AM33X MCSPI driver 2</Comment>
+    <Title>SPI2 driver (McSPI1)</Title>
+    <Comment />
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_MCSPI2</Variable>
     <Module>am33x_mcspi.dll</Module>
     <Location>Drivers\MCSPI</Location>
   </Item>
-  <Item Id="AM33x_BBB:Texas Instruments:am33xuart1">
-    <Title>UART1 driver</Title>
-    <Description>Am33x UART1 driver</Description>
-    <Comment>Am33x UART1 driver</Comment>
-    <Type>BspSpecific</Type>
-    <Variable>BSP_AM33X_UART1</Variable>
-    <Module>am33x_uart.dll</Module>
-    <Location>Drivers\UART</Location>
-  </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xuart2">
-    <Title>UART2 driver</Title>
-    <Description>Am33x UART2 driver</Description>
-    <Comment>Am33x UART2 driver</Comment>
+    <Title>COM2 driver (UART1)</Title>
+    <Comment />
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_UART2</Variable>
     <Module>am33x_uart.dll</Module>
     <Location>Drivers\UART</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xuart3">
-    <Title>UART3 driver</Title>
-    <Description>Am33x UART3 driver</Description>
-    <Comment>Am33x UART3 driver</Comment>
+    <Title>COM3 driver (UART2)</Title>
+    <Comment />
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_UART3</Variable>
-    <Module>am33x_uart.dll</Module>
-    <Location>Drivers\UART</Location>
-  </Item>
-  <Item Id="AM33x_BBB:Texas Instruments:am33xuart4">
-    <Title>UART4 driver</Title>
-    <Description>Am33x UART4 driver</Description>
-    <Comment>Am33x UART4 driver</Comment>
-    <Type>BspSpecific</Type>
-    <Variable>BSP_AM33X_UART4</Variable>
-    <Module>am33x_uart.dll</Module>
-    <Location>Drivers\UART</Location>
-  </Item>
-  <Item Id="AM33x_BBB:Texas Instruments:am33xuart5">
-    <Title>UART5 driver</Title>
-    <Description>Am33x UART5 driver</Description>
-    <Comment>Am33x UART5 driver</Comment>
-    <Type>BspSpecific</Type>
-    <Variable>BSP_AM33X_UART5</Variable>
-    <Module>am33x_uart.dll</Module>
-    <Location>Drivers\UART</Location>
-  </Item>
-  <Item Id="AM33x_BBB:Texas Instruments:am33xuart6">
-    <Title>UART6 driver</Title>
-    <Description>Am33x UART6 driver</Description>
-    <Comment>Am33x UART6 driver</Comment>
-    <Type>BspSpecific</Type>
-    <Variable>BSP_AM33X_UART6</Variable>
     <Module>am33x_uart.dll</Module>
     <Location>Drivers\UART</Location>
   </Item>
@@ -208,7 +155,7 @@
     <Location>Kernel features</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xsdhc1">
-    <Title>SDHC Host Controller 1</Title>
+    <Title>MMC/SD Controller 1 driver (MMC0)</Title>
     <Type>BspSpecific</Type>
     <Variable>BSP_SDHC</Variable>
     <Variable>BSP_SDHC1</Variable>
@@ -217,7 +164,7 @@
     <Location>Drivers\SDHC</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xsdhc2">
-    <Title>SDHC Host Controller 2</Title>
+    <Title>MMC/SD Controller 2 driver (MMC1)</Title>
     <Type>BspSpecific</Type>
     <Variable>BSP_SDHC</Variable>
     <Variable>BSP_SDHC2</Variable>
