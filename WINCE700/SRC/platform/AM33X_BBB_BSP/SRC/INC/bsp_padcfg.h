@@ -289,6 +289,18 @@ typedef struct {
     END_OF_PAD_ARRAY     \
 }
 
+#define I2C0_PADS    \
+	PAD_ENTRY(I2C0_SDA,		(MODE(0) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_DATA */  \
+	PAD_ENTRY(I2C0_SCL,		(MODE(0) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_SCLK */  \
+
+#define I2C1_PADS    \
+	PAD_ENTRY(SPI0_D1,		(MODE(2) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_DATA */  \
+	PAD_ENTRY(SPI0_CS0,		(MODE(2) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_SCLK */  \
+
+#define I2C2_PADS    \
+	PAD_ENTRY(UART1_CTSN,	(MODE(3) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL)) /* I2C_DATA */  \
+	PAD_ENTRY(UART1_RTSN,	(MODE(3) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL)) /* I2C_SCLK */  \
+
 #define SPI0_PADS \
     PAD_ENTRY(SPI0_SCLK,MODE(0) | PULLUDEN | RXACTIVE)              /*SPI0_SCLK */  \
 	PAD_ENTRY(SPI0_D0,  MODE(0) | PULLUDEN | PULLUP_EN | RXACTIVE)  /*SPI0_D0 */    \
@@ -300,6 +312,24 @@ typedef struct {
 	PAD_ENTRY(MCASP0_FSX,   MODE(3) )               /*SPI1_D0 */    \
 	PAD_ENTRY(MCASP0_AXR0,  MODE(3) | RXACTIVE )    /*SPI1_D1 */    \
 	PAD_ENTRY(MCASP0_AHCLKR,MODE(3) )               /*SPI1_CS0 */   \
+
+#define UART0_PADS   \
+	PAD_ENTRY(UART0_RXD,        (MODE(0) | PULLUP_EN | RXACTIVE))	/* UART0_RXD */ \
+	PAD_ENTRY(UART0_TXD,        (MODE(0) | PULLUDEN))				/* UART0_TXD */ \
+
+#define UART1_PADS   \
+	PAD_ENTRY(UART1_RXD,        (MODE(0) | PULLUP_EN | RXACTIVE))	/* UART1_RXD */ \
+	PAD_ENTRY(UART1_TXD,        (MODE(0) | PULLUDEN))				/* UART1_TXD */ \
+
+#define UART2_PADS   \
+	PAD_ENTRY(SPI0_SCLK,        (MODE(1) | PULLUP_EN | RXACTIVE))	/* UART2_RXD */ \
+	PAD_ENTRY(SPI0_D0,          (MODE(1) | PULLUDEN))				/* UART2_TXD */ \
+
+#define USB0_PADS   \
+    PAD_ENTRY(USB0_DRVVBUS,    MODE(0) | AM335X_PIN_OUTPUT)         \
+
+#define USB1_PADS   \
+    PAD_ENTRY(USB1_DRVVBUS,    MODE(0) | AM335X_PIN_OUTPUT)         \
 
 #define MMC0_PADS    \
     PAD_ENTRY(MMC0_DAT3,      MODE(0) | AM335X_PIN_INPUT_PULLUP)     /* MMC0_DAT3 */    \
@@ -354,6 +384,14 @@ typedef struct {
 	PAD_ENTRY(LCD_PCLK,         (MODE(0)))              /* LCD_PCLK */   \
 	PAD_ENTRY(LCD_AC_BIAS_EN,   (MODE(0)))              /* LCD_AS_BIAS_EN */ \
 
+#define BKL_PADS    \
+    PAD_ENTRY(ECAP0_IN_PWM0_OUT,(MODE(7) | PULLUDEN))   /* GPIO7 for LCD backlight */ \
+
+#define FRAMER_PADS    \
+    PAD_ENTRY(XDMA_EVENT_INTR0, (MODE(3))) /* CLKOUT 24Mhz */ \
+    PAD_ENTRY(GPMC_AD9,          MODE(7) | AM335X_PIN_INPUT_PULLUP)  /* HDMI INT */ \
+	PAD_ENTRY(GPMC_AD11,         MODE(7) | AM335X_PIN_OUTPUT_PULLUP) /* 24.576Mhz osc enable */ \
+
 #define NOR_PADS \
 	PAD_ENTRY(LCD_DATA0,        MODE(1) | PULLUDEN) 	        /* NOR_A0 */    \
 	PAD_ENTRY(LCD_DATA1,        MODE(1) | PULLUDEN)	            /* NOR_A1 */    \
@@ -399,6 +437,23 @@ typedef struct {
 	PAD_ENTRY(GPMC_WEN,         MODE(0) | PULLUP_EN)	        /* NOR_WEN */   \
 	PAD_ENTRY(GPMC_WAIT0,       MODE(0) | RXACTIVE | PULLUP_EN) /* NOR WAIT */  \
 	PAD_ENTRY(LCD_AC_BIAS_EN,   MODE(7) | RXACTIVE | PULLUDEN)  /* NOR RESET */ \
+
+#define NAND_PADS    \
+	PAD_ENTRY(GPMC_AD0,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD0 */    \
+	PAD_ENTRY(GPMC_AD1,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD1 */    \
+	PAD_ENTRY(GPMC_AD2,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD2 */    \
+	PAD_ENTRY(GPMC_AD3,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD3 */    \
+	PAD_ENTRY(GPMC_AD4,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD4 */    \
+	PAD_ENTRY(GPMC_AD5,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD5 */    \
+	PAD_ENTRY(GPMC_AD6,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD6 */    \
+	PAD_ENTRY(GPMC_AD7,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD7 */    \
+	PAD_ENTRY(GPMC_WAIT0,       (MODE(0) | RXACTIVE | PULLUP_EN))   /* NAND WAIT */   \
+	PAD_ENTRY(GPMC_WPN,         (MODE(7) | PULLUP_EN | RXACTIVE))	/* NAND_WPN */    \
+	PAD_ENTRY(GPMC_CSN0,        (MODE(0) | PULLUDEN))	            /* NAND_CS0 */    \
+	PAD_ENTRY(GPMC_ADVN_ALE,    (MODE(0) | PULLUDEN))               /* NAND_ADV_ALE */\
+	PAD_ENTRY(GPMC_OEN_REN,     (MODE(0) | PULLUDEN))	            /* NAND_OE */     \
+	PAD_ENTRY(GPMC_WEN,         (MODE(0) | PULLUDEN))	            /* NAND_WEN */    \
+	PAD_ENTRY(GPMC_BE0N_CLE,    (MODE(0) | PULLUDEN))	            /* NAND_BE_CLE */ \
 
 #define RGMII1_PADS  \
 	PAD_ENTRY(MII1_TXEN,    MODE(2))			            /* RGMII1_TCTL */   \
@@ -449,53 +504,6 @@ typedef struct {
 	PAD_ENTRY(MDIO_DATA,    MODE(0) | RXACTIVE | PULLUP_EN) /* MDIO_DATA */  \
 	PAD_ENTRY(MDIO_CLK,     MODE(0) | PULLUP_EN)	        /* MDIO_CLK */   \
 
-#define I2C0_PADS    \
-	PAD_ENTRY(I2C0_SDA,		(MODE(0) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_DATA */  \
-	PAD_ENTRY(I2C0_SCL,		(MODE(0) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_SCLK */  \
-
-#define I2C1_PADS    \
-	PAD_ENTRY(SPI0_D1,		(MODE(2) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_DATA */  \
-	PAD_ENTRY(SPI0_CS0,		(MODE(2) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL))	/* I2C_SCLK */  \
-
-#define I2C2_PADS    \
-	PAD_ENTRY(UART1_CTSN,	(MODE(3) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL)) /* I2C_DATA */  \
-	PAD_ENTRY(UART1_RTSN,	(MODE(3) | AM335X_PIN_INPUT_PULLUP | SLEWCTRL)) /* I2C_SCLK */  \
-
-#define NAND_PADS    \
-	PAD_ENTRY(GPMC_AD0,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD0 */    \
-	PAD_ENTRY(GPMC_AD1,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD1 */    \
-	PAD_ENTRY(GPMC_AD2,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD2 */    \
-	PAD_ENTRY(GPMC_AD3,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD3 */    \
-	PAD_ENTRY(GPMC_AD4,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD4 */    \
-	PAD_ENTRY(GPMC_AD5,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD5 */    \
-	PAD_ENTRY(GPMC_AD6,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD6 */    \
-	PAD_ENTRY(GPMC_AD7,         (MODE(0) | PULLUP_EN | RXACTIVE))   /* NAND AD7 */    \
-	PAD_ENTRY(GPMC_WAIT0,       (MODE(0) | RXACTIVE | PULLUP_EN))   /* NAND WAIT */   \
-	PAD_ENTRY(GPMC_WPN,         (MODE(7) | PULLUP_EN | RXACTIVE))	/* NAND_WPN */    \
-	PAD_ENTRY(GPMC_CSN0,        (MODE(0) | PULLUDEN))	            /* NAND_CS0 */    \
-	PAD_ENTRY(GPMC_ADVN_ALE,    (MODE(0) | PULLUDEN))               /* NAND_ADV_ALE */\
-	PAD_ENTRY(GPMC_OEN_REN,     (MODE(0) | PULLUDEN))	            /* NAND_OE */     \
-	PAD_ENTRY(GPMC_WEN,         (MODE(0) | PULLUDEN))	            /* NAND_WEN */    \
-	PAD_ENTRY(GPMC_BE0N_CLE,    (MODE(0) | PULLUDEN))	            /* NAND_BE_CLE */ \
-
-#define UART3_PADS   \
-	PAD_ENTRY(SPI0_CS1,         (MODE(1) | PULLUDEN | RXACTIVE))	/* UART3_RXD */ \
-	PAD_ENTRY(ECAP0_IN_PWM0_OUT,(MODE(1) | PULLUDEN))	            /* UART3_TXD */ \
-
-#define UART0_PADS   \
-	PAD_ENTRY(UART0_RXD,        (MODE(0) | PULLUP_EN | RXACTIVE))	/* UART0_RXD */ \
-	PAD_ENTRY(UART0_TXD,        (MODE(0) | PULLUDEN))				/* UART0_TXD */ \
-
-
-#define BKL_PADS    \
-    PAD_ENTRY(ECAP0_IN_PWM0_OUT,(MODE(7) | PULLUDEN))   /* GPIO7 for LCD backlight */ \
-
-
-#define FRAMER_PADS    \
-    PAD_ENTRY(XDMA_EVENT_INTR0, (MODE(3))) /* CLKOUT 24Mhz */ \
-    PAD_ENTRY(GPMC_AD9,          MODE(7) | AM335X_PIN_INPUT_PULLUP)  /* HDMI INT */ \
-	PAD_ENTRY(GPMC_AD11,         MODE(7) | AM335X_PIN_OUTPUT_PULLUP) /* 24.576Mhz osc enable */ \
-
 
 #define MCASP1_PADS \
     PAD_ENTRY(MII1_CRS,         MODE(4) | AM335X_PIN_INPUT_PULLDOWN)            \
@@ -511,12 +519,6 @@ typedef struct {
     PAD_ENTRY(AIN3,             MODE(0) | RXACTIVE)             \
     PAD_ENTRY(VREFP,            MODE(0) | RXACTIVE)             \
     PAD_ENTRY(VREFN,            MODE(0) | RXACTIVE)             \
-
-#define USB0_PADS   \
-    PAD_ENTRY(USB0_DRVVBUS,    MODE(0) | AM335X_PIN_OUTPUT)         \
-
-#define USB1_PADS   \
-    PAD_ENTRY(USB1_DRVVBUS,    MODE(0) | AM335X_PIN_OUTPUT)         \
 
 #define KEYPAD_PADS	\
 	PAD_ENTRY(GPMC_A5,			MODE(7) | AM335X_PIN_OUTPUT)	    /* GPIO1_21 */  \

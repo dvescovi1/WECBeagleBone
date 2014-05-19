@@ -69,4 +69,10 @@
 /* FUNCTIONS */
 extern BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv);
 
+BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel);
+BOOL TWLProtWriteRegs(unsigned char prot_level, unsigned char dest_reg,
+        unsigned char dest_val, unsigned char mask);
+BOOL TWLGetStatusReg(unsigned char * buf);
+
+
 #endif

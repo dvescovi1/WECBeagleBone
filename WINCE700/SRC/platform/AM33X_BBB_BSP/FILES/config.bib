@@ -31,7 +31,7 @@ MEMORY
     RAMDISK			$(IMAGE_WINCE_RAM_DISK_CA_HEX)	$(IMAGE_WINCE_RAM_DISK_SIZE_HEX) RESERVED
 #endif    
     DISPLAY			$(IMAGE_WINCE_DISPLAY_CA)   $(IMAGE_WINCE_DISPLAY_TOTAL_SIZE)   RESERVED
-    DRIVERS			8F000000    				01000000    						RESERVED
+    DRIVERS			$(IMAGE_WINCE_DRIVER_CA)	$(IMAGE_WINCE_DRIVER_TOTAL_SIZE)	RESERVED
 
 ;-------------------------------------------------------------------------------
 ;nk.exe:initialOALLogZones        00000000 0x7FFFFFFF    FIXUPVAR

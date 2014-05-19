@@ -72,6 +72,9 @@ ENDIF
 IF BSP_EDMA
 k.edmadrvr.dll		$(_FLATRELEASEDIR)\edmadrvr.dll				NK  SHK
 edmadrvr.dll		$(_FLATRELEASEDIR)\edmadrvr.dll				NK  SH
+IF BSP_TEST
+edma_test.dll       $(_FLATRELEASEDIR)\edma_test.dll			NK  SHK
+ENDIF
 ENDIF
 
 ; @CESYSGEN IF CE_MODULES_DISPLAY
@@ -147,30 +150,43 @@ bsppnl.cpl	$(_FLATRELEASEDIR)\bsppnl.cpl						NK		SH
 
 
 
+IF BSP_TEST
 
 ;-- Test APPS  -----------------------------------------------------------
-;pmget.exe          $(_FLATRELEASEDIR)\pmget.exe               NK
-;pmgetd.exe          $(_FLATRELEASEDIR)\pmgetd.exe               NK
-;pmset.exe          $(_FLATRELEASEDIR)\pmset.exe               NK
-;pmsetd.exe          $(_FLATRELEASEDIR)\pmsetd.exe               NK
-;pmmon.exe          $(_FLATRELEASEDIR)\pmmon.exe               NK
-;pmreq.exe          $(_FLATRELEASEDIR)\pmreq.exe               NK
-;
-;IF BSP_WAVEDEV2
-    ;;wavvol.exe          $(_FLATRELEASEDIR)\wavvol.exe			NK
-    ;wavtest.exe         $(_FLATRELEASEDIR)\wavtest.exe			NK
-    ;wavplay.exe         $(_FLATRELEASEDIR)\wavplay.exe			NK
-    ;wavrec.exe          $(_FLATRELEASEDIR)\wavrec.exe			NK
-    ;test.wav            $(_FLATRELEASEDIR)\test.wav				NK 
-    ;tones.wav           $(_FLATRELEASEDIR)\tones.wav			NK 
-    ;tones2.wav          $(_FLATRELEASEDIR)\tones2.wav			NK 
-;ENDIF
+testI2c.exe				$(_FLATRELEASEDIR)\testI2c.exe		NK
+testSpi.exe				$(_FLATRELEASEDIR)\testSpi.exe		NK
+testSerial.exe			$(_FLATRELEASEDIR)\testSerial.exe	NK
+IF BSP_NAND
+ nandtest.exe			$(_FLATRELEASEDIR)\nandtest.exe		NK
+ENDIF
 
+;-- PM Test APPS  -----------------------------------------------------------
+pmget.exe  				$(_FLATRELEASEDIR)\pmget.exe   		NK
+pmgetd.exe 				$(_FLATRELEASEDIR)\pmgetd.exe  		NK
+pmset.exe  				$(_FLATRELEASEDIR)\pmset.exe   		NK
+pmsetd.exe 				$(_FLATRELEASEDIR)\pmsetd.exe  		NK
+pmmon.exe  				$(_FLATRELEASEDIR)\pmmon.exe   		NK
+pmreq.exe  				$(_FLATRELEASEDIR)\pmreq.exe   		NK
 
-;IF BSP_PRU
-    ;prutest.exe         $(_FLATRELEASEDIR)\prutest.exe			NK
-;ENDIF BSP_PRU
-;
+IF BSP_WAVEDEV2
+ wavvol.exe  			$(_FLATRELEASEDIR)\wavvol.exe		NK
+ wavtest.exe 			$(_FLATRELEASEDIR)\wavtest.exe		NK
+ wavplay.exe 			$(_FLATRELEASEDIR)\wavplay.exe		NK
+ wavrec.exe  			$(_FLATRELEASEDIR)\wavrec.exe		NK
+ test.wav    			$(_FLATRELEASEDIR)\test.wav			NK 
+ tones.wav   			$(_FLATRELEASEDIR)\tones.wav		NK 
+ tones2.wav  			$(_FLATRELEASEDIR)\tones2.wav		NK 
+ENDIF
+
+IF BSP_EDMA
+ edmatest.exe			$(_FLATRELEASEDIR)\edmatest.exe		NK
+ENDIF
+
+IF BSP_PRU
+ prutest.exe			$(_FLATRELEASEDIR)\prutest.exe		NK
+ENDIF BSP_PRU
+
+ENDIF BSP_TEST
 
 ;usbstat.exe		$(_FLATRELEASEDIR)\usbstat.exe              NK
 ;cerdisp.exe		$(_FLATRELEASEDIR)\cerdisp.exe				NK

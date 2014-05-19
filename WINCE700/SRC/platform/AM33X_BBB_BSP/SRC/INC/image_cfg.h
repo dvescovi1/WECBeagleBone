@@ -76,7 +76,6 @@
 #define IMAGE_WINCE_CODE_CA             0x80002000
 #define IMAGE_WINCE_CODE_SIZE           0x031FE000
 
-
 //------------------------------------------------------------------------------
 //
 //  Define: IMAGE_WINCE_RAM
@@ -87,7 +86,6 @@
 #define IMAGE_WINCE_RAM_CA             0x83200000
 #define IMAGE_WINCE_RAM_SIZE           0x07600000
 
-
 //------------------------------------------------------------------------------
 //
 //  Define: IMAGE_WINCE_RAMDISK
@@ -97,7 +95,6 @@
 #define HEX_VALUE(a)      0x##a
 #define IMAGE_WINCE_RAM_DISK_CA_HEX     8A800000  // virtual address for ramdisk
 #define IMAGE_WINCE_RAM_DISK_SIZE_HEX   02800000  // RAMDISK 40 MB
-
 #define IMAGE_WINCE_RAM_DISK_CA         HEX_VALUE(IMAGE_WINCE_RAM_DISK_CA_HEX)
 #define IMAGE_WINCE_RAM_DISK_SIZE       HEX_VALUE(IMAGE_WINCE_RAM_DISK_SIZE_HEX)
 
@@ -113,6 +110,13 @@
 #define IMAGE_WINCE_DISPLAY_PALETTE_PA		0x8EF00000
 #define IMAGE_WINCE_DISPLAY_PALETTE_SIZE	0x00100000
 #define IMAGE_WINCE_DISPLAY_TOTAL_SIZE		0x02000000
+
+//------------------------------------------------------------------------------
+//
+//  Define: IMAGE_WINCE_DRIVER
+//
+#define IMAGE_WINCE_DRIVER_CA			  0x8F000000
+#define IMAGE_WINCE_DRIVER_TOTAL_SIZE	  0x01000000	// 16 MB
 
 //------------------------------------------------------------------------------
 // TODO !!!!!!!!!!!!!!!!! set the real values for NETRA
@@ -167,19 +171,11 @@
 #define IMAGE_XLDR_BOOTSEC_NAND_SIZE        (4 * 128 * 1024)        // Needs to be equal to four NAND flash blocks due to boot ROM requirements
 #define IMAGE_EBOOT_BOOTSEC_NAND_SIZE       IMAGE_EBOOT_CODE_SIZE   // Needs to be a multiple of flash block size
 
-#define IMAGE_XLDR_BOOTSEC_ONENAND_SIZE     (4 * 128 * 1024)        // Needs to be equal to four OneNAND flash blocks due to boot ROM requirements
-#define IMAGE_EBOOT_BOOTSEC_ONENAND_SIZE    IMAGE_EBOOT_CODE_SIZE
-
-
 //#define IMAGE_BOOTLOADER_BITMAP_SIZE        0x00040000                  // Needs to be a multiple of 128k, and minimum of 240x320x3 (QVGA)  
 #define IMAGE_BOOTLOADER_BITMAP_SIZE        0x00180000                  // Needs to be a multiple of 128k, and minimum 480x640x3 (VGA)  
 
 #define IMAGE_BOOTLOADER_NAND_SIZE      (IMAGE_XLDR_BOOTSEC_NAND_SIZE + \
                                          IMAGE_EBOOT_BOOTSEC_NAND_SIZE + \
-                                         IMAGE_BOOTLOADER_BITMAP_SIZE)
-
-#define IMAGE_BOOTLOADER_ONENAND_SIZE   (IMAGE_XLDR_BOOTSEC_ONENAND_SIZE + \
-                                         IMAGE_EBOOT_BOOTSEC_ONENAND_SIZE + \
                                          IMAGE_BOOTLOADER_BITMAP_SIZE)
 
 //------------------------------------------------------------------------------

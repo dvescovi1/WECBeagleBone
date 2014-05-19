@@ -17,6 +17,13 @@
 #include "bsp_padcfg.h"
 #include "am33x_clocks.h"
 
+
+#if defined(BUILDING_XLDR_SD)
+	#undef  OALMSG(cond, exp)
+	#define OALMSG(cond, exp)   ((void)FALSE)
+#endif
+
+
 extern I2CDevice_t _rgI2CDevice[]; 
 
 //-----------------------------------------------------------------------------
@@ -219,22 +226,28 @@ BOOL detect_baseboard_id_info()
             g_dwBaseBoardVersion = AM335X_BONE_BOARD_VER_A3;     
         }
         else
-            OALMSG(1, (L"Unrecognized Board Version!\r\n"));
+            OALMSG(1, (L"Unrecognized BeagleBone Version!\r\n"));
         
     }
     else if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
-        if (!strncmp("00A4", header.version, 4)) {        
-            g_dwBaseBoardVersion = AM335X_BONE_BOARD_VER_A4;     
+        if (!strncmp("0A5A", header.version, 4)) {    
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_A5A;
         }
-        else if (!strncmp("00A5", header.version, 4)) {        
-            g_dwBaseBoardVersion = AM335X_BONE_BOARD_VER_A5;     
+        else if (!strncmp("0A5B", header.version, 4)) {    
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_A5B;
         }
-        else if (!strncmp("00A6", header.version, 4)) {        
-            g_dwBaseBoardVersion = AM335X_BONE_BOARD_VER_A6;     
+        else if (!strncmp("0A5C", header.version, 4)) {    
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_A5C;
+        }
+        else if (!strncmp("00A6", header.version, 4)) {       
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_A6A;
+        }
+        else if (!strncmp("000B", header.version, 4)) {       
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_B00;
         }
         else
-            OALMSG(1, (L"Unrecognized Board Version!\r\n"));
+            OALMSG(1, (L"Unrecognized BeagleBoneBlack Version!\r\n"));
     }
     else {
         OALMSG(1, (L"IT IS A INVALID BOARD REVISION\r\n"));

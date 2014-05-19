@@ -41,7 +41,7 @@ IF BSP_AM33X_UART2
 	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
 	"RxDmaRequest"=dword:ffffffff       ;
 	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
-	"RtsCtsEnable"=dword:1              ; 1=enable RTS/CTS handshake support, 0=disable
+	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
 	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID

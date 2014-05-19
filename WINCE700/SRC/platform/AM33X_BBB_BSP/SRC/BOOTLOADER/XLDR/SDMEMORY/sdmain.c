@@ -17,23 +17,16 @@
 //  This file contains X-Loader implementation for AM33X
 //
 #include "bsp.h"
-#include "bsp_oal.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4201)
 #include <blcommon.h>
 #pragma warning(pop)
 
-
-#include "oalex.h"
 #include "boot_args.h"
-#include "sdk_i2c.h"
-#include "sdk_gpio.h"
 
-#define OAL
 #include "oal_alloc.h"
 #include "oal_clock.h"
-#include "bsp_cfg.h"
 
 //------------------------------------------------------------------------------
 
@@ -58,6 +51,18 @@ ROMHDR * volatile const pTOC = (ROMHDR *)-1;
 BOOT_CFG g_bootCfg;
 
 unsigned int  gCPU_family;
+
+DBGPARAM
+dpCurSettings = {
+    L"XLoader", {
+        L"Undefined",   L"Undefined",   L"Undefined",   L"Undefined",
+        L"Undefined",   L"Undefined",   L"Undefined",   L"Undefined",
+        L"Undefined",   L"Undefined",   L"Undefined",   L"Undefined",
+        L"Undefined",   L"Undefined",   L"Undefined",   L"Undefined"
+    },
+    0x0000
+};
+
 //------------------------------------------------------------------------------
 //  External Functions
 
@@ -101,12 +106,12 @@ VOID XLDRMain()
     
     /* hard coded to AM33x, run time detection can be added later */
     gCPU_family = CPU_FAMILY_AM33X;
-
     ProcessorName = L"33X";
-    PlatformSetup();
 
-    // Initialize debug serial output
+	// Initialize debug serial output
     XLDRMSGINIT;
+
+    PlatformSetup();
 
     // Print information...
     XLDRMSG(

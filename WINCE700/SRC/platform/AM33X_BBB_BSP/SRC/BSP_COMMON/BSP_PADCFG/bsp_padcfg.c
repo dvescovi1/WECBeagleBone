@@ -29,10 +29,11 @@ const PAD_INFO I2C0Pads[] =				{I2C0_PADS END_OF_PAD_ARRAY};
 const PAD_INFO I2C1Pads[] =				{I2C1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO I2C2Pads[] =				{I2C2_PADS END_OF_PAD_ARRAY};
 const PAD_INFO SPI0Pads[] =				{SPI0_PADS END_OF_PAD_ARRAY};
-//const PAD_INFO SPI1Pads[] =			{SPI1_PADS END_OF_PAD_ARRAY};
+const PAD_INFO SPI1Pads[] =			    {SPI1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MCASP1Pads[] =			{MCASP1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO UART0Pads[]  =			{UART0_PADS END_OF_PAD_ARRAY};
-//const PAD_INFO UART3Pads[] =			{UART3_PADS END_OF_PAD_ARRAY};
+const PAD_INFO UART1Pads[]  =			{UART1_PADS END_OF_PAD_ARRAY};
+const PAD_INFO UART2Pads[]  =			{UART2_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MMC0Pads[] =				{MMC0_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MMC1Pads[] =				{MMC1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MMC2Pads[] =				{MMC2_PADS END_OF_PAD_ARRAY};
@@ -59,8 +60,10 @@ const PIN_MUX BB_BOARD_PIN_MUX[] = {
     { MMC0Pads,             AM_DEVICE_MMCHS0,       PROFILE_0,                                      DEV_ON_BASEBOARD},
     { MMC1Pads,             AM_DEVICE_MMCHS1,       PROFILE_1,                                      DEV_ON_BASEBOARD},
     { MMC2Pads,             AM_DEVICE_MMCHS2,       PROFILE_4,                                      DEV_ON_DGHTR_BRD},
-    { SPI0Pads,             AM_DEVICE_MCSPI0,       PROFILE_2,                                      DEV_ON_DGHTR_BRD},
+    { SPI1Pads,             AM_DEVICE_MCSPI1,       PROFILE_0,                                      DEV_ON_BASEBOARD},
     { UART0Pads,            AM_DEVICE_UART0,        PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { UART1Pads,            AM_DEVICE_UART0,        PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { UART2Pads,            AM_DEVICE_UART0,        PROFILE_0,                                      DEV_ON_BASEBOARD},
     { LCDCPads,             AM_DEVICE_LCDC,         PROFILE_1 | PROFILE_2,                          DEV_ON_BASEBOARD},    
     { ADCTSCPads,           AM_DEVICE_ADC_TSC,      PROFILE_0 | PROFILE_1 | PROFILE_2 | PROFILE_7,  DEV_ON_DGHTR_BRD},
     { BKLPads,              AM_DEVICE_BKL,          PROFILE_0 | PROFILE_1 | PROFILE_2 | PROFILE_7,  DEV_ON_DGHTR_BRD},

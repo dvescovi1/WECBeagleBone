@@ -12,9 +12,9 @@
 ;
 !endif
 
-#!IF "$(BSP_AM33X_UART1)" == "" && "$(BSP_AM33X_UART2)" == "" && "$(BSP_AM33X_UART3)" == "" && "$(BSP_AM33X_UART4)" == "" && "$(BSP_AM33X_UART5)" == "" && "$(BSP_AM33X_UART6)" == ""
-#SKIPBUILD=1
-#!ENDIF
+!IF "$(BSP_AM33X_UART1)" == "" && "$(BSP_AM33X_UART2)" == "" && "$(BSP_AM33X_UART3)" == "" && "$(BSP_AM33X_UART4)" == "" && "$(BSP_AM33X_UART5)" == "" && "$(BSP_AM33X_UART6)" == ""
+SKIPBUILD=1
+!ENDIF
 
 TARGETNAME=am33x_uart
 TARGETTYPE=DYNLINK
