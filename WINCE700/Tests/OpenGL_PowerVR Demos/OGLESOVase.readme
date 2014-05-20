@@ -1,0 +1,3 @@
+The OGLESOVase is a modified application based from the OGLESVase sample that allows to create windowed surfaces in CE.  It also adds the option to play with the transparency of the window if Compositor is available, to run it along the parameters available from the PowerVR Shell a new parameter can be used to test the opacity of the window when Compositor is enabled:
+	e.g. OGLESOVase -width=200 -height=200 -vsync=0 -opacity=50
+Where opacity represents a percentage value with 0 representing a completely transparent (invisible) window and 100 representing a fulley opaque window.
