@@ -29,6 +29,8 @@
     <BspItemId>AM33x_BBB:Texas Instruments:am33xsdMemory</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xsdeMMC</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:amWatchdogTimebomb</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:xamlplugin_ddraw</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:xamlplugin_opengl</BspItemId>
   </Bsp>
   <Item Id="AM33x_BBB:Texas Instruments:am33xgpio">
     <Title>Gpio driver</Title>
@@ -191,5 +193,30 @@
     <Variable>BSP_AM33X_WATCHDOG</Variable>
     <ChooseOneGroup>true</ChooseOneGroup>
     <Location>Kernel features\Internal Watchdog</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:xamlplugin_ddraw">
+    <Title>DDRAW XAML Render Plug-in</Title>
+    <Description>Xamlplugin ddraw for Silverlight</Description>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_XRPLUGIN_DDRAW</Variable>
+    <Variable>SYSGEN_POWERVR</Variable>
+    <Variable>PVR_SERVICES4</Variable>
+    <Variable>SYSGEN_PVR_SGXCOREREV_125</Variable>
+    <SupportedCpuId>Cpu:ARMV7</SupportedCpuId>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>Drivers\XAML Plugin</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:xamlplugin_opengl">
+    <Title>OPENGL XAML Render Plug-in</Title>
+    <Description>Xamlplugin openGL for Silverlight</Description>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_XRPLUGIN_OPENGL</Variable>
+    <Variable>SYSGEN_POWERVR</Variable>
+    <Variable>PVR_SERVICES4</Variable>
+    <Variable>SYSGEN_PVR_SGXCOREREV_125</Variable>
+    <Variable>BSP_XRPLUGIN_OPRNGL_STANDARD</Variable>
+    <SupportedCpuId>Cpu:ARMV7</SupportedCpuId>
+    <ChooseOneGroup>true</ChooseOneGroup>
+    <Location>Drivers\XAML Plugin</Location>
   </Item>
 </CatalogFile>

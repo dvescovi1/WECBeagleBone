@@ -16,6 +16,9 @@
 01.05.00	18-MAY-2014
 	-Code cleanup
 	-Corrected BBB DCDC2 voltage at @1Ghz
+	-Added PowerVR support
+	-Added XAML,Silverlight and OpenGL support
+
 	
 
 
