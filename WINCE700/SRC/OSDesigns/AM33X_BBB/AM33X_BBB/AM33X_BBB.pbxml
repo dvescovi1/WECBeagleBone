@@ -44,28 +44,34 @@
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_eth_80211_nwifi" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_ie7_iesample" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_jscript" />
-    <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:powerVR:CoreRev125" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_cerdisp" />
     <Feature Name="Item" CatalogItemId="Item:MS:bsp_display_nop" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_storemgr_cpl" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_usbfn_serial" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_exfat" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_xaml_runtime" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_mediaapps_mediacontent" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_music_player" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_photo_viewer" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_video_player" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_composition" />
   </FeatureCollection>
   <ConfigurationCollection Name="Configurations" EnforceUniqueItems="False">
     <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Debug" FriendlyName="AM33X_BBB_BSP ARMV7 Debug">
       <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
-        <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:PowerVR:Support" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdogTimebomb" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -84,18 +90,19 @@
     </Configuration>
     <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Retail" FriendlyName="AM33X_BBB_BSP ARMV7 Release">
       <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
-        <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:PowerVR:Support" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdogTimebomb" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -119,18 +126,19 @@
     </Configuration>
     <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Checked" FriendlyName="AM33X_BBB_BSP ARMV7 Checked">
       <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
-        <Feature Name="Item" CatalogItemId="Item:ImaginationTechnologies:PowerVR:Support" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdogTimebomb" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
