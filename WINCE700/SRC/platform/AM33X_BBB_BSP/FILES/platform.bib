@@ -35,6 +35,10 @@ am33x_uart.dll		$(_flatreleasedir)\am33x_uart.dll			NK  SHK
 am33x_mcspi.dll		$(_FLATRELEASEDIR)\am33x_mcspi.dll			NK  SHK
 #endif
 
+#if (defined BSP_AM33X_I2C1 || defined BSP_AM33X_I2C2  || defined BSP_AM33X_I2C3)
+i2cproxy.dll		$(_FLATRELEASEDIR)\i2cproxy.dll				NK  SHK
+#endif
+
 IF BSP_KEYPAD
 keypad.dll			$(_FLATRELEASEDIR)\keypad.dll				NK  SHK
 ENDIF
@@ -109,9 +113,6 @@ ENDIF
 IF BSP_PRU
 prudrvr.dll			$(_FLATRELEASEDIR)\prudrvr.dll				NK SHK
 ENDIF BSP_PRU
-
-i2cproxy.dll		$(_FLATRELEASEDIR)\i2cproxy.dll				NK  SHK
-
 
 
 ;DLLs to support "do" shell debug command

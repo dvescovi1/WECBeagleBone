@@ -4,6 +4,7 @@ DIRS=\
 	CEDDK\
 	GPIO\
 	MCSPI\
+	I2C\
 	UART\
 	SDHC\
 	USB\

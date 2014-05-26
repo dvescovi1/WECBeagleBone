@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CatalogFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequiredVersion="6.00" xmlns="urn:Microsoft.PlatformBuilder/Catalog">
+<CatalogFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequiredVersion="7.00" xmlns="urn:Microsoft.PlatformBuilder/Catalog">
   <FileInformation Id="FileInformation:Texas Instruments:AM33X_BBB_BSP">
     <Title>Texas Instruments AM33X BeagleBone Black BSP</Title>
     <Description>Texas Instruments AM33X BeagleBone Black Catalog Items</Description>
@@ -31,6 +31,9 @@
     <BspItemId>AM33x_BBB:Texas Instruments:amWatchdogTimebomb</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:xamlplugin_ddraw</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:xamlplugin_opengl</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c1</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c2</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c3</BspItemId>
   </Bsp>
   <Item Id="AM33x_BBB:Texas Instruments:am33xgpio">
     <Title>Gpio driver</Title>
@@ -47,7 +50,7 @@
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_MCSPI2</Variable>
     <Module>am33x_mcspi.dll</Module>
-    <Location>Drivers\MCSPI</Location>
+    <Location>Drivers\SPI</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xuart2">
     <Title>COM2 driver (UART1)</Title>
@@ -218,5 +221,24 @@
     <SupportedCpuId>Cpu:ARMV7</SupportedCpuId>
     <ChooseOneGroup>true</ChooseOneGroup>
     <Location>Drivers\XAML Plugin</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c1">
+    <Title>I2C1 proxy driver (AM335x I2C0)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_I2C1</Variable>
+    <Module>i2cproxy.dll</Module>
+    <Location>Drivers\I2C</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c2">
+    <Title>I2C2 proxy driver (AM335x I2C1)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_I2C2</Variable>
+    <Location>Drivers\I2C</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c3">
+    <Title>I2C3 proxy driver (AM335x I2C2)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_I2C3</Variable>
+    <Location>Drivers\I2C</Location>
   </Item>
 </CatalogFile>

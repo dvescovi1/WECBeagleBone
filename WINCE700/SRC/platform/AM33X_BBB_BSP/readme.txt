@@ -18,9 +18,10 @@
 	-Corrected BBB DCDC2 voltage at @1Ghz
 	-Added PowerVR support
 	-Added XAML,Silverlight and OpenGL support
-
 	
-
+01.06.00	23-MAY-2014
+	-Rework I2C proxy to support I2C 1,2,3
+	
 
 
 	

@@ -169,6 +169,10 @@ ENDIF IMGREGHIVE
 #include "$(PLAT_DRIVERS_DIR)\MCSPI\mcspi.reg"
 
 ;===============================================================================
+; I2C proxy driver
+#include "$(PLAT_DRIVERS_DIR)\I2CPROXY\i2cproxy.reg"
+
+;===============================================================================
 ; Keypad driver
 #include "$(PLAT_DRIVERS_DIR)\KEYPAD\keypad.reg"
 
@@ -227,27 +231,6 @@ IF BSP_PRU
     "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
     
 ENDIF BSP_PRU
-
-;===============================================================================
-; I2C Proxy Driver
-[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\I2CPROXY1]
-    "Prefix"="I2C"
-    "Dll"="i2cproxy.dll"
-    "Index"=dword:1
-    "Order"=dword:100  
-
-[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\I2CPROXY2]
-    "Prefix"="I2C"
-    "Dll"="i2cproxy.dll"
-    "Index"=dword:2
-    "Order"=dword:100
-
-[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\I2CPROXY3]
-    "Prefix"="I2C"
-    "Dll"="i2cproxy.dll"
-    "Index"=dword:3
-    "Order"=dword:100  
-
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\TxtShell\Extensions]
     "OMAP Extension"="omap_shell.dll"
