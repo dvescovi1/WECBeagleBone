@@ -72,6 +72,10 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmcspi2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c3" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -103,6 +107,10 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmcspi2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c3" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -110,10 +118,7 @@
         <BuildOption Name="Item" OptionId="BuildOption:MS:IMGNODEBUGGER" OptionValue="1" />
         <BuildOption Name="Item" OptionId="BuildOption:MS:IMGNOKITL" OptionValue="1" />
       </BuildOptionCollection>
-      <StringDictionary Name="EnvironmentVariables">
-        <Entry Name="bsp_xrplugin_opengl">1</Entry>
-        <Entry Name="bsp_save_ebootcfg_to_sd">1</Entry>
-      </StringDictionary>
+      <StringDictionary Name="EnvironmentVariables" />
       <LocaleInfo Name="LocaleInformation" />
       <CustomBuildActions Name="CustomBuildActions" />
       <PBPEntryCollection Name="PBProjectOptions" EnforceUniqueItems="False">
@@ -139,6 +144,10 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmcspi2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c3" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">

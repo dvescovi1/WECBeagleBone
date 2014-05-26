@@ -67,7 +67,7 @@
 	<Property NAME="MSI file">%pbworkspaceroot%\SDKs\SDK1\MSI\BeagleBone WEC7 SDK.msi</Property>
 	<Property NAME="Locale">1033</Property>
 	<Property NAME="Product GUID">{405e87a6-4e17-4d96-8a59-d5a5b0b3611d}</Property>
-	<Property NAME="Product version">1.0.0</Property>
+	<Property NAME="Product version">1.5.0</Property>
 	<Property NAME="Manufacturer">Codeplex</Property>
 	<Property NAME="Manufacturer Website">www.codeplex.com</Property>
 	<Property NAME="EULA">0</Property>
@@ -118,4 +118,4 @@
 	</PropertyBag>
 	<PropertyBag NAME="CPU Configs"/>
 	<PropertyBag NAME="CPUs"/>
-	<PropertyBag NAME="Added Files"><PropertyBag NAME="{3c2d2f5f-0938-4cc5-8280-13b59eb03a03}"><Property NAME="Source">%_winceroot%\3rdParty\SDF\BIN</Property><Property NAME="Destination">SDF</Property><Property NAME="Subfolders">0</Property></PropertyBag></PropertyBag><PropertyBag NAME="CPU Families"><PropertyBag NAME="ARMV7"><Property NAME="Included">1</Property><Property NAME="Configuration">AM33X_BBB_BSP ARMV7 Release</Property></PropertyBag></PropertyBag></Root>
+	<PropertyBag NAME="Added Files"><PropertyBag NAME="{4f4b5f1b-3d48-43d4-9cdb-a0b6be1781e3}"><Property NAME="Source">%_winceroot%\3rdParty\SDF\BIN</Property><Property NAME="Destination">SDF</Property><Property NAME="Subfolders">0</Property></PropertyBag></PropertyBag><PropertyBag NAME="CPU Families"><PropertyBag NAME="ARMV7"><Property NAME="Included">1</Property><Property NAME="Configuration">AM33X_BBB_BSP ARMV7 Release</Property></PropertyBag></PropertyBag></Root>
