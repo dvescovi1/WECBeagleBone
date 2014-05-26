@@ -120,8 +120,19 @@ DWORD I2C_Init( LPCTSTR szContext, LPCVOID pBusContext )
         goto cleanUp;
     }
 
-	// index may be 1 or 2
-	pDevice->devId = (pDevice->index == 1) ? AM_DEVICE_I2C0 : AM_DEVICE_I2C1;
+	// index may be 1, 2 or 3
+	switch (pDevice->index) {
+		case 1:
+			pDevice->devId = AM_DEVICE_I2C0;
+			break;
+		case 2:
+			pDevice->devId = AM_DEVICE_I2C1;
+			break;
+		case 3:
+			pDevice->devId = AM_DEVICE_I2C2;
+			break;
+	}
+
 
     // Return non-null value
     rc = (DWORD)pDevice;
