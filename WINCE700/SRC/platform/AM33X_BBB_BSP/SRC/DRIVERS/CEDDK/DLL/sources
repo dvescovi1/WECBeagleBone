@@ -12,15 +12,8 @@
 ;
 !endif
 
-!if 0
-    $(_TILIBS)\ceddk_pmext_lib.lib                  \
-    $(_TARGETPLATLIB)\$(_CPUDEPPATH)\bsp_padcfg.lib \
-!endif
-
-
 TARGETNAME=ceddk
 TARGETTYPE=DYNLINK
-
 
 DEFFILE=ceddk.def
 DLLENTRY=_DllMainCRTStartup
@@ -29,7 +22,6 @@ SOURCES= \
     temp.cpp \
     gpio.cpp \
     edma.c \
-
 
 SOURCELIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib     \
