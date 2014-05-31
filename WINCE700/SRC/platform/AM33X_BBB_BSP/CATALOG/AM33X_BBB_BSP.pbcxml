@@ -226,19 +226,21 @@
     <Title>I2C1 proxy driver (AM335x I2C0)</Title>
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_I2C1</Variable>
-    <Module>i2cproxy.dll</Module>
+    <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c2">
     <Title>I2C2 proxy driver (AM335x I2C1)</Title>
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_I2C2</Variable>
+    <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c3">
     <Title>I2C3 proxy driver (AM335x I2C2)</Title>
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_I2C3</Variable>
+    <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
   </Item>
 </CatalogFile>
