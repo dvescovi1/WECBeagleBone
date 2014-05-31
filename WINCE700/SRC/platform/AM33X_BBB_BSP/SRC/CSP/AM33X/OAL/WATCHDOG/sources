@@ -1,0 +1,10 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# All rights reserved TEXAS INSTRUMENTS 2011
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=am33x_oal_watchdog
+
+$CDEFINES = $(CDEFINES) -DOAL
+
+SOURCES= watchdog.c
+

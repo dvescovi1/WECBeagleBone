@@ -26,7 +26,7 @@ TARGETLIBS= \
 
 SOURCELIBS= \
 	$(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\nleddrvr_mdd.lib\
-	$(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib  \
+	$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib  \
 
 SOURCES= \
 	nleddrvr.cpp

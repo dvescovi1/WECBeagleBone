@@ -1,6 +1,5 @@
-# Copyright (c) 2014, David Vescovi.  All Rights Reserved.
-# All rights reserved ADENEO EMBEDDED 2010
 !if 0
+; Copyright (c) 2014, David Vescovi.  All Rights Reserved.
 ;================================================================================
 ;             Texas Instruments OMAP(TM) Platform Software
 ; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
@@ -11,12 +10,6 @@
 ;================================================================================
 !endif
 
-TARGETNAME=xldrsd
-TARGETTYPE=PROGRAM
-RELEASETYPE=PLATFORM
-EXEENTRY=StartUp
-SYNCHRONIZE_DRAIN=1
-
 # SD XLDR is loaded into the CPU internal RAM and a max size of 62KB, 
 # this size can only be achived using optimized code.
 # This requires that we link explicitly to retail libraries built in the
@@ -26,6 +19,12 @@ SYNCHRONIZE_DRAIN=1
 !IF "$(WINCEDEBUG)" != "retail"
 SKIPBUILD=1
 !ENDIF
+
+TARGETNAME=xldrsd
+TARGETTYPE=PROGRAM
+RELEASETYPE=PLATFORM
+EXEENTRY=StartUp
+SYNCHRONIZE_DRAIN=1
 
 # Disable the generation of unwanted and unnecessary checking code in boot loader
 STACK_CHECK_DISABLE=1
@@ -53,7 +52,7 @@ TARGETLIBS= \
     $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
     $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib           \
-    $(_PLATLIB)\$(_CPUDEPPATH)\$(_SOC)_soccfg.lib                   \
+    $(_PLATLIB)\$(_CPUDEPPATH)\am33x_soccfg.lib                   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_boot_fatfs.lib          \
     $(_PLATLIB)\$(_CPUINDPATH)\boot_sdmemory.lib       \
     $(_PLATLIB)\$(_CPUINDPATH)\boot_sdhc.lib           \

@@ -1,0 +1,13 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_intr
+TARGETTYPE=LIBRARY
+
+CDEFINES=$(CDEFINES) -DOAL
+
+SOURCES=\
+    map.c   \
+    intr.c  \
+    oem.c
+    

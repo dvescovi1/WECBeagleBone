@@ -13,7 +13,10 @@
 //
 // include files section
 //
+#pragma warning(push)
+#pragma warning(disable: 28251)
 #include <windows.h>
+#pragma warning(pop)
 
 //
 // pound defines section

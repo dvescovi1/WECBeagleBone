@@ -1,0 +1,48 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!IF 0
+
+Copyright (c) 1995-2000 Microsoft Corporation.  All rights reserved.
+
+Module Name:
+
+    sources.
+
+Abstract:
+
+    This file specifies the target component being built and the list of
+    sources files needed to build that component.  Also specifies optional
+    compiler switches and libraries that are unique for the component being
+    built.
+
+!ENDIF
+
+!INCLUDE "..\sources.inc"
+
+!IF "$(BSP_SMSC911X)" == ""
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=smsc9118
+TARGETTYPE=LIBRARY
+
+PLAT_SOURCES=platform.c util.S
+CDEFINES=$(CDEFINES)
+
+!IF "$(WINCEDEBUG)" == "debug"
+CDEFINES=$(CDEFINES) -DSMSC_DBG
+!ENDIF
+
+
+TARGETLIBS=	$(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+		  	$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+		  	$(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\ndis.lib \
+		  	$(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\winsock.lib \
+
+SOURCES=		\
+	lan9118.c	\
+	os.c		\
+	smsc9118.c	\
+	$(PLAT_SOURCES)
+	
+INCLUDES=$(INCLUDES);$(_TARGETPLATROOT)\src\inc
+

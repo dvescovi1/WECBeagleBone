@@ -1,0 +1,23 @@
+!if 0
+Copyright (c) MPC Data Limited 2009. All rights reserved.
+!endif
+
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=am389x_edma
+TARGETTYPE=LIBRARY
+SYNCHRONIZE_DRAIN=1
+
+INCLUDES=$(INCLUDES);..\INC
+       
+CDEFINES = $(CDEFINES) -DEDMA_INTERNAL_BUILD
+
+SOURCES= \
+    edma3_dev.c \
+    edma3_am389x_cfg.c \
+    edma3_drv_adv.c \
+    edma3_drv_basic.c \
+    edma3_drv_init.c \
+    edma3_rm_gbl_data.c \
+    edma3resmgr.c \
+    log.c \

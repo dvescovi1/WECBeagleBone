@@ -8,7 +8,10 @@
 *
 ===============================================================================
 */
+#pragma warning(push)
+#pragma warning(disable: 28251)
 #include <windows.h>
+#pragma warning(pop)
 #include <bsp.h>
 #include <initguid.h>
 #include <display_drvesc.h>	
@@ -24,7 +27,7 @@
 #include <string.h>
 #include <memtxapi.h>
 #include "utils.h"
-#include <i2cproxy.h>
+#include <sdk_i2c.h>
 #include <proxyapi.h>
 #include "oalex.h"
 
@@ -33,6 +36,7 @@
 
 // disable PREFAST warning for use of EXCEPTION_EXECUTE_HANDLER
 #pragma warning (disable: 6320)
+#pragma warning (disable: 6328)
 
 // enables cacheinfo command to display OAL cache info, used for testing only
 #define CACHEINFO_ENABLE        TRUE
@@ -84,12 +88,13 @@ static BOOL ScreenRotate(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
 
 #endif
 static BOOL OPMode(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
-static BOOL TouchScreenCalibrate(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
 static BOOL CpuIdle(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
 static BOOL Dump_RegisterGroup(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
 static BOOL Reboot(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts );
-static BOOL Display(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts );
 #if 0
+static BOOL TouchScreenCalibrate(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
+static BOOL Display(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts);
+
 static BOOL TvOut(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts );
 static BOOL DVIControl(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts );
 static BOOL InterruptLatency(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts );
@@ -273,7 +278,7 @@ static struct {
     { L"out32", OutReg32 },
     { L"outi2c", OutI2C },
     { L"fill32", Fill32 },
-    { L"tscal", TouchScreenCalibrate},
+//    { L"tscal", TouchScreenCalibrate},
     { L"mailbox", DumpMailboxReg},
     { L"mailboxirq", DumpMailboxIrqReg},
     { L"usbFnSet", SetUSBFn },    
@@ -281,7 +286,7 @@ static struct {
     { L"cpuidle", CpuIdle},    
     { L"opm", OPMode},    
     { L"reboot", Reboot},
-    { L"display", Display},
+//    { L"display", Display},
 #if CACHEINFO_ENABLE
     { L"cacheinfo", ShowCacheInfo},
 #endif
@@ -830,7 +835,7 @@ cleanUp:
 BOOL Fill32( ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts )
 {
     BOOL rc = FALSE;
-    UINT32 address, size, value, i;
+    UINT32 address = 0, size = 0, value = 0, i = 0;
     PHYSICAL_ADDRESS pa;
     UINT32 *pAddress = NULL;
 
@@ -893,20 +898,20 @@ cleanUp:
 
 
 //-----------------------------------------------------------------------------
-BOOL
-TouchScreenCalibrate(
-    ULONG argc,
-    LPWSTR args[],
-    PFN_FmtPuts pfnFmtPuts
-    )
-{
-	UNREFERENCED_PARAMETER(argc);
-	UNREFERENCED_PARAMETER(args);
-	UNREFERENCED_PARAMETER(pfnFmtPuts);
-
-    TouchCalibrate();
-    return TRUE;
-}
+//BOOL
+//TouchScreenCalibrate(
+//    ULONG argc,
+//    LPWSTR args[],
+//    PFN_FmtPuts pfnFmtPuts
+//    )
+//{
+//	UNREFERENCED_PARAMETER(argc);
+//	UNREFERENCED_PARAMETER(args);
+//	UNREFERENCED_PARAMETER(pfnFmtPuts);
+//
+//    TouchCalibrate();
+//    return TRUE;
+//}
 
 
 
@@ -1267,7 +1272,7 @@ static BOOL DumpMailboxReg(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts)
 
     pa.QuadPart = 0x480C8000;
     pMailboxBase = (UINT32 *)MmMapIoSpace_Proxy(pa, 0x1000, FALSE);
-    StringCchPrintf(szBuffer, MESSAGE_BUFFER_SIZE, L"pMailboxBase =0x%x, sample val=0x%x\r\n", pMailboxBase, INREG32((UINT32)pMailboxBase + (UINT32)0x10));
+    StringCchPrintf(szBuffer, MESSAGE_BUFFER_SIZE, L"pMailboxBase =0x%x, sample val=0x%x\r\n", (int)pMailboxBase, INREG32((UINT32)pMailboxBase + (UINT32)0x10));
     pfnFmtPuts(szBuffer);
 
     DISPLAY_REGISTER_VALUE(pMailboxBase, 0,      "Mailbox Revision        ");
@@ -1335,7 +1340,7 @@ static BOOL DumpMailboxIrqReg(ULONG argc, LPWSTR args[], PFN_FmtPuts pfnFmtPuts)
 
     pa.QuadPart = 0x480C8000;
     pMailboxBase = (UINT32 *)MmMapIoSpace_Proxy(pa, 0x1000, FALSE);
-    StringCchPrintf(szBuffer, MESSAGE_BUFFER_SIZE, L"pMailboxBase =0x%x, sample val=0x%x\r\n", pMailboxBase, INREG32((UINT32)pMailboxBase + (UINT32)0x10));
+    StringCchPrintf(szBuffer, MESSAGE_BUFFER_SIZE, L"pMailboxBase =0x%x, sample val=0x%x\r\n", (int)pMailboxBase, INREG32((UINT32)pMailboxBase + (UINT32)0x10));
     pfnFmtPuts(szBuffer);
 
     DISPLAY_REGISTER_VALUE(pMailboxBase, 0,      "Mailbox Revision        ");
@@ -1823,7 +1828,7 @@ DWORD DumpCurrentFrequencies(
     KernelIoControl(IOCTL_HAL_GET_CPUSPEED,
                 (LPVOID)&CPUspeed, sizeof(CPUspeed), (LPVOID)&CPUspeed, 4, &ret);
 
-    StringCchPrintf(szBuffer, MAX_PATH,_T("Current Frequencies: MPU-%dMHz\r\n"),CPUspeed);
+    StringCchPrintf(szBuffer, MAX_PATH,_T("Current Frequencies: MPU-%dMHz\r\n"), (int)CPUspeed);
 
     pfnFmtPuts(szBuffer);
 	return 0;
@@ -1893,76 +1898,76 @@ OPMode(
 //1163
 //------------------------------------------------------------------------------
 
-BOOL
-Display(
-    ULONG argc,
-    LPWSTR args[],
-    PFN_FmtPuts pfnFmtPuts
-    )
-{
-    BOOL rc = TRUE;
-    int i = 0;
-    HDC hDC;
-    CEDEVICE_POWER_STATE  dx;
-    WCHAR  device[1024] = L"BKL1:";
-    DWORD  dwErr=0;
-            
-    //  Get handle to display driver
-    hDC = GetDC(NULL);
-    if( hDC == NULL )
-    {
-        pfnFmtPuts(L"Error getting display driver handle\r\n");
-        goto cleanUp;
-    }
-    
-
-    while (argc--)
-    {
-        if (wcsicmp(args[i], L"on") == 0)
-        {
-            //  Enable display
-            dx = D0;
-
-            ExtEscape( hDC, IOCTL_POWER_SET, 0, NULL, sizeof(CEDEVICE_POWER_STATE), (LPSTR)&dx );
-            argc = 0;
-			
-			/* turning on backlight */
-			dwErr = SetDevicePower(device, 1, dx);
-			if(dwErr != ERROR_SUCCESS) {
-				pfnFmtPuts(TEXT("turn off backlight('%s', %d) ERROR:%d\n"), device, dx, dwErr);
-			}
-			
-        }
-        else if (wcsicmp(args[i], L"off") == 0)
-        {
-            dx = D4;
-			
-    		/* turning off backlight */
-    		dwErr = SetDevicePower(device, 1, dx);
-    		if(dwErr != ERROR_SUCCESS) {
-    			pfnFmtPuts(TEXT("SetDevicePower('%s', %d) ERROR:%d\n"), device, dx, dwErr);
-    		}
-			
-            //  Disable display
-            ExtEscape( hDC, IOCTL_POWER_SET, 0, NULL, sizeof(CEDEVICE_POWER_STATE), (LPSTR)&dx );
-            argc = 0;		
-        }
-        else
-        {
-            pfnFmtPuts(L"Unknown command\r\n");
-            argc = 0;
-        }
-
-        i++;
-    }
-
-
-    //  Release the handle
-    ReleaseDC( NULL, hDC );
-    
-cleanUp:
-    return rc;
-}
+//BOOL
+//Display(
+//    ULONG argc,
+//    LPWSTR args[],
+//    PFN_FmtPuts pfnFmtPuts
+//    )
+//{
+//    BOOL rc = TRUE;
+//    int i = 0;
+//    HDC hDC;
+//    CEDEVICE_POWER_STATE  dx;
+//    WCHAR  device[1024] = L"BKL1:";
+//    DWORD  dwErr=0;
+//            
+//    //  Get handle to display driver
+//    hDC = GetDC(NULL);
+//    if( hDC == NULL )
+//    {
+//        pfnFmtPuts(L"Error getting display driver handle\r\n");
+//        goto cleanUp;
+//    }
+//    
+//
+//    while (argc--)
+//    {
+//        if (wcsicmp(args[i], L"on") == 0)
+//        {
+//            //  Enable display
+//            dx = D0;
+//
+//            ExtEscape( hDC, IOCTL_POWER_SET, 0, NULL, sizeof(CEDEVICE_POWER_STATE), (LPSTR)&dx );
+//            argc = 0;
+//			
+//			/* turning on backlight */
+//			dwErr = SetDevicePower(device, 1, dx);
+//			if(dwErr != ERROR_SUCCESS) {
+//				pfnFmtPuts(TEXT("turn off backlight('%s', %d) ERROR:%d\n"), device, dx, dwErr);
+//			}
+//			
+//        }
+//        else if (wcsicmp(args[i], L"off") == 0)
+//        {
+//            dx = D4;
+//			
+//    		/* turning off backlight */
+//    		dwErr = SetDevicePower(device, 1, dx);
+//    		if(dwErr != ERROR_SUCCESS) {
+//    			pfnFmtPuts(TEXT("SetDevicePower('%s', %d) ERROR:%d\n"), device, dx, dwErr);
+//    		}
+//			
+//            //  Disable display
+//            ExtEscape( hDC, IOCTL_POWER_SET, 0, NULL, sizeof(CEDEVICE_POWER_STATE), (LPSTR)&dx );
+//            argc = 0;		
+//        }
+//        else
+//        {
+//            pfnFmtPuts(L"Unknown command\r\n");
+//            argc = 0;
+//        }
+//
+//        i++;
+//    }
+//
+//
+//    //  Release the handle
+//    ReleaseDC( NULL, hDC );
+//    
+//cleanUp:
+//    return rc;
+//}
 
 #if CACHEINFO_ENABLE
 

@@ -1,0 +1,15 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# All rights reserved TEXAS INSTRUMENTS INC 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=am33x_oal_prcm
+TARGETTYPE=LIBRARY
+
+SOURCES= prcm_clock.c \
+		prcm_device.c \
+		prcm.c		\
+		prcm_reset.c \
+		prcm_domain.c \
+		prcm_volt.c \
+		prcm_cm3.c \
+		prcm_mailbox.c \

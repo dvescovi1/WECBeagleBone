@@ -42,7 +42,7 @@ TARGETLIBS= $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
 
 SOURCELIBS= $(_PLATLIB)\$(_CPUINDPATH)\edmadrvr.lib \
             $(_PLATLIB)\$(_CPUINDPATH)\common_ti_AM3xx_mcasp.lib \
-            $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib  \
+            $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib  \
 
 SOURCES= \
     wavemain.cpp \

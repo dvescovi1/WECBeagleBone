@@ -1,7 +1,7 @@
 @echo off
 
 rem [variables to firmware source and local directories]
-set SOC_PRU_PATH=%_TARGETPLATROOT%\SRC\COMMON_TI_V1\AM33X\PRU
+set SOC_PRU_PATH=%_TARGETPLATROOT%\SRC\CSP\AM33X\PRU
 set PROJECT_PLAT_PATH=%_TARGETPLATROOT%\SRC\DRIVERS\PRU
 
 rem path relative to %SOC_PRU_PATH%
