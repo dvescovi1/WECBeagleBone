@@ -243,7 +243,8 @@ UINT32 PrcmClockGetClockRate(OMAP_CLOCKID clock_id)
     return (UINT32)freq;
 }
 
-BOOL PrcmDeviceGetContextState( UINT devId, BOOL bSet){
+BOOL PrcmDeviceGetContextState( UINT devId, BOOL bSet)
+{
     UNREFERENCED_PARAMETER(devId);
     UNREFERENCED_PARAMETER(bSet);
     return TRUE;
@@ -260,12 +261,14 @@ BOOL BusClockRelease(HANDLE hBus, UINT id)
     return EnableDeviceClocks(id,FALSE);
 }
 
-BOOL BusClockRequest(HANDLE hBus, UINT id){
+BOOL BusClockRequest(HANDLE hBus, UINT id)
+{
     UNREFERENCED_PARAMETER(hBus);
     return EnableDeviceClocks(id,TRUE);
 }
 
-VOID MmUnmapIoSpace(PVOID BaseAddress, ULONG NumberOfBytes){
+VOID MmUnmapIoSpace(PVOID BaseAddress, ULONG NumberOfBytes)
+{
     UNREFERENCED_PARAMETER(BaseAddress);
     UNREFERENCED_PARAMETER(NumberOfBytes);
 }
@@ -277,10 +280,14 @@ PVOID MmMapIoSpace( PHYSICAL_ADDRESS PhysicalAddress,ULONG NumberOfBytes,
     return OALPAtoVA(PhysicalAddress.LowPart,CacheEnable);
 }
 
-HANDLE CreateBusAccessHandle (LPCTSTR lpActiveRegPath){    
+HANDLE CreateBusAccessHandle (LPCTSTR lpActiveRegPath)
+{    
     UNREFERENCED_PARAMETER(lpActiveRegPath);
     return (HANDLE) 0xAA;
 }
 
-void HalContextUpdateDirtyRegister(UINT32 ffRegister){UNREFERENCED_PARAMETER(ffRegister);}
-// 383
+void HalContextUpdateDirtyRegister(UINT32 ffRegister)
+{
+	UNREFERENCED_PARAMETER(ffRegister);
+}
+
