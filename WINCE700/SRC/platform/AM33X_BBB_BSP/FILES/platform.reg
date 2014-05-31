@@ -165,12 +165,12 @@ ENDIF IMGREGHIVE
 #include "$(PLAT_DRIVERS_DIR)\UART\uart.reg"
 
 ;===============================================================================
-; MCSPI driver
+; SPI driver
 #include "$(PLAT_DRIVERS_DIR)\MCSPI\mcspi.reg"
 
 ;===============================================================================
-; I2C proxy driver
-#include "$(PLAT_DRIVERS_DIR)\I2CPROXY\i2cproxy.reg"
+; I2C driver
+#include "$(PLAT_DRIVERS_DIR)\I2C\i2c.reg"
 
 ;===============================================================================
 ; Keypad driver
