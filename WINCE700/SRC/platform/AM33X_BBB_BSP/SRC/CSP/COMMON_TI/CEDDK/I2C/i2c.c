@@ -19,16 +19,6 @@
 #include "sdk_i2c.h"
 #include "oalex.h"
 #include "soc_cfg.h"
-/*
-#include <windows.h>
-#include <types.h>
-#include <oal.h>
-#include <ceddk.h>
-#include <ceddkex.h>
-#include <omap35xx.h>
-#include <i2c.h>
-#include <oal_i2c.h>
-*/
 
 //-----------------------------------------------------------------------------
 static OAL_IFC_I2C      _i2cFnTable;

@@ -27,7 +27,7 @@ typedef volatile struct
 {
     // for netra/centaurus, SD_HL_REV, SD_HL_HWINFO, SD_HL_SYSCONFIG 
     // are in this range before unused0[]
-    // see COMMON_TI_V1\AM389X\SOCCFG\devicemap.c
+    // see CSP\AM389X\SOCCFG\devicemap.c
                                 // offsets are w.r.t struct start
     UINT32 unused0[4];			// 0x0000 - 0x000C
     UINT32 MMCHS_SYSCONFIG;		// 0x0010
