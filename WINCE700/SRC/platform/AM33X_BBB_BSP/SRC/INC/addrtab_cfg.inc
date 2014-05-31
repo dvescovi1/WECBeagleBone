@@ -42,7 +42,7 @@
 ;
 ; !!! IF YOU MODIFY THE TABLE YOU MUST MODIFY 
 ; !!! "THE MEMORY_REGISTER_ENTRY _pRegEntries" in the
-; !!! \platform\common\src\soc\COMMON_TI_V1\AM33X\CEDDK\MAP\map.c
+; !!! SRC\CSP\AM33X\CEDDK\MAP\map.c
 ; 
 ;----------------------- CE7 Device Table ------------------------------------------------ 
 g_oalCE7DeviceTable
