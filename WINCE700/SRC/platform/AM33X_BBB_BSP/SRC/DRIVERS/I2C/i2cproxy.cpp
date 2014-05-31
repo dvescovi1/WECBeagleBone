@@ -22,7 +22,6 @@
 #include "am33x.h"
 #include <soc_cfg.h>
 #include <sdk_i2c.h>
-#include "..\common\i2cproxy.h"
 #pragma warning(pop)
 
 //------------------------------------------------------------------------------
