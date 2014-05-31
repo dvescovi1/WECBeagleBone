@@ -14,9 +14,7 @@
 //
 #include "bsp.h"
 #include "am33x_clocks.h"
-//#include "oal_padcfg.h"
 #include "bsp_padcfg.h"
-
 
 //------------------------------------------------------------------------------
 //  Pad configuration
