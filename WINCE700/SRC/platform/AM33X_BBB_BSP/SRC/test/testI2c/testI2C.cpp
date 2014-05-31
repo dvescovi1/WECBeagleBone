@@ -2,7 +2,7 @@
 // All rights reserved Texas Instruments, Inc. 2011
 
 #include "stdafx.h"
-#include "..\..\APP\COMMON\i2cproxy.h"
+#include <sdk_i2c.h>
 
 #define MESSAGE_BUFFER_SIZE     280
 #define dimof(x)    (sizeof(x)/sizeof((x)[0]))

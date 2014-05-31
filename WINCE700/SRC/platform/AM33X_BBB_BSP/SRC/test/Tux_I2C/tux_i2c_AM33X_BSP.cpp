@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "platform_AM33X.h"
 
-#include <i2cproxy.h>
+#include <sdk_i2c.h>
 #include <winioctl.h>
 
 DWORD       g_BufferSize = I2C_BUFFER_SIZE;

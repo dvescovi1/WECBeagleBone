@@ -1,0 +1,30 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!if 0
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=omap_ddgpe_dssai
+TARGETTYPE=LIBRARY
+
+CDEFINES=$(CDEFINES) -DDDI
+
+CDEFINES=$(CDEFINES) -DCEDDK_USEDDKMACRO -DUSE_PMX_WRAPPER
+
+INCLUDES=$(INCLUDES);..\INC
+
+SOURCES= \
+    dssai.cpp \
+    dssai_debug.cpp \
+    dssai_globals.cpp \
+    heap.cpp \
+    surfmgr_flat.cpp \
+    surfmgr_vrfb.cpp

@@ -30,12 +30,12 @@ OAL_KITL_DEVICE g_bootDevices[] = {
 //        0, OAL_KITL_TYPE_ETH, &g_kitlUsbRndis
 //	},
 	{
-        // For reason of adding 0x0100, see comment in COMMON_TI_V1\AM33X\soccfg\devicemap.c
+        // For reason of adding 0x0100, see comment in CSP\AM33X\soccfg\devicemap.c
         L"NK from SDCard FILE ", Internal, AM33X_MMCHS0_REGS_PA+0x0100,
         0, BOOT_SDCARD_TYPE, NULL
     }, 
 	{
-        // For reason of adding 0x0100, see comment in COMMON_TI_V1\AM33X\soccfg\devicemap.c
+        // For reason of adding 0x0100, see comment in CSP\AM33X\soccfg\devicemap.c
         L"NK from eMMC FILE ", Internal, AM33X_MMCHS1_REGS_PA+0x0100,
         0, BOOT_SDCARD_TYPE, NULL
     }, 

@@ -18,7 +18,7 @@ SOURCELIBS= \
     $(_SYSGENOAKROOT)\lib\$(_CPUINDPATH)\gpe.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\ddgpe_lcd.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\ddgpe_lcdcai.lib \
-    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib     \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib     \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib	\
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_stall.lib  \

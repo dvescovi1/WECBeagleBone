@@ -8,10 +8,12 @@
 *
 ================================================================================
 */
+#pragma warning(push)
+#pragma warning(disable: 28251)
 #include <windows.h>
+#pragma warning(pop)
 #include <tchar.h>
 #include <bsp.h>
-//#include <bus.h>		//edited out for testing purposes
 #include "utils.h"
 
 //------------------------------------------------------------------------------

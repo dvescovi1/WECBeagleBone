@@ -757,7 +757,6 @@ LcdPdd_SetPowerLevel(
     DWORD   dwPowerLevel
     )
 {
-        
     // Power display up/down
     switch(dwPowerLevel)
     {
@@ -765,12 +764,10 @@ LcdPdd_SetPowerLevel(
         case D1:
         case D2:
           lcdc_enable_raster(lcdc);
-//          lcdc_dumpregs(lcdc);
           break;        
 
         case D3:
         case D4:
-//            lcdc_dumpregs(lcdc);
             lcdc_disable_raster(lcdc);
             break;
     }

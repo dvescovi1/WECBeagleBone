@@ -1,5 +1,5 @@
 DIRS=\
-	common_ti_v1\
+	CSP\
 	bsp_common\
 	oal\
 	DRIVERS\

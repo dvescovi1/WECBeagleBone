@@ -18,7 +18,7 @@ TARGETLIBS= \
     $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib \
-    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib               \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib               \
 
 
 SOURCES= \

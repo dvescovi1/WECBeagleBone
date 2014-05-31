@@ -57,7 +57,7 @@ TARGETLIBS= \
     $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib     \
     $(_PLATLIB)\$(_CPUINDPATH)\am3xx_fmd_nand_boot.lib        \
-    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib             \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib             \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_devicesmap.lib    \
     $(_PLATLIB)\$(_CPUINDPATH)\am3xx_oali2c.lib               \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_omap_gpio.lib	\

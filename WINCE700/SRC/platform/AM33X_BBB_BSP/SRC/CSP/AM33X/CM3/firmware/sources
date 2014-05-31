@@ -1,0 +1,9 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# All rights reserved TEXAS INSTRUMENTS INC 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=am33x_cm3_firmware
+TARGETTYPE=LIBRARY
+
+SOURCES= cm3image.c \
+

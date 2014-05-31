@@ -1,0 +1,10 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# All rights reserved Texas Instruments, Inc. 2011
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=am33x_soccfg
+TARGETTYPE=LIBRARY
+
+SOURCES= \
+    devicemap.c \
+    soccfg.c

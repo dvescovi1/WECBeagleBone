@@ -1,0 +1,24 @@
+!if 0
+Copyright (c) MPC Data Limited 2011.  All rights reserved.
+!endif
+
+!IF "$(BSP_PRU)" != "1"
+SKIPBUILD=1
+!ENDIF
+
+TARGETTYPE=LIBRARY
+TARGETNAME=pru_ce_driver
+CDEFINES=$(CDEFINES) -D__GNUC__
+
+INCLUDES=$(INCLUDES); \
+	..\..\INC; \
+	..\..\oal\inc; \
+	..\hal\common\include; \
+	..\hal\common\include\csl; \
+	..\hal\uart\include; \
+    
+SOURCES= \
+	main.c \
+    memcopy_drvr.c
+
+

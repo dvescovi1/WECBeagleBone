@@ -14,7 +14,7 @@ DLLENTRY=_DllMainCRTStartup
 SOURCELIBS= \
     $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\ddgpe.lib \
     $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\gpe.lib \
-    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib  \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib  \
     $(_PLATLIB)\$(_CPUDEPPATH)\ddi_omap335x.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc.lib \
     $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib	\

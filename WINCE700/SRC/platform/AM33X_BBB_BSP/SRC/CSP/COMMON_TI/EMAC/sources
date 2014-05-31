@@ -1,0 +1,20 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=omap_emac_lib
+
+CDEFINES=$(CDEFINES) -DNDIS_MINIPORT_DRIVER=1 -DNDIS51_MINIPORT=1
+
+SOURCES = \
+    Emac_Filter.c \
+    Emac_Init.c \
+    Emac_Phy.c \
+    Emac_NDIS.c \
+    Emac_Miniport.c \
+    Emac_Intr.c \
+    Emac_Adapter.c \
+
+# This driver is intentionally left with warnings because we want to keep as much code
+# as possible in sync with the EMAC driver from the OMAP-L138 BSP.
+WARNISERROR=
+WARNLEVEL=

@@ -10,19 +10,20 @@
 ================================================================================
 */
 
-#pragma warning(push)
-#pragma warning(disable:4201)
 //
 //  File: proxydriver.cpp
 //
+
+#pragma warning(push)
+#pragma warning(disable:4201 28251)
 #include <windows.h>
 #include <oal.h>
 #include <oalex.h>
 #include <ceddk.h>
 #include <ceddkex.h>
 #include <proxyapi.h>
-
 #pragma warning(pop)
+
 //------------------------------------------------------------------------------
 //
 //  Global:  dpCurSettings
@@ -318,9 +319,7 @@ PXY_IOControl(
     )
 {
     BOOL rc = FALSE;
-    DWORD dwParam;    
     Instance_t *pInstance = (Instance_t*)context;
-    POWERDOMAIN_CONSTRAINT_INFO *pConstraintInfo;
 
     RETAILMSG(ZONE_FUNCTION, (
         L"+PXY_IOControl(0x%08x, 0x%08x, 0x%08x, %d, 0x%08x, %d, 0x%08x)\r\n",
@@ -356,186 +355,6 @@ PXY_IOControl(
                 }
             }
         break;
-
-#if 0
-        case IOCTL_DVFS_REQUEST:
-            if (pInstance->hDvfsConstraint == NULL)
-                {
-                dwParam = CONSTRAINT_STATE_NULL;
-                pInstance->hDvfsConstraint = PmxSetConstraintByClass(
-                                    CONSTRAINT_CLASS_DVFS, 
-                                    CONSTRAINT_MSG_DVFS_REQUEST, 
-                                    (void*)&dwParam, 
-                                    sizeof(DWORD)
-                                    );
-                }
-
-            PmxUpdateConstraint(pInstance->hDvfsConstraint, 
-                CONSTRAINT_MSG_DVFS_REQUEST, 
-                (void*)pInBuffer, 
-                inSize
-                );
-            break;
-
-        case IOCTL_DVFS_FORCE:
-            if (pInstance->hDvfsConstraint == NULL)
-                {
-                dwParam = CONSTRAINT_STATE_NULL;
-                pInstance->hDvfsConstraint = PmxSetConstraintByClass(
-                                    CONSTRAINT_CLASS_DVFS, 
-                                    CONSTRAINT_MSG_DVFS_REQUEST, 
-                                    (void*)&dwParam, 
-                                    sizeof(DWORD)
-                                    );
-                }
-
-            PmxUpdateConstraint(pInstance->hDvfsConstraint, 
-                CONSTRAINT_MSG_DVFS_FORCE, 
-                (void*)pInBuffer, 
-                inSize
-                );
-            break;
-
-        case IOCTL_POWERDOMAIN_REQUEST:
-            pConstraintInfo = (POWERDOMAIN_CONSTRAINT_INFO*)pInBuffer;
-            if (pInstance->hDomainConstraint == NULL)
-                {
-                dwParam = CONSTRAINT_STATE_NULL;
-                pInstance->hDomainConstraint = PmxSetConstraintById(
-                                    L"PWRDOM",
-                                    CONSTRAINT_MSG_POWERDOMAIN_REQUEST, 
-                                    (void*)pConstraintInfo, 
-                                    sizeof(POWERDOMAIN_CONSTRAINT_INFO)
-                                    );
-
-                if (pInstance->hDomainConstraint == NULL) rc = FALSE;
-                }
-            else
-                {
-                rc = PmxUpdateConstraint(
-                                    pInstance->hDomainConstraint, 
-                                    CONSTRAINT_MSG_POWERDOMAIN_REQUEST, 
-                                    (void*)pConstraintInfo, 
-                                    sizeof(POWERDOMAIN_CONSTRAINT_INFO)
-                                    );
-                }
-            break;
-#endif
-
-        /*case IOCTL_INTERRUPT_LATENCY_CONSTRAINT:
-            if (pInstance->hInterruptLatencyConstraint == NULL)
-                {
-                pInstance->hInterruptLatencyConstraint = PmxSetConstraintById(
-                                    L"INTRLAT",
-                                    CONSTRAINT_MSG_INTRLAT_REQUEST, 
-                                    pInBuffer, 
-                                    inSize
-                                    );
-
-                if (pInstance->hInterruptLatencyConstraint != NULL) rc = TRUE;
-                }
-            else
-                {
-                rc = PmxUpdateConstraint(
-                                    pInstance->hInterruptLatencyConstraint, 
-                                    CONSTRAINT_MSG_INTRLAT_REQUEST, 
-                                    pInBuffer, 
-                                    inSize
-                                    );
-                }
-            break;*/
-
-		/*
-        case IOCTL_PROFILE_DVFS_CORE:
-            RunOppLatencyProfiler(*(int*)pInBuffer);
-            rc = TRUE;
-            break;
-		*/
-
-		/*
-        case IOCTL_PROFILE_INTERRUPTLATENCY:
-            if (pInstance->hDomainConstraint == NULL)
-                {
-                constraintInfo.size = sizeof(POWERDOMAIN_CONSTRAINT_INFO);
-                constraintInfo.powerDomain = POWERDOMAIN_MPU;
-                constraintInfo.state = CONSTRAINT_STATE_NULL;
-                pInstance->hDomainConstraint = PmxSetConstraintById(
-                                    L"PWRDOM",
-                                    CONSTRAINT_MSG_POWERDOMAIN_REQUEST, 
-                                    (void*)&constraintInfo, 
-                                    sizeof(POWERDOMAIN_CONSTRAINT_INFO)
-                                    );
-
-                if (pInstance->hDomainConstraint == NULL)
-                    {
-                    rc = FALSE;
-                    break;
-                    }
-                }
-            ProfileInterruptLatency(pInstance->hDomainConstraint, *(int*)pInBuffer);
-            PmxReleaseConstraint(pInstance->hDomainConstraint);
-            pInstance->hDomainConstraint = NULL;
-            break;
-			*/
-
-		/*
-        case IOCTL_PROFILE_DVFS:
-            if (pInstance->hDvfsConstraint == NULL)
-                {
-                dwParam = CONSTRAINT_STATE_NULL;
-                pInstance->hDvfsConstraint = PmxSetConstraintByClass(
-                                    CONSTRAINT_CLASS_DVFS, 
-                                    CONSTRAINT_MSG_DVFS_REQUEST, 
-                                    (void*)&dwParam, 
-                                    sizeof(DWORD)
-                                    );
-
-                if (pInstance->hDvfsConstraint == NULL)
-                    {
-                    rc = FALSE;
-                    break;
-                    }
-                }
-            ProfileDVFSLatency(pInstance->hDvfsConstraint, (DVFS_STRESS_TEST_PARAMETERS*)pInBuffer);
-            break;
-			*/
-
-		/*
-        case IOCTL_PROFILE_WAKEUPACCURACY:
-            if (pInstance->hDomainConstraint == NULL)
-                {
-                constraintInfo.size = sizeof(POWERDOMAIN_CONSTRAINT_INFO);
-                constraintInfo.powerDomain = POWERDOMAIN_MPU;
-                constraintInfo.state = CONSTRAINT_STATE_NULL;
-                pInstance->hDomainConstraint = PmxSetConstraintById(
-                                    L"PWRDOM",
-                                    CONSTRAINT_MSG_POWERDOMAIN_REQUEST, 
-                                    (void*)&constraintInfo, 
-                                    sizeof(POWERDOMAIN_CONSTRAINT_INFO)
-                                    );
-
-                if (pInstance->hDomainConstraint == NULL)
-                    {
-                    rc = FALSE;
-                    break;
-                    }
-                }
-            
-            ProfileWakupAccuracy(pInstance->hDomainConstraint, (WAKEUPACCURACY_TEST_PARAMETERS*)pInBuffer);
-            PmxReleaseConstraint(pInstance->hDomainConstraint);
-            pInstance->hDomainConstraint = NULL;
-            break;
-			*/
-        
-#if 0
-        case IOCTL_HAL_OEM_PROFILER:
-        case IOCTL_OPP_REQUEST:
-        case IOCTL_PRCM_DEVICE_GET_DEVICESTATUS:
-        case IOCTL_PRCM_DEVICE_GET_SOURCECLOCKINFO:
-        case IOCTL_PRCM_CLOCK_GET_SOURCECLOCKINFO:            
-            rc = KernelIoControl(code, pInBuffer, inSize, pOutBuffer, outSize, pOutSize);
-            break;
-#endif
     }
 
 cleanUp:

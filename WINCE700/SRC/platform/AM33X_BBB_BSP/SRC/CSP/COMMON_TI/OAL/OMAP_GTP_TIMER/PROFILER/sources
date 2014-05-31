@@ -1,0 +1,10 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_gpt_profiler
+TARGETTYPE=LIBRARY
+
+
+SOURCES=\
+    profiler.c \
+
