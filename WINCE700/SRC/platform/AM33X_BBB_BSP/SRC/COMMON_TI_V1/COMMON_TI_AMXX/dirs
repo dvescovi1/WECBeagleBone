@@ -1,9 +1,0 @@
-DIRS=\
-	EDMA\
-	SERIAL\
-	BLOCK\
-	GPIO\
-	OAL\
-	SPI\
-	MCASP
-
