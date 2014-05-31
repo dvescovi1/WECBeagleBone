@@ -1,27 +1,5 @@
-// All rights reserved ADENEO EMBEDDED 2010
+// Copyright (c) 2014, David Vescovi.  All Rights Reserved.
 //-----------------------------------------------------------------------------
-//! \addtogroup	BOOTLOADER
-//! @{
-//!
-//  All rights reserved ADENEO 2007
-//-----------------------------------------------------------------------------
-//! \file		AT91SAM9M10EK/SRC/BOOTLOADER/EBOOT/mmu.c
-//!
-//! \brief		Virtual/Physicall address translation
-//!  Duplicata of memory.c provided by Microsoft except that there's no debug message.
-//!  This is because at some point early in eboot execution we call those functions before every thing is set up in RAM and then debug messages break.
-//!  Memory interface routines.
-//!
-//! \if subversion
-///   @URL: $URL: http://centaure/svn/interne-ce_bsp_atmel/TRUNK60/PLATFORM/AT91SAM9M10EK/SRC/BOOTLOADER/EBOOT/mmu.c $
-//!   @author $Author: pgal $
-//!   @version $Revision: 1247 $
-//!   @date $Date: 2007-08-09 10:28:06 +0200 (jeu., 09 août 2007) $
-//! \endif
-//-----------------------------------------------------------------------------
-//! \addtogroup EBOOT
-//! @{
-//!
 #pragma warning (push)
 #pragma warning (disable:4214 4201 4213 4115)
 #include <windows.h>
@@ -33,7 +11,6 @@
  
 #define NO_MMU 0
 
-// This table is define in << cfg.inc >>
 extern OAL_ADDRESS_TABLE g_oalAddressTable[];
 extern OAL_ADDRESS_TABLE g_oalEbootAddressTable[];
 
@@ -134,13 +111,4 @@ cleanUp:
 }
 
 #endif
-//------------------------------------------------------------------------------
-//! End of $URL: http://centaure/svn/interne-ce_bsp_atmel/TRUNK60/PLATFORM/AT91SAM9M10EK/SRC/BOOTLOADER/EBOOT/mmu.c $
-//------------------------------------------------------------------------------
 
-//
-//! @}
-//
-//
-//! @}
-//
