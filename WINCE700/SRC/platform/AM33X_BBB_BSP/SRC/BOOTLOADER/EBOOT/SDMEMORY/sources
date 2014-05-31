@@ -67,7 +67,7 @@ TARGETLIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\boot_sdmemory.lib             \
     $(_PLATLIB)\$(_CPUINDPATH)\boot_sdhc.lib                 \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_devicesmap.lib                \
-    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_soccfg.lib                         \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib                         \
     $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\bootpart.lib                               \
     $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\eboot.lib                                  \
     $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib                                       \
@@ -84,7 +84,7 @@ TARGETLIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc_boot.lib			\
     $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib			        \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_display.lib              \
-    $(_PLATLIB)\$(_CPUINDPATH)\$(_SOC)_oal_padcfg.lib       \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_oal_padcfg.lib       \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_padcfg.lib               \
     $(_PLATLIB)\$(_CPUINDPATH)\board_detect.lib             \
     $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib                 \
