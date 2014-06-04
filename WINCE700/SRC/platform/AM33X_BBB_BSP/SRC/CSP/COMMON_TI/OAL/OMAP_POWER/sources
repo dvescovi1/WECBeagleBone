@@ -1,0 +1,11 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_oal_power
+TARGETTYPE=LIBRARY
+
+CDEFINES=$(CDEFINES) -DOAL
+
+SOURCES= \
+    power.c \
+

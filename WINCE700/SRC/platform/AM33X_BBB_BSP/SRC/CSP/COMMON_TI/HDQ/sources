@@ -1,0 +1,9 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_hdq
+TARGETTYPE=LIBRARY
+
+SOURCES= \
+    hdq.cpp
+

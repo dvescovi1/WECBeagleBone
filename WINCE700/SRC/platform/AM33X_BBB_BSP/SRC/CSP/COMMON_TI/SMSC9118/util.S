@@ -1,0 +1,154 @@
+;/*****************************************************************************
+;   
+;   Copyright (c) 2004-2008 SMSC. All rights reserved.
+;
+;   Use of this source code is subject to the terms of the SMSC Software
+;   License Agreement (SLA) under which you licensed this software product.  
+;   If you did not accept the terms of the SLA, you are not authorized to use
+;   this source code. 
+;
+;   This code and information is provided as is without warranty of any kind,
+;   either expressed or implied, including but not limited to the implied
+;   warranties of merchantability and/or fitness for a particular purpose.
+;    
+;   File name   : xsc-cache.s
+;   Description : Xscale cache related routines
+;
+;   History     :
+;       03-16-05 WH         First Release
+;       08-12-05 MDG        ver 1.01 
+;           - add LED1 inversion, add PHY work around
+;       11-07-05 WH         ver 1.02
+;           - Fixed middle buffer handling bug
+;             (Driver didn't handle middle buffers correctly if it is less than 
+;               4bytes size)
+;           - workaround for Multicast bug
+;           - Workaround for MAC RXEN bug
+;       11-17-05 WH         ver 1.03
+;           - 1.02 didn't have 1.01 patches
+;           - 1.03 is 1.02 + 1.01
+;       12-06-05 WH         ver 1.04
+;           - Fixed RX doesn't work on Silicon A1 (REV_ID = 0x011x0002)
+;           - Support SMSC9118x/117x/116x/115x family
+;       02-27-05 WH         ver 1.05
+;           - Fixing External Phy bug that doesn't work with 117x/115x
+;       03-23-05 WH         ver 1.06
+;           - Put the variable to avoid PHY_WORKAROUND for External PHY
+;           - Change product name to 9118x->9218, 9115x->9215
+;       07-26-06 WH, MDG, NL        ver 1.07
+;           - Add RXE and TXE interrupt handlers
+;           - Workaround Code for direct GPIO connection from 9118 family 
+;             Interrupt (Level Interrupt -> Edge Interrupt)
+;           - Change GPT interrupt interval to 200mSec from 50mSec
+;           - clean up un-used SH3 code
+;       08-25-06  WH, MDG, NL       ver 1.08
+;           - Fixed RXE and TXE interrupt handlers bug
+;           - support for direct and nondirect Interrupt
+;       02-15-07   NL               ver 1.09
+;            - First version of WinCE 6.0 driver
+;           - Removed Support for LAN9112
+;           - Added AutoMdix as modifiable parameter in the Registry 
+;           - Fixed DMA Xmit Bug
+;       04-17-07   NL               ver 1.10
+;           - Added Support LAN9211 Chip
+;           - Changed Register Name ENDIAN to WORD_SWAP According to the Menual
+;           - Merged CE6.0 & 5.0 Drivers Together
+;       10-24-07   NL               ver 1.11
+;           - Added Support LAN9218A/LAN9217A/LAN9216A/LAN9215A Chips
+;           
+;       01-08-08   AH               ver 1.12
+;           - Added Support for LAN9210 Chip
+;       -----------------------------------------------------------------------
+;       09-26-08   WH
+;           - Move to version 2.00 intentionally
+;           - From version 2.00, 
+;              driver drops support chip ID of 0x011x0000 and 0x011x0001
+;       ---------------------------------------------------------------------
+;       09-26-08   WH               ver 2.00
+;           - replace TAB to SPACE
+;           - Reorder initialization routines to avoid 
+;              possible unexpect behavior
+;           - Fixed the issue Flow Control ignores "FlowControl" key 
+;              if not Auto Negotiation
+;           - Added "MinLinkChangeWakeUp", "MinMagicPacketWakeUp" and
+;              "MinPatternWakeUp" registry key for PM
+;           - Fixed PM issues
+;               - DHCP doesn't work after wakeup
+;               - Disable GPTimer while in sleep mode
+;               - Add routine to wakeup chip during Reset
+;           - Fix discarding Rx Frame when it is less than 16bytes
+;           - Enable RXE & RWT interrupt
+;           - Chip goes to D2(Energy Detect Power Down) when there is no link
+;              when POWERDOWN_AT_NO_LINK is defined (see smsc9118.h)
+;           - Clean up Registers which are absolete
+;           - See relnotes.txt for detail
+;       11-17-08   WH               ver 2.01
+;           - Lan_SetMiiRegW() and Lan_GetMiiRegW are changed to return BOOL.
+;             Caller checks return value to detect error
+;           - Tx Error Interrupt is enabled
+;           - Check return from NdisAllocateMemory() is 32bit aligned or not
+;             Technically it won't happen though
+;             See comments in source (smsc9118.c)
+;           - Fixed bug which does't go to AUTOIP when failed to get DHCP addr
+;*****************************************************************************/
+    AREA    |text|, CODE, READONLY, ALIGN=5
+
+    EXPORT  CleanCacheLine
+    EXPORT  DrainWriteBuffers
+    EXPORT  GetCPSR
+    EXPORT  GetTTB
+    EXPORT  GetPID
+    EXPORT  ReadCLKCFG
+    EXPORT  DisableCPUInt
+    EXPORT  EnableCPUInt
+
+CleanCacheLine  FUNCTION
+    mcr p15, 0, r0, c7, c10, 1
+    mcr p15, 0, r0, c7, c6, 1
+
+    mov pc, lr
+    ENDFUNC
+
+DrainWriteBuffers
+    mcr p15, 0, r0, c7, c10, 4
+    
+    mov pc, lr
+    ENDFUNC
+
+GetCPSR
+    mrs r0, cpsr
+
+    mov pc, lr
+    ENDFUNC
+
+GetTTB
+    mrc p15, 0, r0, c2, c0, 0
+    mov pc, lr  
+    ENDFUNC
+
+GetPID
+    mrc p15, 0, r0, c13, c0, 0
+    mov pc, lr
+    ENDFUNC
+
+ReadCLKCFG
+    mrc  p14, 0, r0, c6, c0, 0
+    mov  pc, lr
+    ENDFUNC
+
+DisableCPUInt
+    mrs  r0, cpsr
+    orr  r1, r0, #0x80
+    msr  cpsr, r1
+    mov  pc, lr
+    ENDFUNC
+
+EnableCPUInt
+    mrs  r0, cpsr
+    bic  r1, r0, #0x80
+    msr  cpsr, r1
+    mov  pc, lr
+    ENDFUNC
+
+    END
+

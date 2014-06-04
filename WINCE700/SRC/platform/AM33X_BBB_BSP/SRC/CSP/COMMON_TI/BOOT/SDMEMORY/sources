@@ -1,0 +1,13 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# xldr/eboot SD Memory Card driver
+
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_boot_sdmemory
+TARGETTYPE=LIBRARY
+
+INCLUDES=$(INCLUDES);..\eboot;..\fatfs;..\sdhc
+
+
+SOURCES = sdcard.c
+          
