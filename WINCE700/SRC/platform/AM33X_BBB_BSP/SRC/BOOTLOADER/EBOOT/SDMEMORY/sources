@@ -53,6 +53,7 @@ ARM_SOURCES=\
     ..\jumpto.s
 
 TARGETLIBS= \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib                                  \
     $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_io.lib									\
     $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_kitl_boot.lib							\
     $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_log.lib								\
@@ -73,14 +74,12 @@ TARGETLIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib                                       \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_bsp_fuse.lib                              \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_bootstubs.lib                                \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib                                  \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib                                \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_stall.lib                                    \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_cpsw3g_kitl_lib.lib			\
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_omap_gpio.lib		\
     $(_PLATLIB)\$(_CPUINDPATH)\am3xx_oal_gpio.lib                   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_gpiodispatch.lib    \
-    $(_PLATLIB)\$(_CPUINDPATH)\am3xx_oali2c.lib				\
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_oal_i2c.lib				\
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc_boot.lib			\
     $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib			        \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_display.lib              \
@@ -88,4 +87,5 @@ TARGETLIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_padcfg.lib               \
     $(_PLATLIB)\$(_CPUINDPATH)\board_detect.lib             \
     $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib                 \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib                                \
 

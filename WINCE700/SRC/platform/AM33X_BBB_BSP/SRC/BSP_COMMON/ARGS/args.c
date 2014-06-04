@@ -117,10 +117,10 @@ VOID* OALArgsQuery(UINT32 type)
         s_dwHWEntropy[1] = pArgs->deviceID ^ 0xFFFFFFFF;
 
         //  Use DeviceID for ActiveSync RNDIS MAC
-        s_rndisMAC[2] = (pArgs->deviceID >> 24);
-        s_rndisMAC[3] = (pArgs->deviceID >> 16);
-        s_rndisMAC[4] = (pArgs->deviceID >> 8);
-        s_rndisMAC[5] = (pArgs->deviceID);
+        s_rndisMAC[2] = (UCHAR)(pArgs->deviceID >> 24);
+        s_rndisMAC[3] = (UCHAR)(pArgs->deviceID >> 16);
+        s_rndisMAC[4] = (UCHAR)(pArgs->deviceID >> 8);
+        s_rndisMAC[5] = (UCHAR)(pArgs->deviceID);
 
         s_bInitialized = TRUE;
     }
