@@ -1,0 +1,30 @@
+!if 0
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+
+!IF "$(ASSEMBLER_ARM_ARCH7_SUPPORT)" != "1"
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=omap35xx_ddgpe_neon
+TARGETTYPE=LIBRARY
+SYNCHRONIZE_DRAIN=1
+
+
+SOURCES=\
+    TIBLT.rc \
+    TIBLT.c \
+    omap_optbltasm_util.s \
+    omap_optbltasm_fill.s \
+    omap_optbltasm_copy.s \
+    omap_optbltasm_blend.s \
+    omap_optbltasm_mask.s \
+    omap_optbltasm_rotate.s \
+    omap_optbltasm_unpremult.s        

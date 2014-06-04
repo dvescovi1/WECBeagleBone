@@ -1,0 +1,23 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_cortexA8_cache
+TARGETTYPE=LIBRARY
+
+SOURCES=\
+    init.c \
+    attrib.c \
+    flush.c
+
+ARM_SOURCES=\
+    cacheid.s \
+    cachemode.s \
+    icache.s \
+    dcache.s \
+    tlb.s
+
+
+SOURCELIBS= \
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_abort_arm920t.lib \
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_cache.lib
+    

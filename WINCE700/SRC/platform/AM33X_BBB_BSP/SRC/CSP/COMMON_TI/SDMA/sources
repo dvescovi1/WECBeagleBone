@@ -1,0 +1,10 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_sdmadrv
+TARGETTYPE=LIBRARY
+
+SOURCES= \
+    dmamediator.cpp \
+    dmacontroller.cpp \
+    dma.cpp
