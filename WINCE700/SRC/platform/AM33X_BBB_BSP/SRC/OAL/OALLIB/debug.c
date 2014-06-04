@@ -26,9 +26,7 @@
 //  File:  debug.c
 //
 #include <bsp.h>
-//#include <bus.h>
 #include <am33x.h>
-//#include <oal_prcm.h>
 
 //------------------------------------------------------------------------------
 //  Static variables
@@ -45,7 +43,6 @@ static BOOL bEnableDebugMessages = TRUE;
 //
 VOID OEMInitDebugSerial( )
 {
-	UINT32 tmp;
 #if 1 // there is a problem to use PRCM API here. Probably because it is not initialiazed yet
 	volatile UINT32*  clock_ctrl = (UINT32*)OALPAtoUA(0x44E00000 + 0x04B4); // CM_WKUP_UART0_CLKCTRL
 
@@ -59,8 +56,6 @@ VOID OEMInitDebugSerial( )
     //----------------------------------------------------------------------
     //  Initialize UART0
     //----------------------------------------------------------------------
-
-
     s_pUartRegs = OALPAtoUA(AM33X_UART0_REGS_PA);
 
     // Reset UART & wait until it completes

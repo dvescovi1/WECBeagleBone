@@ -53,13 +53,12 @@ ARM_SOURCES=\
     ..\jumpto.s
 
 TARGETLIBS= \
-    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
     $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib     \
     $(_PLATLIB)\$(_CPUINDPATH)\am3xx_fmd_nand_boot.lib        \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib             \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_devicesmap.lib    \
-    $(_PLATLIB)\$(_CPUINDPATH)\am3xx_oali2c.lib               \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_oal_i2c.lib               \
     $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_omap_gpio.lib	\
     $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib                           \
     $(_PLATLIB)\$(_CPUINDPATH)\bsp_bootstubs.lib                    \
@@ -71,6 +70,7 @@ TARGETLIBS= \
     $(_PLATLIB)\$(_CPUINDPATH)\tps6591x_voltage.lib           \
     $(_PLATLIB)\$(_CPUINDPATH)\tps65217_voltage.lib                 \
     $(_PLATLIB)\$(_CPUINDPATH)\triton_oal.lib                 \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
 
 
     
