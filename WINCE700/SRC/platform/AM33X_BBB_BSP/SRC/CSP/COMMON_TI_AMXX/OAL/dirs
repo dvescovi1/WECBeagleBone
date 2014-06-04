@@ -1,5 +1,0 @@
-DIRS=\
-	CPUIDLE\
-	OALI2C\
-	TIMER\
-	OALRTC\

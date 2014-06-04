@@ -1,6 +1,0 @@
-DIRS=\
-	WATCHDOG\
-	PADCFG\
-	PRCM\
-	INTR\
-	CPUIDLE\		
