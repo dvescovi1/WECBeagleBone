@@ -22,7 +22,7 @@
 01.06.00	23-MAY-2014
 	-Rework I2C proxy to support I2C 1,2,3
 	
-01.06.00	04-JUN-2014
+01.07.00	04-JUN-2014
 	-Rework and simplify CSP directory
 
 
