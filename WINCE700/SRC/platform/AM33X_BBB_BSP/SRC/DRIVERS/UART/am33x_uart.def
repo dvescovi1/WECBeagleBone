@@ -1,0 +1,27 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;
+;==============================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;==============================================================================
+;
+LIBRARY am33x_uart
+
+EXPORTS
+    COM_Init
+    COM_PreDeinit
+    COM_Deinit
+    COM_Open
+    COM_PreClose
+    COM_Close
+    COM_Read
+    COM_Write
+    COM_Seek
+    COM_PowerDown
+    COM_PowerUp
+    COM_IOControl
+

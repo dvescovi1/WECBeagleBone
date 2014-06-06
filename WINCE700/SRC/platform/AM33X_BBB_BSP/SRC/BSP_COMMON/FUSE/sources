@@ -1,0 +1,13 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# All rights reserved TEXAS INSTRUMENTS INC 2010
+!if 0
+Copyright (c) BSQUARE Corporation.  All rights reserved.
+!endif
+
+TARGETNAME=am33x_bsp_fuse
+RELEASETYPE=PLATFORM
+TARGETTYPE=LIBRARY
+
+SOURCES=\
+    fuse.c
+    

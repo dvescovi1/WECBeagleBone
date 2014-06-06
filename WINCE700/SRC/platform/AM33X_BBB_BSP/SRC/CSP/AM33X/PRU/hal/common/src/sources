@@ -1,0 +1,24 @@
+!if 0
+Copyright (c) MPC Data Limited 2011.  All rights reserved.
+!endif
+
+!IF "$(BSP_PRU)" != "1"
+SKIPBUILD=1
+!ENDIF
+
+TARGETTYPE=LIBRARY
+TARGETNAME=pru_hal_common
+
+CDEFINES=$(CDEFINES) -D__GNUC__
+
+INCLUDES=$(INCLUDES); \
+	..\..\..\..\INC; \
+	..\..\..\..\oal\inc; \
+	..\include; \
+	..\include\csl; \
+
+SOURCES= \
+	pru.c \
+
+SOURCELIBS= \
+

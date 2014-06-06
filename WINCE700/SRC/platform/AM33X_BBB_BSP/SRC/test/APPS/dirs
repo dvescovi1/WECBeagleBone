@@ -1,0 +1,11 @@
+!if 0
+Copyright (c) MPC Data Limited 2007. All rights reserved.
+!endif
+
+DIRS=\
+	UARTTEST\
+	EDMATEST\
+	WAVEVOL\
+	WAVTEST\
+	PRUTEST\
+

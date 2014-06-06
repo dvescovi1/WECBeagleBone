@@ -1,0 +1,10 @@
+IF BSP_AM33X_GPIO
+; HIVE BOOT SECTION
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\AM33X_GPIO]
+    "Prefix"="GIO"
+    "Dll"="am33x_gpio.dll"
+    "Index"=dword:1
+	"Order"=dword:0
+	"Flags"=dword:1000
+; END HIVE BOOT SECTION
+ENDIF

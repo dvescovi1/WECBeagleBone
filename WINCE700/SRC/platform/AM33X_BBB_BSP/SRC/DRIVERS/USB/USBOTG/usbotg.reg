@@ -1,0 +1,60 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this sample source code is subject to the terms of the Microsoft
+; license agreement under which you licensed this sample source code. If
+; you did not accept the terms of the license agreement, you are not
+; authorized to use this sample source code. For the terms of the license,
+; please see the license agreement between you and Microsoft or, if applicable,
+; see the LICENSE.RTF on your install media or the root of your tools installation.
+; THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES.
+;
+
+; This file is to be included in platform.reg if required.
+
+;-- USB Host Driver ------------------------------------------------------------
+; @CESYSGEN IF CE_MODULES_USBOTG
+IF BSP_USBOTG0
+
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1]
+    "Dll"="am33x_usbotg.dll"
+    "Prefix"="OTG"
+    "PollTimeout"=dword:1f4     ; 1.0 second polling  
+    "Order"=dword:63
+    "Index"=dword:1
+    "DynamicClientLoad"=dword:3
+    "BusIoctl"=dword:2a0048
+    "InterfaceType"=dword:0
+    "BusNumber"=dword:0
+    "PowerFlags"=dword:00000103              ; send pre/post device state changes
+    "TA_WAIT_BCON"=dword:1f4    ; Need to keep B connection timeout at/under poll timeout
+    ; WM7 only USBBUS_GUID, CE_DRIVER_BUS_GUID, PMCLASS_PMEXT_GUID  
+    "IClass"=multi_sz:"{6F40791D-300E-44E4-BC38-E0E63CA8375C}=%b",
+                      "{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+                      "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_USBOTG0
+
+IF BSP_USBOTG1
+
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2]
+    "Dll"="am33x_usbotg.dll"
+    "Prefix"="OTG"
+    "PollTimeout"=dword:1f4     ; 1.0 second polling  
+    "Order"=dword:63
+    "Index"=dword:2
+    "DynamicClientLoad"=dword:3
+    "BusIoctl"=dword:2a0048
+    "InterfaceType"=dword:0
+    "BusNumber"=dword:1
+    "PowerFlags"=dword:00000103              ; send pre/post device state changes
+    "TA_WAIT_BCON"=dword:1f4    ; Need to keep B connection timeout at/under poll timeout
+    ; WM7 only USBBUS_GUID, CE_DRIVER_BUS_GUID, PMCLASS_PMEXT_GUID  
+    "IClass"=multi_sz:"{6F40791D-300E-44E4-BC38-E0E63CA8375C}=%b",
+                      "{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
+                      "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+ENDIF BSP_USBOTG1
+
+; @CESYSGEN ENDIF CE_MODULES_USBOTG
+;-------------------------------------------------------------------------------

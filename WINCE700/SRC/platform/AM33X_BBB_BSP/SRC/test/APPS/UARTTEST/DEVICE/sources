@@ -1,0 +1,26 @@
+!if 0
+Copyright (c) MPC Data Limited 2007. All rights reserved.
+!endif
+
+# !IF "$(BSP_SERIAL)" == ""
+# SKIPBUILD=1
+# !ENDIF
+
+TARGETNAME=uarttest
+TARGETTYPE=PROGRAM
+EXEENTRY=mainWCRTStartup
+RELEASETYPE=PLATFORM
+
+CDEFINES=$(CDEFINES) -DUARTTEST_CE_VERSION
+
+TARGETLIBS= \
+    $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+
+SOURCES= \
+    uarttest_device.cpp
+    
+FILE_VIEW_ROOT_FOLDER=\
+  ..\common\uarttest.cpp
+  
+
+

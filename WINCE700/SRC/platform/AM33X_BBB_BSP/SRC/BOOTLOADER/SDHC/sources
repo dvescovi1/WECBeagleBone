@@ -1,0 +1,9 @@
+# xldr/eboot SD host controller driver
+
+TARGETNAME=boot_sdhc
+TARGETTYPE=LIBRARY
+
+#INCLUDES=$(INCLUDES)
+
+SOURCES = sdhc.c
+          

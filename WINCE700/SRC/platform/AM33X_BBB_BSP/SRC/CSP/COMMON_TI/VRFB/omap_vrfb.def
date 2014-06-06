@@ -1,0 +1,20 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;
+;==============================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;==============================================================================
+;
+
+LIBRARY VRFB
+
+EXPORTS 
+    VRF_Init
+    VRF_Deinit
+    VRF_Open
+    VRF_Close
+    VRF_IOControl

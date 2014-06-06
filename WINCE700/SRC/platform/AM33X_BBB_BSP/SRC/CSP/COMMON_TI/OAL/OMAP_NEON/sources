@@ -1,0 +1,12 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_vfpneon
+TARGETTYPE=LIBRARY
+
+SOURCES=\
+    vfphandler.c
+
+ARM_SOURCES=\
+    vfp.s
+
