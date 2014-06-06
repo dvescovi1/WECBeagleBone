@@ -1,0 +1,22 @@
+# All rights reserved ADENEO EMBEDDED 2010
+RELEASETYPE=PLATFORM
+_ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
+_OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;
+TARGETNAME=bsppnl
+SYNCHRONIZE_DRAIN=1
+
+SOURCES= \
+    main.cpp \
+
+TARGETLIBS= \
+    $(_COMMONPUBROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+
+TARGETTYPE=PROGRAM
+
+INCLUDES= $(INCLUDES); \
+    $(_WINCEROOT)\PUBLIC\SHELLSDK\SDK\INC; \
+    $(_WINCEROOT)\PUBLIC\IE\SDK\INC; \
+    $(_WINCEROOT)\PUBLIC\common\oak\inc; \
+    $(_WINCEROOT)\PUBLIC\common\ddk\inc; \
+    $(_WINCEROOT)\PUBLIC\common\sdk\inc; \
+    $(_TARGETPLATROOT)\src\inc; \

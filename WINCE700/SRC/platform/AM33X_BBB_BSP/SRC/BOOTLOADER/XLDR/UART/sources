@@ -1,0 +1,77 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!if 0
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+
+TARGETNAME=xldruart
+TARGETTYPE=PROGRAM
+RELEASETYPE=PLATFORM
+EXEENTRY=StartUp
+SYNCHRONIZE_DRAIN=1
+
+# XLDR has severe size constraints that can only be met by optimized code.
+# This requires that we link explicitly to retail libraries built in the
+# BSP as well as forcing optimizations in the XLDR code itself.  This 
+# could result in confusion if other BSP libraries are out of date, so 
+# we will not build the xldr at all in debug environment.
+!IF "$(WINCEDEBUG)" != "retail"
+SKIPBUILD=1
+!ENDIF
+
+# Disable the generation of unwanted and unnecessary checking code in boot loader
+STACK_CHECK_DISABLE=1
+
+LDEFINES=/DEBUG /DEBUGTYPE:CV /FIXED:NO
+WINCETARGETFILES=xldr_romimage
+
+# Use this if the image previously downloaded to NAND contains EBOOT only
+# and now you want to retrieve NAND and exec it
+#-DEBOOT_ONLY_IMAGE
+
+CDEFINES=$(CDEFINES) -DUART_BOOT -DUART_DNLD_RAW_TO_NAND -DFMD_NAND
+#CDEFINES=$(CDEFINES) -DUART_BOOT -DUART_DNLD_EBOOT_TO_RAM
+#CDEFINES=$(CDEFINES) -DUART_BOOT -DUART_DNLD_EBOOT_TO_RAM -DFMD_NAND -DUART_DNLD_RAW_TO_NAND 
+#CDEFINES=$(CDEFINES) -DFMD_NAND -DTEST_NAND_ACCESS -DTEST_NAND_READ -DTEST_NAND_WRITE
+#CDEFINES=$(CDEFINES) -DFMD_NAND -DTEST_NAND_ACCESS -DTEST_NAND_READ
+#CDEFINES=$(CDEFINES) -DFMD_NAND -DTEST_NAND_ACCESS -DTEST_NAND_WRITE
+#CDEFINES=$(CDEFINES) -DFMD_NAND -DMEMORY_BOOT -DEBOOT_ONLY_IMAGE
+
+SOURCES=\
+    ..\main.c \
+    xldrmodem.c \
+    ..\platform.c
+
+ARM_SOURCES=\
+    ..\startup.s \
+    ..\jumpto.s
+
+TARGETLIBS= \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\gsnull.lib   \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_alloc.lib     \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_fmd_nand_boot.lib        \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib             \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_devicesmap.lib    \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_oal_i2c.lib               \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_omap_gpio.lib	\
+    $(_PLATLIB)\$(_CPUINDPATH)\bspcfg.lib                           \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_bootstubs.lib                    \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_stall.lib                        \
+    $(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_gpiodispatch.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_oal_gpio.lib             \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_oal_padcfg.lib			\
+    $(_PLATLIB)\$(_CPUINDPATH)\board_detect.lib                     \
+    $(_PLATLIB)\$(_CPUINDPATH)\tps65217_voltage.lib                 \
+    $(_PLATLIB)\$(_CPUINDPATH)\triton_oal.lib                 \
+    $(_COMMONOAKLIB)\$(_CPUDEPPATH)\fulllibc.lib \
+
+
+    
+    
+    

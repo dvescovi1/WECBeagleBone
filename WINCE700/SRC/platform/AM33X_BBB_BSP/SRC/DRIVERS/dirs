@@ -1,0 +1,16 @@
+DIRS=\
+	EMAC\
+	EDMA\
+	CEDDK\
+	GPIO\
+	SPI\
+	I2C\
+	UART\
+	SDHC\
+	USB\
+	WAVEDEV2\
+	CM3\
+	PRU\
+	KEYPAD\
+	NLED\
+	DISPLAY

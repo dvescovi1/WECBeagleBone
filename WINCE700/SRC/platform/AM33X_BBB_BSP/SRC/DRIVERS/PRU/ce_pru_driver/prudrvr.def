@@ -1,0 +1,36 @@
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this source code is subject to the terms of the Microsoft end-user
+; license agreement (EULA) under which you licensed this SOFTWARE PRODUCT.
+; If you did not accept the terms of the EULA, you are not authorized to use
+; this source code. For a copy of the EULA, please see the LICENSE.RTF on your
+; install media.
+;
+;
+
+LIBRARY prudrvr
+EXPORTS 
+        PRU_Init
+        PRU_Deinit
+        PRU_Open
+        PRU_Close
+        PRU_Read
+        PRU_Write
+        PRU_Seek
+        PRU_PowerUp
+        PRU_PowerDown
+        PRU_IOControl
+
+
+;		PRU_DRV_getInstHandle
+;		PRU_DRV_releaseInstHandle
+;		PRU_DRV_configBaudRate
+;		PRU_DRV_configWordSize
+;		PRU_DRV_transmit
+;		PRU_DRV_receive
+;		PRU_DRV_registerIrqCallback
+;		PRU_DRV_stopTx
+;		PRU_DRV_getLineStatus
+
