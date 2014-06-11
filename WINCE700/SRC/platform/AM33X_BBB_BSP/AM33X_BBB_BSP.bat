@@ -1,3 +1,12 @@
+REM // Copyright (c) 2014, David Vescovi.  All Rights Reserved.
+REM
+REM              Texas Instruments OMAP(TM) Platform Software
+REM  (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+REM 
+REM  Use of this software is controlled by the terms and conditions found
+REM  in the license agreement under which this software has been supplied.
+REM
+
 REM --------------------------------------------------------------------------
 REM Build Environment
 REM --------------------------------------------------------------------------
@@ -26,9 +35,9 @@ REM Initial Operating Point - VDD1 voltage, MPU (CPU) speeds
 REM --------------------------------------------------------------------------
 
 REM Select initial operating point (CPU speed, VDD1 voltage).
-REM Note that this controls the operating point selected by the bootloader.
-REM If the power management subsystem is enabled, the initial operating point 
-REM it uses is controlled by registry entries.
+REM Note that this only controls the initial boot operating point.
+REM If the power management subsystem is enabled, the initial OS operating point 
+REM it uses is controlled by registry entries or boot loader/platform detection.
 REM The following are choices for AM33x family
 REM Use 5 for MPU[1000Mhz @ 1.325V],	L3/L4[200/100Mhz],	CORE @ 1.1V (Nitro)
 REM Use 4 for MPU[720Mhz  @ 1.26V], 	L3/L4[200/100Mhz],	CORE @ 1.1V (Turbo)
