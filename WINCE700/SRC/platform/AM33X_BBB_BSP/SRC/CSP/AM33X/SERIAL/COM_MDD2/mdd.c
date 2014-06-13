@@ -55,7 +55,11 @@ Notes:
 
 --*/
 #include <windows.h>
+#if  (_WINCEOSVER<=700)
 #include <types.h>
+#else
+#include <cetypes.h>
+#endif
 #include <notify.h>
 #include <memory.h>
 #include <linklist.h>
