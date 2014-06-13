@@ -1,0 +1,13 @@
+# All rights reserved ADENEO EMBEDDED 2010
+# xldr/eboot SD host controller driver
+
+!INCLUDE "..\..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_boot_sdhc
+TARGETTYPE=LIBRARY
+
+#INCLUDES=$(INCLUDES)
+
+
+SOURCES = sdhc.c getidcode.s \
+          

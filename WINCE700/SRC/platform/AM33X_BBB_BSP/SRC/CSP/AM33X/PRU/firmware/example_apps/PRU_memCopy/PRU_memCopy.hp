@@ -1,0 +1,122 @@
+//******************************************************************************
+//+--------------------------------------------------------------------------+**
+//|                            ****                                          |**
+//|                            ****                                          |**
+//|                            ******o***                                    |**
+//|                      ********_///_****                                   |**
+//|                      ***** /_//_/ ****                                   |**
+//|                       ** ** (__/ ****                                    |**
+//|                           *********                                      |**
+//|                            ****                                          |**
+//|                            ***                                           |**
+//|                                                                          |**
+//|         Copyright (c) 1998-2010 Texas Instruments Incorporated           |**
+//|                        ALL RIGHTS RESERVED                               |**
+//|                                                                          |**
+//| Permission is hereby granted to licensees of Texas Instruments           |**
+//| Incorporated (TI) products to use this computer program for the sole     |**
+//| purpose of implementing a licensee product based on TI products.         |**
+//| No other rights to reproduce, use, or disseminate this computer          |**
+//| program, whether in part or in whole, are granted.                       |**
+//|                                                                          |**
+//| TI makes no representation or warranties with respect to the             |**
+//| performance of this computer program, and specifically disclaims         |**
+//| any responsibility for any damages, special or consequential,            |**
+//| connected with the use of this program.                                  |**
+//|                                                                          |**
+//+--------------------------------------------------------------------------+**
+//*****************************************************************************/
+// file:   PRU_memCopy.hp 
+//
+// brief:  PRU memCopy assembly constants. 
+//
+//
+//  (C) Copyright 2010, Texas Instruments, Inc
+//
+//  author     M. Watkins
+//
+//  version    0.1     Created
+
+
+#ifndef _PRU_memCopy_HP_
+#define _PRU_memCopy_HP_
+
+
+// ***************************************
+// *      Global Macro definitions       *
+// ***************************************
+
+// Refer to this mapping in the file - \prussdrv\include\pruss_intc_mapping.h
+#define PRU0_PRU1_INTERRUPT     32
+#define PRU1_PRU0_INTERRUPT     33
+#define PRU0_ARM_INTERRUPT      34
+#define PRU1_ARM_INTERRUPT      35
+#define ARM_PRU0_INTERRUPT      36
+#define ARM_PRU1_INTERRUPT      37
+
+.macro  MOV32               
+.mparam dst, src
+    MOV     dst.w0, src & 0xFFFF
+    MOV     dst.w2, src >> 16
+.endm
+
+.macro  LD32
+.mparam dst,src
+    LBBO    dst,src,#0x00,4
+.endm
+
+.macro  LD16
+.mparam dst,src
+    LBBO    dst,src,#0x00,2
+.endm
+
+.macro  LD8
+.mparam dst,src
+    LBBO    dst,src,#0x00,1
+.endm
+
+.macro ST32
+.mparam src,dst
+    SBBO    src,dst,#0x00,4
+.endm
+
+.macro ST16
+.mparam src,dst
+    SBBO    src,dst,#0x00,2
+.endm
+
+.macro ST8
+.mparam src,dst
+    SBBO    src,dst,#0x00,1
+.endm
+
+// ***************************************
+// *    Global Structure Definitions     *
+// ***************************************
+
+.struct Global
+    .u32 size
+    .u32 src
+    .u32 dst
+.ends
+
+
+// ***************************************
+// *     Global Register Assignments     *
+// ***************************************
+
+// r1 - size
+// r2 - source addr
+// r3 -  destination addr
+// r4 - temp storage
+// r5 - no of single byte transfer
+// r6 - offset
+
+.assign Global, r1, *, global
+#define temp    r4
+#define singleByteTransfers    r5
+#define offset     r6
+#define paramMemLocation 	r10
+
+
+#endif //_PRU_memCopy_HP_

@@ -1,0 +1,8 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_hecc
+TARGETTYPE=LIBRARY
+
+SOURCES= \
+    omap_hecc.cpp
