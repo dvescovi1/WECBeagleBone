@@ -1,0 +1,30 @@
+!if 0
+;
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+;
+!endif
+
+_COMMONOAKLIB=$(_COMMONPUBROOT)\oak\lib
+_COMMONSDKLIB=$(_COMMONPUBROOT)\sdk\lib
+
+TARGETNAME=am33x_oal_intr
+TARGETTYPE=LIBRARY
+SYNCHRONIZE_DRAIN=1
+
+CDEFINES=$(CDEFINES) -DOAL_BSP_CALLBACKS
+
+SOURCELIBS= \
+    $(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_intr_common.lib
+
+SOURCES= \
+    intr.c \
+    fiq.c \
+    map.c \
+    oem.c

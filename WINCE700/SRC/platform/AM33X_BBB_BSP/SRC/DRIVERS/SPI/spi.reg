@@ -1,0 +1,31 @@
+;-- SPI Driver -----------------------------------------------------------------
+IF BSP_AM33X_MCSPI1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\SPI1]
+    "Prefix"="SPI"
+    "Dll"="am33x_mcspi.dll"
+    "Index"=dword:1
+    "Port"=dword:1
+    "Order"=dword:8
+    "MemBase"=multi_sz:"48030000"
+    "MemLen"=multi_sz:"00000100"
+    "Timeout"=dword:300
+    "PowerFlags"=dword:00000103              ; send pre/post device state changes
+	; PMCLASS_PMEXT_GUID
+    "IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}"
+ENDIF
+
+IF BSP_AM33X_MCSPI2
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\SPI2]
+    "Prefix"="SPI"
+    "Dll"="am33x_mcspi.dll"
+    "Index"=dword:2
+    "Port"=dword:2
+    "Order"=dword:8
+    "MemBase"=multi_sz:"481A0000"
+    "MemLen"=multi_sz:"00000100"
+    "Timeout"=dword:300
+    "PowerFlags"=dword:00000103              ; send pre/post device state changes
+	; PMCLASS_PMEXT_GUID
+    "IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}"
+ENDIF
+

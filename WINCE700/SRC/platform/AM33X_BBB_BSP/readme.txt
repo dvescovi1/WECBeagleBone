@@ -25,8 +25,9 @@
 01.07.00	04-JUN-2014
 	-Rework and simplify CSP directory
 
-01.08.00	06-JUN-2014
+01.08.00	13-JUN-2014
 	-More rework and simplify CSP directory
+	-OS tic now uses 32Khz osc.
 
 
 	

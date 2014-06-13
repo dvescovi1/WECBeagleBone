@@ -1,0 +1,29 @@
+!if 0
+;
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+;
+!endif
+
+TARGETNAME=am33x_i2c
+TARGETTYPE=DYNLINK
+
+SOURCES= \
+          i2cproxy.cpp
+           
+SOURCELIBS=\
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk_i2c_lib.lib   \
+	$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib \
+
+TARGETLIBS= \
+   $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+   $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+
+
+

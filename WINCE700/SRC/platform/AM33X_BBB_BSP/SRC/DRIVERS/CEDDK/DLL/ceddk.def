@@ -1,0 +1,219 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;
+;==============================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;==============================================================================
+;
+LIBRARY     CEDDK
+
+EXPORTS
+    CalibrateStallCounter           @1
+    HalAllocateCommonBuffer         @2
+    HalFreeCommonBuffer             @3
+    HalGetBusDataByOffset           @4
+    HalSetBusDataByOffset           @5
+    HalTranslateBusAddress          @6
+    HalTranslateSystemAddress       @7
+    MmMapIoSpace                    @8
+    MmUnmapIoSpace                  @9
+    READ_PORT_BUFFER_UCHAR          @10
+    READ_PORT_BUFFER_ULONG          @11
+    READ_PORT_BUFFER_USHORT         @12
+    READ_PORT_UCHAR                 @13
+    READ_PORT_ULONG                 @14
+    READ_PORT_USHORT                @15
+    READ_REGISTER_BUFFER_UCHAR      @16
+    READ_REGISTER_BUFFER_ULONG      @17
+    READ_REGISTER_BUFFER_USHORT     @18
+    READ_REGISTER_UCHAR             @19
+    READ_REGISTER_ULONG             @20
+    READ_REGISTER_USHORT            @21
+    StallExecution                  @22
+    TransBusAddrToStatic            @23
+    TransBusAddrToVirtual           @24
+    WRITE_PORT_BUFFER_UCHAR         @25
+    WRITE_PORT_BUFFER_ULONG         @26
+    WRITE_PORT_BUFFER_USHORT        @27
+    WRITE_PORT_UCHAR                @28
+    WRITE_PORT_ULONG                @29
+    WRITE_PORT_USHORT               @30
+    WRITE_REGISTER_BUFFER_UCHAR     @31
+    WRITE_REGISTER_BUFFER_ULONG     @32
+    WRITE_REGISTER_BUFFER_USHORT    @33
+    WRITE_REGISTER_UCHAR            @34
+    WRITE_REGISTER_ULONG            @35
+    WRITE_REGISTER_USHORT           @36
+
+; @CESYSGEN IF CE_MODULES_DEVICE
+    CreateBusAccessHandle           @37
+    CloseBusAccessHandle            @38
+    SetDevicePowerState             @39
+    GetDevicePowerState             @40
+    TranslateBusAddr                @41
+    TranslateSystemAddr             @42
+    SetDeviceConfigurationData      @43
+    GetDeviceConfigurationData      @44
+    GetParentDeviceInfo             @45
+    GetChildDeviceRemoveState       @46
+    GetBusNamePrefix                @47
+    BusTransBusAddrToVirtual        @48
+    BusTransBusAddrToStatic         @49
+    BusIoControl                    @50
+    DDKPwr_Initialize               @51
+    DDKPwr_Deinitialize             @52
+    DDKPwr_RequestLevel             @53
+    DDKPwr_ReleaseLevel             @54
+    DDKPwr_GetDeviceLevel           @55
+    DDKPwr_SetDeviceLevel           @56
+    BusChildIoControl               @57
+
+    DMAGetAdapter                   @64
+    DMAAllocateChannel              @65
+    DMAFreeChannel                  @66
+    DMAIssueTransfer                @67
+    DMAIssueMultiBufferTransfer     @68
+    DMACancelTransfer               @69
+    DMACloseTransfer                @70
+    DMAStartTransfer                @71
+    DMAGetStatus                    @72
+    DMAGetContexts                  @73
+    DMAIssueRawTransfer             @74
+    DMARawTransferControl           @75
+    OALDMAAllocBuffer               @76
+    OALDMAFreeBuffer                @77
+    DMAOpenBuffer                   @78
+    DMAGetBufferPhysAddr            @79
+    DMATransferOnBlocks             @80
+    DMAFlushBlockBuffer             @81
+    DMACloseBuffer                  @82
+
+    CeDriverGetDirectCaller         @83
+    CeDriverDuplicateCallerHandle   @84
+    CeDriverMapCallbackFunction     @85
+    CeDriverPerformCallback         @86
+
+    GetDeviceRegistryParams         @101
+    SetDeviceRegistryParams         @102
+
+    DmaAllocateChannel              @103
+    DmaFreeChannel                  @104
+    DmaEnableInterrupts             @105
+    DmaGetLogicalChannelId          @106
+    DmaInterruptDone                @107
+    DmaGetLogicalChannel            @108    
+    DmaDisableStandby               @109
+
+;    PmxSendDeviceNotification       @120
+;    PmxSetConstraintByClass         @121
+;    PmxUpdateConstraint             @122
+;    PmxReleaseConstraint            @123
+;    PmxSetConstraintById            @124
+;    PmxOpenPolicy                   @125
+;    PmxNotifyPolicy                 @126
+;    PmxClosePolicy                  @127
+;    PmxRegisterConstraintCallback   @128
+;    PmxUnregisterConstraintCallback @129
+;    PmxLoadConstraint               @130
+;    PmxLoadPolicy                   @131
+
+;    HalContextUpdateDirtyRegister   @138
+
+    I2COpen                         @141
+    I2CClose                        @142
+    I2CRead                         @143
+    I2CWrite                        @144
+    I2CSetTimeout                   @145
+    I2CSetBaudIndex                 @146
+    I2CSetSlaveAddress              @147
+    I2CSetSubAddressMode            @148
+    I2CLock							@149
+    I2CUnlock					    @150
+    I2CSetManualDriveMode			@151
+    I2CDriveSCL						@152
+    I2CDriveSDA						@153
+    
+    
+;   
+;    PreloadCacheLine                @150
+
+	GetAddressByDevice				 @160
+	GetIrqByDevice   				 @161
+	GetDeviceByAddress				 @162
+
+	SOCGetGPIODeviceByBank			 @170
+    
+    BusSourceClocks					@180
+    BusClockRelease					@181
+    BusClockRequest					@182
+    GetDisplayResolutionFromBootArgs @183
+    IsDVIMode						@184
+    
+    GPIOOpen						@200
+    GPIOClose						@201    
+    GPIOSetMode						@202
+    GPIOGetMode						@203
+    GPIOSetBit						@204
+    GPIOClrBit						@205    
+    GPIOGetBit						@206
+    GPIOPullup						@207
+    GPIOPulldown					@208
+	GPIOInterruptInitialize			@209
+	GPIOInterruptMask				@210
+	GPIOInterruptDisable			@211
+	GPIOInterruptDone				@212
+	GPIOGetSystemIrq				@213
+	GPIOInterruptWakeUp				@214
+	
+	SPIOpen								@300
+	SPIClose							@301
+	SPILockController					@302
+	SPIUnlockController					@303
+	SPIEnableChannel					@304
+	SPIDisableChannel					@305
+	SPIConfigure						@306
+	SPISetSlaveMode						@307
+	SPIRead								@308
+	SPIWrite							@309
+	SPIWriteRead						@310
+	SPIAsyncWriteRead					@311
+	SPIWaitForAsyncWriteReadComplet		@312
+
+	EnableDeviceClockAutoIdle			@400
+	EnableDeviceClocks					@401
+	EnableDeviceFClock					@402
+	EnableDeviceIClock					@403
+	SelectDeviceSourceClocks			@404
+	GetSystemClockFrequency				@405
+    PrcmDeviceGetContextState			@406
+	PrcmDomainResetRelease				@407
+	PrcmDomainReset						@408
+	PrcmDomainResetStatus				@409
+	PrcmClockGetClockRate				@410
+	PrcmCM3ResetAndHandshake			@411
+ 
+	RequestPad							@420
+	ReleasePad							@421
+	ConfigurePad						@422
+	RequestAndConfigurePad				@423
+	RequestAndConfigurePadArray			@424
+	ReleasePadArray						@425
+	RequestDevicePads					@426
+	ReleaseDevicePads					@427
+
+    DmaConfigure						@450
+    DmaUpdate							@451
+    DmaSetDstBuffer						@452
+	DmaSetSrcBuffer    					@453
+	DmaSetElementAndFrameCount			@454
+	IsDmaEnable							@455
+	IsDmaActive 						@456
+	DmaStop								@457
+	DmaStart							@458
+	DmaSetColor							@459
+	
+; @CESYSGEN ENDIF					

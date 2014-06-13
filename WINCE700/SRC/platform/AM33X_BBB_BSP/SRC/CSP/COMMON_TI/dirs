@@ -1,0 +1,16 @@
+DIRS=\
+	BLOCK\
+	BOOT\
+	BUS\
+	CEDDK\
+	DEVICESMAP\
+	DSS\
+	EDMA\
+	EMAC\
+	GPIO\
+	HECC\
+	KEYPAD\
+	KEYS\
+	NLED\
+	OAL\
+	PM\

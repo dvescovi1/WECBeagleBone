@@ -1,0 +1,23 @@
+!if 0
+Copyright (c) MPC Data Limited 2009.  All rights reserved.
+Copyright (c) Texas Instruments Incorporated 2009.  All rights reserved.
+!endif
+
+!IF "$(BSP_WAVEDEV2)" == ""
+SKIPBUILD=1
+!ENDIF
+
+SYNCHRONIZE_DRAIN=1
+
+TARGETNAME=wavtest
+TARGETTYPE=PROGRAM
+RELEASETYPE=PLATFORM
+
+INCLUDES=\
+    $(_TARGETPLATROOT)\SRC\INC;
+
+TARGETLIBS=\
+    $(SG_OUTPUT_ROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+
+SOURCES=\
+    wavtest.cpp
