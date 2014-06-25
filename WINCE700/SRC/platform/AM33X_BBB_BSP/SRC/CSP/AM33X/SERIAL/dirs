@@ -1,0 +1,4 @@
+DIRS=\
+	UART_AM33X \
+	COM_MDD2
+

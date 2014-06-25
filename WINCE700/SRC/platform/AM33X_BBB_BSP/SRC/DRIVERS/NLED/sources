@@ -1,0 +1,36 @@
+#// Copyright (c) 2011, David Vescovi.  All Rights Reserved.
+# All rights reserved ADENEO EMBEDDED 2010
+!if 0
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+
+!IF "$(BSP_AM33X_NLED)" != "1"
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=am33x_nled
+RELEASETYPE=PLATFORM
+TARGETTYPE=DYNLINK
+DEFFILE=am33x_nled.def
+
+TARGETLIBS= \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib
+
+SOURCELIBS= \
+	$(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\nleddrvr_mdd.lib\
+	$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib  \
+
+SOURCES= \
+	nleddrvr.cpp
+    
+FILE_VIEW_RESOURCE_FOLDER= \
+    am33x_nled.reg \
+    am33x_nled.def

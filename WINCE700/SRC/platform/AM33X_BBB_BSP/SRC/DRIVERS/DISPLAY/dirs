@@ -1,0 +1,3 @@
+DIRS=\
+	NOPDISP \
+	AM33X_LCDC \

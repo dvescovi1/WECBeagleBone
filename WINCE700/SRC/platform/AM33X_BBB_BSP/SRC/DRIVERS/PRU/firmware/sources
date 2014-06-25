@@ -1,0 +1,15 @@
+!if 0
+Copyright (c) MPC Data Limited 2010.  All rights reserved.
+!endif
+
+!IF "$(BSP_PRU)" != "1"
+SKIPBUILD=1
+!ENDIF
+
+TARGETTYPE=PLATFORM
+TARGETNAME=
+SOURCES=
+SYNCHRONIZE_BLOCK=1
+
+WINCETARGETFILE0= \
+    build_firmware \

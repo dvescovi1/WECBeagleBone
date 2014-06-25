@@ -1,0 +1,18 @@
+; HIVE BOOT SECTION
+; @CESYSGEN IF CE_MODULES_SHELL
+; Register OMAP specific shell extension
+[HKEY_LOCAL_MACHINE\Software\Microsoft\TxtShell\Extensions]
+    "OMAP Extension"="omap_shell.dll"
+; @CESYSGEN ENDIF CE_MODULES_SHELL
+; END HIVE BOOT SECTION
+
+
+;-- Proxy driver -----------------------------------------------------------
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\ProxyDriver]
+    "Prefix"="PXY"
+    "Dll"="proxydriver.dll"
+    "Index"=dword:1
+    "Order"=dword:100
+;-------------------------------------------------------------------------------
+
+

@@ -1,0 +1,31 @@
+!IF "$(BSP_NODISPLAY)" == "1"
+SKIPBUILD=1
+!ENDIF
+
+!IF "$(BSP_AM33X_LCDC)" == ""
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=am33x_display
+TARGETTYPE=DYNLINK
+RELEASETYPE=PLATFORM    
+
+DLLENTRY=_DllMainCRTStartup
+
+SOURCELIBS= \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\ddgpe.lib \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\gpe.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib \
+    $(_PLATLIB)\$(_CPUDEPPATH)\ddi_omap335x.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_lcdc.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\bsp_stall.lib  \
+    $(_PLATLIB)\$(_CPUINDPATH)\tda1998x.lib	\
+
+TARGETLIBS= \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\ddguid.lib    \
+
+SOURCES= \
+    display.cpp
+    

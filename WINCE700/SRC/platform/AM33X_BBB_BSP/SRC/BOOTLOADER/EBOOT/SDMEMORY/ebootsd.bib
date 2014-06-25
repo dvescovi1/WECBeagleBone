@@ -1,0 +1,47 @@
+; All rights reserved ADENEO EMBEDDED 2010
+; Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
+
+;
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+;
+; File: eboot.bib
+;
+; This file define EBOOT image layout. Before modifying this file refer to
+; image_cfg.h file for other code layout and 
+; dependence.
+;
+
+MEMORY
+
+;   Name       Start     Size      Type
+;   -------    --------  --------  ----
+    EBOOTSD    8FE00000  00040000  RAMIMAGE
+    RAM        8FE80000  00050000  RAM
+    PTES       8FEE0000  00004000  RESERVED
+    STACK      8FEE4000  0001C000  RESERVED
+    ARGS       80000000  00001000  RESERVED
+    
+IF BSP_OMAP_NAND_ECC_BCH8BIT_ELM
+    dwEbootECCtype          00000000  00000003  FIXUPVAR
+ENDIF
+
+CONFIG
+    COMPRESSION=OFF
+    PROFILE=OFF
+    KERNELFIXUPS=ON
+
+    ROMSTART=8FE00000
+    ROMWIDTH=32
+    ROMSIZE=40000
+
+MODULES
+; Name      Path                                        Memory
+; --------  ------------------------------------------  ---------
+  nk.exe    $(SG_OUTPUT_ROOT)\platform\$(_TGTPLAT)\target\$(_TGTCPU)\$(WINCEDEBUG)\ebootsd.exe    EBOOTSD
