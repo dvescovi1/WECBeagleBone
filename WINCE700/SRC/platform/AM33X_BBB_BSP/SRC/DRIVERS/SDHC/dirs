@@ -1,7 +1,0 @@
-!if 0
-Copyright (c) Microsoft Corporation.  All rights reserved.
-!endif
-
-DIRS= \
-	base \
-    impl \

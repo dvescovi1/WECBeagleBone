@@ -1,6 +1,0 @@
-# All rights reserved ADENEO EMBEDDED 2010
-TARGETNAME=bsp_padcfg
-TARGETTYPE=LIBRARY
-
-SOURCES= bsp_padcfg.c
-
