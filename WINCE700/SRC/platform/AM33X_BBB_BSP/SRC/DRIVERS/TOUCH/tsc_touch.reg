@@ -1,0 +1,33 @@
+IF BSP_TSADC_TOUCH
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\Touch]
+    "Prefix"="TCH"
+    "Dll"="TSCADC_touch.dll"
+    "Flags"=dword:8                 ; DEVFLAGS_NAKEDENTRIES
+    "Index"=dword:1
+    "Order"=dword:25
+    ; IClass = touch driver class & power managed device
+    "IClass"=multi_sz:"{25121442-08CA-48dd-91CC-BFC9F790027C}",
+                      "{7119776D-9F23-4e4e-9D9B-9AE962733770}"
+    "Priority256"=dword:6D          ; touch ist priority = 109
+    ;Below values are not used; Kept just to keep the Touch BVT passing!
+    "SysIntr"=dword:0
+
+    "SampleRate"=dword:C8               ; samples per second, default is 200
+;    "AnalogInput"=dword:1                 ; 1 - for Beta EVM, 0 - for Alpha EVM
+
+[HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\TOUCH]
+IF IMGNOCALIBRATION
+    "CalibrationData" ="2066,2035 3229,3122 3213,921 934,952 931,3139"
+ENDIF IMGNOCALIBRATION
+    "MaxCalError"="6"
+    
+; how long touch proxy will wait for touch driver to load
+[HKEY_LOCAL_MACHINE\SYSTEM\GWE\TouchProxy]
+    "DriverLoadTimeoutMs"=dword:1388 ; 5 seconds
+
+; For double-tap default setting
+[HKEY_CURRENT_USER\ControlPanel\Pen]
+    "DblTapDist"=dword:18
+    "DblTapTime"=dword:637
+    
+ENDIF

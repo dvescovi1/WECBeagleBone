@@ -1,0 +1,6 @@
+; Recent file list for Run dialog
+[HKEY_LOCAL_MACHINE\Explorer\RunHistory]
+    @=""
+    "0"="\\Windows\\RegistryFlush.exe"
+
+

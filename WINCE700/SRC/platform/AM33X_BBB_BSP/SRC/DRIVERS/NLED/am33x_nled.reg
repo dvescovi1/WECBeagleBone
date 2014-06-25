@@ -1,0 +1,22 @@
+IF BSP_AM33X_NLED
+
+[HKEY_LOCAL_MACHINE\System\Events]
+    "SYSTEM/NLedAPIsReady"="Notification LED APIs"
+
+; These registry entries load the NLed driver.  The IClass value must match
+; the NLED_DRIVER_CLASS definition in nled.h -- this is how the system
+; knows which device is the nled driver.  Note that we are using 
+; DEVFLAGS_NAKEDENTRIES with this driver.  This tells the device manager
+; to instantiate the device with the prefix named in the registry but to look
+; for DLL entry points without the prefix.  For example, it will look for Init
+; instead of NLD_Init.  This allows the prefix to be changed in the registry (if
+; desired) without editing the driver code.
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\NLed]
+   "Prefix"="NLD"
+   "Dll"="am33x_nled.dll"
+   "Flags"=dword:8                      ; DEVFLAGS_NAKEDENTRIES
+   ; must be after GPIO driver, before keyboard driver
+   "Order"=dword:11
+   "IClass"="{CBB4F234-F35F-485b-A490-ADC7804A4EF3}"    ; NLED_DRIVER_CLASS
+   
+ENDIF

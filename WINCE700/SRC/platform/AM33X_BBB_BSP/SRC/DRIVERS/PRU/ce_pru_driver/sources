@@ -1,0 +1,29 @@
+!if 0
+Copyright (c) MPC Data Limited 2011.  All rights reserved.
+!endif
+
+!IF "$(BSP_PRU)" != "1"
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=prudrvr
+RELEASETYPE=PLATFORM
+TARGETTYPE=DYNLINK
+SYNCHRONIZE_DRAIN=1
+CDEFINES=$(CDEFINES) -D__GNUC__
+DEFFILE=prudrvr.def
+DLLENTRY=DllEntry
+
+#     $(_PLATLIB)\$(_CPUINDPATH)\pru_hal_uart.lib \
+
+TARGETLIBS=\
+    $(_PLATLIB)\$(_CPUINDPATH)\pru_ce_driver.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\pru_hal_common.lib \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+    
+SOURCELIBS=\
+
+SOURCES=\
+
+

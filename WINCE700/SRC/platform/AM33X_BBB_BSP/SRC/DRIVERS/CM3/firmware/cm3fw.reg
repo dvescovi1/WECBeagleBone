@@ -1,0 +1,6 @@
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\CM3]
+    "Prefix"="CM3"
+    "Dll"="am33x_cm3fw.dll"
+    "Index"=dword:1
+    "Order"=dword:0
+    

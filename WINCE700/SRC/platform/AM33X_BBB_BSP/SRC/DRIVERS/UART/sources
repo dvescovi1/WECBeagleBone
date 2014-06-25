@@ -1,0 +1,36 @@
+!if 0
+;
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+;
+!endif
+
+!IF "$(BSP_AM33X_UART1)" == "" && "$(BSP_AM33X_UART2)" == "" && "$(BSP_AM33X_UART3)" == "" && "$(BSP_AM33X_UART4)" == "" && "$(BSP_AM33X_UART5)" == "" && "$(BSP_AM33X_UART6)" == ""
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=am33x_uart
+TARGETTYPE=DYNLINK
+
+
+SOURCES= \
+
+SOURCELIBS= \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_ti_uart.lib	\
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_ti_commdd2.lib	\
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib	\
+
+
+TARGETLIBS= \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+
+FILE_VIEW_RESOURCE_FOLDER= \
+    uart.reg \
+

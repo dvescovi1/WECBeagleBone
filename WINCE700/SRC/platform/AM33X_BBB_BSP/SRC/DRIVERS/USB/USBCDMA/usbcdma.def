@@ -1,0 +1,21 @@
+; All rights reserved ADENEO EMBEDDED 2010
+LIBRARY am33x_usbcdma
+
+EXPORTS 
+    UCD_Init
+    UCD_Deinit
+    UCD_Open
+    UCD_Close
+    UCD_Read
+    UCD_Write
+    UCD_Seek
+    UCD_IOControl
+
+    USBCDMA_RegisterUsbModule
+    USBCDMA_DeregisterUsbModule
+    USBCDMA_KickCompletionCallback
+    USBCDMA_DescriptorVAtoPA
+    USBCDMA_DescriptorPAtoVA
+    USBCDMA_ConfigureScheduleRx
+    USBCDMA_ConfigureScheduleTx
+    USBCDMA_EnableClocks

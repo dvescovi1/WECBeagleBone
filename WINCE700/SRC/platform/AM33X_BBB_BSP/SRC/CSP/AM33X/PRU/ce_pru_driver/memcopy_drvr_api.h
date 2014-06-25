@@ -1,0 +1,6 @@
+    { L"\\windows\\PRU_memCopy.fw",  memCopy_PRU, memCopy_Init0, memCopy_Passed0, 
+                                 L"memcopy aligned addr" },
+    { L"\\windows\\PRU_memCopy.fw",  memCopy_PRU, memCopy_Init1, memCopy_Passed1,
+                                 L"memcopy aligned addr + same unaliagned offsets" },
+    { L"\\windows\\PRU_memCopy.fw",  memCopy_PRU, memCopy_Init2, memCopy_Passed2,
+                                 L"memcopy aligned addr + different unaliagned offsets" },

@@ -1,0 +1,137 @@
+; Copyright (c) Texas Instruments Incorporated 2008-2009
+IF BSP_ETH_CPGMAC_DRIVER    
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G]
+   "DisplayName"="AM33X CPSW3G Miniport Driver"
+   "Group"="NDIS"
+   "ImagePath"="am33x_cpsw3g.dll"
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G\Linkage]
+   "Route"=multi_sz:"CPSW3G1","CPSW3G2"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1]
+   "DisplayName"="CPSW3G miniport driver"
+   "Group"="NDIS"
+   "ImagePath"="am33x_cpsw3g.dll"
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms]
+    "BusNumber"=dword:0
+    "BusType"=dword:0
+    "InterruptNumber"=dword:13
+    "VlanAware"=dword:0
+    "mode"=dword:1
+    "ALEagingtimer"=dword:20000
+;;    "UnknownMemberList"=dword:4
+;;    "UnknownUntagEgress"=dword:4
+;;    "UnknownRegMcastFloodMask"=dword:4
+;;    "UnknownMcastFloodMask"=dword:4
+    "UnknownMemberList"=dword:0
+    "UnknownUntagEgress"=dword:0
+    "UnknownRegMcastFloodMask"=dword:0
+    "UnknownMcastFloodMask"=dword:0
+    "RX_serviceMax"=dword:200
+    "ALE_bypass"=dword:1
+;; prescale value to determin the interval to load broadcast/multicast rate limit
+;; 0xf4240 -> 8ms
+;;    "ALE_prescale" =dword:f4240
+    "ALE_prescale" =dword:0
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\Port1]
+    "vlan_id"=dword:0
+    "priority"=dword:0
+;; Broadcast/Multicast rate limit, range 0-255, 0 to disable 
+    "BroadcastRateLimit"=dword:0
+    "MulticastRateLimit"=dword:0
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\Port0]
+    "vlan_id"=dword:0
+    "priority"=dword:0
+    "BroadcastRateLimit"=dword:0
+    "MulticastRateLimit"=dword:0
+
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\VlanTable0]
+    "VID"=dword:a
+    "MemberPort"=dword:7
+    "UntagPort"=dword:1
+    "RegMcastFloodMask"=dword:7
+    "UnregMcastFloodMask"=dword:7
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\VlanTable1]
+    "VID"=dword:1
+    "MemberPort"=dword:7
+    "UntagPort"=dword:7
+    "RegMcastFloodMask"=dword:7
+    "UnregMcastFloodMask"=dword:7
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G2]
+   "DisplayName"="CPSW3G miniport driver"
+   "Group"="NDIS"
+   "ImagePath"="am33x_cpsw3g.dll"
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G2\Parms]
+    "BusNumber"=dword:1
+    "BusType"=dword:0
+    "InterruptNumber"=dword:13
+    "VlanAware"=dword:0
+    "mode"=dword:1
+    "ALEagingtimer"=dword:20000
+;;    "UnknownMemberList"=dword:4
+;;    "UnknownUntagEgress"=dword:4
+;;    "UnknownRegMcastFloodMask"=dword:4
+;;    "UnknownMcastFloodMask"=dword:4
+    "UnknownMemberList"=dword:0
+    "UnknownUntagEgress"=dword:0
+    "UnknownRegMcastFloodMask"=dword:0
+    "UnknownMcastFloodMask"=dword:0
+    "RX_serviceMax"=dword:200
+    "ALE_bypass"=dword:1
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G2\Parms\Port2]
+    "vlan_id"=dword:0
+    "priority"=dword:0
+    "BroadcastRateLimit"=dword:fa
+    "MulticastRateLimit"=dword:fa
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G2\Parms\Port0]
+    "vlan_id"=dword:0
+    "priority"=dword:0
+    "BroadcastRateLimit"=dword:fa
+    "MulticastRateLimit"=dword:fa
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G1\Parms\TcpIp]
+    "EnableDHCP"=dword:1
+    "DefaultGateway"="192.168.0.92"
+    "UseZeroBroadcast"=dword:0
+    "IpAddress"="192.168.0.90"
+    "Subnetmask"="255.255.255.0"
+    "DNS"="192.168.0.92"
+    "Domain"=""
+
+[HKEY_LOCAL_MACHINE\Comm\CPSW3G2\Parms\TcpIp]
+    "EnableDHCP"=dword:1
+    "DefaultGateway"="192.168.0.92"
+    "UseZeroBroadcast"=dword:0
+    "IpAddress"="192.168.0.91"
+    "Subnetmask"="255.255.255.0"
+    "DNS"="192.168.0.92"    
+    "Domain"=""
+
+[HKEY_LOCAL_MACHINE\Comm\Tcpip\Linkage]
+    "Bind"=multi_sz:"CPSW3G1","CPSW3G2"
+
+
+IF DEBUG
+[HKEY_LOCAL_MACHINE\Comm\NDIS\Parms]
+  "DebugLevel"=dword:00000000
+  "DebugSystems"=dword:00000000
+  "DebugBreakPoint"=dword:00000000
+ENDIF
+
+ENDIF BSP_ETH_CPGMAC_DRIVER

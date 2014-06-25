@@ -1,0 +1,8 @@
+DIRS=\
+	STUB\
+	DISPLAY\
+	EBOOT\
+	SDMEMORY\
+	SDHC\
+	XLDR
+
