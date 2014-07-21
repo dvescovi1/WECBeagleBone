@@ -3,4 +3,7 @@ This image runs equally well on Beaglebone white or black.
 On Beaglebone Black same image runs equally well on uSD or eMMC.
 All platform uniquenesses are handled at runtime!
 
-20-MAY-2014 
+
+
+20-JUL-2014	03.01.00
+		-Include M2MQTT IoT client run time.

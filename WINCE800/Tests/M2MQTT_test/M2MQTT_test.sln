@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2MQTT_test device", "M2MQTT_test\M2MQTT_test device.csproj", "{560682FD-F68B-4480-BF12-6BEA15D94906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttBroker", "MqttBroker\MqttBroker.csproj", "{4EBFA6E5-0636-496C-8C46-991B05DF7491}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttBrokerServer", "MqttBrokerServer\MqttBrokerServer.csproj", "{5686C13D-3429-42AF-B4EE-34BAA6A9DB7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2MQTT_Test_Desktop", "M2MQTT_Test_Desktop\M2MQTT_Test_Desktop.csproj", "{72B1B128-B935-41AE-9A0A-13E477D91B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttBrokerNetCf39", "MqttBroker\MqttBrokerNetCf39.csproj", "{CA48F760-2BE0-4B4C-90B8-13823BD5D22B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttBrokerServerNetCf39", "MqttBrokerServer\MqttBrokerServerNetCf39.csproj", "{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{560682FD-F68B-4480-BF12-6BEA15D94906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560682FD-F68B-4480-BF12-6BEA15D94906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560682FD-F68B-4480-BF12-6BEA15D94906}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{560682FD-F68B-4480-BF12-6BEA15D94906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560682FD-F68B-4480-BF12-6BEA15D94906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560682FD-F68B-4480-BF12-6BEA15D94906}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4EBFA6E5-0636-496C-8C46-991B05DF7491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EBFA6E5-0636-496C-8C46-991B05DF7491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EBFA6E5-0636-496C-8C46-991B05DF7491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EBFA6E5-0636-496C-8C46-991B05DF7491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5686C13D-3429-42AF-B4EE-34BAA6A9DB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5686C13D-3429-42AF-B4EE-34BAA6A9DB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5686C13D-3429-42AF-B4EE-34BAA6A9DB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5686C13D-3429-42AF-B4EE-34BAA6A9DB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B1B128-B935-41AE-9A0A-13E477D91B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B1B128-B935-41AE-9A0A-13E477D91B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B1B128-B935-41AE-9A0A-13E477D91B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B1B128-B935-41AE-9A0A-13E477D91B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA48F760-2BE0-4B4C-90B8-13823BD5D22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA48F760-2BE0-4B4C-90B8-13823BD5D22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA48F760-2BE0-4B4C-90B8-13823BD5D22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA48F760-2BE0-4B4C-90B8-13823BD5D22B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD5C42F-0ECB-4802-BA6F-CF5AF37B7E8E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
