@@ -2,7 +2,7 @@
 IF BSP_AM33X_I2C1
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\I2CPROXY1]
     "Prefix"="I2C"
-    "Dll"="i2cproxy.dll"
+    "Dll"="am33x_i2c"
     "Index"=dword:1
     "Order"=dword:100  
 ENDIF
@@ -10,7 +10,7 @@ ENDIF
 IF BSP_AM33X_I2C2
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\I2CPROXY2]
     "Prefix"="I2C"
-    "Dll"="i2cproxy.dll"
+    "Dll"="am33x_i2c"
     "Index"=dword:2
     "Order"=dword:100  
 ENDIF
@@ -18,7 +18,7 @@ ENDIF
 IF BSP_AM33X_I2C3
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\I2CPROXY3]
     "Prefix"="I2C"
-    "Dll"="i2cproxy.dll"
+    "Dll"="am33x_i2c"
     "Index"=dword:3
     "Order"=dword:100  
 ENDIF
