@@ -55,7 +55,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPWSTR lpCmdLine, int n
 
     // Parse command line
     argc = CreateArgvArgc(TEXT("edmatest" ), argv, lpCmdLine);
-    if (argc < 3 || !swscanf(argv[1], TEXT("%d"), &dwTestId) ||
+    if (argc < 3 || !swscanf(argv[1], TEXT("%d"), &(int)dwTestId) ||
         (dwTestId == 0 && argc != (NUM_PARAMS+2)))
     {
         RetailPrint(TEXT("Usage: edmatest <TestId> <Instance>\n"));
@@ -79,7 +79,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPWSTR lpCmdLine, int n
     {
         for (i = 0; i < NUM_PARAMS; ++i)
         {
-            if (!swscanf(argv[i+2], TEXT("%d"), &params[i]))
+            if (!swscanf(argv[i+2], TEXT("%d"), &(int)params[i]))
             {
                 RetailPrint(TEXT("edmatest: Invalid test parameter: %d\n"), i);
                 return 1;
@@ -88,7 +88,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPWSTR lpCmdLine, int n
     }
     else if (dwTestId < NUM_TEST_CASES)
     {   
-        if (!swscanf(argv[2], TEXT("%d"), &params[0]))
+        if (!swscanf(argv[2], TEXT("%d"), &(int)params[0]))
         {
             RetailPrint(TEXT("edmatest: Invalid test parameter: 0\n"));
             return 1;

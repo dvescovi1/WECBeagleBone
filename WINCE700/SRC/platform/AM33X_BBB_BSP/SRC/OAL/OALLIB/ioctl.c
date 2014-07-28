@@ -28,8 +28,6 @@
 #include <windows.h>
 #include <bsp.h>
 #include <bldver.h>
-//#include <i2c.h>
-//#include <oal_i2c.h>
 #include <pkfuncs.h>
 #include "am33x.h"
 
