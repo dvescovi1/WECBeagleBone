@@ -57,7 +57,7 @@ TARGETLIBS= \
 	$(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_vfp_arm.lib \
 	$(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_io.lib \
 	$(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_ilt.lib \
-#    $(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_intr_common.lib			\
+    $(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_intr_common.lib			\
 	$(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_other.lib                  \
 	$(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_log.lib                    \
 	$(_PLATCOMMONLIB)\$(_CPUDEPPATH)\oal_power.lib \

@@ -144,7 +144,8 @@ ENDIF IMGREGHIVE
    "IClass"=multi_sz:"{A4E7EDDA-E575-4252-9D6B-4195D48BB865}",
                      "{8DD679CE-8AB4-43c8-A14A-EA4963FAA715}"
 
-[HKEY_LOCAL_MACHINE\Drivers\SDCARD\ClientDrivers\Class\MMC_Class\High_Capacity]
+; eMMC Storage Class Driver
+[HKEY_LOCAL_MACHINE\Drivers\SDCARD\ClientDrivers\Class\eMMC_Class\High_Capacity]
    "Dll"="SDMemory.dll"
    "Prefix"="DSK"
    "BlockTransferSize"=dword:40  ; send no more than 64 blocks of data per bus transfer
@@ -216,6 +217,10 @@ ENDIF IMGREGHIVE
 ;===============================================================================
 ; touchscreen driver
 #include "$(PLAT_DRIVERS_DIR)\touch\tsc_touch.reg"
+
+; how long touch proxy will wait for touch driver to load
+[HKEY_LOCAL_MACHINE\SYSTEM\GWE\TouchProxy]
+    "DriverLoadTimeoutMs"=dword:1388 ; 5 seconds
 
 ;===============================================================================
 ; PRU Driver

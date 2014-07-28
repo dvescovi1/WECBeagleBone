@@ -21,10 +21,6 @@ IF IMGNOCALIBRATION
 ENDIF IMGNOCALIBRATION
     "MaxCalError"="6"
     
-; how long touch proxy will wait for touch driver to load
-[HKEY_LOCAL_MACHINE\SYSTEM\GWE\TouchProxy]
-    "DriverLoadTimeoutMs"=dword:1388 ; 5 seconds
-
 ; For double-tap default setting
 [HKEY_CURRENT_USER\ControlPanel\Pen]
     "DblTapDist"=dword:18
