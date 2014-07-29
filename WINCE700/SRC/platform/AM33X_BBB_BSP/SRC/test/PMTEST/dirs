@@ -1,8 +1,0 @@
-DIRS=\	
-	PMGET\
-	PMGETD\
-	PMMON\
-	PMREQ\
-	PMSET\
-	PMSETD
-

@@ -1,5 +1,0 @@
-# All rights reserved ADENEO EMBEDDED 2010
-TARGETNAME=bsp_cfg
-TARGETTYPE=LIBRARY
-
-SOURCES= bspcfg.c
