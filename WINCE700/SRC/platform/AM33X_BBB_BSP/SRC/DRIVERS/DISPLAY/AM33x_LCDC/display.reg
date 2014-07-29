@@ -1,0 +1,65 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;===============================================================================
+; @CESYSGEN IF CE_MODULES_DISPLAY
+IF BSP_AM33X_LCDC 
+
+[HKEY_LOCAL_MACHINE\SYSTEM\GWE]
+    ; "PORepaint"=dword:0 - the display driver handles everything
+    ; "PORepaint"=dword:1 - gwe should save and restore the bits
+    ; "PORepaint"=dword:2 - gwe should invalidate and repaint
+    ; "PORepaint"=dword:3 - gwe and driver need to save video memory
+    ;
+    "PORepaint"=dword:0
+
+[HKEY_LOCAL_MACHINE\System\GDI\Drivers]
+    "IRQ"=dword:24
+    "Display"="am33x_display"
+    ; 0 for flat surface manager, 1 for VRFB surface manager
+    ; Note only flat surface manager is supported
+    "SurfaceMgr" = dword:0
+
+    ; sets initial screen rotation
+    ; use 0 for 0 degree, 1 for 90 degree, 2 for 180 degree and 4 for 270 degree
+    ; Note: Rotation should not be used with the flat frame buffer, memory/bus bandwidth may
+    ; be exceeded by display scanning requirements causing display to flicker and/or lock up.
+    "Angle" = dword:0
+    "PowerFlags"=dword:00000103         ; send pre/post device state changes
+    "membase"=multi_sz:"48050000","48306B00"
+    "memlen"=multi_sz:"00000100","00000100"
+    ; controls software based mouse cursor emulation, 0 = disable, 1 = enable
+    ; Note that OS configuration must include mouse cursor support (sysgen_cursor).
+    ; Note that display performance will be reduced when cursor support is enabled.
+    ; Note that cursor support has not been tested with direct draw, overlays or rotation.
+; @CESYSGEN IF GWES_MCURSOR
+    "Cursor"=dword:1
+; @CESYSGEN ENDIF GWES_MCURSOR
+    ; Set to 1 to enable wait for vertical blank support
+    "EnableWaitForVerticalBlank"=dword:1
+    "EnableNeonBlts"=dword:1
+    "EnableDMABlts"=dword:1
+    "EnableOverlay"=dword:0       
+    "HardwareRotation"=dword:0   
+    "DMAFill"=dword:0
+
+; Revert logic in common.reg that turns display off during SystemIdle.
+; PMCLASS_DISPLAY_GUID
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\State\SystemIdle\{EB91C7C9-8BF6-4a2d-9AB8-69724EED97D1}]
+    "Default"=dword:2           ; D2
+
+; Not supported
+;[HKEY_LOCAL_MACHINE\System\GDI\ROTATION]
+;   ; rotates screen - use 0 for 0 degree 5a for 90 degree, b4 for 180 degree and 10e for 270 degree
+;   "Angle"=dword:0
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MediaPlayer\Preferences]
+    "RenderMethod"=dword:2
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\DirectX\DirectShow\VMR]
+    "RenderingPrefs"=dword:8
+
+; Bits per pixel setting for compositor backbuffers
+[HKEY_LOCAL_MACHINE\SYSTEM\GWE\Compositor]
+    "OpaqueBufferBPP" = dword:10
+
+ENDIF
+; @CESYSGEN ENDIF CE_MODULES_DISPLAY

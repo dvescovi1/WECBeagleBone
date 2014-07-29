@@ -1,0 +1,9 @@
+DIRS=\
+	FATFS\
+	SDMEMORY\
+	SDHC\
+	STUB\
+	DISPLAY\
+	EBOOT\
+	XLDR
+

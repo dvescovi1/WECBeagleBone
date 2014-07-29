@@ -1,0 +1,8 @@
+LIBRARY 	edma_test
+
+EXPORTS
+	EDT_Init
+	EDT_Deinit
+	EDT_Open
+	EDT_Close
+	EDT_IOControl

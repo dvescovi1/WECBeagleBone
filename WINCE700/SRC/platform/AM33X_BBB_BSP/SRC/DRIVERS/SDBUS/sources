@@ -1,0 +1,40 @@
+!if 0
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+
+!IF "$(BSP_SDHC)" == ""
+SKIPBUILD=1
+!ENDIF
+
+
+TARGETNAME=SDBus
+TARGETTYPE=DYNLINK
+
+DEFFILE=SDBus.def
+DLLENTRY=_DllMainCRTStartup
+
+
+TARGETLIBS= \
+	$(_PUBLICROOT)\common\oak\lib\$(_CPUINDPATH)\defbuslib.lib \
+	$(_PUBLICROOT)\common\oak\lib\$(_CPUINDPATH)\sdcardlib.lib \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib    \
+	$(_SYSGENOAKROOT)\lib\$(_CPUINDPATH)\ceddk.lib     
+
+
+SOURCES = \
+	sdbusreq.cpp \
+    sddevice.cpp \
+    sdbus.cpp \
+    sdslot.cpp \
+    sdclient.cpp \
+    sddevinf.cpp \
+    sdiofeat.cpp \
+    sdworki.cpp \
+    sddebug.cpp \

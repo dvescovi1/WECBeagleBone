@@ -1,0 +1,61 @@
+!if 0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+!endif
+!if 0
+Use of this sample source code is subject to the terms of the Microsoft
+license agreement under which you licensed this sample source code. If
+you did not accept the terms of the license agreement, you are not
+authorized to use this sample source code. For the terms of the license,
+please see the license agreement between you and Microsoft or, if applicable,
+see the LICENSE.RTF on your install media or the root of your tools installation.
+THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES.
+!endif
+
+
+!IF 0
+Note on DOSYSGEN: the sysgen process runs "build" on this sources file to
+produce a LIB file, even though the end target will be a DLL or an EXE.  This
+is because COREDLL, which is linked implicitly to all such targets, can be
+componentized and we want to avoid invoking COREDLL APIs that may not be
+available after sysgen.  If you want to build and link this target AFTER the sysgen
+is complete, comment out the following line -- otherwise you will get a LIB
+file.
+!ENDIF
+
+!IF "$(BSP_WAVEDEV2)" == ""
+SKIPBUILD=1
+!ENDIF
+
+SYNCHRONIZE_DRAIN=1
+TARGETTYPE=DYNLINK
+
+TARGETNAME=am33x_wavedev2drvr
+RELEASETYPE=PLATFORM
+TARGETTYPE=DYNLINK
+DEFFILE=wavedev2drvr.def
+DLLENTRY=DllMain
+
+INCLUDES=$(INCLUDES);$(TI_COMMON_DIR)\COMMON_TI\MCASP
+
+TARGETLIBS= $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+            $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib   \
+
+SOURCELIBS= $(_PLATLIB)\$(_CPUINDPATH)\am33x_edma.lib \
+            $(_PLATLIB)\$(_CPUINDPATH)\common_ti_AM3xx_mcasp.lib \
+            $(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib  \
+
+SOURCES= \
+    wavemain.cpp \
+    devctxt.cpp \
+    strmctxt.cpp \
+    input.cpp \
+    output.cpp \
+    mixerdrv.cpp \
+    hwctxt.cpp \
+    audiodma.cpp \
+    audio_mcasp.cpp \
+    tlv320aic3106.cpp \
+
+FILE_VIEW_RESOURCE_FOLDER= \
+    wavedev2drvr.def
+

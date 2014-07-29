@@ -1,0 +1,4 @@
+
+[HKEY_LOCAL_MACHINE\init]
+        "Launch70"="am33x_ebootCfg.exe"
+        "Depend70"=hex:1E,14,00

@@ -1,0 +1,10 @@
+# xldr/eboot SD Memory Card driver
+
+TARGETNAME=bsp_boot_sdmemory
+TARGETTYPE=LIBRARY
+
+INCLUDES=$(INCLUDES);..\fatfs;..\sdhc
+
+SOURCES = \
+	sdcard.c \
+          
