@@ -1,0 +1,28 @@
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this source code is subject to the terms of the Microsoft end-user
+; license agreement (EULA) under which you licensed this SOFTWARE PRODUCT.
+; If you did not accept the terms of the EULA, you are not authorized to use
+; this source code. For a copy of the EULA, please see the LICENSE.RTF on your
+; install media.
+;
+
+; Copyright (c) 2002-2004 BSQUARE Corporation.  All rights reserved.
+; DO NOT REMOVE --- BEGIN EXTERNALLY DEVELOPED SOURCE CODE ID 40973--- DO NOT REMOVE
+
+LIBRARY		SDBus
+
+EXPORTS
+	SDC_Init
+	SDC_PreDeinit
+	SDC_Deinit
+	SDC_Open
+	SDC_Close
+	SDC_IOControl
+	SDHCDGetHCFunctions
+	SDGetClientFunctions
+
+
+; DO NOT REMOVE --- END EXTERNALLY DEVELOPED SOURCE CODE ID --- DO NOT REMOVE

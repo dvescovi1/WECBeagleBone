@@ -1,0 +1,8 @@
+!if 0
+Copyright (c) MPC Data Limited 2011. All rights reserved.
+!endif
+
+DIRS=\
+	hal \
+	ce_pru_driver \
+	

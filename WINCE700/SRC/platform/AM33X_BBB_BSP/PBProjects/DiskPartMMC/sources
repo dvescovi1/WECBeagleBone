@@ -1,0 +1,52 @@
+!if 0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+!endif
+!if 0
+Use of this sample source code is subject to the terms of the Microsoft
+license agreement under which you licensed this sample source code. If
+you did not accept the terms of the license agreement, you are not
+authorized to use this sample source code. For the terms of the license,
+please see the license agreement between you and Microsoft or, if applicable,
+see the LICENSE.RTF on your install media or the root of your tools installation.
+THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES OR INDEMNITIES.
+!endif
+WINCEOEM=1
+
+TARGETNAME=DiskPartEMMC
+TARGETTYPE=PROGRAM
+
+_ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
+_OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;
+COMMON_CDEFINES= /DSTANDALONE
+EXEENTRY=WinMain
+
+SOURCES= \
+    DiskPart.cpp \
+    SimpleString.cpp \
+
+
+TARGETLIBS=\
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib
+FILE_VIEW_PARAMETER_FOLDER= \
+    DiskPartEMMC.bib \
+    DiskPartEMMC.reg \
+    DiskPartEMMC.dat \
+    DiskPartEMMC.db \
+    ProjSysgen.bat \
+
+FILE_VIEW_ROOT_FOLDER= \
+    prelink.bat \
+    postlink.bat \
+    scripts\partemmc.txt \
+    scripts\prepemmc.bat \
+
+PRELINK_PASS_CMD=prelink.bat
+POSTLINK_PASS_CMD=postlink.bat
+PBSUBPROJECT=1
+FILE_VIEW_INCLUDES_FOLDER= \
+    diskpart.h \
+    mbr.h \
+    simplestring.h \
+
+FILE_VIEW_RESOURCE_FOLDER= \
+

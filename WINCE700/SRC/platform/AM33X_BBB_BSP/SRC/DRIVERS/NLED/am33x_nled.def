@@ -1,0 +1,10 @@
+
+LIBRARY     AM33X_NLED
+
+EXPORTS Init
+    Deinit
+    Open
+    Close
+    PowerDown
+    PowerUp
+    IOControl

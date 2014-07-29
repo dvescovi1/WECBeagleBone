@@ -1,0 +1,8 @@
+LIBRARY 	nand_test
+
+EXPORTS
+	DFT_Init
+	DFT_Deinit
+	DFT_Open
+	DFT_Close
+	DFT_IOControl

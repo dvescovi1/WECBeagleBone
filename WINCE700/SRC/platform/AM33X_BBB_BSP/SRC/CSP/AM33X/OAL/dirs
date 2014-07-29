@@ -1,0 +1,9 @@
+DIRS=\
+	PADCFG\
+	PRCM\
+	INTR\
+	CPUIDLE\		
+	OALI2C\
+	OALRTC\
+	TIMER\
+		

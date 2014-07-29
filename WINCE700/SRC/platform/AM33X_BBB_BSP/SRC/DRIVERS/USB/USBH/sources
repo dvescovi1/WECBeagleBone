@@ -1,0 +1,36 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!if 0
+Copyright (c) MPC Data Limited 2007.  All rights reserved.
+!endif
+
+!IF "$(BSP_USBH0)" == ""
+!IF "$(BSP_USBH1)" == ""
+SKIPBUILD=1
+!ENDIF
+!ENDIF
+
+TARGETNAME=am33x_usbh
+TARGETTYPE=DYNLINK
+RELEASETYPE=PLATFORM    
+DEFFILE=$(_COMMONOAKROOT)\inc\ohcd.def
+DLLENTRY=DllMain
+
+SOURCES= \
+    usbhpdd.c
+
+
+SOURCELIBS= \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\hcd2lib.lib   \
+#    $(_PLATLIB)\$(_CPUINDPATH)\am33x_hcd2lib.lib   \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbhlib.lib    \
+    $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma.lib \
+
+TARGETLIBS= \
+	$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib	\
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+
+
+
+FILE_VIEW_RESOURCE_FOLDER= \
+	usbh.reg \
+	

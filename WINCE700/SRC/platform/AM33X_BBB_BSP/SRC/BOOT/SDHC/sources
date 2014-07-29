@@ -1,0 +1,10 @@
+# xldr/eboot SD host controller driver
+
+TARGETNAME=bsp_boot_sdhc
+TARGETTYPE=LIBRARY
+
+INCLUDES=$(INCLUDES);..\sdmemory;
+
+SOURCES = \
+	sdhc.c \
+          

@@ -1,0 +1,561 @@
+; All rights reserved ADENEO EMBEDDED 2010
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;
+; Use of this sample source code is subject to the terms of the Microsoft
+; license agreement under which you licensed this sample source code. If
+; you did not accept the terms of the license agreement, you are not
+; authorized to use this sample source code. For the terms of the license,
+; please see the license agreement between you and Microsoft or, if applicable,
+; see the LICENSE.RTF on your install media or the root of your tools installation.
+; THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES.
+;
+
+; This file is to be included in platform.reg if required.
+
+;-- USB Host Driver ------------------------------------------------------------
+IF BSP_USBH0
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1]
+ENDIF
+    "Prefix"="HCD"
+    "Dll"="am33x_usbh.dll"
+    "Index"=dword:1
+    "Order"=dword:65
+    
+    ; CE_DRIVER_BUS_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID   
+    "IClass"=multi_sz:"{6F40791D-300E-44E4-BC38-E0E63CA8375C}=%b",
+                      "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+                      
+    "DescriptorCount"=dword:400    ; Number of descriptors in the pool
+IF BSP_USBOTG0
+    "DisablePowerManagement"=dword:1    ; Disable power management if using OTG driver
+ELSE
+    "DisablePowerManagement"=dword:0
+ENDIF
+
+;-- Endpoint configuration ------------------------------------------------------
+;
+; Format: 
+;
+;   [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\<UsbOtg>\USBH\CONFIG\EP<1-15>\<IN/OUT>]
+;
+;      "Type" = Endpoint Type = < "any" | "bulk" | "isochronous" | "interrupt" >
+;
+;      "Fifo" = Fifo Size = dword:< 0x8 | 0x10 | 0x20 | 0x40 | 0x200 | 0x400 >
+;
+;      "Shared" = Enable Sharing Mode = dword:< 0x0=off | 0x1=on > (default is ON)
+;
+;
+; Notes:
+;
+;   - Physical endpoint sharing (virtualization) will be applied to 
+;     bulk endponts only.
+;
+;   - USB Controller has only 4K of FIFO RAM. 64 bytes of RAM are 
+;     internally used for control endpoint #0.
+;   
+;   - Do not exceed the total amount of free RAM (4032 bytes) when
+;     configuring endpoints.
+;
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP1\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP1\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP1\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP1\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP2\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP2\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP2\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP2\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP3\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP3\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP3\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP3\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP4\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP4\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP4\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP4\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP5\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP5\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP5\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP5\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP6\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP6\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP6\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP6\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP7\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP7\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP7\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP7\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP8\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP8\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP8\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP8\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP9\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP9\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP9\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP9\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP10\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP10\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP10\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP10\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP11\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP11\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP11\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP11\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP12\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP12\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP12\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP12\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP13\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP13\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg1\Hcd\CONFIG\EP13\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH1\CONFIG\EP13\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1    
+
+ENDIF
+
+
+IF BSP_USBH1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2]
+ENDIF
+    "Prefix"="HCD"
+    "Dll"="am33x_usbh.dll"
+    "Index"=dword:2
+    "Order"=dword:65
+    
+    ; CE_DRIVER_BUS_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID   
+    "IClass"=multi_sz:"{6F40791D-300E-44E4-BC38-E0E63CA8375C}=%b",
+                      "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+                      
+    "DescriptorCount"=dword:400    ; Number of descriptors in the pool
+IF BSP_USBOTG1
+    "DisablePowerManagement"=dword:1
+ELSE
+    "DisablePowerManagement"=dword:0
+ENDIF
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP1\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP1\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP1\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP1\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP2\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP2\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP2\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP2\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP3\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP3\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP3\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP3\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP4\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP4\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP4\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP4\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP5\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP5\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP5\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP5\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP6\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP6\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP6\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP6\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP7\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP7\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP7\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP7\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP8\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP8\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP8\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP8\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP9\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP9\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP9\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP9\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP10\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP10\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP10\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP10\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP11\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP11\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP11\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP11\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP12\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP12\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP12\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP12\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+    
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP13\IN]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP13\IN]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1
+
+IF BSP_USBOTG1
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UsbOtg2\Hcd\CONFIG\EP13\OUT]
+ELSE
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\USBH2\CONFIG\EP13\OUT]
+ENDIF
+    "Type"="any"
+    "Fifo"=dword:200
+    "Shared"=dword:1    
+
+ENDIF
+;-------------------------------------------------------------------------------

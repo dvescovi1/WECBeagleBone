@@ -1,0 +1,8 @@
+# All rights reserved ADENEO EMBEDDED 2010
+!INCLUDE "..\sources.inc"
+
+TARGETNAME=$(TI_COMMON)_devicesmap
+TARGETTYPE=LIBRARY
+
+SOURCES=\
+    devicemap.c \

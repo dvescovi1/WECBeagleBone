@@ -1,0 +1,12 @@
+DIRS=\
+	MISC\
+	GPIO\
+	OALRTC\
+	DRIVER\
+	MADC\
+	WAVE\
+	KEYPAD\
+	TLED\
+	BCI\
+	USBOTG
+

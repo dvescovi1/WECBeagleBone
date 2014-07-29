@@ -1,0 +1,25 @@
+IF BSP_WAVEDEV2
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\WaveDev2]
+   "Prefix"="WAV"
+   "Dll"="am33x_wavedev2drvr.dll"
+   "Order"=dword:5
+   "Class"=dword:04
+   "SubClass"=dword:01
+   "IClass"=multi_sz:"{E92BC203-8354-4043-A06F-2A170BF6F227}",
+                     "{37168569-61C4-45fd-BD54-9442C7DBA46F}",
+                     "{A32942B7-920C-486b-B0E6-92A702A99B35}"                 
+   "AudioCntrlRegAddr"=dword:4803C000
+   "EventIdRx"=dword:0B
+   "EventIdTx"=dword:0A
+   "Priority256"=dword:46
+   "IrqTx"=dword:52
+   "IrqRx"=dword:53
+   "EdmaEventQueue"=dword:0
+
+[HKEY_CURRENT_USER\ControlPanel\Volume]
+    "Key"=dword:10002       ; Keyclicks: 1=soft, 0x10002=loud
+    "Screen"=dword:10002    ; ScreenTaps: 1=soft, 0x10002=loud
+    "Mute"=dword:7          ; 7=Enable all sounds (1=Notifications, 2=Apps, 4=Events.)
+    "Volume"=dword:FFFFFFFF ; Set the default volume to maximum
+ENDIF BSP_WAVEDEV2
+
