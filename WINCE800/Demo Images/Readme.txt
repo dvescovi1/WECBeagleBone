@@ -7,3 +7,6 @@ All platform uniquenesses are handled at runtime!
 
 20-JUL-2014	03.01.00
 		-Include M2MQTT IoT client run time.
+
+02-AUG-2014	03.02.00
+		-Corrected I2C registry.
