@@ -2,7 +2,7 @@
 IF BSP_AM33X_MCSPI1
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\SPI1]
     "Prefix"="SPI"
-    "Dll"="am33x_mcspi.dll"
+    "Dll"="am33x_spi.dll"
     "Index"=dword:1
     "Port"=dword:1
     "Order"=dword:8
@@ -17,7 +17,7 @@ ENDIF
 IF BSP_AM33X_MCSPI2
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\SPI2]
     "Prefix"="SPI"
-    "Dll"="am33x_mcspi.dll"
+    "Dll"="am33x_spi.dll"
     "Index"=dword:2
     "Port"=dword:2
     "Order"=dword:8

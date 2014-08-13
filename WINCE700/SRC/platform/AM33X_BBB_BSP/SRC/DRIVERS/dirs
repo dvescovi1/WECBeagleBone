@@ -8,7 +8,6 @@ DIRS=\
 	SDBUS\
 	SDHC\
 	USB\
-	CEDDK\
 	DISPLAY\
 	TOUCH\
 	WAVEDEV2\
@@ -16,4 +15,5 @@ DIRS=\
 	PRU\
 	KEYPAD\
 	NLED\
+	CEDDK\
 
