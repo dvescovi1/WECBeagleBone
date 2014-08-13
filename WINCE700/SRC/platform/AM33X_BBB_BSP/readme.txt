@@ -40,6 +40,7 @@ Copyright (c) 2014 David Vescovi
 	-eMMC support
 	-custom DISKPARTEMMC utility to support eMMC
 	-Corrected I2C proxy registry settings
+	-Corrected SPI
 
 
 

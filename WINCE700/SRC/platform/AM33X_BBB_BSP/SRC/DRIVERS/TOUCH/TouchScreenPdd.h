@@ -52,8 +52,6 @@
 #define FILTEREDSAMPLESIZE              3
 #define SAMPLESIZE                      1
 
-#define DEFAULT_DEVICE_ADDRESS          0 //CS0 of SPI1
-
 #define COMMAND_EN_TOUCH                  0x800000
 #define COMMAND_XPOS                      0xD00000
 #define COMMAND_YPOS                      0x900000

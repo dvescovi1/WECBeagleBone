@@ -14,9 +14,6 @@
 TARGETNAME=am33x_i2c
 TARGETTYPE=DYNLINK
 
-SOURCES= \
-          i2cproxy.cpp
-           
 SOURCELIBS=\
     $(_PLATLIB)\$(_CPUINDPATH)\ceddk_i2c_lib.lib   \
 	$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib \
@@ -25,5 +22,9 @@ TARGETLIBS= \
    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
 
+
+SOURCES= \
+	i2cproxy.cpp
+           
 
 
