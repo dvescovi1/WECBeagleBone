@@ -28,8 +28,7 @@ TARGETLIBS= \
     $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\defbuslib.lib \
 
 SOURCELIBS= \
-     $(_COMMONOAKLIB)\$(_CPUINDPATH)\sdbus.lib \
-#    $(_PLATLIB)\$(_CPUINDPATH)\sdbus.lib              \
+     $(_PLATLIB)\$(_CPUINDPATH)\sdbus.lib              \
      $(_COMMONOAKLIB)\$(_CPUINDPATH)\sdcardlib.lib \
      $(_COMMONOAKLIB)\$(_CPUINDPATH)\sdhclib.lib \
      $(_PLATLIB)\$(_CPUINDPATH)\am33x_sdhc_base.lib	   \

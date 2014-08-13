@@ -246,6 +246,7 @@
     <Type>BspSpecific</Type>
     <Variable>SYSGEN_USB</Variable>
     <Variable>BSP_USBH1</Variable>
+    <Variable>BSP_USBOTG1</Variable>
     <Module>am33x_usbh.dll</Module>
     <Location>Drivers\USB</Location>
   </Item>

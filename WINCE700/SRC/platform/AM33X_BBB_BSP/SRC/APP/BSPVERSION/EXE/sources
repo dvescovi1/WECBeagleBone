@@ -3,14 +3,6 @@ RELEASETYPE=PLATFORM
 _ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
 _OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;
 TARGETNAME=bsppnl
-SYNCHRONIZE_DRAIN=1
-
-SOURCES= \
-    main.cpp \
-
-TARGETLIBS= \
-    $(_COMMONPUBROOT)\sdk\lib\$(_CPUINDPATH)\coredll.lib \
-
 TARGETTYPE=PROGRAM
 
 INCLUDES= $(INCLUDES); \
@@ -20,3 +12,10 @@ INCLUDES= $(INCLUDES); \
     $(_WINCEROOT)\PUBLIC\common\ddk\inc; \
     $(_WINCEROOT)\PUBLIC\common\sdk\inc; \
     $(_TARGETPLATROOT)\src\inc; \
+
+TARGETLIBS= \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+
+SOURCES= \
+    main.cpp \
+

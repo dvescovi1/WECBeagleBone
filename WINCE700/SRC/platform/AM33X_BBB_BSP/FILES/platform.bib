@@ -47,19 +47,19 @@ ENDIF
 am33x_cpsw3g.dll	$(_FLATRELEASEDIR)\am33x_cpsw3g.dll			NK  SHK
 #endif
 
-#if (defined BSP_USBH0 || defined BSP_USBH1 || defined BSP_USBFN0 || defined BSP_USBOTG0 )
+#if (defined BSP_USBH0 || defined BSP_USBH1 || defined BSP_USBFN0)
 am33x_usbcdma.dll	$(_FLATRELEASEDIR)\am33x_usbcdma.dll		NK  SHK
 #endif
 
-#if (defined BSP_USBH0 || defined BSP_USBH1 || defined BSP_USBOTG0)
+#if (defined BSP_USBH0 || defined BSP_USBH1)
 am33x_usbh.dll		$(_FLATRELEASEDIR)\am33x_usbh.dll			NK  SHK
 #endif 
 
-#if ( defined BSP_USBFN0 || defined BSP_USBOTG0)
+#if (defined BSP_USBFN0 || defined BSP_USBOTG0)
 am33x_usbfn.dll		$(_FLATRELEASEDIR)\am33x_usbfn.dll			NK  SHK
 #endif 
 
-#if ( defined BSP_USBOTG0 )
+#if (defined BSP_USBOTG0 || defined BSP_USBOTG1)
 am33x_usbotg.dll	$(_FLATRELEASEDIR)\am33x_usbotg.dll			NK  SHK
 #endif 
 

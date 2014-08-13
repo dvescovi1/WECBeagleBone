@@ -23,7 +23,7 @@ INCLUDES= \
 	$(_WINCEROOT)\public\common\oak\inc; \
 
 TARGETLIBS=\
-    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
     $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\xamlruntime.lib
     
 SOURCES= \

@@ -25,10 +25,6 @@ DLLENTRY=_DllEntryCRTStartup
 
 DEFFILE=usbotg.def
 
-TARGETLIBS= \
-        $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
-		$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib		\
-
 SOURCELIBS= \
         $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbotglib.lib \
 	    $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma.lib \
@@ -36,9 +32,8 @@ SOURCELIBS= \
         $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\usbotgxc.lib \
         $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\defbuslib.lib \
 
-SOURCES= \
-
-FILE_VIEW_RESOURCE_FOLDER= \
-	usbotg.reg \
-	usbotg.def
+TARGETLIBS= \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib
         
+SOURCES= \
