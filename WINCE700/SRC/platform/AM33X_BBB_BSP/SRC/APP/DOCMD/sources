@@ -2,12 +2,13 @@
 # Copyright (c) Texas Instruments.  All rights reserved.
 
 TARGETNAME=do
-WINCEOEM=1
-
 TARGETTYPE=PROGRAM
 TARGETDEFNAME=$(TARGETNAME)
 
-SOURCES=appli.cpp \
-
 TARGETLIBS= \
-    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+
+
+SOURCES=\
+	appli.cpp \
+

@@ -25,7 +25,6 @@ RELEASETYPE=PLATFORM
 CPL=1
 COPYRES=1
 DLLENTRY=_DllEntryCRTStartup
-SYNCHRONIZE_DRAIN=1
 
 TARGETTYPE=DYNLINK
 
@@ -39,6 +38,7 @@ SOURCELIBS=
 TARGETLIBS=\
     $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\commctrl.lib \
     $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib
+
 
 SOURCES=bsppnl.rc \
     bsppnl.cpp

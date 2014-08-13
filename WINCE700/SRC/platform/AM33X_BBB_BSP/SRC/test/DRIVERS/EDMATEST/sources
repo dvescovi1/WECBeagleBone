@@ -2,7 +2,7 @@
 Copyright (c) MPC Data Limtited 2007.  All rights reserved.
 !endif
 
-!IF "$(BSP_NOEDMA)" == "1"
+!IF "$(BSP_EDMA)" != "1"
 SKIPBUILD=1
 !ENDIF
 

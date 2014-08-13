@@ -1,4 +1,3 @@
-# All rights reserved ADENEO EMBEDDED 2010
 !if 0
 ;
 ;================================================================================
@@ -11,6 +10,11 @@
 ;================================================================================
 ;
 !endif
+
+!IF "$(BSP_AM33X_MCSPI1)" == "" && "$(BSP_AM33X_MCSPI2)" == ""
+SKIPBUILD=1
+!ENDIF
+
 
 TARGETNAME=am33x_spi
 TARGETTYPE=DYNLINK

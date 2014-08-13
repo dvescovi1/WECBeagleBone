@@ -13,21 +13,16 @@
 TARGETNAME=proxydriver
 TARGETTYPE=DYNLINK
 
-CDEFINES=$(CDEFINES) -DCEDDK_USEDDKMACRO
-
 INCLUDES=$(INCLUDES); \
          $(_WINCEROOT)\public\ostest\sdk\inc; \
          $(_TARGETPLATROOT)\src\APP\common;  \
 
-SOURCES= \
-    proxydriver.cpp 
-
 
 TARGETLIBS= \
-    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
-    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\ceddk.lib \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib
+
+
+SOURCES= \
+    proxydriver.cpp 
     
-!if 0
-          $(_COMMONSDKLIB)\$(_CPUINDPATH)\coredll.lib \
-          $(_TARGETPLATLIB)\$(_CPUDEPPATH)\ceddk.lib \
-!endif

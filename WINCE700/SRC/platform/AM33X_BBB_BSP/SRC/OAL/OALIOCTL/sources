@@ -24,5 +24,5 @@ SOURCES=\
     oalioctl.cpp
 
 TARGETLIBS= \
-    $(_COMMONSDKLIB)\$(_CPUINDPATH)\coredll.lib
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
 

@@ -19,11 +19,11 @@ TARGETNAME=keypad
 TARGETTYPE=DYNLINK
 DEFFILE=keypad.def
 
-TARGETLIBS= \
-    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
-    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
-
 SOURCELIBS=
+
+TARGETLIBS= \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
 
 
 SOURCES= \
