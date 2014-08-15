@@ -52,6 +52,34 @@ extern "C" {
 #define DMA_CSDP_SRC_PACKED                     0x00000040
 #define DMA_CCR_CONST_FILL_ENABLE           (1 << 16)
 #define DMA_CCR_TRANSPARENT_COPY_ENABLE     (1 << 17)
+//------------------------------------------------------------------------------
+// CICR register fields
+/* values are taken from SDMA, however they are not used right now */
+#define DMA_CICR_MISALIGNED_ERR_IE          (1 << 11)
+#define DMA_CICR_SUPERVISOR_ERR_IE          (1 << 10)
+#define DMA_CICR_SECURE_ERR_IE              (1 << 9)
+#define DMA_CICR_TRANS_ERR_IE               (1 << 8)
+#define DMA_CICR_PKT_IE                     (1 << 7)
+#define DMA_CICR_BLOCK_IE                   (1 << 5)
+#define DMA_CICR_LAST_IE                    (1 << 4)
+#define DMA_CICR_FRAME_IE                   (1 << 3)
+#define DMA_CICR_HALF_IE                    (1 << 2)
+#define DMA_CICR_DROP_IE                    (1 << 1)
+
+//------------------------------------------------------------------------------
+// CSR register fields
+/* values are taken from SDMA, however they are not used right now */
+#define DMA_CSR_MISALIGNED_ERR              (1 << 11)
+#define DMA_CSR_SUPERVISOR_ERR              (1 << 10)
+#define DMA_CSR_SECURE_ERR                  (1 << 9)
+#define DMA_CSR_TRANS_ERR                   (1 << 8)
+#define DMA_CSR_PKT                         (1 << 7)
+#define DMA_CSR_SYNC                        (1 << 6)
+#define DMA_CSR_BLOCK                       (1 << 5)
+#define DMA_CSR_LAST                        (1 << 4)
+#define DMA_CSR_FRAME                       (1 << 3)
+#define DMA_CSR_HALF                        (1 << 2)
+#define DMA_CSR_DROP                        (1 << 1)
 
 #define DMA_PRIORITY                        0
 //------------------------------------------------------------------------------
