@@ -8,7 +8,6 @@
   <FeatureCollection Name="AnchoredFeatures" EnforceUniqueItems="True">
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_shell" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_as_base" />
-    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dotnetv35" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_smartdevices_sdk" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_ethernet" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_nledsrv" />
@@ -55,19 +54,18 @@
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_photo_viewer" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_video_player" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_composition" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dotnetv35" />
   </FeatureCollection>
   <ConfigurationCollection Name="Configurations" EnforceUniqueItems="False">
     <Configuration Name="Item" TargetBinFilename="nk.bin" BuildType="Debug" FriendlyName="AM33X_BBB_BSP ARMV7 Debug">
       <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
@@ -76,6 +74,9 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBFN0" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBH1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -96,13 +97,11 @@
       <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
@@ -111,6 +110,9 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBFN0" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBH1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -133,13 +135,11 @@
       <FeatureCollection Name="BspFeatures" EnforceUniqueItems="True">
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xgpio" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:omapnled" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:MUSB" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:Ndiscpsw3g" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xLCDC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdMemory" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xsdeMMC" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:imgreghive" />
-        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
@@ -148,6 +148,9 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBFN0" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBH1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
