@@ -12,9 +12,8 @@
 //
 //  File: dma_init.c
 //
-//#include "am33x.h"
-#include <am33x_mcspi_regs.h>
 #include <spi_priv.h>
+#include "edma.h"
 
 //#ifndef UNREFERENCED_PARAMETER
 //#define UNREFERENCED_PARAMETER(P) (P)
@@ -39,7 +38,7 @@ BOOL SpiDmaRestore(SPI_INSTANCE *pInstance)
 //
 BOOL SpiDmaInit(SPI_INSTANCE *pInstance)
 {
-UNREFERENCED_PARAMETER(pInstance);
+	UNREFERENCED_PARAMETER(pInstance);
 	return FALSE;
 }
 
