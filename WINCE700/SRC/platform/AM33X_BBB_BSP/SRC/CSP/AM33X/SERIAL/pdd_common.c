@@ -1822,7 +1822,7 @@ static BOOL RxDmaStop(UARTPDD   *pPdd,
 
     DmaStop(pPdd->RxDmaInfo);
 
-    pbDataPtr = DmaGetLastWritePos(pPdd->RxDmaInfo);
+//    pbDataPtr = DmaGetLastWritePos(pPdd->RxDmaInfo);
     while ((dwCount < MAX_RX_SERIALDMA_FRAMESIZE) && ((INREG8(&pPdd->pUartRegs->LSR) & UART_LSR_RX_FIFO_E) != 0))
     {
         pbDataPtr[dwCount++] = INREG8(&pPdd->pUartRegs->RHR);
@@ -2006,7 +2006,6 @@ DWORD IST_RxDMA(void* pParam)
     UINT32 status;
     UARTPDD *pPdd = (UARTPDD *)pParam;
 
-    //SetProcPermissions(0xFFFFFFFF);
     CeSetThreadPriority(GetCurrentThread(), 100);
 
     // register dma for interrupts
@@ -2024,64 +2023,60 @@ DWORD IST_RxDMA(void* pParam)
             // Check if this thread is to shutdown
             if (pPdd->bExitThread == TRUE) goto cleanUp;
             // get cause of wake-up
-            status = DmaGetStatus(pPdd->RxDmaInfo);
-            if (status != 0)
+//            status = DmaGetStatus(pPdd->RxDmaInfo);
+            if (!IsDmaActive(pPdd->RxDmaInfo))
             {
-                if (status & (DMA_CICR_BLOCK_IE | DMA_CICR_FRAME_IE))
+                if (DmaInterruptDone(pPdd->hRxDmaChannel) == FALSE)
                 {
-                    // clear dma interrupts
-                    DmaClearStatus(pPdd->RxDmaInfo, status);
-                    if (DmaInterruptDone(pPdd->hRxDmaChannel) == FALSE)
+                    DEBUGMSG(ZONE_ERROR, (L"ERROR: IST_RxDMA: "
+                        L"Failed to Signal DMA RX interrupt completion\r\n"
+                        ));
+                    goto cleanUp;
+                }
+
+                //if ((status & (DMA_CICR_BLOCK_IE | DMA_CICR_FRAME_IE)) == 0)
+                //{
+                //    continue;
+                //}
+
+                EnterCriticalSection(&pPdd->RxUpdatePtrCS);
+
+                if (status & DMA_CICR_BLOCK_IE )
+                {
+                    SetAutoIdle(pPdd, FALSE);
+
+                    if (IsDmaEnable(pPdd->RxDmaInfo))
                     {
-                        DEBUGMSG(ZONE_ERROR, (L"ERROR: IST_RxDMA: "
-                            L"Failed to Signal DMA RX interrupt completion\r\n"
-                            ));
-                        goto cleanUp;
+                        DEBUGMSG(ZONE_FUNCTION, (L"IST_RxDMA: Got End of block Int stopping DMA\r\n"));
+                        DmaStop(pPdd->RxDmaInfo);
                     }
 
-                    if ((status & (DMA_CICR_BLOCK_IE | DMA_CICR_FRAME_IE)) == 0)
+                    if((UpdateDMARxPointer(pPdd, FALSE, 0) == TRUE) && (pPdd->open == TRUE))
                     {
-                        continue;
-                    }
-
-                    EnterCriticalSection(&pPdd->RxUpdatePtrCS);
-
-                    if (status & DMA_CICR_BLOCK_IE )
-                    {
-                        SetAutoIdle(pPdd, FALSE);
-
-                        if (IsDmaEnable(pPdd->RxDmaInfo))
-                        {
-                            DEBUGMSG(ZONE_FUNCTION, (L"IST_RxDMA: Got End of block Int stopping DMA\r\n"));
-                            DmaStop(pPdd->RxDmaInfo);
-                        }
-
-                        if((UpdateDMARxPointer(pPdd, FALSE, 0) == TRUE) && (pPdd->open == TRUE))
-                        {
-                            SetAutoIdle(pPdd, TRUE);
-                            DmaStart(pPdd->RxDmaInfo);
-                            DEBUGMSG(TESTENABLE, (L"IST_RxDMA: End of block DMA Start\r\n"));
-                        }
-                        else
-                        {
-                            DEBUGMSG(ZONE_ERROR, (L"Error: IST_RxDMA: Shouldn't get to here!!!\r\n"));
-                        }
+                        SetAutoIdle(pPdd, TRUE);
+                        DmaStart(pPdd->RxDmaInfo);
+                        DEBUGMSG(TESTENABLE, (L"IST_RxDMA: End of block DMA Start\r\n"));
                     }
                     else
                     {
-                        DWORD   dwLastDMAWrite = (DWORD)DmaGetLastWritePos(pPdd->RxDmaInfo);
-
-                        if (dwLastDMAWrite < ((DWORD)pPdd->pRxDmaBuffer + pPdd->RxDmaBufferSize))
-                        {
-                            pPdd->pRxDMALastWrite = (VOID*)dwLastDMAWrite;
-                        }
+                        DEBUGMSG(ZONE_ERROR, (L"Error: IST_RxDMA: Shouldn't get to here!!!\r\n"));
                     }
-
-                    pPdd->bRxDMASignaled = 1;
-                    SetEvent( ((PHW_INDEP_INFO)pPdd->pMdd)->hSerialEvent);
-
-                    LeaveCriticalSection(&pPdd->RxUpdatePtrCS);
                 }
+                else
+                {
+                    DWORD   dwLastDMAWrite;
+//					dwLastDMAWrite = (DWORD)DmaGetLastWritePos(pPdd->RxDmaInfo);
+
+                    if (dwLastDMAWrite < ((DWORD)pPdd->pRxDmaBuffer + pPdd->RxDmaBufferSize))
+                    {
+                        pPdd->pRxDMALastWrite = (VOID*)dwLastDMAWrite;
+                    }
+                }
+
+                pPdd->bRxDMASignaled = 1;
+                SetEvent( ((PHW_INDEP_INFO)pPdd->pMdd)->hSerialEvent);
+
+                LeaveCriticalSection(&pPdd->RxUpdatePtrCS);
             }
         }
     }
@@ -2129,7 +2124,7 @@ static BOOL UpdateDMARxPointer(
        bAllClear = TRUE;
     }
 
-    nStartPos = (UINT32)DmaGetLastWritePos(pPdd->RxDmaInfo) + dwOffSet;
+//    nStartPos = (UINT32)DmaGetLastWritePos(pPdd->RxDmaInfo) + dwOffSet;
     DEBUGMSG(TESTENABLE, (L"UpdateDMARxPointer: CurrentDMALocation = 0x%x"
         L" nMddRxWIndex= 0x%x   nMddRxRIndex= 0x%x\r\n",
         nStartPos, nMddRxPosTail, nMddRxPosHead));
@@ -2252,12 +2247,12 @@ HWRxDMAIntr(
                 pRxBuffer,
                 *pLength));
 
-    pCurrentDMAPos = pPdd->pRxDMALastWrite; // DmaGetLastWritePos(pPdd->RxDmaInfo);
+//    pCurrentDMAPos = pPdd->pRxDMALastWrite; // DmaGetLastWritePos(pPdd->RxDmaInfo);
 
     if(pCurrentDMAPos >= ((UCHAR*)pPdd->pRxDmaBuffer + pPdd->RxDmaBufferSize))
     {
         Sleep(0);
-        pCurrentDMAPos = DmaGetLastWritePos(pPdd->RxDmaInfo);
+//        pCurrentDMAPos = DmaGetLastWritePos(pPdd->RxDmaInfo);
     }
     if (pCurrentDMAPos >= pRxBuffer)
     {
@@ -2988,8 +2983,8 @@ HWOpen(
 
         // Just to be safe we will make sure DMA is stopped and the status is clear
         DmaStop(pPdd->RxDmaInfo);
-        dwStatus = DmaGetStatus(pPdd->RxDmaInfo);
-        DmaClearStatus(pPdd->RxDmaInfo, dwStatus);
+        //dwStatus = DmaGetStatus(pPdd->RxDmaInfo);
+        //DmaClearStatus(pPdd->RxDmaInfo, dwStatus);
 
         //We must do this since the MDD calls RXResetFifo
         DmaSetElementAndFrameCount (pPdd->RxDmaInfo,
@@ -3458,9 +3453,9 @@ HWTxIntr(
         else
             Timeout = TotalTimeout;
 
-        dwDmaStatus = DmaGetStatus(pPdd->TxDmaInfo);
-        // clear status
-        DmaClearStatus(pPdd->TxDmaInfo, dwDmaStatus);
+        //dwDmaStatus = DmaGetStatus(pPdd->TxDmaInfo);
+        //// clear status
+        //DmaClearStatus(pPdd->TxDmaInfo, dwDmaStatus);
 
         if (DmaInterruptDone(pPdd->hTxDmaChannel) == FALSE)
         {
@@ -3472,7 +3467,7 @@ HWTxIntr(
 
         CeSafeCopyMemory (pPdd->pTxDmaBuffer, pTxBuffer, BytesToTransfer);
 
-        dwDmaStatus = DmaGetStatus(pPdd->TxDmaInfo);
+//        dwDmaStatus = DmaGetStatus(pPdd->TxDmaInfo);
 
         if(dwDmaStatus) {
             RETAILMSG(1, (TEXT("!!!! DMA status is 0x%x\r\n"), dwDmaStatus));
@@ -3506,9 +3501,9 @@ HWTxIntr(
             DmaStop(pPdd->TxDmaInfo);
         }
 
-        dwDmaStatus = DmaGetStatus(pPdd->TxDmaInfo);
-        // clear status
-        DmaClearStatus(pPdd->TxDmaInfo, dwDmaStatus);
+        //dwDmaStatus = DmaGetStatus(pPdd->TxDmaInfo);
+        //// clear status
+        //DmaClearStatus(pPdd->TxDmaInfo, dwDmaStatus);
 
         if (DmaInterruptDone(pPdd->hTxDmaChannel) == FALSE)
         {
@@ -3611,8 +3606,8 @@ HWPurgeComm(
         UpdateDMARxPointer(pPdd, TRUE, 0);
         DmaStart(pPdd->RxDmaInfo);
         LeaveCriticalSection(&pPdd->RxUpdatePtrCS);
-        DEBUGMSG(ZONE_FUNCTION, (TEXT("PurgeComm: Last Write Pos: 0x%x"),
-                DmaGetLastWritePos(pPdd->RxDmaInfo)));
+        //DEBUGMSG(ZONE_FUNCTION, (TEXT("PurgeComm: Last Write Pos: 0x%x"),
+        //        DmaGetLastWritePos(pPdd->RxDmaInfo)));
     }
     // purge on TX DMA if Application has not set the timeout value.
     if(pPdd->TxDmaInfo && (action & PURGE_TXCLEAR))

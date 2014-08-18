@@ -14,10 +14,6 @@
 //
 //  File: spi.c
 //
-//#include "am33x.h"
-#include <am33x_mcspi_regs.h>
-#include <edma_utility.h>
-
 #include "soc_cfg.h"
 #include <initguid.h>
 #include "sdk_padcfg.h"
@@ -37,6 +33,8 @@ if (!pInstance->exclusiveAccess) {  \
 	DEBUGMSG (ZONE_ERROR, (L"ERROR: %s: Don't own SPI lock!\r\n", msg)); \
 	goto cleanUp; \
 }
+
+#define DUMP_DMA_REGS(p, i)
 
 //------------------------------------------------------------------------------
 #ifndef SHIP_BUILD
@@ -634,7 +632,6 @@ DWORD SPI_DmaRead(DWORD context, VOID *pBuffer, DWORD size)
     DWORD dwWordSize;
     DWORD dwCount = 0;
     DWORD dwDmaSize;
-    DWORD dwDmaStatus;
 
     DEBUGMSG(ZONE_DMA, (L"+SPI_DmaRead(0x%08x, 0x%08x, 0x%08x)\r\n", context, pBuffer, size));
 
@@ -684,11 +681,6 @@ DWORD SPI_DmaRead(DWORD context, VOID *pBuffer, DWORD size)
             DmaInterruptDone(pInstance->hRxDmaChannel);
             goto cleanUp;
         }
-
-        dwDmaStatus = DmaGetStatus(&pInstance->rxDmaInfo);
-        DmaClearStatus(&pInstance->rxDmaInfo, dwDmaStatus);
-
-        DEBUGMSG(ZONE_DMA, (L" SPI_DmaRead: DMA Status = %x\r\n", dwDmaStatus));
 
         DmaInterruptDone(pInstance->hRxDmaChannel);
         DmaStop(&pInstance->rxDmaInfo);
@@ -800,7 +792,6 @@ DWORD SPI_DmaWrite(DWORD context, VOID *pBuffer, DWORD size)
     DWORD dwWordSize;
     DWORD dwCount = 0;
     DWORD dwDmaSize;
-    DWORD dwDmaStatus;
 
     DEBUGMSG(ZONE_DMA, (L"+SPI_DmaWrite(0x%08x, 0x%08x, 0x%08x)\r\n", context, pBuffer, size));
 
@@ -852,12 +843,6 @@ DWORD SPI_DmaWrite(DWORD context, VOID *pBuffer, DWORD size)
             DmaInterruptDone(pInstance->hTxDmaChannel);
             goto cleanUp;
         }
-
-        // Get and clear the status
-        dwDmaStatus = DmaGetStatus(&pInstance->txDmaInfo);
-        DmaClearStatus(&pInstance->txDmaInfo, dwDmaStatus);
-
-        DEBUGMSG(ZONE_DMA, (L" SPI_DmaWrite: DMA Status = %x\r\n", dwDmaStatus));
 
         // Stop the DMA
         DmaInterruptDone(pInstance->hTxDmaChannel);
@@ -954,7 +939,6 @@ DWORD SPI_WaitForAsyncWriteReadComplete(
 {
     SPI_INSTANCE *pInstance = (SPI_INSTANCE*)context;
     SPI_DEVICE *pDevice;
-    DWORD dwDmaStatus;
 
     DEBUGMSG(ZONE_FUNCTION, (L"+SPI_WaitForAsyncWriteReadComplete(0x%08x)\r\n", context));
 
@@ -972,11 +956,6 @@ DWORD SPI_WaitForAsyncWriteReadComplete(
         DmaInterruptDone(pInstance->hRxDmaChannel);
         goto cleanUp;
     }
-    // Get and clear the status
-    dwDmaStatus = DmaGetStatus(&pInstance->rxDmaInfo);
-    DmaClearStatus(&pInstance->rxDmaInfo, dwDmaStatus);
-
-    DEBUGMSG(ZONE_DMA, (L" SPI_DmaRead: DMA Status = %x\r\n", dwDmaStatus));
 
     // Stop the DMA
     DmaInterruptDone(pInstance->hRxDmaChannel);
@@ -993,12 +972,6 @@ DWORD SPI_WaitForAsyncWriteReadComplete(
         DmaInterruptDone(pInstance->hTxDmaChannel);
         goto cleanUp;
     }
-
-    // Get and clear the status
-    dwDmaStatus = DmaGetStatus(&pInstance->txDmaInfo);
-    DmaClearStatus(&pInstance->txDmaInfo, dwDmaStatus);
-
-    DEBUGMSG(ZONE_DMA, (L" SPI_DmaWrite: DMA Status = %x\r\n", dwDmaStatus));
 
     DmaInterruptDone(pInstance->hTxDmaChannel);
     DmaStop(&pInstance->txDmaInfo);

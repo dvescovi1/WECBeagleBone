@@ -16,7 +16,7 @@
 //
 #include "edma_utility.h"
 
-
+//does not work!
 //------------------------------------------------------------------------------
 
 DmaConfigInfo_t TxDmaSettings = { 0x12345678 };
