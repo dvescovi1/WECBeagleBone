@@ -12,11 +12,6 @@ IF BSP_AM33X_UART1
     "MemBase"=multi_sz:"44E09000"
     "MemLen"=multi_sz:"00001000"
 	"PowerFlags"=dword:00000103			  ; send pre/post device state changes
-	"RxBuffer" = dword:2000
-	"TxDmaRequest"=dword:ffffffff         ; TxDma has issues after RX of break, disabled with ffffffff
-	"TxDmaBufferSize"=dword:2000          ; Size of DMA transmit buffer
-	"RxDmaRequest"=dword:ffffffff         ; S_DMA_49 RX DMA Request Line, use ffffffff to disable RX DMA
-	"RxDmaBufferSize"=dword:2000          ; Size of DMA receive buffer
 	"RtsCtsEnable"=dword:0                ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                      ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00             ; UART operation freq, 48000000
@@ -36,11 +31,6 @@ IF BSP_AM33X_UART2
     "MemBase"=multi_sz:"48022000"
     "MemLen"=multi_sz:"00001000"	
 	"PowerFlags"=dword:00000103         ; send pre/post device state changes
-	"RxBuffer" = dword:2000
-	"TxDmaRequest"=dword:ffffffff       ;
-	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
-	"RxDmaRequest"=dword:ffffffff       ;
-	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
@@ -59,11 +49,6 @@ IF BSP_AM33X_UART3
     "MemBase"=multi_sz:"48024000"
     "MemLen"=multi_sz:"00001000"		
 	"PowerFlags"=dword:00000103         ; send pre/post device state changes
-	"RxBuffer" = dword:2000
-	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
-	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
-	"RxDmaRequest"=dword:ffffffff       ;
-	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
@@ -82,11 +67,6 @@ IF BSP_AM33X_UART4
     "MemBase"=multi_sz:"481A6000"
     "MemLen"=multi_sz:"00001000"		
 	"PowerFlags"=dword:00000103         ; send pre/post device state changes
-	"RxBuffer" = dword:2000
-	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
-	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
-	"RxDmaRequest"=dword:ffffffff       ;
-	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
@@ -105,11 +85,6 @@ IF BSP_AM33X_UART5
     "MemBase"=multi_sz:"481A8000"
     "MemLen"=multi_sz:"00001000"		
 	"PowerFlags"=dword:00000103         ; send pre/post device state changes
-	"RxBuffer" = dword:2000
-	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
-	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
-	"RxDmaRequest"=dword:ffffffff       ;
-	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
@@ -128,11 +103,6 @@ IF BSP_AM33X_UART6
     "MemBase"=multi_sz:"481AA000"
     "MemLen"=multi_sz:"00001000"		
 	"PowerFlags"=dword:00000103         ; send pre/post device state changes
-	"RxBuffer" = dword:2000
-	"TxDmaRequest"=dword:ffffffff       ; TxDma has issues after RX of break, disabled with ffffffff
-	"TxDmaBufferSize"=dword:2000        ; Size of DMA transmit buffer
-	"RxDmaRequest"=dword:ffffffff       ;
-	"RxDmaBufferSize"=dword:2000        ; Size of DMA receive buffer
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
