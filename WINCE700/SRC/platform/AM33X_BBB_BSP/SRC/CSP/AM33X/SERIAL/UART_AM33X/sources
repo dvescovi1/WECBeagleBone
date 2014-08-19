@@ -9,9 +9,6 @@
 ;================================================================================
 !endif
 
-FILE_VIEW_ROOT_FOLDER=\
-	..\pdd_common.c
-	
 TARGETNAME=am33x_ti_uart
 TARGETTYPE=LIBRARY
 
@@ -20,6 +17,5 @@ CDEFINES=$(CDEFINES) -DUSE_NEW_SERIAL_MODEL
 INCLUDES=$(INCLUDES);..\COM_MDD2
 
 SOURCES= \
-    dma_init.c \
     pdd.c
     
