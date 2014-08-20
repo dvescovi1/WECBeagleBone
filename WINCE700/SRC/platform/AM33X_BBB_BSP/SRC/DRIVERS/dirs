@@ -1,12 +1,11 @@
 DIRS=\
+	SDBUS\
 	EMAC\
 	EDMA\
 	GPIO\
 	SPI\
 	I2C\
 	UART\
-	SDBUS\
-	SDHC\
 	USB\
 	DISPLAY\
 	TOUCH\
@@ -16,4 +15,5 @@ DIRS=\
 	KEYPAD\
 	NLED\
 	CEDDK\
+	SDHC\
 
