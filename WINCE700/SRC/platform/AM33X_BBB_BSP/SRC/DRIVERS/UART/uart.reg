@@ -3,6 +3,7 @@
 ;-- UART Driver -----------------------------------------------------------------
 
 IF BSP_AM33X_UART1
+;UART0
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART1]
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
@@ -22,6 +23,7 @@ IF BSP_AM33X_UART1
 ENDIF BSP_AM33X_UART1
 
 IF BSP_AM33X_UART2
+;UART1
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART2]
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
@@ -40,6 +42,7 @@ IF BSP_AM33X_UART2
 ENDIF BSP_AM33X_UART2
 
 IF BSP_AM33X_UART3
+;UART2
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART3]
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
@@ -58,6 +61,7 @@ IF BSP_AM33X_UART3
 ENDIF BSP_AM33X_UART3
 
 IF BSP_AM33X_UART4
+;UART3
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART4]
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
@@ -76,6 +80,7 @@ IF BSP_AM33X_UART4
 ENDIF BSP_AM33X_UART4
 
 IF BSP_AM33X_UART5
+;UART4
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART5]
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
@@ -94,6 +99,7 @@ IF BSP_AM33X_UART5
 ENDIF BSP_AM33X_UART5
 
 IF BSP_AM33X_UART6
+;UART5
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\UART6]
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
