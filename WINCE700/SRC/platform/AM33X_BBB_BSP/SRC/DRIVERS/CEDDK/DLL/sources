@@ -18,9 +18,6 @@ TARGETTYPE=DYNLINK
 DEFFILE=ceddk.def
 DLLENTRY=_DllMainCRTStartup
 
-LINK_CONUSMES=EDMA
-
-
 SOURCES= \
     temp.cpp \
     gpio.cpp \
