@@ -32,6 +32,7 @@ const PAD_INFO MCASP1Pads[] =			{MCASP1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO UART0Pads[]  =			{UART0_PADS END_OF_PAD_ARRAY};
 const PAD_INFO UART1Pads[]  =			{UART1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO UART2Pads[]  =			{UART2_PADS END_OF_PAD_ARRAY};
+const PAD_INFO UART4Pads[]  =			{UART4_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MMC0Pads[] =				{MMC0_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MMC1Pads[] =				{MMC1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO MMC2Pads[] =				{MMC2_PADS END_OF_PAD_ARRAY};
@@ -57,6 +58,7 @@ const PIN_MUX BB_BOARD_PIN_MUX[] = {
     { UART0Pads,            AM_DEVICE_UART0,        PROFILE_0,                                      DEV_ON_BASEBOARD},
     { UART1Pads,            AM_DEVICE_UART1,        PROFILE_0,                                      DEV_ON_BASEBOARD},
     { UART2Pads,            AM_DEVICE_UART2,        PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { UART4Pads,            AM_DEVICE_UART4,        PROFILE_0,                                      DEV_ON_BASEBOARD},
     { LCDCPads,             AM_DEVICE_LCDC,         PROFILE_1 | PROFILE_2,                          DEV_ON_BASEBOARD},    
     { ADCTSCPads,           AM_DEVICE_ADC_TSC,      PROFILE_0,                                      DEV_ON_BASEBOARD},
     { FRAMERPads,           AM_DEVICE_FRAMER,       PROFILE_1,                                      DEV_ON_BASEBOARD},

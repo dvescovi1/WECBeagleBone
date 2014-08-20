@@ -325,6 +325,10 @@ typedef struct {
 	PAD_ENTRY(SPI0_SCLK,        (MODE(1) | PULLUP_EN | RXACTIVE))	/* UART2_RXD */ \
 	PAD_ENTRY(SPI0_D0,          (MODE(1) | PULLUDEN))				/* UART2_TXD */ \
 
+#define UART4_PADS   \
+	PAD_ENTRY(GPMC_WAIT0,       (MODE(6) | PULLUP_EN | RXACTIVE))	/* UART4_RXD */ \
+	PAD_ENTRY(GPMC_WPN,         (MODE(6) | PULLUDEN))				/* UART4_TXD */ \
+
 #define USB0_PADS   \
     PAD_ENTRY(USB0_DRVVBUS,    MODE(0) | AM335X_PIN_OUTPUT)         \
 

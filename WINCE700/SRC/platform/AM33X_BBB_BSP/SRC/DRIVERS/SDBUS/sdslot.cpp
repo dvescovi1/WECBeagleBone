@@ -69,9 +69,8 @@ BOOL CSDBusReqAsyncQueue::Detach()
             pCur->DeRef();
             pCur = pNext;
         }
-        m_pQueueListLast = m_pQueueListHead = NULL ;;
+        m_pQueueListLast = m_pQueueListHead = NULL ;
         Unlock();
-
     }
     return TRUE;
 }
@@ -144,6 +143,7 @@ SD_API_STATUS CSDBusReqAsyncQueue::QueueBusRequest(CSDBusRequest * pRequest)
 
     return status;
 };
+
 CSDBusRequest * CSDBusReqAsyncQueue::CompleteRequest(CSDBusRequest * pRequest,SD_API_STATUS Status)
 {
     CSDBusRequest * pReturn = NULL;
@@ -391,7 +391,7 @@ CSDDevice * CSDSlot::RemoveDevice(DWORD dwIndex )
     }
     return pReturn;
 }
-CSDDevice * CSDSlot::InsertDevice(DWORD dwIndex,CSDDevice * pObject)
+CSDDevice * CSDSlot::InsertDevice(DWORD dwIndex, CSDDevice * pObject)
 {
     CSDDevice*  pReturn = NULL;
     if( pObject )
@@ -653,14 +653,18 @@ SD_API_STATUS CSDSlot::EnumMultiFunction(CSDDevice& psdDevice0,DWORD dwNumOfFunc
         return SD_API_STATUS_SUCCESS;
     }
 }
+
 SD_API_STATUS CSDSlot::CreateChildDevice(SDCARD_DEVICE_TYPE sdCard_DeviceType, DWORD dwFunctionIndex, CSDDevice& psdDevice0)
 {
     SD_API_STATUS status = SD_API_STATUS_INVALID_PARAMETER;
     CSDDevice*  pNewDevice = new CSDDevice(dwFunctionIndex,*this);
-    if (pNewDevice && pNewDevice->Init() && InsertDevice(dwFunctionIndex, pNewDevice)) {
+    if (pNewDevice && pNewDevice->Init() && InsertDevice(dwFunctionIndex, pNewDevice)) 
+    {
         CSDDevice * psdDevice = GetFunctionDevice(dwFunctionIndex);
-        if (psdDevice) {
-            if (m_SdHost.IsAttached()) {
+        if (psdDevice) 
+        {
+            if (m_SdHost.IsAttached()) 
+            {
                 psdDevice->Attach();
                 psdDevice->CopyContentFromParent(psdDevice0);
                 psdDevice->SetDeviceType(sdCard_DeviceType);
@@ -668,9 +672,9 @@ SD_API_STATUS CSDSlot::CreateChildDevice(SDCARD_DEVICE_TYPE sdCard_DeviceType, D
             psdDevice->DeRef();
             status = SD_API_STATUS_SUCCESS ;
         }
-
     }
-    else {
+    else
+    {
         ASSERT(FALSE);
         if (pNewDevice)
             delete pNewDevice;
@@ -679,6 +683,7 @@ SD_API_STATUS CSDSlot::CreateChildDevice(SDCARD_DEVICE_TYPE sdCard_DeviceType, D
     ASSERT(SD_API_SUCCESS(status));
     return status;
 }
+
 BOOL    CSDSlot::CancelRequestFromHC(CSDBusRequest * pRequest)
 {
     BOOL fRetrun = FALSE;
@@ -695,7 +700,9 @@ BOOL    CSDSlot::CompleteRequestFromHC(CSDBusRequest * pRequest,SD_API_STATUS st
     BOOL fRetrun = FALSE;
     m_SdHost.SDHCAccessLock();
     DEBUGMSG(SDCARD_ZONE_0,(TEXT("CompleteRequestFromHC(%x,%x)\n"),pRequest,status));
-    if ( m_curHCOwned && pRequest == m_curHCOwned) {
+    if (m_curHCOwned && 
+        pRequest == m_curHCOwned) 
+    {
         m_curHCOwned = NULL;
         m_lcurHCLockCount = 0 ;
         CompleteRequest(pRequest, status );
@@ -825,7 +832,7 @@ SD_API_STATUS CSDSlot::SDSetCardInterfaceForSlot(PSD_CARD_INTERFACE_EX pSetting)
 
     origClockSetting = pSetting->ClockRate;
 
-    status = m_SdHost.SlotSetupInterface(m_dwSlotIndex,pSetting);
+    status = m_SdHost.SlotSetupInterface(m_dwSlotIndex, pSetting);
 
     if (SD_API_SUCCESS(status)) {
         if (origClockSetting != pSetting->ClockRate){
@@ -995,13 +1002,14 @@ BOOL CSDSlot::SDSlotDisableSDIOInterrupts()
     m_SlotLock.Unlock();
     return fRet;
 }
+
 BOOL CSDSlot::HandleSlotSelectDeselect(SD_SLOT_EVENT SlotEvent)
 {
     SD_API_STATUS          status = SD_API_STATUS_SUCCESS;
     SD_CARD_INTERFACE_EX   CurrentSlotInterface;
 
-
     DbgPrintZo(SDBUS_ZONE_DEVICE, (TEXT("CSDSlot: HandleSlotSelectDeselect++: %d \n"),SlotEvent));
+    
     // Deselect the card
     if (m_SlotState != SlotDeselected &&
             (SlotEvent == SlotResetRequest || SlotEvent == SlotDeselectRequest)) {
@@ -1009,7 +1017,8 @@ BOOL CSDSlot::HandleSlotSelectDeselect(SD_SLOT_EVENT SlotEvent)
         // Update RCA for all devices, start from parent device
         for (DWORD dwIndex=0; dwIndex <= SD_MAXIMUM_DEVICE_PER_SLOT && SD_API_SUCCESS(status); dwIndex++) {
             CSDDevice * pCurrentDevice = GetFunctionDevice(dwIndex);
-            if (pCurrentDevice != NULL) {
+            if (pCurrentDevice != NULL) 
+            {
                 status = pCurrentDevice->HandleDeviceSelectDeselect(SlotEvent, FALSE);
                 if (SD_API_SUCCESS(status)) {
                     pCurrentDevice->NotifyClient(SDCardDeselected);
@@ -1073,7 +1082,6 @@ BOOL CSDSlot::HandleSlotSelectDeselect(SD_SLOT_EVENT SlotEvent)
                     pDevice->NotifyClient(SDCardSelected);
                     pDevice->DeRef();
                 }
-
             }
         }
     }
@@ -1081,7 +1089,6 @@ BOOL CSDSlot::HandleSlotSelectDeselect(SD_SLOT_EVENT SlotEvent)
     DbgPrintZo(SDBUS_ZONE_DEVICE, (TEXT("SDBusDriver: HandleSlotSelectDeselect--status =%X\n"),status));
     return (SD_API_SUCCESS(status));
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 //  SwitchtoHighSpeed - Switch the card to high speed mode
