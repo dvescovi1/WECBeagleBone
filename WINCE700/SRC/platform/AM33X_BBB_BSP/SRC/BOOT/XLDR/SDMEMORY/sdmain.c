@@ -106,7 +106,7 @@ VOID XLDRMain()
     
     /* hard coded to AM33x, run time detection can be added later */
     gCPU_family = CPU_FAMILY_AM33X;
-    ProcessorName = L"33X";
+    ProcessorName = L"AM33X";
 
 	// Initialize debug serial output
     XLDRMSGINIT;
