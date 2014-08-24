@@ -17,6 +17,7 @@
 
 #include "SDHC.h"
 #include "SDHCRegs.h"
+#include "am33x_config.h"
 
 // BusIoControl definition is not correct, unused parameters may be NULL/0
 #pragma warning (disable: 6309)
@@ -1247,6 +1248,8 @@ BOOL CSDIOControllerBase::Init( LPCTSTR pszActiveKey )
     
 	m_dwDeviceID = SOCGetSDHCDeviceBySlot(m_dwSlot);
 	
+    ReleaseDevicePads(m_dwDeviceID);
+
     if (!RequestDevicePads(m_dwDeviceID))
     {
 	    ERRORMSG(1, (_T("SDHCInitialize:: Error requesting pads  id %d\r\n"),m_dwDeviceID));
@@ -1254,17 +1257,35 @@ BOOL CSDIOControllerBase::Init( LPCTSTR pszActiveKey )
         goto cleanUp;
     }
 
-    // map hardware memory space
-    PortAddress.QuadPart = GetAddressByDevice(m_dwDeviceID);
-    m_pbRegisters = (AM33X_MMCHS_REGS *)MmMapIoSpace(PortAddress, sizeof(AM33X_MMCHS_REGS), FALSE );
-    if ( !m_pbRegisters )
-    {
-        ERRORMSG(1, (_T("SDHCInitialize:: Error allocating SDHC controller register\r\n")));
-        status = SD_API_STATUS_INSUFFICIENT_RESOURCES;
-        goto cleanUp;
-    }
+	// map hardware memory space
+	PortAddress.QuadPart = GetAddressByDevice(m_dwDeviceID);
+	m_pbRegisters = (AM33X_MMCHS_REGS *)MmMapIoSpace(PortAddress, sizeof(AM33X_MMCHS_REGS), FALSE );
+	if ( !m_pbRegisters )
+	{
+		ERRORMSG(1, (_T("SDHCInitialize:: Error allocating SDHC controller register\r\n")));
+		status = SD_API_STATUS_INSUFFICIENT_RESOURCES;
+		goto cleanUp;
+	}
 
-    // turn power and system clocks on
+	if (MMCSLOT_3 == m_dwSlot)
+	{
+		DWORD temp = 0;
+		AM33X_SYSC_INTR_DMA_MUX_REGS    *pSys = NULL;
+		PortAddress.QuadPart = AM33X_SYSC_INTR_DMA_MUX_REGS_PA;
+		pSys = (AM33X_SYSC_INTR_DMA_MUX_REGS *)MmMapIoSpace(PortAddress, sizeof(AM33X_SYSC_INTR_DMA_MUX_REGS), FALSE);
+		if ( !pSys ) 
+		{
+			ERRORMSG(1, (_T("SDHCInitialize:: Error allocating AM33X_SYSC_INTR_DMA_MUX_REGS register\r\n")));
+			status = SD_API_STATUS_INSUFFICIENT_RESOURCES;
+			goto cleanUp;
+		}
+
+		temp = INREG32(&pSys->TPCC_EVTMUX_32_35) & 0xFFFF0000;
+//		OUTREG32(&pSys->TPCC_EVTMUX_32_35, 0x00000201 | temp);	// map crossbar event 1,2 (MMC3 tx and rx) to DMA channel 32 and 33
+		OUTREG32(&pSys->TPCC_EVTMUX_32_35, (EDMA_XBAR_SDTXEVT2 | EDMA_XBAR_SDRXEVT2<<8) | temp);	// map crossbar event 1,2 (MMC3 tx and rx) to DMA channel 32 and 33
+	}
+	
+	// turn power and system clocks on
     TurnCardPowerOn();
     if( !InitializeHardware() )
     {
@@ -3212,10 +3233,13 @@ SD_API_STATUS CSDIOControllerBase::SDHCSlotOptionHandlerImpl(
 
             // SDIO 1 bit or 4 bit.
             if (!m_Sdio4BitDisable)
-                dwSlotCapabilities |= SD_SLOT_SD_4BIT_CAPABLE;
+                dwSlotCapabilities |= SD_SLOT_SDIO_4BIT_CAPABLE;
   
             if (!m_SdMem4BitDisable)
                 dwSlotCapabilities |= SD_SLOT_SDMEM_4BIT_CAPABLE;
+
+			if (!m_SdMem4BitDisable || !m_Sdio4BitDisable)
+                dwSlotCapabilities |= SD_SLOT_SD_4BIT_CAPABLE;
   
             if (m_dwMMC8BitMode != FALSE)
                dwSlotCapabilities |= SD_SLOT_MMC_8BIT_CAPABLE;

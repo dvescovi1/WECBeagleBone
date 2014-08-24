@@ -8,7 +8,7 @@
 #include <devload.h>
 #include <nkintr.h>
 #include <windev.h>
-#include "am389x_edma.h"
+#include "am33x_edma.h"
 #include "edma3_dev.h"
 
 #define EDMA_ALWAYS_ON 
@@ -303,7 +303,7 @@ static BOOL EDMAInitHardware(unsigned int instanceId)
     physicalAddress.HighPart = 0;
     physicalAddress.LowPart  = (DWORD)pGlobalConfig->globalRegs;
     pGlobalConfig->globalRegs = (PEDMACCREGS)MmMapIoSpace(
-        physicalAddress, sizeof(AM389X_EDMACC_REGS), FALSE);
+        physicalAddress, sizeof(AM33X_EDMACC_REGS), FALSE);
     if (!pGlobalConfig->globalRegs)
     {
         ERRORMSG(TRUE, (_T("EDMA: EDMAInitHardware: Unable to map memory region.\r\n")));
@@ -312,7 +312,7 @@ static BOOL EDMAInitHardware(unsigned int instanceId)
 
     PRINTMSG(ZONE_INIT,(_T("EDMA: EDMAInitHardware: CCREGS Phys 0x%X Mapped to 0x%X Size 0x%X\r\n"),
                         physicalAddress.LowPart, pGlobalConfig->globalRegs,
-                        sizeof (AM389X_EDMACC_REGS) ));
+                        sizeof (AM33X_EDMACC_REGS) ));
 
     PRINTMSG(ZONE_INIT,(_T("EDMA: PID 0x%X \r\n"), 
                          ((PEDMACCREGS)pGlobalConfig->globalRegs)->REV
@@ -324,7 +324,7 @@ static BOOL EDMAInitHardware(unsigned int instanceId)
         physicalAddress.HighPart = 0;
         physicalAddress.LowPart = (DWORD)pGlobalConfig->tcRegs[i];
         pGlobalConfig->tcRegs[i] = (PEDMATCREGS)MmMapIoSpace(
-            physicalAddress, sizeof(AM389X_EDMATC_REGS), FALSE);
+            physicalAddress, sizeof(AM33X_EDMATC_REGS), FALSE);
         if (!pGlobalConfig->tcRegs[i])
         {
             ERRORMSG(TRUE,(_T("EDMA: EDMAInitHardware: Unable to map TC%d memory region.\r\n"), i));
@@ -333,7 +333,7 @@ static BOOL EDMAInitHardware(unsigned int instanceId)
 
         PRINTMSG(ZONE_INIT,(_T("EDMA: EDMAInitHardware: TC%d REGS Phys 0x%X Mapped to 0x%X Size 0x%X\r\n"),
                             i, physicalAddress.LowPart, pGlobalConfig->tcRegs[i],
-                            sizeof(AM389X_EDMATC_REGS)));
+                            sizeof(AM33X_EDMATC_REGS)));
     }
 
     rc = TRUE;
@@ -716,13 +716,13 @@ static void EDMACleanup(unsigned int instanceId)
 
     if (pGlobalConfig->globalRegs != NULL)
     {
-        MmUnmapIoSpace(pGlobalConfig->globalRegs, sizeof(AM389X_EDMACC_REGS));
+        MmUnmapIoSpace(pGlobalConfig->globalRegs, sizeof(AM33X_EDMACC_REGS));
     }
     for (i = 0; i < (int)pGlobalConfig->numTcs; ++i)
     {
         if (pGlobalConfig->tcRegs[i] != NULL)
         {
-            MmUnmapIoSpace(pGlobalConfig->tcRegs[i], sizeof(AM389X_EDMATC_REGS));
+            MmUnmapIoSpace(pGlobalConfig->tcRegs[i], sizeof(AM33X_EDMATC_REGS));
         }
     }
 

@@ -105,10 +105,10 @@ IF BSP_SDHC3
     "FastPath_SDMEM"=dword:0		; Fast Path Enabled for SD Mem
     "FastPath_SDIO"=dword:1		    ; Fast Path Enabled for SDIO
     
-    "Sdio4BitDisable"=dword:0		; 1 if SDIO cards must use 1 bit data path, 0 for 4 bit data path
-    "SdMem4BitDisable"=dword:0		; 1 if SD Memory cards must use 1 bit data path, 0 for 4 bit data path
+    "Sdio4BitDisable"=dword:1		; 1 if SDIO cards must use 1 bit data path, 0 for 4 bit data path
+    "SdMem4BitDisable"=dword:1		; 1 if SD Memory cards must use 1 bit data path, 0 for 4 bit data path
 
-    "DmaEnable"=dword:0				; 1 to enable TX/RX DMA
+    "DmaEnable"=dword:1				; 1 to enable TX/RX DMA
 
     ; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID, PMCLASS_PMEXT_GUID   
     "IClass"=multi_sz:"{A32942B7-920C-486b-B0E6-92A702A99B35}",

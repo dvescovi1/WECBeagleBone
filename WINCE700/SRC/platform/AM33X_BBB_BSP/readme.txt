@@ -42,10 +42,15 @@ Copyright (c) 2014 David Vescovi
 	-Corrected I2C proxy registry settings
 	-Corrected SPI
 
+01.11.00	23-AUG-2014
+	-UART4 support
+	-EDMA cleanup
+	-SDHC3 support
+	-Tests cleanup
 
 
 NOTE: The same image file set (MLO, EBOOTSD.NB0 and NK.BIN) works on the BeagleBone White and Black as executed from a uSD card
 or the BeagleBone Black executed from ether a 2Gb or 4Gb eMMC. 
-Unlike other BSPs there is no need build separate images or keep track of several file sets based on which device you are booting from!
+Unlike other BSPs there is no need to build separate images or keep track of several file sets based on which device you are booting from!
 
 David Vescovi

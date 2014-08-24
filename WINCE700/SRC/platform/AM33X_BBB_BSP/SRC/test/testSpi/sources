@@ -1,5 +1,7 @@
-# All rights reserved ADENEO EMBEDDED 2010
-# All rights reserved TEXAS INSTRUMENTS Inc 2011
+!IF "$(BSP_TEST)" == ""
+SKIPBUILD=1
+!ENDIF
+
 TARGETNAME=testSpi
 FILE_VIEW_ROOT_FOLDER= \
     StdAfx.cpp \

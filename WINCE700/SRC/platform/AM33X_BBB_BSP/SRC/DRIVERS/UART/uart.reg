@@ -28,7 +28,9 @@ IF BSP_AM33X_UART2
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
 	"DeviceArrayIndex"=dword:2
-	"Index"=dword:2
+;	"Index"=dword:2
+; BBB COM1
+	"Index"=dword:1
 	"Order"=dword:9
     "MemBase"=multi_sz:"48022000"
     "MemLen"=multi_sz:"00001000"	
@@ -47,7 +49,9 @@ IF BSP_AM33X_UART3
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
 	"DeviceArrayIndex"=dword:3
-	"Index"=dword:3
+;	"Index"=dword:3
+; BBB COM2
+	"Index"=dword:2
 	"Order"=dword:9
     "MemBase"=multi_sz:"48024000"
     "MemLen"=multi_sz:"00001000"		
@@ -85,7 +89,9 @@ IF BSP_AM33X_UART5
 	"Prefix"="COM"
 	"Dll"="am33x_uart.dll"
 	"DeviceArrayIndex"=dword:5
-	"Index"=dword:5
+;	"Index"=dword:5
+; BBB COM4
+	"Index"=dword:4
 	"Order"=dword:9
     "MemBase"=multi_sz:"481A8000"
     "MemLen"=multi_sz:"00001000"		

@@ -9,16 +9,16 @@
 ;
 ;================================================================================
 ;
+	Tux_I2C\
+	Tux_SPI\
+	testNAND\
 !endif
 
 DIRS=\
-	testSerial\
-	testI2c\
-	Tux_I2C\
-	Tux_SPI\
-	APPS\
-	DRIVERS\
-	testSpi\
-        testNAND\
 	PMTEST\
+	DRIVERS\
+	APPS\
+	testI2c\
+	testSpi\
+	testSerial\
 

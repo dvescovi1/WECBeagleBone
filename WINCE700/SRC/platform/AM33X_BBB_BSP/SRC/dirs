@@ -6,4 +6,5 @@ DIRS=\
 	BOOT\
 	KITL\
 	APP\
+	TEST\
 

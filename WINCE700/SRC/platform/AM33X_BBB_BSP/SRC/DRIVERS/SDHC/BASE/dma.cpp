@@ -88,12 +88,10 @@ DmaConfigInfo_t TxDmaSettings = {
     //   DMA_SYNCH_TRIGGER_DST  : dma to synchronize on destination
     //   DMA_SYNCH_TRIGGER_SRC  : dma to synchronize on source
     //
-#ifdef BSP_EDMA    
-    DMA_SYNCH_TRIGGER_DST,
-#else
-    DMA_SYNCH_TRIGGER_NONE,
-#endif
-    // synch mode
+
+	DMA_SYNCH_TRIGGER_DST,
+
+	// synch mode
     // valid values are
     //   DMA_SYNCH_NONE         : no synch mode
     //   DMA_SYNCH_FRAME        : write/read entire frames
@@ -114,7 +112,12 @@ DmaConfigInfo_t TxDmaSettings = {
     //   DMA_CICR_SUPERVISOR_ERR_IE
     //   DMA_CICR_SECURE_ERR_IE
     //   DMA_CICR_TRANS_ERR_IE
-    0 //DMA_CICR_FRAME_IE
+    0,
+
+	// sync map
+    // dma synchronization signal
+    //
+    0
 
 };
 
@@ -209,7 +212,12 @@ DmaConfigInfo_t RxDmaSettings = {
     //   DMA_CICR_SUPERVISOR_ERR_IE
     //   DMA_CICR_SECURE_ERR_IE
     //   DMA_CICR_TRANS_ERR_IE
-    0 //DMA_CICR_FRAME_IE
+    0,
+
+	// sync map
+    // dma synchronization signal
+    //
+    0
 
 };
 
@@ -323,19 +331,19 @@ void CSDIOControllerBase::SDIO_InitInputDMA(DWORD dwBlkCnt, DWORD dwBlkSize)
     DWORD dwChannel, dwAddr;
     if ( m_dwSlot == MMCSLOT_1 ) 
     {
-      dwChannel = SDMA_REQ_MMC1_RX;
+      dwChannel = EDMA_REQ_MMC1_RX;
       dwAddr = SDIO_INPUT_DMA_SOURCE1;
     }
     else if ( m_dwSlot == MMCSLOT_2 ) 
     {
-      dwChannel = SDMA_REQ_MMC2_RX;
+      dwChannel = EDMA_REQ_MMC2_RX;
       dwAddr = SDIO_INPUT_DMA_SOURCE2;
     }
-    //else if ( m_dwSlot == MMCSLOT_3 ) 
-    //{
-    //  dwChannel = SDMA_REQ_MMC3_RX;
-    //  dwAddr = SDIO_INPUT_DMA_SOURCE3;
-    //}
+    else if ( m_dwSlot == MMCSLOT_3 ) 
+    {
+      dwChannel = EDMA_REQ_MMC3_RX;
+      dwAddr = SDIO_INPUT_DMA_SOURCE3;
+    }
     else
     {
         ASSERT(0);
@@ -398,19 +406,19 @@ void CSDIOControllerBase::SDIO_InitOutputDMA(DWORD dwBlkCnt, DWORD dwBlkSize)
     DWORD dwChannel, dwAddr;
     if ( m_dwSlot == MMCSLOT_1 ) 
     {
-      dwChannel = SDMA_REQ_MMC1_TX;
+      dwChannel = EDMA_REQ_MMC1_TX;
       dwAddr = SDIO_OUTPUT_DMA_DEST1;
     }
     else if ( m_dwSlot == MMCSLOT_2 ) 
     {
-      dwChannel = SDMA_REQ_MMC2_TX;
+      dwChannel = EDMA_REQ_MMC2_TX;
       dwAddr = SDIO_OUTPUT_DMA_DEST2;
     }
-    //else if ( m_dwSlot == MMCSLOT_3 ) 
-    //{
-    //  dwChannel = SDMA_REQ_MMC3_TX;
-    //  dwAddr = SDIO_OUTPUT_DMA_DEST3;
-    //}
+    else if ( m_dwSlot == MMCSLOT_3 ) 
+    {
+      dwChannel = EDMA_REQ_MMC3_TX;
+      dwAddr = SDIO_OUTPUT_DMA_DEST3;
+    }
     else return;
     
     DmaConfigure (m_hTxDmaChannel,

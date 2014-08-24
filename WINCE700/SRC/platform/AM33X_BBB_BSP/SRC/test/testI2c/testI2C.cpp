@@ -66,7 +66,6 @@ BOOL InI2C(ULONG argc, LPWSTR args[])
     TCHAR const szI2C1[] = _T("I2C1:");
     TCHAR const szI2C2[] = _T("I2C2:");
     TCHAR const szI2C3[] = _T("I2C3:");
-    TCHAR const szI2C4[] = _T("I2C4:");
 
     TCHAR const *szI2C;
     int i2cIndex;
@@ -89,9 +88,8 @@ BOOL InI2C(ULONG argc, LPWSTR args[])
         case 1:szI2C = szI2C1;break;
         case 2:szI2C = szI2C2;break;
         case 3:szI2C = szI2C3;break;
-        case 4:szI2C = szI2C4;break;
         default:
-            _tprintf(L"Invalid i2c identifier, must be 1 or 2!\r\n");
+            _tprintf(L"Invalid i2c identifier, must be 1,2 or 3!\r\n");
             goto cleanUp;
     }
 
@@ -155,7 +153,6 @@ BOOL OutI2C(ULONG argc, LPWSTR args[])
     TCHAR const szI2C1[] = _T("I2C1:");
     TCHAR const szI2C2[] = _T("I2C2:");
     TCHAR const szI2C3[] = _T("I2C3:");
-    TCHAR const szI2C4[] = _T("I2C4:");
 
     TCHAR const *szI2C;
     int i2cIndex;
@@ -174,9 +171,8 @@ BOOL OutI2C(ULONG argc, LPWSTR args[])
         case 1: szI2C = szI2C1;break;
         case 2: szI2C = szI2C2;break;
         case 3: szI2C = szI2C3;break;
-        case 4: szI2C = szI2C4;break;
         default:
-            _tprintf(L"Invalid i2c identifier, must be 1 or 2!\r\n");
+            _tprintf(L"Invalid i2c identifier, must be 1,2 or 3!\r\n");
             goto cleanUp;
         }
 
@@ -215,8 +211,6 @@ BOOL OutI2CExt(UINT inx, UINT32 address, ULONG argc, LPWSTR args[])
     BOOL rc = FALSE;
     TCHAR const szI2C1[] = _T("I2C1:");
     TCHAR const szI2C2[] = _T("I2C2:");
-    TCHAR const szI2C3[] = _T("I2C3:");
-    TCHAR const szI2C4[] = _T("I2C4:");
 
     TCHAR const *szI2C;
     UINT32 data;

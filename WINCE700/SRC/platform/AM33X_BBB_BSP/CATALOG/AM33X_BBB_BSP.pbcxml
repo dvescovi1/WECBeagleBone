@@ -16,6 +16,7 @@
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmcspi2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xuart2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xuart3</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xuart5</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:Ndiscpsw3g</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xLCDC</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xDisplayNOP</BspItemId>
@@ -25,6 +26,7 @@
     <BspItemId>AM33x_BBB:Texas Instruments:omapnled</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xsdhc1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xsdhc2</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xsdhc3</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xsdMemory</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xsdeMMC</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:amWatchdogTimebomb</BspItemId>
@@ -56,7 +58,7 @@
     <Location>Drivers\SPI</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xuart2">
-    <Title>COM2 driver (UART1)</Title>
+    <Title>COM1 driver (UART1)</Title>
     <Comment />
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_UART2</Variable>
@@ -64,10 +66,17 @@
     <Location>Drivers\UART</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xuart3">
-    <Title>COM3 driver (UART2)</Title>
+    <Title>COM2 driver (UART2)</Title>
     <Comment />
     <Type>BspSpecific</Type>
     <Variable>BSP_AM33X_UART3</Variable>
+    <Module>am33x_uart.dll</Module>
+    <Location>Drivers\UART</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xuart5">
+    <Title>COM4 driver (UART4)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_UART5</Variable>
     <Module>am33x_uart.dll</Module>
     <Location>Drivers\UART</Location>
   </Item>
@@ -161,6 +170,15 @@
     <Type>BspSpecific</Type>
     <Variable>BSP_SDHC</Variable>
     <Variable>BSP_SDHC2</Variable>
+    <Variable>BSP_EDMA</Variable>
+    <Module>am33x_sdhc.dll</Module>
+    <Location>Drivers\SDHC</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xsdhc3">
+    <Title>SHC3 MMC/SD driver (MMC2)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_SDHC</Variable>
+    <Variable>BSP_SDHC3</Variable>
     <Variable>BSP_EDMA</Variable>
     <Module>am33x_sdhc.dll</Module>
     <Location>Drivers\SDHC</Location>
