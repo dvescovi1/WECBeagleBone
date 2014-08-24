@@ -239,9 +239,7 @@ BOOL OEMGetRealTime(SYSTEMTIME *pSystemTime)
 
 //------------------------------------------------------------------------------
 BOOL OEMSetRealTime( SYSTEMTIME *pSystemTime ) 
-//  This function is called by the kernel to set the real-time clock. A secure
-//  timer requirement means that the time change is noted in baseOffset and
-//  used to compute the time delta from the non-alterable RTC in T2
+//  This function is called by the kernel to set the real-time clock.
 {
     BOOL fResult = RTC_SetTime(pSystemTime);
 

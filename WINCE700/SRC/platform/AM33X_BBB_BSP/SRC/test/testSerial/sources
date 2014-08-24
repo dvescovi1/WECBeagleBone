@@ -1,4 +1,7 @@
-# All rights reserved ADENEO EMBEDDED 2010
+!IF "$(BSP_TEST)" == ""
+SKIPBUILD=1
+!ENDIF
+
 TARGETNAME=testSerial
 FILE_VIEW_ROOT_FOLDER= \
     StdAfx.cpp \

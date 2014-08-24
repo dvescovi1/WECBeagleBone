@@ -1,5 +1,5 @@
 /*
- * edma3_am389x_cfg.c
+ * edma3_am33x_cfg.c
  *
  * EDMA3 Resource Manager Adaptation Configuration File (SoC Specific).
  *
@@ -55,20 +55,11 @@
  * To allocate more DMA channels or TCCs, one has to modify the event mapping.
  */
 /* EDMA3 0 */
- 												/* 31     0 */
+												/* 31     0 */
 #define DMA_CHANNEL_TO_EVENT_MAPPING_0_0		(0xFFFFFFFFu)
-/**
- * EDMA channels 22 and 23, which correspond to GPIO
- * bank interrupts will be used for memory-to-memory data transfers.
- */
-
 /* EDMA3 1 */
  												/* 31     0 */
 #define DMA_CHANNEL_TO_EVENT_MAPPING_1_0		(0x0u)
-/**
- * EDMA channels 19-23, 30 & 31, which donot correspond to any
- * peripheral will be used for memory-to-memory data transfers.
- */
 
 /**
  * \brief Mapping of DMA channels 32-63 to Hardware Events from
@@ -84,10 +75,11 @@
  *
  * To allocate more DMA channels or TCCs, one has to modify the event mapping.
  */
-/* DMA channels 32-63 DOES NOT exist in C6748. */
 /* EDMA3 0 */
-#define DMA_CHANNEL_TO_EVENT_MAPPING_0_1		(0x003FFFFFu)
+												/* 63     32 */
+#define DMA_CHANNEL_TO_EVENT_MAPPING_0_1		(0xFFFFFFFFu)
 /* EDMA3 1 */
+ 												/* 63     32 */
 #define DMA_CHANNEL_TO_EVENT_MAPPING_1_1		(0x0u)
 
 
@@ -102,11 +94,11 @@ EDMA3_RM_GblConfigParams edma3GblCfgParams [EDMA3_MAX_EDMA3_INSTANCES] =
     /** Total number of TCCs supported by the EDMA3 Controller */
     64u,
     /** Total number of PaRAM Sets supported by the EDMA3 Controller */
-    512u,
+    256u,
     /** Total number of Event Queues in the EDMA3 Controller */
-    4u,
+    3u,
     /** Total number of Transfer Controllers (TCs) in the EDMA3 Controller */
-    4u,
+    3u,
     /** Number of Regions on this EDMA3 controller */
     8u,
 
@@ -129,11 +121,10 @@ EDMA3_RM_GblConfigParams edma3GblCfgParams [EDMA3_MAX_EDMA3_INSTANCES] =
         (void *)(0x49800000u),
         (void *)(0x49900000u),
         (void *)(0x49A00000u),
-        (void *)(0x49B00000u)
         },
 	{1000, 1000, 1000, 1000}, // to generate an ERROR
     /** Interrupt no. for Transfer Completion */
-    71u,
+    12u,
     /** Interrupt no. for CC Error */
     72u,
     /** Interrupt no. for TCs Error */
@@ -223,9 +214,9 @@ EDMA3_RM_GblConfigParams edma3GblCfgParams [EDMA3_MAX_EDMA3_INSTANCES] =
         40u, 41u, 42u, 43u,
         44u, 45u, 46u, 47u,
         48u, 49u, 50u, 51u,
-        52u, 53u, EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP,
-        EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP,
-        EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP, EDMA3_RM_CH_NO_TCC_MAP
+        52u, 53u, 54u, 55u,
+        56u, 57u, 58u, 59u,
+        60u, 61u, 62u, 63u
         },
 
     /**

@@ -14,7 +14,7 @@ CDEFINES = $(CDEFINES) -DEDMA_INTERNAL_BUILD
 
 SOURCES= \
     edma3_dev.c \
-    edma3_am389x_cfg.c \
+    edma3_am33x_cfg.c \
     edma3_drv_adv.c \
     edma3_drv_basic.c \
     edma3_drv_init.c \

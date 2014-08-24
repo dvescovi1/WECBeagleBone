@@ -230,9 +230,9 @@ void testSPI(ULONG argc, LPWSTR args[])
     len    = 1;
     data   = 0x9F;
 
-    hSPI = SPIOpen(_T("SPI1:"));
+    hSPI = SPIOpen(_T("SPI2:"));
     if (hSPI == INVALID_HANDLE_VALUE){
-        _tprintf(L"Can't open SPI1: device driver!\r\n");
+        _tprintf(L"Can't open SPI2: device driver!\r\n");
         goto cleanUp1;
     }
 

@@ -3,13 +3,13 @@
 //
 //------------------------------------------------------------------------------
 //
-//  File:  am389x_edma.h
+//  File:  am33x_edma.h
 //
-//  AM389X EDMA Peripheral Register Definitions.
+//  AM33X EDMA Peripheral Register Definitions.
 //  
 
-#ifndef __AM389X_EDMA_H
-#define __AM389X_EDMA_H
+#ifndef __AM33X_EDMA_H
+#define __AM33X_EDMA_H
 
 //------------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ typedef struct  __EDMATCDSTFIFOREGS__ {
     volatile UINT32    DFBIDX;
     volatile UINT32    DFMPPRXY;
     volatile UINT8     RSVD0[40];
-} AM389X_EDMATC_DSTFIFO_REGS, *PEDMATCDSTFIFOREGS;
+} AM33X_EDMATC_DSTFIFO_REGS, *PEDMATCDSTFIFOREGS;
 
 // EDMA3 Transfer Controller Registers
 typedef struct  __EDMATCREGS__ {
@@ -64,22 +64,22 @@ typedef struct  __EDMATCREGS__ {
     volatile UINT32    DFSRCBREF;
     volatile UINT32    DFDSTBREF;
     volatile UINT8     RSVD6[116];
-    AM389X_EDMATC_DSTFIFO_REGS DFIREG[4];
+    AM33X_EDMATC_DSTFIFO_REGS DFIREG[4];
 } 
-AM389X_EDMATC_REGS, *PEDMATCREGS;
+AM33X_EDMATC_REGS, *PEDMATCREGS;
 
 // EDMA Channel Controller Registers (DMA Access Regions)
 typedef struct  __EDMACCDRAREGS__ {
     volatile UINT32         DRAE;
     volatile UINT32         DRAEH;
 } 
-AM389X_EDMACC_DRA_REGS, *PEDMACCDRAREGS;
+AM33X_EDMACC_DRA_REGS, *PEDMACCDRAREGS;
 
 // EDMA Channel Controller Registers (Event Que Entries)
 typedef struct  __EDMACCEQEREGS__ {
     volatile UINT32         EVT_ENTRY;
 } 
-AM389X_EDMACC_EQE_REGS, PEDMACCEQEREGS;
+AM33X_EDMACC_EQE_REGS, PEDMACCEQEREGS;
 
 // EDMA Channel Controller Registers (Shadow Regions, padded to 512B)
 typedef struct  __EDMACCSRREGS__ {
@@ -122,7 +122,7 @@ typedef struct  __EDMACCSRREGS__ {
     volatile UINT32         QSECR;
     volatile UINT8          RSVD2[360];
 } 
-AM389X_EDMACC_SR_REGS, *PEDMACCSRREGS;
+AM33X_EDMACC_SR_REGS, *PEDMACCSRREGS;
 
 
 // EDMA Channel Controller Registers (Parameter RAM Entries)
@@ -136,7 +136,7 @@ typedef struct  __EDMACCPREREGS__ {
     volatile UINT32         SRC_DST_CIDX;
     volatile UINT32         CCNT;
 } 
-AM389X_EDMACC_PRE_REGS, *PEDMACCPREREGS;
+AM33X_EDMACC_PRE_REGS, *PEDMACCPREREGS;
 
 // EDMA Channel Controller Registers
 typedef struct  __EDMACCREGS__ {
@@ -161,10 +161,10 @@ typedef struct  __EDMACCREGS__ {
     volatile UINT32         CCERRCLR;				// 031C
     volatile UINT32         EEVAL;					// 0320
     volatile UINT8          RSVD4[28];
-    AM389X_EDMACC_DRA_REGS  DRA[8];					// 0340,0344 - 0378,037C
+    AM33X_EDMACC_DRA_REGS  DRA[8];					// 0340,0344 - 0378,037C
     volatile UINT32         QRAE[8];				// 0380-039C
     volatile UINT8          RSVD5[96];
-    AM389X_EDMACC_EQE_REGS  QUEEVTENTRY[4][16];		// 0400-04FC
+    AM33X_EDMACC_EQE_REGS  QUEEVTENTRY[4][16];		// 0400-04FC
     volatile UINT8          RSVD6[256];
     volatile UINT32         QSTAT[4];				// 0600-060C
     volatile UINT8          RSVD7[16];
@@ -216,11 +216,11 @@ typedef struct  __EDMACCREGS__ {
     volatile UINT32         QSER;					// 1090
     volatile UINT32         QSECR;					// 1094
     volatile UINT8          RSVD13[3944];
-    AM389X_EDMACC_SR_REGS   SHADOW[8];				// 2000, 2200, 2400, 2600, 2800, 2A00, 2C00, 2E00
+    AM33X_EDMACC_SR_REGS   SHADOW[8];				// 2000, 2200, 2400, 2600, 2800, 2A00, 2C00, 2E00
     volatile UINT8          RSVD14[4096];
-    AM389X_EDMACC_PRE_REGS  PARAMENTRY[512];		// 4000
+    AM33X_EDMACC_PRE_REGS  PARAMENTRY[512];		// 4000
 } 
-AM389X_EDMACC_REGS, *PEDMACCREGS;
+AM33X_EDMACC_REGS, *PEDMACCREGS;
 
 
 #endif
