@@ -4,6 +4,7 @@
     <PBProject Name="Item" Filename="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" UserAdded="0" />
     <PBProject Name="Item" Filename="%_winceroot%\3rdparty\sdf\sdf.pbpxml" UserAdded="0" />
     <PBProject Name="Item" Filename="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" UserAdded="1" />
+    <PBProject Name="Item" Filename="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\DiskPartMMC\DiskPartEMMC.pbpxml" UserAdded="1" />
   </PBProjectCollection>
   <FeatureCollection Name="AnchoredFeatures" EnforceUniqueItems="True">
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_shell" />
@@ -69,6 +70,7 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart5" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmcspi2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
@@ -89,6 +91,7 @@
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" />
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\sdf\sdf.pbpxml" />
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\DiskPartMMC\DiskPartEMMC.pbpxml" />
       </PBPEntryCollection>
       <BoardSupportPackage Name="Bsp" PlatformFolder="AM33X_BBB_BSP" FriendlyName="AM33X_BBB_BSP: ARMV7" />
       <Cpu Name="Cpu" CpuName="ARMV7" />
@@ -105,6 +108,7 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart5" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmcspi2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
@@ -127,6 +131,7 @@
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" />
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\sdf\sdf.pbpxml" />
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\DiskPartMMC\DiskPartEMMC.pbpxml" />
       </PBPEntryCollection>
       <BoardSupportPackage Name="Bsp" PlatformFolder="AM33X_BBB_BSP" FriendlyName="AM33X_BBB_BSP: ARMV7" />
       <Cpu Name="Cpu" CpuName="ARMV7" />
@@ -143,6 +148,7 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:edma" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart3" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xuart5" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:xamlplugin_opengl" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmcspi2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xmci2c1" />
@@ -163,6 +169,7 @@
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\vsdebugger\vsdebugger.pbpxml" />
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\3rdparty\sdf\sdf.pbpxml" />
         <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\AUTOLAUNCH\autolaunch.pbpxml" />
+        <PBPEntry Name="Item" AlwaysBuildDebug="False" ExcludedFromBuild="False" ExcludedFromImage="False" PBProjectPath="%_winceroot%\platform\AM33X_BBB_BSP\PBProjects\DiskPartMMC\DiskPartEMMC.pbpxml" />
       </PBPEntryCollection>
       <BoardSupportPackage Name="Bsp" PlatformFolder="AM33X_BBB_BSP" FriendlyName="AM33X_BBB_BSP: ARMV7" />
       <Cpu Name="Cpu" CpuName="ARMV7" />
