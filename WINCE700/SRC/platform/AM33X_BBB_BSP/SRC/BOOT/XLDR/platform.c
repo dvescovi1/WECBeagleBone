@@ -1045,8 +1045,8 @@ int board_init()
 
         /* Increase USB current limit to 1300mA */
 		TWLProtWriteRegs(PROT_LEVEL_NONE, POWER_PATH,
-				       USB_INPUT_CUR_LIMIT_1300MA,
-				       USB_INPUT_CUR_LIMIT_MASK);
+				       PMIC_POWER_PATH_IUSB_LIMIT_1300MA,
+				       PMIC_POWER_PATH_IUSB_LIMIT_MASK);
 
         /* Set DCDC2 (MPU) voltage to 1.275V */
         TWLUpdateVoltage(DEFDCDC2,
@@ -1054,10 +1054,10 @@ int board_init()
 
         /* Set LDO3, LDO4 output voltage to 3.3V */
 		TWLProtWriteRegs(PROT_LEVEL_2, DEFLS1,
-				       LDO_VOLTAGE_OUT_3_3, LDO_MASK);
+				       LDO_VOLTAGE_OUT_3_3, PMIC_DEFLS1_MASK);
 
 		TWLProtWriteRegs(PROT_LEVEL_2, DEFLS2,
-				       LDO_VOLTAGE_OUT_3_3, LDO_MASK);
+				       LDO_VOLTAGE_OUT_3_3, PMIC_DEFLS2_MASK);
 
 		if (!(pmic_status_reg & PWR_SRC_AC_BITMASK)) {			
 			goto exit_pmic_config;
@@ -1074,8 +1074,8 @@ int board_init()
 
         /* Increase USB current limit to 1800mA */
 		TWLProtWriteRegs(PROT_LEVEL_NONE, POWER_PATH,
-				       USB_INPUT_CUR_LIMIT_1800MA,
-				       USB_INPUT_CUR_LIMIT_MASK);
+				       PMIC_POWER_PATH_IUSB_LIMIT_1800MA,
+				       PMIC_POWER_PATH_IUSB_LIMIT_MASK);
 
         /* Set DCDC2 (MPU) voltage to 1.325V */
         TWLUpdateVoltage(DEFDCDC2,
@@ -1083,11 +1083,11 @@ int board_init()
 
         /* Set LDO3 output voltage to 1.8V */
 		TWLProtWriteRegs(PROT_LEVEL_2, DEFLS1,
-				       LDO_VOLTAGE_OUT_1_8, LDO_MASK);
+				       LDO_VOLTAGE_OUT_1_8, PMIC_DEFLS1_MASK);
 
         /* Set LDO4 output voltage to 3.3V */
 		TWLProtWriteRegs(PROT_LEVEL_2, DEFLS2,
-				       LDO_VOLTAGE_OUT_3_3, LDO_MASK);
+				       LDO_VOLTAGE_OUT_3_3, PMIC_DEFLS2_MASK);
 
 		/* Set MPU Frequency to 1Ghz if BSP_OPM_SELECT = 5 */
 		mpu_pll_config(opp_setting);

@@ -153,7 +153,7 @@ BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel)
     }
 
     /* set GO bit to initiate voltage transition */
-    if (TWLProtWriteRegs(PROT_LEVEL_2, DEFSLEW, DCDC_GO, DCDC_GO)==FALSE){
+    if (TWLProtWriteRegs(PROT_LEVEL_2, DEFSLEW, PMIC_DEFSLEW_GO, PMIC_DEFSLEW_GO)==FALSE){
         //OALMSG(1,(L"TWLUpdateVoltage: DEFSLEW not set\r\n"));                
         return rc;
     }

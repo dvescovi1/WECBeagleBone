@@ -98,28 +98,190 @@ typedef enum {
 #define SEQ5				0x1D
 #define SEQ6				0x1E
 
-#define PROT_LEVEL_NONE			0x00
-#define PROT_LEVEL_1			0x01
-#define PROT_LEVEL_2			0x02
+#define PROT_LEVEL_NONE				0x00
+#define PROT_LEVEL_1				0x01
+#define PROT_LEVEL_2				0x02
 
 #define PASSWORD_LOCK_FOR_WRITE		0x00
-#define PASSWORD_UNLOCK			0x7D
+#define PASSWORD_UNLOCK				0x7D
 
-#define DCDC_GO				0x80
+#define MASK_ALL_BITS						0xFF
 
-#define MASK_ALL_BITS			0xFF
+// POWER_PATH
+#define PMIC_POWER_PATH_ACSYNC				(1 << 7)
+#define PMIC_POWER_PATH_USBSYNC				(1 << 6)
+#define PMIC_POWER_PATH_AC_EN				(1 << 5)
+#define PMIC_POWER_PATH_USB_EN				(1 << 4)
+#define PMIC_POWER_PATH_IAC_LIMIT_MASK		(3 << 2)
+#define PMIC_POWER_PATH_IAC_LIMIT_100MA		(0 << 2)
+#define PMIC_POWER_PATH_IAC_LIMIT_500MA		(1 << 2)
+#define PMIC_POWER_PATH_IAC_LIMIT_1300MA	(2 << 2)
+#define PMIC_POWER_PATH_IAC_LIMIT_2500MA	(3 << 2)
+#define PMIC_POWER_PATH_IUSB_LIMIT_MASK		(3 << 0)
+#define PMIC_POWER_PATH_IUSB_LIMIT_100MA	(0 << 0)
+#define PMIC_POWER_PATH_IUSB_LIMIT_500MA	(1 << 0)
+#define PMIC_POWER_PATH_IUSB_LIMIT_1300MA	(2 << 0)
+#define PMIC_POWER_PATH_IUSB_LIMIT_1800MA	(3 << 0)
 
-#define USB_INPUT_CUR_LIMIT_MASK	0x03
-#define USB_INPUT_CUR_LIMIT_100MA	0x00
-#define USB_INPUT_CUR_LIMIT_500MA	0x01
-#define USB_INPUT_CUR_LIMIT_1300MA	0x02
-#define USB_INPUT_CUR_LIMIT_1800MA	0x03
+// INTERRUPT
+#define PMIC_INTERRUPT_PBM					(1 << 6)
+#define PMIC_INTERRUPT_ACM					(1 << 5)
+#define PMIC_INTERRUPT_USBM					(1 << 4)
+#define PMIC_INTERRUPT_PBI					(1 << 2)
+#define PMIC_INTERRUPT_ACI					(1 << 1)
+#define PMIC_INTERRUPT_USBI					(1 << 0)
 
-#define DCDC_VOLT_SEL_1125MV		0x09
-#define DCDC_VOLT_SEL_1275MV		0x0F
-#define DCDC_VOLT_SEL_1325MV		0x11
+// CHGCONFIG0
+#define PMIC_CHGCONFIG0_TREG				(1 << 7)
+#define PMIC_CHGCONFIG0_DPPM				(1 << 6)
+#define PMIC_CHGCONFIG0_TSUSP				(1 << 5)
+#define PMIC_CHGCONFIG0_TERMI				(1 << 4)
+#define PMIC_CHGCONFIG0_ACTIVE				(1 << 3)
+#define PMIC_CHGCONFIG0_CHGTOUT				(1 << 2)
+#define PMIC_CHGCONFIG0_PCHGTOU				(1 << 1)
+#define PMIC_CHGCONFIG0_BATTEMP				(1 << 0)
 
-#define LDO_MASK				0x1F
+// CHGCONFIG1
+#define PMIC_CHGCONFIG1_TIMER_MASK			(3 << 6)
+#define PMIC_CHGCONFIG1_TIMER_8HR			(3 << 6)
+#define PMIC_CHGCONFIG1_TIMER_6HR			(2 << 6)
+#define PMIC_CHGCONFIG1_TIMER_5HR			(1 << 6)
+#define PMIC_CHGCONFIG1_TIMER_4HR			(0 << 6)
+#define PMIC_CHGCONFIG1_TMR_EN				(1 << 5)
+#define PMIC_CHGCONFIG1_NTC_TYPE			(1 << 4)
+#define PMIC_CHGCONFIG1_RESET				(1 << 3)
+#define PMIC_CHGCONFIG1_TERM				(1 << 2)
+#define PMIC_CHGCONFIG1_SUSP				(1 << 1)
+#define PMIC_CHGCONFIG1_CHG_EN				(1 << 0)
+
+// CHGCONFIG2
+#define PMIC_CHGCONFIG2_DYNTMR				(1 << 7)
+#define PMIC_CHGCONFIG2_VPRECHG				(1 << 6)
+#define PMIC_CHGCONFIG2_VOREG_MASK			(3 << 4)
+#define PMIC_CHGCONFIG2_VOREG_4_25V			(3 << 4)
+#define PMIC_CHGCONFIG2_VOREG_4_20V			(2 << 4)
+#define PMIC_CHGCONFIG2_VOREG_4_15V			(1 << 4)
+#define PMIC_CHGCONFIG2_VOREG_4_10V			(0 << 4)
+
+// CHGCONFIG3
+#define PMIC_CHGCONFIG3_ICHRG_MASK			(3 << 6)
+#define PMIC_CHGCONFIG3_ICHRG_700MA			(3 << 6)
+#define PMIC_CHGCONFIG3_ICHRG_500MA			(2 << 6)
+#define PMIC_CHGCONFIG3_ICHRG_400MA			(1 << 6)
+#define PMIC_CHGCONFIG3_ICHRG_300MA			(0 << 6)
+#define PMIC_CHGCONFIG3_DPPMTH_MASK			(3 << 4)
+#define PMIC_CHGCONFIG3_DPPMTH_4_25V		(3 << 4)
+#define PMIC_CHGCONFIG3_DPPMTH_4_0V			(2 << 4)
+#define PMIC_CHGCONFIG3_DPPMTH_3_75V		(1 << 4)
+#define PMIC_CHGCONFIG3_DPPMTH_3_5V			(0 << 4)
+#define PMIC_CHGCONFIG3_PCHRGT_60MIN		(1 << 3)
+#define PMIC_CHGCONFIG3_PCHRGT_30MIN		(0 << 3)
+#define PMIC_CHGCONFIG3_TERMIF_MASK			(3 << 1)
+#define PMIC_CHGCONFIG3_TERMIF_18			(3 << 1)
+#define PMIC_CHGCONFIG3_TERMIF_15			(2 << 1)
+#define PMIC_CHGCONFIG3_TERMIF_7_5			(1 << 1)
+#define PMIC_CHGCONFIG3_TERMIF_2_5			(0 << 1)
+#define PMIC_CHGCONFIG3_TRANGE				(1 << 0)
+
+// WLEDCTRL1
+#define PMIC_WLEDCTRL1_ISINC_EN				(1 << 3)
+#define PMIC_WLEDCTRL1_ISEL					(1 << 2)
+#define PMIC_WLEDCTRL1_FDIM_MASK			(3 << 0)
+#define PMIC_WLEDCTRL1_FDIM_1000HZ			(3 << 0)
+#define PMIC_WLEDCTRL1_FDIM_500HZ			(2 << 0)
+#define PMIC_WLEDCTRL1_FDIM_200HZ			(1 << 0)
+#define PMIC_WLEDCTRL1_FDIM_100HZ			(0 << 0)
+
+// WLEDCTRL2
+#define PMIC_WLEDCTRL2_DUTY_MASK			(0x7F << 0)
+
+// MUXCTRL
+#define PMIC_MUXCTRL_MUX_MASK				(7 << 0)
+#define PMIC_MUXCTRL_MUX_MUX_IN				(5 << 0)
+#define PMIC_MUXCTRL_MUX_VICHARGE			(4 << 0)
+#define PMIC_MUXCTRL_MUX_VTS				(3 << 0)
+#define PMIC_MUXCTRL_MUX_VSYS				(2 << 0)
+#define PMIC_MUXCTRL_MUX_VBAT				(1 << 0)
+#define PMIC_MUXCTRL_MUX_HIZ				(0 << 0)
+
+// STATUS
+#define PMIC_STATUS_OFF						(1 << 7)
+#define PMIC_STATUS_ACPWR					(1 << 3)
+#define PMIC_STATUS_USBPWR					(1 << 2)
+#define PMIC_STATUS_PB						(1 << 0)
+
+// PGOOD
+#define PMIC_PGOOD_LDO3_PG					(1 << 6)
+#define PMIC_PGOOD_LDO4_PG					(1 << 5)
+#define PMIC_PGOOD_DC1_PG					(1 << 4)
+#define PMIC_PGOOD_DC2_PG					(1 << 3)
+#define PMIC_PGOOD_DC3_PG					(1 << 2)
+#define PMIC_PGOOD_LDO1_PG					(1 << 1)
+#define PMIC_PGOOD_LDO2_PG					(1 << 0)
+
+// DEFPG
+#define PMIC_DEFPG_LDO1PGM_PG				(1 << 3)
+#define PMIC_DEFPG_LDO2PGM_PG				(1 << 2)
+#define PMIC_DEFPG_PGDLY_MASK				(3 << 0)
+#define PMIC_DEFPG_PGDLY_MASK				(3 << 0)
+#define PMIC_DEFPG_PGDLY_400MS				(3 << 0)
+#define PMIC_DEFPG_PGDLY_200MS				(2 << 0)
+#define PMIC_DEFPG_PGDLY_100MS				(1 << 0)
+#define PMIC_DEFPG_PGDLY_20MS				(0 << 0)
+
+// DEFDCDC1,2,3
+#define DCDC_VOLT_SEL_1125MV				0x09
+#define DCDC_VOLT_SEL_1275MV				0x0F
+#define DCDC_VOLT_SEL_1325MV				0x11
+
+// DEFSLEW
+#define PMIC_DEFSLEW_GO						(1 << 7)
+#define PMIC_DEFSLEW_GODSBL					(1 << 6)
+#define PMIC_DEFSLEW_PFM_EN1				(1 << 5)
+#define PMIC_DEFSLEW_PFM_EN2				(1 << 4)
+#define PMIC_DEFSLEW_PFM_EN3				(1 << 3)
+#define PMIC_DEFSLEW_SLEW_MASK				(7 << 0)
+#define PMIC_DEFSLEW_SLEW_IMMED				(7 << 0)
+#define PMIC_DEFSLEW_SLEW_3_5US				(6 << 0)
+#define PMIC_DEFSLEW_SLEW_7US				(5 << 0)
+#define PMIC_DEFSLEW_SLEW_14US				(4 << 0)
+#define PMIC_DEFSLEW_SLEW_28US				(3 << 0)
+#define PMIC_DEFSLEW_SLEW_56US				(2 << 0)
+#define PMIC_DEFSLEW_SLEW_112US				(1 << 0)
+#define PMIC_DEFSLEW_SLEW_224US				(0 << 0)
+
+// DEFLDO1
+#define PMIC_DEFLDO1_MASK					(0x0F << 0)
+
+// DEFLDO2
+#define PMIC_DEFLDO2_MASK					(0x3F << 0)
+#define PMIC_DEFLDO2_TRACK					(1 << 6)
+
+// DEFLS1/LDO3
+#define PMIC_DEFLS1_MASK					(0x1F << 0)
+#define PMIC_DEFLS1_LS1LDO3					(1 << 5)
+
+// DEFLS2/LDO4
+#define PMIC_DEFLS2_MASK					(0x1F << 0)
+#define PMIC_DEFLS2_LS1LDO4					(1 << 5)
+
+// ENABLE
+#define PMIC_ENABLE_LS1_EN					(1 << 6)
+#define PMIC_ENABLE_LS2_EN					(1 << 5)
+#define PMIC_ENABLE_DC1_EN					(1 << 4)
+#define PMIC_ENABLE_DC2_EN					(1 << 3)
+#define PMIC_ENABLE_DC3_EN					(1 << 2)
+#define PMIC_ENABLE_LDO1_EN					(1 << 1)
+#define PMIC_ENABLE_LDO2_EN					(1 << 0)
+
+// DEFUVLO
+#define PMIC_DEFUVLO_MASK					(3 << 0)
+#define PMIC_DEFUVLO_3_3					(3 << 0)
+#define PMIC_DEFUVLO_3_18					(2 << 0)
+#define PMIC_DEFUVLO_2_89					(1 << 0)
+#define PMIC_DEFUVLO_2_73					(0 << 0)
+
+
 #define LDO_VOLTAGE_OUT_1_8		0x06
 #define LDO_VOLTAGE_OUT_3_3		0x1F
 
