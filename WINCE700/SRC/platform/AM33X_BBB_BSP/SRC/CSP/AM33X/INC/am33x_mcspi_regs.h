@@ -98,7 +98,16 @@ AM3XX_MCSPI_REGS;
 #define MCSPI_CHCONF_FORCE                      (1 << 20)
 
 #define MCSPI_CHCONF_SPIENSLV(CSn)              ((CSn & 0x03) << 21)
+
+#define MCSPI_CHCONF_SBE						(1 << 23)
+#define MCSPI_CHCONF_SBPOL						(1 << 24)
+
 #define MCSPI_CHCONF_TCS(x)                     ((x & 0x03) << 25)
+
+#define MCSPI_CHCONF_FFEW						(1 << 27)
+#define MCSPI_CHCONF_FFER						(1 << 28)
+#define MCSPI_CHCONF_CLKG						(1 << 29)
+
 
 /* CHSTAT Register Bit values */
 #define MCSPI_CHSTAT_RX_FULL                    (1 << 0)
