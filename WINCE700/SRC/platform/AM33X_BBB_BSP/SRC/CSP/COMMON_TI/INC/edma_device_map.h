@@ -90,7 +90,6 @@ extern "C" {
 #define EDMA_XBAR_SDRXEVT2				2
 #define EDMA_XBAR_I2CTXEVT2				3
 #define EDMA_XBAR_I2CRXEVT2				4
-#define EDMA_XBAR_I2CTXEVT2				5
 
 #define EDMA_XBAR_UTXEVT3				7
 #define EDMA_XBAR_URXEVT3				8
