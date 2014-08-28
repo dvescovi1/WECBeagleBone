@@ -21,8 +21,6 @@
 #include "am33x_interrupt_struct.h"
 #include "cm3_ipc.h"
 
-//#define TEST_SUSPEND_RESUME 1
-
 extern DWORD GetOpp (DWORD domain);
 
 extern BOOL SetOpp(DWORD *rgDomains,DWORD *rgOpps,DWORD  count);
@@ -311,7 +309,7 @@ typedef struct _GPIO_INTR_CTXT{
 
 VOID OEMPowerOff() 
 {
-#ifdef TEST_SUSPEND_RESUME    
+#ifdef DEBUG_PRCM_SUSPEND_RESUME    
     DWORD i;
     UINT intr[4];
     BOOL bPowerOn;

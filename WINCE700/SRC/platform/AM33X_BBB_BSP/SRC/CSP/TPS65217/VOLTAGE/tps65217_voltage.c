@@ -115,7 +115,7 @@ BOOL TWLProtWriteRegs(unsigned char prot_level, unsigned char dest_reg,
 
     if (prot_level > 0) {
         xor_reg = dest_reg ^ PASSWORD_UNLOCK;                
-        if (TWLWriteByteReg(g_hTwl, PASSWORD, xor_reg)==FALSE)
+        if (TWLWriteByteReg(g_hTwl, PMIC_REG_PASSWORD, xor_reg)==FALSE)
             return FALSE;
     }
     
@@ -123,7 +123,7 @@ BOOL TWLProtWriteRegs(unsigned char prot_level, unsigned char dest_reg,
         return FALSE;
 
     if (prot_level == PROT_LEVEL_2) {
-        if (TWLWriteByteReg(g_hTwl, PASSWORD, xor_reg)==FALSE)
+        if (TWLWriteByteReg(g_hTwl, PMIC_REG_PASSWORD, xor_reg)==FALSE)
             return FALSE;
 
         if (TWLWriteByteReg(g_hTwl, dest_reg, dest_val)==FALSE)
@@ -141,7 +141,7 @@ BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel)
     
     if (ValidateHandle()==FALSE) return FALSE;
 
-    if ((dc_cntrl_reg != DEFDCDC1) && (dc_cntrl_reg != DEFDCDC2) && (dc_cntrl_reg != DEFDCDC3)) {
+    if ((dc_cntrl_reg != PMIC_REG_DEFDCDC1) && (dc_cntrl_reg != PMIC_REG_DEFDCDC2) && (dc_cntrl_reg != PMIC_REG_DEFDCDC3)) {
         //OALMSG(1,(L"TWLUpdateVoltage: wrong dc_cntrl_reg\r\n"));                
         return rc;
     }    
@@ -153,7 +153,7 @@ BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel)
     }
 
     /* set GO bit to initiate voltage transition */
-    if (TWLProtWriteRegs(PROT_LEVEL_2, DEFSLEW, PMIC_DEFSLEW_GO, PMIC_DEFSLEW_GO)==FALSE){
+    if (TWLProtWriteRegs(PROT_LEVEL_2, PMIC_REG_DEFSLEW, PMIC_DEFSLEW_GO, PMIC_DEFSLEW_GO)==FALSE){
         //OALMSG(1,(L"TWLUpdateVoltage: DEFSLEW not set\r\n"));                
         return rc;
     }
@@ -165,6 +165,6 @@ BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel)
 BOOL TWLGetStatusReg(unsigned char * buf)
 {
     if (ValidateHandle()==FALSE) return FALSE;
-    return TWLReadByteReg(g_hTwl,STATUS,buf);
+    return TWLReadByteReg(g_hTwl,PMIC_REG_STATUS,buf);
 }
 

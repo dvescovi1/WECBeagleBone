@@ -1,0 +1,15 @@
+IF BSP_PRU
+; PRU driver
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\PRU]
+    "Prefix"="PRU"
+    "Dll"="prudrvr.dll"
+    "Index"=dword:1
+    "Order"=dword:30
+    ; Physical IRQ number of first PRU interrupt.
+    ; These are allocated sequentially starting from IrqBase. 
+    "IrqBase"=dword:14
+    ; IST priority
+    "Priority256"=dword:40
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    
+ENDIF BSP_PRU
