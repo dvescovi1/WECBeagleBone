@@ -36,6 +36,14 @@
 #define OAL_FUNC 1
 #endif
 
+#ifndef OAL_INFO
+#define OAL_INFO 1
+#endif
+
+#ifndef OAL_ERROR
+#define OAL_ERROR 1
+#endif
+
 #define    MMC_SEND_EXT_CSD         8
 
 DWORD g_bootSlot = 0;
@@ -234,7 +242,9 @@ static DWORD GetBootMMCSlotConfig()
 {
 	DWORD pad0,pad1,bootCfg;
     AM33X_SYSC_PADCONFS_REGS *pPadRegs;
-	const PAD_INFO MMC1Pads[]  =	{MMC1_PADS END_OF_PAD_ARRAY};
+	DWORD slot = 0;
+
+	const PAD_INFO MMC1Pads[] = {MMC1_PADS END_OF_PAD_ARRAY};
 
 	pPadRegs = (AM33X_SYSC_PADCONFS_REGS *)OALPAtoUA(AM33X_SYSC_PADCONFS_REGS_PA);
 
@@ -247,21 +257,33 @@ static DWORD GetBootMMCSlotConfig()
 	// user button pressed and MMC0 pads configured by firmware
 	if (0x18 == bootCfg && 0x30 == pad0)
 	{
-		OALMSG(OAL_INFO,(TEXT("Slot 1 boot\r\n"))); 
-		return 1; /* MMCSLOT_1 */
+		OALMSG(1,(TEXT("Slot 1 boot\r\n")));
+		slot = 1;
+		goto cleanUp;
+	}
+
+	if (0x30 == pad0)
+	{
+		OALMSG(1,(TEXT("Slot 1 boot\r\n")));
+		slot = 1;
+		goto cleanUp;
 	}
 
 	// normal boot MMC1 only some pads configured by firmware
 	// we configure for 8 bit
 	if (0x1c == bootCfg && 0x32 == pad1)
 	{
-		OALMSG(OAL_INFO,(TEXT("Slot 2 boot\r\n"))); 
+		OALMSG(1,(TEXT("Slot 2 boot\r\n"))); 
 		ConfigurePadArray(MMC1Pads);
-		return 2; /* MMCSLOT_2 */
+		slot = 2;
+		goto cleanUp;
 	}
 
-	OALMSG(OAL_INFO,(TEXT("Slot 1 boot\r\n"))); 
-	return 1; /* MMCSLOT_1 */
+	OALMSG(1,(TEXT("Slot 1 boot\r\n"))); 
+	slot = 1;
+
+cleanUp:
+	return slot;
 }
 
 
@@ -282,7 +304,11 @@ static void SdhcControllerInit()
 
 	// get boot slot initially
 	if (0 == g_bootSlot)
+	{
 	    g_bootSlot = GetBootMMCSlotConfig();
+		// save boot device as first location at bottom of xldr stack
+		*((DWORD *)OALPAtoUA(IMAGE_XLDR_STACK_PA)) = g_bootSlot;
+	}
 
     m_dwSlot = g_bootSlot;
     m_dwSDIOCard = 0;

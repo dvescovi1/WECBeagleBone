@@ -34,6 +34,10 @@
 #define OAL_FUNC 1
 #endif
 
+#ifndef OAL_INFO
+#define OAL_INFO 1
+#endif
+
 #ifndef OAL_ERROR
 #define OAL_ERROR 1
 #endif

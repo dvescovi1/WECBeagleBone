@@ -291,6 +291,12 @@ ULONG OEMPreDownload( )
 
     OALLog(L"INFO: Predownload....\r\n");
     
+	// default g_bootSlot slot is device from which we booted
+	// this info is stored at first location at bottom of xldr stack
+	// cfg file (if present) is read from this boot device
+	// we may change g_bootSlot later to force NK.bin load from alternate device
+	g_bootSlot = *((DWORD *)OALPAtoUA(IMAGE_XLDR_STACK_PA));
+    
     g_pOEMMultiBINNotify = OEMMultiBinNotify; // We need to support multi bin notify
 
     BLReserveBootBlocks();    // Ensure bootloader blocks are marked as reserved
