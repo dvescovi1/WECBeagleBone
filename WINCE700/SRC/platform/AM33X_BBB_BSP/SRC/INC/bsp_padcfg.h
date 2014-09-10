@@ -425,6 +425,14 @@ typedef struct {
     PAD_ENTRY(VREFP,            MODE(0) | RXACTIVE)             \
     PAD_ENTRY(VREFN,            MODE(0) | RXACTIVE)             \
 
+#define ADC_PADS \
+    PAD_ENTRY(AIN4,             MODE(0) | RXACTIVE)             \
+    PAD_ENTRY(AIN5,             MODE(0) | RXACTIVE)             \
+    PAD_ENTRY(AIN6,             MODE(0) | RXACTIVE)             \
+    PAD_ENTRY(AIN7,             MODE(0) | RXACTIVE)             \
+    PAD_ENTRY(VREFP,            MODE(0) | RXACTIVE)             \
+    PAD_ENTRY(VREFN,            MODE(0) | RXACTIVE)             \
+
 #define GPIO_PADS	\
 	PAD_ENTRY(ECAP0_IN_PWM0_OUT,MODE(7) | AM335X_PIN_INPUT_PULLUP)	/* GPIO0_7  */   \
 	PAD_ENTRY(GPMC_AD8,			MODE(7) | AM335X_PIN_INPUT_PULLUP)	/* GPIO0_22 PWM2A */   \
