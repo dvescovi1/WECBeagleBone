@@ -15,22 +15,18 @@ RELEASETYPE=PLATFORM
 DEFFILE=usbfn.def
 DLLENTRY=DllEntry
 
-INCLUDES=$(INCLUDES);..\..\USBFN
-
-SOURCES= \
-    usbfnpdd.c
-
-TARGETLIBS= \
-	$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib	\
-	$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
-	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
 
 SOURCELIBS= \
         $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\ufnmdd.lib \
         $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma.lib \
         $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbfnlib.lib \
 
-FILE_VIEW_RESOURCE_FOLDER= \
-	usbfn.reg \
-	usbfn.def
+TARGETLIBS= \
+	$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib	\
+	$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+
+SOURCES= \
+    usbfnpdd.c
+
 	

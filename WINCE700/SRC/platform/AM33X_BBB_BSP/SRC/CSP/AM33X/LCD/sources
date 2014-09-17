@@ -2,8 +2,6 @@
 Copyright (c) MPC Data Limited 2010. All rights reserved.
 !endif
 
-INCLUDES=$(INCLUDES);..\device
-
 TARGETNAME=ddi_omap335x
 TARGETTYPE=LIBRARY
 

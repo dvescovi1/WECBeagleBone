@@ -886,9 +886,6 @@ OMAPDisplayController::SetPowerLevel(
 {
     BOOL            bResult = TRUE;
     
-    //  Lock access to power level
-    EnterCriticalSection( &m_csPowerLock );
-    
     //  Check if there is a change in the power level
     if( m_dwPowerLevel == dwPowerLevel )
         goto cleanUp;
@@ -923,11 +920,10 @@ OMAPDisplayController::SetPowerLevel(
             //  Check against current level
             if( m_dwPowerLevel == D0 || m_dwPowerLevel == D1 || m_dwPowerLevel == D2)
             {
-
                 //  Call PDD layer (again in case LCD was not enabled)
                 LcdPdd_SetPowerLevel(&m_lcdc,  dwPowerLevel );
 				
-				//WaitForFrameDone(DISPLAY_TIMEOUT);
+				WaitForFrameDone(DISPLAY_TIMEOUT);
 
         		//  Disable device clocks 
                 ReleaseClock( m_dssinfo.DSSDevice );         
@@ -940,9 +936,6 @@ OMAPDisplayController::SetPowerLevel(
     }
 
 cleanUp:    
-    //  Unlock access to power level
-    LeaveCriticalSection( &m_csPowerLock );
-                
     //  Return result
     return bResult;
 }

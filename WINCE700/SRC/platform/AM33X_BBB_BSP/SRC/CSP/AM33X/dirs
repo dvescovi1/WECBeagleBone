@@ -6,7 +6,6 @@ DIRS=\
 	SOCCFG\
 	CEDDK\
 	USB\
-	LCD\
 	LCDSS\
 	CM3\
 	GPIO\

@@ -15,9 +15,6 @@ RELEASETYPE=PLATFORM
 DEFFILE=$(_COMMONOAKROOT)\inc\ohcd.def
 DLLENTRY=DllMain
 
-SOURCES= \
-    usbhpdd.c
-
 
 SOURCELIBS= \
     $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\hcd2lib.lib   \
@@ -29,8 +26,7 @@ TARGETLIBS= \
 	$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib	\
 	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
 
+SOURCES= \
+    usbhpdd.c
 
 
-FILE_VIEW_RESOURCE_FOLDER= \
-	usbh.reg \
-	

@@ -250,6 +250,9 @@ BOOL detect_baseboard_id_info()
         else if (!strncmp("000B", header.version, 4)) {       
             g_dwBaseBoardVersion = AM335X_BLACK_BONE_B00;
         }
+        else if (!strncmp("000C", header.version, 4)) {       
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_C00;
+        }
         else
             OALMSG(1, (L"Unrecognized BeagleBoneBlack Version!\r\n"));
     }
