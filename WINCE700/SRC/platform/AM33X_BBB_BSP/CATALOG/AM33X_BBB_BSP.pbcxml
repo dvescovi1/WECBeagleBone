@@ -39,6 +39,9 @@
     <BspItemId>AM33x_BBB:Texas Instruments:USBH1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:lcdTouch</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:keypad</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:tps65217pwrkey</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:tps65217</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:tps65217battery</BspItemId>
   </Bsp>
   <Item Id="AM33x_BBB:Texas Instruments:am33xgpio">
     <Title>Gpio driver</Title>
@@ -271,9 +274,10 @@
   <Item Id="AM33x_BBB:Texas Instruments:lcdTouch">
     <Title>LCD Touch Screen driver</Title>
     <Type>BspSpecific</Type>
+    <Variable>SYSGEN_TOUCH</Variable>
     <Variable>BSP_TSADC_TOUCH</Variable>
     <Module>TSCADC_touch.dll</Module>
-    <Location>Drivers</Location>
+    <Location ConditionLocation="">Drivers</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:keypad">
     <Title>Keypad driver</Title>
@@ -282,5 +286,27 @@
     <Variable>BSP_KEYPAD</Variable>
     <Module>keypad.dll</Module>
     <Location>Drivers</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:tps65217pwrkey">
+    <Title>Power key</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_TPS65217</Variable>
+    <Variable>BSP_PWRKEY</Variable>
+    <Location>Drivers\TPS65217</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:tps65217">
+    <Title>base driver</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_TPS65217</Variable>
+    <Location>Drivers\TPS65217</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:tps65217battery">
+    <Title>Battery driver</Title>
+    <Type>BspSpecific</Type>
+    <Variable>SYSGEN_BATTERY</Variable>
+    <Variable>BSP_TPS65217</Variable>
+    <Variable>BSP_BATTERY</Variable>
+    <Module>battdrvr.dll</Module>
+    <Location>Drivers\TPS65217</Location>
   </Item>
 </CatalogFile>

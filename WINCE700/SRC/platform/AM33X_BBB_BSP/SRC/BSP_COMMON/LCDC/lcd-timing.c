@@ -14,7 +14,7 @@
 #include "lcdc.h"
 #include "sdk_gpio.h"
 #include "gpio.h"
-#include "..\tda1998x\tda1998x.h"
+#include "..\tda1998x\tda.h"
 
 static HANDLE g_hGpio = NULL;
 
@@ -199,6 +199,64 @@ struct display_panel panel_800x480 = {
 };
 
 
+int LCDC_panel_800x4804D_init(void) 
+{
+    if(!g_hGpio)
+    {
+		g_hGpio = GPIOOpen();
+ 	
+		if (g_hGpio == NULL)
+		{
+			RETAILMSG(1, (L"LCDC_panel_800x4804D_init:Failed to open GPIO driver\r\n"));
+			return FALSE;
+		}
+        GPIOClrBit(g_hGpio, GPIO1_18);
+        GPIOClrBit(g_hGpio, GPIO0_2);
+        GPIOSetMode(g_hGpio, GPIO1_18, GPIO_DIR_OUTPUT );	// backlight enable
+        GPIOSetMode(g_hGpio, GPIO0_2, GPIO_DIR_OUTPUT );	// LCD enable
+    }
+	return TRUE;
+}
+
+int LCDC_panel_800x4804D_en(BOOL onoff) 
+{
+	if (onoff)
+	{
+        GPIOSetBit(g_hGpio, GPIO1_18);
+        GPIOSetBit(g_hGpio, GPIO0_2);
+	}
+	else
+	{
+        GPIOClrBit(g_hGpio, GPIO1_18);
+        GPIOClrBit(g_hGpio, GPIO0_2);
+	}
+	return 0;
+}
+
+struct display_panel panel_800x4804D = {
+	LCDC_PANEL_TFT | LCDC_INV_VSYNC | LCDC_INV_HSYNC | LCDC_HSVS_CONTROL,	// config
+	DISPC_PIXELFORMAT_RGB16,	// bpp
+	800,		// x_res 
+	480,		// y_res
+	40000000,	// pixel_clock
+	47,			// hsw 
+	39,			// hfp
+	39,			// hbp
+	2,			// vsw
+	13,			// vfb
+	29,			// vbp
+	0,			// acb
+	0,               // mono_8bit_mode
+	0,               // tft_alt_mode
+	COLOR_ACTIVE,    //panel_shade
+	OMAP_LCD_800W_480H4D,
+	FALSE,
+	LCDC_panel_800x4804D_init, // init
+	LCDC_panel_800x4804D_en    // enable/disable
+};
+
+
+
 
 struct drm_display_mode drm_800x600 = {
 	40000, 
@@ -246,6 +304,25 @@ struct drm_display_mode drm_1280x720 = {
 };
 
 
+//------------------------------------------------------------------------------
+//
+//  Function:   dump_panel
+//
+//
+static void dump_panel()
+{
+	RETAILMSG(1, (L"LCDC_panel timing\r\n"));
+	RETAILMSG(1, (L"x_res = %d\r\n",panel_init.x_res));
+	RETAILMSG(1, (L"y_res = %d\r\n",panel_init.y_res));
+	RETAILMSG(1, (L"pixel_clock = %d\r\n",panel_init.pixel_clock));
+	RETAILMSG(1, (L"hsw = %d\r\n",panel_init.hsw));
+	RETAILMSG(1, (L"hfp = %d\r\n",panel_init.hfp));
+	RETAILMSG(1, (L"hbp = %d\r\n",panel_init.hbp));
+	RETAILMSG(1, (L"vsw = %d\r\n",panel_init.vsw));
+	RETAILMSG(1, (L"vfp = %d\r\n",panel_init.vfp));
+	RETAILMSG(1, (L"vbp = %d\r\n",panel_init.vbp));
+}
+
 
 //------------------------------------------------------------------------------
 //
@@ -273,6 +350,9 @@ enum OMAP_LCD_DVI_RES dispRes = OMAP_RES_DEFAULT;
 			break;
 		case OMAP_LCD_800W_480H:
 			pActivePanel = &panel_800x480;
+			break;
+		case OMAP_LCD_800W_480H4D:
+			pActivePanel = &panel_800x4804D;
 			break;
 		case OMAP_DVI_800W_600H:
 			tda998x_drm_to_panel(&drm_800x600, &panel_init);
@@ -306,7 +386,7 @@ enum OMAP_LCD_DVI_RES dispRes = OMAP_RES_DEFAULT;
 struct display_panel *get_panel(void)
 {
 	select_panel();
-
+//	dump_panel();
 	return (pActivePanel);
 }
 

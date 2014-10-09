@@ -374,20 +374,20 @@ VOID CSDIOControllerBase::SetSDInterfaceMode(SD_INTERFACE_MODE eSDInterfaceMode)
         CLRREG32(&m_pbRegisters->MMCHS_HCTL, MMCHS_HCTL_DTW);
         CLRREG32(&m_pbRegisters->MMCHS_CON, MMCHS_CON_DW8);
 //        DEBUGMSG(SDCARD_ZONE_INIT,(TEXT("SetInterface SD/MMC 1bit MMCHS_HCTL value = %X\r\n"), m_pbRegisters->MMCHS_HCTL ));
-		RETAILMSG(1,(TEXT("Slot:%d SetInterface SD/MMC 1bit MMCHS_HCTL value = %X\r\n"), m_dwSlot, m_pbRegisters->MMCHS_HCTL ));
+//		RETAILMSG(1,(TEXT("Slot:%d SetInterface SD/MMC 1bit MMCHS_HCTL value = %X\r\n"), m_dwSlot, m_pbRegisters->MMCHS_HCTL ));
     }
     else if (SD_INTERFACE_SD_4BIT == eSDInterfaceMode)
     {
         SETREG32(&m_pbRegisters->MMCHS_HCTL, MMCHS_HCTL_DTW);
         CLRREG32(&m_pbRegisters->MMCHS_CON, MMCHS_CON_DW8);
 //        DEBUGMSG(SDCARD_ZONE_INIT,(TEXT("SetInterface SD 4bit MMCHS_HCTL value = %X\r\n"), m_pbRegisters->MMCHS_HCTL ));
-        RETAILMSG(1,(TEXT("Slot:%d SetInterface SD 4bit MMCHS_HCTL value = %X\r\n"), m_dwSlot, m_pbRegisters->MMCHS_HCTL ));
+//        RETAILMSG(1,(TEXT("Slot:%d SetInterface SD 4bit MMCHS_HCTL value = %X\r\n"), m_dwSlot, m_pbRegisters->MMCHS_HCTL ));
     }
     else if (SD_INTERFACE_MMC_8BIT== eSDInterfaceMode)
         {
         SETREG32(&m_pbRegisters->MMCHS_CON, MMCHS_CON_DW8);
 //        DEBUGMSG(SDCARD_ZONE_INIT,(TEXT("SetSDInterfaceMode MMC 8bit, MMCHS_CON value = %X\r\n"), m_pbRegisters->MMCHS_CON ));
-        RETAILMSG(1,(TEXT("Slot:%d SetSDInterfaceMode MMC 8bit, MMCHS_CON value = %X\r\n"), m_dwSlot, m_pbRegisters->MMCHS_CON ));
+//        RETAILMSG(1,(TEXT("Slot:%d SetSDInterfaceMode MMC 8bit, MMCHS_CON value = %X\r\n"), m_dwSlot, m_pbRegisters->MMCHS_CON ));
         }
     else
     {
@@ -558,7 +558,7 @@ VOID CSDIOControllerBase::SetClockRate(PDWORD pdwRate)
     m_sContext.dwClockRate = MMCSD_CLOCK_INPUT / dwDiv;
 
     //DEBUGMSG(SHC_CLOCK_ZONE,(TEXT("SDHCSetRate - Actual clock rate = 0x%x, MMCHS_SYSCTL = 0x%x\r\n"), *pdwRate, INREG32(&m_pbRegisters->MMCHS_SYSCTL)));
-	RETAILMSG(SDCARD_ZONE_INFO,(TEXT("Slot:%d SDHCSetRate - Actual clock rate = %d, MMCHS_SYSCTL = 0x%x\r\n"),m_dwSlot, *pdwRate, INREG32(&m_pbRegisters->MMCHS_SYSCTL)));
+	//RETAILMSG(SDCARD_ZONE_INFO,(TEXT("Slot:%d SDHCSetRate - Actual clock rate = %d, MMCHS_SYSCTL = 0x%x\r\n"),m_dwSlot, *pdwRate, INREG32(&m_pbRegisters->MMCHS_SYSCTL)));
 }
 
 //-----------------------------------------------------------------------------

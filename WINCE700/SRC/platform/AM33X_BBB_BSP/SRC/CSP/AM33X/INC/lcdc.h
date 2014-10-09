@@ -11,6 +11,7 @@
 #define __LCDC_H__
 
 #include "am33x_lcdc.h"
+#include "am33x_prcm.h"
 #include "bsp_def.h"
 
 #ifdef __cplusplus
@@ -90,7 +91,8 @@ enum lcdc_load_mode {
 
 
 struct lcdc {
-	LCDC_REGS			*regs;     // virtual address of regs
+	LCDC_REGS			*regs;     // virtual address of LCDC regs
+	AM33X_PRCM_REGS		*prcmregs; // virtual address of PRCM regs
 	UINT32				phys_base; // phy address of regs
 	UINT32				fb_pa;     // phy address of fb
 	UINT32				fb_size;   // total siz of fb

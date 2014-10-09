@@ -1,0 +1,50 @@
+; @CESYSGEN IF CE_MODULES_BATTDRVR
+; @CESYSGEN IF PM_PMSTUBS !
+IF BSP_BATTERY
+
+; HIVE BOOT SECTION
+[HKEY_LOCAL_MACHINE\System\Events]
+    "SYSTEM/BatteryAPIsReady"="Battery Interface APIs"
+; END HIVE BOOT SECTION
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\Battery]
+	"Prefix"="BAT"
+	"Dll"="battdrvr.dll"
+	"Flags"=dword:8					; DEVFLAGS_NAKEDENTRIES
+	"Index"=dword:1
+	"Order"=dword:13          
+    "Ioctl"=dword:290418			; IOCTL to use for PostInit callback
+;	"PollInterval"=dword:7d0		; Battery poll interval (ms) ..default 5 sec if not specified 
+;	"BatADCchannel"=dword:6			; CHANNEL_6  ..default if not specified
+	"BatHigh"=dword:dac				; 3500 mv
+	"BatLow"=dword:d48				; 3400
+    "IClass"="{DD176277-CD34-4980-91EE-67DBEF3D8913}"    ; WM7 only BATTERY_DRIVER_CLASS
+
+; do not show low battery dialog
+;[HKEY_LOCAL_MACHINE\Software\Microsoft\Power]
+;	"ShowWarnings"= dword:0
+
+
+
+; @CESYSGEN IF PM_PM_DEFAULT_PDD
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\Timeouts]
+    "ACUserIdle"=dword:0		; in seconds
+    "ACSystemIdle"=dword:0		; in seconds
+    "ACSuspend"=dword:0			; in seconds
+    "BattUserIdle"=dword:0		; in seconds
+    "BattSystemIdle"=dword:0	; in seconds
+    "BattSuspend"=dword:0		; in seconds
+
+; Make sure the system power management thread runs at a higher priority than
+; driver ISTs (PWRKEY) that may call SetSystemPowerState().  This is to avoid race conditions
+; between the PM and drivers or applications that may want to update the system power
+; state.  Most drivers don't run above THREAD_PRIORITY_HIGHEST (249); if any that
+; might call SetSystemPowerState() have a higher priority than this, adjust
+; the PM's SystemPriority256 value accordingly.
+;
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+        "SystemPriority256"=dword:F8                    ; 248 - THREAD_PRIORITY_TIME_CRITICAL
+; @CESYSGEN ENDIF PM_PM_DEFAULT_PDD
+
+ENDIF BSP_BATTERY
+; @CESYSGEN ENDIF PM_PMSTUBS !
+; @CESYSGEN ENDIF CE_MODULES_BATTDRVR

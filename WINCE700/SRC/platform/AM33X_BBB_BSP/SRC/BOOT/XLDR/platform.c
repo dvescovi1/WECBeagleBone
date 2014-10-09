@@ -110,7 +110,6 @@ extern DEVICE_IFC_GPIO Am3xx_Gpio;
 
 #define CM_CLKSEL_LCDC_PIXEL_CLK        (CM_PER + 0x34)
 
-
 /*****************************************************************/
 
 #define VTP0_CTRL_REG					0x44E10E0C
@@ -130,6 +129,7 @@ extern DEVICE_IFC_GPIO Am3xx_Gpio;
 #define EMIF4_0_SDRAM_TIM_3_SHADOW      (AM33X_EMIF4_0_CFG_REGS_PA + 0x2C)
 #define EMIF4_0_SDRAM_MGMT_CTRL         (AM33X_EMIF4_0_CFG_REGS_PA + 0x38)
 #define EMIF4_0_SDRAM_MGMT_CTRL_SHD     (AM33X_EMIF4_0_CFG_REGS_PA + 0x3C)
+#define EMIF4_0_SDRAM_INTERFACE_CFG     (AM33X_EMIF4_0_CFG_REGS_PA + 0x54)
 #define EMIF4_0_SDRAM_ZQ_CONFIG         (AM33X_EMIF4_0_CFG_REGS_PA + 0xC8)
 #define EMIF4_0_DDR_PHY_CTRL_1          (AM33X_EMIF4_0_CFG_REGS_PA + 0xE4)
 #define EMIF4_0_DDR_PHY_CTRL_1_SHADOW   (AM33X_EMIF4_0_CFG_REGS_PA + 0xE8)
@@ -260,6 +260,7 @@ typedef struct EMIF_DDR
 	UINT32 SDCFG2;
 	UINT32 ZQCR;
 	UINT32 SDREF;
+	UINT32 IFCFG;
 }EMIF_ddr, *pEMIF_ddr;
 
 
@@ -383,7 +384,6 @@ void core_pll_config(void)
 	div_m6 = div_m6 | COREPLL_M6;
 	OUTREG32(CM_DIV_M6_DPLL_CORE, div_m6);
 
-
 	clkmode = clkmode | 0x7;
 	OUTREG32(CM_CLKMODE_DPLL_CORE, clkmode);
 
@@ -415,7 +415,6 @@ void per_pll_config(void)
 	OUTREG32(CM_CLKMODE_DPLL_PER, clkmode);
 
 	while(INREG32(OALPAtoUA(CM_IDLEST_DPLL_PER)) != 0x1);
-
 }
 
 void disp_pll_config(void)
@@ -441,8 +440,7 @@ void disp_pll_config(void)
 	while(INREG32(OALPAtoUA(CM_IDLEST_DPLL_DISP)) != 0x1);
 
 	/* SELECT the MUX  line for LCDC PIXEL clock*/
-	OUTREG32(CM_CLKSEL_LCDC_PIXEL_CLK, LCDC_PIXEL_CLK_DISP_CLKOUTM2);  //250MHz
-
+	OUTREG32(CM_CLKSEL_LCDC_PIXEL_CLK, LCDC_PIXEL_CLK_DISP_CLKOUTM2);
 }
 
 
@@ -528,25 +526,24 @@ void pll_init()
 #define DATA0_RD_DQS_SLAVE_RATIO_0	(DDR_PHY_BASE_ADDR + 0x0C8)
 #define DATA0_RD_DQS_SLAVE_RATIO_1	(DDR_PHY_BASE_ADDR + 0x0CC)
 #define	DATA0_WR_DQS_SLAVE_RATIO_0	(DDR_PHY_BASE_ADDR + 0x0DC)
-
 #define	DATA0_WR_DQS_SLAVE_RATIO_1	(DDR_PHY_BASE_ADDR + 0x0E0)
+
 #define	DATA0_WRLVL_INIT_RATIO_0	(DDR_PHY_BASE_ADDR + 0x0F0)
-
 #define	DATA0_WRLVL_INIT_RATIO_1	(DDR_PHY_BASE_ADDR + 0x0F4)
+
 #define	DATA0_GATELVL_INIT_RATIO_0	(DDR_PHY_BASE_ADDR + 0x0FC)
-
 #define	DATA0_GATELVL_INIT_RATIO_1	(DDR_PHY_BASE_ADDR + 0x100)
+
 #define	DATA0_FIFO_WE_SLAVE_RATIO_0	(DDR_PHY_BASE_ADDR + 0x108)
-
 #define	DATA0_FIFO_WE_SLAVE_RATIO_1	(DDR_PHY_BASE_ADDR + 0x10C)
-#define	DATA0_WR_DATA_SLAVE_RATIO_0	(DDR_PHY_BASE_ADDR + 0x120)
 
+#define	DATA0_WR_DATA_SLAVE_RATIO_0	(DDR_PHY_BASE_ADDR + 0x120)
 #define	DATA0_WR_DATA_SLAVE_RATIO_1	(DDR_PHY_BASE_ADDR + 0x124)
+
 #define DATA0_DLL_LOCK_DIFF_0		(DDR_PHY_BASE_ADDR + 0x138)
 
 #define DATA0_RANK0_DELAYS_0		(DDR_PHY_BASE_ADDR + 0x134)
 #define	DATA1_RANK0_DELAYS_0		(DDR_PHY_BASE_ADDR + 0x1D8)
-
 
 /* AM335X EMIF Register values */
 #define EMIF_SDMGT				0x80000000
@@ -580,6 +577,8 @@ void pll_init()
 #define DDR3_EMIF_SDCFG2		0x61C05332
 #define DDR3_EMIF_ZQCR			0x50074BE4
 #define DDR3_EMIF_SDREF			0xC30
+//#define DDR3_EMIF_IFCFG			0x00000068
+#define DDR3_EMIF_IFCFG			0x000000ff
 
 #define	PHY_RANK0_DELAY		0x01
 #define PHY_DLL_LOCK_DIFF	0x0
@@ -658,6 +657,7 @@ static EMIF_ddr emif_ddr2 = {
 	DDR2_EMIF_SDCFG2,
 	0,
 	DDR2_EMIF_SDREF,
+	0,
 };
 
 static EMIF_ddr emif_ddr3 = {
@@ -670,6 +670,7 @@ static EMIF_ddr emif_ddr3 = {
 	DDR3_EMIF_SDCFG2,
 	DDR3_EMIF_ZQCR,
 	DDR3_EMIF_SDREF,
+	DDR3_EMIF_IFCFG,
 };
 
 
@@ -832,6 +833,7 @@ static void config_emif_ddr(EMIF_ddr *pemif_ddr)
 	if (TRUE == pemif_ddr->IsDDR3)
 	{
 		OUTREG32(OALPAtoUA(EMIF4_0_SDRAM_ZQ_CONFIG), pemif_ddr->ZQCR);
+		OUTREG32(OALPAtoUA(EMIF4_0_SDRAM_INTERFACE_CFG), pemif_ddr->IFCFG);
 	}
 
 

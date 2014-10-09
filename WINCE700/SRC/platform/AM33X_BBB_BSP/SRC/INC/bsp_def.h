@@ -73,6 +73,7 @@ typedef enum OMAP_LCD_DVI_RES {
     OMAP_LCD_480W_272H,
     OMAP_LCD_640W_480H,
     OMAP_LCD_800W_480H,
+    OMAP_LCD_800W_480H4D,
     OMAP_DVI_800W_600H,		// first DVI supported mode see IsDVIMode()
     OMAP_DVI_1024W_768H,
     OMAP_DVI_1280W_720H,

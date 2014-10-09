@@ -92,10 +92,20 @@ cleanUp:
 
 VOID OEMRegInit()
 {
-	if (OMAP_LCD_480W_272H == *(UINT8 *)OALArgsQuery(OAL_ARGS_QUERY_DISP_RES))
+	UINT8 disp;
+	
+	disp = *(UINT8 *)OALArgsQuery(OAL_ARGS_QUERY_DISP_RES);
+	if (OMAP_LCD_480W_272H == disp || OMAP_LCD_800W_480H4D == disp)
 	{
 		SetDeviceDriverFlags(
             L"\\Drivers\\BuiltIn\\Keypad", DEVFLAGS_NONE
+            );
+		// can not use these drivers as pads used for buttons on display board
+		SetDeviceDriverFlags(
+            L"\\Drivers\\BuiltIn\\UART2", DEVFLAGS_NOLOAD	//COM1
+            );
+		SetDeviceDriverFlags(
+            L"\\Drivers\\BuiltIn\\UART3", DEVFLAGS_NOLOAD	//COM2
             );
 	}
 	else

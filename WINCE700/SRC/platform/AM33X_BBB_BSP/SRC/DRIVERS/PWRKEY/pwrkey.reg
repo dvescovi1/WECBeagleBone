@@ -1,0 +1,7 @@
+IF BSP_PWRKEY
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\TPS65217_PWRKEY]
+    "Prefix"="PKD"
+    "Dll"="pwrkey.dll"
+    "Index"=dword:1
+    "order"=dword:21				; Should be loaded after Triton driver
+ENDIF BSP_PWRKEY

@@ -27,6 +27,7 @@
 #include "eboot.h"
 #include "lcdc.h"
 #include "am33x_clocks.h"
+#include "am33x_prcm.h"
 #include "ceddkex.h"
 #include "Image_Cfg.h"
 #include <oal_clock.h>
@@ -53,7 +54,7 @@ struct lcdc lcdc_device;
 static void lcd_init(void)
 {
 	lcdc_device.regs = (LCDC_REGS*)OALPAtoUA(GetAddressByDevice(AM_DEVICE_LCDC));
-	lcdc_device.clk = PrcmClockGetClockRate(LCD_PCLK);
+	lcdc_device.prcmregs = (AM33X_PRCM_REGS*)OALPAtoUA(AM33X_PRCM_REGS_PA);
 	LcdPdd_LCD_Initialize(&lcdc_device);
 	lcdc_device.regs->RASTER_CTRL |= LCDC_RASTER_CTRL_LCD_EN;
 }

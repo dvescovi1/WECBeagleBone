@@ -75,14 +75,15 @@ DBGPARAM dpCurSettings = {
 #define BSP_KEY3_GPIO			GPIO1_19
 #define BSP_KEY4_GPIO			GPIO3_16
 #define BSP_KEY5_GPIO			GPIO0_15
+#define BSP_KEY6_GPIO			GPIO0_3
 
 
 #define VK_KEYS                     256
 #define DWORD_BITS                  32
 
-#define NB_KEYS 5
+#define NB_KEYS 6
 
-DWORD g_GPIOId[NB_KEYS] = {BSP_KEY1_GPIO,BSP_KEY2_GPIO,BSP_KEY3_GPIO,BSP_KEY4_GPIO,BSP_KEY5_GPIO};
+DWORD g_GPIOId[NB_KEYS] = {BSP_KEY1_GPIO,BSP_KEY2_GPIO,BSP_KEY3_GPIO,BSP_KEY4_GPIO,BSP_KEY5_GPIO,BSP_KEY6_GPIO};
 
 //------------------------------------------------------------------------------
 //  Local Structures
@@ -165,6 +166,7 @@ DWORD KPD_Init(LPCTSTR szContext, LPCVOID pBusContext)
 	ReleasePad(PAD_ID(GPMC_A3));
 	ReleasePad(PAD_ID(MCASP0_AXR0));
 	ReleasePad(PAD_ID(UART1_TXD));
+	ReleasePad(PAD_ID(SPI0_D0));
 
 	if (RequestAndConfigurePadArray(KeypadPads)==FALSE){
         DEBUGMSG(ZONE_ERROR, (L"ERROR: KPD_Init: Cannot configure keypad pads\r\n"));
@@ -340,6 +342,7 @@ DWORD KPD_Thread(VOID *pContext)
 		data |= (GPIOGetBit(pDevice->hGpio,BSP_KEY3_GPIO)) ? 0 : 0x04;			  
 		data |= (GPIOGetBit(pDevice->hGpio,BSP_KEY4_GPIO)) ? 0 : 0x08;			  
 		data |= (GPIOGetBit(pDevice->hGpio,BSP_KEY5_GPIO)) ? 0 : 0x10;			  
+		data |= (GPIOGetBit(pDevice->hGpio,BSP_KEY6_GPIO)) ? 0 : 0x20;			  
 
 		//--------------------------------------------------------------
         // Convert physical state to virtual keys state

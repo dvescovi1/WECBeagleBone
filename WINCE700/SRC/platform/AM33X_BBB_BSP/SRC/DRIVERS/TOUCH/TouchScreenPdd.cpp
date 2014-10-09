@@ -1,18 +1,13 @@
-//
-// Copyright (c) Microsoft Corporation.  All rights reserved.
-//
-//
-// Use of this sample source code is subject to the terms of the Microsoft
-// license agreement under which you licensed this sample source code. If
-// you did not accept the terms of the license agreement, you are not
-// authorized to use this sample source code. For the terms of the license,
-// please see the license agreement between you and Microsoft or, if applicable,
-// see the LICENSE.RTF on your install media or the root of your tools installation.
-// THE SAMPLE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES OR INDEMNITIES.
-//
-// Copyright (c) 2011 Texas Instruments. All rights reserved.
-// All rights reserved ADENEO EMBEDDED 2010
-// Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
+/*
+================================================================================
+*             Texas Instruments OMAP(TM) Platform Software
+* (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+*
+* Use of this software is controlled by the terms and conditions found
+* in the license agreement under which this software has been supplied.
+*
+================================================================================
+*/
 
 #pragma warning(push)
 #pragma warning(disable: 4127 4201 28251 6054 6388)
@@ -425,36 +420,24 @@ static void tsc_step_config(TOUCH_DEVICE* ts_dev)
 	/* Configure the Step registers */
 	delay = (unsigned int)(TSCADC_STEPCONFIG_SAMPLEDLY | TSCADC_STEPCONFIG_OPENDLY);
 
-	stepconfigx = TSCADC_STEPCONFIG_MODE_HWSYNC |
+	stepconfigx = TSCADC_STEPCONFIG_MODE_HWS_OS |
 			TSCADC_STEPCONFIG_2SAMPLES_AVG | TSCADC_STEPCONFIG_XPP;
 	
 	switch (ts_dev->dwWires) {
 	case 4:
-		if(ts_dev->analog_input == 0)
-		    stepconfigx |= TSCADC_STEPCONFIG_INP_4 |
-		                   TSCADC_STEPCONFIG_YPN;
-		else
-		    stepconfigx |= TSCADC_STEPCONFIG_INP |
-			               TSCADC_STEPCONFIG_XNN;
+	    stepconfigx |= TSCADC_STEPCONFIG_INP |
+		               TSCADC_STEPCONFIG_XNN;
                 			
 		break;
 	case 5:
 		stepconfigx |= TSCADC_STEPCONFIG_YNN |
 				TSCADC_STEPCONFIG_INP_5;
-		if(ts_dev->analog_input == 0)
-		    stepconfigx |= TSCADC_STEPCONFIG_XNP |
-		                   TSCADC_STEPCONFIG_YPN;
-		else
-		    stepconfigx |= TSCADC_STEPCONFIG_XNN |
-			               TSCADC_STEPCONFIG_YPP;
+	    stepconfigx |= TSCADC_STEPCONFIG_XNN |
+		               TSCADC_STEPCONFIG_YPP;
 		break;
 	case 8:
-		if(ts_dev->analog_input == 0)
-		    stepconfigx |= TSCADC_STEPCONFIG_INP_4 |
-		                   TSCADC_STEPCONFIG_YPN;
-		else
-		    stepconfigx |= TSCADC_STEPCONFIG_INP |
-			               TSCADC_STEPCONFIG_XNN;
+	    stepconfigx |= TSCADC_STEPCONFIG_INP |
+		               TSCADC_STEPCONFIG_XNN;
 		break;
 	}
 	for (i = 0; i < XSTEPS; i++) {
@@ -462,32 +445,22 @@ static void tsc_step_config(TOUCH_DEVICE* ts_dev)
 		ts_dev->regs->tsc_adc_step_cfg[i].step_delay= delay;
 	}
 
-	stepconfigy = TSCADC_STEPCONFIG_MODE_HWSYNC |
+	stepconfigy = TSCADC_STEPCONFIG_MODE_HWS_OS |
 			TSCADC_STEPCONFIG_2SAMPLES_AVG | TSCADC_STEPCONFIG_YNN |
 			TSCADC_STEPCONFIG_INM | TSCADC_STEPCONFIG_FIFO1;
 	switch (ts_dev->dwWires) {
 	case 4:
-		if(ts_dev->analog_input == 0)
-			stepconfigy |= TSCADC_STEPCONFIG_XNP;
-		else
-			stepconfigy |= TSCADC_STEPCONFIG_YPP;
+		stepconfigy |= TSCADC_STEPCONFIG_YPP;
 			
 		break;
 	case 5:
 		stepconfigy |= TSCADC_STEPCONFIG_XPP | TSCADC_STEPCONFIG_INP_5;
 
-		if(ts_dev->analog_input == 0)
-			stepconfigy |= TSCADC_STEPCONFIG_XNN |
-			               TSCADC_STEPCONFIG_YPP;
-		else
-			stepconfigy |= TSCADC_STEPCONFIG_XNP |
-  			               TSCADC_STEPCONFIG_YPN ;
+		stepconfigy |= TSCADC_STEPCONFIG_XNP |
+		               TSCADC_STEPCONFIG_YPN ;
 		break;
 	case 8:
-		if(ts_dev->analog_input == 0)
-			stepconfigy |= TSCADC_STEPCONFIG_XNP;
-		else
-			stepconfigy |= TSCADC_STEPCONFIG_YPP;
+		stepconfigy |= TSCADC_STEPCONFIG_YPP;
 		break;
 	}
 	for (i = XSTEPS; i < (XSTEPS + YSTEPS); i++) {
@@ -500,11 +473,7 @@ static void tsc_step_config(TOUCH_DEVICE* ts_dev)
 			TSCADC_STEPCONFIG_RFP |
 			TSCADC_STEPCHARGE_RFM;
 
-	if(ts_dev->analog_input == 0)
-		chargeconfig |= TSCADC_STEPCHARGE_INM_SWAP |
-			TSCADC_STEPCHARGE_INP_SWAP;
-	else
-		chargeconfig |= TSCADC_STEPCHARGE_INM | TSCADC_STEPCHARGE_INP;
+	chargeconfig |= TSCADC_STEPCHARGE_INM | TSCADC_STEPCHARGE_INP;
 	
 	ts_dev->regs->charge_stepcfg = chargeconfig;
 	ts_dev->regs->charge_delay= TSCADC_STEPCHARGE_DELAY;
@@ -512,22 +481,6 @@ static void tsc_step_config(TOUCH_DEVICE* ts_dev)
 	
 }
 
-static BOOL tsc_clk_config(TOUCH_DEVICE *ts_dev)
-{
-    DWORD	clk_value;
-    
-    ts_dev->clk_rate = PrcmClockGetClockRate(SYS_CLK) * 1000000; 
-	DEBUGMSG(ZONE_INFO,   (L"clock rate is %d\r\n\n", ts_dev->clk_rate));
-	
-    clk_value = ts_dev->clk_rate / ADC_CLK;
-    if (clk_value < 7) {
-    	DEBUGMSG(ZONE_ERROR,  (L"clock input less than min clock requirement\n"));
-    	return FALSE;
-    }
-    /* TSCADC_CLKDIV needs to be configured to the value minus 1 */
-    ts_dev->regs->adc_clkdiv = clk_value -1;
-    return TRUE;
-}
 
 static void tsc_idle_config(TOUCH_DEVICE *ts_dev)
 {
@@ -536,10 +489,7 @@ static void tsc_idle_config(TOUCH_DEVICE *ts_dev)
 
 	idleconfig = TSCADC_STEPCONFIG_YNN |
 			TSCADC_STEPCONFIG_INM | TSCADC_STEPCONFIG_IDLE_INP;
-	if(ts_dev->analog_input == 0)
-		idleconfig |= TSCADC_STEPCONFIG_XNN;
-	else
-		idleconfig |= TSCADC_STEPCONFIG_YPN;
+	idleconfig |= TSCADC_STEPCONFIG_YPN;
 
     ts_dev->regs->idle_config = idleconfig;
 	
@@ -567,7 +517,7 @@ static void tscadc_getdatapoint(
     
     status = ts_dev->regs->irq_status;
 
-	if (status & TSCADC_IRQENB_FIFO1THRES){
+	if (status & TSCADC_IRQ_FIFO1_THRES){
 		fifo0count = ts_dev->regs->fifo0_count;
 		fifo1count = ts_dev->regs->fifo1_count;
 		for (i = 0; i < fifo0count; i++) {
@@ -611,7 +561,7 @@ static void tscadc_getdatapoint(
 		}
 		usLastFilteredX = val_x;
 		usLastFilteredY = val_y;
-		irqclr |= TSCADC_IRQENB_FIFO1THRES;
+		irqclr |= TSCADC_IRQ_FIFO1_THRES;
 	}
 
     if(bActualPenDown)
@@ -632,7 +582,7 @@ static void tscadc_getdatapoint(
 
     /* if PEN event triggered, and FSM is in idle state, then report PEN up event */
 	status = ts_dev->regs->irq_status_raw; 
-	if ((status & TSCADC_IRQENB_PENUP))  
+	if ((status & TSCADC_IRQ_PENUP))  
 	{
 		if((ts_dev->regs->adc_stat == TSCADC_ADCFSM_STEPID_IDLE))
     	{
@@ -648,13 +598,13 @@ static void tscadc_getdatapoint(
             // Store reported pen state.
             *pTipStateFlags = TouchSampleValidFlag;
     			
-    		irqclr |= TSCADC_IRQENB_PENUP;
+    		irqclr |= TSCADC_IRQ_PENUP;
     	}
 		else
 		    bActualPenDown = TRUE;
 	}
 	
-    if (!(status & TSCADC_IRQENB_PENUP))  
+    if (!(status & TSCADC_IRQ_PENUP))  
     {
 		if (ts_dev->regs->adc_stat == TSCADC_ADCFSM_FSM_IRQ1)
 		{
@@ -907,6 +857,7 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
     BOOL   rc = FALSE;
     PHYSICAL_ADDRESS pa = { 0, 0 };
     int ctrl, irqenable;
+    DWORD	clk_value;
 	
     DEBUGMSG(ZONE_FUNCTION, (TEXT("PDDInitializeHardware+\r\n")));
 
@@ -932,6 +883,8 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
     	goto cleanup;
     }
 
+	ReleaseDevicePads(AM_DEVICE_ADC_TSC);
+	
     // Request Pads for Touchscreen
     if (!RequestDevicePads(AM_DEVICE_ADC_TSC))
     {
@@ -974,12 +927,17 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
 
     //  Request all clocks
     EnableDeviceClocks(AM_DEVICE_ADC_TSC, TRUE );
-
-    tsc_clk_config(&s_TouchDevice);	
-
-    /* Analog input line was swapped in alpha EVM */
-    if((s_TouchDevice.analog_input != 1) && (s_TouchDevice.analog_input !=0))
-        s_TouchDevice.analog_input = 1;
+    
+    s_TouchDevice.clk_rate = PrcmClockGetClockRate(SYS_CLK) * 1000000; 
+	DEBUGMSG(ZONE_INFO,   (L"clock rate is %d\r\n\n", s_TouchDevice.clk_rate));
+	
+    clk_value = s_TouchDevice.clk_rate / ADC_CLK;
+    if (clk_value < 7) {
+    	DEBUGMSG(ZONE_ERROR,  (L"clock input less than min clock requirement\n"));
+    	return FALSE;
+    }
+    /* TSCADC_CLKDIV needs to be configured to the value minus 1 */
+    s_TouchDevice.regs->adc_clkdiv = clk_value -1;
 
      /* Enable wake-up of the SoC using touchscreen */
     s_TouchDevice.regs->irq_wakeup = TSCADC_IRQWKUP_ENB;
@@ -1004,18 +962,18 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
     tsc_idle_config(&s_TouchDevice);
 	
     /* IRQ Enable */
-    irqenable = TSCADC_IRQENB_IRQHWPEN |
-    	TSCADC_IRQENB_IRQEOS |
-    	TSCADC_IRQENB_PENUP | TSCADC_IRQENB_FIFO_OVERFLOW |
-    	TSCADC_IRQENB_FIFO1THRES;
-    s_TouchDevice.regs->irq_enable_set = TSCADC_IRQENB_FIFO1THRES;
+    irqenable = TSCADC_IRQ_PENIRQ_SYNC |
+    	TSCADC_IRQ_EOS |
+    	TSCADC_IRQ_PENUP | TSCADC_IRQ_FIFO0_OVERFLOW |
+    	TSCADC_IRQ_FIFO1_THRES;
+    s_TouchDevice.regs->irq_enable_set = TSCADC_IRQ_FIFO1_THRES;
     
     tsc_step_config(&s_TouchDevice);
 
     s_TouchDevice.regs->fifo1_threshold = YSTEPS-1;
     s_TouchDevice.regs->fifo0_threshold = XSTEPS-1;
 	
-    ctrl |= TSCADC_CNTRLREG_TSCSSENB;
+    ctrl |= TSCADC_CNTRLREG_ENABLE;
     s_TouchDevice.regs->adc_ctrl = ctrl;
 
 	 

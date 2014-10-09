@@ -32,11 +32,11 @@
 
 // Note: do not use a leading zero, compiler interprets leading 0 as octal number
 #define BSP_VERSION_MAJOR       1
-#define BSP_VERSION_MINOR       11
+#define BSP_VERSION_MINOR       12
 #define BSP_VERSION_QFES        0
-#define BSP_VERSION_INCREMENTAL 1
+#define BSP_VERSION_INCREMENTAL 0
 
-#define BSP_VERSION_STRING      L"BSP_WINWEC7_ARM_A8 01.11.00.01"
+#define BSP_VERSION_STRING      L"BSP_WINWEC7_ARM_A8 01.12.00.00"
 
 
 #endif

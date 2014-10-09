@@ -15,15 +15,22 @@
 #include <nkintr.h>
 #include "lcdc.h"
 #include "am33x_clocks.h"
+#include "am33x_oal_prcm.h"
 #include "Image_Cfg.h"
 #include "bsp_def.h"
 #include "sdk_gpio.h"
 #include "bsp_padcfg.h"
+#include "..\tda1998x\tda.h"
 
 //
 //  Defines
 //
 static BOOL bDVIEnabled = FALSE;
+
+
+extern struct drm_display_mode *get_drm_mode(void);
+
+
 
 static void udelay(UINT32 delay)
 {
@@ -38,33 +45,33 @@ static void udelay(UINT32 delay)
 
 static void lcdc_dumpregs(struct lcdc *lcdc) {
     RETAILMSG(TRUE, ((L"----\r\n")));
-    RETAILMSG(TRUE, ((L"lcdc->regs->PID =               0x%08x  addr=0x%08x\r\n"), lcdc->regs->PID,               &lcdc->regs->PID));
-    RETAILMSG(TRUE, ((L"lcdc->regs->CTRL =              0x%08x  addr=0x%08x\r\n"), lcdc->regs->CTRL,              &lcdc->regs->CTRL));
-    RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CTRL =         0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CTRL,         &lcdc->regs->LIDD_CTRL));
-    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS0_CONF =  	0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CS0_CONF,     &lcdc->regs->LIDD_CS0_CONF));
-    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS0_ADDR =  	0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CS0_ADDR,     &lcdc->regs->LIDD_CS0_ADDR));
-    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS0_DATA =  	0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CS0_DATA,     &lcdc->regs->LIDD_CS0_DATA));
-    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS1_CONF =  	0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CS1_CONF,     &lcdc->regs->LIDD_CS1_CONF));
-    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS1_ADDR =  	0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CS1_ADDR,     &lcdc->regs->LIDD_CS1_ADDR));
-    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS1_DATA =  	0x%08x  addr=0x%08x\r\n"), lcdc->regs->LIDD_CS1_DATA,     &lcdc->regs->LIDD_CS1_DATA));
-    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_CTRL     =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->RASTER_CTRL,       &lcdc->regs->RASTER_CTRL));
-    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_TIMING_0 =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->RASTER_TIMING_0,   &lcdc->regs->RASTER_TIMING_0));
-    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_TIMING_1 =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->RASTER_TIMING_1,   &lcdc->regs->RASTER_TIMING_1));
-    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_TIMING_2 =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->RASTER_TIMING_2,   &lcdc->regs->RASTER_TIMING_2));
-    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_SUBPANEL =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->RASTER_SUBPANEL,   &lcdc->regs->RASTER_SUBPANEL));
-    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_SUBPANEL2 =  0x%08x  addr=0x%08x\r\n"), lcdc->regs->RASTER_SUBPANEL2,  &lcdc->regs->RASTER_SUBPANEL2));
-    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_CTRL =       0x%08x  addr=0x%08x\r\n"), lcdc->regs->LCDDMA_CTRL,       &lcdc->regs->LCDDMA_CTRL));
-    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB0_BASE =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->LCDDMA_FB0_BASE,   &lcdc->regs->LCDDMA_FB0_BASE));
-    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB0_CEILING =0x%08x  addr=0x%08x\r\n"), lcdc->regs->LCDDMA_FB0_CEILING,&lcdc->regs->LCDDMA_FB0_CEILING));
-    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB1_BASE =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->LCDDMA_FB1_BASE,   &lcdc->regs->LCDDMA_FB1_BASE));
-    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB1_CEILING =0x%08x  addr=0x%08x\r\n"), lcdc->regs->LCDDMA_FB1_CEILING,&lcdc->regs->LCDDMA_FB1_CEILING));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->SYSCONFIG     =     0x%08x  addr=0x%08x\r\n"), lcdc->regs->SYSCONFIG,         &lcdc->regs->SYSCONFIG));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->IRQSTATUS_RAW =     0x%08x  addr=0x%08x\r\n"), lcdc->regs->IRQSTATUS_RAW,     &lcdc->regs->IRQSTATUS_RAW));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->IRQSTATUS     =     0x%08x  addr=0x%08x\r\n"), lcdc->regs->IRQSTATUS,         &lcdc->regs->IRQSTATUS));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->IRQENABLE_SET =     0x%08x  addr=0x%08x\r\n"), lcdc->regs->IRQENABLE_SET,     &lcdc->regs->IRQENABLE_SET));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->IRQENABLE_CLEAR =   0x%08x  addr=0x%08x\r\n"), lcdc->regs->IRQENABLE_CLEAR,   &lcdc->regs->IRQENABLE_CLEAR));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->CLKC_ENABLE =       0x%08x  addr=0x%08x\r\n"), lcdc->regs->CLKC_ENABLE,       &lcdc->regs->CLKC_ENABLE));    
-    RETAILMSG(TRUE, ((L"lcdc->regs->CLKC_RESET =        0x%08x  addr=0x%08x\r\n"), lcdc->regs->CLKC_RESET,        &lcdc->regs->CLKC_RESET));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->PID =               0x%08x\r\n"), lcdc->regs->PID));
+    RETAILMSG(TRUE, ((L"lcdc->regs->CTRL =              0x%08x\r\n"), lcdc->regs->CTRL));
+    RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CTRL =         0x%08x\r\n"), lcdc->regs->LIDD_CTRL));
+    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS0_CONF =  	0x%08x\r\n"), lcdc->regs->LIDD_CS0_CONF));
+    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS0_ADDR =  	0x%08x\r\n"), lcdc->regs->LIDD_CS0_ADDR));
+    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS0_DATA =  	0x%08x\r\n"), lcdc->regs->LIDD_CS0_DATA));
+    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS1_CONF =  	0x%08x\r\n"), lcdc->regs->LIDD_CS1_CONF));
+    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS1_ADDR =  	0x%08x\r\n"), lcdc->regs->LIDD_CS1_ADDR));
+    //RETAILMSG(TRUE, ((L"lcdc->regs->LIDD_CS1_DATA =  	0x%08x\r\n"), lcdc->regs->LIDD_CS1_DATA));
+    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_CTRL     =   0x%08x\r\n"), lcdc->regs->RASTER_CTRL));
+    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_TIMING_0 =   0x%08x\r\n"), lcdc->regs->RASTER_TIMING_0));
+    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_TIMING_1 =   0x%08x\r\n"), lcdc->regs->RASTER_TIMING_1));
+    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_TIMING_2 =   0x%08x\r\n"), lcdc->regs->RASTER_TIMING_2));
+    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_SUBPANEL =   0x%08x\r\n"), lcdc->regs->RASTER_SUBPANEL));
+    RETAILMSG(TRUE, ((L"lcdc->regs->RASTER_SUBPANEL2 =  0x%08x\r\n"), lcdc->regs->RASTER_SUBPANEL2));
+    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_CTRL =       0x%08x\r\n"), lcdc->regs->LCDDMA_CTRL));
+    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB0_BASE =   0x%08x\r\n"), lcdc->regs->LCDDMA_FB0_BASE));
+    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB0_CEILING =0x%08x\r\n"), lcdc->regs->LCDDMA_FB0_CEILING));
+    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB1_BASE =   0x%08x\r\n"), lcdc->regs->LCDDMA_FB1_BASE));
+    RETAILMSG(TRUE, ((L"lcdc->regs->LCDDMA_FB1_CEILING =0x%08x\r\n"), lcdc->regs->LCDDMA_FB1_CEILING));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->SYSCONFIG     =     0x%08x\r\n"), lcdc->regs->SYSCONFIG));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->IRQSTATUS_RAW =     0x%08x\r\n"), lcdc->regs->IRQSTATUS_RAW));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->IRQSTATUS     =     0x%08x\r\n"), lcdc->regs->IRQSTATUS));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->IRQENABLE_SET =     0x%08x\r\n"), lcdc->regs->IRQENABLE_SET));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->IRQENABLE_CLEAR =   0x%08x\r\n"), lcdc->regs->IRQENABLE_CLEAR));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->CLKC_ENABLE =       0x%08x\r\n"), lcdc->regs->CLKC_ENABLE));    
+    RETAILMSG(TRUE, ((L"lcdc->regs->CLKC_RESET =        0x%08x\r\n"), lcdc->regs->CLKC_RESET));    
 
 }
 
@@ -224,6 +231,7 @@ static void lcdc_cfg_horizontal_sync(struct lcdc *lcdc)
 
 	tmp = lcdc->regs->RASTER_TIMING_2 & 0x87FFFFFF;
 	tmp |= (((lcdc->panel->hsw >>6) & 0xf) << 27);
+
 	lcdc->regs->RASTER_TIMING_2 = tmp;
 }
 
@@ -346,8 +354,8 @@ static void lcdc_config_clk_divider(struct lcdc* lcdc)
 
 }
 
-void lcdc_setup_regs(struct lcdc* lcdc) {
-
+void lcdc_setup_regs(struct lcdc* lcdc) 
+{
 	lcdc_disable_raster(lcdc);
 
 	lcdc_config_clk_divider(lcdc);
@@ -373,21 +381,23 @@ static __inline void lcdc_hw_reset(struct lcdc *lcdc)
 	lcdc->regs->CLKC_RESET = 0x0;
 	
 }
-static __inline void lcdc_enable(struct lcdc *lcdc) {
+static __inline void lcdc_enable(struct lcdc *lcdc) 
+{
 	lcdc_hw_reset(lcdc);
 	lcdc_setup_regs(lcdc);	
 	lcdc_blit	(lcdc, lcdc->load_mode);
 }
 
-static __inline void lcdc_disable_async(struct lcdc *lcdc) {
-
+static __inline void lcdc_disable_async(struct lcdc *lcdc) 
+{
 	lcdc_disable_raster(lcdc); 
 
    	lcdc->regs->LCDDMA_CTRL = 0x0;
 	lcdc->regs->IRQENABLE_SET = 0x0;
 }
 
-static void lcdc_reset(struct lcdc *lcdc, UINT32 status) {
+static void lcdc_reset(struct lcdc *lcdc, UINT32 status) 
+{
 	lcdc_disable_async(lcdc);
 	lcdc->reset_count++;
 
@@ -406,8 +416,8 @@ static void lcdc_reset(struct lcdc *lcdc, UINT32 status) {
 	}
 }
 
-int lcdc_change_mode(struct lcdc* lcdc, int color_mode) {
-
+int lcdc_change_mode(struct lcdc* lcdc, int color_mode) 
+{
 	switch (color_mode) {
 		case DISPC_PIXELFORMAT_BITMAP1:
 			lcdc->palette_code = 0x0000;
@@ -475,7 +485,8 @@ static void lcdc_load_palette(struct lcdc* lcdc)
 }
 
 int lcdc_setcolreg(struct lcdc* lcdc, UINT16 regno, 
-		UINT8 red, UINT8 green, UINT8 blue, int update_hw_pal) {
+		UINT8 red, UINT8 green, UINT8 blue, int update_hw_pal) 
+{
 	UINT16 *palette;
 
 	if (!lcdc->palette_size)
@@ -539,8 +550,8 @@ void lcdc_suspend(struct lcdc* lcdc) {
 
 }
 
-void lcdc_resume(struct lcdc* lcdc) {
-	
+void lcdc_resume(struct lcdc* lcdc) 
+{
 	EnableDeviceClocks(AM_DEVICE_LCDC, TRUE);
 	lcdc_hw_reset(lcdc);
 	if (lcdc->update_mode == FB_AUTO_UPDATE) {
@@ -596,6 +607,7 @@ LcdPdd_LCD_Initialize(struct lcdc *lcdc)
 	PHYSICAL_ADDRESS pa = {0, 0};
 	DWORD id = AM33X_BOARDID_BBONE_BOARD;
 
+    lcdc->clk = PrcmClockGetClockRate(LCD_PCLK);
     lcdc->panel = get_panel();
 
     lcdc->fb_pa =   IMAGE_WINCE_DISPLAY_PA;
@@ -661,6 +673,7 @@ LcdPdd_LCD_Initialize(struct lcdc *lcdc)
 		(*lcdc->panel->enable)(TRUE);
 	}
 
+//	lcdc_dumpregs(lcdc);
 cleanUp:
     return TRUE;
 }

@@ -114,6 +114,18 @@ IF BSP_PRU
 prudrvr.dll			$(_FLATRELEASEDIR)\prudrvr.dll				NK SHK
 ENDIF BSP_PRU
 
+IF BSP_TPS65217
+tps65217.dll		$(_FLATRELEASEDIR)\tps65217.dll				NK SHK
+ENDIF BSP_TPS65217
+
+IF BSP_PWRKEY
+pwrkey.dll			$(_FLATRELEASEDIR)\pwrkey.dll				NK SHK
+ENDIF BSP_PWRKEY
+
+IF BSP_BATTERY
+battdrvr.dll		$(_FLATRELEASEDIR)\battdrvr.dll				NK SHK
+ENDIF BSP_BATTERY
+
 
 ;DLLs to support "do" shell debug command
 omap_shell.dll       $(_FLATRELEASEDIR)\omap_shell.dll          NK  SH

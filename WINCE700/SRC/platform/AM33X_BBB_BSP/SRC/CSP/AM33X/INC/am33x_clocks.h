@@ -117,6 +117,7 @@ typedef enum {
 	AM_DEVICE_NOR,             /* same as GPMC */    
 	AM_DEVICE_FRAMER,
 	AM_DEVICE_GPIO,
+	AM_DEVICE_ADC,
 	AM_DEVICE_END         /* this should be the last one */
 } AM33X_DEVICE_ID;
 

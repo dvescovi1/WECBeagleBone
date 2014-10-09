@@ -83,7 +83,7 @@ typedef struct {
 #define LCDC_CTRL_CLKDIV_MASK				(0xff << 8)
 
 
-// RASTER CTRL register
+// RASTER_CTRL register
 #define LCDC_RASTER_CTRL_LCD_EN				(1 << 0)
 #define LCDC_RASTER_CTRL_MONOCHROME_MODE	(1 << 1)
 #define LCDC_RASTER_CTRL_LCD_TFT			(1 << 7)
