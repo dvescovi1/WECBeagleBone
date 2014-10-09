@@ -485,8 +485,8 @@ deepSleepData _suspend_DSData;
 
 
 //enable any one of these
-#define USE_TIMER1_AS_WAKEUP_SOURCE
-//#define USE_RTC_AS_WAKEUP_SOURCE
+//#define USE_TIMER1_AS_WAKEUP_SOURCE
+#define USE_RTC_AS_WAKEUP_SOURCE
 
 // Modules that dont have a driver should be disabled in this function
 void PrcmPreSuspendDisableClock(DWORD suspendState)
@@ -879,7 +879,7 @@ void PrcmSuspend()
     OEMGetRealTime(&startSysTime);
     if (NKSystemTimeToFileTime(&startSysTime,(FILETIME *)&startFileTime)==0)
         OALMSG(1,(L"SystemTimeToFileTime failed\r\n"));
-    alarmFileTime = startFileTime + 90 * 1000 * 10000; //30 secs
+    alarmFileTime = startFileTime + 30 * 10000000; //30 secs
     if (NKFileTimeToSystemTime((FILETIME *)&alarmFileTime,&alarmSysTime)==0)
         OALMSG(1,(L"FileTimeToSystemTime failed\r\n"));
     if (OEMSetAlarmTime(&alarmSysTime)==0)

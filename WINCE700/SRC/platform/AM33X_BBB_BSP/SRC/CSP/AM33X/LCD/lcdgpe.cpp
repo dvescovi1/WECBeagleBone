@@ -389,6 +389,14 @@ BOOL LCDDDGPE::Init()
         return FALSE;
     }
     
+	pa.QuadPart = AM33X_PRCM_REGS_PA;
+    m_Lcdc.prcmregs = (AM33X_PRCM_REGS*)MmMapIoSpace(pa, sizeof(AM33X_PRCM_REGS), FALSE);
+    if (m_Lcdc.prcmregs == NULL) {
+        DEBUGMSG(GPE_ZONE_ERROR, (L"ERROR: LCDGPE::LCDGPE: "
+            L"Failed to map PRCM registers (pa = 0x%08x)\r\n", pa.LowPart));
+        return FALSE;
+    }
+    
     // Request Pads for LCD
     if (!RequestDevicePads(AM_DEVICE_LCDC))
     {
@@ -400,9 +408,6 @@ BOOL LCDDDGPE::Init()
 
     EnableDeviceClocks(AM_DEVICE_LCDC, TRUE);
 
-	m_Lcdc.clk = PrcmClockGetClockRate(LCD_PCLK);
-	
-    //  Initialize the LCD by calling PDD
     bResult = LcdPdd_LCD_Initialize(&m_Lcdc);
 
     m_Lcdc.fb_cur_win_size = lcdc_PixelFormatToPixelSize(m_Lcdc.panel->pixel_format) * m_Lcdc.panel->x_res * m_Lcdc.panel->y_res;

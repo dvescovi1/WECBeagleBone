@@ -111,11 +111,12 @@ DeviceLookupEntry s_rgDeviceLookupTable[] =
 // this only has devices after  AM_DEVICE_COUNT. If the remap doesnt exist, use AM_DEVICE_END 
 static UINT s_rgDeviceRemapTable[] = 
 {
-    AM_DEVICE_GPMC, //AM_DEVICE_NAND
-    AM_DEVICE_GPMC, //AM_DEVICE_NOR
-    AM_DEVICE_END,  //AM_DEVICE_FRAMER
-    AM_DEVICE_END,  //AM_DEVICE_GPIO
-    AM_DEVICE_END   //AM_DEVICE_END
+    AM_DEVICE_GPMC, 	//AM_DEVICE_NAND
+    AM_DEVICE_GPMC, 	//AM_DEVICE_NOR
+    AM_DEVICE_END,  	//AM_DEVICE_FRAMER
+    AM_DEVICE_END,  	//AM_DEVICE_GPIO
+    AM_DEVICE_ADC_TSC,  //AM_DEVICE_ADC
+	AM_DEVICE_END		//AM_DEVICE_END
 };
 
 //-----------------------------------------------------------------------------

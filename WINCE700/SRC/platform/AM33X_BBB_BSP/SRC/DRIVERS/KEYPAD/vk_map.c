@@ -32,6 +32,7 @@ const GPIO_KEY g_keypadVK[] = {
     {3,  VK_UP    },
     {4,  VK_DOWN  },
     {5,  VK_RETURN},
+    {6,  VK_RETURN},
 };
 
 //------------------------------------------------------------------------------
@@ -60,6 +61,7 @@ static const KEYPAD_REPEAT_ITEM repeatItems[] = {
     {VK_RIGHT,            500, 500, TRUE,  &softkeyBlock },
     {VK_UP,               500, 500, TRUE,  &softkeyBlock },
     {VK_DOWN,             500, 500, TRUE,  &softkeyBlock},
+    {VK_RETURN,			  500, 500, TRUE,  NULL },
     {VK_RETURN,			  500, 500, TRUE,  NULL },
 };
 

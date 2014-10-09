@@ -1,0 +1,23 @@
+
+!IF "$(BSP_NOBATTERY)" == "1"
+SKIPBUILD=1
+!ENDIF
+
+!IF "$(BSP_BATTERY)" == ""
+SKIPBUILD=1
+!ENDIF
+
+TARGETNAME=battdrvr
+TARGETTYPE=DYNLINK
+
+SOURCELIBS= \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\battdrvr_mdd.lib \
+    $(_PLATLIB)\$(_CPUINDPATH)\triton_device.lib
+
+TARGETLIBS= \
+    $(_PLATLIB)\$(_CPUDEPPATH)\ceddk.lib \
+	$(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib \
+
+SOURCES=\
+	batt_pdd.c \
+

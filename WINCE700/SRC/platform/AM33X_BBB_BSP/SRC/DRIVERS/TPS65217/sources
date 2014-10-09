@@ -1,0 +1,31 @@
+!if 0
+;================================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;================================================================================
+!endif
+
+!IF "$(BSP_TPS65217)" == ""
+SKIPBUILD=1
+!ENDIF
+
+COMPILE_DEBUG=1
+
+TARGETNAME=tps65217
+TARGETTYPE=DYNLINK
+
+TARGETLIBS= \
+    $(_PLATLIB)\$(_CPUDEPPATH)\ceddk.lib \
+    $(_SYSGENSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib
+
+SOURCELIBS= \
+	$(_PLATLIB)\$(_CPUINDPATH)\bsp_cfg.lib
+	    
+
+SOURCES= \
+	tps65217.cpp \
+	

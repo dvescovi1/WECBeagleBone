@@ -1,7 +1,3 @@
-// All rights reserved Texas Instruments, Inc. 2011
-// All rights reserved ADENEO EMBEDDED 2010
-// Copyright (c) 2007, 2008 BSQUARE Corporation. All rights reserved.
-
 /*
 ================================================================================
 *             Texas Instruments OMAP(TM) Platform Software
@@ -59,6 +55,14 @@ typedef volatile struct
 	REG32	RTC_REVISION;		// 74h  Revision Register
 	REG32	RTC_SYSCONFIG;		// 78h  System Configuration Register
 	REG32	RTC_IRQWAKEEN_0;	// 7Ch  Wakeup Enable Register
+	REG32	ALARM2_SECONDS_REG;	// 80h  Alarm2 Seconds Register
+	REG32	ALARM2_MINUTES_REG;	// 84h  Alarm2 Minutes Register
+	REG32	ALARM2_HOURS_REG;	// 88h  Alarm2 Hours Register
+	REG32	ALARM2_DAYS_REG;	// 8Ch  Alarm2 Days Register
+	REG32	ALARM2_MONTHS_REG;	// 90h  Alarm2 Months Register
+	REG32	ALARM2_YEARS_REG;	// 94h  Alarm2 Years Register
+	REG32	RTC_PMIC;			// 98h  RTC PMIC Register
+	REG32	RTC_DEBOUNCE;		// 9Ch  RTC Debounce Register
 } AM3XX_RTC_REGS;
 
 #define RTC_K_UNLOCK0 0x83E70B13
@@ -142,7 +146,7 @@ BOOL RTC_SetAlarmTime(LPSYSTEMTIME time)
 	BOOL fWasEnabled;
 
 	if((time->wYear < BASE_YEAR) || (time->wYear > BASE_YEAR + RTC_MAX_YEARS)){
-		OALMSG(OAL_WARN,(TEXT("RTC_SetTime(): HW RTC supports setting a year in the %u-%u range\r\n")
+		OALMSG(OAL_WARN,(TEXT("RTC_SetAlarmTime(): HW RTC supports setting a year in the %u-%u range\r\n")
 							,BASE_YEAR,BASE_YEAR+RTC_MAX_YEARS));
 		return FALSE;
 	}
@@ -172,6 +176,52 @@ BOOL RTC_SetAlarmTime(LPSYSTEMTIME time)
 
 	rtc_regs->RTC_STATUS_REG     = 1 << 6; // clear pending interrupt
 	rtc_regs->RTC_INTERRUPTS_REG = 1 << 3; // enable alarm interrupt
+
+	rtc_regs->KICK0R = 0;
+
+	INTERRUPTS_ENABLE (fWasEnabled);
+
+	return TRUE;
+}
+
+
+BOOL RTC_SetAlarm2Time(LPSYSTEMTIME time)
+{
+	BOOL fWasEnabled;
+
+	if((time->wYear < BASE_YEAR) || (time->wYear > BASE_YEAR + RTC_MAX_YEARS)){
+		OALMSG(OAL_WARN,(TEXT("RTC_SetAlarm2Time(): HW RTC supports setting a year in the %u-%u range\r\n")
+							,BASE_YEAR,BASE_YEAR+RTC_MAX_YEARS));
+		return FALSE;
+	}
+
+	//OALMSG(1,(L"+++RTC_SetAlarm2Time %02d/%02d/%04d %d:%d:%d\r\n",
+    //			time->wMonth, time->wDay, time->wYear, 	 
+    //			time->wHour, time->wMinute, time->wSecond ));
+
+	while (rtc_regs->RTC_STATUS_REG & RTC_STATUS_BUSY );
+	fWasEnabled = INTERRUPTS_ENABLE (FALSE);
+
+	rtc_regs->KICK0R = RTC_K_UNLOCK0;
+	rtc_regs->KICK1R = RTC_K_UNLOCK1;
+
+	rtc_regs->RTC_PMIC = 0x00010000;	// PMIC enable PMIC_POWER_EN signal
+//	rtc_regs->RTC_PMIC = 0x00010011;	// PMIC enable PMIC_POWER_EN signal and wakeup
+	rtc_regs->RTC_INTERRUPTS_REG = 0x0; // disable all interrupts
+
+	rtc_regs->ALARM2_SECONDS_REG = (UINT32)BINtoBCD((UINT8)time->wSecond);
+	rtc_regs->ALARM2_YEARS_REG   = (UINT32)BINtoBCD((UINT8)(time->wYear - BASE_YEAR));         
+	rtc_regs->ALARM2_MONTHS_REG  = (UINT32)BINtoBCD((UINT8)time->wMonth);        
+	rtc_regs->ALARM2_DAYS_REG    = (UINT32)BINtoBCD((UINT8)time->wDay);          
+	rtc_regs->ALARM2_HOURS_REG   = (UINT32)BINtoBCD((UINT8)time->wHour);         
+	rtc_regs->ALARM2_MINUTES_REG = (UINT32)BINtoBCD((UINT8)time->wMinute);       
+
+	//OALMSG(1,(L"---RTC_SetAlarm2Time %02X/%02X/%02X %02X:%02X:%02X\r\n",
+	//	rtc_regs->ALARM2_MONTHS_REG,rtc_regs->ALARM2_DAYS_REG, rtc_regs->ALARM2_YEARS_REG,
+	//	rtc_regs->ALARM2_HOURS_REG, rtc_regs->ALARM2_MINUTES_REG, rtc_regs->ALARM2_SECONDS_REG));
+
+	rtc_regs->RTC_STATUS_REG     = 1 << 7; // clear pending interrupt
+	rtc_regs->RTC_INTERRUPTS_REG = 1 << 4; // enable alarm interrupt
 
 	rtc_regs->KICK0R = 0;
 
@@ -220,7 +270,7 @@ BOOL OALIoCtlHalInitRTC( UINT32 code,
 	UNREFERENCED_PARAMETER(outSize);
 	UNREFERENCED_PARAMETER(pOutSize);
 
-	//RETAILMSG(1, (L"Initializing RTC\r\n"));
+//	RETAILMSG(1, (L"Initializing RTC\r\n"));
 
 	if (pGivenTime != NULL)	{
 		RTC_SetTime(pGivenTime);
@@ -255,4 +305,39 @@ BOOL OEMSetAlarmTime(SYSTEMTIME *pSystemTime )
     OEMInterruptDone(SYSINTR_RTC_ALARM);
 
 	return fResult;
+}
+
+
+
+BOOL OEMSetAlarm2OffTime(int secFromNow)
+{
+	SYSTEMTIME stime;
+	FILETIME ftime;
+    SYSTEMTIME startSysTime, alarmSysTime;
+    LONGLONG   startFileTime, alarmFileTime;
+
+	BOOL rc=FALSE;
+
+	if (!RTC_GetTime(&startSysTime))
+		goto cleanUp;
+    if (NKSystemTimeToFileTime(&startSysTime,(FILETIME *)&startFileTime)==0)
+	{
+        OALMSG(1,(L"SystemTimeToFileTime failed\r\n"));
+		goto cleanUp;
+	}
+    alarmFileTime = startFileTime + secFromNow * 10000000;
+    if (NKFileTimeToSystemTime((FILETIME *)&alarmFileTime,&alarmSysTime)==0)
+	{
+        OALMSG(1,(L"FileTimeToSystemTime failed\r\n"));
+		goto cleanUp;
+	}
+    if (RTC_SetAlarm2Time(&alarmSysTime)==0)
+	{
+        OALMSG(1,(L"RTC_SetAlarm2Time failed\r\n"));
+		goto cleanUp;
+	}
+	rc = TRUE;
+
+cleanUp:
+	return rc;
 }

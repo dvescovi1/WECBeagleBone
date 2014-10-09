@@ -190,7 +190,7 @@ BOOL OEMPlatformInit()
 
 	detect_daughter_board_profiles();
 
-	if (g_dwBoardHasDcard & (HASDCARD_DVI | HASDCARD_LCD4))
+	if (g_dwBoardHasDcard & (HASDCARD_DVI | HASDCARD_LCD4 | HASDCARD_LCD7 | HASDCARD_LCD7_4D))
 	{
         g_dwBoardProfile |= PROFILE_2;			// LCD color and sync pads
 	}
@@ -360,6 +360,10 @@ ULONG OEMPreDownload( )
 		if (HASDCARD_LCD4 == (g_dwBoardHasDcard & HASDCARD_LCD4))
 		{
 			g_bootCfg.displayRes = OMAP_LCD_480W_272H;
+		}
+		if (HASDCARD_LCD7_4D == (g_dwBoardHasDcard & HASDCARD_LCD7_4D))
+		{
+			g_bootCfg.displayRes = OMAP_LCD_800W_480H4D;
 		}
 
         // select default boot device based on boot select switch setting

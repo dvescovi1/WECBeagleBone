@@ -2205,6 +2205,7 @@ HWInit(
 	}
 
 	// Perform pads configuration
+	ReleaseDevicePads(pPdd->DeviceID);
 	if (!RequestDevicePads(pPdd->DeviceID))
 	{
         DEBUGMSG(ZONE_ERROR, (L"ERROR: HWInit: "

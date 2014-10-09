@@ -226,7 +226,17 @@ ENDIF IMGREGHIVE
 ; PRU Driver
 #include "$(PLAT_DRIVERS_DIR)\PRU\pru.reg"
     
+;===============================================================================
+; TPS65217 driver
+#include "$(PLAT_DRIVERS_DIR)\TPS65217\tps65217.reg"
 
+;===============================================================================
+; power key driver
+#include "$(PLAT_DRIVERS_DIR)\PWRKEY\pwrkey.reg"
+
+;===============================================================================
+; battery driver
+#include "$(PLAT_DRIVERS_DIR)\BATTERY\battery.reg"
 
 ;===============================================================================
 ; Proxy Driver

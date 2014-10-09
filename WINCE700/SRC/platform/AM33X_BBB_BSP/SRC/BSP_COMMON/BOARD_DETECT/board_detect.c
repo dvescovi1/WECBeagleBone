@@ -121,6 +121,13 @@ static BOOL detect_daughter_board(void * m_hI2CDevice, UINT32 address)
 			{
 				g_dwBoardHasDcard |= HASDCARD_LCD4;
 			}
+			if (strncmp(db_header.partnumber,"BB-BONE-LCD7-",13) == 0)
+			{
+				if (strncmp(db_header.name,"4D",2) == 0)
+					g_dwBoardHasDcard |= HASDCARD_LCD7_4D;
+				else
+					g_dwBoardHasDcard |= HASDCARD_LCD7;
+			}
 
 			return TRUE;
 	    }

@@ -1,0 +1,9 @@
+IF BSP_TPS65217
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\TWL]
+    "Prefix"="TWL"
+    "Dll"="tps65217.dll"
+    "Index"=dword:1
+    "Order"=dword:1    
+    ; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+    "IClass"=multi_sz:"{A32942B7-920C-486b-B0E6-92A702A99B35}"    
+ENDIF BSP_TPS65217

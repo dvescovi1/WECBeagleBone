@@ -1,0 +1,21 @@
+;
+;==============================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;==============================================================================
+;
+LIBRARY TWL
+
+EXPORTS 
+    TWL_Init
+    TWL_Deinit
+    TWL_Open
+    TWL_Close
+    TWL_IOControl
+    TWL_PowerUp
+    TWL_PowerDown
+    

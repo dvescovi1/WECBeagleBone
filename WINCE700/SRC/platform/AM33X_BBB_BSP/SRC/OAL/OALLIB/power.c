@@ -18,6 +18,7 @@
 
 extern void OEMDeinitDebugSerial();
 extern void OEMInitDebugSerial();
+extern BOOL g_PrcmDebugSuspendResume;
 
 #if 0
 //-----------------------------------------------------------------------------
@@ -168,13 +169,11 @@ BSPPowerOff(
     OALTimerStop();
 
     // for debugging purpose, dont turn off the debug UART - anyways it belongs to WAKEUP domain, so it shouldn't interfere with deepsleep modes.
-#ifndef DEBUG_PRCM_SUSPEND_RESUME
-    if (g_oalRetailMsgEnable)
+    if (!g_PrcmDebugSuspendResume && g_oalRetailMsgEnable)
 	{
         OEMDeinitDebugSerial();
         EnableDeviceClocks(BSPGetDebugUARTConfig()->dev,FALSE);
     }
-#endif    
 }
 
 //------------------------------------------------------------------------------
@@ -199,13 +198,11 @@ BSPPowerOn(
 
 #endif
 
-#ifndef DEBUG_PRCM_SUSPEND_RESUME
-    if (g_oalRetailMsgEnable)
+    if (!g_PrcmDebugSuspendResume && g_oalRetailMsgEnable)
     {
         EnableDeviceClocks(BSPGetDebugUARTConfig()->dev,TRUE);
 	    OEMInitDebugSerial();
 	}
-#endif    
     g_ResumeRTC = TRUE;
 
     // this is for debugging only - ideally all the drivers should takecare of their modules/clocks when going into suspend

@@ -19,6 +19,7 @@
 #include "lcdc.h"
 #include "ceddkex.h"
 #include "_debug.h"
+#include <am33x.h>
 #include <oal_clock.h>
 #include <sdk_padcfg.h>
 
@@ -173,8 +174,16 @@ OMAPDisplayController::InitController(BOOL bEnableGammaCorr, BOOL bEnableWaitFor
         goto cleanUp;
         }
 
-    // Get LCDC clock from PRCM
-    m_lcdc.clk = PrcmClockGetClockRate(LCD_PCLK);
+	pa.QuadPart = AM33X_PRCM_REGS_PA;
+    size = sizeof(AM33X_PRCM_REGS);
+    m_lcdc.prcmregs = (AM33X_PRCM_REGS*)MmMapIoSpace(pa, size, FALSE);
+    if (m_lcdc.prcmregs == NULL)
+        {
+        DEBUGMSG(ZONE_ERROR, (L"ERROR: OMAPDisplayController::InitController: "
+             L"Failed map PRCM registers\r\n"
+            ));
+        goto cleanUp;
+        }
 
     // Disable gamma correction based on registry
     if(!bEnableGammaCorr)

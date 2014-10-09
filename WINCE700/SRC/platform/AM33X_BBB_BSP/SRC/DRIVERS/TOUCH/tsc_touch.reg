@@ -13,7 +13,6 @@ IF BSP_TSADC_TOUCH
     "SysIntr"=dword:0
 
     "SampleRate"=dword:C8               ; samples per second, default is 200
-;    "AnalogInput"=dword:1                 ; 1 - for Beta EVM, 0 - for Alpha EVM
 
 [HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\TOUCH]
 IF IMGNOCALIBRATION

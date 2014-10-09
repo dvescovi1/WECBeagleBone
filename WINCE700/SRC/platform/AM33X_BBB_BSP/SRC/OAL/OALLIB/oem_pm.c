@@ -27,6 +27,7 @@ extern BOOL SetOpp(DWORD *rgDomains,DWORD *rgOpps,DWORD  count);
 
 extern BOOL SetVoltageOpp(VddOppSetting_t    *pVddOppSetting);
 
+extern BOOL OEMSetAlarm2OffTime(int secFromNow);
 
 //-----------------------------------------------------------------------------
 // Global : g_pIntr
@@ -309,7 +310,6 @@ typedef struct _GPIO_INTR_CTXT{
 
 VOID OEMPowerOff() 
 {
-#ifdef DEBUG_PRCM_SUSPEND_RESUME    
     DWORD i;
     UINT intr[4];
     BOOL bPowerOn;
@@ -325,6 +325,11 @@ VOID OEMPowerOff()
     bPrevIntrState = INTERRUPTS_ENABLE(FALSE);
 
     OALMSG(1,(L"OEMPowerOff: Enter %d \r\n",bPrevIntrState));
+	if (OEMSetAlarm2OffTime(2))
+		OALMSG(1,(L"OEMPowerOff: alarm set!\r\n"));
+Loop:
+    OALMSG(1,(L"OEMPowerOff: wait..!\r\n"));
+    goto Loop;
 
     // Disable hardware watchdog
     OALWatchdogEnable(FALSE);    
@@ -483,8 +488,5 @@ VOID OEMPowerOff()
 
     // restore interrupts
     INTERRUPTS_ENABLE(bPrevIntrState);    
-
-#endif    
-
 }
 

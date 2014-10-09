@@ -290,7 +290,7 @@ VOID OEMInit()
 
 	detect_daughter_board_profiles();
 
-	if (g_dwBoardHasDcard & (HASDCARD_DVI | HASDCARD_LCD4))
+	if (g_dwBoardHasDcard & (HASDCARD_DVI | HASDCARD_LCD4 | HASDCARD_LCD7 | HASDCARD_LCD7_4D))
 	{
         g_dwBoardProfile |= PROFILE_2;
 	}

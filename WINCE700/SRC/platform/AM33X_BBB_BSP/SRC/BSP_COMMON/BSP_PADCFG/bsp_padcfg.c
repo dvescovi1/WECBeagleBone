@@ -23,6 +23,7 @@
 static PAD_INFO g_allowedPadCfg[] =		ALL_ALLOWED_PADS;
 
 const PAD_INFO ADCTSCPads[] =			{ADCTSC_PADS END_OF_PAD_ARRAY};
+const PAD_INFO ADCPads[] =				{ADC_PADS END_OF_PAD_ARRAY};
 const PAD_INFO I2C0Pads[] =				{I2C0_PADS END_OF_PAD_ARRAY};
 const PAD_INFO I2C1Pads[] =				{I2C1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO I2C2Pads[] =				{I2C2_PADS END_OF_PAD_ARRAY};
@@ -61,6 +62,7 @@ const PIN_MUX BB_BOARD_PIN_MUX[] = {
     { UART4Pads,            AM_DEVICE_UART4,        PROFILE_0,                                      DEV_ON_BASEBOARD},
     { LCDCPads,             AM_DEVICE_LCDC,         PROFILE_1 | PROFILE_2,                          DEV_ON_BASEBOARD},    
     { ADCTSCPads,           AM_DEVICE_ADC_TSC,      PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { ADCPads,              AM_DEVICE_ADC,          PROFILE_0,                                      DEV_ON_BASEBOARD},
     { FRAMERPads,           AM_DEVICE_FRAMER,       PROFILE_1,                                      DEV_ON_BASEBOARD},
     { GPIOPads,				AM_DEVICE_GPIO,         PROFILE_0,                                      DEV_ON_BASEBOARD},
     { MCASP1Pads,           AM_DEVICE_MCASP1,       PROFILE_1 | PROFILE_3,                          DEV_ON_DGHTR_BRD},
