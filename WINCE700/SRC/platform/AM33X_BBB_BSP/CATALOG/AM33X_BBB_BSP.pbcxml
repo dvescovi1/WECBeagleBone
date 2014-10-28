@@ -72,6 +72,7 @@
     <Title>COM2 driver (UART2)</Title>
     <Comment />
     <Type>BspSpecific</Type>
+    <Variable>BSP_UART</Variable>
     <Variable>BSP_AM33X_UART3</Variable>
     <Module>am33x_uart.dll</Module>
     <Location>Drivers\UART</Location>
@@ -79,6 +80,7 @@
   <Item Id="AM33x_BBB:Texas Instruments:am33xuart5">
     <Title>COM4 driver (UART4)</Title>
     <Type>BspSpecific</Type>
+    <Variable>BSP_UART</Variable>
     <Variable>BSP_AM33X_UART5</Variable>
     <Module>am33x_uart.dll</Module>
     <Location>Drivers\UART</Location>
@@ -234,6 +236,7 @@
   <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c1">
     <Title>I2C1 driver (AM335x I2C0)</Title>
     <Type>BspSpecific</Type>
+    <Variable>BSP_I2C</Variable>
     <Variable>BSP_AM33X_I2C1</Variable>
     <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
@@ -241,6 +244,7 @@
   <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c2">
     <Title>I2C2 driver (AM335x I2C1)</Title>
     <Type>BspSpecific</Type>
+    <Variable>BSP_I2C</Variable>
     <Variable>BSP_AM33X_I2C2</Variable>
     <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
@@ -248,6 +252,7 @@
   <Item Id="AM33x_BBB:Texas Instruments:am33xmci2c3">
     <Title>I2C3 driver (AM335x I2C2)</Title>
     <Type>BspSpecific</Type>
+    <Variable>BSP_I2C</Variable>
     <Variable>BSP_AM33X_I2C3</Variable>
     <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>

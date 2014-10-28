@@ -27,17 +27,17 @@ am33x_cm3fw.dll		$(_FLATRELEASEDIR)\am33x_cm3fw.dll			NK  SHK
 am33x_ebootCfg.exe	$(_FLATRELEASEDIR)\am33x_ebootCfg.exe		NK 
 
 
-#if (defined BSP_AM33X_UART1 || defined BSP_AM33X_UART2 || defined BSP_AM33X_UART3 || defined BSP_AM33X_UART4 || defined BSP_AM33X_UART5 || defined BSP_AM33X_UART6)
+if BSP_UART
 am33x_uart.dll		$(_flatreleasedir)\am33x_uart.dll			NK  SHK
-#endif
+endif
 
 #if (defined BSP_AM33X_MCSPI1 || defined BSP_AM33X_MCSPI2 )
 am33x_spi.dll		$(_FLATRELEASEDIR)\am33x_spi.dll			NK  SHK
 #endif
 
-#if (defined BSP_AM33X_I2C1 || defined BSP_AM33X_I2C2  || defined BSP_AM33X_I2C3)
+if BSP_I2C
 am33x_i2c.dll		$(_FLATRELEASEDIR)\am33x_i2c.dll			NK  SHK
-#endif
+endif
 
 IF BSP_KEYPAD
 keypad.dll			$(_FLATRELEASEDIR)\keypad.dll				NK  SHK

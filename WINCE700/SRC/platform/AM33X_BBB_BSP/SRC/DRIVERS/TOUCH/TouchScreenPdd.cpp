@@ -845,7 +845,7 @@ ULONG PDDTouchIST(PVOID   reserved)
 //==============================================================================
 // Function Name: PDDInitializeHardware
 //
-// Description: This routine configures the SPI channel and GPIO pin for interrupt mode.
+// Description: This routine configures the touch ADC channels.
 //
 // Arguments:  None
 //
@@ -934,7 +934,7 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
     clk_value = s_TouchDevice.clk_rate / ADC_CLK;
     if (clk_value < 7) {
     	DEBUGMSG(ZONE_ERROR,  (L"clock input less than min clock requirement\n"));
-    	return FALSE;
+		goto cleanup;
     }
     /* TSCADC_CLKDIV needs to be configured to the value minus 1 */
     s_TouchDevice.regs->adc_clkdiv = clk_value -1;
@@ -995,7 +995,7 @@ cleanup:
 //==============================================================================
 // Function Name: PDDDeinitializeHardware
 //
-// Description: This routine Deinitializes the h/w by closing the SPI channel and GPIO pin
+// Description: This routine Deinitializes the h/w by closing the touch channels
 //
 // Arguments:  None
 //
