@@ -1617,6 +1617,7 @@ BLSDCardReadLogo(
 	DWORD	   dwOffset = 0;
 	BYTE*	   pTmpBuf = NULL;
 	DWORD	   dwCursor = 0;
+	DWORD datasize;
 
 	memset(&fileio_ops,0,sizeof(S_FILEIO_OPERATIONS));
 	memset(&Disk,0,sizeof(DISK));
@@ -1692,8 +1693,15 @@ BLSDCardReadLogo(
 
 	OALLocalFree((HLOCAL)pTmpBuf);
 
+	datasize = logoFile.file_size - dwOffset;
+	if (datasize != *size)
+	{
+        OALMSGX(OAL_ERROR, (L"BLSDCardReadLogo: file too big\r\n"));
+        return FALSE;
+	}
+
 	// Read pixel data
-    if (FileIoRead(&fileio_ops, &logoFile, (PVOID)pData, *size) != FILEIO_STATUS_OK)
+    if (FileIoRead(&fileio_ops, &logoFile, (PVOID)pData, datasize) != FILEIO_STATUS_OK)
 	{
         OALMSGX(OAL_ERROR, (L"BLSDCardReadLogo:  cannot read pixel data\r\n"));
         return FALSE;

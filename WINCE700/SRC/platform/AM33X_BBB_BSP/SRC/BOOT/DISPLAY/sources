@@ -10,7 +10,7 @@
 ;================================================================================
 !endif
 
-TARGETNAME=bsp_display
+TARGETNAME=bsp_boot_display
 TARGETTYPE=LIBRARY
 
 INCLUDES=$(INCLUDES);	\
