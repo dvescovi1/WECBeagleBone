@@ -25,6 +25,7 @@ namespace VUEII_test
         public Form1()
         {
             InitializeComponent();
+            this.Text += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             led = new Led();
             ledCount = led.Count;
         }
