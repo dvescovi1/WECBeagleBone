@@ -50,7 +50,6 @@ TARGETLIBS= \
 	$(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_vfpneon.lib		\
 	$(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_cortexA8_cache.lib \
 	$(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_ioctl.lib			\
-	$(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oalpadcfg.lib     \
 	$(_PLATLIB)\$(_CPUINDPATH)\$(TI_COMMON)_oal_gpiodispatch.lib	\
 \
 	$(_PLATCOMMONLIB)\$(_CPUINDPATH)\oal_memory_arm.lib \

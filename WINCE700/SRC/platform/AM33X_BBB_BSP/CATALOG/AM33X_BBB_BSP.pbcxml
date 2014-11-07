@@ -35,6 +35,8 @@
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c3</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xpwm1</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xpwm2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:USBFN0</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:USBH1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:lcdTouch</BspItemId>
@@ -64,6 +66,7 @@
     <Title>COM1 driver (UART1)</Title>
     <Comment />
     <Type>BspSpecific</Type>
+    <Variable>BSP_UART</Variable>
     <Variable>BSP_AM33X_UART2</Variable>
     <Module>am33x_uart.dll</Module>
     <Location>Drivers\UART</Location>
@@ -256,6 +259,22 @@
     <Variable>BSP_AM33X_I2C3</Variable>
     <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xpwm1">
+    <Title>PWM1 driver (AM335x EHRPWM1)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_PWM</Variable>
+    <Variable>BSP_AM33X_PWM1</Variable>
+    <Module>am33x_pwm.dll</Module>
+    <Location>Drivers\PWM</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xpwm2">
+    <Title>PWM2 driver (AM335x EHRPWM2)</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_PWM</Variable>
+    <Variable>BSP_AM33X_PWM2</Variable>
+    <Module>am33x_pwm.dll</Module>
+    <Location>Drivers\PWM</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:USBFN0">
     <Title>MicroUSB Client</Title>

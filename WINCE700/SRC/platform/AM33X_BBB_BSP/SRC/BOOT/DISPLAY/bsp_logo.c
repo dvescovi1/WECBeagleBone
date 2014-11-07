@@ -41,13 +41,6 @@
 //
 // defines
 //
-DWORD   g_dwLogoPosX;
-DWORD   g_dwLogoPosY;
-
-DWORD   g_dwLogoWidth;
-DWORD   g_dwLogoHeight;
-
-DWORD   g_dwPixelFormat;
 
 struct lcdc lcdc_device;
 
@@ -73,13 +66,32 @@ static void lcd_deinit(void)
 	}
 }
 
+static void FlipFrameBuffer(PUCHAR fb, DWORD h, DWORD lineSize, PUCHAR temporaryBuffer)
+{
+    DWORD y;
+    PUCHAR top;
+    PUCHAR bottom;
+
+    top = fb;
+    bottom = fb + ((h-1)*lineSize);
+    
+    for (y=0;y<h/2;y++)
+    {
+        memcpy(temporaryBuffer,top,lineSize);
+        memcpy(top,bottom,lineSize);
+        memcpy(bottom,temporaryBuffer,lineSize);
+        top += lineSize;
+        bottom -= lineSize;
+    }
+}
+
 //------------------------------------------------------------------------------
 //
 //  Function:  ShowLogo
 //
 //  This function shows the logo splash screen
 //
-VOID ShowLogo(UINT32 flashAddr, UINT32 offset)
+VOID ShowLogo(UINT32 flashAddr, UINT32 offset, BOOL invert)
 {
     HANDLE  hFlash = NULL;
     PUCHAR  pChar;
@@ -88,14 +100,15 @@ VOID ShowLogo(UINT32 flashAddr, UINT32 offset)
     DWORD   dwOffset = 0;
     DWORD framebuffer = 0;
     DWORD framebufferPA = 0;
+	DWORD dwPixelFormat = 0;
     DWORD dwLcdWidth = 0;
     DWORD dwLcdHeight = 0;
     DWORD dwLength = 0;
 
     //  Get the LCD width and height
-    LcdPdd_LCD_GetMode( &g_dwPixelFormat, &dwLcdWidth, &dwLcdHeight, NULL );
+    LcdPdd_LCD_GetMode( &dwPixelFormat, &dwLcdWidth, &dwLcdHeight, NULL );
     // Compute the size
-    dwLength = lcdc_PixelFormatToPixelSize(g_dwPixelFormat) * dwLcdWidth * dwLcdHeight;
+    dwLength = lcdc_PixelFormatToPixelSize(dwPixelFormat) * dwLcdWidth * dwLcdHeight;
 
 	// Get the frame buffer
     framebufferPA = IMAGE_WINCE_DISPLAY_PA;
@@ -124,27 +137,16 @@ VOID ShowLogo(UINT32 flashAddr, UINT32 offset)
            
             //  Close store
             OALFlashStoreClose(hFlash);
-        
-            //  Compute position and size of logo image 
-            g_dwLogoPosX   = (dwLcdWidth - dwLcdWidth)/2;
-            g_dwLogoPosY   = (dwLcdHeight - dwLcdHeight)/2;
-            g_dwLogoWidth  = dwLcdWidth;
-            g_dwLogoHeight = dwLcdHeight;
-            
+                    
             //As BMP are stored upside down, we need to flip the frame buffer's content
-            //FlipFrameBuffer((PUCHAR)framebuffer,dwLcdHeight,dwLcdWidth*BYTES_PER_PIXEL,(PUCHAR)framebuffer + dwLength);
+			if (!invert)
+				FlipFrameBuffer((PUCHAR)framebuffer,dwLcdHeight,dwLcdWidth * lcdc_PixelFormatToPixelSize(dwPixelFormat),(PUCHAR)framebuffer + dwLength);
         }
     }
 
     //  If bitmap signature is valid, display the logo, otherwise fill screen with pattern
     if( wSignature != 0x4D42 )
     {
-        //  Adjust color bars to LCD size
-        g_dwLogoPosX   = 0;
-        g_dwLogoPosY   = 0;
-        g_dwLogoWidth  = dwLcdWidth;
-        g_dwLogoHeight = dwLcdHeight;
-        
         for (y= 0; y < dwLcdHeight; y++)
         {
             for( x = 0; x < dwLcdWidth; x++ )
@@ -191,18 +193,19 @@ VOID ShowLogo(UINT32 flashAddr, UINT32 offset)
 //  This function is called to display the splaschreen bitmap from the SDCard
 //
 //
-BOOL ShowSDLogo()
+BOOL ShowSDLogo(BOOL invert)
 {
     DWORD framebuffer = 0;
     DWORD framebufferPA = 0;
+	DWORD dwPixelFormat = 0;
     DWORD dwLcdWidth = 0;
     DWORD dwLcdHeight = 0;
     DWORD dwLength = 0;
 
 	// Get the LCD width and height
-    LcdPdd_LCD_GetMode( &g_dwPixelFormat, &dwLcdWidth, &dwLcdHeight, NULL );
+    LcdPdd_LCD_GetMode( &dwPixelFormat, &dwLcdWidth, &dwLcdHeight, NULL );
     // Compute the size
-    dwLength = lcdc_PixelFormatToPixelSize(g_dwPixelFormat) * dwLcdWidth * dwLcdHeight;
+    dwLength = lcdc_PixelFormatToPixelSize(dwPixelFormat) * dwLcdWidth * dwLcdHeight;
 
 	// Get the frame buffer
     framebufferPA = IMAGE_WINCE_DISPLAY_PA;
@@ -215,14 +218,9 @@ BOOL ShowSDLogo()
     	return FALSE;
     }
 
-    //  Compute position and size of logo image 
-    g_dwLogoPosX   = (dwLcdWidth - dwLcdWidth)/2;
-    g_dwLogoPosY   = (dwLcdHeight - dwLcdHeight)/2;
-    g_dwLogoWidth  = dwLcdWidth;
-    g_dwLogoHeight = dwLcdHeight;
-
     //As BMP are stored upside down, we need to flip the frame buffer's content
-    //FlipFrameBuffer((PUCHAR)framebuffer,dwLcdHeight,dwLcdWidth*BYTES_PER_PIXEL,(PUCHAR)framebuffer + dwLength);
+	if (!invert)
+		FlipFrameBuffer((PUCHAR)framebuffer,dwLcdHeight,dwLcdWidth * lcdc_PixelFormatToPixelSize(dwPixelFormat),(PUCHAR)framebuffer + dwLength);
 
     // Fire up the LCD
     EnableDeviceClocks(AM_DEVICE_LCDC, TRUE);

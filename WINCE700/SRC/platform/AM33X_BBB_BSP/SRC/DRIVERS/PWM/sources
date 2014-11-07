@@ -1,4 +1,3 @@
-# All rights reserved ADENEO EMBEDDED 2010
 !if 0
 ;================================================================================
 ;             Texas Instruments OMAP(TM) Platform Software
@@ -10,14 +9,17 @@
 ;================================================================================
 !endif
 
-TARGETNAME=bsp_boot_display
-TARGETTYPE=LIBRARY
+!IF "$(BSP_PWM)" == ""
+SKIPBUILD=1
+!ENDIF
 
-INCLUDES=$(INCLUDES);	\
-	..\EBOOT\; \
-        ..\..\BSP_COMMON\LCDC
+TARGETNAME=am33x_pwm
+TARGETTYPE=DYNLINK
+
+TARGETLIBS= \
+    $(_PLATLIB)\$(_CPUDEPPATH)\ceddk.lib \
+    $(_COMMONSDKROOT)\lib\$(_CPUINDPATH)\coredll.lib
 
 SOURCES= \
-    bsp_logo.c \
-    gfx.c \
-    
+    pwm.c \
+

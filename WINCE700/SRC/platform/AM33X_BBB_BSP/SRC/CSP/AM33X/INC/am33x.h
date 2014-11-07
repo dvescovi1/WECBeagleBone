@@ -31,7 +31,7 @@
 #include "am33x_gpio.h"
 #include "am33x_dmtimer.h"
 #include "am33x_mcasp.h"
-#include "am33x_epwm.h"
+#include "am33x_pwmss.h"
 
 //------------------------------------------------------------------------------
 

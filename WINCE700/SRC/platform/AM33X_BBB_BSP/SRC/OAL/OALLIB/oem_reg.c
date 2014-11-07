@@ -66,7 +66,7 @@ SetDisplayDriver(
     LONG code;
     HKEY hKey;
     DWORD value;
-    LPCWSTR pszKeyPath = L"\\System\\GDI\\ROTATION";
+    LPCWSTR pszKeyPath = L"\\System\\GDI\\Drivers";
 
     // Open/create key
     code = NKRegCreateKeyEx(
@@ -75,7 +75,7 @@ SetDisplayDriver(
 
     if (code != ERROR_SUCCESS) goto cleanUp;
 
-    // Set value  ... force portrait mode
+    // Set value  ... invert mode
     code = NKRegSetValueEx(
         hKey, L"Angle", 0, REG_DWORD, (UCHAR*)&angle, sizeof(DWORD)
         );
@@ -115,12 +115,10 @@ VOID OEMRegInit()
             );
 	}
 
-	//if (OMAP_LCD_480W_272H == *(UINT8 *)OALArgsQuery(OAL_ARGS_QUERY_DISP_RES))
-	//{
-	//	SetDisplayDriver(0x5a);	// 5a = 90 degrees (portrait)
-	//}
- //   else
- //   {
-	//	SetDisplayDriver(0);	// 0 = 0 degrees (landscape)
- //   }
+	if (OAL_ARGS_OALFLAGS_INVERT_DISPLAY & *(UINT8 *)OALArgsQuery(OAL_ARGS_QUERY_OALFLAGS))
+		SetDisplayDriver(2);	// 2 = 180 degrees (invert)
+	else if (OAL_ARGS_OALFLAGS_PORTRAIT_DISPLAY & *(UINT8 *)OALArgsQuery(OAL_ARGS_QUERY_OALFLAGS))
+		SetDisplayDriver(1);	// 1 = 90 degrees (portrait)
+	else
+		SetDisplayDriver(0);	// 0 = 0 degrees (landscape)
 }

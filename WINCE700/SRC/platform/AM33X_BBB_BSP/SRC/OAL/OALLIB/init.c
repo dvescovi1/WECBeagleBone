@@ -355,9 +355,18 @@ VOID OEMInit()
     if (!RequestDevicePads(AM_DEVICE_I2C1)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for I2C1\r\n")));
     if (!RequestDevicePads(AM_DEVICE_I2C2)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for I2C2\r\n")));
     if (!RequestDevicePads(AM_DEVICE_FRAMER)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for framer\r\n")));
+
+    if (!ReleaseDevicePads(AM_DEVICE_GPIO0)) OALMSG(OAL_ERROR, (TEXT("Failed to release pads for GPIO0\r\n")));
+    if (!RequestDevicePads(AM_DEVICE_GPIO0)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for GPIO0\r\n")));
+
+    if (!RequestDevicePads(AM_DEVICE_GPIO1)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for GPIO1\r\n")));
+    if (!RequestDevicePads(AM_DEVICE_GPIO2)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for GPIO2\r\n")));
+    if (!RequestDevicePads(AM_DEVICE_GPIO3)) OALMSG(OAL_ERROR, (TEXT("Failed to request pads for GPIO3\r\n")));
+
 	if (g_dwBoardHasDcard & HASDCARD_DVI)
 	{
 //		if (!RequestAndConfigurePad(PAD_ID(GPMC_CSN2),AM335X_PIN_OUTPUT_PULLUP))
+		ReleasePad(PAD_ID(ECAP0_IN_PWM0_OUT));
 		if (!RequestAndConfigurePad(PAD_ID(ECAP0_IN_PWM0_OUT),MODE(7) | AM335X_PIN_OUTPUT_PULLUP))
 			OALMSG(OAL_ERROR, (TEXT("Failed to request pads for DVI nPD\r\n")));
 	}

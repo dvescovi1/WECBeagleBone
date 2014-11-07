@@ -103,6 +103,8 @@ extern UINT32   g_ulFlashBase;
 //------------------------------------------------------------------------------
 
 VOID OEMMultiBinNotify(MultiBINInfo *pInfo);
+BOOL OEMVerifyMemory(DWORD dwStartAddr, DWORD dwLength);
+VOID DrawProgressBar(UINT32 total, UINT32 pos, BOOL invert);
 
 //------------------------------------------------------------------------------
 
@@ -111,7 +113,7 @@ BOOL   BLReadBootCfg(BOOT_CFG *pBootCfg);
 BOOL   BLWriteBootCfg(BOOT_CFG *pBootCfg);
 BOOL   BLReserveBootBlocks();
 BOOL   BLConfigureFlashPartitions(BOOL bForceEnable);
-BOOL   BLShowLogo();
+BOOL   BLShowLogo(BOOL invert);
 UINT32 BLEthDownload(BOOT_CFG *pBootCfg, OAL_KITL_DEVICE *pBootDevices);
 BOOL   BLEthReadData(ULONG size, UCHAR *pData);
 VOID   BLEthConfig(BSP_ARGS *pArgs);

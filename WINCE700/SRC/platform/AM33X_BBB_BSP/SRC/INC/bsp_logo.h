@@ -22,7 +22,7 @@
 //
 //  This function shows the logo splash screen
 //
-VOID ShowLogo(UINT32 flashAddr, UINT32 offset);
+VOID ShowLogo(UINT32 flashAddr, UINT32 offset, BOOL invert);
 
 //------------------------------------------------------------------------------
 //
@@ -30,7 +30,7 @@ VOID ShowLogo(UINT32 flashAddr, UINT32 offset);
 //
 //   This function is called to display the splaschreen bitmap from the SDCard
 //
-BOOL ShowSDLogo();
+BOOL ShowSDLogo(BOOL invert);
 
 //------------------------------------------------------------------------------
 //
