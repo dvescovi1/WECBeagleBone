@@ -36,6 +36,8 @@
 #define BOOT_CFG_OAL_FLAGS_RETAILMSG_ENABLE     (1 << 0)
 #define BOOT_CFG_OAL_FLAGS_CFG_SAVE             (1 << 1)
 #define BOOT_CFG_OAL_FLAGS_CLEAN_REGISTRY       (1 << 3)
+#define BOOT_CFG_OAL_FLAGS_INVERT_DISPLAY       (1 << 4)
+#define BOOT_CFG_OAL_FLAGS_PORTRAIT_DISPLAY     (1 << 5)
 
 #define ENABLE_FLASH_NK          (1<<0)
 

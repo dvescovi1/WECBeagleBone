@@ -41,7 +41,10 @@ const PAD_INFO MIIPads[] =				{MII1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO USB0Pads[] =				{USB0_PADS USB1_PADS END_OF_PAD_ARRAY};
 const PAD_INFO LCDCPads[] =				{LCDC_PADS END_OF_PAD_ARRAY};
 const PAD_INFO FRAMERPads[] =			{FRAMER_PADS END_OF_PAD_ARRAY};
-const PAD_INFO GPIOPads[] =				{GPIO_PADS END_OF_PAD_ARRAY};
+const PAD_INFO GPIO0Pads[] =			{GPIO0_PADS END_OF_PAD_ARRAY};
+const PAD_INFO GPIO1Pads[] =			{GPIO1_PADS END_OF_PAD_ARRAY};
+const PAD_INFO GPIO2Pads[] =			{GPIO2_PADS END_OF_PAD_ARRAY};
+const PAD_INFO GPIO3Pads[] =			{GPIO3_PADS END_OF_PAD_ARRAY};
 const PAD_INFO NledPads[] =				{NLED_PADS END_OF_PAD_ARRAY}; 
 
 
@@ -64,7 +67,10 @@ const PIN_MUX BB_BOARD_PIN_MUX[] = {
     { ADCTSCPads,           AM_DEVICE_ADC_TSC,      PROFILE_0,                                      DEV_ON_BASEBOARD},
     { ADCPads,              AM_DEVICE_ADC,          PROFILE_0,                                      DEV_ON_BASEBOARD},
     { FRAMERPads,           AM_DEVICE_FRAMER,       PROFILE_1,                                      DEV_ON_BASEBOARD},
-    { GPIOPads,				AM_DEVICE_GPIO,         PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { GPIO0Pads,			AM_DEVICE_GPIO0,        PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { GPIO1Pads,			AM_DEVICE_GPIO1,        PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { GPIO2Pads,			AM_DEVICE_GPIO2,        PROFILE_0,                                      DEV_ON_BASEBOARD},
+    { GPIO3Pads,			AM_DEVICE_GPIO3,        PROFILE_0,                                      DEV_ON_BASEBOARD},
     { MCASP1Pads,           AM_DEVICE_MCASP1,       PROFILE_1 | PROFILE_3,                          DEV_ON_DGHTR_BRD},
     {0},
 };

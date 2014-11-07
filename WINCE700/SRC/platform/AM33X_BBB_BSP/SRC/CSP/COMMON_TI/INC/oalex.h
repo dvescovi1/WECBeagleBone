@@ -54,6 +54,8 @@ extern "C" {
 #define OAL_ARGS_OALFLAGS_RETAILMSG_ENABLE  (1 << 0)
 #define OAL_ARGS_OALFLAGS_CFG_SAVE          (1 << 1)
 #define OAL_ARGS_OALFLAGS_CLEAN_REGISTRY    (1 << 3)
+#define OAL_ARGS_OALFLAGS_INVERT_DISPLAY    (1 << 4)
+#define OAL_ARGS_OALFLAGS_PORTRAIT_DISPLAY  (1 << 5)
 
 
 //-----------------------------------------------------------------------------

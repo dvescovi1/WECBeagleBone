@@ -157,16 +157,7 @@ DWORD KPD_Init(LPCTSTR szContext, LPCVOID pBusContext)
     DEBUGMSG(ZONE_FUNCTION, (L"+KPD_Init(%s, 0x%08x)\r\n", szContext, pBusContext));
     RETAILMSG(1, (L"+KPD_Init\r\n"));
 
-	// does not complete if some are not already mapped
-	//ReleasePadArray(KeypadPads);
-
-	// unconditionally release all pads already mappped or not
-	ReleasePad(PAD_ID(GPMC_A0));
-	ReleasePad(PAD_ID(GPMC_A1));
-	ReleasePad(PAD_ID(GPMC_A3));
-	ReleasePad(PAD_ID(MCASP0_AXR0));
-	ReleasePad(PAD_ID(UART1_TXD));
-	ReleasePad(PAD_ID(SPI0_D0));
+	ReleasePadArray(KeypadPads);
 
 	if (RequestAndConfigurePadArray(KeypadPads)==FALSE){
         DEBUGMSG(ZONE_ERROR, (L"ERROR: KPD_Init: Cannot configure keypad pads\r\n"));

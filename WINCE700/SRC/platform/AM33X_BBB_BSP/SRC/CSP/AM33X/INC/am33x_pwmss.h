@@ -9,14 +9,28 @@
 ================================================================================
 */
 //
-//  Header:  am33x_epwm.h
+//  Header:  am33x_pwmss.h
 //
-#ifndef __AM33X_EPWM_H
-#define __AM33X_EPWM_H
+#ifndef __AM33X_PWMSS_H
+#define __AM33X_PWMSS_H
 
 
 //------------------------------------------------------------------------------
+// PWMSS
+typedef volatile struct {
+    UINT32 IDVER;				// 0   
+    UINT32 SYSCONFIG;			// 4
+    UINT32 CLKCONFIG;			// 8
+    UINT32 CLKSTATUS;			// C
+} AM33X_PWMSS_REGS;
 
+
+#define AM33X_ECAP_OFFSET		0x100
+#define AM33X_EQEP_OFFSET		0x180
+#define	AM33x_EPWM_OFFSET		0x200
+
+
+// ePWM
 typedef volatile struct {
     UINT16 TBCTL;				// 0   
     UINT16 TBSTS;				// 2
@@ -52,6 +66,25 @@ typedef volatile struct {
 	UINT16 zzzReserved03[0x81];
 	UINT16 HRCNFG;				// 0xC0
 } AM33X_EPWM_REGS;
+
+// eCAP
+typedef volatile struct {
+    UINT32 TSCTR;				// 0   
+    UINT32 CTRPHS;				// 4
+    UINT32 CAP1;				// 8
+    UINT32 CAP2;				// C
+    UINT32 CAP3;				// 0x10
+    UINT32 CAP4;				// 0x14
+	UINT32 zzzReserved1[4];		// 0x18
+	UINT16 ECCTL1;				// 0x28
+	UINT16 ECCTL2;				// 0x2A
+	UINT16 ECEINT;				// 0x2C
+	UINT16 ECFLG;				// 0x2E
+	UINT16 ECCLR;				// 0x30
+	UINT16 ECFRC;				// 0x32
+	UINT32 zzzReserved2[10];
+	UINT32 REVID;				// 0x5C
+} AM33X_ECAP_REGS;
 
 
 //------------------------------------------------------------------------------
@@ -210,5 +243,59 @@ typedef volatile struct {
 
 //------------------------------------------------------------------------------
 
-#endif // __AM33X_EPWM_H
+// ECCTL1 bits
+#define ECAP_ECCTL1_CAP1POL			         	(1 << 0)
+#define ECAP_ECCTL1_CTRRST1			         	(1 << 1)
+#define ECAP_ECCTL1_CAP2POL			         	(1 << 2)
+#define ECAP_ECCTL1_CTRRST2			         	(1 << 3)
+#define ECAP_ECCTL1_CAP3POL			         	(1 << 4)
+#define ECAP_ECCTL1_CTRRST3			         	(1 << 5)
+#define ECAP_ECCTL1_CAP4POL			         	(1 << 6)
+#define ECAP_ECCTL1_CTRRST4			         	(1 << 7)
+#define ECAP_ECCTL1_CAPLDEN			         	(1 << 8)
+
+#define ECAP_ECCTL1_PRESCALE_MASK	         	(0x1f << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_1              (0 << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_2             	(1 << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_4             	(2 << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_6             	(3 << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_8             	(4 << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_10            	(5 << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_60             (0x1e << 9)
+#define ECAP_ECCTL1_PRESCALE_DIV_62            	(0x1f << 9)
+
+#define ECAP_ECCTL1_FREE_SOFT_MASK	         	(3 << 14)
+
+// ECCTL2 bits
+#define ECAP_ECCTL2_CONT_ONESHT			        (1 << 0)
+#define ECAP_ECCTL2_STOP_WRAP_MASK		        (3 << 1)
+#define ECAP_ECCTL2_STOP_WRAP_EV1		        (0 << 1)
+#define ECAP_ECCTL2_STOP_WRAP_EV2		        (1 << 1)
+#define ECAP_ECCTL2_STOP_WRAP_EV3		        (2 << 1)
+#define ECAP_ECCTL2_STOP_WRAP_EV4		        (3 << 1)
+#define ECAP_ECCTL2_REARM				        (1 << 3)
+#define ECAP_ECCTL2_TSCTRSTOP			        (1 << 4)
+#define ECAP_ECCTL2_SYNCI_EN			        (1 << 5)
+#define ECAP_ECCTL2_SYNCO_SEL_MASK		        (3 << 6)
+#define ECAP_ECCTL2_SYNCO_SEL_IN_OUT	        (0 << 6)
+#define ECAP_ECCTL2_SYNCO_SEL_PRDEQ		        (1 << 6)
+#define ECAP_ECCTL2_SYNCO_SEL_DISABLE	        (2 << 6)
+#define ECAP_ECCTL2_SYNCO_SEL_DISABLE2	        (3 << 6)
+#define ECAP_ECCTL2_SWSYNC				        (1 << 8)
+#define ECAP_ECCTL2_CAP_APWM			        (1 << 9)
+#define ECAP_ECCTL2_APWMPOL				        (1 << 10)
+
+// ECEINT,ECFLG,ECCLR,ECFRC bits
+#define ECAP_ECEINT_CEVT1				        (1 << 1)
+#define ECAP_ECEINT_CEVT2				        (1 << 2)
+#define ECAP_ECEINT_CEVT3				        (1 << 3)
+#define ECAP_ECEINT_CEVT4				        (1 << 4)
+#define ECAP_ECEINT_CNTOVF				        (1 << 5)
+#define ECAP_ECEINT_PRDEQ				        (1 << 6)
+#define ECAP_ECEINT_CMPEQ				        (1 << 7)
+
+
+//------------------------------------------------------------------------------
+
+#endif // __AM33X_PWMSS_H
 

@@ -351,13 +351,12 @@ cleanUp:
 //------------------------------------------------------------------------------
 
 BOOL
-BLShowLogo(
-    )
+BLShowLogo(BOOL invert)
 {
 	//  Show the bootloader splashscreen if present on the SDCard
-	if (!ShowSDLogo())
+	if (!ShowSDLogo(invert))
 	{
-		ShowLogo((UINT32)-1, 0);
+		ShowLogo((UINT32)-1, 0, invert);
 	}
     return TRUE;
 }

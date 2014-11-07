@@ -39,6 +39,10 @@ if BSP_I2C
 am33x_i2c.dll		$(_FLATRELEASEDIR)\am33x_i2c.dll			NK  SHK
 endif
 
+if BSP_PWM
+am33x_pwm.dll		$(_FLATRELEASEDIR)\am33x_pwm.dll			NK  SHK
+endif
+
 IF BSP_KEYPAD
 keypad.dll			$(_FLATRELEASEDIR)\keypad.dll				NK  SHK
 ENDIF
@@ -97,6 +101,7 @@ ENDIF
 ; @CESYSGEN IF GWES_TCHUI
 IF BSP_TSADC_TOUCH
 tscadc_touch.dll	$(_FLATRELEASEDIR)\tscadc_touch.dll			NK  SHK
+touchc.exe      $(_FLATRELEASEDIR)\touchc.exe                   NK  S
 ENDIF
 ; @CESYSGEN ENDIF GWES_TCHUI
 ; @CESYSGEN ENDIF CE_MODULES_POINTER
@@ -139,11 +144,11 @@ FILES
 ;------------   ----------------------------------------------  -----------
 
 ; @CESYSGEN IF IMAGING_IMG_JPEGDECODER
-wallpaperBB.jpg    $(_FLATRELEASEDIR)\wallpaperBB.jpg           NK		S
-wallpaperBBB.jpg   $(_FLATRELEASEDIR)\wallpaperBBB.jpg          NK		S
+wallpaperBB.jpg    $(_FLATRELEASEDIR)\wallpaperBB.jpg           NK	S
+wallpaperBBB.jpg   $(_FLATRELEASEDIR)\wallpaperBBB.jpg          NK	S
 IF BSP_TIMEBOMB
-wallpaperBBTB.jpg  $(_FLATRELEASEDIR)\wallpaperBBTB.jpg         NK		S
-wallpaperBBBTB.jpg $(_FLATRELEASEDIR)\wallpaperBBBTB.jpg        NK		S
+wallpaperBBTB.jpg  $(_FLATRELEASEDIR)\wallpaperBBTB.jpg         NK	S
+wallpaperBBBTB.jpg $(_FLATRELEASEDIR)\wallpaperBBBTB.jpg        NK	S
 ENDIF BSP_TIMEBOMB
 ; @CESYSGEN ENDIF IMAGING_IMG_JPEGDECODER
 
@@ -157,9 +162,13 @@ ENDIF BSP_PRU
 
 ; BSP version panel
 ; @CESYSGEN IF WCESHELLFE_MODULES_CPLMAIN
-bsppnl.exe	$(_FLATRELEASEDIR)\bsppnl.exe						NK		SH
-bsppnl.cpl	$(_FLATRELEASEDIR)\bsppnl.cpl						NK		SH
+bsppnl.exe		$(_FLATRELEASEDIR)\bsppnl.exe					NK	SH
+bsppnl.cpl		$(_FLATRELEASEDIR)\bsppnl.cpl					NK	SH
 ; @CESYSGEN ENDIF WCESHELLFE_MODULES_CPLMAIN
+
+
+;usbstat.exe		$(_FLATRELEASEDIR)\usbstat.exe              NK
+;cerdisp.exe		$(_FLATRELEASEDIR)\cerdisp.exe				NK
 
 
 
@@ -200,6 +209,3 @@ IF BSP_PRU
 ENDIF BSP_PRU
 
 ENDIF BSP_TEST
-
-;usbstat.exe		$(_FLATRELEASEDIR)\usbstat.exe              NK
-;cerdisp.exe		$(_FLATRELEASEDIR)\cerdisp.exe				NK

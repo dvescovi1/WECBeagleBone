@@ -61,6 +61,16 @@ const volatile DWORD dwEbootECCtype = (DWORD)-1;
 UCHAR g_ecctype;
 
 //------------------------------------------------------------------------------
+//
+//  Globals: g_Length and g_Offset
+//
+//  These global variables are used to provide download progress
+//
+DWORD g_Length = 0;
+DWORD g_Offset = 0;
+BOOL g_invert = FALSE;
+
+//------------------------------------------------------------------------------
 // External Variables
 extern DEVICE_IFC_GPIO Tps659xx_Gpio;
 extern DWORD g_bootSlot;	//see sdhc.c
@@ -290,7 +300,7 @@ ULONG OEMPreDownload( )
     BOOL bl_rc = FALSE;
 
     OALLog(L"INFO: Predownload....\r\n");
-    
+
 	// default g_bootSlot slot is device from which we booted
 	// this info is stored at first location at bottom of xldr stack
 	// cfg file (if present) is read from this boot device
@@ -298,6 +308,7 @@ ULONG OEMPreDownload( )
 	g_bootSlot = *((DWORD *)OALPAtoUA(IMAGE_XLDR_STACK_PA));
     
     g_pOEMMultiBINNotify = OEMMultiBinNotify; // We need to support multi bin notify
+	g_pOEMVerifyMemory   = OEMVerifyMemory;
 
     BLReserveBootBlocks();    // Ensure bootloader blocks are marked as reserved
 
@@ -486,8 +497,9 @@ retryBootMenu:
         pArgs->ECCtype = g_bootCfg.ECCtype; 
         pArgs->opp_mode = g_bootCfg.opp_mode;
         memcpy(pArgs->DevicePrefix, gDevice_prefix, sizeof(pArgs->DevicePrefix));
-        // should we check the size        
-        /* unset the cfg save flag in bootCfg; pArgs now contains the correct value for this flag*/
+        /* unset the cfg save and clean reg flags in bootCfg as we do not 
+		   want to persist these settings.
+		   pArgs now contains the correct temp value for these flags */
         g_bootCfg.oalFlags &= ~(BOOT_CFG_OAL_FLAGS_CFG_SAVE | BOOT_CFG_OAL_FLAGS_CLEAN_REGISTRY);        
         memcpy(pArgs->ebootCfg,&g_bootCfg,sizeof(BOOT_CFG));
         pArgs->cfgSize = sizeof(BOOT_CFG);
@@ -498,7 +510,9 @@ retryBootMenu:
 
 	if (g_bootCfg.displayRes != OMAP_RES_DEFAULT)
 	{
-	    BLShowLogo();
+		if (pArgs->oalFlags & BOOT_CFG_OAL_FLAGS_INVERT_DISPLAY)
+			g_invert = TRUE;
+		BLShowLogo(g_invert);
 	}
 
     // Image download depends on protocol
@@ -541,6 +555,8 @@ VOID OEMLaunch( ULONG start, ULONG size,
         L"+OEMLaunch(0x%08x, 0x%08x, 0x%08x, 0x%08x - %d/%d)\r\n", start, size,
         launch, pRomHeader, g_eboot.bootDeviceType, g_eboot.type
         ));
+
+	DrawProgressBar(100, 100, g_invert);
 
 #if 1
     // Depending on protocol there can be some action required
@@ -636,6 +652,9 @@ cleanUp:
 }
 
 //------------------------------------------------------------------------------
+//
+//  Function:   OEMMultiBinNotify
+//
 VOID OEMMultiBinNotify( MultiBINInfo *pInfo )
 {
     BOOL rc = FALSE;
@@ -727,12 +746,17 @@ cleanUp:
     OALMSGS(OAL_FUNC, (L"-OEMMultiBinNotify\r\n"));
 }
 
-UINT8* OEMMapMemAddr( DWORD image, DWORD address )
+//------------------------------------------------------------------------------
+//
+//  Function:  OEMMapMemAddr
+//
 //  This function maps image relative address to memory address. It is used
 //  by boot loader to verify some parts of downloaded image.
 //
 //  EBOOT mapping depends on download type. Download type is
 //  set in OMEMultiBinNotify.
+//
+UINT8* OEMMapMemAddr( DWORD image, DWORD address )
 {
     UINT8 *pAddress = NULL;
 
@@ -771,11 +795,17 @@ UINT8* OEMMapMemAddr( DWORD image, DWORD address )
     return pAddress;
 }
 
-BOOL OEMIsFlashAddr( ULONG address )
+//------------------------------------------------------------------------------
+//
+//  Function:  OEMIsFlashAddr
+//
 //  This function determines whether the address provided lies in a platform's
 //  flash or RAM address range.
+//
 //  EBOOT decision depends on download type. Download type is
 //  set in OMEMultiBinNotify.
+//
+BOOL OEMIsFlashAddr( ULONG address )
 {
     BOOL rc;
 
@@ -802,6 +832,13 @@ BOOL OEMIsFlashAddr( ULONG address )
     return rc;
 }
 
+//------------------------------------------------------------------------------
+//
+//  Function:   OEMReadData
+//
+//  This function is called to read data from the transport during
+//  the download process.
+//
 BOOL OEMReadData( ULONG size, UCHAR *pData )
 //  This function is called to read data from the transport during
 //  the download process.
@@ -818,15 +855,48 @@ BOOL OEMReadData( ULONG size, UCHAR *pData )
             rc = BLEthReadData(size, pData);
             break;
         }
+
+	if (rc) 
+        g_Offset += size;
+
     return rc;
 }
 
-VOID OEMShowProgress( ULONG packetNumber)
+//------------------------------------------------------------------------------
+//
+//  Function:  OEMShowProgress
+//
+//  This function is called during the download process to visualise
+//  download progress.
+//
+VOID OEMShowProgress(ULONG packetNumber)
 //  This function is called during the download process to visualise
 //  download progress.
 {
     UNREFERENCED_PARAMETER(packetNumber);
+    DrawProgressBar(g_Length, g_Offset, g_invert);
     RETAILMSG(1,(TEXT(".")));
+}
+
+//------------------------------------------------------------------------------
+//
+//  Function:  OEMVerifyMemory
+//
+//  We only snarf this hook to get values for the globals used to calculate 
+// progress.
+//
+BOOL OEMVerifyMemory(DWORD dwStartAddr, DWORD dwLength)
+{
+    UNREFERENCED_PARAMETER(dwStartAddr);
+    //
+    // These variables are being used to calculate the percentage of download
+    // in function OEMShowProgress. These must be initialized here else we can
+    // get the divide by zero exception.
+    //
+    g_Length    = dwLength;
+    g_Offset    = 0;
+
+    return TRUE;
 }
 
 UINT32 OALGetTickCount( )
@@ -843,6 +913,7 @@ DWORD OEMEthGetSecs( )
 {
     return OALGetTickCount()/1000;
 }
+
 void GetDisplayResolutionFromBootArgs( DWORD * pDispRes )
 {
     *pDispRes=g_bootCfg.displayRes;
