@@ -155,7 +155,7 @@ namespace VUEII_test
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(427, 164);
+            this.ClientSize = new System.Drawing.Size(638, 455);
             this.Controls.Add(this.btnNotificationLEDDFLASH);
             this.Controls.Add(this.btnNotificationLEDDON);
             this.Controls.Add(this.btnNotificationLEDDOFF);
@@ -170,7 +170,7 @@ namespace VUEII_test
             this.Controls.Add(this.btnNotificationLEDAOFF);
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Notification LED test";
+            this.Text = "Notification LED test ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
