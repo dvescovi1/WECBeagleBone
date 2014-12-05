@@ -1,19 +1,26 @@
 ;-- PWM Driver -----------------------------------------------------------------
 
-; PWM driver for the eHRPWM on-chip peripheral (PWM0 not used on BBB)
-;[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\PWM0]
-;    "Prefix"="PWM"
-;    "Dll"="pwm.dll"
-;    "Index"=dword:1
-;    "Order"=dword:20
-;    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
-;    "RegisterBaseAddress"=dword:01f02000
-;    "Irq"=dword:41  ; IRQ EHRPWM1 = 65 dec (41 hex)
-;    "EPWMXA_Active"=dword:1
-;    "EPWMXB_Active"=dword:0
+; PWM driver for the eHRPWM on-chip peripheral
+IF BSP_AM33X_PWM0
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\PWM0]
+    "Prefix"="PWM"
+    "Dll"="am33x_pwm.dll"
+    "Index"=dword:0
+    "Order"=dword:20
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "RegisterBaseAddress"=dword:48300200
+    "Frequency"=dword:2710 ; 2710 ; 10khz				3E8	; 1khz
+    "EPWMXA_Active"=dword:1
+    "EPWMXB_Active"=dword:1
+    "DutyCycleA"=dword:32						; 50%
+    "DutyCycleB"=dword:4b						; 75%
+	"InitRunningA"=dword:1
+	"InitRunningB"=dword:1
+	"StopHighA"=dword:1
+	"StopHighB"=dword:1
+ENDIF BSP_AM33X_PWM0
 
 IF BSP_AM33X_PWM1
-; PWM driver for the eHRPWM on-chip peripheral
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\PWM1]
     "Prefix"="PWM"
     "Dll"="am33x_pwm.dll"
@@ -21,14 +28,18 @@ IF BSP_AM33X_PWM1
     "Order"=dword:20
     "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
     "RegisterBaseAddress"=dword:48302200
-    "Frequency"=dword:3E8 ; 2710 ; 10khz				3E8	; 1khz
-    "DutyCycle"=dword:32						; 50%
+    "Frequency"=dword:2710 ; 2710 ; 10khz				3E8	; 1khz
     "EPWMXA_Active"=dword:1
-    "EPWMXB_Active"=dword:0
+    "EPWMXB_Active"=dword:1
+    "DutyCycleA"=dword:32						; 50%
+    "DutyCycleB"=dword:4b						; 75%
+	"InitRunningA"=dword:0
+	"InitRunningB"=dword:0
+	"StopHighA"=dword:0
+	"StopHighB"=dword:0
 ENDIF BSP_AM33X_PWM1
 
 IF BSP_AM33X_PWM2
-; PWM driver for the eHRPWM on-chip peripheral
 [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\PWM2]
     "Prefix"="PWM"
     "Dll"="am33x_pwm.dll"
@@ -36,6 +47,13 @@ IF BSP_AM33X_PWM2
     "Order"=dword:20
     "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
     "RegisterBaseAddress"=dword:48304200
+    "Frequency"=dword:2710 ; 2710 ; 10khz				3E8	; 1khz
     "EPWMXA_Active"=dword:1
     "EPWMXB_Active"=dword:1
+    "DutyCycleA"=dword:32						; 50%
+    "DutyCycleB"=dword:4b						; 75%
+	"InitRunningA"=dword:1
+	"InitRunningB"=dword:1
+	"StopHighA"=dword:1
+	"StopHighB"=dword:1
 ENDIF BSP_AM33X_PWM2

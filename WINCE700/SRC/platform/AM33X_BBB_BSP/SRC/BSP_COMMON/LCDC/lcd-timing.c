@@ -256,6 +256,51 @@ struct display_panel panel_800x4804D = {
 };
 
 
+int LCDC_panel_800x600_init(void) 
+{
+    if(!g_hGpio)
+    {
+		g_hGpio = GPIOOpen();
+ 	
+		if (g_hGpio == NULL)
+		{
+			RETAILMSG(1, (L"LCDC_panel_800x600_init:Failed to open GPIO driver\r\n"));
+			return FALSE;
+		}
+        GPIOSetBit(g_hGpio, GPIO0_22);
+        GPIOSetMode(g_hGpio, GPIO0_22, GPIO_DIR_OUTPUT );	// Backlight PWM
+    }
+	return TRUE;
+}
+
+int LCDC_panel_800x600_en(BOOL onoff) 
+{
+	return 0;
+}
+
+struct display_panel panel_800x600 = {
+	LCDC_PANEL_TFT | LCDC_INV_VSYNC | LCDC_INV_HSYNC | LCDC_HSVS_CONTROL,	// config
+	DISPC_PIXELFORMAT_RGB16,	// bpp
+	800,		// x_res 
+	600,		// y_res
+	40000000,	// pixel_clock
+	47,			// hsw 
+	39,			// hfp
+	39,			// hbp
+	2,			// vsw
+	13,			// vfb
+	29,			// vbp
+	0,			// acb
+	0,               // mono_8bit_mode
+	0,               // tft_alt_mode
+	COLOR_ACTIVE,    //panel_shade
+	OMAP_LCD_800W_600H,
+	FALSE,
+	LCDC_panel_800x600_init, // init
+	LCDC_panel_800x600_en    // enable/disable
+};
+
+
 
 
 struct drm_display_mode drm_800x600 = {
@@ -353,6 +398,9 @@ enum OMAP_LCD_DVI_RES dispRes = OMAP_RES_DEFAULT;
 			break;
 		case OMAP_LCD_800W_480H4D:
 			pActivePanel = &panel_800x4804D;
+			break;
+		case OMAP_LCD_800W_600H:
+			pActivePanel = &panel_800x600;
 			break;
 		case OMAP_DVI_800W_600H:
 			tda998x_drm_to_panel(&drm_800x600, &panel_init);
