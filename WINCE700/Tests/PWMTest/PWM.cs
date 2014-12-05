@@ -13,11 +13,15 @@ namespace BEAGLEBONE.PWM
         #region PWM device IOCTL codes
 
         private const Int32 CODE_IOCTL_PWM_GET_FREQUENCY = 0x0200;
-        private const Int32 CODE_IOCTL_PWM_GET_DUTYCYCLE = 0x0201;
-        private const Int32 CODE_IOCTL_PWM_GET_STARTSTOP = 0x0202;
-        private const Int32 CODE_IOCTL_PWM_SET_FREQUENCY = 0x0203;
-        private const Int32 CODE_IOCTL_PWM_SET_DUTYCYCLE = 0x0204;
-        private const Int32 CODE_IOCTL_PWM_SET_STARTSTOP = 0x0205;
+        private const Int32 CODE_IOCTL_PWM_SET_FREQUENCY = 0x0201;
+        private const Int32 CODE_IOCTL_PWM_GET_DUTYCYCLEA = 0x0202;
+        private const Int32 CODE_IOCTL_PWM_SET_DUTYCYCLEA = 0x0203;
+        private const Int32 CODE_IOCTL_PWM_GET_DUTYCYCLEB = 0x0204;
+        private const Int32 CODE_IOCTL_PWM_SET_DUTYCYCLEB = 0x0205;
+        private const Int32 CODE_IOCTL_PWM_GET_STARTSTOPA = 0x0206;
+        private const Int32 CODE_IOCTL_PWM_SET_STARTSTOPA = 0x0207;
+        private const Int32 CODE_IOCTL_PWM_GET_STARTSTOPB = 0x0208;
+        private const Int32 CODE_IOCTL_PWM_SET_STARTSTOPB = 0x0209;
 
         private const Int32 FILE_DEVICE_UNKNOWN = 0x00000022;
         private const Int32 FILE_ANY_ACCESS = 0x0;
@@ -28,25 +32,41 @@ namespace BEAGLEBONE.PWM
             ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
             | ((CODE_IOCTL_PWM_GET_FREQUENCY) << 2) | (METHOD_BUFFERED);
 
-        private const Int32 IOCTL_PWM_GET_DUTYCYCLE =
-            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
-            | ((CODE_IOCTL_PWM_GET_DUTYCYCLE) << 2) | (METHOD_BUFFERED);
-
-        private const Int32 IOCTL_PWM_GET_STARTSTOP =
-            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
-            | ((CODE_IOCTL_PWM_GET_STARTSTOP) << 2) | (METHOD_BUFFERED);
-
         private const Int32 IOCTL_PWM_SET_FREQUENCY =
             ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
             | ((CODE_IOCTL_PWM_SET_FREQUENCY) << 2) | (METHOD_BUFFERED);
 
-        private const Int32 IOCTL_PWM_SET_DUTYCYCLE =
+        private const Int32 IOCTL_PWM_GET_DUTYCYCLEA =
             ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
-            | ((CODE_IOCTL_PWM_SET_DUTYCYCLE) << 2) | (METHOD_BUFFERED);
+            | ((CODE_IOCTL_PWM_GET_DUTYCYCLEA) << 2) | (METHOD_BUFFERED);
 
-        private const Int32 IOCTL_PWM_SET_STARTSTOP =
+        private const Int32 IOCTL_PWM_SET_DUTYCYCLEA =
             ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
-            | ((CODE_IOCTL_PWM_SET_STARTSTOP) << 2) | (METHOD_BUFFERED);
+            | ((CODE_IOCTL_PWM_SET_DUTYCYCLEA) << 2) | (METHOD_BUFFERED);
+
+        private const Int32 IOCTL_PWM_GET_DUTYCYCLEB =
+            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
+            | ((CODE_IOCTL_PWM_GET_DUTYCYCLEB) << 2) | (METHOD_BUFFERED);
+
+        private const Int32 IOCTL_PWM_SET_DUTYCYCLEB =
+            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
+            | ((CODE_IOCTL_PWM_SET_DUTYCYCLEB) << 2) | (METHOD_BUFFERED);
+
+        private const Int32 IOCTL_PWM_GET_STARTSTOPA =
+            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
+            | ((CODE_IOCTL_PWM_GET_STARTSTOPA) << 2) | (METHOD_BUFFERED);
+
+        private const Int32 IOCTL_PWM_SET_STARTSTOPA =
+            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
+            | ((CODE_IOCTL_PWM_SET_STARTSTOPA) << 2) | (METHOD_BUFFERED);
+
+        private const Int32 IOCTL_PWM_GET_STARTSTOPB =
+            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
+            | ((CODE_IOCTL_PWM_GET_STARTSTOPB) << 2) | (METHOD_BUFFERED);
+
+        private const Int32 IOCTL_PWM_SET_STARTSTOPB =
+            ((FILE_DEVICE_UNKNOWN) << 16) | ((FILE_ANY_ACCESS) << 14)
+            | ((CODE_IOCTL_PWM_SET_STARTSTOPB) << 2) | (METHOD_BUFFERED);
 
         #endregion
 
@@ -87,11 +107,10 @@ namespace BEAGLEBONE.PWM
                 try
                 {
                     this.DeviceIoControl(IOCTL_PWM_SET_FREQUENCY, SerializeToByteArray(frequency));
-
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Unable to complete SetDirection DeviceIoControl:" + Marshal.GetLastWin32Error());
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
                 }
             }
             get
@@ -104,15 +123,15 @@ namespace BEAGLEBONE.PWM
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Unable to complete GetBit DeviceIoControl:" + Marshal.GetLastWin32Error());
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
                 }
             }
         }
 
         /// <summary>
-        /// PWM duty cycle
+        /// PWMA duty cycle
         /// </summary>
-        public UInt32 DutyCycle
+        public UInt32 DutyCycleA
         {
             set
             {
@@ -120,12 +139,11 @@ namespace BEAGLEBONE.PWM
                     throw new ApplicationException("Duty cycle out of range");
                 try
                 {
-                    this.DeviceIoControl(IOCTL_PWM_SET_DUTYCYCLE, SerializeToByteArray(value));
-
+                    this.DeviceIoControl(IOCTL_PWM_SET_DUTYCYCLEA, SerializeToByteArray(value));
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Unable to complete SetDirection DeviceIoControl:" + Marshal.GetLastWin32Error());
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
                 }
             }
             get
@@ -133,20 +151,53 @@ namespace BEAGLEBONE.PWM
                 try
                 {
                     byte [] data = new byte[4];
-                    this.DeviceIoControl(IOCTL_PWM_GET_DUTYCYCLE, null, data);
+                    this.DeviceIoControl(IOCTL_PWM_GET_DUTYCYCLEA, null, data);
                     return (UInt32)DeserializeFromByteArray(data, typeof(UInt32));
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Unable to complete GetBit DeviceIoControl:" + Marshal.GetLastWin32Error());
+                    throw new Exception("Unable to completet DeviceIoControl:" + Marshal.GetLastWin32Error());
                 }
             }
         }
 
         /// <summary>
-        /// PWM start stop
+        /// PWMB duty cycle
         /// </summary>
-        public bool RunPWM
+        public UInt32 DutyCycleB
+        {
+            set
+            {
+                if (value > 100 | value < 0)
+                    throw new ApplicationException("Duty cycle out of range");
+                try
+                {
+                    this.DeviceIoControl(IOCTL_PWM_SET_DUTYCYCLEB, SerializeToByteArray(value));
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
+                }
+            }
+            get
+            {
+                try
+                {
+                    byte[] data = new byte[4];
+                    this.DeviceIoControl(IOCTL_PWM_GET_DUTYCYCLEB, null, data);
+                    return (UInt32)DeserializeFromByteArray(data, typeof(UInt32));
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
+                }
+            }
+        }
+
+        /// <summary>
+        /// PWMA start stop
+        /// </summary>
+        public bool RunPWMA
         {
             set
             {
@@ -156,12 +207,11 @@ namespace BEAGLEBONE.PWM
 
                 try
                 {
-                    this.DeviceIoControl(IOCTL_PWM_SET_STARTSTOP, SerializeToByteArray(go));
-
+                    this.DeviceIoControl(IOCTL_PWM_SET_STARTSTOPA, SerializeToByteArray(go));
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Unable to complete SetDirection DeviceIoControl:" + Marshal.GetLastWin32Error());
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
                 }
             }
             get
@@ -169,7 +219,7 @@ namespace BEAGLEBONE.PWM
                 try
                 {
                     byte [] data = new byte[4];
-                    this.DeviceIoControl(IOCTL_PWM_GET_STARTSTOP, null, data);
+                    this.DeviceIoControl(IOCTL_PWM_GET_STARTSTOPA, null, data);
                     if (1 == data[0])
                         return true;
                     else
@@ -177,12 +227,50 @@ namespace BEAGLEBONE.PWM
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Unable to complete GetBit DeviceIoControl:" + Marshal.GetLastWin32Error());
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
                 }
             }
         }
 
-        
+         /// <summary>
+        /// PWMB start stop
+        /// </summary>
+        public bool RunPWMB
+        {
+            set
+            {
+                UInt32 go = 0;
+                if (value)
+                    go = 1;
+
+                try
+                {
+                    this.DeviceIoControl(IOCTL_PWM_SET_STARTSTOPB, SerializeToByteArray(go));
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
+                }
+            }
+            get
+            {
+                try
+                {
+                    byte [] data = new byte[4];
+                    this.DeviceIoControl(IOCTL_PWM_GET_STARTSTOPB, null, data);
+                    if (1 == data[0])
+                        return true;
+                    else
+                        return false;
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unable to complete DeviceIoControl:" + Marshal.GetLastWin32Error());
+                }
+            }
+        }
+
+       
         #region P/Invoke helpers
 
         /// <summary>
