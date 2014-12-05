@@ -213,14 +213,23 @@ BOOL ShowSDLogo(BOOL invert)
 
 	memset(framebuffer, 0xff, IMAGE_WINCE_DISPLAY_SIZE);	// fill to black
 
-    if (!BLSDCardReadLogo(L"Logo.bmp", (UCHAR*)framebuffer, &dwLength))
-    {
-    	return FALSE;
-    }
+	if (invert)
+	{
+		if (!BLSDCardReadLogo(L"Logoi.bmp", (UCHAR*)framebuffer, &dwLength))
+		{
+    		return FALSE;
+		}
+	}
+	else
+	{
+		if (!BLSDCardReadLogo(L"Logo.bmp", (UCHAR*)framebuffer, &dwLength))
+		{
+    		return FALSE;
+		}
+	}
 
     //As BMP are stored upside down, we need to flip the frame buffer's content
-	if (!invert)
-		FlipFrameBuffer((PUCHAR)framebuffer,dwLcdHeight,dwLcdWidth * lcdc_PixelFormatToPixelSize(dwPixelFormat),(PUCHAR)framebuffer + dwLength);
+	FlipFrameBuffer((PUCHAR)framebuffer,dwLcdHeight,dwLcdWidth * lcdc_PixelFormatToPixelSize(dwPixelFormat),(PUCHAR)framebuffer + dwLength);
 
     // Fire up the LCD
     EnableDeviceClocks(AM_DEVICE_LCDC, TRUE);

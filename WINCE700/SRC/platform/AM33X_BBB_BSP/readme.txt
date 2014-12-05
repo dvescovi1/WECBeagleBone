@@ -61,6 +61,10 @@ Copyright (c) 2014 David Vescovi
 	-Corrected ReleasePad and ConfigurePad inUse flag
 	-Added more GPIO pin support
 
+01.14.00	-5-DEC-2014-
+	-Improved PWM support
+
+
 
 NOTE: The same image file set (MLO, EBOOTSD.NB0 and NK.BIN) works on the BeagleBone White and Black as executed from a uSD card
 or the BeagleBone Black executed from ether a 2Gb or 4Gb eMMC. 

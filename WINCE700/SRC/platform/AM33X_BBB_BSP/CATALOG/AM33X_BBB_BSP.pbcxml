@@ -35,6 +35,7 @@
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xmci2c3</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:am33xpwm0</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xpwm1</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:am33xpwm2</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:USBFN0</BspItemId>
@@ -259,6 +260,15 @@
     <Variable>BSP_AM33X_I2C3</Variable>
     <Module>am33x_i2c.dll</Module>
     <Location>Drivers\I2C</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:am33xpwm0">
+    <Title>PWM0 driver (AM335x EHRPWM0)</Title>
+    <Description>PWM0 on UART2 pins</Description>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_PWM</Variable>
+    <Variable>BSP_AM33X_PWM0</Variable>
+    <Module>am33x_pwm.dll</Module>
+    <Location>Drivers\PWM</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:am33xpwm1">
     <Title>PWM1 driver (AM335x EHRPWM1)</Title>

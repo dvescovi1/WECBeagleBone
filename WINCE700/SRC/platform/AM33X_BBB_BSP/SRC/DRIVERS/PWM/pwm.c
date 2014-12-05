@@ -89,7 +89,8 @@ typedef struct {
     CRITICAL_SECTION        csDevice;       // serialize access to this device's state
     CEDEVICE_POWER_STATE    CurrentDx;      // current power level
 
-	BOOL					fRunning;
+	BOOL					fRunningA;
+	BOOL					fRunningB;
 	AM33X_DEVICE_CONF_REGS	*pDevConfRegs;
 	AM33X_PWMSS_REGS	    *pPWMSSRegs;        // Pointer to PWM subsystem registers
 	AM33X_EPWM_REGS		    *pPWMRegs;          // Pointer to PWM registers
@@ -97,10 +98,14 @@ typedef struct {
 
     DWORD                   dwBaseAddress;  // Base address of PWM peripheral registers
     DWORD                   dwFrequency;    // Desired PWM output frequency
-    DWORD                   dwDutyCycle;    // Current duty cycle as a percentage
     BOOL                    fEPWMXA_Active; // Are we using PWMxA output?
     BOOL                    fEPWMXB_Active; // Are we using PWMxB output?
-    DWORD                   dwInitRunning;  // TRUE if initialize running
+	BOOL					fStopHighA;		// When stop make output? Low=0, High=1
+	BOOL					fStopHighB;		// When stop make output? Low=0, High=1
+    DWORD                   dwDutyCycleA;   // Current duty cycle as a percentage CHANNELA
+    DWORD                   dwDutyCycleB;   // Current duty cycle as a percentage CHANNELB
+    DWORD                   dwInitRunningA; // TRUE if initialize running
+    DWORD                   dwInitRunningB; // TRUE if initialize running
 } Device_t;
 
 //------------------------------------------------------------------------------
@@ -111,20 +116,33 @@ typedef struct {
 #define PWM_IOCTL_GET_FREQUENCY    \
     CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0200, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#define PWM_IOCTL_GET_DUTYCYCLE    \
+#define PWM_IOCTL_SET_FREQUENCY    \
     CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0201, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#define PWM_IOCTL_GET_START_STOP    \
+#define PWM_IOCTL_GET_DUTYCYCLEA    \
     CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0202, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#define PWM_IOCTL_SET_FREQUENCY    \
+#define PWM_IOCTL_SET_DUTYCYCLEA    \
     CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0203, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#define PWM_IOCTL_SET_DUTYCYCLE    \
+#define PWM_IOCTL_GET_DUTYCYCLEB    \
     CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0204, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#define PWM_IOCTL_SET_START_STOP    \
+#define PWM_IOCTL_SET_DUTYCYCLEB    \
     CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0205, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define PWM_IOCTL_GET_START_STOPA    \
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0206, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define PWM_IOCTL_SET_START_STOPA    \
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0207, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define PWM_IOCTL_GET_START_STOPB    \
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0208, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define PWM_IOCTL_SET_START_STOPB    \
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0209, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
 
 
 // Values for the default frequency and duty-cycle
@@ -133,11 +151,15 @@ typedef struct {
 
 #define CLOCK_TIME_BASE			100000000
 
+
+#define DeviceA					1
+#define DeviceB					2
+
 //------------------------------------------------------------------------------
 // Local functions
 
-static void PWMStart(Device_t *pDevice);
-static void PWMStop(Device_t *pDevice);
+static void PWMStart(Device_t *pDevice, int device);
+static void PWMStop(Device_t *pDevice, int device);
 static UINT32 FindClockSettings(UINT32 DesiredFrequency, UINT32 DutyCycle, Device_t *pDevice);
 static void PWMRegDump(Device_t *pDevice);
 
@@ -197,6 +219,10 @@ static const DEVICE_REGISTRY_PARAM s_deviceRegParams[] = {
         offset(Device_t, dwBaseAddress),
         fieldsize(Device_t, dwBaseAddress), (VOID*)0
     }, {
+        L"Frequency", PARAM_DWORD, FALSE, 
+        offset(Device_t, dwFrequency),
+        fieldsize(Device_t, dwFrequency), (VOID*)PWM_DEFAULT_FREQUENCY
+    }, {
         L"EPWMXA_Active", PARAM_DWORD, TRUE, 
         offset(Device_t, fEPWMXA_Active),
         fieldsize(Device_t, fEPWMXA_Active), (VOID*)1
@@ -205,17 +231,29 @@ static const DEVICE_REGISTRY_PARAM s_deviceRegParams[] = {
         offset(Device_t, fEPWMXB_Active),
         fieldsize(Device_t, fEPWMXB_Active), (VOID*)1
     }, {
-        L"Frequency", PARAM_DWORD, FALSE, 
-        offset(Device_t, dwFrequency),
-        fieldsize(Device_t, dwFrequency), (VOID*)PWM_DEFAULT_FREQUENCY
+        L"DutyCycleA", PARAM_DWORD, FALSE, 
+        offset(Device_t, dwDutyCycleA),
+        fieldsize(Device_t, dwDutyCycleA), (VOID*)PWM_DEFAULT_DUTY_CYCLE
     }, {
-        L"DutyCycle", PARAM_DWORD, FALSE, 
-        offset(Device_t, dwDutyCycle),
-        fieldsize(Device_t, dwDutyCycle), (VOID*)PWM_DEFAULT_DUTY_CYCLE
+        L"DutyCycleB", PARAM_DWORD, FALSE, 
+        offset(Device_t, dwDutyCycleB),
+        fieldsize(Device_t, dwDutyCycleB), (VOID*)PWM_DEFAULT_DUTY_CYCLE
     }, {
-        L"InitRunning", PARAM_DWORD, FALSE, 
-        offset(Device_t, dwInitRunning),
-        fieldsize(Device_t, dwInitRunning), (VOID*)1
+        L"StopHighA", PARAM_DWORD, FALSE, 
+        offset(Device_t, fStopHighA),
+        fieldsize(Device_t, fStopHighA), (VOID*)0
+    }, {
+        L"StopHighB", PARAM_DWORD, FALSE, 
+        offset(Device_t, fStopHighB),
+        fieldsize(Device_t, fStopHighB), (VOID*)0
+    }, {
+        L"InitRunningA", PARAM_DWORD, FALSE, 
+        offset(Device_t, dwInitRunningA),
+        fieldsize(Device_t, dwInitRunningA), (VOID*)0
+    }, {
+        L"InitRunningB", PARAM_DWORD, FALSE, 
+        offset(Device_t, dwInitRunningB),
+        fieldsize(Device_t, dwInitRunningB), (VOID*)0
     }
 };
 
@@ -272,9 +310,20 @@ DWORD PWM_Init(
     }
 
 	switch (pDevice->dwBaseAddress - 0x200) {
-//		case AM33X_ECAP_EQEP_EPWM0_REGS_PA:
-//			pDevice->deviceID = AM_DEVICE_EPWM0;
-//			break;
+		case AM33X_ECAP_EQEP_EPWM0_REGS_PA:
+			pDevice->deviceID = AM_DEVICE_EPWM0;
+			pDevice->pDevConfRegs->PWMSS_CTRL |= 0x1;	// enable timebase clock
+			if (pDevice->fEPWMXA_Active)
+			{
+				ReleasePad(PAD_ID(SPI0_SCLK));
+				ConfigurePad(PAD_ID(SPI0_SCLK),(MODE(3)));
+			}
+			if (pDevice->fEPWMXB_Active)
+			{
+				ReleasePad(PAD_ID(SPI0_D0));
+				ConfigurePad(PAD_ID(SPI0_D0),(MODE(3)));
+			}
+			break;
 		case AM33X_ECAP_EQEP_EPWM1_REGS_PA:
 			pDevice->deviceID = AM_DEVICE_EPWM1;
 			pDevice->pDevConfRegs->PWMSS_CTRL |= 0x2;	// enable timebase clock
@@ -336,26 +385,46 @@ DWORD PWM_Init(
                   EPWM_TBCNT_PHSEN_LOAD |
                   EPWM_TBCNT_CTRLMODE_FREEZE;                  
 
-    // Set the PWM output high when TBCNT == 0, then set low when TBCNT == CMPA     
+    // Set the PWM output high when TBCNT == 0, then set low when TBCNT == CMPx     
     if (pDevice->fEPWMXA_Active) {
-        pDevice->pPWMRegs->AQCTLA = (EPWM_AQCTLA_ZRO_SET | EPWM_AQCTLA_CAU_CLEAR);
+        pDevice->pPWMRegs->AQCTLA = (EPWM_AQCTL_ZRO_SET | EPWM_AQCTL_CAU_CLEAR);
+		// Set the initial CMPA to determine the duty cycle
+		pDevice->pPWMRegs->CMPA = FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycleA, pDevice);
     }
     if (pDevice->fEPWMXB_Active) {
-        pDevice->pPWMRegs->AQCTLB = (EPWM_ACQTLB_ZRO_SET | EPWM_ACQTLB_CAU_CLEAR);
+        pDevice->pPWMRegs->AQCTLB = (EPWM_AQCTL_ZRO_SET | EPWM_AQCTL_CBU_CLEAR);
+		// Set the initial CMPB to determine the duty cycle
+		pDevice->pPWMRegs->CMPB = FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycleB, pDevice);
     }
 
-    FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycle, pDevice);
-
-	if (pDevice->dwInitRunning) 
+	if (pDevice->dwInitRunningA) 
 	{
-		DEBUGMSG( ZONE_INIT, (L"PWM_Init: Setting PWM running\r\n"));        
-		PWMStart(pDevice);
+		DEBUGMSG(ZONE_INIT, (L"PWM_Init: Setting PWMA running\r\n"));        
+		PWMStart(pDevice, DeviceA);
 	}
 	else
 	{
-		DEBUGMSG( ZONE_INIT, (L"PWMInit: Setting PWM halted\r\n")); 
-		PWMStop(pDevice);
+		DEBUGMSG(ZONE_INIT, (L"PWMInit: Setting PWMA halted\r\n")); 
+		PWMStop(pDevice, DeviceA);
 	}
+
+	if (pDevice->dwInitRunningB) 
+	{
+		DEBUGMSG(ZONE_INIT, (L"PWM_Init: Setting PWMB running\r\n"));        
+		PWMStart(pDevice, DeviceB);
+	}
+	else
+	{
+		DEBUGMSG(ZONE_INIT, (L"PWMInit: Setting PWMB halted\r\n")); 
+		PWMStop(pDevice, DeviceB);
+	}
+
+	// Select Up-count mode. In this mode, the time-base counter starts
+    // from zero and increments until it reaches the value in the period
+    // register (TBPRD). When the period value is reached, the time-base
+    // counter resets to zero and begins to increment once again.
+    pDevice->pPWMRegs->TBCTL &= ~(EPWM_TBCNT_CTRLMODE_MASK);
+    pDevice->pPWMRegs->TBCTL |= EPWM_TBCNT_CTRLMODE_COUNT_UP;
 
     rc = (DWORD)pDevice;
     
@@ -519,41 +588,6 @@ BOOL PWM_IOControl(
 			}
             break;
 
-        // Get PWM duty cycle
-        case PWM_IOCTL_GET_DUTYCYCLE:
-            DEBUGMSG( ZONE_IOCTL,
-                (L"PWM_IOControl: PWM_IOCTL_GET_DUTYCYCLE\r\n"));
-			if ((pOutBuffer == NULL) || (outSize < sizeof(DWORD)))
-			{
-				dwErr = ERROR_INVALID_PARAMETER;
-				break;
-			}
-			if (pOutSize != 0) *pOutSize = sizeof(DWORD);
-			if (!CeSafeCopyMemory(pOutBuffer, &pDevice->dwDutyCycle, sizeof(DWORD)))
-			{
-				dwErr = ERROR_INVALID_PARAMETER;
-				break;
-			}
-            break;
-
-        // Get PWM start stop
-        case PWM_IOCTL_GET_START_STOP:
-            DEBUGMSG( ZONE_IOCTL,
-                (L"PWM_IOControl: PWM_IOCTL_GET_START_STOP\r\n"));
-			if ((pOutBuffer == NULL) || (outSize < sizeof(DWORD)))
-			{
-				dwErr = ERROR_INVALID_PARAMETER;
-				break;
-			}
-			if (pOutSize != 0) *pOutSize = sizeof(DWORD);
-			temp = (DWORD)pDevice->fRunning;
-			if (!CeSafeCopyMemory(pOutBuffer, &temp, sizeof(DWORD)))
-			{
-				dwErr = ERROR_INVALID_PARAMETER;
-				break;
-			}
-            break;
-
        // Set PWM frequency
         case PWM_IOCTL_SET_FREQUENCY:
             DEBUGMSG( ZONE_IOCTL,
@@ -562,43 +596,143 @@ BOOL PWM_IOControl(
 			{
 				pDevice->dwFrequency = *(DWORD *)pInBuffer;
 				EnterCriticalSection(&pDevice->csDevice);
-				FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycle, pDevice);
+				FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycleA, pDevice);
 				LeaveCriticalSection(&pDevice->csDevice);
 				dwErr = ERROR_SUCCESS;
 			}
             break;
 
-        // Set PWM duty cycle
-        case PWM_IOCTL_SET_DUTYCYCLE:
+        // Get PWMA duty cycle
+        case PWM_IOCTL_GET_DUTYCYCLEA:
             DEBUGMSG( ZONE_IOCTL,
-                (L"PWM_IOControl: PWM_IOCTL_SET_DUTYCYCLE\r\n"));
+                (L"PWM_IOControl: PWM_IOCTL_GET_DUTYCYCLEA\r\n"));
+			if ((pOutBuffer == NULL) || (outSize < sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+			if (pOutSize != 0) *pOutSize = sizeof(DWORD);
+			if (!CeSafeCopyMemory(pOutBuffer, &pDevice->dwDutyCycleA, sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+            break;
+
+        // Set PWMA duty cycle
+        case PWM_IOCTL_SET_DUTYCYCLEA:
+            DEBUGMSG( ZONE_IOCTL,
+                (L"PWM_IOControl: PWM_IOCTL_SET_DUTYCYCLEA\r\n"));
 			if (pInBuffer && (inSize == sizeof(DWORD)))
 			{
-				pDevice->dwDutyCycle = *(DWORD *)pInBuffer;
+				pDevice->dwDutyCycleA = *(DWORD *)pInBuffer;
 				EnterCriticalSection(&pDevice->csDevice);
-				FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycle, pDevice);
+				pDevice->pPWMRegs->CMPA = FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycleA, pDevice);
 				LeaveCriticalSection(&pDevice->csDevice);
 				dwErr = ERROR_SUCCESS;
 			}
             break;
 
-		// Start/Stop PWM output
-        case PWM_IOCTL_SET_START_STOP:
+        // Get PWMB duty cycle
+        case PWM_IOCTL_GET_DUTYCYCLEB:
             DEBUGMSG( ZONE_IOCTL,
-                (L"PWM_IOControl: PWM_IOCTL_SET_START_STOP\r\n"));
+                (L"PWM_IOControl: PWM_IOCTL_GET_DUTYCYCLEB\r\n"));
+			if ((pOutBuffer == NULL) || (outSize < sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+			if (pOutSize != 0) *pOutSize = sizeof(DWORD);
+			if (!CeSafeCopyMemory(pOutBuffer, &pDevice->dwDutyCycleB, sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+            break;
+
+        // Set PWMB duty cycle
+        case PWM_IOCTL_SET_DUTYCYCLEB:
+            DEBUGMSG( ZONE_IOCTL,
+                (L"PWM_IOControl: PWM_IOCTL_SET_DUTYCYCLEB\r\n"));
+			if (pInBuffer && (inSize == sizeof(DWORD)))
+			{
+				pDevice->dwDutyCycleB = *(DWORD *)pInBuffer;
+				EnterCriticalSection(&pDevice->csDevice);
+				pDevice->pPWMRegs->CMPB = FindClockSettings(pDevice->dwFrequency, pDevice->dwDutyCycleB, pDevice);
+				LeaveCriticalSection(&pDevice->csDevice);
+				dwErr = ERROR_SUCCESS;
+			}
+            break;
+
+        // Get PWMA start stop
+        case PWM_IOCTL_GET_START_STOPA:
+            DEBUGMSG( ZONE_IOCTL,
+                (L"PWM_IOControl: PWM_IOCTL_GET_START_STOPA\r\n"));
+			if ((pOutBuffer == NULL) || (outSize < sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+			if (pOutSize != 0) *pOutSize = sizeof(DWORD);
+			temp = (DWORD)pDevice->fRunningA;
+			if (!CeSafeCopyMemory(pOutBuffer, &temp, sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+            break;
+
+		// Start/Stop PWMA output
+        case PWM_IOCTL_SET_START_STOPA:
+            DEBUGMSG( ZONE_IOCTL,
+                (L"PWM_IOControl: PWM_IOCTL_SET_START_STOPA\r\n"));
 			if (pInBuffer && (inSize == sizeof(DWORD)))
 			{
 				temp = *(DWORD *)pInBuffer;
 				EnterCriticalSection(&pDevice->csDevice);
 				if (temp)
-					PWMStart(pDevice);
+					PWMStart(pDevice, DeviceA);
 				else
-					PWMStop(pDevice);
+					PWMStop(pDevice, DeviceA);
 				LeaveCriticalSection(&pDevice->csDevice);
 				dwErr = ERROR_SUCCESS;
 			}
             break;
 
+        // Get PWMB start stop
+        case PWM_IOCTL_GET_START_STOPB:
+            DEBUGMSG( ZONE_IOCTL,
+                (L"PWM_IOControl: PWM_IOCTL_GET_START_STOPB\r\n"));
+			if ((pOutBuffer == NULL) || (outSize < sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+			if (pOutSize != 0) *pOutSize = sizeof(DWORD);
+			temp = (DWORD)pDevice->fRunningB;
+			if (!CeSafeCopyMemory(pOutBuffer, &temp, sizeof(DWORD)))
+			{
+				dwErr = ERROR_INVALID_PARAMETER;
+				break;
+			}
+            break;
+
+		// Start/Stop PWMB output
+        case PWM_IOCTL_SET_START_STOPB:
+            DEBUGMSG( ZONE_IOCTL,
+                (L"PWM_IOControl: PWM_IOCTL_SET_START_STOPB\r\n"));
+			if (pInBuffer && (inSize == sizeof(DWORD)))
+			{
+				temp = *(DWORD *)pInBuffer;
+				EnterCriticalSection(&pDevice->csDevice);
+				if (temp)
+					PWMStart(pDevice, DeviceB);
+				else
+					PWMStop(pDevice, DeviceB);
+				LeaveCriticalSection(&pDevice->csDevice);
+				dwErr = ERROR_SUCCESS;
+			}
+            break;
 
         // --------------------- POWER MANAGEMENT IOCTLs --------------------
         
@@ -793,9 +927,7 @@ static UINT32 FindClosestFrequency(double DesiredFrequency,
 //   DutyCycle   - (IN) Desired positive duty cycle as a percentage
 //
 // Returns:
-//   0 if not achievable
-//   or the frequency we have selected (as close to the DesiredFreq as
-//   we can achieve)
+//   DutyCycleCount
 static UINT32 FindClockSettings(UINT32 DesiredFreq, UINT32 DutyCycle, Device_t *pDevice)
 {
     double DesiredFrequency;
@@ -900,33 +1032,59 @@ static UINT32 FindClockSettings(UINT32 DesiredFreq, UINT32 DutyCycle, Device_t *
     // Configure the period
     pDevice->pPWMRegs->TBPRD = PeriodCount;
 
-    // Set the initial CMPA to determine the duty cycle
-    pDevice->pPWMRegs->CMPA = DutyCycleCount;
-
-    return (UINT32)ActualFrequency;
+    return DutyCycleCount;
 }
 
 // Start the PWM signal generation
-static void PWMStart(Device_t *pDevice)
+static void PWMStart(Device_t *pDevice, int device)
 {
-    // Select Up-count mode. In this mode, the time-base counter starts
-    // from zero and increments until it reaches the value in the period
-    // register (TBPRD). When the period value is reached, the time-base
-    // counter resets to zero and begins to increment once again.
-    pDevice->pPWMRegs->TBCTL &= ~(EPWM_TBCNT_CTRLMODE_MASK);
-    pDevice->pPWMRegs->TBCTL |= EPWM_TBCNT_CTRLMODE_COUNT_UP;
-
-    pDevice->fRunning = TRUE;  
+	if (pDevice->fEPWMXA_Active && device == DeviceA)
+	{
+		pDevice->pPWMRegs->AQCSFRC &= 0xfffc;
+		pDevice->fRunningA = TRUE;
+	}
+	if (pDevice->fEPWMXB_Active && device == DeviceB)
+	{
+		pDevice->pPWMRegs->AQCSFRC &= 0xfff3;
+		pDevice->fRunningB = TRUE;
+	}
 }
 
 // Stop the PWM signal generation
-static void PWMStop(Device_t *pDevice)
+static void PWMStop(Device_t *pDevice, int device)
 {
-    // Select freeze count mode.
-    pDevice->pPWMRegs->TBCTL &= ~(EPWM_TBCNT_CTRLMODE_MASK);
-    pDevice->pPWMRegs->TBCTL |= EPWM_TBCNT_CTRLMODE_FREEZE;
+	UINT16 frcReg;
 
-    pDevice->fRunning = FALSE; 
+	if (pDevice->fEPWMXA_Active && device == DeviceA)
+	{
+		frcReg = pDevice->pPWMRegs->AQCSFRC;  
+		frcReg &= 0xfffc;
+		if (pDevice->fStopHighA)
+		{
+			frcReg |= 2;	// force A high
+		}
+		else
+		{
+			frcReg |= 1;	// force A low
+		}
+		pDevice->pPWMRegs->AQCSFRC = frcReg;
+		pDevice->fRunningA = FALSE; 
+	}
+	if (pDevice->fEPWMXB_Active && device == DeviceB)
+	{
+		frcReg = pDevice->pPWMRegs->AQCSFRC;  
+		frcReg &= 0xfff3;
+		if (pDevice->fStopHighB)
+		{
+			frcReg |= 2<<2;	// force B high
+		}
+		else
+		{
+			frcReg |= 1<<2;	// force B low
+		}
+		pDevice->pPWMRegs->AQCSFRC = frcReg;
+		pDevice->fRunningB = FALSE; 
+	}
 }
 
 

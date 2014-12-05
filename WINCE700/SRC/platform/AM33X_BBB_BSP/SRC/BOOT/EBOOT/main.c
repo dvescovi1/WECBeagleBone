@@ -41,6 +41,10 @@
 #define TODO_WARNING
 
 //------------------------------------------------------------------------------
+//  misc global variables
+BOOL g_InvertDisplay = FALSE;
+
+//------------------------------------------------------------------------------
 //  This global variable is used to save information about downloaded regions.
 EBOOT_CONTEXT g_eboot;
 
@@ -68,7 +72,6 @@ UCHAR g_ecctype;
 //
 DWORD g_Length = 0;
 DWORD g_Offset = 0;
-BOOL g_invert = FALSE;
 
 //------------------------------------------------------------------------------
 // External Variables
@@ -243,7 +246,7 @@ BOOL OEMPlatformInit()
     EnableDeviceClocks(AM_DEVICE_MMCHS1,TRUE);
 
     GPIOInit();
-    
+ 	
 	/* Initialize Device Prefix */
     gDevice_prefix = BSP_DEVICE_AM33x_PREFIX;
     // Done
@@ -511,8 +514,8 @@ retryBootMenu:
 	if (g_bootCfg.displayRes != OMAP_RES_DEFAULT)
 	{
 		if (pArgs->oalFlags & BOOT_CFG_OAL_FLAGS_INVERT_DISPLAY)
-			g_invert = TRUE;
-		BLShowLogo(g_invert);
+			g_InvertDisplay = TRUE;
+		BLShowLogo(g_InvertDisplay);
 	}
 
     // Image download depends on protocol
@@ -556,7 +559,7 @@ VOID OEMLaunch( ULONG start, ULONG size,
         launch, pRomHeader, g_eboot.bootDeviceType, g_eboot.type
         ));
 
-	DrawProgressBar(100, 100, g_invert);
+	DrawProgressBar(100, 100, g_InvertDisplay);
 
 #if 1
     // Depending on protocol there can be some action required
@@ -874,7 +877,7 @@ VOID OEMShowProgress(ULONG packetNumber)
 //  download progress.
 {
     UNREFERENCED_PARAMETER(packetNumber);
-    DrawProgressBar(g_Length, g_Offset, g_invert);
+    DrawProgressBar(g_Length, g_Offset, g_InvertDisplay);
     RETAILMSG(1,(TEXT(".")));
 }
 
