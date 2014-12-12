@@ -362,21 +362,29 @@ VOID SetDisplayResolution(OAL_BLMENU_ITEM *pMenu)
     OALBLMenuHeader(L"Select Display Resolution");
 
     for (i=0; i<OMAP_RES_INVALID; i++){
-        OALLog(L" [%d] %s\r\n", i+1 , dispResMenu[i].resName);
+        OALLog(L" [%x] %s\r\n", i+1 , dispResMenu[i].resName);
     }
     OALLog(L" [0] Exit and Continue\r\n");
 
     OALLog(L"\r\n Selection (actual %s): ", dispResMenu[g_bootCfg.displayRes].resName);
-    // Get key
-    do {
-        key = OALBLMenuReadKey(TRUE);
-    } while (key < L'0' || key > L'0' + i);    
+
+loop:
+	key = OALBLMenuReadKey(TRUE);
+	if (!((key >= L'0' && key <= L'9') || (key >= L'a' && key <= L'f')))
+		goto loop;
+
+	if (key <= L'9')
+		i = key - L'0';
+	else
+		i = key - L'a' + 10;
+	if (i > OMAP_RES_INVALID)
+		goto loop;
     OALLog(L"%c\r\n", key);
-    
-    // If user select exit don't change device
+    // If user select exit don't change
     if (key == L'0') return;
 
-    g_bootCfg.displayRes = (key - L'0' - 1);
+	i--;
+    g_bootCfg.displayRes = i;
 }
 
 //------------------------------------------------------------------------------
@@ -501,7 +509,6 @@ VOID ShowSDCardSettings(OAL_BLMENU_ITEM *pMenu)
 }
 
 //------------------------------------------------------------------------------
-#define dimof(x)                (sizeof(x)/sizeof(x[0]))
 VOID EnterSDCardFilename(OAL_BLMENU_ITEM *pMenu)
 {
     UNREFERENCED_PARAMETER(pMenu);
