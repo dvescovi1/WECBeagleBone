@@ -55,6 +55,8 @@
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_photo_viewer" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_video_player" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_composition" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_touch" />
+    <Feature Name="Item" CatalogItemId="Item:MS:sysgen_msim" />
     <Feature Name="Item" CatalogItemId="Item:MS:sysgen_dotnetv35" />
   </FeatureCollection>
   <ConfigurationCollection Name="Configurations" EnforceUniqueItems="False">
@@ -79,6 +81,12 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBFN0" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBH1" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:lcdTouch" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:keypad" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217pwrkey" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -117,6 +125,12 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBFN0" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBH1" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:lcdTouch" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:keypad" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217pwrkey" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -157,6 +171,12 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBFN0" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:USBH1" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:amWatchdog" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:lcdTouch" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:keypad" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm1" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm2" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217pwrkey" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
