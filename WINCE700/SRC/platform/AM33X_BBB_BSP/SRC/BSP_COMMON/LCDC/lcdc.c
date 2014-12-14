@@ -572,7 +572,7 @@ LcdPdd_LCD_GetMode(
     DWORD   *pPixelClock
     )
 {
-    struct display_panel *pPanel;
+    struct display_panel *pPanel; 
 
     pPanel = get_panel();
 
@@ -607,10 +607,31 @@ LcdPdd_LCD_Initialize(struct lcdc *lcdc)
 	PHYSICAL_ADDRESS pa = {0, 0};
 	DWORD id = AM33X_BOARDID_BBONE_BOARD;
 
-    lcdc->clk = PrcmClockGetClockRate(LCD_PCLK);
+	lcdc->clk = PrcmClockGetClockRate(LCD_PCLK);
     lcdc->panel = get_panel();
 
-    lcdc->fb_pa =   IMAGE_WINCE_DISPLAY_PA;
+#ifdef DEVICE
+    KernelIoControl(IOCTL_HAL_GET_PLATFORM_ID,
+                         NULL, 0, &id, sizeof(DWORD), &dwLength);
+#else
+	id = g_dwBoardId;
+#endif
+
+	if (id == AM33X_BOARDID_BBONEBLACK_BOARD && lcdc->panel->IsDVI)
+	{
+		tda1998x_init();
+		if( tda998x_connected_detect())
+		{
+			RETAILMSG(1, (L"HDMI Connected\r\n"));
+		}
+		else
+			RETAILMSG(1, (L"HDMI Disconnected\r\n"));
+
+		tda998x_encoder_dpms(TRUE);
+		tda998x_encoder_mode_set(get_drm_mode());
+	}
+
+	lcdc->fb_pa =   IMAGE_WINCE_DISPLAY_PA;
     lcdc->fb_size = IMAGE_WINCE_DISPLAY_SIZE;
 	lcdc->palette_phys = IMAGE_WINCE_DISPLAY_PALETTE_PA;
 
@@ -619,9 +640,7 @@ LcdPdd_LCD_Initialize(struct lcdc *lcdc)
                       lcdc->panel->x_res *  
                       lcdc->panel->y_res;
 	
-	// set palette adresses
 	pa.LowPart = lcdc->palette_phys;
-
 	lcdc->palette_virt = MmMapIoSpace(pa, MAX_PALETTE_SIZE, FALSE);
 	if (!lcdc->palette_virt) {
 		ERRORMSG(1, (L"LcdPdd_LCD_Initialize: Cannot map palette\r\n" ));
@@ -641,27 +660,6 @@ LcdPdd_LCD_Initialize(struct lcdc *lcdc)
     lcdc->dma_burst_sz = 16;	
     lcdc_setup_regs(lcdc);
     lcdc_cfg_dma(lcdc);	
-
-#ifdef DEVICE
-    KernelIoControl(IOCTL_HAL_GET_PLATFORM_ID,
-                         NULL, 0, &id, sizeof(DWORD), &dwLength);
-#else
-	id = g_dwBoardId;
-#endif
-
-	if (id == AM33X_BOARDID_BBONEBLACK_BOARD && lcdc->panel->IsDVI)
-	{
-		tda1998x_init();
-		if( tda998x_connected_detect())
-		{
-			RETAILMSG(1, (L"HDMI Connected\r\n"));
-		}
-		else
-			RETAILMSG(1, (L"HDMI Disconnected\r\n"));
-
-		tda998x_encoder_mode_set(get_drm_mode());
-		tda998x_encoder_dpms(TRUE);
-	}
 
 	if (lcdc->panel->init != NULL)
 	{

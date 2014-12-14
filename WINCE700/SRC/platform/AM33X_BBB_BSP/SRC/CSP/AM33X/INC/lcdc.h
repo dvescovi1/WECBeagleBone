@@ -125,7 +125,7 @@ struct lcdc {
 
 	enum fb_pack_format pack_format;
 	
-	int					color_mode; //TODO ?????????????? move out of here
+	int					color_mode;
 };
 
 int lcdc_change_mode(struct lcdc* lcdc, int color_mode);

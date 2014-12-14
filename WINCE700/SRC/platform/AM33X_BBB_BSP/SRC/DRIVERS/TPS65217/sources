@@ -9,11 +9,9 @@
 ;================================================================================
 !endif
 
-!IF "$(BSP_TPS65217)" == ""
+!IF "$(BSP_TPS65217)" == "" 
 SKIPBUILD=1
 !ENDIF
-
-COMPILE_DEBUG=1
 
 TARGETNAME=tps65217
 TARGETTYPE=DYNLINK
