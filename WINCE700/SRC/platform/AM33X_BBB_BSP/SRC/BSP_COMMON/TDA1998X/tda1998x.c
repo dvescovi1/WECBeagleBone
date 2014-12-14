@@ -227,8 +227,6 @@ tda998x_encoder_dpms(BOOL enable)
 				VIP_CNTRL_1_SWAP_C(0) | VIP_CNTRL_1_SWAP_D(1));
 		reg_write(REG_VIP_CNTRL_2,
 				VIP_CNTRL_2_SWAP_E(4) | VIP_CNTRL_2_SWAP_F(5));
-
-		reg_write(REG_ENABLE_SPACE, 0x01);
 	}
 	else
 	{
@@ -414,12 +412,11 @@ tda998x_encoder_mode_set(struct drm_display_mode *mode)
 
 	reg_write(REG_ENABLE_SPACE, 0x01);
 
-	/* must be last register set: */
-	reg_clear(REG_TBG_CNTRL_0, TBG_CNTRL_0_SYNC_ONCE);
-
 	reg_clear(REG_TBG_CNTRL_1, TBG_CNTRL_1_DWIN_DIS);
 	reg_write(REG_ENC_CNTRL, ENC_CNTRL_CTL_CODE(1));
-	reg_set(REG_TX33, TX33_HDMI);
+
+	/* must be last register set: */
+	reg_clear(REG_TBG_CNTRL_0, TBG_CNTRL_0_SYNC_ONCE);
 
 //	reg_dump_page(0);
 	return TRUE;
