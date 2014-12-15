@@ -71,6 +71,7 @@ Copyright (c) 2014 David Vescovi
 NOTE: The same image file set (MLO, EBOOTSD.NB0 and NK.BIN) works on the BeagleBone White and Black as executed from a uSD card
 or the BeagleBone Black executed from ether a 2Gb or 4Gb eMMC. 
 Unlike other BSPs there is no need to build separate images or keep track of several file sets based on which device you are booting from!
+Boot from the uSD card and use the prepemmc.bat utility from the windows folder to partition, format and copy files to the eMMC device.
 
 Be cautious if using LCD capes as most capes I have seen use expansion IO normally dedicated to UARTS for buttons and other LCD related IO.
 For example LCD4 uses UART1 RX (GPIO0_15) signal for the ENTER button. LCD7_4D uses both UART2's RX (GPIO0_2) and TX (GPIO0_3) for LCD_EN 
