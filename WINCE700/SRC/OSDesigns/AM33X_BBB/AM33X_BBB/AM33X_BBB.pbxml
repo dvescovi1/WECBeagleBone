@@ -87,6 +87,7 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217pwrkey" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:adc" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -131,6 +132,7 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217pwrkey" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:adc" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
@@ -177,6 +179,7 @@
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:am33xpwm2" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217" />
         <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:tps65217pwrkey" />
+        <Feature Name="Item" CatalogItemId="AM33x_BBB:Texas Instruments:adc" />
       </FeatureCollection>
       <FeatureCollection Name="FeaturesExcludedFromImage" EnforceUniqueItems="True" />
       <BuildOptionCollection Name="BuildOptions" EnforceUniqueItems="True">
