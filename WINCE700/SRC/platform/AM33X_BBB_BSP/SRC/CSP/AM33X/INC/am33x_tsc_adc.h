@@ -124,11 +124,13 @@ typedef volatile struct {
 #define TSCADC_STEPCHARGE_RFM			(1 << 23)
 #define TSCADC_STEPCHARGE_DELAY			0x1
 
-/* contrl*/
+/* control*/
 #define TSCADC_CNTRLREG_ENABLE			(1 << 0)
 #define TSCADC_CNTRLREG_STEPID			(1 << 1)
 #define TSCADC_CNTRLREG_STEPCONFIGWRT	(1 << 2)
 #define TSCADC_CNTRLREG_TSCENB			(1 << 7)
+#define TSCADC_CNTRLREG_HWEVENTMAPPING	(1 << 8)
+#define TSCADC_CNTRLREG_HWPREEMPT		(1 << 9)
 #define TSCADC_CNTRLREG_4WIRE			(0x1 << 5)
 #define TSCADC_CNTRLREG_5WIRE			(0x1 << 6)
 #define TSCADC_CNTRLREG_8WIRE			(0x3 << 5)
@@ -141,8 +143,27 @@ typedef volatile struct {
 
 #define TSCADC_STEPCONFIG_OPENDLY		(0x18)
 #define TSCADC_STEPCONFIG_SAMPLEDLY		(0x88)//(0x88<<24)
-// enable trigger
-#define TSCADC_STPENB_STEPENB			(0x1FFF)
+
+// step enable
+#define TSCADC_STPENB_TS_CHARGE			(1 << 0)
+#define TSCADC_STPENB_STEP1				(1 << 1)
+#define TSCADC_STPENB_STEP2				(1 << 2)
+#define TSCADC_STPENB_STEP3				(1 << 3)
+#define TSCADC_STPENB_STEP4				(1 << 4)
+#define TSCADC_STPENB_STEP5				(1 << 5)
+#define TSCADC_STPENB_STEP6				(1 << 6)
+#define TSCADC_STPENB_STEP7				(1 << 7)
+#define TSCADC_STPENB_STEP8				(1 << 8)
+#define TSCADC_STPENB_STEP9				(1 << 9)
+#define TSCADC_STPENB_STEP10			(1 << 10)
+#define TSCADC_STPENB_STEP11			(1 << 11)
+#define TSCADC_STPENB_STEP12			(1 << 12)
+#define TSCADC_STPENB_STEP13			(1 << 13)
+#define TSCADC_STPENB_STEP14			(1 << 14
+#define TSCADC_STPENB_STEP15			(1 << 15
+#define TSCADC_STPENB_STEP16			(1 << 16)
+
+#define TSCADC_STPENB_ALL				(0x1ffff)
 
 // ADC clock rate we will run at
 #define ADC_CLK				3000000

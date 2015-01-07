@@ -1,0 +1,7 @@
+IF BSP_AM33X_ADC
+[HKEY_LOCAL_MACHINE\Drivers\BuiltIn\ADC1]
+    "Prefix"="ADC"
+    "Dll"="am33x_adc"
+    "Index"=dword:1
+    "order"=dword:9				; Should be loaded before battery or touch
+ENDIF BSP_AM33X_ADC

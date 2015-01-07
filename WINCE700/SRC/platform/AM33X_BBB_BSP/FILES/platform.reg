@@ -239,6 +239,10 @@ ENDIF IMGREGHIVE
 #include "$(PLAT_DRIVERS_DIR)\PWRKEY\pwrkey.reg"
 
 ;===============================================================================
+; ADC driver
+#include "$(PLAT_DRIVERS_DIR)\ADC\adc.reg"
+
+;===============================================================================
 ; battery driver
 #include "$(PLAT_DRIVERS_DIR)\BATTERY\battery.reg"
 

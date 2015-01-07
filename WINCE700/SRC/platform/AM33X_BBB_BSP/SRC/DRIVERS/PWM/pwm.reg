@@ -30,10 +30,10 @@ IF BSP_AM33X_PWM1
     "RegisterBaseAddress"=dword:48302200
     "Frequency"=dword:2710 ; 2710 ; 10khz				3E8	; 1khz
     "EPWMXA_Active"=dword:1
-    "EPWMXB_Active"=dword:1
-    "DutyCycleA"=dword:32						; 50%
+    "EPWMXB_Active"=dword:0
+    "DutyCycleA"=dword:64						; 100%
     "DutyCycleB"=dword:4b						; 75%
-	"InitRunningA"=dword:0
+	"InitRunningA"=dword:1
 	"InitRunningB"=dword:0
 	"StopHighA"=dword:0
 	"StopHighB"=dword:0

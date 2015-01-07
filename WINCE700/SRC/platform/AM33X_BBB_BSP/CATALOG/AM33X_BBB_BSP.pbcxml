@@ -45,6 +45,7 @@
     <BspItemId>AM33x_BBB:Texas Instruments:tps65217pwrkey</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:tps65217</BspItemId>
     <BspItemId>AM33x_BBB:Texas Instruments:tps65217battery</BspItemId>
+    <BspItemId>AM33x_BBB:Texas Instruments:adc</BspItemId>
   </Bsp>
   <Item Id="AM33x_BBB:Texas Instruments:am33xgpio">
     <Title>Gpio driver</Title>
@@ -310,6 +311,7 @@
     <Type>BspSpecific</Type>
     <Variable>SYSGEN_TOUCH</Variable>
     <Variable>BSP_TSADC_TOUCH</Variable>
+    <Variable>BSP_AM33X_ADC</Variable>
     <Module>TSCADC_touch.dll</Module>
     <Location ConditionLocation="">Drivers</Location>
   </Item>
@@ -318,7 +320,7 @@
     <SdkHelpFile>BSP_KEYPAD</SdkHelpFile>
     <Type>BspSpecific</Type>
     <Variable>BSP_KEYPAD</Variable>
-    <Module>keypad.dll</Module>
+    <Module>am33x_adc.dll</Module>
     <Location>Drivers</Location>
   </Item>
   <Item Id="AM33x_BBB:Texas Instruments:tps65217pwrkey">
@@ -340,7 +342,14 @@
     <Variable>SYSGEN_BATTERY</Variable>
     <Variable>BSP_TPS65217</Variable>
     <Variable>BSP_BATTERY</Variable>
+    <Variable>BSP_AM33X_ADC</Variable>
     <Module>battdrvr.dll</Module>
     <Location>Drivers\TPS65217</Location>
+  </Item>
+  <Item Id="AM33x_BBB:Texas Instruments:adc">
+    <Title>ADC driver</Title>
+    <Type>BspSpecific</Type>
+    <Variable>BSP_AM33X_ADC</Variable>
+    <Location>Drivers</Location>
   </Item>
 </CatalogFile>
