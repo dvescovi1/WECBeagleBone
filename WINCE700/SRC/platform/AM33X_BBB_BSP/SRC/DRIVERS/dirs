@@ -3,6 +3,7 @@ DIRS=\
 	EMAC\
 	EDMA\
 	GPIO\
+	ADC\
 	SPI\
 	I2C\
 	UART\

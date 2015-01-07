@@ -1,0 +1,21 @@
+;
+;==============================================================================
+;             Texas Instruments OMAP(TM) Platform Software
+; (c) Copyright Texas Instruments, Incorporated. All Rights Reserved.
+;
+; Use of this software is controlled by the terms and conditions found
+; in the license agreement under which this software has been supplied.
+;
+;==============================================================================
+;
+
+LIBRARY am33x_adc
+
+EXPORTS 
+    ADC_Init
+    ADC_Deinit
+    ADC_Open
+    ADC_Close
+    ADC_PowerUp
+    ADC_PowerDown
+    ADC_IOControl

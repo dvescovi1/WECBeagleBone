@@ -34,10 +34,6 @@
 #define RANGE_MIN                   0
 #define RANGE_MAX                   4096
 
-#define XSTEPS    6
-#define YSTEPS    6
-
-
 //------------------------------------------------------------------------------
 // local data structures
 //
@@ -45,11 +41,10 @@
 typedef struct
 {
     BOOL        bInitialized;
-
+	HANDLE		hReadTouchSampleBufferQueue;
     TSCADC_REGS *regs;
     DWORD       nSampleRate;
     DWORD       nInitialSamplesDropped;
-    LONG        nPenGPIO;
     DWORD       PenUpDebounceMS;
     DWORD       dwSysIntr;
     DWORD       dwSamplingTimeOut;
@@ -59,51 +54,7 @@ typedef struct
     HANDLE      hIST;
     LONG        nPenIRQ;
     DWORD       dwISTPriority;
-    DWORD       clk_rate;
-    DWORD       dwWires;
 }TOUCH_DEVICE;
-
-
-//------------------------------------------------------------------------------
-//  Device registry parameters
-static const DEVICE_REGISTRY_PARAM s_deviceRegParams[] = {
-    {
-        L"SampleRate", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, nSampleRate),
-        fieldsize(TOUCH_DEVICE, nSampleRate), (VOID*)DEFAULT_SAMPLE_RATE
-    },
-    {
-        L"Priority256", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, dwISTPriority),
-        fieldsize(TOUCH_DEVICE, dwISTPriority), (VOID*)DEFAULT_THREAD_PRIORITY
-    },
-    {
-        L"SysIntr", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, dwSysIntr),
-        fieldsize(TOUCH_DEVICE, dwSysIntr), (VOID*)SYSINTR_NOP
-    },
-    {
-        L"Wires", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, dwWires),
-        fieldsize(TOUCH_DEVICE, dwWires), (VOID*)4
-    },
-};
-
-//------------------------------------------------------------------------------
-// global variables
-//
-static TOUCH_DEVICE s_TouchDevice =  {
-    FALSE,                                          //bInitialized
-    NULL,                                           //regs
-    DEFAULT_SAMPLE_RATE,                            //nSampleRate
-    0,                                              //nInitialSamplesDropped
-    0,                                              //nPenGPIO
-    0,                                              //PenUpDebounceMS
-    SYSINTR_NOP,                                    //dwSysIntr
-    0,                                              //dwSamplingTimeOut
-    FALSE,                                          //bTerminateIST
-    0,                                              //hTouchPanelEvent
-    D0,                                             //dwPowerState
-    0,                                              //hIST
-    0,                                              //nPenIRQ
-    DEFAULT_THREAD_PRIORITY                         //dwISTPriority
-};
 
 // Internal functions.
 static HRESULT PDDCalibrationThread();
@@ -114,8 +65,8 @@ BOOL PDDGetTouchData(UINT32 * pxPos, UINT32 * pyPos);
 BOOL PDDGetRegistrySettings( PDWORD );
 BOOL PDDInitializeHardware(LPCTSTR pszActiveKey );
 VOID PDDDeinitializeHardware( VOID );
-VOID  PDDTouchPanelDisable();
-BOOL  PDDTouchPanelEnable();
+VOID PDDTouchPanelDisable();
+BOOL PDDTouchPanelEnable();
 ULONG PDDTouchIST(PVOID   reserved);
 void PDDTouchPanelPowerHandler(BOOL boff);
 

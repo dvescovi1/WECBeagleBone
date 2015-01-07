@@ -32,8 +32,7 @@
 #include <initguid.h>
 #include "touchscreenpdd.h"
 #include "am33x_clocks.h"
-#include <oal_clock.h>
-#include <sdk_padcfg.h>
+#include "bsp_def.h"
 
 //------------------------------------------------------------------------------
 // Defines
@@ -59,10 +58,46 @@
 
 #endif
 
+
 //------------------------------------------------------------------------------
-// globals
+//  Device registry parameters
+static const DEVICE_REGISTRY_PARAM s_deviceRegParams[] = {
+    {
+        L"SampleRate", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, nSampleRate),
+        fieldsize(TOUCH_DEVICE, nSampleRate), (VOID*)DEFAULT_SAMPLE_RATE
+    },
+    {
+        L"Priority256", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, dwISTPriority),
+        fieldsize(TOUCH_DEVICE, dwISTPriority), (VOID*)DEFAULT_THREAD_PRIORITY
+    },
+    {
+        L"SysIntr", PARAM_DWORD, FALSE, offset(TOUCH_DEVICE, dwSysIntr),
+        fieldsize(TOUCH_DEVICE, dwSysIntr), (VOID*)SYSINTR_NOP
+    },
+};
+
+//------------------------------------------------------------------------------
+// global variables
 //
-static DWORD                          s_mddContext;
+static TOUCH_DEVICE s_TouchDevice =  {
+    FALSE,                                          //bInitialized
+	NULL,
+    NULL,                                           //regs
+    DEFAULT_SAMPLE_RATE,                            //nSampleRate
+    0,                                              //nInitialSamplesDropped
+    0,                                              //PenUpDebounceMS
+    SYSINTR_NOP,                                    //dwSysIntr
+    0,                                              //dwSamplingTimeOut
+    FALSE,                                          //bTerminateIST
+    0,                                              //hTouchPanelEvent
+    D0,                                             //dwPowerState
+    0,                                              //hIST
+    0,                                              //nPenIRQ
+    DEFAULT_THREAD_PRIORITY                         //dwISTPriority
+};
+
+static TouchSample_t touchSample;
+static DWORD s_mddContext;
 static PFN_TCH_MDD_REPORTSAMPLESET    s_pfnMddReportSampleSet;
 
 //==============================================================================
@@ -94,7 +129,7 @@ extern "C" DWORD WINAPI TchPdd_Init(LPCTSTR pszActiveKey,
     if (s_TouchDevice.bInitialized)
     {
         pddContext = (DWORD) &s_TouchDevice;
-        goto cleanup;
+        goto cleanUp;
     }
 
     // Remember the callback function pointer
@@ -113,7 +148,7 @@ extern "C" DWORD WINAPI TchPdd_Init(LPCTSTR pszActiveKey,
     if (!PDDInitializeHardware(pszActiveKey))
     {
         DEBUGMSG(ZONE_ERROR,  (TEXT("ERROR: TOUCH: Failed to initialize touch PDD.\r\n")));
-        goto cleanup;
+        goto cleanUp;
     }
 
     //Calibrate the screen, if the calibration data is not already preset in the registry
@@ -132,7 +167,7 @@ extern "C" DWORD WINAPI TchPdd_Init(LPCTSTR pszActiveKey,
     pPddIfc->pfnPowerUp     = TchPdd_PowerUp;
 
 
-cleanup:
+cleanUp:
     DEBUGMSG(ZONE_FUNCTION, (TEXT("TchPdd_Init-\r\n")));
     return pddContext;
 }
@@ -412,161 +447,75 @@ void WINAPI TchPdd_PowerDown(
 //==============================================================================
 //Internal Functions
 //==============================================================================
-static void tsc_step_config(TOUCH_DEVICE* ts_dev)
-{
-	unsigned int	stepconfigx = 0, stepconfigy = 0, delay, chargeconfig = 0;
-	int i;
-
-	/* Configure the Step registers */
-	delay = (unsigned int)(TSCADC_STEPCONFIG_SAMPLEDLY | TSCADC_STEPCONFIG_OPENDLY);
-
-	stepconfigx = TSCADC_STEPCONFIG_MODE_HWS_OS |
-			TSCADC_STEPCONFIG_2SAMPLES_AVG | TSCADC_STEPCONFIG_XPP;
-	
-	switch (ts_dev->dwWires) {
-	case 4:
-	    stepconfigx |= TSCADC_STEPCONFIG_INP |
-		               TSCADC_STEPCONFIG_XNN;
-                			
-		break;
-	case 5:
-		stepconfigx |= TSCADC_STEPCONFIG_YNN |
-				TSCADC_STEPCONFIG_INP_5;
-	    stepconfigx |= TSCADC_STEPCONFIG_XNN |
-		               TSCADC_STEPCONFIG_YPP;
-		break;
-	case 8:
-	    stepconfigx |= TSCADC_STEPCONFIG_INP |
-		               TSCADC_STEPCONFIG_XNN;
-		break;
-	}
-	for (i = 0; i < XSTEPS; i++) {
-		ts_dev->regs->tsc_adc_step_cfg[i].step_config = stepconfigx;
-		ts_dev->regs->tsc_adc_step_cfg[i].step_delay= delay;
-	}
-
-	stepconfigy = TSCADC_STEPCONFIG_MODE_HWS_OS |
-			TSCADC_STEPCONFIG_2SAMPLES_AVG | TSCADC_STEPCONFIG_YNN |
-			TSCADC_STEPCONFIG_INM | TSCADC_STEPCONFIG_FIFO1;
-	switch (ts_dev->dwWires) {
-	case 4:
-		stepconfigy |= TSCADC_STEPCONFIG_YPP;
-			
-		break;
-	case 5:
-		stepconfigy |= TSCADC_STEPCONFIG_XPP | TSCADC_STEPCONFIG_INP_5;
-
-		stepconfigy |= TSCADC_STEPCONFIG_XNP |
-		               TSCADC_STEPCONFIG_YPN ;
-		break;
-	case 8:
-		stepconfigy |= TSCADC_STEPCONFIG_YPP;
-		break;
-	}
-	for (i = XSTEPS; i < (XSTEPS + YSTEPS); i++) {
-		ts_dev->regs->tsc_adc_step_cfg[i].step_config = stepconfigy;
-		ts_dev->regs->tsc_adc_step_cfg[i].step_delay= delay;
-	}
-
-	chargeconfig = TSCADC_STEPCONFIG_XPP |
-			TSCADC_STEPCONFIG_YNN |
-			TSCADC_STEPCONFIG_RFP |
-			TSCADC_STEPCHARGE_RFM;
-
-	chargeconfig |= TSCADC_STEPCHARGE_INM | TSCADC_STEPCHARGE_INP;
-	
-	ts_dev->regs->charge_stepcfg = chargeconfig;
-	ts_dev->regs->charge_delay= TSCADC_STEPCHARGE_DELAY;
-	ts_dev->regs->step_enable= TSCADC_STPENB_STEPENB;
-	
-}
-
-
-static void tsc_idle_config(TOUCH_DEVICE *ts_dev)
-{
-	/* Idle mode touch screen config */
-	unsigned int	 idleconfig;
-
-	idleconfig = TSCADC_STEPCONFIG_YNN |
-			TSCADC_STEPCONFIG_INM | TSCADC_STEPCONFIG_IDLE_INP;
-	idleconfig |= TSCADC_STEPCONFIG_YPN;
-
-    ts_dev->regs->idle_config = idleconfig;
-	
-}
-
 static void tscadc_getdatapoint(
-    TOUCH_DEVICE *ts_dev, 
+    TOUCH_DEVICE *pDevice, 
     TOUCH_PANEL_SAMPLE_FLAGS *pTipStateFlags,
     INT *pUncalX,
     INT *pUncalY
 )
 {
-	unsigned int		status, irqclr = 0;
-	int			i;
-	int			fifo0count = 0, fifo1count = 0;
-	unsigned int		readx1 = 0, ready1 = 0;
-	unsigned int		prev_val_x = 0xffffffff, prev_val_y = 0xffffffff;
-	unsigned int		prev_diff_x = 0xffffffff, prev_diff_y = 0xffffffff;
-	unsigned int		cur_diff_x = 0, cur_diff_y = 0;
-	unsigned int		val_x = 0, val_y = 0, diffx = 0, diffy = 0;
-	static unsigned int usLastFilteredX = 0, usLastFilteredY = 0;
-    static unsigned int usSavedFilteredX = 0, usSavedFilteredY = 0;      // This holds the last reported X,Y sample
-    static BOOL bPrevReportedPenDown    = FALSE;
-    static BOOL bActualPenDown          = FALSE; // This indicates if the pen is actually down, whether we report or not
-    
-    status = ts_dev->regs->irq_status;
+	INT32 i, stepID;
+	DWORD bytesRead, flags;
+	UINT32 sampleX = 0, sampleY = 0;
+	UINT32 prevX = 0xffffffff, prevY = 0xffffffff;
+	UINT32 prevDiffX = 0xffffffff, prevDiffY = 0xffffffff;
+	UINT32 diffX = 0, diffY = 0;
+	UINT32 curDiffX = 0, curDiffY = 0;
+	static UINT32 usLastFilteredX = 0, usLastFilteredY = 0;
+    static UINT32 usSavedFilteredX = 0, usSavedFilteredY = 0;      // This holds the last reported X,Y sample
+    static BOOL bPrevReportedPenDown = FALSE;
+    static BOOL bActualPenDown       = FALSE; // This indicates if the pen is actually down, whether we report or not
 
-	if (status & TSCADC_IRQ_FIFO1_THRES){
-		fifo0count = ts_dev->regs->fifo0_count;
-		fifo1count = ts_dev->regs->fifo1_count;
-		for (i = 0; i < fifo0count; i++) {
-			readx1 = ts_dev->regs->fifo0_data & 0xfff; 
-			DEBUGMSG(ZONE_INFO, (L"fifi0 raw data=%d <-%x\r\n", readx1, readx1));
+	if (ReadMsgQueue(pDevice->hReadTouchSampleBufferQueue,&touchSample,sizeof(touchSample),
+		&bytesRead,INFINITE,&flags))
+	{
+		for (i=0;i<XSTEPS;i++)
+		{
+			stepID = (touchSample.bufferX[i] & 0xf0000) >> 16;
+			sampleX = touchSample.bufferX[i] & 0xfff;
+			DEBUGMSG(ZONE_INFO, (L"x fifo raw data=%d\t =%04X\t id=%d\r\n", sampleX, sampleX, stepID));
 			
-			if (readx1 > prev_val_x)
-				cur_diff_x = readx1 - prev_val_x;
+			if (sampleX > prevX)
+				curDiffX = sampleX - prevX;
 			else
-				cur_diff_x = prev_val_x - readx1;
+				curDiffX = prevX - sampleX;
 
-			if (cur_diff_x < prev_diff_x) {
-				prev_diff_x = cur_diff_x;
-				val_x = readx1;
-			}
-			prev_val_x = readx1;
-			
-			ready1 = ts_dev->regs->fifo1_data & 0xfff; 
-			DEBUGMSG(ZONE_INFO, (L"fifi1 raw data=%d <- %x\r\n", ready1, ready1));
+			if (curDiffX < prevDiffX)
+				prevDiffX = curDiffX;
+			prevX = sampleX;
+
+			stepID = (touchSample.bufferY[i] & 0xf0000) >> 16;
+			sampleY = touchSample.bufferY[i] & 0xfff; 
+			DEBUGMSG(ZONE_INFO, (L"y fifo raw data=%d\t =%04X\t id=%d\r\n", sampleY, sampleY, stepID));
 				
-			if (ready1 > prev_val_y)
-				cur_diff_y = ready1 - prev_val_y;
+			if (sampleY > prevY)
+				curDiffY = sampleY - prevY;
 			else
-				cur_diff_y = prev_val_y - ready1;
+				curDiffY = prevY - sampleY;
 
-			if (cur_diff_y < prev_diff_y) {
-				prev_diff_y = cur_diff_y;
-				val_y = ready1;
-			}
-
-			prev_val_y = ready1;
+			if (curDiffY < prevDiffY)
+				prevDiffY = curDiffY;
+			prevY = sampleY;
 		}
 
-		if (val_x > usLastFilteredX){
-			diffx = val_x - usLastFilteredX;
-			diffy = val_y - usLastFilteredY;
+		if (sampleX > usLastFilteredX)
+		{
+			diffX = sampleX - usLastFilteredX;
+			diffY = sampleY - usLastFilteredY;
 		}
-		else {
-			diffx = usLastFilteredX - val_x;
-			diffy = usLastFilteredY - val_y;
+		else
+		{
+			diffX = usLastFilteredX - sampleX;
+			diffY = usLastFilteredY - sampleY;
 		}
-		usLastFilteredX = val_x;
-		usLastFilteredY = val_y;
-		irqclr |= TSCADC_IRQ_FIFO1_THRES;
+		usLastFilteredX = sampleX;
+		usLastFilteredY = sampleY;
 	}
+
 
     if(bActualPenDown)
 	{
-		if ((diffx < 15) &&  (diffy < 15)) 
+		if ((diffX < 15) && (diffY < 15)) 
 		{
 			*pUncalX = usLastFilteredX;
 			*pUncalY = usLastFilteredY;
@@ -578,13 +527,10 @@ static void tscadc_getdatapoint(
 		}
     }
 	
-	StallExecution(315);
-
     /* if PEN event triggered, and FSM is in idle state, then report PEN up event */
-	status = ts_dev->regs->irq_status_raw; 
-	if ((status & TSCADC_IRQ_PENUP))  
+	if ((pDevice->regs->irq_status_raw & TSCADC_IRQ_PENUP))  
 	{
-		if((ts_dev->regs->adc_stat == TSCADC_ADCFSM_STEPID_IDLE))
+		if((pDevice->regs->adc_stat == TSCADC_ADCFSM_STEPID_IDLE))
     	{
             bActualPenDown = FALSE;
             usLastFilteredX = 0;
@@ -597,27 +543,19 @@ static void tscadc_getdatapoint(
             DEBUGMSG(ZONE_INFO, ( TEXT( "PEN UP,X,Y=(%d, %d)\r\n" ), usSavedFilteredX, usSavedFilteredY) );
             // Store reported pen state.
             *pTipStateFlags = TouchSampleValidFlag;
-    			
-    		irqclr |= TSCADC_IRQ_PENUP;
     	}
 		else
 		    bActualPenDown = TRUE;
 	}
 	
-    if (!(status & TSCADC_IRQ_PENUP))  
+    if (!(pDevice->regs->irq_status_raw & TSCADC_IRQ_PENUP))  
     {
-		if (ts_dev->regs->adc_stat == TSCADC_ADCFSM_FSM_IRQ1)
+		if (pDevice->regs->adc_stat == TSCADC_ADCFSM_FSM_IRQ1)
 		{
 			bActualPenDown = TRUE;
 		}
     }
 
-	ts_dev->regs->irq_status = irqclr;
-
-	/* check pending interrupts */
-	ts_dev->regs->irq_eoi = 0x0;
-	ts_dev->regs->step_enable = TSCADC_STPENB_STEPENB; 
-	
 	return ;
 }
 
@@ -734,11 +672,9 @@ void PDDTouchPanelPowerHandler(BOOL boff)
 	{
         if (s_TouchDevice.dwSysIntr != SYSINTR_NOP)
             InterruptMask(s_TouchDevice.dwSysIntr, boff);
-        EnableDeviceClocks( AM_DEVICE_ADC_TSC, FALSE );
 	}
     else
 	{
-        EnableDeviceClocks( AM_DEVICE_ADC_TSC, TRUE );
         if (s_TouchDevice.dwSysIntr != SYSINTR_NOP)
             InterruptMask(s_TouchDevice.dwSysIntr, boff);
 	}
@@ -789,7 +725,7 @@ void PDDTouchPanelGetPoint(
 //
 // Ret Value:   None
 //==============================================================================
-ULONG PDDTouchIST(PVOID   reserved)
+ULONG PDDTouchIST(PVOID reserved)
 {
     TOUCH_PANEL_SAMPLE_FLAGS    SampleFlags = 0;
     CETOUCHINPUT input;
@@ -803,14 +739,12 @@ ULONG PDDTouchIST(PVOID   reserved)
     //  Loop until told to stop
     while(!s_TouchDevice.bTerminateIST)
     {
-        //  Wait for touch IRQ, timeout or terminate flag
-       WaitForSingleObject(s_TouchDevice.hTouchPanelEvent, s_TouchDevice.dwSamplingTimeOut);
+        //  Wait for touch event, timeout or terminate flag
+       WaitForSingleObject(s_TouchDevice.hReadTouchSampleBufferQueue, s_TouchDevice.dwSamplingTimeOut);
 
-        //  RETAILMSG(1, (L"PDDTouchIST: TOUCH EVENT!\r\n"));
         //  Check for terminate flag
         if (s_TouchDevice.bTerminateIST)
             break;
-		
 
         PDDTouchPanelGetPoint( &SampleFlags, &RawX, &RawY);
 
@@ -856,13 +790,12 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
 {
     BOOL   rc = FALSE;
     PHYSICAL_ADDRESS pa = { 0, 0 };
-    int ctrl, irqenable;
-    DWORD	clk_value;
-	
+    MSGQUEUEOPTIONS queueOptions;
+
     DEBUGMSG(ZONE_FUNCTION, (TEXT("PDDInitializeHardware+\r\n")));
 
     if (IsDVIMode())
-        goto cleanup;
+        goto cleanUp;
 
     // Read parameters from registry
     if (GetDeviceRegistryParams(
@@ -872,7 +805,7 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
             s_deviceRegParams) != ERROR_SUCCESS)
     {
         DEBUGMSG(ZONE_ERROR, (TEXT("ERROR: PDDInitializeHardware: Error reading from Registry.\r\n")));
-        goto cleanup;
+        goto cleanUp;
     }
 
     //map regs memory
@@ -880,23 +813,12 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
     s_TouchDevice.regs = (TSCADC_REGS*)MmMapIoSpace(pa, sizeof(TSCADC_REGS), FALSE);
     if (!s_TouchDevice.regs) {
     	RETAILMSG(1,  (L"PDDInitializeHardware: Cannot map TSCADC regs\r\n" ));
-    	goto cleanup;
-    }
-
-	ReleaseDevicePads(AM_DEVICE_ADC_TSC);
-	
-    // Request Pads for Touchscreen
-    if (!RequestDevicePads(AM_DEVICE_ADC_TSC))
-    {
-        DEBUGMSG(ZONE_ERROR, (L"ERROR: PDDInitializeHardware: "
-                     L"Failed to request pads\r\n"
-                    ));
-        goto cleanup;
+    	goto cleanUp;
     }
 
     s_TouchDevice.nPenIRQ = GetIrqByDevice(AM_DEVICE_ADC_TSC, NULL);
 
-    // run intr thread and configure interrupt
+    // configure interrupt
     if (!KernelIoControl(
             IOCTL_HAL_REQUEST_SYSINTR,
             &s_TouchDevice.nPenIRQ,
@@ -908,9 +830,9 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
     {
         DEBUGMSG(ZONE_ERROR, (TEXT("ERROR: TOUCH: Failed to request the touch sysintr.\r\n")));
         s_TouchDevice.dwSysIntr = (DWORD)SYSINTR_UNDEFINED;
-        goto cleanup;
+        goto cleanUp;
     }
-        DEBUGMSG(ZONE_ERROR, (TEXT(" TOUCH: touch sysintr:%d.\r\n"), s_TouchDevice.dwSysIntr));
+    DEBUGMSG(ZONE_ERROR, (TEXT(" TOUCH: touch sysintr:%d.\r\n"), s_TouchDevice.dwSysIntr));
 
 	//  Add interrupts to wakeup sources:
 	if(!KernelIoControl(
@@ -922,65 +844,28 @@ BOOL PDDInitializeHardware(LPCTSTR pszActiveKey)
 		NULL ))
 	{
 		DEBUGMSG(ZONE_ERROR, (TEXT("ERROR: TOUCH: Failed to register sysintr as wake-up source!\r\n")));
-		goto cleanup;
+		goto cleanUp;
 	}
 
-    //  Request all clocks
-    EnableDeviceClocks(AM_DEVICE_ADC_TSC, TRUE );
-    
-    s_TouchDevice.clk_rate = PrcmClockGetClockRate(SYS_CLK) * 1000000; 
-	DEBUGMSG(ZONE_INFO,   (L"clock rate is %d\r\n\n", s_TouchDevice.clk_rate));
-	
-    clk_value = s_TouchDevice.clk_rate / ADC_CLK;
-    if (clk_value < 7) {
-    	DEBUGMSG(ZONE_ERROR,  (L"clock input less than min clock requirement\n"));
-		goto cleanup;
+    // Create queue for writing touch sample messages
+    queueOptions.dwSize = sizeof(MSGQUEUEOPTIONS);
+    queueOptions.dwFlags = MSGQUEUE_ALLOW_BROKEN;
+    queueOptions.dwMaxMessages = 1;
+    queueOptions.cbMaxMessage = sizeof(TouchSample_t);
+    queueOptions.bReadAccess = TRUE;    // we need read-access to msgqueue
+
+    s_TouchDevice.hReadTouchSampleBufferQueue = CreateMsgQueue(TOUCH_SAMPLE_QUEUE, &queueOptions);
+    if (s_TouchDevice.hReadTouchSampleBufferQueue == NULL) {
+        DEBUGMSG(ZONE_ERROR,(L"ERROR: TOUCH: "
+                     L"creating touch sample buffer queue\r\n"
+                    ));
+    	goto cleanUp;
     }
-    /* TSCADC_CLKDIV needs to be configured to the value minus 1 */
-    s_TouchDevice.regs->adc_clkdiv = clk_value -1;
 
-     /* Enable wake-up of the SoC using touchscreen */
-    s_TouchDevice.regs->irq_wakeup = TSCADC_IRQWKUP_ENB;
-	 
-    /* Set the control register bits */
-    ctrl = TSCADC_CNTRLREG_STEPCONFIGWRT |
-    		TSCADC_CNTRLREG_TSCENB |
-    		TSCADC_CNTRLREG_STEPID;
-    switch (s_TouchDevice.dwWires) {
-        case 4:
-        	ctrl |= TSCADC_CNTRLREG_4WIRE;
-        	break;
-        case 5:
-        	ctrl |= TSCADC_CNTRLREG_5WIRE;
-        	break;
-        case 8:
-        	ctrl |= TSCADC_CNTRLREG_8WIRE;
-        	break;
-    }
-    s_TouchDevice.regs->adc_ctrl = ctrl;
-
-    tsc_idle_config(&s_TouchDevice);
-	
-    /* IRQ Enable */
-    irqenable = TSCADC_IRQ_PENIRQ_SYNC |
-    	TSCADC_IRQ_EOS |
-    	TSCADC_IRQ_PENUP | TSCADC_IRQ_FIFO0_OVERFLOW |
-    	TSCADC_IRQ_FIFO1_THRES;
-    s_TouchDevice.regs->irq_enable_set = TSCADC_IRQ_FIFO1_THRES;
-    
-    tsc_step_config(&s_TouchDevice);
-
-    s_TouchDevice.regs->fifo1_threshold = YSTEPS-1;
-    s_TouchDevice.regs->fifo0_threshold = XSTEPS-1;
-	
-    ctrl |= TSCADC_CNTRLREG_ENABLE;
-    s_TouchDevice.regs->adc_ctrl = ctrl;
-
-	 
     // Done
     rc = TRUE;
 
-cleanup:
+cleanUp:
 
     DEBUGMSG(ZONE_FUNCTION, (TEXT("PDDInitializeHardware-\r\n")));
     if( rc == FALSE )
@@ -1004,9 +889,6 @@ cleanup:
 VOID PDDDeinitializeHardware()
 {
     DEBUGMSG(ZONE_FUNCTION, (TEXT("PDDDeinitializeHardware+\r\n")));
-
-    EnableDeviceClocks( AM_DEVICE_ADC_TSC, FALSE );
-	ReleaseDevicePads(AM_DEVICE_ADC_TSC);
 
     DEBUGMSG(ZONE_FUNCTION, (TEXT("PDDDeinitializeHardware-\r\n")));
 }
@@ -1056,15 +938,11 @@ BOOL  PDDTouchPanelEnable()
         }
 
         // set IST thread priority
-        CeSetThreadPriority ( s_TouchDevice.hIST, s_TouchDevice.dwISTPriority);
-
+        CeSetThreadPriority (s_TouchDevice.hIST, s_TouchDevice.dwISTPriority);
 
         if (s_TouchDevice.dwSysIntr != SYSINTR_NOP)
             InterruptMask(s_TouchDevice.dwSysIntr, FALSE);
     }
-
-    //  Request all clocks
-    //EnableDeviceClocks( AM_DEVICE_ADC_TSC, FALSE );
 
     DEBUGMSG(ZONE_FUNCTION, (TEXT("PDDTouchPanelEnable-\r\n")));
     return TRUE;

@@ -21,7 +21,6 @@
 #include "oal_clock.h"
 #include "ceddkex.h"
 #include "tps65217.h"
-#include "am33x_tsc_adc.h"
 
 #include <initguid.h>
 #include "twl.h"
@@ -40,6 +39,8 @@
     CTL_CODE(FILE_DEVICE_BATTERY, 0x304, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define IOCTL_BATTERY_GETSTATUS			 \
     CTL_CODE(FILE_DEVICE_BATTERY, 0x305, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define IOCTL_BATTERY_GETCHGCFG			 \
+    CTL_CODE(FILE_DEVICE_BATTERY, 0x306, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
 
 DWORD BatteryPddIOControl(
@@ -58,8 +59,7 @@ DWORD BatteryPddIOControl(
 //
 typedef struct {
     HANDLE	hTWL;
-	TSCADC_REGS *regs;
-    DWORD   clk_rate;
+	HANDLE	hADC;
 	DWORD	batADCChannel;
 	DWORD	batHigh;
 	DWORD	batLow;
@@ -69,6 +69,7 @@ typedef struct {
 	DWORD	ichg;
 	DWORD	chgst;
 	DWORD	status;
+	DWORD	chgcfg3;
 } Device_t;
 
 static Device_t s_Device;
@@ -154,60 +155,47 @@ BatteryPDDInitialize(
 		goto cleanUp;
     }
 
-	//map regs memory
-    pa.LowPart = GetAddressByDevice(AM_DEVICE_ADC_TSC);
-    s_Device.regs = (TSCADC_REGS*)MmMapIoSpace(pa, sizeof(TSCADC_REGS), FALSE);
-    if (!s_Device.regs) 
+	s_Device.hADC = CreateFile(L"ADC1:", 0, 0, NULL, 0, 0, NULL);
+    if (s_Device.hADC == INVALID_HANDLE_VALUE)
 	{
-        DEBUGMSG(ZONE_ERROR,(L"ERROR: BatteryPDDInitialize: "
-            L"Cannot map TSCADC regs\r\n"
-            ));
-    	goto cleanUp;
-    }
-
-	ReleaseDevicePads(AM_DEVICE_ADC);
-	
-	// Request Pads for ADC
-    if (!RequestDevicePads(AM_DEVICE_ADC))
-    {
-        DEBUGMSG(ZONE_ERROR,(L"ERROR: BatteryPDDInitialize: "
-                     L"Failed to request ADC pads\r\n"
-                    ));
-        goto cleanUp;
-    }
-
-    //  Request all clocks
-    EnableDeviceClocks(AM_DEVICE_ADC_TSC, TRUE );
-
-	s_Device.clk_rate = PrcmClockGetClockRate(SYS_CLK) * 1000000;
-	DEBUGMSG(ZONE_INIT,   (L"clock rate is %d\r\\n", s_Device.clk_rate));
-	
-    clk_value = s_Device.clk_rate / ADC_CLK;
-    if (clk_value < 7) {
-    	DEBUGMSG(ZONE_ERROR,  (L"clock input less than min clock requirement\r\n"));
-    	goto cleanUp;
-    }
-    /* TSCADC_CLKDIV needs to be configured to the value minus 1 */
-    s_Device.regs->adc_clkdiv = clk_value -1;
-
-	s_Device.regs->adc_ctrl |= (TSCADC_CNTRLREG_STEPCONFIGWRT |
-							   	TSCADC_CNTRLREG_STEPID);
-	
-	// use step cfg 13
-	s_Device.regs->tsc_adc_step_cfg[12].step_config = TSCADC_STEPCONFIG_MODE_SW_OS | TSCADC_STEPCONFIG_16SAMPLES_AVG |
-		(s_Device.batADCChannel << 19); // AN6
-	s_Device.regs->tsc_adc_step_cfg[12].step_delay = (TSCADC_STEPCONFIG_SAMPLEDLY << 24 | TSCADC_STEPCONFIG_OPENDLY);
-
-	s_Device.regs->adc_ctrl |= TSCADC_CNTRLREG_ENABLE;
+		DEBUGMSG(ZONE_ERROR,(L"ERROR: BatteryPDDInitialize: "
+			L"Failed open ADC driver\r\n"
+			));
+		goto cleanUp;
+	}
 
     // Reference the PDD_IOCTL function to MDD.
 	gpfnBatteryPddIOControl = BatteryPddIOControl;
 	
 	// Set charger parameters for specific battery 
+	// timer = 4hr
+	TWLReadByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG1, &data);
+	data = data & ~PMIC_CHGCONFIG1_TIMER_MASK;
+	data |= PMIC_CHGCONFIG1_TIMER_4HR;
+	TWLWriteByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG1, data);
+	// charge at 4.25v
 	TWLReadByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG2, &data);
 	data = data & ~PMIC_CHGCONFIG2_VOREG_MASK;
-	data |= PMIC_CHGCONFIG2_VOREG_4_20V;
+	data |= PMIC_CHGCONFIG2_VOREG_4_25V;
 	TWLWriteByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG2, data);
+
+	TWLReadByteReg(s_Device.hTWL, PMIC_REG_STATUS, &data);
+	if (data & PMIC_STATUS_ACPWR)
+	{
+		// charge current 700ma (on AC)
+		TWLReadByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG3, &data);
+		data = data & ~PMIC_CHGCONFIG3_ICHRG_MASK;
+		data |= PMIC_CHGCONFIG3_ICHRG_700MA;
+	}
+	else
+	{
+		// charge current 500ma (on USB etc.)
+		TWLReadByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG3, &data);
+		data = data & ~PMIC_CHGCONFIG3_ICHRG_MASK;
+		data |= PMIC_CHGCONFIG3_ICHRG_500MA;
+	}
+	TWLWriteByteReg(s_Device.hTWL, PMIC_REG_CHGCONFIG3, data);
+	s_Device.chgcfg3 = data;
 
 	rc = TRUE;
 
@@ -224,10 +212,12 @@ cleanUp:
 void WINAPI 
 BatteryPDDDeinitialize()
 {
-    DEBUGMSG(ZONE_FUNCTION, (L"+BatteryPDDDeinitialize\r\n"));
+	DEBUGMSG(ZONE_FUNCTION, (L"+BatteryPDDDeinitialize\r\n"));
 
-    if (s_Device.hTWL != NULL) TWLClose(s_Device.hTWL);
-	
+	if (s_Device.hADC != NULL) CloseHandle(s_Device.hADC);
+
+	if (s_Device.hTWL != NULL) TWLClose(s_Device.hTWL);
+
 	DEBUGMSG(ZONE_FUNCTION, (L"-BatteryPDDDeinitialize\r\n"));
 }
 
@@ -430,6 +420,24 @@ BatteryPddIOControl(
 				}
 			break;
 	
+			case IOCTL_BATTERY_GETCHGCFG:
+				// sanity check parameters
+				if(pOutBuf != NULL && OutBufLen == sizeof(DWORD) && pdwBytesTransferred != NULL) {
+				    
+					// pass back return values
+					__try {
+						*((PDWORD) pOutBuf) = s_Device.chgcfg3;
+						*pdwBytesTransferred = sizeof(DWORD);
+						dwRet = ERROR_SUCCESS;
+					}
+					__except(EXCEPTION_EXECUTE_HANDLER) {
+						DEBUGMSG(ZONE_WARN, 
+							(_T("exception in IOCTL_BATTERY_GETCHGCFG\r\n")));
+						dwRet = ERROR_INVALID_PARAMETER;
+					}
+				}
+			break;
+	
         default:
             dwRet = ERROR_NOT_SUPPORTED;
 			break;
@@ -441,69 +449,77 @@ BatteryPddIOControl(
 // return channel voltage
 static DWORD GetADCVoltage()
 {
-	DWORD temp;
+	DWORD temp, bytesRet;
 	BYTE mux = 0;
 	BOOL exit = FALSE;
-	DWORD mvolts;
+	DWORD mvolts = 0;
 
-	s_Device.regs->irq_status = 0x1e;
-	s_Device.regs->step_enable= 0x00002000;
+	// trigger scan
+	DeviceIoControl(s_Device.hADC,IOCTL_ADC_SCANCHANNEL,&s_Device.batADCChannel,sizeof(DWORD),NULL,0,NULL,NULL);
 
 	while(!exit)
 	{
-		while ((TSCADC_IRQ_EOS & s_Device.regs->irq_status_raw) && s_Device.regs->fifo0_count)
+		temp = 0;
+		DeviceIoControl(s_Device.hADC,IOCTL_ADC_GETCHANNEL,&s_Device.batADCChannel,sizeof(DWORD),
+			&temp,sizeof(DWORD),&bytesRet,NULL);
+//		RETAILMSG(1,(L"data  %08x\r\n", temp));
+		switch (mux)
 		{
-			temp = s_Device.regs->fifo0_data;
-//			RETAILMSG(1,(L"data fifo  %08x\r\n", temp));
-			temp &= 0xfff;
-			switch (mux)
-			{
-				case PMIC_MUXCTRL_MUX_VBAT:
-					temp *= 85393;
-					temp >>= 16;
-					s_Device.vbat = temp;
-					DEBUGMSG(ZONE_INIT,(L"BAT %d mv\r\n",temp));
-					mvolts = temp;
-					mux = PMIC_MUXCTRL_MUX_VSYS;
-					TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+			case PMIC_MUXCTRL_MUX_VBAT:
+				temp *= 85393;
+				temp >>= 16;
+				s_Device.vbat = temp;
+				DEBUGMSG(ZONE_INIT,(L"BAT %d mv\r\n",temp));
+				mvolts = temp;
+				mux = PMIC_MUXCTRL_MUX_VSYS;
+				TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+				break;
+			case PMIC_MUXCTRL_MUX_VSYS:
+				temp *= 85393;
+				temp >>= 16;
+				s_Device.vsys = temp;
+				DEBUGMSG(ZONE_INIT,(L"SYS %d mv\r\n",temp ));
+				mux = PMIC_MUXCTRL_MUX_VTS;
+				TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+				break;
+			case PMIC_MUXCTRL_MUX_VTS:
+				temp *= 28753;
+				temp >>= 16;
+				s_Device.vts = temp;
+				DEBUGMSG(ZONE_INIT,(L"VTS %d mv\r\n",temp ));
+				mux = PMIC_MUXCTRL_MUX_VICHARGE;
+				TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+				break;
+			case PMIC_MUXCTRL_MUX_VICHARGE:
+				switch (s_Device.chgcfg3 & PMIC_CHGCONFIG3_ICHRG_MASK) {
+					case PMIC_CHGCONFIG3_ICHRG_700MA:
+						temp *= 11203;	// only valid for 700ma charge setting
+						break;
+					case PMIC_CHGCONFIG3_ICHRG_500MA:
+						temp *= 8005;	// only valid for 500ma charge setting
+						break;
+					case PMIC_CHGCONFIG3_ICHRG_400MA:
+						temp *= 6401;	// only valid for 400ma charge setting
 					break;
-				case PMIC_MUXCTRL_MUX_VSYS:
-					temp *= 85393;
-					temp >>= 16;
-					s_Device.vsys = temp;
-					DEBUGMSG(ZONE_INIT,(L"SYS %d mv\r\n",temp ));
-					mux = PMIC_MUXCTRL_MUX_VTS;
-					TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+					case PMIC_CHGCONFIG3_ICHRG_300MA:
+						temp *= 4801;	// only valid for 300ma charge setting
 					break;
-				case PMIC_MUXCTRL_MUX_VTS:
-					temp *= 28753;
-					temp >>= 16;
-					s_Device.vts = temp;
-					DEBUGMSG(ZONE_INIT,(L"VTS %d mv\r\n",temp ));
-					mux = PMIC_MUXCTRL_MUX_VICHARGE;
-					TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
-					break;
-				case PMIC_MUXCTRL_MUX_VICHARGE:
-					temp *= 8005;	// only valid for 500ma charge setting
-					temp >>= 16;
-					s_Device.ichg = temp;
-					DEBUGMSG(ZONE_INIT,(L"CHG %d mA\r\n",temp ));
-					mux = PMIC_MUXCTRL_MUX_VBAT;
-					TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
-					exit = TRUE;
-					break;
-				default:
-					mux = PMIC_MUXCTRL_MUX_VBAT;
-					TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
-					break;
-			}
-			Sleep(100);
-			if (!s_Device.regs->fifo0_count)
-			{
-				s_Device.regs->irq_status = 0x1e;
-				s_Device.regs->step_enable= 0x00002000;
-			}
+				}
+				temp >>= 16;
+				s_Device.ichg = temp;
+				DEBUGMSG(ZONE_INIT,(L"CHG %d mA\r\n",temp ));
+				mux = PMIC_MUXCTRL_MUX_VBAT;
+				TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+				exit = TRUE;
+				break;
+			default:
+				mux = PMIC_MUXCTRL_MUX_VBAT;
+				TWLWriteRegs(s_Device.hTWL, PMIC_REG_MUXCTRL, &mux, 1);
+				break;
 		}
+		Sleep(100);
+		// trigger scan
+		DeviceIoControl(s_Device.hADC,IOCTL_ADC_SCANCHANNEL,&s_Device.batADCChannel,sizeof(DWORD),NULL,0,NULL,NULL);
 	}
 	DEBUGMSG(ZONE_BATTERY, (L"Bat voltage %dmv\r\n", mvolts));
 	return mvolts;
@@ -587,9 +603,6 @@ BatteryPDDGetStatus(
 	else
 	{
 		pStatus->BatteryFlag = BATTERY_FLAG_NO_BATTERY;
-		DEBUGMSG(ZONE_PDD, (L"BatteryPDDGetStatus: "
-			L"capacity < %d%% (system suspend)\r\n", s_Device.batCritical
-			));
 	}
 
 	rc = TRUE;

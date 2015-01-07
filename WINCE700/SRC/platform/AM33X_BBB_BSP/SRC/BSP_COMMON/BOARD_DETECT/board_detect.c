@@ -242,7 +242,10 @@ BOOL detect_baseboard_id_info()
     }
     else if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
-        if (!strncmp("0A5A", header.version, 4)) {    
+        if (!strncmp("00A5", header.version, 4)) {    
+            g_dwBaseBoardVersion = AM335X_BLACK_BONE_A5A;
+        }
+        else if (!strncmp("0A5A", header.version, 4)) {    
             g_dwBaseBoardVersion = AM335X_BLACK_BONE_A5A;
         }
         else if (!strncmp("0A5B", header.version, 4)) {    

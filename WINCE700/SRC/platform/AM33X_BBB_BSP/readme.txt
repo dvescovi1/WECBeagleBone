@@ -61,10 +61,13 @@ Copyright (c) 2014 David Vescovi
 	-Corrected ReleasePad and ConfigurePad inUse flag
 	-Added more GPIO pin support
 
-01.14.00	14-DEC-2014-
+01.14.00	14-DEC-2014
 	-Improved PWM support
 	-Fixed DVI init display problem on some rev C boards
 	-Tweaked prepemmc
+	
+01.15.00	07-JAN-2015
+	-Improved ADC support w/Touch
 
 
 

@@ -47,6 +47,10 @@ IF BSP_KEYPAD
 keypad.dll			$(_FLATRELEASEDIR)\keypad.dll				NK  SHK
 ENDIF
 
+IF BSP_AM33X_ADC
+am33x_adc.dll		$(_FLATRELEASEDIR)\am33x_adc.dll			NK  SHK
+ENDIF
+
 #if (defined BSP_ETH_CPSW3G_DRIVER || defined BSP_ETH_CPGMAC_KITL_DRIVER || defined BSP_ETH_CPGMAC_DRIVER)
 am33x_cpsw3g.dll	$(_FLATRELEASEDIR)\am33x_cpsw3g.dll			NK  SHK
 #endif

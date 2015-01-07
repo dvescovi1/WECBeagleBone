@@ -292,7 +292,7 @@ PKD_Open(
 
 //------------------------------------------------------------------------------
 //
-//  Function:  PKD_Open
+//  Function:  PKD_Close
 //
 //  This function closes the device context.
 //

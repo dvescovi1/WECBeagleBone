@@ -423,10 +423,6 @@ typedef struct {
     PAD_ENTRY(AIN1,             MODE(0) | RXACTIVE)             \
     PAD_ENTRY(AIN2,             MODE(0) | RXACTIVE)             \
     PAD_ENTRY(AIN3,             MODE(0) | RXACTIVE)             \
-    PAD_ENTRY(VREFP,            MODE(0) | RXACTIVE)             \
-    PAD_ENTRY(VREFN,            MODE(0) | RXACTIVE)             \
-
-#define ADC_PADS \
     PAD_ENTRY(AIN4,             MODE(0) | RXACTIVE)             \
     PAD_ENTRY(AIN5,             MODE(0) | RXACTIVE)             \
     PAD_ENTRY(AIN6,             MODE(0) | RXACTIVE)             \

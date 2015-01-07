@@ -82,6 +82,27 @@ typedef enum OMAP_LCD_DVI_RES {
 }OMAP_LCD_DVI_RES;
 
 
+//------------------------------------------------------------------------
+// Touch and ADC
+#define XSTEPS    6
+#define YSTEPS    6
+
+#define TOUCH_SAMPLE_QUEUE		(TEXT("ADC_TOUCH_SAMPLES"))
+
+typedef struct {
+	UINT32 bufferX[XSTEPS];
+	UINT32 bufferY[YSTEPS];
+} TouchSample_t;
+
+#define IOCTL_ADC_GETCHANNEL            \
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x300, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define IOCTL_ADC_SCANCHANNEL            \
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x301, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define IOCTL_ADC_AVAILABLECHANNELS		\
+    CTL_CODE(FILE_DEVICE_UNKNOWN, 0x302, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
 //------------------------------------------------------------------------------
 //  default timeout in tick count units (milli-seconds)
 #define BSP_I2C_TIMEOUT_INIT            (500)
