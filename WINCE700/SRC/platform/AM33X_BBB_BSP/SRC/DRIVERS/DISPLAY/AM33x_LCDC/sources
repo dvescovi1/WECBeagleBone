@@ -11,8 +11,6 @@ TARGETTYPE=DYNLINK
 
 DLLENTRY=_DllMainCRTStartup
 
-SOURCES=
-
 SOURCELIBS= \
     $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\ddgpe.lib \
     $(_SYSGENOAKROOT)\lib\$(_CPUINDPATH)\gpe.lib \
@@ -42,3 +40,7 @@ TARGETLIBS=$(TARGETLIBS) \
     $(_PUBLICROOT)\PowerVR\oak\lib\Rev125\$(_TGTCPU)\$(WINCEDEBUG)\ddi_powervr.lib
 !ENDIF	
 !ENDIF
+
+SOURCES=
+
+
