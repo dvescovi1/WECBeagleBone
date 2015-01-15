@@ -339,4 +339,10 @@ ENDIF
     "AllowAnonymousVroots"=dword:1
     "DefaultDir"="\\"
 
+; allow attachment of managed debugger to running process 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETCompactFramework\Managed Debugger]
+	"AttachEnabled"=dword:1
 
+; override CoreCon security so we do not need CmAccept
+[HKEY_LOCAL_MACHINE\System]
+	"CoreConOverrideSecurity"=dword:1

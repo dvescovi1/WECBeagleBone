@@ -2,9 +2,14 @@ select disk 2
 clean
 select disk 2
 create primary size=210000 offset=63
+select disk 2
 select partition 0
 active
+select disk 2
+select partition 0
 formatpartition
+select disk 2
 create primary
+select disk 2
 select partition 1
 formatpartition
