@@ -10,3 +10,7 @@ All platform uniquenesses are handled at runtime!
 
 02-AUG-2014	03.02.00
 		-Corrected I2C registry.
+
+
+Source code for the WEC2013 BSP is available.
+Contact the author through my codeplex account for terms.
