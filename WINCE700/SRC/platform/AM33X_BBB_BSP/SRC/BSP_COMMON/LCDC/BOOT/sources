@@ -6,11 +6,6 @@ in the license agreement under which this software has been supplied.
 !endif
 
 
-
-!IF "$(BSP_NODISPLAY)" == "1"
-SKIPBUILD=1
-!ENDIF
-
 TARGETNAME=am33x_lcdc_boot
 RELEASETYPE=PLATFORM
 TARGETTYPE=LIBRARY

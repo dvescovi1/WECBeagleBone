@@ -783,6 +783,8 @@ BOOL OALIoctlGetEbootCfg(
     
     if ((*pData & OAL_ARGS_OALFLAGS_CFG_SAVE)!=0)
     {
+		// only allowed once so clear flag in case we soft reboot
+		*pData &= ~(OAL_ARGS_OALFLAGS_CFG_SAVE);
         pData = (UINT8 *)OALArgsQuery(OAL_ARGS_QUERY_EBOOT_CFGSZ);
         if (pData != NULL) { 
             *pOutSize = *((UINT32 *)pData);

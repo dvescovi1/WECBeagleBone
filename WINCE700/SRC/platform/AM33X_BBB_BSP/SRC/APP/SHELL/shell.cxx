@@ -29,6 +29,7 @@
 #include "utils.h"
 #include <sdk_i2c.h>
 #include <proxyapi.h>
+#include "omap_dvfs.h"
 #include "oalex.h"
 
 #include "am33x_prcm.h"
@@ -1844,21 +1845,24 @@ OPMode(
     PFN_FmtPuts pfnFmtPuts
     )
 {
+    UINT opm = _wtoi(args[0]);
+	IOCTL_OPP_REQUEST_IN oppIn;
+    DWORD rgDomain[1];
+    DWORD rgOPP[1];
+
     if (argc == 0) return FALSE;
     if (wcsicmp(args[0], L"?") == 0)
     {
         // dump OPP settings
         pfnFmtPuts(L"Operating Mode Choices\r\n");
-        pfnFmtPuts(L" 3 - MPU[720Mhz @ 1.26V]\r\n");
-        pfnFmtPuts(L" 2 - MPU[600Mhz @ 1.20V]\r\n");
-        pfnFmtPuts(L" 1 - MPU[500Mhz @ 1.10V]\r\n");
-        pfnFmtPuts(L" 0 - MPU[275Mhz @ 0.95V]\r\n");
+        pfnFmtPuts(L" 4 - MPU[1000Mhz @ 1.325V]\r\n");
+        pfnFmtPuts(L" 3 - MPU[720Mhz  @ 1.275V]\r\n");
+        pfnFmtPuts(L" 2 - MPU[600Mhz  @ 1.200V]\r\n");
+        pfnFmtPuts(L" 1 - MPU[500Mhz  @ 1.100V]\r\n");
+        pfnFmtPuts(L" 0 - MPU[275Mhz  @ 0.950V]\r\n");
         DumpCurrentFrequencies(argc, args, pfnFmtPuts);
         return TRUE;
     }
-    else
-        return FALSE;
-#if 0    
     else
         {
         if ((wcsicmp(args[0], L"0") != 0) &&            
@@ -1870,28 +1874,24 @@ OPMode(
             return FALSE;
             }
 
-        if (argc > 1)
-            {
-            if (wcsicmp(args[1], L"-f") == 0)
-                {
-                bForce = TRUE;
-                }
-            }
+		oppIn.size = 0;
+		oppIn.dwCount = 1;
+		oppIn.rgDomains[0] = DVFS_MPU1_OPP;
+		oppIn.rgOpps[0] = GetHex(args[0]);
 
         DeviceIoControl(
             GetProxyDriverHandle(), 
-            bForce ? IOCTL_DVFS_FORCE : IOCTL_DVFS_REQUEST, 
-            (void*)&opm, 
-            sizeof(DWORD), 
+            IOCTL_OPP_REQUEST,
+            (void*)&oppIn, 
+            sizeof(IOCTL_OPP_REQUEST_IN), 
             NULL, 
             0, 
             NULL, 
             NULL
             );
+        DumpCurrentFrequencies(argc, args, pfnFmtPuts);
         }
-    return TRUE;
-#endif
-    
+    return TRUE;    
 }
 
 

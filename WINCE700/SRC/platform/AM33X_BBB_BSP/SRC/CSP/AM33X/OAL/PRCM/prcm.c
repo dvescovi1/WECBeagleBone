@@ -158,7 +158,6 @@ CRITICAL_SECTION            g_rgPrcmMutex[Mutex_Count];
 //-----------------------------------------------------------------------------
 void PrcmCapturePrevPowerState()
 {
-    // Stub, nothing to do on AM3517
 }
 
 //-----------------------------------------------------------------------------
@@ -166,14 +165,12 @@ void PrcmProfilePrevPowerState(DWORD timer_val, DWORD wakeup_delay )
 {
     UNREFERENCED_PARAMETER(timer_val);
     UNREFERENCED_PARAMETER(wakeup_delay);
-    // Stub, nothing to do on AM3517
 }
 
 //-----------------------------------------------------------------------------
 void
 PrcmInitializePrevPowerState()
 {
-    // Stub, nothing to do on AM3517
 }
 
 //-----------------------------------------------------------------------------
@@ -420,6 +417,8 @@ void initializeTimer1(void)
 	//HWREG(0x44e31020) = 0x2;
 	OUTREG32(OALPAtoVA(0x44e31020, FALSE),0x2);
     
+	OUTREG32(&g_pIntr->pICLRegs->INTC_MIR_CLEAR2,0x08);
+    
     OALMSG(1,(L"initializeTimer1: Exit\r\n"));    
 	
 }
@@ -434,8 +433,6 @@ void setTimerCount(unsigned int count)
 	/*	Start timer	*/
 	//HWREG(0x44e31024) =  0x23;	
 	OUTREG32(OALPAtoVA(0x44e31024, FALSE),0x23);
-
-
 }
 
 
@@ -443,8 +440,6 @@ void clearTimerInt(void)
 {
 	//HWREG(0x44e31018) = 0x2;
 	OUTREG32(OALPAtoVA(0x44e31018, FALSE),0x2);
-
-
 }
 
 void disableTimer1()
@@ -480,13 +475,14 @@ void PrcmContextRestore(){}
 
 void PrcmClearContextRegisters() {}
 
-DWORD _suspendState = PM_CMD_DS1_MODE;
+//DWORD _suspendState = PM_CMD_DS1_MODE;
+DWORD _suspendState = PM_CMD_STANDBY_MODE;
 deepSleepData _suspend_DSData;
 
 
 //enable any one of these
-//#define USE_TIMER1_AS_WAKEUP_SOURCE
-#define USE_RTC_AS_WAKEUP_SOURCE
+#define USE_TIMER1_AS_WAKEUP_SOURCE
+//#define USE_RTC_AS_WAKEUP_SOURCE
 
 // Modules that dont have a driver should be disabled in this function
 void PrcmPreSuspendDisableClock(DWORD suspendState)
@@ -854,7 +850,7 @@ void PrcmSuspend()
         OUTREG32(&g_pTimerRegs->IRQ_EOI, 0x00);
         OUTREG32(&g_pIntr->pICLRegs->INTC_CONTROL, IC_CNTL_NEW_IRQ);    
     }    
-    PrcmDeviceEnableClocks(AM_DEVICE_TIMER3, FALSE);
+    PrcmDeviceEnableClocks(BSPGetSysTimerDevice(), FALSE);
 
     OALMSG(OAL_INFO,(L"PrcmSuspend: Disabled Timer Clock\r\n"));
     
@@ -927,7 +923,7 @@ void PrcmSuspend()
     
  
 #ifdef USE_TIMER1_AS_WAKEUP_SOURCE 
-    setTimerCount(0xffe1ffff); //60 secs
+    setTimerCount(0xfff80000); //10 secs
 #endif
 
     //--------------------------------------------------------------------------

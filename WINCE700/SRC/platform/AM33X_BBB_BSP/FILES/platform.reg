@@ -284,14 +284,15 @@ ENDIF IMGREGHIVE
 [HKEY_LOCAL_MACHINE\System\StorageManager\Profiles\RAMDisk]
     "AutoPart"=dword:1
     "AutoFormat"=dword:1
+    "Folder"="RAM Disk"
+
 
 [HKEY_LOCAL_MACHINE\System\StorageManager\Profiles\RAMDisk\FATFS]
 	"Flags"=dword:14
     "FormatTFAT"=dword:1
-IF IMGREGHIVE !    
-    "MountAsBootable"=dword:1     
-ENDIF    
+
     "MountAsRoot"=dword:1
+    "MountAsBootable"=dword:1     
     "MountPermanent"=dword:1     ; Do not allow un-mounting (else we d fail to flush the registry) 
 ; END HIVE BOOT SECTION   
 

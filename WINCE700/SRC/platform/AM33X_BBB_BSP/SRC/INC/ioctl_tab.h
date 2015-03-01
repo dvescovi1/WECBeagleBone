@@ -78,6 +78,7 @@
 { IOCTL_PRCM_CLOCK_GET_SOURCECLOCKINFO, 0,  OALIoCtlPrcmClockGetSourceClockInfo},
 { IOCTL_PRCM_CLOCK_SET_SOURCECLOCKDIVISOR, 0, OALIoCtlPrcmClockSetSourceClockDivisor},
 { IOCTL_PRCM_CLOCK_SET_DPLLCLKOUTSTATE, 0,  OALIoCtlPrcmClockSetDpllClkOutState   },
+{ IOCTL_OPP_REQUEST,                    0,  OALIoCtlOppRequest},
 
 { IOCTL_HAL_PROFILE,                    0,  OALIoCtlIgnore                  },
 { IOCTL_HAL_DUMP_REGISTERS,             0,  OALIoCtlHalDumpRegisters        },

@@ -20,6 +20,13 @@
 /*	Flag to indicate M3 event is received	*/
 volatile unsigned int isM3IntReceived = 0;
 
+/********************** MACROS ***************************/
+
+#define PM_STATUS_SHIFT			16
+
+/* Number of CLK_M_OSC clocks to be seen before exiting deep sleep mode */
+#define  PM_DEEP_SLEEP_COUNT                    (0x6A75)
+
 /******************************************************************************
 **              EXTERN DEFINITIONS
 ******************************************************************************/
@@ -105,6 +112,30 @@ BOOL PrcmCM3FillDSData(deepSleepData * dsData, UINT32 cmdID)
             dsData->dsDataBits.wakeSources = WAKE_SOURCES_ALL;
         break;
 
+		case PM_CMD_STANDBY_MODE: 
+            dsData->dsDataBits.cmdID = PM_CMD_STANDBY_MODE;
+            dsData->dsDataBits.resumeAddr = (UINT)fnRomRestoreLoc;
+            dsData->dsDataBits.moscState = PM_MOSC_STATE_ON;
+            dsData->dsDataBits.deepSleepCount = PM_DEEP_SLEEP_COUNT;
+
+            dsData->dsDataBits.pdMpuState = PM_MPU_POWERSTATE_OFF;
+            dsData->dsDataBits.pdMpuRamRetState = PM_MPU_RAM_RETSTATE_OFF;
+            dsData->dsDataBits.pdMpul1RetState = PM_MPU_L1_RETSTATE_OFF;
+            dsData->dsDataBits.pdMpul2RetState = PM_MPU_L2_RETSTATE_OFF;
+            dsData->dsDataBits.pdMpuRamOnState = PM_MPU_RAM_ONSTATE_OFF;
+
+			dsData->dsDataBits.pdPerState = PM_PER_POWERSTATE_ON;
+			dsData->dsDataBits.pdPerIcssMemRetState = PM_PER_ICSS_RAM_RETSTATE_OFF;
+			dsData->dsDataBits.pdPerMemRetState = PM_PER_MEM_RETSTATE_OFF;
+			dsData->dsDataBits.pdPerOcmcRetState = PM_PER_OCMC_RAM_RETSTATE_OFF;
+			dsData->dsDataBits.pdPerIcssMemOnState = PM_PER_ICSS_RAM_ONSTATE_ON;
+			dsData->dsDataBits.pdPerMemOnState = PM_PER_MEM_ONSTATE_ON;
+			dsData->dsDataBits.pdPerOcmcOnState = PM_PER_OCMC_RAM_ONSTATE_ON;
+
+			dsData->dsDataBits.wakeSources = WAKE_SOURCE_MPU;
+			dsData->dsDataBits.reserved = 0;
+        break;
+		
         case PM_CMD_RTC_FAST_MODE:
             dsData->dsDataBits.cmdID = PM_CMD_RTC_FAST_MODE;
 	        dsData->dsDataBits.rtcTimeoutVal = 2;
@@ -279,12 +310,17 @@ void PrcmCM3ConfigDeepSleep(DWORD suspendMode, deepSleepData * dsData)
                     INREG32(&g_pIntr->pICLRegs->INTC_ITR3)));      
     OALMSG(OAL_INFO,(L"PrcmSuspend: Got M3 interrupt\r\n"));   
     PrcmCM3Isr();
-    OUTREG32(&g_pIntr->pICLRegs->INTC_CONTROL, IC_CNTL_NEW_IRQ);  
     PrcmCM3DumpIPCRegs();
     PrcmCM3WaitForTxevent();
     OALMSG(OAL_INFO,(L"PrcmSuspend: Recvd ack from M3\r\n"));    
     MBClearMailboxMsg(baseAddMB);
     OALMSG(OAL_INFO,(L"PrcmSuspend: Done sending message to M3\r\n"));
+    if (INREG32(&g_pIntr->pICLRegs->INTC_SIR_IRQ) == g_oalM3Irq)
+    {
+		clearM3Events();
+		OALMSG(OAL_INFO,(L"PrcmSuspend: need to reset M3 interrupt!!!!\r\n"));
+		OUTREG32(&g_pIntr->pICLRegs->INTC_CONTROL, IC_CNTL_NEW_IRQ);
+	}
 }
 
 void PrcmCM3DumpIPCRegs()

@@ -355,6 +355,10 @@ PXY_IOControl(
                 }
             }
         break;
+
+        case IOCTL_OPP_REQUEST:
+            rc = KernelIoControl(code, pInBuffer, inSize, pOutBuffer, outSize, pOutSize);
+            break;
     }
 
 cleanUp:

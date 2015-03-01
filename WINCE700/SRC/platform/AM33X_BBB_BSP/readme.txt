@@ -69,6 +69,12 @@ Copyright (c) 2014 David Vescovi
 01.15.00	07-JAN-2015
 	-Improved ADC support w/Touch
 
+01.16.00	01-MAR-2015
+	-Added DVFS support
+	-Corrected opp and opm map
+	-Corrected pmic TPS65217 defines and voltage support
+	-Added RAM disk support
+	-Fast reboot (no need to read os to RAM) on software resart
 
 
 NOTE: The same image file set (MLO, EBOOTSD.NB0 and NK.BIN) works on the BeagleBone White and Black as executed from a uSD card

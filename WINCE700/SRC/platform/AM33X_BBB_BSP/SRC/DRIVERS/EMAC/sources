@@ -2,9 +2,9 @@
 Copyright (c) Texas Instruments, Ltd.  All rights reserved.
 !endif
 
-#!IF "$(BSP_AM33X_CPSW3G)" == ""
-#SKIPBUILD=1
-#!ENDIF
+!IF "$(BSP_ETH_CPSW3G_DRIVER)" == "" && "$(BSP_ETH_CPGMAC_KITL_DRIVER)" == "" && "$(BSP_ETH_CPGMAC_DRIVER)" == ""
+SKIPBUILD=1
+!ENDIF
 
 TARGETNAME=am33x_cpsw3g
 TARGETTYPE=DYNLINK

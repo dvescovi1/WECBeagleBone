@@ -117,10 +117,10 @@ typedef struct OPP_MODE_MENU {
 } OPP_MODE_MENU;
 
 OPP_MODE_MENU oppModeMenu[AM33x_OPP_NUM] = {
-    {L"MPU[275Mhz  @ 0.95V]"},
-    {L"MPU[500Mhz  @ 1.10V]"},
-    {L"MPU[600Mhz  @ 1.20V]"},
-    {L"MPU[720Mhz  @ 1.26V]"},
+    {L"MPU[275Mhz  @ 0.950V]"},
+    {L"MPU[500Mhz  @ 1.100V]"},
+    {L"MPU[600Mhz  @ 1.200V]"},
+    {L"MPU[720Mhz  @ 1.275V]"},
     {L"MPU[1000Mhz @ 1.325V]"},
 };
 
