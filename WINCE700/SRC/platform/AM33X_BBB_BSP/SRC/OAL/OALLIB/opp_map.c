@@ -78,6 +78,7 @@ SetVoltageOpp(
     VddOppSetting_t    *pVddOppSetting
     )
 {
+	OALMSG(OAL_INFO,(L"TWLSetOPVoltage: voltage %d, mv 0x%08x\r\n",pVddOppSetting->vpInfo.vp, pVddOppSetting->vpInfo.voltSelBitsVal ));
     return TWLSetOPVoltage(pVddOppSetting->vpInfo.vp,pVddOppSetting->vpInfo.voltSelBitsVal);
 }
 

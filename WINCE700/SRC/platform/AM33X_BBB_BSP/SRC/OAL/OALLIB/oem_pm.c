@@ -37,7 +37,6 @@ extern AM33X_INTR_CONTEXT const    *g_pIntr;
 
 extern UINT32 g_oalM3SysIntr;
 
-//-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
 //
@@ -48,6 +47,48 @@ extern UINT32 g_oalM3SysIntr;
 BOOL g_PrcmDebugSuspendResume = FALSE;
 
 
+//-----------------------------------------------------------------------------
+//
+//  Function:  OALIoCtlOppRequest
+//
+//  updates the current operating point
+//
+BOOL 
+OALIoCtlOppRequest(
+    UINT32 code, 
+    VOID *pInBuffer,
+    UINT32 inSize, 
+    VOID *pOutBuffer, 
+    UINT32 outSize, 
+    UINT32 *pOutSize
+    )
+{
+    BOOL rc = FALSE;
+    IOCTL_OPP_REQUEST_IN *pOppRequest;
+    OALMSG(OAL_IOCTL&&OAL_FUNC, (L"+OALIoCtlOppRequest\r\n"));
+
+    UNREFERENCED_PARAMETER(outSize);
+    UNREFERENCED_PARAMETER(pOutSize);
+    UNREFERENCED_PARAMETER(pOutBuffer);
+    UNREFERENCED_PARAMETER(code);
+
+    if (pInBuffer == NULL || inSize != sizeof(IOCTL_OPP_REQUEST_IN)) goto cleanUp;
+    
+    pOppRequest = (IOCTL_OPP_REQUEST_IN*)pInBuffer;
+    if (pOppRequest->dwCount > MAX_DVFS_DOMAINS) goto cleanUp;
+    
+    rc = SetOpp(pOppRequest->rgDomains, 
+            pOppRequest->rgOpps, 
+            pOppRequest->dwCount
+            );
+
+cleanUp:    
+    OALMSG(OAL_INTR&&OAL_FUNC, (L"-OALIoCtlOppRequest(rc = %d)\r\n", rc));
+    return rc;
+}
+
+
+//-----------------------------------------------------------------------------
 //
 //  Function:  OALIoCtlPrcmDeviceGetSourceClockInfo
 //
@@ -340,7 +381,7 @@ Loop:
     
     //Save Perf Timer
     OALContextSavePerfTimer();
-    // Disable GPTimer2 (used for high perf/monte carlo profiling)
+    // Disable GPTimer (used for high perf/monte carlo profiling)
     EnableDeviceClocks(BSPGetGPTPerfDevice(), FALSE);
     
     // Give chance to do board specific stuff

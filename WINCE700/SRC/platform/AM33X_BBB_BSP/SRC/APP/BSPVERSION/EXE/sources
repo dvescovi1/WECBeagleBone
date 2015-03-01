@@ -1,4 +1,10 @@
 # All rights reserved ADENEO EMBEDDED 2010
+
+!IF ("$(BSP_NODISPLAY)" == "1")
+SKIPBUILD=1
+!ENDIF
+
+
 RELEASETYPE=PLATFORM
 _ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
 _OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;

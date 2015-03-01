@@ -45,6 +45,9 @@ extern "C" {
 /*	Configures the system for disabling MOSC when CM3 executes WFI	*/
 #define PM_CMD_DS2_MODE			(0x7)
 
+/*  Configures the system for Standby mode when CM3 executes WFI    */
+#define PM_CMD_STANDBY_MODE     (0xb)
+
 /******************** COMMAND STATUS *********************/
 
 /* In init phase this denotes that CM3 was initialized successfully. 
@@ -125,6 +128,12 @@ When other tasks are to be done, this indicates some error in carrying out the t
 
 /**************** Wake Sources values **********************/
 
+#define WAKE_SOURCE_TSC                   (0x0100u)
+#define WAKE_SOURCE_UART                  (0x0010u)
+#define WAKE_SOURCE_TMR                   (0x0008u)
+#define WAKE_SOURCE_GPIO                  (0x0020u)
+#define WAKE_SOURCE_RTC                   (0x0004u)
+#define WAKE_SOURCE_MPU                   (0x0800u)
 #define WAKE_SOURCES_ALL			(0x1FFF)
 
 

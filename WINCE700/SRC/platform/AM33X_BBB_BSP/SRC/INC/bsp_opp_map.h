@@ -56,24 +56,24 @@ static Dvfs_OperatingPoint_e Vdd1_init_val[VDD1_OPP_COUNT + 1]=
 
 //-----------------------------------------------------------------------------
 
-// For TPS65910 use the following equation to calculate the value given a volt.
+// For TPS65917 use the following equation to calculate the value given a volt.
 /*	Select VDD1 voltage	
-	**	Vout = (SEL[6:0] × 12.5 mV + 562.5 mV) × Gain
-	**	1.1V = (SEL[6:0] × 12.5 mV + 562.5 mV) × 1
-	**  => SEL[6:0] = 0101011b = 0x2B
+	**	Vout = SEL[5:0] × 25 mV + 900 mV
+	**	1.1V = SEL[5:0] × 25 mV + 900 mV
+	**  => SEL[5:0] = 00 1000b = 0x08
 	*/
 
 // (just a placeholder)
 static VddOppSetting_t vdd1Opp0Info = {
     /*vpInfo*/
     {
-        kVdd1, 0, 0                        // TPS info
+        kVdd1, 0, 0							// TPS info
     }, 
     /*DPLL*/
     1,
-    {                                                   // vdd1 has 1 dpll
+    {										// vdd1 has 1 dpll
        {
-            kDPLL_MPU, 0,  0,  0                       // dpll_MPU
+            kDPLL_MPU, 0,  0,  0			// dpll_MPU
        }
     },
     /* DPLL CLkOUT*/
@@ -88,13 +88,13 @@ static VddOppSetting_t vdd1Opp0Info = {
 static VddOppSetting_t vdd1Opp1Info = {
     /*vpInfo*/
     {
-        kVdd1, 950,   0x1F                // TPS info
+        kVdd1, 950,   0x02					// TPS info
     }, 
     /*DPLL*/
     1,
-    {                                                   // vdd1 has 1 dpll
+    {										// vdd1 has 1 dpll
        {
-            kDPLL_MPU, 275, 275, 23                  // dpll_MPU
+            kDPLL_MPU, 275, 275, 23			// dpll_MPU
        }
     },
     /* DPLL CLkOUT*/
@@ -109,13 +109,13 @@ static VddOppSetting_t vdd1Opp1Info = {
 static VddOppSetting_t vdd1Opp2Info = {
     /*vpInfo*/
     {
-        kVdd1, 1100,   0x2B                // TPS info
+        kVdd1, 1100,   0x08					// TPS info
     }, 
     /*DPLL*/
     1,
-    {                                                   // vdd1 has 1 dpll
+    {										// vdd1 has 1 dpll
        {
-            kDPLL_MPU, 500, 500, 23                  // dpll_MPU
+            kDPLL_MPU, 500, 500, 23			// dpll_MPU
        }
     },
     /* DPLL CLkOUT*/
@@ -130,13 +130,13 @@ static VddOppSetting_t vdd1Opp2Info = {
 static VddOppSetting_t vdd1Opp3Info = {
     /*vpInfo*/
     {
-        kVdd1, 1200,   0x33                // TPS info
+        kVdd1, 1200,   0x0C					// TPS info
     }, 
     /*DPLL*/
     1,
-    {                                                   // vdd1 has 1 dpll
+    {										// vdd1 has 1 dpll
        {
-            kDPLL_MPU, 600, 600, 23                  // dpll_MPU
+            kDPLL_MPU, 600, 600, 23			// dpll_MPU
        }
     },
     /* DPLL CLkOUT*/
@@ -147,17 +147,17 @@ static VddOppSetting_t vdd1Opp3Info = {
     {{0,0}},
 };
 
-// MPU[720Mhz @ 1.26V]
+// MPU[720Mhz @ 1.275V]
 static VddOppSetting_t vdd1Opp4Info = {
     /*vpInfo*/
     {
-        kVdd1, 1260,   0x38                // TPS info
+        kVdd1, 1275,   0x0f					// TPS info
     }, 
     /*DPLL*/
     1,
-    {                                                   // vdd1 has 1 dpll
+    {										// vdd1 has 1 dpll
        {
-            kDPLL_MPU, 720, 720, 23                  // dpll_MPU
+            kDPLL_MPU, 720, 720, 23			// dpll_MPU
        }
     },
     /* DPLL CLkOUT*/
@@ -172,13 +172,13 @@ static VddOppSetting_t vdd1Opp4Info = {
 static VddOppSetting_t vdd1Opp5Info = {
     /*vpInfo*/
     {
-        kVdd1, 1325,   0x3D                // TPS info
+        kVdd1, 1325,   0x11					// TPS info
     }, 
     /*DPLL*/
     1,
-    {                                                 // vdd1 has 1 dpll
+    {										// vdd1 has 1 dpll
        {
-            kDPLL_MPU, 1000, 1000, 23                  // dpll_MPU
+            kDPLL_MPU, 1000, 1000, 23		// dpll_MPU
        }
     },
     /* DPLL CLkOUT*/
@@ -195,42 +195,42 @@ static VddOppSetting_t vdd1Opp5Info = {
 static VddOppSetting_t vdd2Opp1Info = {
     /*vpInfo*/
     {
-        kVdd2, 950,   0x1F                              // TPS info
+        kVdd2, 950,   0x01					// TPS info
     }, 
     /*DPLL*/
     3,
-    {                                                   // vdd2 has 2 dplls
+    {										// vdd2 has 2 dplls
        {
-            kDPLL_CORE, 100, 50, 23                     // dpll_CORE
+            kDPLL_CORE, 100, 50, 23			// dpll_CORE
        },
        {
-            kDPLL_PER,  96, 96, 23                      // dpll_PER
+            kDPLL_PER,  96, 96, 23			// dpll_PER
        },
        {
-            kDPLL_DDR,  125, 125, 23                      // dpll_DDR //for DDR2
+            kDPLL_DDR,  125, 125, 23		// dpll_DDR //for DDR2
        }
     },
     /* DPLL CLkOUT*/
     4,    
-    {                                                   // vdd2 has 4 dpll clkout
+    {										// vdd2 has 4 dpll clkout
        {
-            kDPLL_CORE_M4, 1                            // dpll_core_m4
+            kDPLL_CORE_M4, 1				// dpll_core_m4
        },
        {
-            kDPLL_CORE_M5, 1                            // dpll_core_m5
+            kDPLL_CORE_M5, 1				// dpll_core_m5
        },
        {
-            kDPLL_PER_M2,  1                            // dpll_per_m2
+            kDPLL_PER_M2,  1				// dpll_per_m2
        },       
     },    
     /* CLOCKS */
-    1,    
-    {                                                   // vdd2 has 1 clocks
+    1,
+    {										// vdd2 has 1 clocks
        {
-            kCPSW_50MHZ_CLK, 2                          // 50MHz Mac clock
-       },   
+            kCPSW_50MHZ_CLK, 2				// 50MHz Mac clock
+       },
        {
-            kCLK_32KHZ_CK, 1                            // 32KHz from PER DPLL
+            kCLK_32KHZ_CK, 1				// 32KHz from PER DPLL
        },
     },
 };
@@ -239,88 +239,90 @@ static VddOppSetting_t vdd2Opp1Info = {
 static VddOppSetting_t vdd2Opp2Info = {
     /*vpInfo*/
     {
-        kVdd2, 1100,   0x2B                             // TPS info
+        kVdd2, 1100,   0x08					// TPS info
     }, 
     /*DPLL*/
     3,
-    {                                                   // vdd2 has 2 dplls
+    {										// vdd2 has 2 dplls
        {
-            kDPLL_CORE, 2000, 1000, 23                  // dpll_CORE
+            kDPLL_CORE, 2000, 1000, 23		// dpll_CORE
        },
        {
-            kDPLL_PER,  960, 960, 23                    // dpll_PER
+            kDPLL_PER,  960, 960, 23		// dpll_PER
        },
        {
-            kDPLL_DDR,  200, 200, 23                      // dpll_PER //for DDR2
+            kDPLL_DDR,  200, 200, 23		// dpll_PER //for DDR2
        }
     },
     /* DPLL CLkOUT*/
     4,    
-    {                                                   // vdd2 has 4 dpll clkout
+    {										// vdd2 has 4 dpll clkout
        {
-            kDPLL_CORE_M4, 10                           // dpll_core_m4
+            kDPLL_CORE_M4, 10				// dpll_core_m4
        },
        {
-            kDPLL_CORE_M5, 8                            // dpll_core_m5
+            kDPLL_CORE_M5, 8				// dpll_core_m5
        },
        {
-            kDPLL_PER_M2,  5                            // dpll_per_m2
+            kDPLL_PER_M2,  5				// dpll_per_m2
        },       
     },    
     /* CLOCKS */
     1,    
-    {                                                   // vdd2 has 1 clocks
+    {										// vdd2 has 1 clocks
        {
-            kCPSW_50MHZ_CLK, 5                          // 50MHz Mac clock
+            kCPSW_50MHZ_CLK, 5				// 50MHz Mac clock
        },
        {
-            kCLK_32KHZ_CK, 0                            // 32KHz from PER DPLL
+            kCLK_32KHZ_CK, 0				// 32KHz from PER DPLL
        },
     },
 };
 
+// CORE[@1.1V]
 static VddOppSetting_t vdd2Opp3Info = {
     /*vpInfo*/
     {
-        kVdd2, 1100,   0x2B                             // TPS info
+        kVdd2, 1100,   0x08					// TPS info
     }, 
     /*DPLL*/
     3,
-    {                                                   // vdd2 has 2 dplls
+    {										// vdd2 has 2 dplls
        {
-            kDPLL_CORE, 2000, 1000, 23                  // dpll_CORE
+            kDPLL_CORE, 2000, 1000, 23		// dpll_CORE
        },
        {
-            kDPLL_PER,  960, 960, 23                    // dpll_PER
+            kDPLL_PER,  960, 960, 23		// dpll_PER
        },
        {
-            kDPLL_DDR,  400, 400, 23                      // dpll_PER //for DDR
+            kDPLL_DDR,  400, 400, 23		// dpll_PER //for DDR3
        }
     },
     /* DPLL CLkOUT*/
     4,    
-    {                                                   // vdd2 has 4 dpll clkout
+    {										// vdd2 has 4 dpll clkout
        {
-            kDPLL_CORE_M4, 10                           // dpll_core_m4
+            kDPLL_CORE_M4, 10				// dpll_core_m4
        },
        {
-            kDPLL_CORE_M5, 8                            // dpll_core_m5
+            kDPLL_CORE_M5, 8				// dpll_core_m5
        },
        {
-            kDPLL_PER_M2,  5                            // dpll_per_m2
+            kDPLL_PER_M2,  5				// dpll_per_m2
        },       
     },    
     /* CLOCKS */
     1,    
-    {                                                   // vdd2 has 1 clocks
+    {										// vdd2 has 1 clocks
        {
-            kCPSW_50MHZ_CLK, 5                          // 50MHz Mac clock
+            kCPSW_50MHZ_CLK, 5				// 50MHz Mac clock
        },
        {
-            kCLK_32KHZ_CK, 0                            // 32KHz from PER DPLL
+            kCLK_32KHZ_CK, 0				// 32KHz from PER DPLL
        },
     },
 };
+
 //-----------------------------------------------------------------------------
 static VddOppSetting_t  *_rgVdd1OppMap[VDD1_OPP_COUNT] = {
     &vdd1Opp1Info,      // kOpp1
@@ -333,7 +335,7 @@ static VddOppSetting_t  *_rgVdd1OppMap[VDD1_OPP_COUNT] = {
 static VddOppSetting_t  *_rgVdd2OppMap[VDD2_OPP_COUNT] = {
     &vdd2Opp1Info,      // kOpp1
     &vdd2Opp2Info,      // kOpp2
-    &vdd2Opp3Info,
+    &vdd2Opp3Info,      // kOpp3
 };
 
 //-----------------------------------------------------------------------------

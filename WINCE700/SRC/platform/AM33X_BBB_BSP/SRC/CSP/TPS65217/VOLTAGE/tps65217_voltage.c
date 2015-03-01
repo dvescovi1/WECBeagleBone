@@ -30,58 +30,6 @@ BOOL ValidateHandle()
 }
 
 
-BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv)
-{
-    
-    BOOL rc = FALSE;  
-    BYTE buf;
-    UINT32 reg=0;
-    
-    ValidateHandle();	
-
-    switch (voltage) {
-        case kVdd1:
-            reg = PMIC_VDD1_OP_REG;
-        break;
-        case kVdd2:
-            reg = PMIC_VDD2_OP_REG;
-        break;
-        
-    }
-
-    /* Select VDD1 OP   */
-    buf=0;
-	if (TWLReadByteReg(g_hTwl,reg,&buf)==FALSE)
-		goto cleanup;    
-	buf &= ~PMIC_OP_REG_CMD_MASK;
-	if (TWLWriteByteReg(g_hTwl, reg, buf)==FALSE)  
-      goto cleanup;    
-
-	/* Configure VDD1 OP  Voltage */    
-    buf=0;
-	if (TWLReadByteReg(g_hTwl,reg,&buf)==FALSE)
-		goto cleanup;    
-	buf &= ~PMIC_OP_REG_SEL_MASK;
-    buf |= mv;
-	if (TWLWriteByteReg(g_hTwl, reg, buf)==FALSE)  
-      goto cleanup;    
-
-    /* check VDD1_OP_REG setting */
-	buf=0;
-	if (TWLReadByteReg(g_hTwl,reg,&buf)==FALSE)
-		goto cleanup;    
-	
-	if( (UINT32)(buf & PMIC_OP_REG_SEL_MASK ) != mv) 
-        goto cleanup;    
-	
-    
-    rc = TRUE;
-
-cleanup:    
-    
-    return rc;
-}
-
 /**
  *  TWLProtWriteRegs() - Generic function that can write a TPS65217 PMIC
  *                         register or bit field regardless of protection
@@ -168,3 +116,26 @@ BOOL TWLGetStatusReg(unsigned char * buf)
     return TWLReadByteReg(g_hTwl,PMIC_REG_STATUS,buf);
 }
 
+
+BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv)
+{
+    BOOL rc = FALSE;  
+    BYTE buf;
+    UINT32 reg=0;
+    
+    ValidateHandle();	
+
+    switch (voltage) {
+        case kVdd1:
+            reg = PMIC_REG_DEFDCDC2;
+        break;
+        case kVdd2:
+            reg = PMIC_REG_DEFDCDC3;
+        break;
+        
+    }
+
+	rc = TWLUpdateVoltage((unsigned char)reg, (unsigned char)mv);
+
+	return rc;
+}

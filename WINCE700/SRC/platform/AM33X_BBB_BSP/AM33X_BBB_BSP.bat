@@ -39,11 +39,12 @@ REM Note that this only controls the initial boot operating point.
 REM If the power management subsystem is enabled, the initial OS operating point 
 REM it uses is controlled by registry entries or boot loader/platform detection.
 REM The following are choices for AM33x family
+REM If BBB detected boot loader will auto select 5 (Nitro)
 REM Use 5 for MPU[1000Mhz @ 1.325V],	L3/L4[200/100Mhz],	CORE @ 1.1V (Nitro)
-REM Use 4 for MPU[720Mhz  @ 1.26V], 	L3/L4[200/100Mhz],	CORE @ 1.1V (Turbo)
-REM Use 3 for MPU[600Mhz  @ 1.2V], 		L3/L4[200/100Mhz],	CORE @ 1.1V (OPM120)
-REM Use 2 for MPU[500Mhz  @ 1.1V], 		L3/L4[200/100Mhz],	CORE @ 1.1V (OPM100)
-REM Use 1 for MPU[275Mhz  @ 0.95V],		L3/L4[200/100Mhz],	CORE @ 1.1V (OPM50)
+REM Use 4 for MPU[720Mhz  @ 1.275V], 	L3/L4[200/100Mhz],	CORE @ 1.1V (Turbo)
+REM Use 3 for MPU[600Mhz  @ 1.200V],	L3/L4[200/100Mhz],	CORE @ 1.1V (OPM120)
+REM Use 2 for MPU[500Mhz  @ 1.100V],	L3/L4[200/100Mhz],	CORE @ 1.1V (OPM100)
+REM Use 1 for MPU[275Mhz  @ 0.950V],	L3/L4[200/100Mhz],	CORE @ 1.1V (OPM50)
 set BSP_OPM_SELECT=4
 
 set BSP_NO_NAND_IN_SDBOOT=1

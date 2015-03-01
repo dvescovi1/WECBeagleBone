@@ -227,7 +227,7 @@ BOOL OEMPlatformInit()
     //OALLogSetZones( (1<<OAL_LOG_VERBOSE)|(1<<OAL_LOG_INFO)|(1<<OAL_LOG_ERROR)|
     //                /*(1<<OAL_LOG_WARN)   |(1<<OAL_LOG_FUNC)|*/(1<<OAL_LOG_IO)     );
 
-	// TIMER_1
+	// TIMER
     OUTREG32(&pTimerRegs->TCLR, 0);						// stop timer
     OUTREG32(&pTimerRegs->TIOCP, DMTIMER_TIOCP_SOFTRESET);	    // Soft reset GPTIMER
 	while ((INREG32(&pTimerRegs->TIOCP) & DMTIMER_TIOCP_SOFTRESET) != 0);	// While until done
@@ -256,7 +256,7 @@ BOOL OEMPlatformInit()
 static VOID OEMPlatformDeinit( )
 {
 #if 0
-    OMAP_DMTIMER_REGS *pTimerRegs = OALPAtoUA(OMAP_GPTIMER1_REGS_PA);
+    OMAP_DMTIMER_REGS *pTimerRegs = OALPAtoUA(OMAP_GPTIMER2_REGS_PA);
 
     // Soft reset GPTIMER
     OUTREG32(&pTimerRegs->TIOCP, SYSCONFIG_SOFTRESET);
@@ -273,7 +273,7 @@ static VOID OEMPlatformDeinit( )
     EnableDeviceClocks(AM_DEVICE_I2C0,FALSE);
     EnableDeviceClocks(AM_DEVICE_I2C1,FALSE);
     EnableDeviceClocks(AM_DEVICE_I2C2,FALSE);
-    EnableDeviceClocks(AM_DEVICE_TIMER0,FALSE);
+//    EnableDeviceClocks(AM_DEVICE_TIMER0,FALSE);
     EnableDeviceClocks(AM_DEVICE_UART0,FALSE);
     EnableDeviceClocks(AM_DEVICE_WDT0,FALSE);
     EnableDeviceClocks(AM_DEVICE_WDT1,FALSE);
@@ -314,6 +314,8 @@ ULONG OEMPreDownload( )
 	g_pOEMVerifyMemory   = OEMVerifyMemory;
 
     BLReserveBootBlocks();    // Ensure bootloader blocks are marked as reserved
+
+	dwSysBootCfg = INREG32(pStatusControlAddr);
 
     // Read saved configration
     if ((bl_rc = BLReadBootCfg(&g_bootCfg)) && (g_bootCfg.signature == BOOT_CFG_SIGNATURE) &&
@@ -381,7 +383,6 @@ ULONG OEMPreDownload( )
 		}
 
         // select default boot device based on boot select switch setting
-        dwSysBootCfg = INREG32(pStatusControlAddr);
         OALLog(L"INFO:Boot setting: 0x%02x\r\n", dwSysBootCfg & 0x1f);
 
         switch (dwSysBootCfg & 0x1f){
@@ -423,23 +424,32 @@ ULONG OEMPreDownload( )
     // Initialize flash partitions if needed
     BLConfigureFlashPartitions(FALSE);
 
-    // Initialize ARGS structure
-    if ((pArgs->header.signature != OAL_ARGS_SIGNATURE) ||
-        (pArgs->header.oalVersion != OAL_ARGS_VERSION) ||
-        (pArgs->header.bspVersion != BSP_ARGS_VERSION))
-    {
-        memset(pArgs, 0, IMAGE_SHARE_ARGS_SIZE);
-    }        
-    
 	// Save reset type
 	dwRSTST = INREG32(&pPrcmRegs->PRM_RSTST);
 	OALLog(L"INFO:PRM_RSTST: 0x%08x\r\n", dwRSTST);
 
-    if (dwRSTST & (RSTST_GLOBAL_WARM_SW_RST /* actually SW reset */ | RSTST_EXTERNAL_WARM_RST)){
+
+    // Initialize ARGS structure
+	// clear it if signature not valid
+    if ((pArgs->header.signature != OAL_ARGS_SIGNATURE) ||
+        (pArgs->header.oalVersion != OAL_ARGS_VERSION) ||
+        (pArgs->header.bspVersion != BSP_ARGS_VERSION ||
+		!(dwRSTST == RSTST_GLOBAL_WARM_SW_RST)))
+//		!(dwRSTST & (RSTST_GLOBAL_WARM_SW_RST /* actually SW reset */ | RSTST_EXTERNAL_WARM_RST))))
+    {
+        memset(pArgs, 0, IMAGE_SHARE_ARGS_SIZE);
+    }        
+	else
+	{
+//        pArgs->coldBoot = TRUE;
         pArgs->coldBoot = FALSE;
-    } else {
-        pArgs->coldBoot = TRUE;
-//        OALLog(L"\r\n>>> Forcing cold boot (non-persistent registry and other data will be wiped) <<< \r\n");
+		// RAM good
+		// Print message, flush caches and jump to image
+		OALLog(L"Warm boot, No download\r\n");
+		OALLog(L"Launch Windows CE image by jumping to 0x%08x...\r\n\r\n", pArgs->imageLaunch);
+		OEMDeinitDebugSerial();
+		OEMPlatformDeinit();
+		JumpTo(OALVAtoPA((UCHAR*)(pArgs->imageLaunch)));
     }
     
     // Don't force the boot menu, use default action unless user breaks
@@ -465,9 +475,6 @@ retryBootMenu:
 			g_bootSlot = 2;
 	}
 
-	// boot cause in lower word, boot slot in upper word
-	pArgs->bootInfo = (dwRSTST & 0x0000ffff) | g_bootSlot<<16;
-
 #if BUILDING_EBOOT_SD
 #ifndef BSP_SAVE_EBOOTCFG_TO_SD
     g_bootCfg.oalFlags &= ~BOOT_CFG_OAL_FLAGS_CFG_SAVE;
@@ -477,36 +484,34 @@ retryBootMenu:
     g_bootCfg.oalFlags &= ~BOOT_CFG_OAL_FLAGS_CFG_SAVE;
 #endif
     
-    // Update ARGS structure if necessary
-    if ((pArgs->header.signature != OAL_ARGS_SIGNATURE) ||
-        (pArgs->header.oalVersion != OAL_ARGS_VERSION) ||
-        (pArgs->header.bspVersion != BSP_ARGS_VERSION))
-    {
-        pArgs->header.signature = OAL_ARGS_SIGNATURE;
-        pArgs->header.oalVersion = OAL_ARGS_VERSION;
-        pArgs->header.bspVersion = BSP_ARGS_VERSION;
-        pArgs->kitl.flags = g_bootCfg.kitlFlags;
-        pArgs->kitl.devLoc = g_bootCfg.kitlDevLoc;
-        pArgs->kitl.ipAddress = g_bootCfg.ipAddress;
-        pArgs->kitl.ipMask = g_bootCfg.ipMask;
-        pArgs->kitl.ipRoute = g_bootCfg.ipRoute;
-	    memcpy(pArgs->kitl.mac,g_bootCfg.mac,sizeof(pArgs->kitl.mac)); 
-	    memcpy(pArgs->mac,g_bootCfg.mac,sizeof(pArgs->mac)); 
-	    memcpy(pArgs->mac1,g_bootCfg.mac1,sizeof(pArgs->mac1)); 
- 	    pArgs->updateMode = FALSE;
-        pArgs->deviceID = g_bootCfg.deviceID;
-        pArgs->oalFlags = g_bootCfg.oalFlags;
-        pArgs->dispRes = g_bootCfg.displayRes;
-        pArgs->ECCtype = g_bootCfg.ECCtype; 
-        pArgs->opp_mode = g_bootCfg.opp_mode;
-        memcpy(pArgs->DevicePrefix, gDevice_prefix, sizeof(pArgs->DevicePrefix));
-        /* unset the cfg save and clean reg flags in bootCfg as we do not 
-		   want to persist these settings.
-		   pArgs now contains the correct temp value for these flags */
-        g_bootCfg.oalFlags &= ~(BOOT_CFG_OAL_FLAGS_CFG_SAVE | BOOT_CFG_OAL_FLAGS_CLEAN_REGISTRY);        
-        memcpy(pArgs->ebootCfg,&g_bootCfg,sizeof(BOOT_CFG));
-        pArgs->cfgSize = sizeof(BOOT_CFG);
-    }  
+    pArgs->header.signature = OAL_ARGS_SIGNATURE;
+    pArgs->header.oalVersion = OAL_ARGS_VERSION;
+    pArgs->header.bspVersion = BSP_ARGS_VERSION;
+    pArgs->kitl.flags = g_bootCfg.kitlFlags;
+    pArgs->kitl.devLoc = g_bootCfg.kitlDevLoc;
+    pArgs->kitl.ipAddress = g_bootCfg.ipAddress;
+    pArgs->kitl.ipMask = g_bootCfg.ipMask;
+    pArgs->kitl.ipRoute = g_bootCfg.ipRoute;
+    memcpy(pArgs->kitl.mac,g_bootCfg.mac,sizeof(pArgs->kitl.mac)); 
+    memcpy(pArgs->mac,g_bootCfg.mac,sizeof(pArgs->mac)); 
+    memcpy(pArgs->mac1,g_bootCfg.mac1,sizeof(pArgs->mac1)); 
+    pArgs->updateMode = FALSE;
+    pArgs->deviceID = g_bootCfg.deviceID;
+    pArgs->oalFlags = g_bootCfg.oalFlags;
+    pArgs->dispRes = g_bootCfg.displayRes;
+    pArgs->ECCtype = g_bootCfg.ECCtype; 
+    pArgs->opp_mode = g_bootCfg.opp_mode;
+	pArgs->coldBoot = TRUE;
+	// boot cause in lower word, boot slot in upper word
+	pArgs->bootInfo = (dwRSTST & 0x0000ffff) | g_bootSlot<<16;
+
+    memcpy(pArgs->DevicePrefix, gDevice_prefix, sizeof(pArgs->DevicePrefix));
+    /* unset the cfg save and clean reg flags in bootCfg as we do not 
+	   want to persist these settings.
+	   pArgs now contains the correct temp value for these flags */
+    g_bootCfg.oalFlags &= ~(BOOT_CFG_OAL_FLAGS_CFG_SAVE | BOOT_CFG_OAL_FLAGS_CLEAN_REGISTRY);        
+    memcpy(pArgs->ebootCfg,&g_bootCfg,sizeof(BOOT_CFG));
+    pArgs->cfgSize = sizeof(BOOT_CFG);
     
 	OALLog(dispResMenu[g_bootCfg.displayRes].resName);
     OALLog(L"\r\n");
@@ -640,6 +645,7 @@ VOID OEMLaunch( ULONG start, ULONG size,
         OALMSG(OAL_ERROR, (L"ERROR: OEMLaunch: Unknown image launch address, spin forever\r\n"));
         for(;;);
     }        
+	pArgs->imageLaunch = launch;
 
     // Print message, flush caches and jump to image
     OALLog(L"Launch Windows CE image by jumping to 0x%08x...\r\n\r\n", launch);

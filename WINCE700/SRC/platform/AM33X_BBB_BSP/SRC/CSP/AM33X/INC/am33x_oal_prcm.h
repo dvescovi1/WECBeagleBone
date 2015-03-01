@@ -44,7 +44,7 @@ extern const volatile DWORD     dwOEMMPUContextRestore;
 //
 //  Global: g_pTimerRegs
 //
-//  Reference to GPTIMER1 registers.  Initialized in OALTimerInit().
+//  Reference to DMTIMER registers.  Initialized in OALTimerInit().
 //
 extern AM33X_DMTIMER_REGS       *g_pTimerRegs;
 

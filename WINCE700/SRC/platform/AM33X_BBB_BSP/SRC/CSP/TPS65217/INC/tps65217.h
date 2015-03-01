@@ -12,25 +12,6 @@ typedef enum {
 } VoltageRail_e;
 
 
-/* PMIC Register offsets */
-#define PMIC_VDD1_REG       (0x21)
-#define PMIC_VDD1_OP_REG    (0x22)
-
-#define PMIC_VDD2_REG       (0x24)
-#define PMIC_VDD2_OP_REG    (0x25)
-
-
-/* VDD2 & VDD1 voltage selection register. (VDD2_OP_REG & VDD1_OP_REG) */
-#define PMIC_OP_REG_SEL			                (0x7F << 0)
-
-#define PMIC_OP_REG_CMD_MASK                    (0x1 << 7)
-#define PMIC_OP_REG_CMD_OP                      (0x0 << 7)
-#define PMIC_OP_REG_CMD_SR                      (0x1 << 7)
-
-#define PMIC_OP_REG_SEL_MASK                    (0x7F << 0)
-#define PMIC_OP_REG_SEL_1_2                     (0x33 << 0)
-
-
 /* Registers */
 #define PMIC_REG_CHIPID				0x00
 #define PMIC_REG_POWER_PATH			0x01

@@ -149,6 +149,19 @@ typedef struct {
 #define LCDC_AC_BIAS_FREQUENCY(x)			((x) << 8)
 
 
+// SYSCONFIG register
+#define LCDC_SYSCONFIG_SOFTRESET			(1 << 0)
+#define LCDC_SYSCONFIG_FREEEMU				(1 << 1)
+#define LCDC_SYSCONFIG_FORCEIDLE			(0 << 2)
+#define LCDC_SYSCONFIG_NOIDLE				(1 << 2)
+#define LCDC_SYSCONFIG_SMARTIDLE			(2 << 2)
+#define LCDC_SYSCONFIG_IDLE_MASK			(3 << 2)
+#define LCDC_SYSCONFIG_FORCESTANDBY			(0 << 4)
+#define LCDC_SYSCONFIG_NOSTANDBY			(1 << 4)
+#define LCDC_SYSCONFIG_SMARTSTANDBY			(2 << 4)
+#define LCDC_SYSCONFIG_STANDBY_MASK			(3 << 4)
+
+
 #ifdef __cplusplus
 }
 #endif

@@ -165,7 +165,7 @@ BSPPowerOff(
     BSPDebugTurnOFFClocks();
 #endif
 
-    // stop GPTIMER1
+    // stop GPTIMER
     OALTimerStop();
 
     // for debugging purpose, dont turn off the debug UART - anyways it belongs to WAKEUP domain, so it shouldn't interfere with deepsleep modes.
