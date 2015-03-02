@@ -200,7 +200,7 @@ static VOID xdelay(UINT32 loops)
 //------------------------------------------------------------------------------
 //  OPP mode related table
 #define DEFAULT_OPP 1
-#define VDD2_INIT   0x2E //1.1375
+#define VDD2_INIT   0x08 //CORE at 1.100V
 
 typedef struct CPU_OPP_SETTINGS
 {
@@ -210,16 +210,16 @@ typedef struct CPU_OPP_SETTINGS
 
 CPU_OPP_Settings AM33x_OPP_Table[AM33x_OPP_NUM]=
 {
-    // MPU[275Mhz @ 0.95V], 
-    {275, 0x1f},
-    // MPU[500Mhz @ 1.1V], 
-    {500, 0x2b},
-    // MPU[600Mhz @ 1.2V], 
-    {600, 0x33},
-    // MPU[720Mhz @ 1.26V], 
-    {720, 0x38},     
+    // MPU[275Mhz @ 0.950V], 
+    {275, 0x02},
+    // MPU[500Mhz @ 1.100V], 
+    {500, 0x08},
+    // MPU[600Mhz @ 1.200V], 
+    {600, 0x0C},
+    // MPU[720Mhz @ 1.275V], 
+    {720, 0x0F},     
     // MPU[1000Mhz @ 1.325], 
-    {1000, 0x3D}     
+    {1000, 0x11}     
 };
 
 
