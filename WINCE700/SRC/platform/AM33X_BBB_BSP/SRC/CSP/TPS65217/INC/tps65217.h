@@ -176,6 +176,7 @@ typedef enum {
 #define PMIC_DEFPG_PGDLY_20MS				(0 << 0)
 
 // DEFDCDC1,2,3
+#define DCDC_VOLT_SEL_1100MV				0x08
 #define DCDC_VOLT_SEL_1125MV				0x09
 #define DCDC_VOLT_SEL_1275MV				0x0F
 #define DCDC_VOLT_SEL_1325MV				0x11
@@ -219,6 +220,7 @@ typedef enum {
 #define PMIC_ENABLE_DC3_EN					(1 << 2)
 #define PMIC_ENABLE_LDO1_EN					(1 << 1)
 #define PMIC_ENABLE_LDO2_EN					(1 << 0)
+#define PMIC_ENABLE_MASK					(0x7f << 0)
 
 // DEFUVLO
 #define PMIC_DEFUVLO_MASK					(3 << 0)
@@ -233,8 +235,6 @@ typedef enum {
 #define PMIC_SEQ6_INSTDWN					(1 << 0)
 
 
-
-
 #define LDO_VOLTAGE_OUT_1_8		0x06
 #define LDO_VOLTAGE_OUT_3_3		0x1F
 
@@ -244,6 +244,7 @@ typedef enum {
 
 /* FUNCTIONS */
 BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv);
+BOOL TWLSetOPVoltage2(UINT32 mv);
 BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel);
 BOOL TWLProtWriteRegs(unsigned char prot_level, unsigned char dest_reg,
         unsigned char dest_val, unsigned char mask);

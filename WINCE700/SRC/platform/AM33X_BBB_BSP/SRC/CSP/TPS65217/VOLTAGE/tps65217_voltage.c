@@ -139,3 +139,22 @@ BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv)
 
 	return rc;
 }
+
+
+/* Not sure why this is necessary but it does not work without it.
+ The register is not even a valid address for the TPS65217??
+*/
+BOOL TWLSetOPVoltage2(UINT32 mv)
+{
+    BYTE buf = 0;
+    
+    ValidateHandle();	
+
+	TWLReadByteReg(g_hTwl,0x22,&buf);
+	buf &= ~(0x7f);
+    buf |= mv;
+	TWLWriteByteReg(g_hTwl,0x22, buf);
+    
+    return TRUE;
+}
+

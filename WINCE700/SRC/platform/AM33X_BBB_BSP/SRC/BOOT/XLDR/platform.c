@@ -200,7 +200,6 @@ static VOID xdelay(UINT32 loops)
 //------------------------------------------------------------------------------
 //  OPP mode related table
 #define DEFAULT_OPP 1
-#define VDD2_INIT   0x08 //CORE at 1.100V
 
 typedef struct CPU_OPP_SETTINGS
 {
@@ -1061,13 +1060,17 @@ int board_init()
 		TWLProtWriteRegs(PROT_LEVEL_2, PMIC_REG_DEFLS2,
 				       LDO_VOLTAGE_OUT_3_3, PMIC_DEFLS2_MASK);
 
+		/* enable all */
+		TWLProtWriteRegs(PROT_LEVEL_2, PMIC_REG_ENABLE,
+				       PMIC_ENABLE_MASK,
+					   PMIC_ENABLE_MASK);
+
 		if (!(pmic_status_reg & PWR_SRC_AC_BITMASK)) {			
 			goto exit_pmic_config;
 		}
 
 		/* Set MPU Frequency to 720MHz if BSP_OPM_SELECT = 4 */
 		mpu_pll_config(opp_setting);
-        
     }
     else if (g_dwBoardId == AM33X_BOARDID_BBONEBLACK_BOARD)
     {
@@ -1091,18 +1094,18 @@ int board_init()
 		TWLProtWriteRegs(PROT_LEVEL_2, PMIC_REG_DEFLS2,
 				       LDO_VOLTAGE_OUT_3_3, PMIC_DEFLS2_MASK);
 
+		/* enable all */
+		TWLProtWriteRegs(PROT_LEVEL_2, PMIC_REG_ENABLE,
+				       PMIC_ENABLE_MASK,
+					   PMIC_ENABLE_MASK);
+
 		/* Set MPU Frequency to 1Ghz if BSP_OPM_SELECT = 5 */
 		mpu_pll_config(opp_setting);
-        
     }
     else
     {
-        TWLSetOPVoltage(kVdd2,VDD2_INIT);
-
-        if (TWLSetOPVoltage(kVdd1,opp_setting->VDD1Init))
-        {
-            mpu_pll_config(opp_setting);   
-        } 
+        TWLSetOPVoltage2(opp_setting->VDD1Init);
+        mpu_pll_config(opp_setting);   
     }   
 
 exit_pmic_config:        
