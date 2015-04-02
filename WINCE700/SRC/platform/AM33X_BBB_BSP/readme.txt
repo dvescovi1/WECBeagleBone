@@ -76,6 +76,11 @@ Copyright (c) 2014 David Vescovi
 	-Added RAM disk support
 	-Fast reboot (no need to read os to RAM) on software resart
 
+01.17.00	02-APR-2015
+	-Correct issue with Micron 4Gb eMMC detection
+	Now works with 2Gb and 4Gb Micron and 4Gb Kingston eMMCs
+	
+	
 
 NOTE: The same image file set (MLO, EBOOTSD.NB0 and NK.BIN) works on the BeagleBone White and Black as executed from a uSD card
 or the BeagleBone Black executed from ether a 2Gb or 4Gb eMMC. 

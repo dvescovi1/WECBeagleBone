@@ -1087,15 +1087,15 @@ sd_det_error:
     
     StartTime = OALGetTickCount();
     bTimeout = FALSE;
-    MMCcmd.ocr = 0;
 
     for(;;)
     {
         if (OALGetTickCount() - StartTime > 1000)
             bTimeout = TRUE;
 
+		MMCcmd.ocr = 0;
         MMCcmd.command = SEND_OP_COND;
-        MMCcmd.argument = 0x00200000;
+        MMCcmd.argument = 0x40FF8000;
         bCommandFailed = MMCCommandResponse(&MMCcmd, 0);
 
         if (bTimeout || !(MMC_OCR_BUSY(MMCcmd.ocr)) || bCommandFailed)
