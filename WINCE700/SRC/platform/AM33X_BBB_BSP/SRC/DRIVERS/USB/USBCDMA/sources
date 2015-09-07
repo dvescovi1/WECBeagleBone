@@ -18,9 +18,7 @@ RELEASETYPE=PLATFORM
 DEFFILE=usbcdma.def
 DLLENTRY=DllEntry
 
-SYNCHRONIZE_BLOCK=1
-
-SOURCES =
+LIB_PRODUCES=USBCDMA
 
 TARGETLIBS= \
 		$(_PLATLIB)\$(_CPUINDPATH)\ceddk.lib \
@@ -30,7 +28,6 @@ SOURCELIBS= \
 		$(_PLATLIB)\$(_CPUINDPATH)\am33x_soccfg.lib						\
 		$(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma_lib.lib
 
-FILE_VIEW_RESOURCE_FOLDER= \
-	usbcdma.reg	\
-	usbcdma.def
+SOURCES =
+
 

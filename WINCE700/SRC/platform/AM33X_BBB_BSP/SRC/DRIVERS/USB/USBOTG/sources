@@ -25,6 +25,8 @@ DLLENTRY=_DllEntryCRTStartup
 
 DEFFILE=usbotg.def
 
+LIB_CONSUMES=USBCDMA
+
 SOURCELIBS= \
         $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbotglib.lib \
 	    $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma.lib \
