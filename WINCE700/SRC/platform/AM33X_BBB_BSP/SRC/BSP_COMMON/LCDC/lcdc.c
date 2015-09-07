@@ -744,7 +744,10 @@ LcdPdd_SetPowerLevel(
         case D0:
         case D1:
         case D2:
-			lcdc_enable_raster(lcdc);
+			lcdc->regs->SYSCONFIG = (LCDC_SYSCONFIG_NOIDLE|LCDC_SYSCONFIG_NOSTANDBY);
+			lcdc_hw_reset(lcdc);
+			lcdc_setup_regs(lcdc);	
+			lcdc_blit(lcdc, lcdc->load_mode);
 			if (lcdc->panel != NULL && lcdc->panel->enable != NULL)
 			{
 				(*lcdc->panel->enable)(TRUE);
@@ -753,6 +756,8 @@ LcdPdd_SetPowerLevel(
         case D3:
         case D4:
 			lcdc_disable_raster(lcdc);
+			lcdc->regs->SYSCONFIG = (LCDC_SYSCONFIG_FORCEIDLE|LCDC_SYSCONFIG_FORCESTANDBY);
+			udelay(30000);
 			if (lcdc->panel != NULL && lcdc->panel->enable != NULL)
 			{
 				(*lcdc->panel->enable)(FALSE);
