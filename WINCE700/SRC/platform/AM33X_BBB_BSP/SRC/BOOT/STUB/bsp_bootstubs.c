@@ -87,6 +87,9 @@ BOOL EnableDeviceClocks( UINT devId, BOOL bEnable)
         case AM_DEVICE_I2C2:
             pModReg = &pPrcmRegs->CM_PER_I2C2_CLKCTRL;            
             break;
+        case AM_DEVICE_MCSPI0:
+            pModReg = &pPrcmRegs->CM_PER_SPI0_CLKCTRL;            
+            break;
         case AM_DEVICE_TIMER0:
             pModReg = &pPrcmRegs->CM_WKUP_TIMER0_CLKCTRL;            
             break;	        
