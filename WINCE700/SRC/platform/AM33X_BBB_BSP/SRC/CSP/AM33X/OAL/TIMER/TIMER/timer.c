@@ -68,10 +68,12 @@ extern DWORD dwOEMMaxIdlePeriod;
 //------------------------------------------------------------------------------
 // Internal prototypes
 UINT32 OEMGetTickCount();
-VOID UpdatePeriod(UINT32 periodMSec);
 
 //------------------------------------------------------------------------------
-VOID OALTimerWritePosted(volatile UINT32* pRegister, UINT32 value, UINT32 pendingBit)
+
+static
+VOID
+OALTimerWritePosted(volatile UINT32* pRegister, UINT32 value, UINT32 pendingBit)
 {
 	volatile DWORD timeout = 1000;
 
@@ -89,68 +91,9 @@ VOID OALTimerWritePosted(volatile UINT32* pRegister, UINT32 value, UINT32 pendin
 	}
 }
 
-//------------------------------------------------------------------------------
-VOID OEMIdle( DWORD idleParam )
-{    
-    UINT idleDelta, newIdleLow;
-    UINT tcrrEnter, tcrrExit;
-    
-    UNREFERENCED_PARAMETER(idleParam);
-    
-    tcrrEnter = OALTimerGetCount();
-    BSPCPUIdle();
-    tcrrExit = OALTimerGetCount();
-    
-    if (tcrrExit < tcrrEnter)
-        idleDelta = (tcrrExit + g_oalSysFreqKHz)- tcrrEnter;
-    else
-        idleDelta = tcrrExit- tcrrEnter;
-    
-    newIdleLow = curridlelow + idleDelta;
-    if (newIdleLow < curridlelow) 
-	    curridlehigh++;
-    curridlelow = newIdleLow;
-    
-    return;
-}
-
-//------------------------------------------------------------------------------
-//
-//  Function:  OEMIdleEx
-//
-VOID OEMIdleEx(LARGE_INTEGER *pliIdleTime)
-{
-	UINT32 timer_value;
-	UINT32 new_timer_value;
-
-	timer_value = OALTimerGetCount();
-	BSPCPUIdle();
-	new_timer_value = OALTimerGetCount();
-
-	pliIdleTime->QuadPart += (new_timer_value - timer_value);
-}
-
-//------------------------------------------------------------------------------
-//
-//  Function:  OALTimerSetCompare
-//
-__inline VOID OALTimerSetCompare(UINT32 compare)
-{
-	OALTimerWritePosted(&g_pTimerRegs->TMAR, compare, DMTIMER_TWPS_TMAR);
-
-    // make sure we don't set next timer interrupt to the past
-    //
-    if (compare < INREG32(&g_pTimerRegs->TCRR)) UpdatePeriod(1);
-}
-
-//------------------------------------------------------------------------------
-//
-//  Function:  UpdatePeriod
-//
+static
 VOID
-UpdatePeriod(
-    UINT32 periodMSec
-    )
+UpdatePeriod(UINT32 periodMSec)
 {
     UINT32 period, match;
     INT32 delta;
@@ -163,7 +106,7 @@ UpdatePeriod(
     // This is compare value
     match = ((UINT32)MSEC_TO_TICK(tickCount)) + period;
 
-    delta = (INT32)(OALTimerGetCount()+ g_oalTimerContext.margin - match);
+    delta = (INT32)(INREG32(&g_pTimerRegs->TCRR) + g_oalTimerContext.margin - match);
 
     // If we are behind, issue interrupt as soon as possible
     if (delta > 0)
@@ -175,11 +118,18 @@ UpdatePeriod(
     g_oalTimerContext.match = match;
 
     // Set timer match value
-    OALTimerSetCompare(match);
+	OALTimerWritePosted(&g_pTimerRegs->TMAR, match, DMTIMER_TWPS_TMAR);
+
+    // make sure we don't set next timer interrupt to the past
+    if (match < INREG32(&g_pTimerRegs->TCRR)) UpdatePeriod(1);
 }
 
 //------------------------------------------------------------------------------
-//  General purpose timer 1 (2-nd timer) is used for system tick
+//
+//  Function: OALTimerInit
+//
+//  Init system tick timer
+//
 BOOL OALTimerInit( UINT32 sysTickMSec, UINT32 countsPerMSec, UINT32 countsMargin )
 {
     BOOL rc = FALSE;
@@ -273,37 +223,32 @@ cleanUp:
     return rc;
 }
 
+//------------------------------------------------------------------------------
+//
+//  Function: OALTimerStart
+//
+//  Start system tick timer
+//
 VOID OALTimerStart(VOID)
 {
-// enable the "if 0" code when testing DS0 mode - since the timer context may be lost when A8 went to DS0
-#if 0
-    OUTREG32(&g_pTimerRegs->TCLR, 0);						// stop timer
-    OUTREG32(&g_pTimerRegs->TIOCP, DMTIMER_TIOCP_SOFTRESET);	    // Soft reset DMTIMER
-    while ((INREG32(&g_pTimerRegs->TIOCP) & DMTIMER_TIOCP_SOFTRESET) != 0);	// While until done
-
-	//TODO: 0x4 for test only REMOVE later  
-    OUTREG32( &g_pTimerRegs->TIOCP, 0x4 /*SYSCONFIG_SMARTIDLE|SYSCONFIG_ENAWAKEUP| SYSCONFIG_AUTOIDLE*/);
-    OUTREG32(&g_pTimerRegs->TSICR, DMTIMER_TSICR_POSTED);	// Enable posted mode
-
-    OUTREG32(&g_pTimerRegs->TLDR, 0xFFFFFFFF - g_oalTimer.countsPerMSec + 1); 
-    while ((INREG32(&g_pTimerRegs->TWPS) & DMTIMER_TWPS_TLDR) != 0); // Wait until write is done
-
-    OUTREG32(&g_pTimerRegs->TMAR, 0xFFFFFFFF); // Set match register to avoid unwanted interrupt
-    while ((INREG32(&g_pTimerRegs->TWPS) & DMTIMER_TWPS_TMAR) != 0); // Wait until write is done
-    OUTREG32(&g_pTimerRegs->IRQENABLE_SET, DMTIMER_TWER_OVERFLOW); // Enable match interrupt
-    OUTREG32(&g_pTimerRegs->IRQWAKEEN, DMTIMER_TWER_OVERFLOW); // Enable match wakeup
-#endif
-
-	OALTimerWritePosted(&g_pTimerRegs->TCLR, DMTIMER_TCLR_AR | DMTIMER_TCLR_ST, DMTIMER_TWPS_TCLR);
+	OALTimerWritePosted(&g_pTimerRegs->TCLR, (INREG32(&g_pTimerRegs->TCLR) | DMTIMER_TCLR_ST), DMTIMER_TWPS_TCLR);
 }
 
 //------------------------------------------------------------------------------
+//
+//  Function: OALTimerStop
+//
+//  Stop system tick timer
+//
 VOID OALTimerStop(VOID)
 {
 	OALTimerWritePosted(&g_pTimerRegs->TCLR, (INREG32(&g_pTimerRegs->TCLR) & ~(DMTIMER_TCLR_ST)), DMTIMER_TWPS_TCLR);
 }
 
 //------------------------------------------------------------------------------
+//
+//  Function: OALTimerUpdateRescheduleTime
+//
 //  This function is called by kernel to set next reschedule time.
 //
 VOID OALTimerUpdateRescheduleTime( DWORD timeMSec )
@@ -314,7 +259,7 @@ VOID OALTimerUpdateRescheduleTime( DWORD timeMSec )
     baseMSec = CurMSec;   // Get current system timer counter
 
     // How far we are from next tick
-    delta = (INT32)(g_oalTimerContext.match - OALTimerGetCount());
+    delta = (INT32)(g_oalTimerContext.match - INREG32(&g_pTimerRegs->TCRR));
 
     if( delta < 0 )
     {
@@ -366,7 +311,7 @@ UINT32 OALTimerIntrHandler()
 	OUTREG32(&g_pTimerRegs->IRQ_EOI, 0x00);
 
 	// How far from interrupt we are?
-    count = OALTimerGetCount();
+    count = INREG32(&g_pTimerRegs->TCRR);
     delta = count - g_oalTimerContext.match;
 
     // If delta is negative, timer fired for some reason
@@ -435,8 +380,6 @@ cleanUp:
 
 //------------------------------------------------------------------------------
 //
-//  Function:  OALTimerGetCount
-//
 UINT32 OALTimerGetCount()
 {
     //  Return the timer value
@@ -444,6 +387,7 @@ UINT32 OALTimerGetCount()
 }
 
 //------------------------------------------------------------------------------
+//
 INT32 OALTimerCountsSinceSysTick()
 {
     // Return timer ticks since last interrupt
@@ -466,6 +410,7 @@ UINT32 OALGetTickCount( )
 
 //------------------------------------------------------------------------------
 // supports the 1msec system tick only
+//
 UINT32 OEMGetTickCount( )
 {
     UINT64 baseCounts;
@@ -480,7 +425,7 @@ UINT32 OEMGetTickCount( )
     do
         {
         baseCounts = g_oalTimer.curCounts;
-        offset = OALTimerGetCount() - g_oalTimerContext.base;
+		offset = INREG32(&g_pTimerRegs->TCRR) - g_oalTimerContext.base;
         }
     while (baseCounts != g_oalTimer.curCounts);
 
@@ -489,6 +434,50 @@ UINT32 OEMGetTickCount( )
     CurMSec = (UINT32)TICK_TO_MSEC(baseCounts + offset);
 
     return CurMSec;
+}
+
+//------------------------------------------------------------------------------
+//
+//  Function:  OEMIdle
+//
+VOID OEMIdle(DWORD idleParam)
+{    
+    UINT idleDelta, newIdleLow;
+    UINT tcrrEnter, tcrrExit;
+    
+    UNREFERENCED_PARAMETER(idleParam);
+    
+    tcrrEnter = OALTimerGetCount();
+    BSPCPUIdle();
+    tcrrExit = OALTimerGetCount();
+    
+    if (tcrrExit < tcrrEnter)
+        idleDelta = (tcrrExit + g_oalSysFreqKHz)- tcrrEnter;
+    else
+        idleDelta = tcrrExit- tcrrEnter;
+    
+    newIdleLow = curridlelow + idleDelta;
+    if (newIdleLow < curridlelow) 
+	    curridlehigh++;
+    curridlelow = newIdleLow;
+    
+    return;
+}
+
+//------------------------------------------------------------------------------
+//
+//  Function:  OEMIdleEx
+//
+VOID OEMIdleEx(LARGE_INTEGER *pliIdleTime)
+{
+	UINT32 timer_value;
+	UINT32 new_timer_value;
+
+	timer_value = OALTimerGetCount();
+	BSPCPUIdle();
+	new_timer_value = OALTimerGetCount();
+
+	pliIdleTime->QuadPart += (new_timer_value - timer_value);
 }
 
 //------------------------------------------------------------------------------
