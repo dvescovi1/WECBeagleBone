@@ -76,7 +76,7 @@ extern OMAP_SMS_REGS           *g_pSMSRegs;
 //
 //  Global: g_pTimerRegs
 //
-//  Reference to GPTIMER1 registers.  Initialized in OALTimerInit().
+//  Reference to DMTIMER registers.  Initialized in OALTimerInit().
 //
 extern OMAP_GPTIMER_REGS       *g_pTimerRegs;
 
