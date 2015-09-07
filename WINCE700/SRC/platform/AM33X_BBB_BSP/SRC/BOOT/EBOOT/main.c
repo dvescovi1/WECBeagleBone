@@ -273,6 +273,7 @@ static VOID OEMPlatformDeinit( )
     EnableDeviceClocks(AM_DEVICE_I2C0,FALSE);
     EnableDeviceClocks(AM_DEVICE_I2C1,FALSE);
     EnableDeviceClocks(AM_DEVICE_I2C2,FALSE);
+    EnableDeviceClocks(AM_DEVICE_MCSPI0,FALSE);
 //    EnableDeviceClocks(AM_DEVICE_TIMER0,FALSE);
     EnableDeviceClocks(AM_DEVICE_UART0,FALSE);
     EnableDeviceClocks(AM_DEVICE_WDT0,FALSE);
