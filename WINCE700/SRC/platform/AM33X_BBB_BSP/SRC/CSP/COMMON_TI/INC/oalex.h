@@ -1362,11 +1362,6 @@ BOOL OALCPURestoreContext(
 BOOL OALCPUStart(
     );
 
-BOOL OALConfigEMIFOPP100(
-    );
-
-BOOL OALConfigEMIFOPP50(
-    );
 
 
 //-----------------------------------------------------------------------------
