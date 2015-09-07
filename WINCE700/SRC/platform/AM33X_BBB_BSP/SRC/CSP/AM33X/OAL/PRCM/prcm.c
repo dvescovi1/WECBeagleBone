@@ -22,6 +22,7 @@
 #include "prcm_priv.h"
 #include "am33x_config.h"
 #include "oal_clock.h"
+#include "bsp_cfg.h"
 
 #include "cm3_ipc.h"
 #include "mailbox.h"
@@ -31,8 +32,6 @@
 //
 //  Used for debugging suspend/resume
 //
-#if 1
-
 extern BOOL g_PrcmDebugSuspendResume;
 
 //-----------------------------------------------------------------------------
@@ -43,7 +42,7 @@ extern AM33X_INTR_CONTEXT const *g_pIntr;
 //------------------------------------------------------------------------------
 //  This variable is defined in interrupt module and it is used in interrupt
 //  handler to distinguish system timer interrupt.
-extern UINT32           g_oalTimerIrq;
+extern UINT32		g_oalTimerIrq;
 
 //  Used for save/restore of GPIO clock state
 //DWORD prevGpioIClkState;
@@ -58,6 +57,10 @@ extern DWORD OALGetTTBR();
 extern VOID OALInvalidateTlb();
 
 //-----------------------------------------------------------------------------
+//  function to restart timer
+extern VOID OALTimerStart();
+
+//-----------------------------------------------------------------------------
 //  Global:  dwOEMSRAMSaveAddr
 //  Secure SRAM Save location in SDRAM
 extern DWORD dwOEMSRAMSaveAddr;
@@ -69,7 +72,7 @@ extern DWORD dwOEMSRAMSaveAddr;
 //  contains references to relevant chip/power information used in SRAM
 //  functions
 //
-CPU_INFO                   *g_pCPUInfo = NULL;
+CPU_INFO			*g_pCPUInfo = NULL;
 
 //-----------------------------------------------------------------------------
 //
@@ -77,7 +80,7 @@ CPU_INFO                   *g_pCPUInfo = NULL;
 //
 //  Beginning of all SRAM routines
 //
-pCPUStart                   fnCpuStart = NULL;
+pCPUStart			fnCpuStart = NULL;
 
 //-----------------------------------------------------------------------------
 //
@@ -85,7 +88,7 @@ pCPUStart                   fnCpuStart = NULL;
 //
 //  Reference to cpu idle code in SRAM
 //
-pCPUIdle                    fnOALCPUIdle = NULL;
+pCPUIdle			fnOALCPUIdle = NULL;
 
 //-----------------------------------------------------------------------------
 //
@@ -93,24 +96,7 @@ pCPUIdle                    fnOALCPUIdle = NULL;
 //
 //  Reference to cpu restore code in SRAM
 //
-pRomRestore                    fnRomRestoreLoc = NULL;
-
-//-----------------------------------------------------------------------------
-//
-//  Global:  fnCfgEMIFOPP50Loc
-//
-//  Reference to EMIF OPP50 config in SRAM
-//
-pCfgEMIFOPP50                    fnCfgEMIFOPP50Loc = NULL;
-
-//-----------------------------------------------------------------------------
-//
-//  Global:  fnCfgEMIFOPP50Loc
-//
-//  Reference to EMIF OPP50 config in SRAM
-//
-pCfgEMIFOPP100                    fnCfgEMIFOPP100Loc = NULL;
-
+pRomRestore			fnRomRestoreLoc = NULL;
 
 //-----------------------------------------------------------------------------
 //  Reference to all PRCM-registers. Initialized in PrcmInit
@@ -135,7 +121,7 @@ AM33X_SUPPL_DEVICE_CTRL_REGS *g_pSupplDeviceCtrlRegs;
 //  Indicates if prcm library has been fully initialized.
 //  Initialized in PrcmPostInit
 //
-BOOL                        g_PrcmPostInit = FALSE;
+BOOL			g_PrcmPostInit = FALSE;
 
 //------------------------------------------------------------------------------
 //
@@ -144,7 +130,7 @@ BOOL                        g_PrcmPostInit = FALSE;
 //  Indicated that the OAL PRCM functions are being called while the kernel is 
 //  single threaded (OEMIdle, OEMPoweroff)
 //
-BOOL                        g_bSingleThreaded = FALSE;
+BOOL			g_bSingleThreaded = FALSE;
 
 //-----------------------------------------------------------------------------
 //
@@ -153,359 +139,11 @@ BOOL                        g_bSingleThreaded = FALSE;
 //  Contains a list of CRITICAL_SECTIONS used for synchronized access to
 //  PRCM registers
 //
-CRITICAL_SECTION            g_rgPrcmMutex[Mutex_Count];
-
-//-----------------------------------------------------------------------------
-void PrcmCapturePrevPowerState()
-{
-}
-
-//-----------------------------------------------------------------------------
-void PrcmProfilePrevPowerState(DWORD timer_val, DWORD wakeup_delay )
-{
-    UNREFERENCED_PARAMETER(timer_val);
-    UNREFERENCED_PARAMETER(wakeup_delay);
-}
-
-//-----------------------------------------------------------------------------
-void
-PrcmInitializePrevPowerState()
-{
-}
-
-//-----------------------------------------------------------------------------
-UINT PrcmInterruptEnable(UINT mask, BOOL bEnable )
-{
-    UINT val = 0;
-    Lock(Mutex_Intr);
-
-OALMSG(1, (L"+PrcmInterruptEnable() mask %08x, bEnable %d\r\n", mask, bEnable));
-/*
-    // enable/disable prcm interrupts
-    val = INREG32(&g_pPrcmPrm->pOMAP_OCP_SYSTEM_PRM->PRM_IRQENABLE_MPU);
-    val = (bEnable != FALSE) ? (val | mask) : (val & ~mask);
-    OUTREG32(&g_pPrcmPrm->pOMAP_OCP_SYSTEM_PRM->PRM_IRQENABLE_MPU, val);
-*/
-    Unlock(Mutex_Intr);
-    return val;
-}
-
-//-----------------------------------------------------------------------------
-UINT PrcmInterruptClearStatus(UINT mask)
-{
-    UINT val = 0;
-
-    // This routine should only be called during system boot-up or
-    // from OEMIdle.  Hence, serialization within this routine
-    // should not be performed.
-
-    // clear prcm interrupt status
-OALMSG(1, (L"+PrcmInterruptClearStatus() mask %08x\r\n", mask));
-    // return the status prior to clearing the status
-    return val;
-}
-
-static void ClearXNBit( void *pvAddr )
-{
-    const UINT ARM_L1_NO_EXECUTE = 0x00000010;
-
-    DWORD   idxL1MMU = ((DWORD)pvAddr) >> 20;
-    DWORD  *pL1MMUTbl = (DWORD*)OALPAtoVA(OALGetTTBR(), TRUE); // TODO: get UNCACHED ADDR
-    
-    pL1MMUTbl[idxL1MMU] &= ~ARM_L1_NO_EXECUTE;
-}
+CRITICAL_SECTION	g_rgPrcmMutex[Mutex_Count];
 
 
 //-----------------------------------------------------------------------------
-//
-//  Function:  OALSRAMFnInit
-//
-//  copies power critical code into SRAM to be executed in the sanctuary of
-//  SRAM
-//
-BOOL OALSRAMFnInit()
-{
-    pInvalidateTlb  fnInvalidateTlb;
-    UINT32          fnCPUStartPA = AM33X_OCMC0_PA + dwOEMSRAMStartOffset;
-    UINT32          * romRestoreStorePtr = (UINT32 *) OALPAtoVA(0x4030FFFC, FALSE);  
-
-    OALMSG(OAL_FUNC, (L"+OALSRAMFnInit()\r\n"));
-
-#pragma warning (push)
-#pragma warning (disable:4152) //disable warning that prevents using function pointers as data pointers
-    // get reference to SRAM
-    fnCpuStart = OALPAtoVA(fnCPUStartPA, FALSE);
-
-    // initialize cpu idle data structure
-    g_pCPUInfo = (CPU_INFO*)OALPAtoVA(dwOEMMPUContextRestore, FALSE);    
-    g_pCPUInfo->MPU_CONTEXT_VA = (UINT)g_pCPUInfo + sizeof(CPU_INFO);
-    g_pCPUInfo->MPU_CONTEXT_PA = (UINT)dwOEMMPUContextRestore + sizeof(CPU_INFO);
-    g_pCPUInfo->EMIF_REGS = (UINT)OALPAtoVA(AM33X_EMIF4_0_CFG_REGS_PA, FALSE);
-    g_pCPUInfo->CM_PER_REGS = (UINT)OALPAtoVA(AM33X_PRCM_REGS_PA, FALSE);
-    g_pCPUInfo->CM_WKUP_REGS = (UINT)OALPAtoVA(AM33X_PRCM_REGS_PA+0x400, FALSE);
-    g_pCPUInfo->DDR_PHY_REGS = (UINT)OALPAtoVA(AM33X_DDR_REGS_PA, FALSE);
-    g_pCPUInfo->SYS_MISC2_REGS = (UINT)OALPAtoVA(AM33X_SYSC_MISC2_REGS_PA, FALSE);
-    g_pCPUInfo->suspendState = PM_CMD_NO_PM;  
-
-
-    OALMSG(OAL_INFO,(L"g_pCPUInfo=0x%x, MPU_CONTEXT_PA=0x%x, MPU_CONTEXT_VA=0x%x, TLB_INV_FUNC_ADDR=0x%x, "
-              L"EMIF_REGS=0x%x, CM_PER_REGS=0x%x, CM_WKUP_REGS=0x%x, DDR_PHY_REGS=0x%x, SYS_MISC2_REGS=0x%x, suspendState=%d\r\n",
-        g_pCPUInfo,
-        g_pCPUInfo->MPU_CONTEXT_PA,
-        g_pCPUInfo->MPU_CONTEXT_VA,
-        g_pCPUInfo->TLB_INV_FUNC_ADDR,
-        g_pCPUInfo->EMIF_REGS,
-        g_pCPUInfo->CM_PER_REGS,
-        g_pCPUInfo->CM_WKUP_REGS,
-        g_pCPUInfo->DDR_PHY_REGS,
-        g_pCPUInfo->SYS_MISC2_REGS,
-        g_pCPUInfo->suspendState));
-    
-    // Populate fnOALCPUIdle function pointer with SRAM address of
-    // OALCPUIdle function.
-#if (_WINCEOSVER <= 700)
-    fnOALCPUIdle = (pCPUIdle)((UINT)fnCpuStart + 
-                                ((UINT)OALCPUIdle - (UINT)OALCPUStart)); 
-
-    // Populate fnTlbValidate function pointer with SRAM address of
-    // OALInvalidateTlb function which will be called by cpu.s 
-    // after mpu restore.
-    fnInvalidateTlb = (pInvalidateTlb)((UINT)fnCpuStart + 
-                                ((UINT)OALInvalidateTlb - (UINT)OALCPUStart)); 
-
-    // Populate fnRomRestoreLoc function pointer with SRAM address of
-    // OALCPURestoreContext function.
-    fnRomRestoreLoc = (pRomRestore)((UINT)fnCPUStartPA + 
-                                ((UINT)OALCPURestoreContext - (UINT)OALCPUStart)); 
-
-    if (romRestoreStorePtr)
-        OUTREG32(romRestoreStorePtr,fnRomRestoreLoc);
-    else
-        OALMSG(1,(L"*****romRestoreStorePtr is NULL\r\n"));
-    
-
-    // Populate fnRomRestoreLoc function pointer with SRAM address of
-    // OALCPURestoreContext function.
-    fnCfgEMIFOPP100Loc = (pCfgEMIFOPP100)((UINT)fnCpuStart + 
-                                ((UINT)OALConfigEMIFOPP100 - (UINT)OALCPUStart)); 
-    
-    // Populate fnRomRestoreLoc function pointer with SRAM address of
-    // OALCPURestoreContext function.
-    fnCfgEMIFOPP50Loc = (pCfgEMIFOPP50)((UINT)fnCpuStart + 
-                                ((UINT)OALConfigEMIFOPP50 - (UINT)OALCPUStart)); 
-#else
-	    fnOALCPUIdle = (pCPUIdle)((UINT)fnCpuStart + 
-                                ((UINT)OALCPUIdle - (UINT)OALCPUStart) + 1); 
-    
-    // Populate fnTlbValidate function pointer with SRAM address of
-    // OALInvalidateTlb function which will be called by cpu.s 
-    // after mpu restore.
-    fnInvalidateTlb = (pInvalidateTlb)((UINT)fnCpuStart + 
-                                ((UINT)OALInvalidateTlb - (UINT)OALCPUStart) + 1); 
-
-    // Populate fnRomRestoreLoc function pointer with SRAM address of
-    // OALCPURestoreContext function.
-    fnRomRestoreLoc = (pRomRestore)((UINT)fnCPUStartPA + 
-                                ((UINT)OALCPURestoreContext - (UINT)OALCPUStart) + 1); 
-
-    if (romRestoreStorePtr)
-        OUTREG32(romRestoreStorePtr,fnRomRestoreLoc);
-    else
-        OALMSG(1,(L"*****romRestoreStorePtr is NULL\r\n"));
-    
-
-    // Populate fnRomRestoreLoc function pointer with SRAM address of
-    // OALCPURestoreContext function.
-    fnCfgEMIFOPP100Loc = (pCfgEMIFOPP100)((UINT)fnCpuStart + 
-                                ((UINT)OALConfigEMIFOPP100 - (UINT)OALCPUStart) + 1); 
-    
-    // Populate fnRomRestoreLoc function pointer with SRAM address of
-    // OALCPURestoreContext function.
-    fnCfgEMIFOPP50Loc = (pCfgEMIFOPP50)((UINT)fnCpuStart + 
-                                ((UINT)OALConfigEMIFOPP50 - (UINT)OALCPUStart) + 1);
-#endif
-
-    // update the TLB Inv addr in cpuInfo
-    g_pCPUInfo->TLB_INV_FUNC_ADDR = (UINT)fnInvalidateTlb;
-
-    // Kernel marks all uncached adress as "no execute", we need to clear
-    // it here since we're going to run some routines from non-cached memory
-    ClearXNBit(fnCpuStart);
-    ClearXNBit(fnOALCPUIdle);
-    ClearXNBit(fnInvalidateTlb);
-	ClearXNBit(fnCfgEMIFOPP50Loc);
-    ClearXNBit(fnCfgEMIFOPP100Loc);
-
-    // We assume OALCPUStart code is *always* the first function in the
-    // group of routines which get copied to SRAM and OALCPUEnd is last
-#if (_WINCEOSVER <= 700)
-	memcpy(fnCpuStart, (LPVOID)(((UINT)OALCPUStart)) , (UINT)OALCPUEnd - (UINT)OALCPUStart);
-#else
-    memcpy(fnCpuStart, (LPVOID)(((UINT)OALCPUStart)- 1) , (UINT)OALCPUEnd - (UINT)OALCPUStart);
-#endif
-
-	//bmartin : OALCPUStart was already incremented by the linker to be executed in Thumb mode,
-	//so we decrement it to make the copy correctly
-
-    //  Flush the cache to ensure idle code is in SRAM
-    OEMCacheRangeFlush( fnCpuStart, (UINT)OALCPUEnd - (UINT)OALCPUStart, CACHE_SYNC_ALL );
-
-    OALMSG(OAL_INFO,(L"fnCpuStart=0x%x fnOALCPUIdle=0x%x fnInvalidateTlb=0x%x fnRomRestoreLoc=0x%x fnCfgEMIFOPP100Loc=0x%x, fnCfgEMIFOPP50Loc=0x%x\r\n",
-                fnCpuStart,fnOALCPUIdle,fnInvalidateTlb, fnRomRestoreLoc,fnCfgEMIFOPP100Loc,fnCfgEMIFOPP50Loc ));
-
-#pragma warning (pop)
-
-    OALMSG(OAL_FUNC, (L"-OALSRAMFnInit()\r\n"));
-
-    return TRUE;
-}
-
-//-----------------------------------------------------------------------------
-void OALSDRCRefreshCounter(UINT highFreq, UINT lowFreq  )
-//	Sets the SDRC Refresh counter
-{
-OALMSG(1, (L"OALSDRCRefreshCounter(): %u %u\r\n", highFreq, lowFreq));
-
-//    g_pCPUInfo->SDRC_HIGH_RFR_FREQ = highFreq;
-//    g_pCPUInfo->SDRC_LOW_RFR_FREQ = lowFreq;
-}
-
-void OALSavePrcmContext(){}
-void OALSaveSdrcContext(){}
-
-//-----------------------------------------------------------------------------
-void PrcmInit()
-//	Initializes the prcm module out of reset
-{
-    OALMSG(OAL_FUNC, (L"+PrcmInit()\r\n"));
-
-	g_pPrcmRegs  = OALPAtoUA(AM33X_PRCM_REGS_PA);
-    g_pSecnFuseRegs = OALPAtoUA(AM33X_SECnFUSE_KEY_REGS_PA);
-    g_pSyscMisc2Regs = OALPAtoUA(AM33X_SYSC_MISC2_REGS_PA);
-    g_pSupplDeviceCtrlRegs = OALPAtoUA(AM33X_SUPPL_DEVICE_CTRL_REGS_PA);
-
-    // initialize all internal data structures
-    ResetInitialize();
-    DomainInitialize();
-    ClockInitialize();
-    DeviceInitialize();
-
-    OALMSG(OAL_FUNC, (L"-PrcmInit()\r\n"));
-}
-
-void initializeTimer1(void)
-{
-    OALMSG(1,(L"initializeTimer1: Enter\r\n"));    
-    
-    OUTREG32(OALPAtoVA(0x44e3e06c, FALSE),0x83e70b13);
-    OUTREG32(OALPAtoVA(0x44e3e070, FALSE),0x95a4f1e0);
-    OUTREG32(OALPAtoVA(0x44e3e054, FALSE),0x48);
-    
-	//enableModuleClock(CLK_TIMER1);
-	PrcmClockSetParent(kTIMER1_GCLK,kCLK_32768_CK);
-    EnableDeviceClocks(AM_DEVICE_TIMER1,TRUE);    
-	
-	/*	wake up configs	*/
-	//HWREG(0x44e31010) = 0x214;
-	OUTREG32(OALPAtoVA(0x44e31010, FALSE),0x214);
-	
-	/*	enable overflow int	*/
-	//HWREG(0x44e3101c) = 0x2;
-	OUTREG32(OALPAtoVA(0x44e3101c, FALSE),0x2);
-	
-	/*	enable overflow wakeup	*/
-	//HWREG(0x44e31020) = 0x2;
-	OUTREG32(OALPAtoVA(0x44e31020, FALSE),0x2);
-    
-	OUTREG32(&g_pIntr->pICLRegs->INTC_MIR_CLEAR2,0x08);
-    
-    OALMSG(1,(L"initializeTimer1: Exit\r\n"));    
-	
-}
-
-void setTimerCount(unsigned int count)
-{   
-    
-	/*	Set timer counter	*/
-	//HWREG(0x44e31028) = count;
-    OUTREG32(OALPAtoVA(0x44e31028, FALSE),count);
-
-	/*	Start timer	*/
-	//HWREG(0x44e31024) =  0x23;	
-	OUTREG32(OALPAtoVA(0x44e31024, FALSE),0x23);
-}
-
-
-void clearTimerInt(void)
-{
-	//HWREG(0x44e31018) = 0x2;
-	OUTREG32(OALPAtoVA(0x44e31018, FALSE),0x2);
-}
-
-void disableTimer1()
-{
-    EnableDeviceClocks(AM_DEVICE_TIMER1,FALSE);    
-}
-
-//-----------------------------------------------------------------------------
-void PrcmPostInit()
-//	Initializes the prcm module out of reset
-{
-    int i;
-    OALMSG(OAL_FUNC, (L"+PrcmPostInit()\r\n"));
-
-    for (i = 0; i < Mutex_Count; ++i) // initialize synchronization objects
-        InitializeCriticalSection(&g_rgPrcmMutex[i]);
-
-    // Take the graphics SGX core out of reset. 
-    // ToDo: Do it based on the appropriate chip variant.
-    PrcmDomainResetRelease(POWERDOMAIN_GFX, GFX_RST);
-
-    g_PrcmPostInit = TRUE; // update flag indicating PRCM library is fully initialized
-    
-    OALMSG(OAL_FUNC, (L"-PrcmPostInit()\r\n"));
-};
-
-//-----------------------------------------------------------------------------
-//	Initializes the context restore registers
-void PrcmContextRestoreInit(){}
-//-----------------------------------------------------------------------------
-//	Performs the necessary steps to restore from CORE OFF
-void PrcmContextRestore(){}
-
-void PrcmClearContextRegisters() {}
-
-//DWORD _suspendState = PM_CMD_DS1_MODE;
-DWORD _suspendState = PM_CMD_STANDBY_MODE;
-deepSleepData _suspend_DSData;
-
-
-//enable any one of these
-#define USE_TIMER1_AS_WAKEUP_SOURCE
-//#define USE_RTC_AS_WAKEUP_SOURCE
-
-// Modules that dont have a driver should be disabled in this function
-void PrcmPreSuspendDisableClock(DWORD suspendState)
-{
-//    EnableDeviceClocks(AM_DEVICE_CLKDIV32K,FALSE);
-    EnableDeviceClocks(AM_DEVICE_MAILBOX0,FALSE);
-    EnableDeviceClocks(AM_DEVICE_MSTR_EXPS,FALSE);
-    EnableDeviceClocks(AM_DEVICE_OCPWP,FALSE);
-    EnableDeviceClocks(AM_DEVICE_SLV_EXPS,FALSE);
-    EnableDeviceClocks(AM_DEVICE_CEFUSE,FALSE);
-    
-}
-
-void PrcmPostResumeEnableClock(DWORD suspendState)
-{
-//    EnableDeviceClocks(AM_DEVICE_CLKDIV32K,TRUE);
-    EnableDeviceClocks(AM_DEVICE_MAILBOX0,TRUE);
-//    EnableDeviceClocks(AM_DEVICE_MSTR_EXPS,TRUE);
-//    EnableDeviceClocks(AM_DEVICE_OCPWP,TRUE);
-//    EnableDeviceClocks(AM_DEVICE_SLV_EXPS,TRUE);
-//    EnableDeviceClocks(AM_DEVICE_CEFUSE,TRUE);
-}
-
+//---------------------- DEBUG CODE ----------------------------------------
 extern void DumpAllDeviceStatus();
 
 typedef VOID (*PFN_FmtPuts)(WCHAR *s, ...);
@@ -818,6 +456,322 @@ Dump_PRCM()
 }
 
 
+
+
+
+
+
+//-----------------------------------------------------------------------------
+void PrcmCapturePrevPowerState()
+{
+}
+
+//-----------------------------------------------------------------------------
+void PrcmProfilePrevPowerState(DWORD timer_val, DWORD wakeup_delay )
+{
+    UNREFERENCED_PARAMETER(timer_val);
+    UNREFERENCED_PARAMETER(wakeup_delay);
+}
+
+//-----------------------------------------------------------------------------
+void
+PrcmInitializePrevPowerState()
+{
+}
+
+//-----------------------------------------------------------------------------
+UINT PrcmInterruptEnable(UINT mask, BOOL bEnable )
+{
+    UINT val = 0;
+    Lock(Mutex_Intr);
+
+OALMSG(1, (L"+PrcmInterruptEnable() mask %08x, bEnable %d\r\n", mask, bEnable));
+/*
+    // enable/disable prcm interrupts
+    val = INREG32(&g_pPrcmPrm->pOMAP_OCP_SYSTEM_PRM->PRM_IRQENABLE_MPU);
+    val = (bEnable != FALSE) ? (val | mask) : (val & ~mask);
+    OUTREG32(&g_pPrcmPrm->pOMAP_OCP_SYSTEM_PRM->PRM_IRQENABLE_MPU, val);
+*/
+    Unlock(Mutex_Intr);
+    return val;
+}
+
+//-----------------------------------------------------------------------------
+UINT PrcmInterruptClearStatus(UINT mask)
+{
+    UINT val = 0;
+
+    // This routine should only be called during system boot-up or
+    // from OEMIdle.  Hence, serialization within this routine
+    // should not be performed.
+
+    // clear prcm interrupt status
+OALMSG(1, (L"+PrcmInterruptClearStatus() mask %08x\r\n", mask));
+    // return the status prior to clearing the status
+    return val;
+}
+
+static void ClearXNBit( void *pvAddr )
+{
+    const UINT ARM_L1_NO_EXECUTE = 0x00000010;
+
+    DWORD   idxL1MMU = ((DWORD)pvAddr) >> 20;
+    DWORD  *pL1MMUTbl = (DWORD*)OALPAtoVA(OALGetTTBR(), TRUE); // TODO: get UNCACHED ADDR
+    
+    pL1MMUTbl[idxL1MMU] &= ~ARM_L1_NO_EXECUTE;
+}
+
+
+//-----------------------------------------------------------------------------
+//
+//  Function:  OALSRAMFnInit
+//
+//  copies power critical code into SRAM to be executed in the sanctuary of
+//  SRAM
+//
+BOOL OALSRAMFnInit()
+{
+    pInvalidateTlb  fnInvalidateTlb;
+    UINT32          fnCPUStartPA = AM33X_OCMC0_PA + dwOEMSRAMStartOffset;
+    UINT32          * romRestoreStorePtr = (UINT32 *) OALPAtoVA(0x4030FFFC, FALSE);  
+
+    OALMSG(OAL_FUNC, (L"+OALSRAMFnInit()\r\n"));
+
+#pragma warning (push)
+#pragma warning (disable:4152) //disable warning that prevents using function pointers as data pointers
+    // get reference to SRAM
+    fnCpuStart = OALPAtoVA(fnCPUStartPA, FALSE);
+
+    // initialize cpu idle data structure
+//    g_pCPUInfo = (CPU_INFO*)OALPAtoVA(dwOEMMPUContextRestore, FALSE);    
+    g_pCPUInfo = (CPU_INFO*)dwOEMMPUContextRestore;    
+    g_pCPUInfo->MPU_CONTEXT_VA = (UINT)g_pCPUInfo + sizeof(CPU_INFO);
+    g_pCPUInfo->MPU_CONTEXT_PA = (UINT)dwOEMMPUContextRestore + sizeof(CPU_INFO);
+    g_pCPUInfo->EMIF_REGS = (UINT)OALPAtoVA(AM33X_EMIF4_0_CFG_REGS_PA, FALSE);
+    g_pCPUInfo->CM_PER_REGS = (UINT)OALPAtoVA(AM33X_PRCM_REGS_PA, FALSE);
+    g_pCPUInfo->CM_WKUP_REGS = (UINT)OALPAtoVA(AM33X_PRCM_REGS_PA+0x400, FALSE);
+    g_pCPUInfo->DDR_PHY_REGS = (UINT)OALPAtoVA(AM33X_DDR_REGS_PA, FALSE);
+    g_pCPUInfo->SYS_MISC2_REGS = (UINT)OALPAtoVA(AM33X_SYSC_MISC2_REGS_PA, FALSE);
+    g_pCPUInfo->CONTROL_REGS = (UINT)OALPAtoVA(AM33X_CONTROL_MODULE_REGS_PA, FALSE);
+    g_pCPUInfo->suspendState = PM_CMD_NO_PM;  
+
+
+    OALMSG(OAL_INFO,(L"g_pCPUInfo=0x%x, MPU_CONTEXT_PA=0x%x, MPU_CONTEXT_VA=0x%x, TLB_INV_FUNC_ADDR=0x%x, EMIF_REGS=0x%x, CM_PER_REGS=0x%x, CM_WKUP_REGS=0x%x\r\n",
+        g_pCPUInfo,
+        g_pCPUInfo->MPU_CONTEXT_PA,
+        g_pCPUInfo->MPU_CONTEXT_VA,
+        g_pCPUInfo->TLB_INV_FUNC_ADDR,
+        g_pCPUInfo->EMIF_REGS,
+        g_pCPUInfo->CM_PER_REGS,
+        g_pCPUInfo->CM_WKUP_REGS));
+    
+    OALMSG(OAL_INFO,(L"DDR_PHY_REGS=0x%x, SYS_MISC2_REGS=0x%x, CONTROL_REGS=0x%x,suspendState=%d\r\n",
+        g_pCPUInfo->DDR_PHY_REGS,
+        g_pCPUInfo->SYS_MISC2_REGS,
+        g_pCPUInfo->CONTROL_REGS,
+        g_pCPUInfo->suspendState));
+
+	// Populate fnOALCPUIdle function pointer with SRAM address of
+    // OALCPUIdle function.
+#if (_WINCEOSVER <= 700)
+    fnOALCPUIdle = (pCPUIdle)((UINT)fnCpuStart + 
+                                ((UINT)OALCPUIdle - (UINT)OALCPUStart)); 
+
+    // Populate fnTlbValidate function pointer with SRAM address of
+    // OALInvalidateTlb function which will be called by cpu.s 
+    // after mpu restore.
+    fnInvalidateTlb = (pInvalidateTlb)((UINT)fnCpuStart + 
+                                ((UINT)OALInvalidateTlb - (UINT)OALCPUStart)); 
+
+    // Populate fnRomRestoreLoc function pointer with SRAM address of
+    // OALCPURestoreContext function.
+    //fnRomRestoreLoc = (pRomRestore)((UINT)fnCPUStartPA + 
+    //                            ((UINT)OALCPURestoreContext - (UINT)OALCPUStart)); 
+
+    //if (romRestoreStorePtr)
+    //    OUTREG32(romRestoreStorePtr,fnRomRestoreLoc);
+    //else
+    //    OALMSG(1,(L"*****romRestoreStorePtr is NULL\r\n"));
+    
+
+    //// Populate fnCfgEMIFOPP100Loc function pointer with SRAM address of
+    //// OALConfigEMIFOPP100 function.
+    //fnCfgEMIFOPP100Loc = (pCfgEMIFOPP100)((UINT)fnCpuStart + 
+    //                            ((UINT)OALConfigEMIFOPP100 - (UINT)OALCPUStart)); 
+    //
+    //// Populate fnCfgEMIFOPP50Loc function pointer with SRAM address of
+    //// OALConfigEMIFOPP50 function.
+    //fnCfgEMIFOPP50Loc = (pCfgEMIFOPP50)((UINT)fnCpuStart + 
+    //                            ((UINT)OALConfigEMIFOPP50 - (UINT)OALCPUStart)); 
+#else
+    fnOALCPUIdle = (pCPUIdle)((UINT)fnCpuStart + 
+                                ((UINT)OALCPUIdle - (UINT)OALCPUStart) + 1); 
+    
+    // Populate fnTlbValidate function pointer with SRAM address of
+    // OALInvalidateTlb function which will be called by cpu.s 
+    // after mpu restore.
+    fnInvalidateTlb = (pInvalidateTlb)((UINT)fnCpuStart + 
+                                ((UINT)OALInvalidateTlb - (UINT)OALCPUStart) + 1); 
+
+    // Populate fnRomRestoreLoc function pointer with SRAM address of
+    // OALCPURestoreContext function.
+    fnRomRestoreLoc = (pRomRestore)((UINT)fnCPUStartPA + 
+                                ((UINT)OALCPURestoreContext - (UINT)OALCPUStart) + 1); 
+
+    if (romRestoreStorePtr)
+        OUTREG32(romRestoreStorePtr,fnRomRestoreLoc);
+    else
+        OALMSG(1,(L"*****romRestoreStorePtr is NULL\r\n"));
+    
+
+    // Populate fnRomRestoreLoc function pointer with SRAM address of
+    // OALCPURestoreContext function.
+    fnCfgEMIFOPP100Loc = (pCfgEMIFOPP100)((UINT)fnCpuStart + 
+                                ((UINT)OALConfigEMIFOPP100 - (UINT)OALCPUStart) + 1); 
+    
+    // Populate fnRomRestoreLoc function pointer with SRAM address of
+    // OALCPURestoreContext function.
+    fnCfgEMIFOPP50Loc = (pCfgEMIFOPP50)((UINT)fnCpuStart + 
+                                ((UINT)OALConfigEMIFOPP50 - (UINT)OALCPUStart) + 1);
+#endif
+
+    // update the TLB Inv addr in cpuInfo
+//    g_pCPUInfo->TLB_INV_FUNC_ADDR = (UINT)fnInvalidateTlb;
+
+    // Kernel marks all uncached adress as "no execute", we need to clear
+    // it here since we're going to run some routines from non-cached memory
+    ClearXNBit(fnCpuStart);
+    ClearXNBit(fnOALCPUIdle);
+//    ClearXNBit(fnInvalidateTlb);
+//	ClearXNBit(fnCfgEMIFOPP50Loc);
+//    ClearXNBit(fnCfgEMIFOPP100Loc);
+
+    // We assume OALCPUStart code is *always* the first function in the
+    // group of routines which get copied to SRAM and OALCPUEnd is last
+#if (_WINCEOSVER <= 700)
+	memcpy(fnCpuStart, (LPVOID)(((UINT)OALCPUStart)) , (UINT)OALCPUEnd - (UINT)OALCPUStart);
+#else
+    memcpy(fnCpuStart, (LPVOID)(((UINT)OALCPUStart)- 1) , (UINT)OALCPUEnd - (UINT)OALCPUStart);
+#endif
+
+	//bmartin : OALCPUStart was already incremented by the linker to be executed in Thumb mode,
+	//so we decrement it to make the copy correctly
+
+    //  Flush the cache to ensure idle code is in SRAM
+    OEMCacheRangeFlush( fnCpuStart, (UINT)OALCPUEnd - (UINT)OALCPUStart, CACHE_SYNC_ALL );
+
+    //OALMSG(OAL_INFO,(L"fnCpuStart=0x%x fnOALCPUIdle=0x%x fnInvalidateTlb=0x%x fnRomRestoreLoc=0x%x fnCfgEMIFOPP100Loc=0x%x, fnCfgEMIFOPP50Loc=0x%x\r\n",
+    //            fnCpuStart,fnOALCPUIdle,fnInvalidateTlb, fnRomRestoreLoc,fnCfgEMIFOPP100Loc,fnCfgEMIFOPP50Loc ));
+
+#pragma warning (pop)
+
+    OALMSG(OAL_FUNC, (L"-OALSRAMFnInit()\r\n"));
+
+    return TRUE;
+}
+
+//-----------------------------------------------------------------------------
+void OALSDRCRefreshCounter(UINT highFreq, UINT lowFreq  )
+//	Sets the SDRC Refresh counter
+{
+OALMSG(1, (L"OALSDRCRefreshCounter(): %u %u\r\n", highFreq, lowFreq));
+
+//    g_pCPUInfo->SDRC_HIGH_RFR_FREQ = highFreq;
+//    g_pCPUInfo->SDRC_LOW_RFR_FREQ = lowFreq;
+}
+
+void OALSavePrcmContext(){}
+void OALSaveSdrcContext(){}
+
+//-----------------------------------------------------------------------------
+void PrcmInit()
+//	Initializes the prcm module out of reset
+{
+    OALMSG(OAL_FUNC, (L"+PrcmInit()\r\n"));
+
+	g_pPrcmRegs  = OALPAtoUA(AM33X_PRCM_REGS_PA);
+    g_pSecnFuseRegs = OALPAtoUA(AM33X_SECnFUSE_KEY_REGS_PA);
+    g_pSyscMisc2Regs = OALPAtoUA(AM33X_SYSC_MISC2_REGS_PA);
+    g_pSupplDeviceCtrlRegs = OALPAtoUA(AM33X_SUPPL_DEVICE_CTRL_REGS_PA);
+
+    // initialize all internal data structures
+    ResetInitialize();
+    DomainInitialize();
+    ClockInitialize();
+    DeviceInitialize();
+
+    OALMSG(OAL_FUNC, (L"-PrcmInit()\r\n"));
+}
+
+//-----------------------------------------------------------------------------
+void PrcmPostInit()
+//	Initializes the prcm module out of reset
+{
+    int i;
+    OALMSG(OAL_FUNC, (L"+PrcmPostInit()\r\n"));
+
+    for (i = 0; i < Mutex_Count; ++i) // initialize synchronization objects
+        InitializeCriticalSection(&g_rgPrcmMutex[i]);
+
+    // Take the graphics SGX core out of reset. 
+    // ToDo: Do it based on the appropriate chip variant.
+    PrcmDomainResetRelease(POWERDOMAIN_GFX, GFX_RST);
+
+    g_PrcmPostInit = TRUE; // update flag indicating PRCM library is fully initialized
+    
+    OALMSG(OAL_FUNC, (L"-PrcmPostInit()\r\n"));
+};
+
+//-----------------------------------------------------------------------------
+//	Initializes the context restore registers
+void PrcmContextRestoreInit(){}
+//-----------------------------------------------------------------------------
+//	Performs the necessary steps to restore from CORE OFF
+void PrcmContextRestore(){}
+
+void PrcmClearContextRegisters() {}
+
+//DWORD _suspendState = PM_CMD_DS1_MODE;
+DWORD _suspendState = PM_CMD_STANDBY_MODE;
+deepSleepData _suspend_DSData;
+
+
+// Modules that dont have a driver should be disabled in this function
+void PrcmPreSuspendDisableClock(DWORD suspendState)
+{
+    EnableDeviceClocks(AM_DEVICE_TIMER0, FALSE);
+//    EnableDeviceClocks(AM_DEVICE_CLKDIV32K,FALSE);
+    EnableDeviceClocks(AM_DEVICE_MAILBOX0,FALSE);
+    EnableDeviceClocks(AM_DEVICE_MSTR_EXPS,FALSE);
+    EnableDeviceClocks(AM_DEVICE_OCPWP,FALSE);
+    EnableDeviceClocks(AM_DEVICE_SLV_EXPS,FALSE);
+    EnableDeviceClocks(AM_DEVICE_CEFUSE,FALSE);
+    EnableDeviceClocks(BSPGetSysTimerDevice(), FALSE);   
+    EnableDeviceClocks(AM_DEVICE_TPCC, FALSE);   
+    EnableDeviceClocks(AM_DEVICE_TPTC0, FALSE);   
+    EnableDeviceClocks(AM_DEVICE_TPTC1, FALSE);   
+    EnableDeviceClocks(AM_DEVICE_TPTC2, FALSE);   
+    EnableDeviceClocks(AM_DEVICE_USB0, FALSE);   
+}
+
+void PrcmPostResumeEnableClock(DWORD suspendState)
+{
+    EnableDeviceClocks(AM_DEVICE_TIMER0, TRUE);
+//    EnableDeviceClocks(AM_DEVICE_CLKDIV32K,TRUE);
+    EnableDeviceClocks(AM_DEVICE_MAILBOX0,TRUE);
+//    EnableDeviceClocks(AM_DEVICE_MSTR_EXPS,TRUE);
+//    EnableDeviceClocks(AM_DEVICE_OCPWP,TRUE);
+//    EnableDeviceClocks(AM_DEVICE_SLV_EXPS,TRUE);
+//    EnableDeviceClocks(AM_DEVICE_CEFUSE,TRUE);
+    EnableDeviceClocks(BSPGetSysTimerDevice(), TRUE);
+    EnableDeviceClocks(AM_DEVICE_TPCC, TRUE);   
+    EnableDeviceClocks(AM_DEVICE_TPTC0, TRUE);   
+    EnableDeviceClocks(AM_DEVICE_TPTC1, TRUE);   
+    EnableDeviceClocks(AM_DEVICE_TPTC2, TRUE);   
+    EnableDeviceClocks(AM_DEVICE_USB0, TRUE);   
+}
+
+
 //------------------------------------------------------------------------------
 //
 //  Function:  PrcmSuspend()
@@ -831,100 +785,64 @@ void PrcmSuspend()
 {
     UINT32 irq = (UINT32) OAL_INTR_IRQ_UNDEFINED;
 
-#ifdef USE_RTC_AS_WAKEUP_SOURCE    
-    SYSTEMTIME startSysTime, alarmSysTime;
-    LONGLONG   startFileTime, alarmFileTime;
-#endif    
-    
     //--------------------------------------------------------------------------
     // perform power down sequence
     //--------------------------------------------------------------------------
 
-    // Disable match interrupt
     OALMSG(OAL_INFO,(L"PrcmSuspend: Enter\r\n"));    
-    
-    irq = INREG32(&g_pIntr->pICLRegs->INTC_SIR_IRQ);
-    if (irq == g_oalTimerIrq)
-    {
-        OUTREG32(&g_pTimerRegs->IRQSTATUS, DMTIMER_TIER_OVERFLOW);
-        OUTREG32(&g_pTimerRegs->IRQ_EOI, 0x00);
-        OUTREG32(&g_pIntr->pICLRegs->INTC_CONTROL, IC_CNTL_NEW_IRQ);    
-    }    
-    PrcmDeviceEnableClocks(BSPGetSysTimerDevice(), FALSE);
-
-    OALMSG(OAL_INFO,(L"PrcmSuspend: Disabled Timer Clock\r\n"));
     
     g_pCPUInfo->suspendState = _suspendState;
     PrcmCM3ConfigDeepSleep(_suspendState, &_suspend_DSData);
 
-    /*	Configure EMIF for OPP50 if PER domain is left ON and VDD_CORE is reduced to 0.95V	*/   
-    /* this function crashes and needs to be debugged; currently commented out
-/*    if (_suspend_DSData.dsDataBits.pdPerState == PM_PER_POWERSTATE_ON)
-        fnCfgEMIFOPP50Loc(g_pCPUInfo);    
-    OALMSG(OAL_INFO,(L"PrcmSuspend: Done config EMIF at OPP 50\r\n"));   */
+ //   /*	Configure EMIF for OPP50 if PER domain is left ON and VDD_CORE is reduced to 0.95V	*/   
+ //   /* this function crashes and needs to be debugged; currently commented out */
+ //   if (_suspend_DSData.dsDataBits.pdPerState == PM_PER_POWERSTATE_ON)
+	//{
+	//	OALMSG(OAL_INFO,(L"PrcmSuspend: Done config EMIF at OPP 50...\r\n"));
+
+	//
+	//	OALMSG(OAL_INFO,(L"fnRomRestoreLoc=0x%x fnCfgEMIFOPP100Loc=0x%x, fnCfgEMIFOPP50Loc=0x%x\r\n",
+	//				fnRomRestoreLoc,fnCfgEMIFOPP100Loc,fnCfgEMIFOPP50Loc ));
+	//	a = *((UINT32 *)fnCfgEMIFOPP50Loc);
+
+
+	//	OALMSG(OAL_INFO,(L"fnCfgEMIFOPP100Loc data=0x%08x, fnCfgEMIFOPP50Loc data=0x%08x\r\n",
+	//				*fnCfgEMIFOPP100Loc,a ));
+	//
+	//
+	//	fnCfgEMIFOPP50Loc(g_pCPUInfo);    
+	//}
+	//OALMSG(OAL_INFO,(L"PrcmSuspend: Done config EMIF at OPP 50\r\n"));
         
     // disable misc clocks - that are not handled by any driver
     PrcmPreSuspendDisableClock(_suspendState);
 
-#ifdef USE_RTC_AS_WAKEUP_SOURCE
-    // You will need to change the OAL RTC driver before you can use it as a wakeup source
-    // Changes needed are:
-    // 1. Set SYSCONFIG register to Smart Idle w/ wakeup
-    // 2. Use 32768 Crystal as the source and not the PER PLLL 32K output; set the OSC register accordingly
-    // 3. Enable alarm wakeup interrupt.
-    OEMGetRealTime(&startSysTime);
-    if (NKSystemTimeToFileTime(&startSysTime,(FILETIME *)&startFileTime)==0)
-        OALMSG(1,(L"SystemTimeToFileTime failed\r\n"));
-    alarmFileTime = startFileTime + 30 * 10000000; //30 secs
-    if (NKFileTimeToSystemTime((FILETIME *)&alarmFileTime,&alarmSysTime)==0)
-        OALMSG(1,(L"FileTimeToSystemTime failed\r\n"));
-    if (OEMSetAlarmTime(&alarmSysTime)==0)
-        OALMSG(1,(L"OEMSetAlarmTime failed\r\n"));
-#endif    
-
-#ifdef USE_TIMER1_AS_WAKEUP_SOURCE
-    initializeTimer1();
-    clearTimerInt();
-#endif       
-    
+//allow pmic PB to wake up
+OUTREG32(&g_pIntr->pICLRegs->INTC_MIR_CLEAR0,0x80);
+//OUTREG32(&g_pIntr->pICLRegs->INTC_MIR_CLEAR2,0x7800);
+   
     if (g_PrcmDebugSuspendResume)
     {
-        OALMSG(1,(L"PrcmSuspend: Done disabling MISC clocks %d \r\n",INTERRUPTS_STATUS()));   
+        OALMSG(1,(L"PrcmSuspend: Done disabling MISC clocks %08x \r\n",INTERRUPTS_STATUS()));   
 
         OALMSG(1,(L"OEMPowerOff: ITR before suspend 0x%x 0x%x 0x%x 0x%x\r\n",
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR0),
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR1),
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR2),
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR3)));
-        OALMSG(1,(L"OEMPowerOff: ISR_SET before suspend 0x%x 0x%x 0x%x 0x%x\r\n",
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET0),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET1),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET2),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET3)));    
-        OALMSG(1,(L"OEMPowerOff: ISR_CLEAR before suspend 0x%x 0x%x 0x%x 0x%x\r\n",
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR0),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR1),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR2),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR3)));
         OALMSG(1,(L"OEMPowerOff: PENDING_IRQ before suspend 0x%x 0x%x 0x%x 0x%x\r\n",
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ0),
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ1),
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ2),
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ3)));
 
-        DumpAllDeviceStatus();
+//        DumpAllDeviceStatus();
 
-        OALMSG(1,(L"PrcmSuspend: PRCM DUMP REGS Before suspend\r\n"));
-        Dump_PRCM();
-        OALMSG(1,(L"PrcmSuspend: IPC DUMP REGS Before suspend\r\n"));
-        PrcmCM3DumpIPCRegs();
+//        OALMSG(1,(L"PrcmSuspend: PRCM DUMP REGS Before suspend\r\n"));
+//        Dump_PRCM();
+//        OALMSG(1,(L"PrcmSuspend: IPC DUMP REGS Before suspend\r\n"));
+//        PrcmCM3DumpIPCRegs();
     }
-
-    
- 
-#ifdef USE_TIMER1_AS_WAKEUP_SOURCE 
-    setTimerCount(0xfff80000); //10 secs
-#endif
 
     //--------------------------------------------------------------------------
     // Suspend
@@ -947,16 +865,6 @@ void PrcmSuspend()
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR1),
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR2),
                             INREG32(&g_pIntr->pICLRegs->INTC_ITR3)));
-        OALMSG(1,(L"OEMPowerOff: ISR_SET after suspend 0x%x 0x%x 0x%x 0x%x\r\n",
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET0),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET1),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET2),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_SET3)));    
-        OALMSG(1,(L"OEMPowerOff: ISR_CLEAR after suspend 0x%x 0x%x 0x%x 0x%x\r\n",
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR0),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR1),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR2),
-                            INREG32(&g_pIntr->pICLRegs->INTC_ISR_CLEAR3)));
         OALMSG(1,(L"OEMPowerOff: PENDING_IRQ after suspend 0x%x 0x%x 0x%x 0x%x\r\n",
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ0),
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ1),
@@ -964,12 +872,6 @@ void PrcmSuspend()
                             INREG32(&g_pIntr->pICLRegs->INTC_PENDING_IRQ3)));
     }  
 
-#ifdef USE_TIMER1_AS_WAKEUP_SOURCE 
-    /*	Clear timer interrupt	*/
-    clearTimerInt();
-    disableTimer1();
-#endif
-    
     //--------------------------------------------------------------------------
     // perform power up sequence
     //--------------------------------------------------------------------------
@@ -981,7 +883,6 @@ void PrcmSuspend()
 
     OALMSG(OAL_INFO,(L"PrcmSuspend: Done config EMIF back to OPP100\r\n"));
     
-
     //enable misc clocks - that are not handled by any driver
     PrcmPostResumeEnableClock(_suspendState);
 
@@ -989,13 +890,6 @@ void PrcmSuspend()
     
     
     PrcmProcessPostMpuWakeup();
-
-    // restart Timer
-    PrcmDeviceEnableClocks(AM_DEVICE_TIMER3, TRUE);    
-    OALTimerStart();
-
-    OALMSG(OAL_INFO,(L"PrcmSuspend: Re-enable TIMER\r\n"));
-    
 
     // turn off PM
     g_pCPUInfo->suspendState = PM_CMD_NO_PM;    
@@ -1049,5 +943,4 @@ cleanUp:
     return rc;
 }
 
-#endif
 //-----------------------------------------------------------------------------

@@ -104,6 +104,7 @@ typedef struct {
     UINT                    CM_WKUP_REGS;
     UINT                    DDR_PHY_REGS;
     UINT                    SYS_MISC2_REGS;    
+    UINT                    CONTROL_REGS;
     UINT                    suspendState;
 } 
 CPU_INFO;
@@ -156,33 +157,6 @@ int
 
 extern pRomRestore             fnRomRestoreLoc;
 
-//-----------------------------------------------------------------------------
-//
-//  Global:  fnCfgEMIFOPP100Loc
-//
-//  Reference to EMIF OPP100 config in SRAM
-//
-typedef 
-int 
-(*pCfgEMIFOPP100)(    
-    CPU_INFO               *pInfo
-    );
-
-extern pCfgEMIFOPP100             fnCfgEMIFOPP100Loc;
-
-//-----------------------------------------------------------------------------
-//
-//  Global:  fnCfgEMIFOPP50Loc
-//
-//  Reference to EMIF OPP50 config in SRAM
-//
-typedef 
-int 
-(*pCfgEMIFOPP50)(    
-    CPU_INFO               *pInfo
-    );
-
-extern pCfgEMIFOPP50             fnCfgEMIFOPP50Loc;
 
 //-----------------------------------------------------------------------------
 //
