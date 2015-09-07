@@ -159,7 +159,8 @@ typedef struct {
 // Local functions
 
 static void PWMStart(Device_t *pDevice, int device);
-static void PWMStop(Device_t *pDevice, int device);
+static void PWMStop(Device_t *pDevice, int device, BOOL updateRunning);
+static CEDEVICE_POWER_STATE PWMSetPowerState(CEDEVICE_POWER_STATE Dx, Device_t *pDevice);
 static UINT32 FindClockSettings(UINT32 DesiredFrequency, UINT32 DutyCycle, Device_t *pDevice);
 static void PWMRegDump(Device_t *pDevice);
 
@@ -380,7 +381,9 @@ DWORD PWM_Init(
 
 	EnableDeviceClocks(pDevice->deviceID, TRUE);
 
-    // Setup Time Base Control Register
+	pDevice->pPWMSSRegs->SYSCONFIG = (PWMSS_SYSCONFIG_SMARTIDLE|PWMSS_SYSCONFIG_SMARTSTANDBY);
+
+	// Setup Time Base Control Register
     pDevice->pPWMRegs->TBCTL = EPWM_TBCNT_SYNCOSEL_DISABLE |
                   EPWM_TBCNT_PHSEN_LOAD |
                   EPWM_TBCNT_CTRLMODE_FREEZE;                  
@@ -405,7 +408,7 @@ DWORD PWM_Init(
 	else
 	{
 		DEBUGMSG(ZONE_INIT, (L"PWMInit: Setting PWMA halted\r\n")); 
-		PWMStop(pDevice, DeviceA);
+		PWMStop(pDevice, DeviceA, TRUE);
 	}
 
 	if (pDevice->dwInitRunningB) 
@@ -416,7 +419,7 @@ DWORD PWM_Init(
 	else
 	{
 		DEBUGMSG(ZONE_INIT, (L"PWMInit: Setting PWMB halted\r\n")); 
-		PWMStop(pDevice, DeviceB);
+		PWMStop(pDevice, DeviceB, TRUE);
 	}
 
 	// Select Up-count mode. In this mode, the time-base counter starts
@@ -693,7 +696,7 @@ BOOL PWM_IOControl(
 				if (temp)
 					PWMStart(pDevice, DeviceA);
 				else
-					PWMStop(pDevice, DeviceA);
+					PWMStop(pDevice, DeviceA, TRUE);
 				LeaveCriticalSection(&pDevice->csDevice);
 				dwErr = ERROR_SUCCESS;
 			}
@@ -728,7 +731,7 @@ BOOL PWM_IOControl(
 				if (temp)
 					PWMStart(pDevice, DeviceB);
 				else
-					PWMStop(pDevice, DeviceB);
+					PWMStop(pDevice, DeviceB, TRUE);
 				LeaveCriticalSection(&pDevice->csDevice);
 				dwErr = ERROR_SUCCESS;
 			}
@@ -797,7 +800,7 @@ BOOL PWM_IOControl(
                         }
                         *(PCEDEVICE_POWER_STATE) pOutBuffer = NewDx;
                         *pOutSize = sizeof(CEDEVICE_POWER_STATE);
-//                        PWMSetPowerState(NewDx);
+                        PWMSetPowerState(NewDx,pDevice);
                         dwErr = ERROR_SUCCESS;
                     }
                     DEBUGMSG(ZONE_IOCTL, (_T("PWM_IOControl: IOCTL_POWER_SET %u %s; passing back %u\r\n"), 
@@ -845,6 +848,59 @@ BOOL PWM_IOControl(
     
     return rc;
 }
+
+
+
+static CEDEVICE_POWER_STATE PWMSetPowerState(CEDEVICE_POWER_STATE Dx, Device_t *pDevice)
+{
+	switch (Dx)
+	{
+		// on
+		case D1:
+		case D2:
+			Dx = D0;
+			// fall through..
+		case D0:
+			if (Dx != pDevice->CurrentDx)
+			{
+				EnableDeviceClocks(pDevice->deviceID, TRUE);
+
+				if (pDevice->fEPWMXA_Active && pDevice->fRunningA)
+				{
+					PWMStart(pDevice, DeviceA);
+				}
+				if (pDevice->fEPWMXB_Active && pDevice->fRunningB)
+				{
+					PWMStart(pDevice, DeviceB);
+				}
+				pDevice->CurrentDx = Dx;
+			}
+			break;
+		// off
+		case D3:
+			Dx = D4;
+			// fall through..
+		case D4:
+			if (Dx != pDevice->CurrentDx)
+			{
+				if (pDevice->fEPWMXA_Active && pDevice->fRunningA)
+				{
+					PWMStop(pDevice, DeviceA, FALSE);
+				}
+				if (pDevice->fEPWMXB_Active && pDevice->fRunningB)
+				{
+					PWMStop(pDevice, DeviceB, FALSE);
+				}
+				Sleep(100);
+				EnableDeviceClocks(pDevice->deviceID, FALSE);
+				pDevice->CurrentDx = Dx;
+			}
+			break;
+	}
+}
+
+
+
 
 //------------------------------------------------------------------------------
 //
@@ -1051,7 +1107,7 @@ static void PWMStart(Device_t *pDevice, int device)
 }
 
 // Stop the PWM signal generation
-static void PWMStop(Device_t *pDevice, int device)
+static void PWMStop(Device_t *pDevice, int device, BOOL updateRunning)
 {
 	UINT16 frcReg;
 
@@ -1068,7 +1124,8 @@ static void PWMStop(Device_t *pDevice, int device)
 			frcReg |= 1;	// force A low
 		}
 		pDevice->pPWMRegs->AQCSFRC = frcReg;
-		pDevice->fRunningA = FALSE; 
+		if (updateRunning)
+			pDevice->fRunningA = FALSE; 
 	}
 	if (pDevice->fEPWMXB_Active && device == DeviceB)
 	{
@@ -1083,7 +1140,8 @@ static void PWMStop(Device_t *pDevice, int device)
 			frcReg |= 1<<2;	// force B low
 		}
 		pDevice->pPWMRegs->AQCSFRC = frcReg;
-		pDevice->fRunningB = FALSE; 
+		if (updateRunning)
+			pDevice->fRunningB = FALSE; 
 	}
 }
 
