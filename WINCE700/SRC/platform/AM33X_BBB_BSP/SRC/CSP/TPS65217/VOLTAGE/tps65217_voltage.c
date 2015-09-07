@@ -116,6 +116,12 @@ BOOL TWLGetStatusReg(unsigned char * buf)
     return TWLReadByteReg(g_hTwl,PMIC_REG_STATUS,buf);
 }
 
+BOOL TWLGetInterruptReg(unsigned char * buf)
+{
+    if (ValidateHandle()==FALSE) return FALSE;
+    return TWLReadByteReg(g_hTwl,PMIC_REG_INTERRUPT,buf);
+}
+
 
 BOOL TWLSetOPVoltage(UINT voltage,UINT32 mv)
 {
