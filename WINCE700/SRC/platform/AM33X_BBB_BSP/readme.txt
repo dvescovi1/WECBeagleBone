@@ -80,6 +80,10 @@ Copyright (c) 2014 David Vescovi
 	-Correct issue with Micron 4Gb eMMC detection
 	Now works with 2Gb and 4Gb Micron and 4Gb Kingston eMMCs
 	
+01.18.00	04-APR-2015
+	-Corrected SPI0 clock in boot loader.
+	-Added primitive suspend/resume support.
+	
 	
 
 NOTE: The same image file set (MLO, EBOOTSD.NB0 and NK.BIN) works on the BeagleBone White and Black as executed from a uSD card
