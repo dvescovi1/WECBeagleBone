@@ -92,7 +92,7 @@
 //  Define: IMAGE_WINCE_RAMDISK
 //
 //  Following constants define Windows CE OS image layout.
-//NOT USED at present
+//
 #define HEX_VALUE(a)      0x##a
 #define IMAGE_WINCE_RAM_DISK_CA_HEX     8A800000  // virtual address for ramdisk
 #define IMAGE_WINCE_RAM_DISK_SIZE_HEX   02800000  // RAMDISK 40 MB
