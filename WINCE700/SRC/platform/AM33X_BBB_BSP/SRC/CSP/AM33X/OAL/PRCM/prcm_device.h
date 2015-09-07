@@ -45,7 +45,7 @@ DeviceLookupEntry s_rgDeviceLookupTable[] =
     { POWERDOMAIN_PER,  {0,{kCLK_NULL}},                    {1,{kL4LS_GCLK}},       0, PRCM_OFS(CM_PER_ELM_CLKCTRL),            IDLEST_MASK, 0}, //AM_DEVICE_ELM,              /* 20 */
     { POWERDOMAIN_PER,  {1,{kEMIF_GCLK}},                   {1,{kL3_GCLK}},         0, PRCM_OFS(CM_PER_EMIF_CLKCTRL),           IDLEST_MASK, 0}, //AM_DEVICE_EMIF,
     { POWERDOMAIN_PER,  {1,{kL4FW_GCLK}},                   {1,{kL4FW_GCLK}},       0, PRCM_OFS(CM_PER_EMIF_FW_CLKCTRL),        IDLEST_MASK, 0}, //AM_DEVICE_EMIF_FW,
-    { POWERDOMAIN_PER,  {0,{kCLK_NULL}},                    {1,{kL4LS_GCLK}},       0, PRCM_OFS(CM_PER_EPWMSS0_CLKCTRL),        IDLEST_MASK, 0}, //AM_DEVICE_EPWM0,
+    { POWERDOMAIN_PER,  {0,{kCLK_NULL}},                    {1,{kL4LS_GCLK}},       0, PRCM_OFS(CM_PER_EPWMSS0_CLKCTRL),        IDLEST_MASK, STBYST_MASK}, //AM_DEVICE_EPWM0,
     { POWERDOMAIN_PER,  {0,{kCLK_NULL}},                    {1,{kL4LS_GCLK}},       0, PRCM_OFS(CM_PER_EPWMSS1_CLKCTRL),        IDLEST_MASK, 0}, //AM_DEVICE_EPWM1,
     { POWERDOMAIN_PER,  {0,{kCLK_NULL}},                    {1,{kL4LS_GCLK}},       0, PRCM_OFS(CM_PER_EPWMSS2_CLKCTRL),        IDLEST_MASK, 0}, //AM_DEVICE_EPWM2,
     { POWERDOMAIN_PER,  {1,{kGPIO1_DBCLK}},                 {1,{kL4LS_GCLK}},       0, PRCM_OFS(CM_PER_GPIO1_CLKCTRL),          IDLEST_MASK, 0}, //AM_DEVICE_GPIO1,
