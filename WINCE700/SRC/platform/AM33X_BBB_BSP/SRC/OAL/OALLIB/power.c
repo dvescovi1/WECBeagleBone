@@ -15,6 +15,8 @@
 #include "am33x_clocks.h"
 #include "am33x_prcm.h"
 #include "am33x_oal_prcm.h"
+#include "bsp_padcfg.h"
+#include "sdk_padcfg.h"
 
 extern void OEMDeinitDebugSerial();
 extern void OEMInitDebugSerial();
@@ -36,7 +38,6 @@ static BOOL s_enableSmartReflex2;
 //
 extern BOOL IsSmartReflexMonitoringEnabled(UINT channel);
 extern BOOL SmartReflex_EnableMonitor(UINT channel, BOOL bEnable);
-extern VOID OALTimerStop(VOID);
 extern void PrcmDebugChkAndDisableDevice(UINT devId, DWORD * preMMode, DWORD * postIdleSt, DWORD * postStdbySt, DWORD *refCount);
 
 
@@ -78,7 +79,13 @@ AM33X_DEVICE_ID skipCheckDeviceList[] =
     AM_DEVICE_GPIO3,
     AM_DEVICE_CPGMAC0,
     AM_DEVICE_DEBUGSS,
-    AM_DEVICE_TIMER1
+    AM_DEVICE_TIMER0,
+    AM_DEVICE_TIMER1,
+    AM_DEVICE_TPCC,
+    AM_DEVICE_TPTC0,
+    AM_DEVICE_TPTC1,
+    AM_DEVICE_TPTC2,
+	AM_DEVICE_USB0
 };
 
 BOOL DebugEnableDeviceFlag[AM_DEVICE_COUNT];
@@ -127,7 +134,8 @@ void BSPDebugTurnONClocks()
     
 }
 #endif
-    
+
+
 //------------------------------------------------------------------------------
 // WARNING: This function is called from OEMPowerOff - no system calls, critical 
 // sections, OALMSG, etc., may be used by this function or any function that it calls.
@@ -136,7 +144,9 @@ VOID
 BSPPowerOff(
     )
 {
-    // enable this code after smart reflex is implemented
+	BYTE data;
+
+	// enable this code after smart reflex is implemented
 #if 0
     // Disable Smartreflex if enabled.
     if (IsSmartReflexMonitoringEnabled(kSmartReflex_Channel1))
@@ -160,15 +170,38 @@ BSPPowerOff(
         }
 #endif
 
+	
+// if button pressed ...wait for release
+// ...or just stay here if we are doing a full power off with PB 
+// pressed for >8sec
+WaitPBRelease:
+	TWLGetStatusReg(&data);
+	if (data & PMIC_STATUS_PB)
+		goto WaitPBRelease;
+
+	// allow full off
+	TWLProtWriteRegs(PROT_LEVEL_NONE, PMIC_REG_STATUS,
+        PMIC_STATUS_OFF, PMIC_STATUS_OFF);
+
+	// allow wake via PB
+	TWLProtWriteRegs(PROT_LEVEL_NONE, PMIC_REG_INTERRUPT,
+        ~PMIC_INTERRUPT_PBM, PMIC_INTERRUPT_PBM);
+
+	// LDO4/LS2 off(CPU 3V3 supply)
+//	TWLProtWriteRegs(PROT_LEVEL_2,PMIC_REG_ENABLE,0,PMIC_ENABLE_LS2_EN);
+
+	// LDO2 off (VDD_3V3AUX and power LED)
+	TWLProtWriteRegs(PROT_LEVEL_2,PMIC_REG_ENABLE,0,PMIC_ENABLE_LDO2_EN);
+
+	//TWLUpdateVoltage(PMIC_REG_DEFDCDC1,
+	//				 DCDC_VOLT_SEL_1350MV);	// BBB only
+
     // this is for debugging only - ideally all the drivers should takecare of their modules/clocks when going into suspend
 #ifdef DEBUG_PRCM_SUSPEND_RESUME
     BSPDebugTurnOFFClocks();
 #endif
 
-    // stop GPTIMER
-    OALTimerStop();
-
-    // for debugging purpose, dont turn off the debug UART - anyways it belongs to WAKEUP domain, so it shouldn't interfere with deepsleep modes.
+	// for debugging purpose, dont turn off the debug UART - anyways it belongs to WAKEUP domain, so it shouldn't interfere with deepsleep modes.
     if (!g_PrcmDebugSuspendResume && g_oalRetailMsgEnable)
 	{
         OEMDeinitDebugSerial();
@@ -184,7 +217,15 @@ VOID
 BSPPowerOn(
     )
 {
-    // enable this code after smart reflex is implemented
+
+	// LDO2 on (VDD_3V3AUX and power LED)
+	TWLProtWriteRegs(PROT_LEVEL_2,PMIC_REG_ENABLE,PMIC_ENABLE_LDO2_EN,PMIC_ENABLE_LDO2_EN);
+
+	// LDO4/LS2 on(CPU 3V3 supply)
+//	TWLProtWriteRegs(PROT_LEVEL_2,PMIC_REG_ENABLE,PMIC_ENABLE_LS2_EN,PMIC_ENABLE_LS2_EN);
+
+
+	// enable this code after smart reflex is implemented
 #if 0
     if (s_enableSmartReflex1)
         {
@@ -205,15 +246,22 @@ BSPPowerOn(
 	}
     g_ResumeRTC = TRUE;
 
-    // this is for debugging only - ideally all the drivers should takecare of their modules/clocks when going into suspend
+
+	// this is for debugging only - ideally all the drivers should takecare of their modules/clocks when going into suspend
 #ifdef DEBUG_PRCM_SUSPEND_RESUME
     BSPDebugTurnONClocks();
 #endif
+
+    if (!g_PrcmDebugSuspendResume && g_oalRetailMsgEnable)
+	{
+        OEMInitDebugSerial();
+        EnableDeviceClocks(BSPGetDebugUARTConfig()->dev,TRUE);
+    }
 }
 
 void BSPCPUIdle()
 {
-    fnOALCPUIdle(g_pCPUInfo);
+	fnOALCPUIdle(g_pCPUInfo);
 }
 
 //------------------------------------------------------------------------------
