@@ -96,7 +96,8 @@ DWORD dwOEMSRAMStartOffset = 0x00002000;
 //
 //  location to store context restore information from off mode (PA)
 //
-const volatile DWORD dwOEMMPUContextRestore = AM33X_OCMC0_PA;
+const volatile DWORD dwOEMMPUContextRestore = CPU_INFO_ADDR_PA;
+//const volatile DWORD dwOEMMPUContextRestore = AM33X_OCMC0_PA;
 
 //------------------------------------------------------------------------------
 //
@@ -111,10 +112,6 @@ DWORD dwOEMVModeSetupTime = 2;
 //  Time the PRCM waits for system clock stabilization. 
 //  Reinitialized in config.bib (FIXUPVAR)
 const volatile DWORD dwOEMPRCMCLKSSetupTime = 0x140;//0x2;
-
-//------------------------------------------------------------------------------
-//  location to store context restore information from off mode
-const volatile DWORD dwOEMMPUContextRestore = CPU_INFO_ADDR_PA;  // ??
 #endif
 //------------------------------------------------------------------------------
 //  maximum idle period during OS Idle in milliseconds
