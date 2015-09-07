@@ -301,7 +301,7 @@ VOID OALPowerPostInit()
     DWORD rgDomain = DVFS_MPU1_OPP;
     DWORD * rgOpp = OALArgsQuery(OAL_ARGS_QUERY_OPP_MODE);  
 
-    OALMSG(OAL_FUNC, (L"+OALPowerPostInit: MOVE TO POWER MANAGEMENT\r\n"));
+    OALMSG(OAL_FUNC, (L"+OALPowerPostInit\r\n"));
     
 	PrcmPostInit();
     PrcmCM3Init();
@@ -314,7 +314,7 @@ VOID OALPowerPostInit()
     g_PrcmDebugSuspendResume = TRUE;
 #endif
 
-    OALMSG(OAL_FUNC, (L"+OALPowerPostInit: Done with Power Post init\r\n"));
+    OALMSG(OAL_FUNC, (L"-OALPowerPostInit\r\n"));
 }
 
 //-----------------------------------------------------------------------------
@@ -326,7 +326,6 @@ VOID OALPowerPostInit()
 VOID
 OALContextSavePerfTimer()
 {
-
     /* TODO: Save registers for Perf Timer since their context will be lost when going into DS0 */
 }
 
@@ -354,7 +353,6 @@ VOID OEMPowerOff()
     DWORD i;
     UINT intr[4];
     BOOL bPowerOn;
-    BOOL bPrevIntrState;
     UINT irq = 0;
     GPIO_INTR_CTXT gpio_intr[AM33X_GPIO_BANK_COUNT];
     
@@ -362,15 +360,13 @@ VOID OEMPowerOff()
     DWORD rgOPP = kOpp1;
     DWORD prevOpp[2];
     
-    // disable interrupts (note: this should not be needed)
-    bPrevIntrState = INTERRUPTS_ENABLE(FALSE);
+    OALMSG(OAL_FUNC,(L"+OEMPowerOff\r\n"));
 
-    OALMSG(1,(L"OEMPowerOff: Enter %d \r\n",bPrevIntrState));
-	if (OEMSetAlarm2OffTime(2))
-		OALMSG(1,(L"OEMPowerOff: alarm set!\r\n"));
-Loop:
-    OALMSG(1,(L"OEMPowerOff: wait..!\r\n"));
-    goto Loop;
+//	if (OEMSetAlarm2OffTime(2))
+//		OALMSG(1,(L"OEMPowerOff: alarm set!\r\n"));
+//Loop:
+//    OALMSG(1,(L"OEMPowerOff: wait..!\r\n"));
+//    goto Loop;
 
     // Disable hardware watchdog
     OALWatchdogEnable(FALSE);    
@@ -384,10 +380,14 @@ Loop:
     // Disable GPTimer (used for high perf/monte carlo profiling)
     EnableDeviceClocks(BSPGetGPTPerfDevice(), FALSE);
     
+
+    OALTimerStop();
+    OALMSG(OAL_INFO,(L"OEMPowerOff: Stop System Timer Clock\r\n"));
+
     // Give chance to do board specific stuff
     BSPPowerOff();
    
-    OALMSG(1,(L"OEMPowerOff: Done with BSPPowerOff\r\n"));   
+    OALMSG(OAL_INFO,(L"OEMPowerOff: Done with BSPPowerOff\r\n"));   
    
     
     //----------------------------------------------
@@ -437,19 +437,20 @@ Loop:
     prevOpp[1] = GetOpp(DVFS_CORE1_OPP);
     SetOpp(&rgDomain,&rgOPP,1);
     // Cannot drop Core voltage to OPP 50 as it cause the device to hang. This needs to be debugged.
-    //SetVoltageOpp(&vdd2Opp1Info)
+//    OALMSG(1,(L"OEMPowerOff: Pre Reduce Voltage\r\n"));
+//    SetVoltageOpp(&vdd2Opp1Info);
 
-    OALMSG(1,(L"OEMPowerOff: Done with Reduce Voltage\r\n"));
+    OALMSG(OAL_INFO,(L"OEMPowerOff: Done with Reduce Voltage\r\n"));
     
     // enter full retention
     PrcmSuspend();
 
-    OALMSG(1,(L"OEMPowerOff: Done with PrcmSuspend\r\n"));
+    OALMSG(OAL_INFO,(L"OEMPowerOff: Done with PrcmSuspend\r\n"));
     
     SetOpp(&rgDomain,&prevOpp[0],1);
     SetVoltageOpp(_rgVdd2OppMap[prevOpp[1]]);
 
-    OALMSG(1,(L"OEMPowerOff: Done with Recover Voltage\r\n"));
+    OALMSG(OAL_INFO,(L"OEMPowerOff: Done with Recover Voltage\r\n"));
     
     
 #if 0
@@ -501,7 +502,7 @@ Loop:
     OUTREG32(&g_pIntr->pICLRegs->INTC_MIR_CLEAR2, ~intr[2]);  
     OUTREG32(&g_pIntr->pICLRegs->INTC_MIR_CLEAR3, ~intr[3]);  
 
-    OALMSG(1,(L"OEMPowerOff: Re-enable Interrupts 0x%x 0x%x 0x%x 0x%x\r\n",
+    OALMSG(OAL_INFO,(L"OEMPowerOff: Re-enable Interrupts 0x%x 0x%x 0x%x 0x%x\r\n",
                         INREG32(&g_pIntr->pICLRegs->INTC_MIR0),
                         INREG32(&g_pIntr->pICLRegs->INTC_MIR1),
                         INREG32(&g_pIntr->pICLRegs->INTC_MIR2),
@@ -515,6 +516,8 @@ Loop:
     //Sync to Hardware RTC after suspend\resume
     //OALIoCtlHalRtcTime( 0,  NULL, 0, NULL, 0, NULL);    // Do we need this?? [TODO]
 
+    OALTimerStart();	
+	
     // Enable GPTimer (used for high perf/monte carlo profiling)
     EnableDeviceClocks(BSPGetGPTPerfDevice(), TRUE);	
     //Restore Perf Timer
@@ -527,7 +530,6 @@ Loop:
     // Enable hardware watchdog
     OALWatchdogEnable(TRUE);
 
-    // restore interrupts
-    INTERRUPTS_ENABLE(bPrevIntrState);    
+	OALMSG(OAL_FUNC,(L"-OEMPowerOff\r\n"));
 }
 
