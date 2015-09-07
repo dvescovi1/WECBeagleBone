@@ -74,22 +74,21 @@ DBGPARAM dpCurSettings = {
 typedef struct {
     DWORD Cookie;
     DWORD priority256;
-    DWORD enableWake;
-    DWORD DebounceTimeMs;
+	BYTE chipID;
+	CEDEVICE_POWER_STATE actualPowerState;
+	DWORD enableWake;
     HANDLE hIntrEvent;
     HANDLE hIntrThread;
     DWORD irq;
     DWORD dwSysintr;
-	BYTE oldStatus;
     HANDLE hTWL;
     BOOL bIntrThreadExit;
-    DWORD powerMask;
+    BOOL pbDown;
+	DWORD timeout;
+	DWORD pbDownSec;
     CEDEVICE_POWER_STATE powerState;
     volatile DWORD bWakeFromSuspend;
 } PwrkeyDevice_t;
-
-// To Do:
-// - Find out how to read current state of PWRON pin.
 
 //------------------------------------------------------------------------------
 //  Device registry parameters
@@ -103,17 +102,13 @@ static const DEVICE_REGISTRY_PARAM s_deviceRegParams[] = {
         L"EnableWake", PARAM_DWORD, FALSE, 
         offset(PwrkeyDevice_t, enableWake),
         fieldsize(PwrkeyDevice_t, enableWake), (VOID*)1
-    }, {
-        L"DebounceTimeMs", PARAM_DWORD, FALSE, 
-        offset(PwrkeyDevice_t, DebounceTimeMs),
-        fieldsize(PwrkeyDevice_t, DebounceTimeMs), (VOID*)50
-    }
-};
+	}};
 
 //------------------------------------------------------------------------------
 
 BOOL PKD_Deinit(DWORD context);
 DWORD PKD_IntrThread(VOID *pContext);
+BOOL SetPower(PwrkeyDevice_t *pDevice, CEDEVICE_POWER_STATE Dx);
 
 //------------------------------------------------------------------------------
 //
@@ -129,7 +124,6 @@ PKD_Init(
 {
     DWORD rc = (DWORD)NULL;
     PwrkeyDevice_t *pDevice = NULL;
-    BYTE data;
     
     UNREFERENCED_PARAMETER(pBusContext);
 
@@ -186,10 +180,11 @@ PKD_Init(
         goto cleanUp;
     }
 
-	data = 0;
-	TWLReadByteReg(pDevice->hTWL, PMIC_REG_CHIPID, &data);
+	TWLReadByteReg(pDevice->hTWL, PMIC_REG_CHIPID, &pDevice->chipID);
 
-    // Start interrupt service thread
+	SetPower(pDevice, D0);
+
+	// Start interrupt service thread
     pDevice->bIntrThreadExit = FALSE;
     pDevice->hIntrThread = CreateThread(NULL, 0, PKD_IntrThread, pDevice, 0, NULL);
     if (!pDevice->hIntrThread)
@@ -374,7 +369,81 @@ PKD_IOControl(
     
 	switch (code)
 	{
-		case IOCTL_PWRKEY_GETSTAT:
+        case IOCTL_POWER_CAPABILITIES: 
+            if (pOutBuffer && outSize >= sizeof (POWER_CAPABILITIES) && pOutSize) 
+            {
+                __try 
+                {
+                    PPOWER_CAPABILITIES PowerCaps;
+                    PowerCaps = (PPOWER_CAPABILITIES)pOutBuffer;
+     
+                    // Only supports D0 (permanently on) and D4(off).         
+                    memset(PowerCaps, 0, sizeof(*PowerCaps));
+                    PowerCaps->DeviceDx = (DX_MASK(D0) | DX_MASK(D4)); 
+                    *pOutSize = sizeof(*PowerCaps);                        
+                    rc = TRUE;
+                }
+                __except(EXCEPTION_EXECUTE_HANDLER) 
+                {
+                    DEBUGMSG(ZONE_ERROR, (L"exception in IOCTL_POWER_CAPABILITIES\r\n"));
+                }
+            }
+            break;
+
+        case IOCTL_POWER_SET: 
+            if (pOutBuffer && outSize >= sizeof(CEDEVICE_POWER_STATE)) 
+            {
+                __try 
+                {
+                    CEDEVICE_POWER_STATE ReqDx = *(PCEDEVICE_POWER_STATE)pOutBuffer;
+                    switch (ReqDx)
+                    {
+                        case D0:
+							SetPower(pDevice, D0);
+                            break;
+
+                        case D4:
+							SetPower(pDevice, D4);
+                            break;
+                    }
+                        
+                    *pOutSize = sizeof(CEDEVICE_POWER_STATE);
+                    DEBUGMSG(ZONE_INFO, (L"PKD: IOCTL_POWER_SET to D%u, D%u \r\n",
+                        ReqDx, pDevice->actualPowerState
+                        ));
+
+                    rc = TRUE;
+                }
+                __except(EXCEPTION_EXECUTE_HANDLER) 
+                {
+                    DEBUGMSG(ZONE_ERROR, (L"exception in IOCTL_POWER_SET\r\n"));
+                }
+            }
+            break;
+
+        case IOCTL_POWER_GET: 
+            if (pOutBuffer != NULL && outSize >= sizeof(CEDEVICE_POWER_STATE)) 
+            {
+                __try 
+                {
+                    *(PCEDEVICE_POWER_STATE)pOutBuffer = pDevice->actualPowerState;
+ 
+                    *pOutSize = sizeof(CEDEVICE_POWER_STATE);
+
+					rc = TRUE;
+
+                    DEBUGMSG(ZONE_INFO, (L"PKD: "
+                            L"IOCTL_POWER_GET to D%u \r\n",
+                            pDevice->actualPowerState));
+                }
+                __except(EXCEPTION_EXECUTE_HANDLER) 
+                {
+                    DEBUGMSG(ZONE_ERROR, (L"exception in IOCTL_POWER_GET\r\n"));
+                }
+            }     
+            break;
+
+ 		case IOCTL_PWRKEY_GETSTAT:
 			// sanity check parameters
 			if (pOutBuffer != NULL && outSize == sizeof(DWORD)) 
 			{
@@ -411,43 +480,104 @@ cleanUp:
 DWORD PKD_IntrThread(VOID *pContext)
 {
     PwrkeyDevice_t *pDevice = (PwrkeyDevice_t*)pContext;
-    BYTE data, change;
+    BYTE data;
     
     DEBUGMSG(ZONE_IST, (L"+PKD_IntrThread\r\n"));
+
+	pDevice->pbDown = FALSE;
+	pDevice->pbDownSec = 0;
+	pDevice->timeout = INFINITE;
 
     // Loop until we are stopped...
     while (!pDevice->bIntrThreadExit)
     {
 
-        // Wait for pwrkey interrupt or timeout
-        WaitForSingleObject(pDevice->hIntrEvent, pDevice->DebounceTimeMs);
-
         if (pDevice->bIntrThreadExit) break;
+
+		// Wait for interrupt
+        if (WaitForSingleObject(pDevice->hIntrEvent, pDevice->timeout) == WAIT_TIMEOUT)
+		{
+			if (pDevice->pbDown)
+			{
+				data = 0;
+				TWLReadByteReg(pDevice->hTWL, PMIC_REG_STATUS, &data);
+				if (!(data & PMIC_STATUS_PB))
+				{ // button released
+					pDevice->pbDown = FALSE;
+					pDevice->pbDownSec = 0;
+					pDevice->timeout = INFINITE;
+					RETAILMSG(1, (L"Power off button released!\r\n"));
+					// suspend system
+					SetSystemPowerState(NULL, POWER_STATE_SUSPEND, POWER_FORCE);
+				}
+				else
+				{
+					pDevice->pbDownSec++;
+					if (pDevice->pbDownSec >= 5)
+					{
+						pDevice->pbDown = FALSE;
+						pDevice->timeout = INFINITE;
+						pDevice->pbDownSec = 0;
+						RETAILMSG(1, (L"Power off button held > 5sec!\r\n"));
+						// suspend system
+						SetSystemPowerState(NULL, POWER_STATE_SUSPEND, POWER_FORCE);
+					}
+				}
+			}
+		}
         
         DEBUGMSG(ZONE_IST, (L"+PKD_IntrThread interrupt!\r\n"));
 
 		data = 0;
 		TWLReadByteReg(pDevice->hTWL, PMIC_REG_INTERRUPT, &data);
-		data = 0;
-		TWLReadByteReg(pDevice->hTWL, PMIC_REG_STATUS, &data);
-		change = pDevice->oldStatus ^ data;
-
-		if ((change & PMIC_STATUS_PB) && (data & PMIC_STATUS_PB))
+		if (data & PMIC_INTERRUPT_PBI)
 		{
-			RETAILMSG(1, (L"Power off button pressed!\r\n"));
-			// full OFF on PWR_EN pin low
-			TWLWriteByteReg(pDevice->hTWL, PMIC_REG_STATUS, PMIC_STATUS_OFF);
-            // suspend system
-            SetSystemPowerState(NULL, POWER_STATE_SUSPEND, POWER_FORCE);
+			data &= ~PMIC_INTERRUPT_PBI;
+			TWLWriteByteReg(pDevice->hTWL, PMIC_REG_INTERRUPT, data);
+			data = 0;
+			TWLReadByteReg(pDevice->hTWL, PMIC_REG_STATUS, &data);
+			if (data & PMIC_STATUS_PB)
+			{ //PB pressed
+				RETAILMSG(1, (L"Power off button pressed!\r\n"));
+				pDevice->pbDown = TRUE;
+				pDevice->pbDownSec = 0;
+				pDevice->timeout = 1000;	// pb release scan time
+			}
 		}
-
-		pDevice->oldStatus = data;
-
+		InterruptDone(pDevice->dwSysintr);
     }
 
     DEBUGMSG(ZONE_IST, (L"-PKD_IntrThread\r\n"));
     return ERROR_SUCCESS;
 }
+
+
+BOOL SetPower(PwrkeyDevice_t *pDevice, CEDEVICE_POWER_STATE Dx)
+{
+	BYTE data;
+
+	if (D0 == Dx)
+	{
+		// unmask PB interrupt
+		TWLReadByteReg(pDevice->hTWL, PMIC_REG_INTERRUPT, &data);
+		data &= ~PMIC_INTERRUPT_PBM;
+		TWLWriteByteReg(pDevice->hTWL, PMIC_REG_INTERRUPT, data);
+		pDevice->actualPowerState = Dx;
+	}
+	else if (D4 == Dx)
+	{
+		// mask PB interrupt
+		TWLReadByteReg(pDevice->hTWL, PMIC_REG_INTERRUPT, &data);
+		data |= PMIC_INTERRUPT_PBM;
+		TWLWriteByteReg(pDevice->hTWL, PMIC_REG_INTERRUPT, data);
+		pDevice->actualPowerState = Dx;
+	}
+
+	return TRUE;
+}
+
+
+
 
 //------------------------------------------------------------------------------
 //
