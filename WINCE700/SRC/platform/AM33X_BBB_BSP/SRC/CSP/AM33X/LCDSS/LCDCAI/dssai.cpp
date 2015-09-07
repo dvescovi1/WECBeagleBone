@@ -93,7 +93,8 @@ BOOL                m_flip_inprogress;
 OMAPDisplayController::OMAPDisplayController()
 {
     
-    m_dwPowerLevel = D4;
+	// enabled in bootloader so assume its already on
+    m_dwPowerLevel = D0;
     
     m_bGammaEnable = FALSE;
     m_dwEnableWaitForVerticalBlank = FALSE;
@@ -911,15 +912,14 @@ OMAPDisplayController::SetPowerLevel(
                 //  Set the new power level
                 m_dwPowerLevel = dwPowerLevel;
             
+				// device pads
+				RequestDevicePads(AM_DEVICE_LCDC);
+
                 //  Enable device clocks
                 RequestClock( m_dssinfo.DSSDevice );         
 
                 //  Call PDD layer
                 LcdPdd_SetPowerLevel( &m_lcdc, dwPowerLevel );
-            }
-           else    
-            {         
-                LcdPdd_SetPowerLevel(&m_lcdc, dwPowerLevel);
             }
 
         break;
@@ -933,6 +933,9 @@ OMAPDisplayController::SetPowerLevel(
                 LcdPdd_SetPowerLevel(&m_lcdc,  dwPowerLevel );
 				
 				WaitForFrameDone(DISPLAY_TIMEOUT);
+
+        		// device pads for low power
+				ReleaseDevicePads(AM_DEVICE_LCDC);
 
         		//  Disable device clocks 
                 ReleaseClock( m_dssinfo.DSSDevice );         
