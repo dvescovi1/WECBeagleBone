@@ -318,7 +318,6 @@ void PrcmCM3ConfigDeepSleep(DWORD suspendMode, deepSleepData * dsData)
     if (INREG32(&g_pIntr->pICLRegs->INTC_SIR_IRQ) == g_oalM3Irq)
     {
 		clearM3Events();
-		OALMSG(OAL_INFO,(L"PrcmSuspend: need to reset M3 interrupt!!!!\r\n"));
 		OUTREG32(&g_pIntr->pICLRegs->INTC_CONTROL, IC_CNTL_NEW_IRQ);
 	}
 }
