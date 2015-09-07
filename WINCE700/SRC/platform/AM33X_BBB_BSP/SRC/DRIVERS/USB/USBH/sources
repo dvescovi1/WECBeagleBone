@@ -12,12 +12,13 @@ SKIPBUILD=1
 TARGETNAME=am33x_usbh
 TARGETTYPE=DYNLINK
 RELEASETYPE=PLATFORM    
-DEFFILE=$(_COMMONOAKROOT)\inc\ohcd.def
+DEFFILE=ohcd.def
 DLLENTRY=DllMain
 
+LIB_CONSUMES=USBCDMA
 
 SOURCELIBS= \
-    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\hcd2lib.lib   \
+    $(_COMMONOAKROOT)\lib\$(_CPUINDPATH)\hcd2lib.lib \
 #    $(_PLATLIB)\$(_CPUINDPATH)\am33x_hcd2lib.lib   \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbhlib.lib    \
     $(_PLATLIB)\$(_CPUINDPATH)\am33x_usbcdma.lib \
