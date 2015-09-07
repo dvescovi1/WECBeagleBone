@@ -873,12 +873,16 @@ VOID USBCDMA_EnableClocks(UINT32 port,	BOOL   enable)
 
 	if (enable){
 		if (!clock_status[0] && !clock_status[1])
+		{
 			EnableDeviceClocks(AM_DEVICE_USB0, TRUE);
+		}
 		clock_status[port] = TRUE;
 	} else {
 		clock_status[port] = FALSE;
 		if (!clock_status[0] && !clock_status[1])
+		{
 			EnableDeviceClocks(AM_DEVICE_USB0, FALSE);
+		}
 	}
 }
 
