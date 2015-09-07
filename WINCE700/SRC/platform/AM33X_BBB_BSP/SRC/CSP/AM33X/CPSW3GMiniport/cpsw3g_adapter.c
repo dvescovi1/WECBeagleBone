@@ -600,9 +600,11 @@ BOOL Cpsw3g_ModStateChange(UINT32  ModState)
         rc = EnableDeviceClocks(AM_DEVICE_CPGMAC0, TRUE);
         break;
     case MOD_ENABLE:
+		RequestDevicePads(AM_DEVICE_CPGMAC0);
         rc = EnableDeviceClocks(AM_DEVICE_CPGMAC0, TRUE);
         break;
     case MOD_DISABLE:
+		ReleaseDevicePads(AM_DEVICE_CPGMAC0);
         rc = EnableDeviceClocks(AM_DEVICE_CPGMAC0, FALSE);
         break;
     }
