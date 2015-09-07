@@ -4,4 +4,6 @@ IF BSP_PWRKEY
     "Dll"="pwrkey.dll"
     "Index"=dword:1
     "order"=dword:21				; Should be loaded after Triton driver
+    ; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"
 ENDIF BSP_PWRKEY
