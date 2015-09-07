@@ -85,9 +85,8 @@ SetVoltageOpp(
 
 void Opp_init(void)
 {
-    _rgOppVdd[0] = Vdd1_init_val[BSP_OPM_SELECT];
-    _rgOppVdd[1] = INITIAL_VDD2_OPP;
-	
+    _rgOppVdd[kVdd1] = Vdd1_init_val[BSP_OPM_SELECT];
+    _rgOppVdd[kVdd2] = INITIAL_VDD2_OPP;
 }
 
 //-----------------------------------------------------------------------------
@@ -154,9 +153,6 @@ SetOpp(
         _rgOppVdd[vdd] = opp;
     
         }
-
-    // update latency table
-    //OALWakeupLatency_UpdateOpp(rgDomains, rgOpps, count);
 
     return TRUE;    
 }
