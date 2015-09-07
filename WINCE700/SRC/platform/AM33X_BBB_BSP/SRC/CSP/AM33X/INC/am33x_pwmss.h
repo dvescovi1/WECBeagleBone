@@ -25,6 +25,33 @@ typedef volatile struct {
 } AM33X_PWMSS_REGS;
 
 
+// SYSCONFIG
+#define PWMSS_SYSCONFIG_SOFTRESET               (1<<0)
+#define PWMSS_SYSCONFIG_FORCEIDLE               (0<<2)
+#define PWMSS_SYSCONFIG_DISABLEIDLE             (1<<2)
+#define PWMSS_SYSCONFIG_SMARTIDLE               (2<<2)
+#define PWMSS_SYSCONFIG_FORCESTANDBY			(0<<4)
+#define PWMSS_SYSCONFIG_NOSTANDBY				(1<<4)
+#define PWMSS_SYSCONFIG_SMARTSTANDBY			(2<<4)
+#define PWMSS_SYSCONFIG_STANDBY_MASK			(3<<4)
+
+//  CLKCONFIG
+#define PWMSS_CLKCONFIG_eCAPCLK_EN              (1<<0)
+#define PWMSS_CLKCONFIG_eCAPCLKSTOP_REQ         (1<<1)
+#define PWMSS_CLKCONFIG_eQEPCLK_EN              (1<<4)
+#define PWMSS_CLKCONFIG_eQEPCLKSTOP_REQ         (1<<5)
+#define PWMSS_CLKCONFIG_ePWMCLK_EN              (1<<8)
+#define PWMSS_CLKCONFIG_ePWMCLKSTOP_REQ         (1<<9)
+
+//  CLKSTATUS
+#define PWMSS_CLKSTATUS_eCAPCLK_ACK             (1<<0)
+#define PWMSS_CLKSTATUS_eCAPCLKSTOP_ACK         (1<<1)
+#define PWMSS_CLKSTATUS_eQEPCLK_EN_ACK          (1<<4)
+#define PWMSS_CLKSTATUS_eQEPCLKSTOP_ACK         (1<<5)
+#define PWMSS_CLKSTATUS_ePWMCLK_EN_ACK          (1<<8)
+#define PWMSS_CLKSTATUS_ePWMCLKSTOP_ACK         (1<<9)
+
+
 #define AM33X_ECAP_OFFSET		0x100
 #define AM33X_EQEP_OFFSET		0x180
 #define	AM33x_EPWM_OFFSET		0x200
