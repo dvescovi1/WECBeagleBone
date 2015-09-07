@@ -180,6 +180,7 @@ typedef enum {
 #define DCDC_VOLT_SEL_1125MV				0x09
 #define DCDC_VOLT_SEL_1275MV				0x0F
 #define DCDC_VOLT_SEL_1325MV				0x11
+#define DCDC_VOLT_SEL_1350MV				0x12
 
 // DEFSLEW
 #define PMIC_DEFSLEW_GO						(1 << 7)
@@ -249,6 +250,7 @@ BOOL TWLUpdateVoltage(unsigned char dc_cntrl_reg, unsigned char volt_sel);
 BOOL TWLProtWriteRegs(unsigned char prot_level, unsigned char dest_reg,
         unsigned char dest_val, unsigned char mask);
 BOOL TWLGetStatusReg(unsigned char * buf);
+BOOL TWLGetInterruptReg(unsigned char * buf);
 
 
 #endif
