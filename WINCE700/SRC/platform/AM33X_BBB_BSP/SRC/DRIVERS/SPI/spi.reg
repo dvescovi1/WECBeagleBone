@@ -10,8 +10,7 @@ IF BSP_AM33X_MCSPI1
     "MemLen"=multi_sz:"00000100"
     "Timeout"=dword:300
     "PowerFlags"=dword:00000103              ; send pre/post device state changes
-	; PMCLASS_PMEXT_GUID
-    "IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF
 
 IF BSP_AM33X_MCSPI2
@@ -25,7 +24,6 @@ IF BSP_AM33X_MCSPI2
     "MemLen"=multi_sz:"00000100"
     "Timeout"=dword:300
     "PowerFlags"=dword:00000103              ; send pre/post device state changes
-	; PMCLASS_PMEXT_GUID
-    "IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF
 
