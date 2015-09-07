@@ -16,9 +16,7 @@ IF BSP_AM33X_UART1
 	"RtsCtsEnable"=dword:0                ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                      ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00             ; UART operation freq, 48000000
-	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
-	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
-					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 	        
 ENDIF BSP_AM33X_UART1
 
@@ -38,9 +36,7 @@ IF BSP_AM33X_UART2
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
-	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
-	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
-					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF BSP_AM33X_UART2
 
 IF BSP_AM33X_UART3
@@ -59,9 +55,7 @@ IF BSP_AM33X_UART3
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
-	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
-	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
-					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF BSP_AM33X_UART3
 
 IF BSP_AM33X_UART4
@@ -78,9 +72,7 @@ IF BSP_AM33X_UART4
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
-	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
-	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
-					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF BSP_AM33X_UART4
 
 IF BSP_AM33X_UART5
@@ -99,9 +91,7 @@ IF BSP_AM33X_UART5
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
-	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
-	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
-					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF BSP_AM33X_UART5
 
 IF BSP_AM33X_UART6
@@ -118,7 +108,5 @@ IF BSP_AM33X_UART6
 	"RtsCtsEnable"=dword:0              ; 1=enable RTS/CTS handshake support, 0=disable
 	"HWMode"=dword:0                    ; Use hardware auto RTS/CTS
 	"Frequency"=dword:2DC6C00           ; UART operation freq, 48000000
-	; PMCLASS_PMEXT_GUID, CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
-	"IClass"=multi_sz:"{0AE2066F-89A2-4D70-8FC2-29AEFA68413C}",
-					  "{A32942B7-920C-486b-B0E6-92A702A99B35}"
+    "IClass"="{A32942B7-920C-486b-B0E6-92A702A99B35}"	; CE_DRIVER_POWER_MANAGEABLE_GENERIC_GUID
 ENDIF BSP_AM33X_UART6
