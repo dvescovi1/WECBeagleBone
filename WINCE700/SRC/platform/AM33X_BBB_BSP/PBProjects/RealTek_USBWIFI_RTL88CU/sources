@@ -1,0 +1,19 @@
+
+
+WINCEREL=1
+RELEASETYPE=LOCAL
+_ISVINCPATH=$(_WINCEROOT)\public\common\sdk\inc;
+_OEMINCPATH=$(_WINCEROOT)\public\common\oak\inc;$(_WINCEROOT)\public\common\sdk\inc;
+FILE_VIEW_ROOT_FOLDER= \
+    prelink.bat \
+    postlink.bat \
+
+TARGETNAME=USBWIFI
+TARGETTYPE=NOTARGET
+POSTLINK_PASS_CMD=postlink.bat
+PRELINK_PASS_CMD=prelink.bat
+FILE_VIEW_PARAMETER_FOLDER= \
+    RTL88CU.reg \
+    RTL88CU.bib \
+
+
