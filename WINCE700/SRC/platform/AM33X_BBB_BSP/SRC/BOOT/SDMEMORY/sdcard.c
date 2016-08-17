@@ -662,7 +662,7 @@ DWORD MMCReadMultiSectors(PDISK pDisk, UINT32 LogicalSector, void *pBuffer, UINT
     MMCcmd.pBuffer = pBuffer;
     
     // starting address
-    if (MMCcmd.card_type == CARDTYPE_SDHC)
+    if (MMCcmd.card_type == CARDTYPE_SDHC || (MMCcmd.card_type == CARDTYPE_MMC && pDisk->d_MMC_HC))
         MMCcmd.argument = LogicalSector;
     else
         MMCcmd.argument = LogicalSector * pDisk->d_DiskInfo.di_bytes_per_sect;

@@ -21,7 +21,8 @@
 
 //------------------------------------------------------------------------------
 //  Debug zone settings
-INSTANTIATE_GPE_ZONES(0xC807,"OMAPDDGPE Driver","Video Memory","DDraw HAL")
+//INSTANTIATE_GPE_ZONES(0xC807,"OMAPDDGPE Driver","Video Memory","DDraw HAL")
+INSTANTIATE_GPE_ZONES(0x3,"OMAPDDGPE Driver","Video Memory","DDraw HAL")
 
 // disable PREFAST warning for use of EXCEPTION_EXECUTE_HANDLER
 #pragma warning (disable: 6320)
