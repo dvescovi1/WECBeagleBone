@@ -1,2 +1,2 @@
 WECBeagleBone
-[Home](docs\Home.md)
+[Home](docs/Home.md)
