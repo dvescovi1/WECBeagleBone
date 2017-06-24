@@ -31,5 +31,3 @@ If you have some custom peripheral or cape you would like to see integrated, sup
 The source is available free for download. (please donate)
 
 **Built and maintained in the U.S.A.!!**
-
-![donate](Home_donate.gif|https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7TG5XQ52XXH9E)
